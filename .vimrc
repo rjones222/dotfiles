@@ -24,6 +24,9 @@ Bundle "honza/snipmate-snippets"
 Bundle 'garbas/vim-snipmate'
 
 Bundle 'majutsushi/tagbar'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-surround'
 
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
@@ -54,6 +57,8 @@ set softtabstop=4
 
 " Nerdtree
 autocmd vimenter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * wincmd w
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
@@ -63,7 +68,6 @@ let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bz
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
  
-
 set background=dark
 colorscheme desert
 
