@@ -1,8 +1,9 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
-set t_Co=256
+set t_Co=256    " required by powerline
+set laststatus=2    " required by powerline
 
-set rtp+=~/.vim/bundle/powerline/bindings/vim
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -34,6 +35,7 @@ Bundle 'Lokaltog/powerline'
 " set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
  
+set guifont=Menlo\ for\ Powerline:h12
 syntax on
 set number
 set mouse=a
@@ -72,8 +74,8 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
  
 set background=dark
-colorscheme desert
-hi LineNr guibg=#333639 guifg=#595D5F
+" colorscheme desert
+" hi LineNr guibg=#333639 guifg=#595D5F
 
 " key remap
 map  <c-l> :tabn<cr> 
@@ -87,3 +89,6 @@ map <leader>tb :TagbarToggle<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+" powerline
+let g:Powerline_symbols = 'fancy' " required by powerline
