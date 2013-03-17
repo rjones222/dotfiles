@@ -74,8 +74,8 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
  
 set background=dark
-" colorscheme desert
-" hi LineNr guibg=#333639 guifg=#595D5F
+colorscheme desert
+hi LineNr guibg=#333639 guifg=#595D5F
 
 " key remap
 map  <c-l> :tabn<cr> 
