@@ -1,9 +1,6 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
-set t_Co=256    " required by powerline
-set laststatus=2    " required by powerline
 
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -92,3 +89,6 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " powerline
 let g:Powerline_symbols = 'fancy' " required by powerline
+set t_Co=256    " required by powerline
+set laststatus=2    " required by powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
