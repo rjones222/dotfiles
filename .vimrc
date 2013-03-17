@@ -14,8 +14,11 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
-Bundle 'fugalh/desert.vim'
+Bundle 'cschlueter/vim-wombat'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'spf13/PIV'
+Bundle 'vim-scripts/CSApprox'
 
 " snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -32,11 +35,11 @@ Bundle 'Lokaltog/powerline'
 " set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
  
-set guifont=Menlo\ for\ Powerline:h12
 syntax on
 set number
 set mouse=a
 set mousehide
+set colorcolumn=80
 
 set hlsearch
 set showmatch
@@ -46,6 +49,7 @@ set nowrap
 set autoindent
 set history=1000
 set cursorline
+set listchars=tab:▸\ ,eol:¬
 if has("unnamedplus")
   set clipboard=unnamedplus
 elseif has("clipboard")
@@ -57,38 +61,97 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+set wildmenu
+set wildmode=longest:full,full
+set vb " visual bell
+set hidden
+
+" soft wrapping
+command! -nargs=* Wrap set wrap linebreak nolist
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g^
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g^
+set showbreak=↪
+
 " Nerdtree
-autocmd vimenter * NERDTree
-autocmd BufEnter * NERDTreeMirror
-autocmd VimEnter * wincmd w
+" autocmd vimenter * NERDTree
+" autocmd BufEnter * NERDTreeMirror
+" autocmd VimEnter * wincmd w
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
-let NERDTreeKeepTreeInNewTab=1
+" let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
- 
+
+" theme
 set background=dark
-colorscheme desert
+colorscheme wombat256
 hi LineNr guibg=#333639 guifg=#595D5F
+hi SignColumn guibg=#333333
+hi NonText guifg=#458BA5 guibg=#333333
+hi SpecialKey guifg=#458BA5 guibg=#333333
+hi ColorColumn guibg=black ctermbg=black
+" set transparency=10
 
 " key remap
-map  <c-l> :tabn<cr> 
-map  <c-h> :tabp<cr> 
-" map  <c-n> :tabnew<cr> 
+let mapleader = ","
+map <c-l> :tabn<cr> 
+map <c-h> :tabp<cr> 
+map <c-n> :tabnew<cr> 
+map <D-S-]> gt
+map <D-S-[> gT
 nmap <silent> <leader>nt :NERDTreeToggle<CR>
 " nmap <silent> <c-n> :NERDTreeToggle<CR>
 map <leader>tb :TagbarToggle<cr>
-
-" snipmate
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+nmap <leader>l :set list!<CR>
+" map <S-Enter> O<Esc>
+" map <CR> o<Esc>
+map <S-Enter> o<Esc>
+inoremap jj <Esc>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+nnoremap tw :tabclose<CR>
+nnoremap tc :tabclose<CR>
+nnoremap <Space> za
 
 " powerline
+set guifont=Menlo\ for\ Powerline:h12
 let g:Powerline_symbols = 'fancy' " required by powerline
 set t_Co=256    " required by powerline
 set laststatus=2    " required by powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
+" strip whitespace
+if has("autocmd")
+    autocmd BufWritePre *.css,*.js,*.php :call <SID>StripTrailingWhitespaces()
+endif
+function! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c=col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+
+" Source the vimrc file after saving it
+" if has("autocmd")
+"   autocmd bufwritepost .vimrc source $MYVIMRC
+" endif
