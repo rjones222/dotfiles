@@ -1,6 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
+set t_Co=256
 
+set rtp+=~/.vim/bundle/powerline/bindings/vim
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -27,8 +29,9 @@ Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
+Bundle 'Lokaltog/powerline'
 
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+" set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
  
 syntax on
@@ -70,6 +73,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
  
 set background=dark
 colorscheme desert
+hi LineNr guibg=#333639 guifg=#595D5F
 
 " key remap
 map  <c-l> :tabn<cr> 
