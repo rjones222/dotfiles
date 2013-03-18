@@ -14,11 +14,10 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
-Bundle 'cschlueter/vim-wombat'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'spf13/PIV'
 Bundle 'vim-scripts/CSApprox'
+Bundle 'jonathanfilip/vim-lucius'
 
 " snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -80,6 +79,9 @@ nmap <D-6> g^
 nmap <D-0> g^
 set showbreak=↪
 
+" Make Y behave like other capitals
+nnoremap Y y$
+
 " Nerdtree
 " autocmd vimenter * NERDTree
 " autocmd BufEnter * NERDTreeMirror
@@ -95,7 +97,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 
 " theme
 set background=dark
-colorscheme wombat256
+colorscheme lucius
 hi LineNr guibg=#333639 guifg=#595D5F
 hi SignColumn guibg=#333333
 hi NonText guifg=#458BA5 guibg=#333333
@@ -114,6 +116,7 @@ nmap <silent> <leader>nt :NERDTreeToggle<CR>
 " nmap <silent> <c-n> :NERDTreeToggle<CR>
 map <leader>tb :TagbarToggle<cr>
 nmap <leader>l :set list!<CR>
+nmap <leader>pl :!php -l %<cr>
 " map <S-Enter> O<Esc>
 " map <CR> o<Esc>
 map <S-Enter> o<Esc>
@@ -150,8 +153,10 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-
 " Source the vimrc file after saving it
 " if has("autocmd")
 "   autocmd bufwritepost .vimrc source $MYVIMRC
 " endif
+
+" Force Saving Files that Require Root Permission
+cmap w!! %!sudo tee > /dev/null %
