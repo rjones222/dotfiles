@@ -177,3 +177,6 @@ let g:phpqa_codesniffer_autorun = 0
 " snipmate php templates in html
 au BufRead *.php set ft=php.html
 au BufNewFile *.php set ft=php.html
+
+" exuberant ctags - find closest parent tags file
+set tags=./tags;/
