@@ -123,6 +123,9 @@ nmap <silent> <leader>nt :NERDTreeToggle<CR>
 map <leader>tb :TagbarToggle<cr>
 nmap <leader>l :set list!<CR>
 nmap <leader>pl :!php -l %<cr>
+nmap <leader>bpw :BreakpointWindow<cr>
+nmap <leader>bpa :Breakpoint<cr>
+nmap <leader>bpr :Breakpoint<cr>
 " map <S-Enter> O<Esc>
 " map <CR> o<Esc>
 map <S-Enter> o<Esc>
