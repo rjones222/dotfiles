@@ -18,18 +18,24 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/CSApprox'
 Bundle 'jonathanfilip/vim-lucius'
-
-" snipmate and dependencies
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
-Bundle 'garbas/vim-snipmate'
-
+Bundle 'joonty/vim-phpqa'
+Bundle 'joonty/vim-phpunitqf'
+Bundle 'joonty/vdebug.git'
 Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'mattn/zencoding-vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/powerline'
+Bundle 'mileszs/ack.vim'
+Bundle 'huobazi/conque'
+Bundle 'mattn/gist-vim'
+
+" snipmate and dependencies
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
+Bundle 'garbas/vim-snipmate'
 
 " set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
@@ -91,7 +97,7 @@ let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
+" let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
 " let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
@@ -160,3 +166,14 @@ endfunction
 
 " Force Saving Files that Require Root Permission
 cmap w!! %!sudo tee > /dev/null %
+
+" vim-phpqa settings
+let g:phpqa_messdetector_ruleset = "~/.vim/phpmd_ruleset.xml"
+" Don't run messdetector on save (default = 1)
+let g:phpqa_messdetector_autorun = 0
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
+
+" snipmate php templates in html
+au BufRead *.php set ft=php.html
+au BufNewFile *.php set ft=php.html

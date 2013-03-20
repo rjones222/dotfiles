@@ -1,0 +1,23 @@
+snippet prt
+	print_r(${1}, true)${2}
+snippet fail
+	$this->markTestIncomplete();${1}
+snippet //
+	// -----------------------------------------------------------
+	${1}
+snippet author
+	
+	/**
+	 * ${1}
+	 *
+	 * @package ${2}
+	 * @author Michael Funk <mfunk@christianpublishing.com
+	 * @copyright 2013 Xulon Press, Inc. All Rights Reserved. 
+	 */
+	 ${3}
+snippet mock
+	${1} = $this->getMock('${2}');
+	￼->expects($this->any())
+		->method('${3}')
+		->will($this->returnValue(${4:true}));
+	${5}
