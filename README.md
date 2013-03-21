@@ -11,5 +11,4 @@ after cloning, do this:
     4. ```ln -s profile ~/.profile```
     5. ```ln -s tmux.conf ~/.tmux.conf```
 	6. ```ln -s gitignore ~/.gitignore``` 
- 
 3. install vundle bundles: ```vim +BundleInstall +qall```

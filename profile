@@ -2,6 +2,7 @@ alias wr='cd ~/Sites'
 alias selenium='java -jar /usr/local/bin/selenium-server.jar'
 alias gitk='gitk 2>/dev/null'
 alias vimupdate='vim +BundleInstall +qall'
+alias watch='observr ~/.dotfiles/observr.conf.rb'
 
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 PATH=$PATH:/Applications/VirtualBox.app/Contents/MacOS

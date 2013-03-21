@@ -1,0 +1,1 @@
+watch ('.*\.php$') {|phpFile| system("clear && phpunit -c phpunit.xml.dist")}

@@ -105,12 +105,6 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 " theme
 set background=dark
 colorscheme lucius
-hi LineNr guibg=#333639 guifg=#595D5F
-hi SignColumn guibg=#333333
-hi NonText guifg=#458BA5 guibg=#333333
-hi SpecialKey guifg=#458BA5 guibg=#333333
-hi ColorColumn guibg=black ctermbg=black
-" set transparency=10
 
 " key remap
 let mapleader = ","
@@ -186,3 +180,23 @@ au BufNewFile *.php set ft=php.html
 
 " exuberant ctags - find closest parent tags file
 set tags=./tags;/
+
+" ===== theme color additions =====
+hi LineNr guibg=#333639 guifg=#595D5F
+hi SignColumn guibg=#333333
+hi NonText guifg=#458BA5 guibg=#333333
+hi SpecialKey guifg=#458BA5 guibg=#333333
+hi ColorColumn guibg=black ctermbg=black
+" set transparency=10
+
+" vimux
+" Prompt for a command to run
+map <leader>rp :PromptVimTmuxCommand<cr>
+" Run last command executed by RunVimTmuxCommand
+map <leader>rl :RunLastVimTmuxCommand<cr>
+" Inspect runner pane
+map <leader>ri :InspectVimTmuxRunner<cr>
+" Close all other tmux panes in current window
+map <leader>rx :CloseVimTmuxPanes<cr>
+" Interrupt any command running in the runner pane
+map <leader>rs :InterruptVimTmuxRunner<cr>
