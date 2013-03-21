@@ -28,8 +28,9 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/powerline'
 Bundle 'mileszs/ack.vim'
-Bundle 'huobazi/conque'
 Bundle 'mattn/gist-vim'
+Bundle 'benmills/vimux'
+Bundle 'ChrisJohnsen/tmux-MacOSX-pasteboard'
 
 " snipmate and dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -55,11 +56,11 @@ set autoindent
 set history=1000
 set cursorline
 set listchars=tab:▸\ ,eol:¬
-if has("unnamedplus")
-  set clipboard=unnamedplus
-elseif has("clipboard")
-  set clipboard=unnamed
-endif
+" if has("unnamedplus")
+"   set clipboard=unnamedplus
+" elseif has("clipboard")
+"   set clipboard=unnamed
+" endif
 
 set expandtab
 set shiftwidth=4
@@ -141,7 +142,9 @@ nnoremap <Space> za
 
 " powerline
 set guifont=Menlo\ for\ Powerline:h12
-let g:Powerline_symbols = 'fancy' " required by powerline
+let g:Powerline_symbols = 'compatible' " required by powerline
+let g:Powerline_cache_enabled = 1
+let g:Powerline_cache_file = expand('$TMP/Powerline.cache')
 set t_Co=256    " required by powerline
 set laststatus=2    " required by powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
