@@ -1,12 +1,14 @@
 " Modeline {{{
-" vim: set foldmethod=marker
+" vim:fdm=marker
 "
 " My customizations to spf13.com.
 " http://mikefunk.com
 " }}}
+
 " Unbundle {{{
     UnBundle 'Lokaltog/vim-powerline'
 " }}}
+
 " Key Mapping {{{
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
@@ -61,6 +63,7 @@
     let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
     let g:neosnippet#snippets_directory+=',~/.dotfiles/snippets'
 " }}}
+
 " Theme {{{
     set background=dark
     colorscheme lucius
@@ -69,6 +72,7 @@
     hi NonText guifg=#458BA5 guibg=#333333
     hi SpecialKey guifg=#458BA5 guibg=#333333
 " }}}
+
 " Plugins {{{
     " syntastic
     let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']

@@ -8,7 +8,6 @@ My Vim, Git, and other dotfiles. This is now customized from [spf13](https://git
 1. clone this repo into your home directory
 1. init submodules: ```git submodule update --init```
 2. create symlinks:
-    1. ```ln -s snippets ~/.vim/snippets```
     2. ```ln -s vimrc.local ~/.vimrc.local```
     2. ```ln -s vimrc.bundles.local ~/.vimrc.bundles.local```
     3. ```ln -s gitconfig ~/.gitconfig```
