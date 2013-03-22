@@ -168,11 +168,11 @@ endfunction
 cmap w!! %!sudo tee > /dev/null %
 
 " vim-phpqa settings
-" let g:phpqa_messdetector_ruleset = '~/.vim/phpmd_ruleset.xml'
+ let g:phpqa_messdetector_ruleset = '~/.dotfiles/phpmd_ruleset.xml'
 " Don't run messdetector on save (default = 1)
-let g:phpqa_messdetector_autorun = 0
+" let g:phpqa_messdetector_autorun = 0
 " Don't run codesniffer on save (default = 1)
-let g:phpqa_codesniffer_autorun = 0
+" let g:phpqa_codesniffer_autorun = 0
 
 " snipmate php templates in html
 au BufRead *.php set ft=php.html
