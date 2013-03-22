@@ -1,4 +1,4 @@
-" Modeline and Notes {{{
+" Modeline {{{
 " vim: set foldmethod=marker
 "
 " My customizations to spf13.com.
@@ -42,6 +42,24 @@
     " Close all other tmux panes in current window
     map <leader>rx :CloseVimTmuxPanes<cr>
     " Interrupt any command running in the runner pane
+
+    " neosnippet
+    " Plugin key-mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+    " SuperTab like snippets behavior.
+    imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+    " For snippet_complete marker.
+    if has('conceal')
+      set conceallevel=2 concealcursor=i
+    endif
+
+    " Tell Neosnippet about the other snippets
+    let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
+    let g:neosnippet#snippets_directory+=',~/.dotfiles/snippets'
 " }}}
 " Theme {{{
     set background=dark
