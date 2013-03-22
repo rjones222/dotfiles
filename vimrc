@@ -31,6 +31,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'benmills/vimux'
 Bundle 'ChrisJohnsen/tmux-MacOSX-pasteboard'
+Bundle 'airblade/vim-rooter'
 
 " snipmate and dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -119,8 +120,7 @@ map <leader>tb :TagbarToggle<cr>
 nmap <leader>l :set list!<CR>
 nmap <leader>pl :!php -l %<cr>
 nmap <leader>bpw :BreakpointWindow<cr>
-nmap <leader>bpa :Breakpoint<cr>
-nmap <leader>bpr :Breakpoint<cr>
+nmap <leader>bpt :Breakpoint<cr>
 " map <S-Enter> O<Esc>
 " map <CR> o<Esc>
 map <S-Enter> o<Esc>
@@ -168,7 +168,7 @@ endfunction
 cmap w!! %!sudo tee > /dev/null %
 
 " vim-phpqa settings
-let g:phpqa_messdetector_ruleset = "~/.vim/phpmd_ruleset.xml"
+" let g:phpqa_messdetector_ruleset = '~/.vim/phpmd_ruleset.xml'
 " Don't run messdetector on save (default = 1)
 let g:phpqa_messdetector_autorun = 0
 " Don't run codesniffer on save (default = 1)

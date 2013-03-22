@@ -11,3 +11,5 @@ export PATH
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+export TERM='xterm-256color'

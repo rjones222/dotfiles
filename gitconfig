@@ -46,3 +46,5 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     ign = ls-files -o -i --exclude-standard
+[mergetool]
+	keepBackup = false
