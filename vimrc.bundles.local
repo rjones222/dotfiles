@@ -1,0 +1,6 @@
+Bundle 'tpope/vim-unimpaired'
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'joonty/vdebug'
+Bundle 'mattn/zencoding-vim'
+Bundle 'benmills/vimux'
+Bundle 'Lokaltog/powerline'
