@@ -5,6 +5,24 @@
 " http://mikefunk.com
 " }}}
 
+" General {{{
+    set colorcolumn=80
+
+    " soft wrapping
+    command! -nargs=* Wrap set wrap linebreak nolist
+    vmap <D-j> gj
+    vmap <D-k> gk
+    vmap <D-4> g$
+    vmap <D-6> g^
+    vmap <D-0> g^
+    nmap <D-j> gj
+    nmap <D-k> gk
+    nmap <D-4> g$
+    nmap <D-6> g^
+    nmap <D-0> g^
+    set showbreak=↪"
+" }}}
+
 " Unbundle {{{
     UnBundle 'Lokaltog/vim-powerline'
 " }}}
@@ -62,6 +80,9 @@
     " Tell Neosnippet about the other snippets
     let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
     let g:neosnippet#snippets_directory+=',~/.dotfiles/snippets'
+
+    " toggle numbers for real line numbers
+    map <leader>tln :NumbersToggle<cr>
 " }}}
 
 " Theme {{{
@@ -71,6 +92,7 @@
     hi SignColumn guibg=#333333
     hi NonText guifg=#458BA5 guibg=#333333
     hi SpecialKey guifg=#458BA5 guibg=#333333
+    hi ColorColumn guibg=#121212 ctermbg=16
 " }}}
 
 " Plugins {{{
