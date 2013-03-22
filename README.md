@@ -6,7 +6,6 @@ My Vim, Git, and other dotfiles. This is now customized from [spf13](https://git
 
 1. Install spf13 with his installation script
 1. clone this repo into your home directory
-1. init submodules: ```git submodule update --init```
 2. create symlinks:
     2. ```ln -s vimrc.local ~/.vimrc.local```
     2. ```ln -s vimrc.bundles.local ~/.vimrc.bundles.local```
