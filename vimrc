@@ -12,15 +12,18 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-repeat' 
+Bundle 'tpope/vim-commentary'
+Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/nerdtree'
+Bundle 'spf13/PIV'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/CSApprox'
 Bundle 'jonathanfilip/vim-lucius'
-Bundle 'joonty/vim-phpqa'
-Bundle 'joonty/vim-phpunitqf'
-Bundle 'joonty/vdebug.git'
+" Bundle 'joonty/vim-phpunitqf'
+Bundle 'joonty/vdebug'
 Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'mattn/zencoding-vim'
@@ -30,7 +33,6 @@ Bundle 'Lokaltog/powerline'
 Bundle 'mileszs/ack.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'benmills/vimux'
-Bundle 'ChrisJohnsen/tmux-MacOSX-pasteboard'
 Bundle 'airblade/vim-rooter'
 
 " snipmate and dependencies
@@ -38,6 +40,9 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
+
+" vim-scripts repos
+Bundle 'Syntastic'
 
 " set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
@@ -112,8 +117,8 @@ let mapleader = ","
 map <c-l> :tabn<cr> 
 map <c-h> :tabp<cr> 
 map <c-n> :tabnew<cr> 
-map <D-S-]> gt
-map <D-S-[> gT
+" map <D-S-]> gt
+" map <D-S-[> gT
 nmap <silent> <leader>nt :NERDTreeToggle<CR>
 " nmap <silent> <c-n> :NERDTreeToggle<CR>
 map <leader>tb :TagbarToggle<cr>
@@ -121,8 +126,6 @@ nmap <leader>l :set list!<CR>
 nmap <leader>pl :!php -l %<cr>
 nmap <leader>bpw :BreakpointWindow<cr>
 nmap <leader>bpt :Breakpoint<cr>
-" map <S-Enter> O<Esc>
-" map <CR> o<Esc>
 map <S-Enter> o<Esc>
 inoremap jj <Esc>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -130,9 +133,9 @@ map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
-nnoremap tw :tabclose<CR>
-nnoremap tc :tabclose<CR>
-nnoremap <Space> za
+nmap tw :tabclose<CR>
+nmap tc :tabclose<CR>
+nmap <Space> za
 
 " powerline
 set guifont=Menlo\ for\ Powerline:h12
@@ -167,13 +170,6 @@ endfunction
 " Force Saving Files that Require Root Permission
 cmap w!! %!sudo tee > /dev/null %
 
-" vim-phpqa settings
- let g:phpqa_messdetector_ruleset = '~/.dotfiles/phpmd_ruleset.xml'
-" Don't run messdetector on save (default = 1)
-" let g:phpqa_messdetector_autorun = 0
-" Don't run codesniffer on save (default = 1)
-" let g:phpqa_codesniffer_autorun = 0
-
 " snipmate php templates in html
 au BufRead *.php set ft=php.html
 au BufNewFile *.php set ft=php.html
@@ -181,7 +177,7 @@ au BufNewFile *.php set ft=php.html
 " exuberant ctags - find closest parent tags file
 set tags=./tags;/
 
-" ===== theme color additions =====
+" theme color additions
 hi LineNr guibg=#333639 guifg=#595D5F
 hi SignColumn guibg=#333333
 hi NonText guifg=#458BA5 guibg=#333333
@@ -200,3 +196,6 @@ map <leader>ri :InspectVimTmuxRunner<cr>
 map <leader>rx :CloseVimTmuxPanes<cr>
 " Interrupt any command running in the runner pane
 map <leader>rs :InterruptVimTmuxRunner<cr>
+
+" syntastic
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
