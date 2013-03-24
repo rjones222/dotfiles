@@ -6,7 +6,8 @@
 " }}}
 
 " General {{{
-    set colorcolumn=80
+    " color background past 80 cols
+    execute "set colorcolumn=" . join(range(81,335), ',')
 
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
@@ -95,7 +96,7 @@
     hi SignColumn guibg=#333333
     hi NonText guifg=#458BA5 guibg=#333333
     hi SpecialKey guifg=#458BA5 guibg=#333333
-    hi ColorColumn guibg=#121212 ctermbg=16
+    hi ColorColumn guibg=#242424 ctermbg=235
 " }}}
 
 " Plugins {{{
