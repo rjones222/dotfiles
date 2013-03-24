@@ -21,6 +21,9 @@
     nmap <D-6> g^
     nmap <D-0> g^
     set showbreak=↪"
+
+    " Allow saving of files as sudo when I forgot to start vim using sudo.
+    cmap w!! %!sudo tee > /dev/null %
 " }}}
 
 " Unbundle {{{
@@ -107,4 +110,10 @@
     set t_Co=256    " required by powerline
     set laststatus=2    " required by powerline
     set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
+    " numbers plugin
+    let g:enable_numbers = 0
+
+    " php code folding
+    nmap <leader>fp :EnableFastPHPFolds<CR>
 " }}}
