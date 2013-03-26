@@ -15,6 +15,8 @@
 
 " Unbundle {{{
     UnBundle 'Lokaltog/vim-powerline'
+    UnBundle 'Shougo/neosnippet'
+    UnBundle 'honza/snipmate-snippets'
 " }}}
 
 " Key Mapping {{{
@@ -53,24 +55,6 @@
     map <leader>rx :CloseVimTmuxPanes<cr>
     " Interrupt any command running in the runner pane
 
-    " neosnippet
-    " Plugin key-mappings.
-    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-
-    " SuperTab like snippets behavior.
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-    " For snippet_complete marker.
-    if has('conceal')
-      set conceallevel=2 concealcursor=i
-    endif
-
-    " Tell Neosnippet about the other snippets
-    let g:neosnippet#snippets_directory=',~/.dotfiles/snippets'
-    let g:neosnippet#snippets_directory+='~/.vim/bundle/snipmate-snippets/snippets'
-
     " toggle numbers for real line numbers
     map <leader>tln :NumbersToggle<cr>
 " }}}
@@ -103,4 +87,7 @@
 
     " php code folding
     nmap <leader>fp :EnableFastPHPFolds<CR>
+
+    " ultisnips start with my ultisnips
+    let g:UltiSnipsDontReverseSearchPath="1"
 " }}}

@@ -1,0 +1,28 @@
+extends html
+
+snippet prt "print_r true"
+print_r(${1}, true)${2}
+endsnippet
+
+snippet fail "phpunit incomplete test"
+$this->markTestIncomplete();${1}
+endsnippet
+
+snippet author
+
+/**
+ * ${1}
+ *
+ * @package ${2}
+ * @author Michael Funk <mfunk@christianpublishing.com>
+ * @copyright 2013 Xulon Press, Inc. All Rights Reserved.
+ */
+
+endsnippet
+
+snippet mock
+${1} = $this->getMock('${2}');
+${3}->expects($this->any())
+    ->method('${4}')
+    ->will($this->returnValue(${5:true}));
+endsnippet
