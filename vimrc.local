@@ -6,9 +6,6 @@
 " }}}
 
 " General {{{
-    " color background past 80 cols
-    execute "set colorcolumn=" . join(range(81,335), ',')
-
     " Allow saving of files as sudo when I forgot to start vim using sudo.
     cmap w!! %!sudo tee > /dev/null %
 " }}}
@@ -17,55 +14,31 @@
     UnBundle 'Lokaltog/vim-powerline'
     UnBundle 'Shougo/neosnippet'
     UnBundle 'honza/snipmate-snippets'
+    UnBundle 'myusuf3/numbers.vim'
 " }}}
 
 " Key Mapping {{{
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
-    vmap <D-j> gj
-    vmap <D-k> gk
-    vmap <D-4> g$
-    vmap <D-6> g^
-    vmap <D-0> g^
-    nmap <D-j> gj
-    nmap <D-k> gk
-    nmap <D-4> g$
-    nmap <D-6> g^
-    nmap <D-0> g^
-
-    " Make Y behave like other capitals
-    nnoremap Y y$
-    let mapleader = ","
 
     " remap keys
     map <c-n> :tabnew<cr>
     nmap <leader>bpw :BreakpointWindow<cr>
     nmap <leader>bpt :Breakpoint<cr>
+    let mapleader = ","
     inoremap jj <Esc>
     cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
     " vimux
-    " Prompt for a command to run
     map <leader>rp :PromptVimTmuxCommand<cr>
-    " Run last command executed by RunVimTmuxCommand
     map <leader>rl :RunLastVimTmuxCommand<cr>
-    " Inspect runner pane
     map <leader>ri :InspectVimTmuxRunner<cr>
-    " Close all other tmux panes in current window
     map <leader>rx :CloseVimTmuxPanes<cr>
-    " Interrupt any command running in the runner pane
-
-    " toggle numbers for real line numbers
-    map <leader>tln :NumbersToggle<cr>
 " }}}
 
 " Theme {{{
     set background=dark
     colorscheme lucius
-    hi LineNr guibg=#333639 guifg=#595D5F
-    hi SignColumn guibg=#333333
-    hi NonText guifg=#458BA5 guibg=#333333
-    hi SpecialKey guifg=#458BA5 guibg=#333333
     hi ColorColumn guibg=#242424 ctermbg=235
 " }}}
 
@@ -78,12 +51,7 @@
     let g:Powerline_symbols = 'fancy' " required by powerline
     let g:Powerline_cache_enabled = 1
     let g:Powerline_cache_file = expand('$TMP/Powerline.cache')
-    set t_Co=256    " required by powerline
-    set laststatus=2    " required by powerline
     set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-
-    " numbers plugin
-    let g:enable_numbers = 0
 
     " php code folding
     nmap <leader>fp :EnableFastPHPFolds<CR>
