@@ -21,9 +21,50 @@ snippet author
 endsnippet
 
 snippet mock
-${1} = $this->getMock('${2}');
-${3}->expects($this->any())
-    ->method('${4}')
+$1 = $this->getMock('$2');
+$1->expects($this->any())
+    ->method('$4')
     ->will($this->returnValue(${5:true}));
 endsnippet
 
+snippet assertRedirectedTo
+public function assertRedirectedTo($uri)
+{
+    $response = $this->client->getResponse();
+    $redirectedTo = $response->headers->get('Location');
+
+    $this->assertEquals(302, $response->getStatusCode());
+    $this->assertEquals("http://localhost/$uri", $redirectedTo);
+}
+$1
+endsnippet
+
+snippet assertRequestOk
+public function assertRequestOk()
+{
+    $this->assertTrue($this->client->getResponse()->isOk());
+}
+$1
+endsnippet
+
+snippet assertViewReceives
+public function assertViewReceives($prop, $val = null)
+{
+    $response = $this->client->getResponse();
+    $prop = $response->original->$prop;
+
+    if ($val) {
+        return $this->assertEquals($val, $prop);
+    }
+    $this->assertTrue(!! $prop);
+}
+$1
+endsnippet
+
+snippet construct "laravel 4 DI construct"
+public function __construct(${1:UserRepositoryInterface} $${2:user})
+{
+    $this->$2 = $$2;
+}
+$3
+endsnippet

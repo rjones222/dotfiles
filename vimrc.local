@@ -14,7 +14,7 @@
 " }}}
 
 " Unbundle {{{
-    UnBundle 'Lokaltog/vim-powerline'
+    " UnBundle 'Lokaltog/vim-powerline'
     UnBundle 'Shougo/neosnippet'
     UnBundle 'honza/snipmate-snippets'
     UnBundle 'myusuf3/numbers.vim'
@@ -42,6 +42,8 @@
 " Theme {{{
     set background=dark
     colorscheme lucius
+    LuciusDarkLowContrast
+    set colorcolumn=80
     hi ColorColumn guibg=#242424 ctermbg=235
 " }}}
 
@@ -50,11 +52,11 @@
     let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
     " powerline
-    set guifont=Menlo\ for\ Powerline:h12
-    let g:Powerline_symbols = 'fancy' " required by powerline
-    let g:Powerline_cache_enabled = 1
-    let g:Powerline_cache_file = expand('$TMP/Powerline.cache')
-    set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+    " set guifont=Menlo\ for\ Powerline:h12
+    let g:Powerline_symbols = 'fancy'
+    " let g:Powerline_cache_enabled = 1
+    " let g:Powerline_cache_file = expand('$TMP/Powerline.cache')
+    " set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
     " php code folding
     nmap <leader>fp :EnableFastPHPFolds<CR>
@@ -63,10 +65,10 @@
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
 
-    " extra space in NERDCommenter
+    " extra space in NERDCommenter comments
     let g:NERDSpaceDelims="1"
 
     " syntastic
     let g:syntastic_check_on_open=1
-    let g:syntastic_auto_loc_list=1
+    " let g:syntastic_auto_loc_list=1
 " }}}

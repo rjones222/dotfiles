@@ -1,20 +1,18 @@
 [user]
-	name = Mike Funk
-	email = mfunk@christianpublishing.com
+    name = Mike Funk
+    email = mfunk@christianpublishing.com
 [push]
-	default = current
+    default = current
 [merge]
-	tool = opendiff
+    tool = opendiff
 [diff]
-	tool = opendiff
+    tool = opendiff
 [core]
-	editor = /usr/bin/vim
-[alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	editor = /usr/local/bin/vim
 [pre-commit]
-	checks = php, merge_conflict, console_log, debugger
+    checks = php, tabs, jshint, whitespace, console_log
 [color]
-	ui = true
+    ui = true
   [color "branch"]
     current = yellow reverse
     local = yellow
@@ -32,19 +30,24 @@
     ui = true
   [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	trustctime = false
-	excludesfile = /Users/mikedfunk/.gitignore
+    trustctime = false
+    excludesfile = /Users/mikedfunk/.gitignore
 [alias]
-    st = status
     ci = commit
     br = branch
     co = checkout
     df = diff
     dc = diff --cached
-    lg = log -p
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     ign = ls-files -o -i --exclude-standard
+    olg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    st = status -sb
+    ready = rebase -i @{u}
+    lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mfunk@christianpublishing.com
+    purr = pull --rebase
+    sync = "!f() { echo Syncing $1 with develop && git checkout develop && git pull && git checkout $1 && git merge develop; }; f"
 [mergetool]
-	keepBackup = false
+    keepBackup = false
