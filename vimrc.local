@@ -8,15 +8,9 @@
 " General {{{
     " Allow saving of files as sudo when I forgot to start vim using sudo.
     cmap w!! %!sudo tee > /dev/null %
-    
-    " 2 space indent in html
-    autocmd FileType html setlocal shiftwidth=2 tabstop=2
 " }}}
 
 " Unbundle {{{
-    " UnBundle 'Lokaltog/vim-powerline'
-    UnBundle 'Shougo/neosnippet'
-    UnBundle 'honza/snipmate-snippets'
     UnBundle 'myusuf3/numbers.vim'
 " }}}
 
@@ -48,27 +42,6 @@
 " }}}
 
 " Plugins {{{
-    " syntastic
-    let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-
-    " powerline
-    " set guifont=Menlo\ for\ Powerline:h12
-    let g:Powerline_symbols = 'fancy'
-    " let g:Powerline_cache_enabled = 1
-    " let g:Powerline_cache_file = expand('$TMP/Powerline.cache')
-    " set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-
-    " php code folding
-    nmap <leader>fp :EnableFastPHPFolds<CR>
-
-    " ultisnips start with my ultisnips
-    let g:UltiSnipsDontReverseSearchPath="1"
-    let g:UltiSnipsEditSplit="vertical"
-
     " extra space in NERDCommenter comments
     let g:NERDSpaceDelims="1"
-
-    " syntastic
-    let g:syntastic_check_on_open=1
-    " let g:syntastic_auto_loc_list=1
 " }}}
