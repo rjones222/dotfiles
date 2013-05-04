@@ -4,8 +4,3 @@ cd ~/.dotfiles/config/ranger
 cd  ~/.dotfiles
 set showhidden=true
 set show_hidden=true
-cd ~/Sites
-cd  ~/Sites
-search einstein2
-search vend
-search lara
