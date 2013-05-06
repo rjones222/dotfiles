@@ -42,10 +42,14 @@
 " }}}
 
 " Theme {{{
-    colorscheme lucius
-    LuciusDark
-    set colorcolumn=80
-    hi ColorColumn guibg=#242424 ctermbg=235
+    if has('gui_running')
+        " use solarized
+    else
+        colorscheme lucius
+        LuciusDark
+        set colorcolumn=80
+        hi ColorColumn guibg=#242424 ctermbg=235
+    endif
 " }}}
 
 " Plugins {{{

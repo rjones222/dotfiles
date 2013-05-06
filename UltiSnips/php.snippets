@@ -40,10 +40,34 @@ snippet php "opening php tag"
 $1
 endsnippet
 
-snippet class_mike
-class ${1:classname}
+snippet cla "mike's simplified class"
+class ${1:MyClass}
 {
     $2
 }
 endsnippet
 
+snippet method
+${1:public} function ${2:functionname}(${3:$params})
+{
+    $4
+}
+endsnippet
+
+snippet interface
+interface ${1:MyRepository}
+{
+    $2
+}
+endsnippet
+
+snippet va "var with docblock"
+/**
+ * ${1:description}
+ *
+ * @var ${2:mixed}
+ * @access ${3:public}
+ */
+$3 ${4:$myvar};
+$5
+endsnippet

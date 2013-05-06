@@ -38,7 +38,7 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -
 export EDITOR='vim'
 
 # for ranger colors to be right
-export TERM='screen-256color'
+# export TERM='screen-256color'
 
 # always cd into web root
-cd ~/Sites
+cd ~/Sites/einstein2/

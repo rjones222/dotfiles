@@ -12,6 +12,7 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'mhinz/vim-startify'
 Bundle 'szw/vim-tags'
 Bundle 'nacitar/terminalkeys.vim'
+Bundle 'msutherl/vim-colors-ir_black-256'
 
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1
