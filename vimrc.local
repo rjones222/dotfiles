@@ -6,27 +6,16 @@
 " }}}
 
 " General {{{
-    " Allow saving of files as sudo when I forgot to start vim using sudo.
-    cmap w!! %!sudo tee > /dev/null %
+    let g:snips_author = 'Michael Funk <mfunk@christianpublishing.com>'
 
-    " Make Vim recognize xterm escape sequences for Page and Arrow
-    " keys combined with modifiers such as Shift, Control, and Alt.
-    " See http:/" See http://www.reddit.com/r/vim/comments/1a29vk/_/c8tze8p
-    if &term =~ '^screen'
-      " Page keys http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/FAQ
-      execute "set t_kP=\e[5;*~"
-      execute "set t_kN=\e[6;*~"
-
-      " Arrow keys http://unix.stackexchange.com/a/34723
-      execute "set <xUp>=\e[1;*A"
-      execute "set <xDown>=\e[1;*B"
-      execute "set <xRight>=\e[1;*C"
-      execute "set <xLeft>=\e[1;*D"
-    endif
+    " set guifont to powerline compatible for macvim
+    set guifont=Menlo\ for\ Powerline:h12
 " }}}
 
 " Unbundle {{{
     UnBundle 'myusuf3/numbers.vim'
+    UnBundle 'Shougo/neosnippet'
+    UnBundle 'honza/vim-snippets'
 " }}}
 
 " Key Mapping {{{
@@ -37,21 +26,24 @@
     map <c-n> :tabnew<cr>
     nmap <leader>bpw :BreakpointWindow<cr>
     nmap <leader>bpt :Breakpoint<cr>
-    let mapleader = ","
     inoremap jj <Esc>
-    cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
     " vimux
     map <leader>rp :PromptVimTmuxCommand<cr>
     map <leader>rl :RunLastVimTmuxCommand<cr>
     map <leader>ri :InspectVimTmuxRunner<cr>
     map <leader>rx :CloseVimTmuxPanes<cr>
+
+    " resize splits, consistent with tmux bindings
+    map <c-w><c-j> :resize +10<cr>
+    map <c-w><c-k> :resize -10<cr>
+    map <c-w><c-l> :vertical resize +10<cr>
+    map <c-w><c-h> :vertical resize -10<cr>
 " }}}
 
 " Theme {{{
-    set background=dark
     colorscheme lucius
-    LuciusDarkLowContrast
+    LuciusDark
     set colorcolumn=80
     hi ColorColumn guibg=#242424 ctermbg=235
 " }}}
@@ -62,4 +54,15 @@
 
     " NERDTree expand dirs with one child
     let NERDTreeCasadeOpenSingleChildDir=1
+
+    " phpqa {{{
+        " PHPMD Ruleset
+        let g:phpqa_messdetector_ruleset = "~/.dotfiles/phpmd_ruleset.xml"
+
+        " Clover code coverage XML file
+        let g:phpqa_codecoverage_file = "/Library/WebServer/Documents/einstein2/build/logs/clover.xml"
+
+        " Show code coverage on load (default = 0)
+        let g:phpqa_codecoverage_autorun=1
+    " }}}
 " }}}

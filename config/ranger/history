@@ -4,3 +4,4 @@ cd ~/.dotfiles/config/ranger
 cd  ~/.dotfiles
 set showhidden=true
 set show_hidden=true
+open_with m
