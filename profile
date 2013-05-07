@@ -37,6 +37,7 @@ fi
 # export PS1="\W $(__git_ps1) \$"
 # export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
 
+# set vim as default editor
 export EDITOR='vim'
 
 # add to manpath for ranger manual to show up
