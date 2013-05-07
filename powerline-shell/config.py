@@ -8,7 +8,7 @@
 
 SEGMENTS = [
 # Show current virtual environment (see http://www.virtualenv.org/)
-    # 'virtual_env',
+    'virtual_env',
 
 # Show the current user's username as in ordinary prompts
     # 'username',
@@ -24,10 +24,10 @@ SEGMENTS = [
     'git',
 
 # Show the current mercurial branch and status
-    # 'hg',
+    'hg',
 
 # Show the current svn branch and status
-    # 'svn',
+    'svn',
 
 # Show the current fossil branch and status
     # 'fossil',

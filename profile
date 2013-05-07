@@ -35,24 +35,21 @@ fi
 # make prompt look like this, with colors: 12:11:28 Sites $ 
 # export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
 # export PS1="\W $(__git_ps1) \$"
-export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$"
+# export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
 
 export EDITOR='vim'
 
-# add to manpath
+# add to manpath for ranger manual to show up
 export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
-
-# for ranger colors to be right
-# export TERM='screen-256color'
 
 # always cd into web root
 cd ~/Sites/einstein2/
 
 # powerline shell
-# function _update_ps1() {
-   # export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
-# }
-# export PROMPT_COMMAND="_update_ps1"
+function _update_ps1() {
+   export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
+}
+export PROMPT_COMMAND="_update_ps1"
 
-# for tmux-powerline
-# PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+# alias hub to git
+eval "$(hub alias -s)"
