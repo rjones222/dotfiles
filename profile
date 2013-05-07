@@ -26,19 +26,33 @@ export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export CLICOLOR=1
 # export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-# colorize grep
-export GREP_OPTIONS="–color=auto"
-export GREP_COLOR="1;35;40"
+# get bash git completion
+source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
-export PS1="\[\e[32m\]\T\[\e[0m\] \[\e[33m\]\W\[\e[0m\] \$ "
-
-# for tmux-powerline
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+# make prompt look like this, with colors: 12:11:28 Sites $ 
+# export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
+# export PS1="\W $(__git_ps1) \$"
+export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$"
 
 export EDITOR='vim'
+
+# add to manpath
+export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
 
 # for ranger colors to be right
 # export TERM='screen-256color'
 
 # always cd into web root
 cd ~/Sites/einstein2/
+
+# powerline shell
+# function _update_ps1() {
+   # export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
+# }
+# export PROMPT_COMMAND="_update_ps1"
+
+# for tmux-powerline
+# PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'

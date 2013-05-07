@@ -68,5 +68,8 @@
 
         " Show code coverage on load (default = 0)
         let g:phpqa_codecoverage_autorun=1
+
+        " phpcs fixer location
+        let g:php_cs_fixer_path = "~/.dotfiles/php-cs-fixer.phar"
     " }}}
 " }}}

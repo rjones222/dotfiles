@@ -51,3 +51,5 @@
     sync = "!f() { echo Syncing $1 with develop && git checkout develop && git pull && git checkout $1 && git merge develop; }; f"
 [mergetool]
     keepBackup = false
+[github]
+	user = mikedfunk

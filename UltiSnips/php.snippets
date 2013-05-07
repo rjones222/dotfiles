@@ -40,10 +40,22 @@ snippet php "opening php tag"
 $1
 endsnippet
 
-snippet cla "mike's simplified class"
-class ${1:MyClass}
+snippet cla "mike's class with namespace, file and class docblocks"
+<?php
+/**
+ * @package ${2:Einstein2}
+ * @copyright `date +%Y` Xulon Press, Inc. All Rights Reserved.
+ */
+namespace ${3:MyNamespace};
+
+/**
+ * ${4:Class Description}
+ *
+ * @author ${5:`!v g:snips_author`}
+ */
+class ${6:ClassName}
 {
-    $2
+    $7
 }
 endsnippet
 
@@ -70,4 +82,21 @@ snippet va "var with docblock"
  */
 $3 ${4:$myvar};
 $5
+endsnippet
+
+snippet pageblock "page level docblock"
+/**
+ * @package ${2:Einstein2}
+ * @copyright `date +%Y` Xulon Press, Inc. All Rights Reserved.
+ */
+$3
+endsnippet
+
+snippet classblock "class level docblock"
+
+/**
+ * ${1:title}
+ *
+ * @author ${2:`!v g:snips_author`}
+ */$3
 endsnippet

@@ -5,3 +5,10 @@ cd  ~/.dotfiles
 set showhidden=true
 set show_hidden=true
 open_with m
+search app
+open_with 
+help
+?
+shell 
+cd ~/Sites/einstein
+cd ~/Sites/einstein2
