@@ -14,6 +14,8 @@ Bundle 'szw/vim-tags'
 Bundle 'nacitar/terminalkeys.vim'
 Bundle 'msutherl/vim-colors-ir_black-256'
 Bundle 'stephpy/vim-php-cs-fixer'
+Bundle 'tpope/vim-abolish'
+Bundle 'dbakker/vim-projectroot'
 
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1

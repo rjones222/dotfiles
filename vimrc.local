@@ -39,6 +39,9 @@
     map <c-w><c-k> :resize -10<cr>
     map <c-w><c-l> :vertical resize +10<cr>
     map <c-w><c-h> :vertical resize -10<cr>
+
+    " open all buffers in new tabs
+    map <leader>bt :tab sball<CR>
 " }}}
 
 " Theme {{{
@@ -72,4 +75,11 @@
         " phpcs fixer location
         let g:php_cs_fixer_path = "~/.dotfiles/php-cs-fixer.phar"
     " }}}
+
+    " cd to project root
+    nnoremap <leader>dp :ProjectRootCD<cr>
+
+    " tabular =>
+    nmap <leader>a> :Tabularize /=><cr>
+    vmap <leader>a> :Tabularize /=><cr>
 " }}}

@@ -1,5 +1,4 @@
 shell
-
 cd ~/.dotfiles/config/ranger
 cd  ~/.dotfiles
 set showhidden=true
@@ -12,3 +11,9 @@ help
 shell 
 cd ~/Sites/einstein
 cd ~/Sites/einstein2
+unmark tags
+edit
+e
+
+unmark
+find test

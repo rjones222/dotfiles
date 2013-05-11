@@ -7,6 +7,8 @@ alias ls="ls -GpFha"
 alias :q="exit"
 alias artisan="php artisan"
 alias :pwd="pwd"
+alias :so="source"
+alias g="git"
 
 # phpunit with notification
 function phpunitnotify () {
