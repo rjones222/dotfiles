@@ -10,6 +10,9 @@
 
     " set guifont to powerline compatible for macvim
     set guifont=Menlo\ for\ Powerline:h12
+
+    " disable auto folding
+    set nofoldenable
 " }}}
 
 " Unbundle {{{
@@ -82,4 +85,9 @@
     " tabular =>
     nmap <leader>a> :Tabularize /=><cr>
     vmap <leader>a> :Tabularize /=><cr>
+
+    " PDV comment parameters
+    let g:pdv_cfg_Package = "Einstein2"
+    let g:pdv_cfg_Author = "Michael Funk <mfunk@christianpublishing.com>"
+    let g:pdv_cfg_Copyright = "Copyright 2013 Xulon Press, Inc. All Rights Reserved."
 " }}}
