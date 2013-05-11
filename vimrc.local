@@ -13,6 +13,11 @@
 
     " disable auto folding
     set nofoldenable
+    let g:DisableAutoPHPFolding = 1
+
+    " enable the preview window for omnicompletion
+    " set completeopt=preview
+    set previewheight=15
 " }}}
 
 " Unbundle {{{
@@ -49,6 +54,10 @@
     " omnicompletion like Visual Studio or NetBeans
     imap <C-Space> <C-x><C-o>
     imap <C-@> <C-Space>
+
+    " open and close ptag window
+    nmap <leader>pt <c-w><c-}>
+    nmap <leader>pc :pclose
 " }}}
 
 " Theme {{{
