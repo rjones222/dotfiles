@@ -45,6 +45,10 @@
 
     " open all buffers in new tabs
     map <leader>bt :tab sball<CR>
+
+    " omnicompletion like Visual Studio or NetBeans
+    imap <C-Space> <C-x><C-o>
+    imap <C-@> <C-Space>
 " }}}
 
 " Theme {{{
