@@ -90,4 +90,5 @@
     let g:pdv_cfg_Package = "Einstein2"
     let g:pdv_cfg_Author = "Michael Funk <mfunk@christianpublishing.com>"
     let g:pdv_cfg_Copyright = "Copyright 2013 Xulon Press, Inc. All Rights Reserved."
+    let g:pdv_cfg_License = ""
 " }}}
