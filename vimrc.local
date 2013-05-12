@@ -18,12 +18,18 @@
     " enable the preview window for omnicompletion
     " set completeopt=preview
     set previewheight=15
+
+    " supposed to make vim faster in tmux
+    set notimeout
+    set ttimeout
+    set timeoutlen=50
 " }}}
 
 " Unbundle {{{
     UnBundle 'myusuf3/numbers.vim'
     UnBundle 'Shougo/neosnippet'
     UnBundle 'honza/vim-snippets'
+    " UnBundle 'Shougo/neocomplcache'
 " }}}
 
 " Key Mapping {{{
@@ -104,4 +110,23 @@
     let g:pdv_cfg_Author = "Michael Funk <mfunk@christianpublishing.com>"
     let g:pdv_cfg_Copyright = "Copyright 2013 Xulon Press, Inc. All Rights Reserved."
     let g:pdv_cfg_License = ""
+
+    " reset file to HEAD in fugitive commit window
+    autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+
+    " phpunitqf
+    " let g:phpunit_cmd = "cd ~/Sites/einstein2 && php artisan dump-autoload && php artisan clear-compiled && phpunit"
+
+    " add use statements
+    inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+    noremap <Leader>u :call PhpInsertUse()<CR>
+
+    " make class names fully qualified
+    inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
+    noremap <Leader>e :call PhpExpandClass()<CR>
+
+    " for mouseterm
+    if has("mouse")
+        set mouse=a
+    endif
 " }}}

@@ -6,7 +6,6 @@ Bundle 'benmills/vimux'
 Bundle 'JazzCore/neocomplcache-ultisnips'
 Bundle 'SirVer/ultisnips'
 " Bundle 'Valloric/YouCompleteMe'
-" Bundle 'kablamo/vim-git-log'
 Bundle 'joonty/vim-phpqa'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'mhinz/vim-startify'
@@ -16,6 +15,8 @@ Bundle 'msutherl/vim-colors-ir_black-256'
 Bundle 'stephpy/vim-php-cs-fixer'
 Bundle 'tpope/vim-abolish'
 Bundle 'dbakker/vim-projectroot'
+" Bundle 'joonty/vim-phpunitqf.git'
+Bundle 'arnaud-lb/vim-php-namespace'
 
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1
