@@ -1,0 +1,14 @@
+# ~/.tmuxinator/Work.yml
+# you can make as many tabs as you wish...
+
+project_name: Work
+project_root: ~/Sites/einstein2
+tabs:
+  - config:
+      panes:
+        - vim -S ~/.vim/sessions/config
+        - cd ~/.dotfiles
+  - einstein2: vim .
+  - mysql: mysql -u root
+  - server: php artisan serve
+  - tests: watch

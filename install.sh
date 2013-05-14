@@ -9,3 +9,4 @@ ln -s ~/.dotfiles/screenrc ~/.screenrc
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
 ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
+ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator

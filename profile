@@ -9,6 +9,7 @@ alias artisan="php artisan"
 alias :pwd="pwd"
 alias :so="source"
 alias g="git"
+alias mux="tmuxinator"
 
 # phpunit with notification
 function phpunitnotify () {

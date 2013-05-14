@@ -30,6 +30,7 @@
     UnBundle 'Shougo/neosnippet'
     UnBundle 'honza/vim-snippets'
     " UnBundle 'Shougo/neocomplcache'
+    " UnBundle 'Lokaltog/powerline'
 " }}}
 
 " Key Mapping {{{
@@ -78,11 +79,16 @@
 " }}}
 
 " Plugins {{{
-    " extra space in NERDCommenter comments
-    let g:NERDSpaceDelims="1"
+    " NERDTree {{{
+        " extra space in NERDCommenter comments
+        let g:NERDSpaceDelims="1"
 
-    " NERDTree expand dirs with one child
-    let NERDTreeCasadeOpenSingleChildDir=1
+        " NERDTree expand dirs with one child
+        " let NERDTreeCasadeOpenSingleChildDir=1
+
+        " NERDTree change keyboard shortcuts to use vim-nerdtree-tabs
+        " map <C-e> :NERDTreeTabsToggle<CR>
+    " }}}
 
     " phpqa {{{
         " PHPMD Ruleset
@@ -129,4 +135,7 @@
     if has("mouse")
         set mouse=a
     endif
+
+    " turn off neosnippet mapping
+    let g:spf13_no_neosnippet_expand=1
 " }}}
