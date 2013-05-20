@@ -8,8 +8,10 @@ alias :q="exit"
 alias artisan="php artisan"
 alias :pwd="pwd"
 alias :so="source"
-alias g="git"
 alias mux="tmuxinator"
+# alias hub to git
+eval "$(hub alias -s)"
+alias g="git"
 
 # phpunit with notification
 function phpunitnotify () {
@@ -30,10 +32,11 @@ export CLICOLOR=1
 # export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # get bash git completion
-source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+# source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+source $(brew --prefix)/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 
 # make prompt look like this, with colors: 12:11:28 Sites $ 
 # export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
@@ -55,5 +58,3 @@ function _update_ps1() {
 }
 export PROMPT_COMMAND="_update_ps1"
 
-# alias hub to git
-eval "$(hub alias -s)"

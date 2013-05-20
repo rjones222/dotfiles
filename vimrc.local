@@ -23,6 +23,12 @@
     set notimeout
     set ttimeout
     set timeoutlen=50
+
+    " also supposed to make vim faster
+    set nocursorline
+
+    " turn off relative line numbering
+    set nornu
 " }}}
 
 " Unbundle {{{
@@ -57,6 +63,8 @@
 
     " open all buffers in new tabs
     map <leader>bt :tab sball<CR>
+    " open existing buffer in a newtab
+    map <leader>te :ls<cr>:tabedit #
 
     " omnicompletion like Visual Studio or NetBeans
     imap <C-Space> <C-x><C-o>
@@ -68,9 +76,23 @@
 " }}}
 
 " Theme {{{
+    if $TERM == "xterm-256color"
+        set t_Co=256
+    endif
+
     if has('gui_running')
         " use solarized
     else
+        " Compatibility for Terminal
+        let g:solarized_termtrans=1
+
+        if (&t_Co >= 256 || $TERM == 'xterm-256color')
+            " Do nothing, it handles itself.
+        else
+            " Make Solarized use 16 colors for Terminal support
+            let g:solarized_termcolors=16
+        endif
+
         colorscheme lucius
         LuciusDark
         set colorcolumn=80
@@ -138,4 +160,7 @@
 
     " turn off neosnippet mapping
     let g:spf13_no_neosnippet_expand=1
+
+    " neocomplcache disable auto popup
+    " let g:neocomplcache_disable_auto_complete = 1
 " }}}

@@ -10,3 +10,5 @@ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
 ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
 ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
+ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini
+ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
