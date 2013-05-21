@@ -95,8 +95,12 @@
 
         colorscheme lucius
         LuciusDark
+        " LuciusDarkHighContrast
+        " set background=light
+        " LuciusLightHighContrast
         set colorcolumn=80
         hi ColorColumn guibg=#242424 ctermbg=235
+        hi TabLine ctermfg=Black
     endif
 " }}}
 
@@ -163,4 +167,7 @@
 
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
+
+    " temporary fix for python error
+    python import vim
 " }}}

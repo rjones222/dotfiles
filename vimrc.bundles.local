@@ -17,8 +17,9 @@ Bundle 'tpope/vim-abolish'
 Bundle 'dbakker/vim-projectroot'
 " Bundle 'joonty/vim-phpunitqf.git'
 Bundle 'arnaud-lb/vim-php-namespace'
-Bundle 'dhruvasagar/vim-table-mode'
+" Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tpope/vim-repeat'
+" Bundle 'zhaocai/linepower.vim'
 
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1
