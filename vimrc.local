@@ -25,7 +25,7 @@
     set timeoutlen=50
 
     " also supposed to make vim faster
-    set nocursorline
+    " set nocursorline
 
     " turn off relative line numbering
     set nornu
@@ -76,10 +76,6 @@
 " }}}
 
 " Theme {{{
-    if $TERM == "xterm-256color"
-        set t_Co=256
-    endif
-
     if has('gui_running')
         " use solarized
     else
@@ -163,11 +159,11 @@
     endif
 
     " turn off neosnippet mapping
-    let g:spf13_no_neosnippet_expand=1
+    " let g:spf13_no_neosnippet_expand=1
 
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
 
     " temporary fix for python error
-    python import vim
+    " python import vim
 " }}}

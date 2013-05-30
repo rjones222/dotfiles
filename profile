@@ -58,3 +58,8 @@ function _update_ps1() {
 }
 export PROMPT_COMMAND="_update_ps1"
 
+# generic colorizer
+source "`brew --prefix`/etc/grc.bashrc"
+
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
