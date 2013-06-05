@@ -9,6 +9,7 @@ alias artisan="php artisan"
 alias :pwd="pwd"
 alias :so="source"
 alias mux="tmuxinator"
+alias mseed="php artisan migrate:refresh --seed"
 # alias hub to git
 eval "$(hub alias -s)"
 alias g="git"

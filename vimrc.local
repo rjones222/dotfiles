@@ -29,14 +29,19 @@
 
     " turn off relative line numbering
     set nornu
+
+    " disable spellcheck
+    set nospell
 " }}}
 
 " Unbundle {{{
     UnBundle 'myusuf3/numbers.vim'
     UnBundle 'Shougo/neosnippet'
     UnBundle 'honza/vim-snippets'
+    UnBundle 'godlygeek/csapprox'
     " UnBundle 'Shougo/neocomplcache'
-    " UnBundle 'Lokaltog/powerline'
+    UnBundle 'Lokaltog/powerline'
+    UnBundle 'Lokaltog/vim-powerline'
 " }}}
 
 " Key Mapping {{{
@@ -50,10 +55,10 @@
     inoremap jj <Esc>
 
     " vimux
-    map <leader>rp :PromptVimTmuxCommand<cr>
-    map <leader>rl :RunLastVimTmuxCommand<cr>
-    map <leader>ri :InspectVimTmuxRunner<cr>
-    map <leader>rx :CloseVimTmuxPanes<cr>
+    " map <leader>rp :PromptVimTmuxCommand<cr>
+    " map <leader>rl :RunLastVimTmuxCommand<cr>
+    " map <leader>ri :InspectVimTmuxRunner<cr>
+    " map <leader>rx :CloseVimTmuxPanes<cr>
 
     " resize splits, consistent with tmux bindings
     map <c-w><c-j> :resize +10<cr>
@@ -81,22 +86,16 @@
     else
         " Compatibility for Terminal
         let g:solarized_termtrans=1
+        let g:solarized_termcolors=16
 
-        if (&t_Co >= 256 || $TERM == 'xterm-256color')
-            " Do nothing, it handles itself.
-        else
-            " Make Solarized use 16 colors for Terminal support
-            let g:solarized_termcolors=16
-        endif
-
-        colorscheme lucius
-        LuciusDark
+        " colorscheme lucius
+        " LuciusDark
         " LuciusDarkHighContrast
         " set background=light
         " LuciusLightHighContrast
         set colorcolumn=80
-        hi ColorColumn guibg=#242424 ctermbg=235
-        hi TabLine ctermfg=Black
+        " hi ColorColumn guibg=#242424 ctermbg=235
+        " hi TabLine ctermfg=Black
     endif
 " }}}
 
@@ -123,21 +122,21 @@
         let g:phpqa_codecoverage_autorun=1
 
         " phpcs fixer location
-        let g:php_cs_fixer_path = "~/.dotfiles/php-cs-fixer.phar"
+        " let g:php_cs_fixer_path = "~/.dotfiles/php-cs-fixer.phar"
     " }}}
 
     " cd to project root
     nnoremap <leader>dp :ProjectRootCD<cr>
 
-    " tabular =>
+    " tabular
     nmap <leader>a> :Tabularize /=><cr>
     vmap <leader>a> :Tabularize /=><cr>
 
     " PDV comment parameters
-    let g:pdv_cfg_Package = "Einstein2"
-    let g:pdv_cfg_Author = "Michael Funk <mfunk@christianpublishing.com>"
+    let g:pdv_cfg_Package   = "Einstein2"
+    let g:pdv_cfg_Author    = "Michael Funk <mfunk@christianpublishing.com>"
     let g:pdv_cfg_Copyright = "Copyright 2013 Xulon Press, Inc. All Rights Reserved."
-    let g:pdv_cfg_License = ""
+    let g:pdv_cfg_License   = ""
 
     " reset file to HEAD in fugitive commit window
     autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
@@ -159,11 +158,18 @@
     endif
 
     " turn off neosnippet mapping
-    " let g:spf13_no_neosnippet_expand=1
+    let g:spf13_no_neosnippet_expand=1
 
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
 
-    " temporary fix for python error
-    " python import vim
+    " use old powerline
+    " let g:spf13_use_old_powerline = 1
+" }}}
+
+" startify {{{
+    " hi StartifyBracket ctermfg=240
+    " hi StartifyNumber  ctermfg=215
+    " hi StartifyPath    ctermfg=245
+    " hi StartifySlash   ctermfg=240
 " }}}
