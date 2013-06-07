@@ -1,25 +1,74 @@
+" adds extra intuitive keyboard shortcuts
 Bundle 'tpope/vim-unimpaired'
+
+" sweet gray colorscheme
 Bundle 'jonathanfilip/vim-lucius'
-" Bundle 'joonty/vdebug'
+
+" xdebug integration
+Bundle 'joonty/vdebug'
+
+" zen coding / emmett integration
 Bundle 'mattn/zencoding-vim'
+
+" create tmux window with a command from vim
 " Bundle 'benmills/vimux'
+
+" much better than snipmate or neosnippet
 Bundle 'SirVer/ultisnips'
+
+" make ultisnips work with neocomplcache
 Bundle 'JazzCore/neocomplcache-ultisnips'
+
+" better than neocomplcache but no support for ultisnips
 " Bundle 'Valloric/YouCompleteMe'
+
+" phpmd, phpcs, php lint, and coverage on save
 Bundle 'joonty/vim-phpqa'
+
+" improved php omnicompletion
 Bundle 'shawncplus/phpcomplete.vim'
+
+" better vim start screen
 Bundle 'mhinz/vim-startify'
-" Bundle 'szw/vim-tags'
-Bundle 'nacitar/terminalkeys.vim'
-" Bundle 'msutherl/vim-colors-ir_black-256'
-" Bundle 'stephpy/vim-php-cs-fixer'
+
+" auto-update ctags on save
+Bundle 'szw/vim-tags'
+
+" rxvt keyboard fixes
+" Bundle 'nacitar/terminalkeys.vim'
+
+" coding standards fixer integration
+Bundle 'stephpy/vim-php-cs-fixer'
+
+" smart search, replace, abbreviation fixer
 Bundle 'tpope/vim-abolish'
+
+" smart jump to project root
 Bundle 'dbakker/vim-projectroot'
+
+" phpunit integration
 " Bundle 'joonty/vim-phpunitqf.git'
+
+" php namespace and use block autocomplete
 " Bundle 'arnaud-lb/vim-php-namespace'
+
+" create text tables. conflicts with tagbar mapping in spf-13
 " Bundle 'dhruvasagar/vim-table-mode'
+
+" enable repeat in certain plugins
 Bundle 'tpope/vim-repeat'
+
+" additional stuff for powerline. couldn't get it to work.
 " Bundle 'zhaocai/linepower.vim'
+
+" fancy statusline similar to powerline. still slows down vim.
+" Bundle 'millermedeiros/vim-statline'
+
+" better php ctags in tagbar
+Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1
+
+" use old vim-powerline
+" let g:spf13_use_old_powerline = 1
