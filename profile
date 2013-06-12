@@ -16,7 +16,8 @@ alias e2='cd ~/Sites/einstein2'
 # alias hub to git
 eval "$(hub alias -s)"
 alias g="git"
-alias coverage="phpunit && open build/coverage/index.html"
+alias coverage="phpunit --debug && open build/coverage/index.html"
+alias ctags="ctags -R --exclude=*.js"
 
 # phpunit with notification
 function phpunitnotify () {
