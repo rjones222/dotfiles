@@ -67,8 +67,17 @@ Bundle 'tpope/vim-repeat'
 " better php ctags in tagbar
 Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
+" better paste
+Bundle 'sickill/vim-pasta'
+
+" reverse-i-search with ctrl-r
+Bundle 'goldfeld/ctrlr.vim'
+
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1
 
 " use old vim-powerline
 " let g:spf13_use_old_powerline = 1
+
+" this keeps trying to load powerline
+let g:spf13_no_views = 1

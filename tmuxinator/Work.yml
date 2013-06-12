@@ -4,11 +4,7 @@
 project_name: Work
 project_root: ~/Sites/einstein2
 tabs:
-  - config:
-      panes:
-        - vim -S ~/.vim/sessions/config
-        - cd ~/.dotfiles
+  - config: vim -S ~/.vim/sessions/config
   - einstein2: vim .
-  - mysql: mysql -u root
-  - server: php artisan serve
+  - mysql: mysql -u root einstein2
   - tests: watch

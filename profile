@@ -7,12 +7,16 @@ alias ls="ls -GpFha"
 alias :q="exit"
 alias artisan="php artisan"
 alias :pwd="pwd"
+alias :cd="cd"
 alias :so="source"
 alias mux="tmuxinator"
-alias mseed="php artisan migrate:refresh --seed"
+alias migrate="php artisan migrate:refresh --seed"
+alias vim="mvim -v"
+alias e2='cd ~/Sites/einstein2'
 # alias hub to git
 eval "$(hub alias -s)"
 alias g="git"
+alias coverage="phpunit && open build/coverage/index.html"
 
 # phpunit with notification
 function phpunitnotify () {

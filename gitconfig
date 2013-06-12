@@ -8,7 +8,7 @@
 [diff]
     tool = opendiff
 [core]
-	editor = /usr/local/bin/vim
+    editor = /usr/local/bin/mvim -vf
 [pre-commit]
     checks = php, tabs, jshint, whitespace, console_log
 [color]
@@ -52,4 +52,4 @@
 [mergetool]
     keepBackup = false
 [github]
-	user = mikedfunk
+    user = mikedfunk

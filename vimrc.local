@@ -29,6 +29,12 @@
 
     " disable spellcheck
     set nospell
+
+    " if the last window is a quickfix, close it
+    aug QFClose
+      au!
+      au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+    aug END
 " }}}
 
 " Unbundle {{{
@@ -49,12 +55,24 @@
 
     " it slows down vim
     UnBundle 'Lokaltog/powerline'
-
-    " slows down vim even more
     UnBundle 'Lokaltog/vim-powerline'
 
     " I already use phpqatools
     UnBundle 'scrooloose/syntastic'
+
+    " various spf-13 stuff I don't use
+    UnBundle 'jnwhiteh/vim-golang'
+    UnBundle 'python.vim'
+    UnBundle 'python_match.vim'
+    UnBundle 'pythoncomplete'
+    UnBundle 'briancollins/vim-jst'
+    UnBundle 'derekwyatt/vim-scala'
+    UnBundle 'derekwyatt/vim-sbt'
+    UnBundle 'spf13/vim-gocode'
+    UnBundle 'klen/python-mode'
+    UnBundle 'tpope/vim-cucumber'
+    UnBundle 'quentindecock/vim-cucumber-align-pipes'
+    UnBundle 'beyondwords/vim-twig'
 " }}}
 
 " Key Mapping {{{
@@ -111,6 +129,10 @@
         " hi ColorColumn guibg=#242424 ctermbg=235
         " hi TabLine ctermfg=Black
     endif
+    
+    " change the default EasyMotion shading to something more readable with Solarized
+    hi link EasyMotionTarget ErrorMsg
+    hi link EasyMotionShade  Comment
 " }}}
 
 " Plugins {{{
@@ -134,6 +156,9 @@
 
         " Show code coverage on load (default = 0)
         let g:phpqa_codecoverage_autorun=1
+
+        " path to php
+        let g:phpqa_php_cmd='/usr/local/php5/bin/php'
     " }}}
 
     " cd to project root
@@ -175,7 +200,7 @@
     " let g:neocomplcache_disable_auto_complete = 1
 
     " set guifont to powerline compatible for macvim
-    set guifont=Menlo\ for\ Powerline:h12
+    " set guifont=Menlo\ for\ Powerline:h12
     " let g:Powerline_symbols = 'fancy'
 
     " syntastic
@@ -184,12 +209,20 @@
     " set statusline+=%*
     " let g:syntastic_php_checkers=['php']
     " let g:syntastic_php_phpmd_post_args = '~/.dotfiles/phpmd_ruleset.xml'
-    set statusline+=%{tagbar#currenttag('[%s]','')}
+
+    " tabgar show current function in footer
+    set statusline+=\ %{tagbar#currenttag('[%s]','')}
 
     " set quickfix window height automatically
-    au FileType qf call AdjustWindowHeight(3, 10)
+    au FileType qf call AdjustWindowHeight(3, 5)
     function! AdjustWindowHeight(minheight, maxheight)
       exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
     endfunction
+
+    " ctrlp extensions
+    let g:ctrlp_extensions = ['tag']
+
+    " since , replaces leader, use \ to go back in a [f]ind
+    noremap \ ,
 " }}}
 
