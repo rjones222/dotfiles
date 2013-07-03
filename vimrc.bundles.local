@@ -73,6 +73,34 @@ Bundle 'sickill/vim-pasta'
 " reverse-i-search with ctrl-r
 Bundle 'goldfeld/ctrlr.vim'
 
+" better iterm2/tmux compatibility
+Bundle 'vim-scripts/Vitality'
+
+" allow to close all buffers but the current one
+Bundle 'vim-scripts/BufOnly.vim'
+
+" improved phpdoc implementation
+Bundle 'tobyS/pdv'
+
+" required for pdv
+Bundle 'tobyS/vmustache'
+
+" go to current quickfix item
+" doesn't work
+" Bundle 'vim-scripts/QuickFixCurrentNumber'
+"
+" allow to star search from a visual selection
+Bundle 'thinca/vim-visualstar'
+
+" smooth vertical scrolling
+Bundle 'yonchu/accelerated-smooth-scroll'
+
+" show current buffers in vim command line
+" Bundle 'bling/vim-bufferline'
+
+" cool statusline, lighter than powerline
+" Bundle 'bling/vim-airline'
+
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1
 

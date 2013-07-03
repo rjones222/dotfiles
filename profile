@@ -18,6 +18,8 @@ eval "$(hub alias -s)"
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
 alias ctags="ctags -R --exclude=*.js"
+alias test="phing dump-cache && phpunit --debug"
+alias pf="phpunit --debug --filter "
 
 # phpunit with notification
 function phpunitnotify () {
@@ -32,6 +34,7 @@ function phpunitnotify () {
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 PATH=$PATH:/Applications/VirtualBox.app/Contents/MacOS
 PATH=$PATH:~/.bin
+PATH=$PATH:vendor/bin
 export PATH
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export CLICOLOR=1

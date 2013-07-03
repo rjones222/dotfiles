@@ -35,6 +35,9 @@
       au!
       au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
     aug END
+
+    " visually select a search result
+    nnoremap g/ //e<Enter>v??<Enter>
 " }}}
 
 " Unbundle {{{
@@ -105,10 +108,6 @@
     " omnicompletion like Visual Studio or NetBeans
     imap <C-Space> <C-x><C-o>
     imap <C-@> <C-Space>
-
-    " open and close ptag window
-    nmap <leader>pt <c-w><c-}>
-    nmap <leader>pcl :pclose<cr>
 " }}}
 
 " Theme {{{
@@ -196,6 +195,9 @@
     " turn off neosnippet mapping
     let g:spf13_no_neosnippet_expand=1
 
+    " phpcomplete omni complete for neocomplcache
+    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
 
@@ -210,8 +212,42 @@
     " let g:syntastic_php_checkers=['php']
     " let g:syntastic_php_phpmd_post_args = '~/.dotfiles/phpmd_ruleset.xml'
 
+    "filename
+    hi default link User1 Identifier"blue
+    " flags
+    hi default link User2 Statement"green
+    " errors
+    hi default link User3 Error"orange
+    " fugitive
+    hi default link User4 Special
+
+    " statusline
+    set statusline=
+    set statusline+=\ ⌸\ %F\ "full file path
+    set statusline+=%5*⮀
+    set statusline+=%1*" Switch to colour User1
+
+    " fugitive statusline
+    set statusline+=%{strlen(fugitive#statusline())>0?'\ ⭠\ ':''}
+    set statusline+=%{fugitive#head()}
+    set statusline+=%{&ro?'\ ⭤':''}%{&mod?'\ ✚':''}%<
+    set statusline+=%{strlen(fugitive#statusline())>0?'\ \ ⮁\ ':''}
+
+    " align right stuff
+    set statusline+=%=" align right
+    set statusline+=%2*" Switch to colour User2
+    set statusline+=\ %{tagbar#currenttag('⮃\ %s\ ','','f')}
+    set statusline+=%5*⮂
+    set statusline+=%*" Switch to default colour
+    set statusline+=\ %{&filetype}\ ⮃
+    set statusline+=\ %p%%\ ⮃
+    set statusline+=\ ⭡\ %l:%c\ 
+
+    " default statusline with fugitive
+    " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
     " tabgar show current function in footer
-    set statusline+=\ %{tagbar#currenttag('[%s]','')}
+    " set statusline+=\ %{tagbar#currenttag('[%s]','')}
 
     " set quickfix window height automatically
     au FileType qf call AdjustWindowHeight(3, 5)
@@ -224,5 +260,9 @@
 
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
+
+    " pdv map phpdoc
+    let g:pdv_template_dir = "/Users/mikedfunk/.vim/bundle/pdv/templates"
+    nnoremap <buffer> <Leader>pd :call pdv#DocumentCurrentLine()<CR>
 " }}}
 
