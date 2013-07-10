@@ -222,26 +222,26 @@
     hi default link User4 Special
 
     " statusline
-    set statusline=
-    set statusline+=\ ⌸\ %F\ "full file path
-    set statusline+=%5*⮀
-    set statusline+=%1*" Switch to colour User1
+    " set statusline=
+    " set statusline+=\ ⌸\ %F\ "full file path
+    " set statusline+=%5*⮀
+    " set statusline+=%1*" Switch to colour User1
 
     " fugitive statusline
-    set statusline+=%{strlen(fugitive#statusline())>0?'\ ⭠\ ':''}
-    set statusline+=%{fugitive#head()}
-    set statusline+=%{&ro?'\ ⭤':''}%{&mod?'\ ✚':''}%<
-    set statusline+=%{strlen(fugitive#statusline())>0?'\ \ ⮁\ ':''}
+    " set statusline+=%{strlen(fugitive#statusline())>0?'\ ⭠\ ':''}
+    " set statusline+=%{fugitive#head()}
+    " set statusline+=%{&ro?'\ ⭤':''}%{&mod?'\ ✚':''}%<
+    " set statusline+=%{strlen(fugitive#statusline())>0?'\ \ ⮁\ ':''}
 
     " align right stuff
-    set statusline+=%=" align right
-    set statusline+=%2*" Switch to colour User2
-    set statusline+=\ %{tagbar#currenttag('⮃\ %s\ ','','f')}
-    set statusline+=%5*⮂
-    set statusline+=%*" Switch to default colour
-    set statusline+=\ %{&filetype}\ ⮃
-    set statusline+=\ %p%%\ ⮃
-    set statusline+=\ ⭡\ %l:%c\ 
+    " set statusline+=%=" align right
+    " set statusline+=%2*" Switch to colour User2
+    " set statusline+=\ %{tagbar#currenttag('⮃\ %s\ ','','f')}
+    " set statusline+=%5*⮂
+    " set statusline+=%*" Switch to default colour
+    " set statusline+=\ %{&filetype}\ ⮃
+    " set statusline+=\ %p%%\ ⮃
+    " set statusline+=\ ⭡\ %l:%c\ 
 
     " default statusline with fugitive
     " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
