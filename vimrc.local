@@ -35,6 +35,9 @@
       au!
       au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
     aug END
+    
+    " 2 space indent in html
+    autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
@@ -51,7 +54,7 @@
     " I use ultisnips
     UnBundle 'honza/vim-snippets'
 
-    " I learned that 16 color is better than 256 with csapprox
+    " I learned that 16 color is better than 256/csapprox
     UnBundle 'godlygeek/csapprox'
 
     " UnBundle 'Shougo/neocomplcache'
@@ -264,5 +267,9 @@
     " pdv map phpdoc
     let g:pdv_template_dir = "/Users/mikedfunk/.vim/bundle/pdv/templates"
     nnoremap <buffer> <Leader>pd :call pdv#DocumentCurrentLine()<CR>
+    
+    " ultisnips start with my ultisnips
+    let g:UltiSnipsDontReverseSearchPath="1"
+    let g:UltiSnipsEditSplit="vertical"
 " }}}
 

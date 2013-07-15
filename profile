@@ -53,7 +53,7 @@ source $(brew --prefix)/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 # export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
 
 # set vim as default editor
-export EDITOR='vim'
+export EDITOR='/Users/mikedfunk/Applications/MacVim.app/Contents/MacOS/Vim'
 
 # add to manpath for ranger manual to show up
 export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
