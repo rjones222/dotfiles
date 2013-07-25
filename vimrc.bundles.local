@@ -2,7 +2,7 @@
 Bundle 'tpope/vim-unimpaired'
 
 " sweet gray colorscheme
-Bundle 'jonathanfilip/vim-lucius'
+" Bundle 'jonathanfilip/vim-lucius'
 
 " xdebug integration
 Bundle 'joonty/vdebug'
@@ -52,7 +52,8 @@ Bundle 'dbakker/vim-projectroot'
 " php namespace and use block autocomplete
 " Bundle 'arnaud-lb/vim-php-namespace'
 
-" create text tables. conflicts with tagbar mapping in spf-13
+" create text tables. 
+" conflicts with tagbar mapping in spf-13
 " Bundle 'dhruvasagar/vim-table-mode'
 
 " enable repeat in certain plugins
@@ -61,9 +62,6 @@ Bundle 'tpope/vim-repeat'
 " additional stuff for powerline. couldn't get it to work.
 " Bundle 'zhaocai/linepower.vim'
 
-" fancy statusline similar to powerline. still slows down vim.
-" Bundle 'millermedeiros/vim-statline'
-
 " better php ctags in tagbar
 Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
@@ -71,7 +69,8 @@ Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 Bundle 'sickill/vim-pasta'
 
 " reverse-i-search with ctrl-r
-Bundle 'goldfeld/ctrlr.vim'
+" conflicts with pasting buffer into search command
+" Bundle 'goldfeld/ctrlr.vim'
 
 " better iterm2/tmux compatibility
 Bundle 'vim-scripts/Vitality'
@@ -80,7 +79,9 @@ Bundle 'vim-scripts/Vitality'
 Bundle 'vim-scripts/BufOnly.vim'
 
 " improved phpdoc implementation
-Bundle 'tobyS/pdv'
+" Bundle 'tobyS/pdv'
+" Bundle 'sumpygump/php-documentor-vim'
+Bundle 'mikedfunk/php-documentor-vim'
 
 " required for pdv
 Bundle 'tobyS/vmustache'
@@ -98,14 +99,15 @@ Bundle 'yonchu/accelerated-smooth-scroll'
 " show current buffers in vim command line
 " Bundle 'bling/vim-bufferline'
 
-" cool statusline, lighter than powerline
-" Bundle 'bling/vim-airline'
+" vai and vii text indent objects
+" Bundle 'kana/vim-textobj-indent'
+Bundle 'michaeljsmith/vim-indent-object'
 
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1
 
-" use old vim-powerline
-" let g:spf13_use_old_powerline = 1
-
 " this keeps trying to load powerline
 let g:spf13_no_views = 1
+
+" keep H and L shortcuts
+let g:spf13_no_fastTabs = 1

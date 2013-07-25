@@ -41,10 +41,17 @@
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
+
+    " my version of fast tabs
+    map gh gT
+    map gl gt
 " }}}
 
 " Unbundle {{{
 
+    " I don't use this now
+    UnBundle 'jonathanfilip/vim-lucius'
+    "
     " This is super annoying
     UnBundle 'myusuf3/numbers.vim'
 
@@ -65,20 +72,31 @@
 
     " I already use phpqatools
     UnBundle 'scrooloose/syntastic'
+    
+    " I use a different one
+    UnBundle 'tobyS/pdv'
 
     " various spf-13 stuff I don't use
-    UnBundle 'jnwhiteh/vim-golang'
-    UnBundle 'python.vim'
-    UnBundle 'python_match.vim'
-    UnBundle 'pythoncomplete'
-    UnBundle 'briancollins/vim-jst'
-    UnBundle 'derekwyatt/vim-scala'
-    UnBundle 'derekwyatt/vim-sbt'
-    UnBundle 'spf13/vim-gocode'
-    UnBundle 'klen/python-mode'
-    UnBundle 'tpope/vim-cucumber'
-    UnBundle 'quentindecock/vim-cucumber-align-pipes'
-    UnBundle 'beyondwords/vim-twig'
+    " UnBundle 'jnwhiteh/vim-golang'
+    " UnBundle 'python.vim'
+    " UnBundle 'python_match.vim'
+    " UnBundle 'pythoncomplete'
+    " UnBundle 'briancollins/vim-jst'
+    " UnBundle 'derekwyatt/vim-scala'
+    " UnBundle 'derekwyatt/vim-sbt'
+    " UnBundle 'spf13/vim-gocode'
+    " UnBundle 'klen/python-mode'
+    " UnBundle 'tpope/vim-cucumber'
+    " UnBundle 'quentindecock/vim-cucumber-align-pipes'
+    " UnBundle 'beyondwords/vim-twig'
+    " UnBundle 'adinapoli/cumino'
+    " UnBundle 'Twinside/vim-haskellConceal'
+    " UnBundle 'travitch/hasksyn'
+    " UnBundle 'lukerandall/haskellmode-vim'
+    " UnBundle 'bitc/hdevtools'
+    " UnBundle 'bitc/vim-hdevtools'
+    " UnBundle 'dag/vim2hs'
+    " UnBundle 'eagletmt/ghcmod-vim'
 " }}}
 
 " Key Mapping {{{
@@ -120,8 +138,13 @@
         " use solarized
     else
         " Compatibility for Terminal
-        let g:solarized_termtrans=1
-        let g:solarized_termcolors=16
+        " let g:solarized_termtrans=1
+        " let g:solarized_termcolors=16
+        
+        " works in 256 mode
+        let g:solarized_termtrans=0
+        let g:solarized_contrast="normal"
+        let g:solarized_visibility="normal"
 
         " colorscheme lucius
         " LuciusDark
@@ -265,11 +288,30 @@
     noremap \ ,
 
     " pdv map phpdoc
-    let g:pdv_template_dir = "/Users/mikedfunk/.vim/bundle/pdv/templates"
-    nnoremap <buffer> <Leader>pd :call pdv#DocumentCurrentLine()<CR>
+    let g:pdv_template_dir = "$HOME/.vim/bundle/pdv/templates"
+    " nnoremap <buffer> <Leader>pd :call pdv#DocumentCurrentLine()<CR>
     
     " ultisnips start with my ultisnips
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
+    
+    " pdv 1.1.1
+    let g:pdv_cfg_Package   = 'Einstein2'
+    let g:pdv_cfg_Author    = 'Michael Funk <mfunk@christianpublishing.com>'
+    let g:pdv_cfg_Copyright = '2013 Xulon Press, Inc. All Rights Reserved.'
+    let g:pdv_cfg_ClassTags = ["package","author","copyright"]
+    au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+    au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+    au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
+
+    " vim-airline
+    let g:airline_powerline_fonts = 1
+    let g:airline_theme = 'solarized'
+
+    " tagbar autofocus is the whole point of tagbar
+    let g:tagbar_autofocus = 1
+
+    " phpctags
+    let g:tagbar_phpctags_memory_limit = '512M'
 " }}}
 
