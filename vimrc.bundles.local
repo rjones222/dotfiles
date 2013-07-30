@@ -103,6 +103,14 @@ Bundle 'yonchu/accelerated-smooth-scroll'
 " Bundle 'kana/vim-textobj-indent'
 Bundle 'michaeljsmith/vim-indent-object'
 
+" better tag selector
+Bundle 'ivalkeen/vim-ctrlp-tjump'
+
+" better than Ack
+Bundle 'rking/ag.vim'
+
+" --------------------------------------------------
+
 " prevent autocd into file directory
 let g:spf13_no_autochdir = 1
 

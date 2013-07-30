@@ -35,7 +35,7 @@
       au!
       au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
     aug END
-    
+
     " 2 space indent in html
     autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
@@ -45,6 +45,9 @@
     " my version of fast tabs
     map gh gT
     map gl gt
+
+    " set this to a blade view
+    nnoremap <leader>h :setlocal ft=html shiftwidth=2 tabstop=2<cr>
 " }}}
 
 " Unbundle {{{
@@ -313,5 +316,8 @@
 
     " phpctags
     let g:tagbar_phpctags_memory_limit = '512M'
+
+    " vim-ctrlp-tjump
+    nnoremap <c-]> :CtrlPtjump<cr>
 " }}}
 

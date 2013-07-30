@@ -17,9 +17,11 @@ alias e2='cd ~/Sites/einstein2'
 eval "$(hub alias -s)"
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
-alias ctags="ctags -R --exclude=*.js"
+alias ctags="ctags -R --fields=+aimS --languages=php"
 alias test="phing dump-cache && phpunit --debug"
 alias pf="phpunit --debug --filter "
+alias cda="php artisan dump-autoload"
+alias cu="composer update"
 
 # phpunit with notification
 function phpunitnotify () {
@@ -53,13 +55,13 @@ source $(brew --prefix)/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 # export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
 
 # set vim as default editor
-export EDITOR='/Users/mikedfunk/Applications/MacVim.app/Contents/MacOS/Vim'
+export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
 
 # add to manpath for ranger manual to show up
 export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
 
 # always cd into web root
-cd ~/Sites/einstein2/
+# cd ~/Sites/einstein2/
 
 # powerline shell
 function _update_ps1() {
@@ -72,3 +74,47 @@ source "`brew --prefix`/etc/grc.bashrc"
 
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
+
+# drops and creates einstein2 database
+function dbreset() {
+    # drop database
+    echo drop database
+    mysql -uroot -e 'drop database einstein2;'
+
+    # create database
+    echo create database
+    mysql -uroot -e 'create database einstein2;'
+
+    # migrate database
+    php artisan migrate
+
+    # seed database
+    php artisan db:seed
+}
+
+# http://www.reddit.com/r/commandline/comments/1j7y16/handy_bash_function_i_just_wrote_to_move_up/
+# I was working on some source with a deep directory structure, so wrote this 
+# little function to help in going up a few levels.
+# Instead of having to do "cd../../../../../" over and over!
+# You just type "up dirname" and it changes to the first parent directory that 
+# contains dirname, or to "/" if not found. Haven't tested it extensively yet, so 
+# likely to not work in all situations!
+up() {
+
+    echo $(pwd)
+
+    if [[ $1 == "" ]]
+        then
+            newdir=/
+        else
+            local newdir=$(dirname $(pwd))
+    fi
+
+    while [[ "$(basename $newdir)" != *$1* ]] && [[ "$(basename $newdir)" != "/" ]]
+    do
+        newdir=$(dirname $newdir)
+    done
+
+    echo $newdir
+    cd $newdir
+}
