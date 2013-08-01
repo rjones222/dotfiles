@@ -113,10 +113,10 @@
     inoremap jj <Esc>
 
     " vimux
-    " map <leader>rp :PromptVimTmuxCommand<cr>
-    " map <leader>rl :RunLastVimTmuxCommand<cr>
-    " map <leader>ri :InspectVimTmuxRunner<cr>
-    " map <leader>rx :CloseVimTmuxPanes<cr>
+    map <leader>rp :VimuxPromptCommand<cr>
+    map <leader>rl :VimuxRunLastCommand<cr>
+    map <leader>ri :VimuxInspectRunner<cr>
+    map <leader>rx :VimuxCloseRunner<cr>
 
     " resize splits, consistent with tmux bindings
     map <c-w><c-j> :resize +10<cr>
@@ -293,11 +293,11 @@
     " pdv map phpdoc
     let g:pdv_template_dir = "$HOME/.vim/bundle/pdv/templates"
     " nnoremap <buffer> <Leader>pd :call pdv#DocumentCurrentLine()<CR>
-    
+
     " ultisnips start with my ultisnips
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
-    
+
     " pdv 1.1.1
     let g:pdv_cfg_Package   = 'Einstein2'
     let g:pdv_cfg_Author    = 'Michael Funk <mfunk@christianpublishing.com>'
@@ -319,5 +319,17 @@
 
     " vim-ctrlp-tjump
     nnoremap <c-]> :CtrlPtjump<cr>
+
+    " fugitive
+    " open quickfix window on git grep
+    autocmd QuickFixCmdPost *grep* cwindow
+
+    "ctags autogen on save
+    au BufWritePost *.php silent! !ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null &
+
+    " tag generation command (not working)
+    set exrc
+    set secure
+    " let g:vim_tags_project_tags_command = 'ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf'
 " }}}
 

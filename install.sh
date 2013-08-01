@@ -7,6 +7,8 @@ ln -s ~/.dotfiles/gitignore ~/.gitignore
 ln -s ~/.dotfiles/profile ~/.profile
 ln -s ~/.dotfiles/screenrc ~/.screenrc
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/grcat ~/.grcat
+ln -s ~/.dotfiles/my.cnf ~/.my.cnf
 ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
 ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
 ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator

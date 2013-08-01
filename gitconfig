@@ -53,3 +53,5 @@
     keepBackup = false
 [github]
     user = mikedfunk
+[web]
+	browser = open

@@ -1,9 +1,6 @@
 " adds extra intuitive keyboard shortcuts
 Bundle 'tpope/vim-unimpaired'
 
-" sweet gray colorscheme
-" Bundle 'jonathanfilip/vim-lucius'
-
 " xdebug integration
 Bundle 'joonty/vdebug'
 
@@ -11,7 +8,7 @@ Bundle 'joonty/vdebug'
 Bundle 'mattn/zencoding-vim'
 
 " create tmux window with a command from vim
-" Bundle 'benmills/vimux'
+Bundle 'benmills/vimux'
 
 " much better than snipmate or neosnippet
 Bundle 'SirVer/ultisnips'
@@ -32,7 +29,7 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'mhinz/vim-startify'
 
 " auto-update ctags on save
-Bundle 'szw/vim-tags'
+" Bundle 'szw/vim-tags'
 
 " rxvt keyboard fixes
 " Bundle 'nacitar/terminalkeys.vim'
@@ -50,7 +47,7 @@ Bundle 'dbakker/vim-projectroot'
 " Bundle 'joonty/vim-phpunitqf.git'
 
 " php namespace and use block autocomplete
-" Bundle 'arnaud-lb/vim-php-namespace'
+Bundle 'arnaud-lb/vim-php-namespace'
 
 " create text tables. 
 " conflicts with tagbar mapping in spf-13

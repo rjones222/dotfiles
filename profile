@@ -17,7 +17,7 @@ alias e2='cd ~/Sites/einstein2'
 eval "$(hub alias -s)"
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
-alias ctags="ctags -R --fields=+aimS --languages=php"
+alias ctags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf"
 alias test="phing dump-cache && phpunit --debug"
 alias pf="phpunit --debug --filter "
 alias cda="php artisan dump-autoload"
