@@ -132,6 +132,11 @@
     " omnicompletion like Visual Studio or NetBeans
     imap <C-Space> <C-x><C-o>
     imap <C-@> <C-Space>
+
+    " put cursor at end of text on y and p
+    vnoremap <silent> y y`]
+    vnoremap <silent> p p`]
+    nnoremap <silent> p p`]
 " }}}
 
 " Theme {{{

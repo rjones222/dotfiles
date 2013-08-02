@@ -22,6 +22,7 @@ alias test="phing dump-cache && phpunit --debug"
 alias pf="phpunit --debug --filter "
 alias cda="php artisan dump-autoload"
 alias cu="composer update"
+alias quickserver="python -m SimpleHTTPServer"
 
 # phpunit with notification
 function phpunitnotify () {
