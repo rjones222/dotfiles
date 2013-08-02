@@ -60,3 +60,5 @@
 	insteadOf = gh
 [url "git@bitbucket.org"]
 	insteadOf = bb
+[rebase]
+	autosquash = true
