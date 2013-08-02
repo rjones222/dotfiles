@@ -9,6 +9,8 @@ ln -s ~/.dotfiles/screenrc ~/.screenrc
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/grcat ~/.grcat
 ln -s ~/.dotfiles/my.cnf ~/.my.cnf
+ln -s ~/.dotfiles/my.ini ~/.my.ini
+ln -s ~/.dotfiles/inputrc ~/.inputrc
 ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
 ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
 ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
