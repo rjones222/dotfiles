@@ -1,3 +1,5 @@
+let g:spf13_bundle_groups=['general', 'programming', 'php', 'javascript', 'html', 'misc']
+
 " adds extra intuitive keyboard shortcuts
 Bundle 'tpope/vim-unimpaired'
 
@@ -14,10 +16,10 @@ Bundle 'benmills/vimux'
 Bundle 'SirVer/ultisnips'
 
 " make ultisnips work with neocomplcache
-Bundle 'JazzCore/neocomplcache-ultisnips'
+" Bundle 'JazzCore/neocomplcache-ultisnips'
 
 " better than neocomplcache but no support for ultisnips
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 " phpmd, phpcs, php lint, and coverage on save
 Bundle 'joonty/vim-phpqa'

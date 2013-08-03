@@ -43,8 +43,9 @@
     nnoremap g/ //e<Enter>v??<Enter>
 
     " my version of fast tabs
-    map gh gT
-    map gl gt
+    nnoremap gh gT
+    nnoremap gl gt
+    nnoremap gn :tabnew<cr>
 
     " set this to a blade view
     nnoremap <leader>h :setlocal ft=html shiftwidth=2 tabstop=2<cr>
@@ -67,7 +68,8 @@
     " I learned that 16 color is better than 256/csapprox
     UnBundle 'godlygeek/csapprox'
 
-    " UnBundle 'Shougo/neocomplcache'
+    " too many slowdowns and freezes.
+    UnBundle 'Shougo/neocomplcache'
 
     " it slows down vim
     UnBundle 'Lokaltog/powerline'
@@ -107,10 +109,12 @@
     command! -nargs=* Wrap set wrap linebreak nolist
 
     " remap keys
-    map <c-n> :tabnew<cr>
+    " map <c-n> :tabnew<cr>
     nmap <leader>bpw :BreakpointWindow<cr>
     nmap <leader>bpt :Breakpoint<cr>
     inoremap jj <Esc>
+    inoremap jk <Esc>
+    " inoremap kj <Esc>
 
     " vimux
     map <leader>rp :VimuxPromptCommand<cr>
@@ -233,7 +237,7 @@
     autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
     " neocomplcache disable auto popup
-    " let g:neocomplcache_disable_auto_complete = 1
+    let g:neocomplcache_disable_auto_complete = 1
 
     " set guifont to powerline compatible for macvim
     " set guifont=Menlo\ for\ Powerline:h12
@@ -302,6 +306,8 @@
     " ultisnips start with my ultisnips
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
+    let g:UltiSnipsListSnippets="<c-L>"
+    let g:UltiSnipsExpandTrigger="<c-J>"
 
     " pdv 1.1.1
     let g:pdv_cfg_Package   = 'Einstein2'

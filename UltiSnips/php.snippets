@@ -49,18 +49,23 @@ snippet cla "mike's class with namespace, file and class docblocks"
 namespace ${3:MyNamespace};
 
 /**
- * ${4:Class Description}
+ * ${4:ClassName}
  *
  * @author ${5:`!v g:snips_author`}
  */
-class ${6:ClassName}
+class $4
 {
     $7
 }
 endsnippet
 
-snippet method
-${1:public} function ${2:functionname}(${3:$params})
+snippet meth
+/**
+ * $2
+ *
+ * @return void
+ */
+public function ${2:functionname}(${3})
 {
     $4
 }

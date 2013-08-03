@@ -82,11 +82,11 @@ export GREP_OPTIONS='--color=auto'
 function dbreset() {
     # drop database
     echo drop database
-    mysql -uroot -e 'drop database einstein2;'
+    mysql -uroot -e 'DROP DATABASE IF EXISTS einstein2;'
 
     # create database
     echo create database
-    mysql -uroot -e 'create database einstein2;'
+    mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS einstein2;'
 
     # migrate database
     php artisan migrate
