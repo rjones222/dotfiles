@@ -17,7 +17,6 @@ alias e2='cd ~/Sites/einstein2'
 eval "$(hub alias -s)"
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
-alias ctags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf"
 alias test="phing dump-cache && phpunit --debug"
 alias pf="phpunit --debug --filter "
 alias cda="php artisan dump-autoload"
@@ -25,6 +24,7 @@ alias cu="composer update"
 alias quickserver="python -m SimpleHTTPServer"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
+alias lines="find . -name '*.php' | xargs wc -l"
 
 # phpunit with notification
 function phpunitnotify () {

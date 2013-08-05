@@ -19,7 +19,10 @@ Bundle 'SirVer/ultisnips'
 " Bundle 'JazzCore/neocomplcache-ultisnips'
 
 " better than neocomplcache but no support for ultisnips
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
+
+" vim-autoclose causes problems with youcompleteme, it says use this instead
+" Bundle 'Raimondi/delimitMate'
 
 " phpmd, phpcs, php lint, and coverage on save
 Bundle 'joonty/vim-phpqa'
@@ -32,6 +35,10 @@ Bundle 'mhinz/vim-startify'
 
 " auto-update ctags on save
 " Bundle 'szw/vim-tags'
+
+" auto ctags"
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
 
 " rxvt keyboard fixes
 " Bundle 'nacitar/terminalkeys.vim'

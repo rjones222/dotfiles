@@ -81,6 +81,9 @@
     " I use a different one
     UnBundle 'tobyS/pdv'
 
+    " causes problems with youcompleteme
+    " UnBundle 'Townk/vim-autoclose'
+
     " various spf-13 stuff I don't use
     " UnBundle 'jnwhiteh/vim-golang'
     " UnBundle 'python.vim'
@@ -306,8 +309,8 @@
     " ultisnips start with my ultisnips
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
-    let g:UltiSnipsListSnippets="<c-L>"
-    let g:UltiSnipsExpandTrigger="<c-J>"
+    let g:UltiSnipsListSnippets='<c-L>'
+    let g:UltiSnipsExpandTrigger='<c-J>'
 
     " pdv 1.1.1
     let g:pdv_cfg_Package   = 'Einstein2'

@@ -63,11 +63,11 @@ snippet meth
 /**
  * $2
  *
- * @return void
+ * @return ${4:void}
  */
 public function ${2:functionname}(${3})
 {
-    $4
+    $5
 }
 endsnippet
 
@@ -122,4 +122,16 @@ snippet methodblock "method level docblock"
  *
  * @param ${2:string $myvar my description here}
  */
+endsnippet
+
+snippet lang "laravel Lang::get()"
+Lang::get('$1')
+endsnippet
+
+snippet view "View::make"
+return View::make('$1');
+endsnippet
+
+snippet -- "HTML comment"
+<!--$1-->
 endsnippet
