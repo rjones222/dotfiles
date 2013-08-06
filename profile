@@ -25,6 +25,7 @@ alias quickserver="python -m SimpleHTTPServer"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 alias lines="find . -name '*.php' | xargs wc -l"
+alias ma="git pull origin develop"
 
 # phpunit with notification
 function phpunitnotify () {
