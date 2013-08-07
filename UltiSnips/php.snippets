@@ -139,3 +139,11 @@ endsnippet
 snippet me "@author"
 @author Michael Funk <mfunk@christianpublishing.com>
 endsnippet
+
+snippet uns "Laravel Unsigned Integer"
+$table->unsignedInteger('$1');
+endsnippet
+
+snippet forn "Laravel Foreign Key"
+$table->foreign('$1')->references('id')->on('$2');
+endsnippet
