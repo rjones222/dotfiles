@@ -15,8 +15,8 @@ class Powerline:
             'separator_thin': u'\u276F'
         },
         'patched': {
-            'separator': u'\u2B80',
-            'separator_thin': u'\u2B81'
+            'separator': u'\uE0B0',
+            'separator_thin': u'\uE0B1'
         },
         'flat': {
             'separator': '',
@@ -100,11 +100,13 @@ if __name__ == "__main__":
             help='Only show the current directory')
     arg_parser.add_argument('--cwd-max-depth', action='store', type=int,
             default=5, help='Maximum number of directories to show in path')
+    arg_parser.add_argument('--colorize-hostname', action='store_true',
+            help='Colorize the hostname based on a hash of itself.')
     arg_parser.add_argument('--mode', action='store', default='patched',
             help='The characters used to make separators between segments',
             choices=['patched', 'compatible', 'flat'])
     arg_parser.add_argument('--shell', action='store', default='bash',
-            help='Set this to your shell type', choices=['bash', 'zsh'])
+            help='Set this to your shell type', choices=['bash', 'zsh', 'bare'])
     arg_parser.add_argument('prev_error', nargs='?', type=int, default=0,
             help='Error code returned by the last command')
     args = arg_parser.parse_args()
@@ -113,32 +115,35 @@ if __name__ == "__main__":
 
 
 class Color:
-    USERNAME_FG = 250
-    USERNAME_BG = 240
+    USERNAME_FG = 15
+    USERNAME_BG = 4
 
-    HOSTNAME_FG = 250
-    HOSTNAME_BG = 238
+    HOSTNAME_FG = 15
+    HOSTNAME_BG = 10
 
-    PATH_BG = 237  # dark grey
-    PATH_FG = 250  # light grey
-    CWD_FG = 254  # nearly-white grey
-    SEPARATOR_FG = 244
+    PATH_FG = 7
+    PATH_BG = 10
+    CWD_FG = 15
+    SEPARATOR_FG = 14
 
-    REPO_CLEAN_BG = 148  # a light green color
-    REPO_CLEAN_FG = 0  # black
-    REPO_DIRTY_BG = 161  # pink/red
-    REPO_DIRTY_FG = 15  # white
+    REPO_CLEAN_FG = 14
+    REPO_CLEAN_BG = 0
+    REPO_DIRTY_FG = 3
+    REPO_DIRTY_BG = 0
 
-    CMD_PASSED_BG = 236
+    JOBS_FG = 4
+    JOBS_BG = 8
+
     CMD_PASSED_FG = 15
-    CMD_FAILED_BG = 161
+    CMD_PASSED_BG = 2
     CMD_FAILED_FG = 15
+    CMD_FAILED_BG = 1
 
-    SVN_CHANGES_BG = 148
-    SVN_CHANGES_FG = 22  # dark green
+    SVN_CHANGES_FG = REPO_DIRTY_FG
+    SVN_CHANGES_BG = REPO_DIRTY_BG
 
-    VIRTUAL_ENV_BG = 35  # a mid-tone green
-    VIRTUAL_ENV_FG = 00
+    VIRTUAL_ENV_BG = 15
+    VIRTUAL_ENV_FG = 2
 
 
 import os
@@ -308,6 +313,63 @@ except OSError:
     pass
 except subprocess.CalledProcessError:
     pass
+
+
+import os
+import subprocess
+
+def get_fossil_status():
+    has_modified_files = False
+    has_untracked_files = False
+    has_missing_files = False
+    output = os.popen('fossil changes 2>/dev/null').read().strip()
+    has_untracked_files = True if os.popen("fossil extras 2>/dev/null").read().strip() else False
+    has_missing_files = 'MISSING' in output
+    has_modified_files = 'EDITED' in output
+
+    return has_modified_files, has_untracked_files, has_missing_files
+
+def add_fossil_segment():
+    subprocess.Popen(['fossil'], stdout=subprocess.PIPE).communicate()[0]
+    branch = ''.join([i.replace('*','').strip() for i in os.popen("fossil branch 2> /dev/null").read().strip().split("\n") if i.startswith('*')])
+    if len(branch) == 0:
+        return
+
+    bg = Color.REPO_CLEAN_BG
+    fg = Color.REPO_CLEAN_FG
+    has_modified_files, has_untracked_files, has_missing_files = get_fossil_status()
+    if has_modified_files or has_untracked_files or has_missing_files:
+        bg = Color.REPO_DIRTY_BG
+        fg = Color.REPO_DIRTY_FG
+        extra = ''
+        if has_untracked_files:
+            extra += '+'
+        if has_missing_files:
+            extra += '!'
+        branch += (' ' + extra if extra != '' else '')
+    powerline.append(' %s ' % branch, fg, bg)
+
+try:
+    add_fossil_segment()
+except OSError:
+    pass
+except subprocess.CalledProcessError:
+    pass
+
+
+import os
+import re
+import subprocess
+
+def add_jobs_segment():
+    ppid = os.getppid()
+    output = subprocess.Popen(['ps', '-a', '-o', 'ppid'], stdout=subprocess.PIPE).communicate()[0]
+    num_jobs = len(re.findall(str(ppid), output)) - 1
+
+    if num_jobs > 0:
+        powerline.append(' %d ' % num_jobs, Color.JOBS_FG, Color.JOBS_BG)
+
+add_jobs_segment()
 
 
 def add_root_indicator_segment():
