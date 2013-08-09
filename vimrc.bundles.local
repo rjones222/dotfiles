@@ -7,7 +7,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'joonty/vdebug'
 
 " zen coding / emmett integration
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 
 " create tmux window with a command from vim
 Bundle 'benmills/vimux'
@@ -19,7 +19,7 @@ Bundle 'SirVer/ultisnips'
 " Bundle 'JazzCore/neocomplcache-ultisnips'
 
 " better than neocomplcache but no support for ultisnips
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
 " vim-autoclose causes problems with youcompleteme, it says use this instead
 Bundle 'Raimondi/delimitMate'
@@ -35,6 +35,7 @@ Bundle 'mhinz/vim-startify'
 
 " auto-update ctags on save
 Bundle 'szw/vim-tags'
+Bundle 'tpope/vim-dispatch'
 
 " auto ctags"
 " Bundle 'xolox/vim-misc'

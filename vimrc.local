@@ -75,9 +75,12 @@
     UnBundle 'Lokaltog/powerline'
     UnBundle 'Lokaltog/vim-powerline'
 
+    " temporary due to crippling bug"
+    UnBundle 'bling/vim-airline'
+
     " I already use phpqatools
     UnBundle 'scrooloose/syntastic'
-    
+
     " I use a different one
     UnBundle 'tobyS/pdv'
 
@@ -342,7 +345,7 @@
     autocmd QuickFixCmdPost *grep* cwindow
 
     "ctags autogen on save
-    " au BufWritePost *.php silent! !ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null &
+    " au BufWritePost *.php silent! !ctags --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null &
 
     " tag generation command (not working)
     " set exrc

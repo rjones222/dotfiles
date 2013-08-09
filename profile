@@ -2,6 +2,7 @@ alias wr='cd ~/Sites' # web root
 alias selenium='java -jar /usr/local/bin/selenium-server.jar'
 alias gitk='gitk 2>/dev/null' # fix terminal output error
 alias vimupdate='vim +BundleClean! +qall && vim +BundleInstall! +qall'
+alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
 alias watch='observr ~/.dotfiles/observr.conf.rb' # phpunit on dir change
 alias lsd="ls -GpFha" # additional details
 # I forget I'm not in vim sometimes...
@@ -31,6 +32,9 @@ alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
 alias profile="source ~/.profile"
 alias cat="pygmentize -g" # colorizes cat
+alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
+alias orig="find . -name '*.orig' -delete" # delete .orig files
+alias conflicts="grep -lir '<<<<<' *"
 
 # phpunit with notification
 function phpunitnotify () {
