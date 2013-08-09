@@ -240,7 +240,10 @@
     autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
     " neocomplcache disable auto popup
-    let g:neocomplcache_disable_auto_complete = 1
+    " let g:neocomplcache_disable_auto_complete = 1
+
+    " preview breaks youcompleteme
+    set completeopt-=preview
 
     " set guifont to powerline compatible for macvim
     " set guifont=Menlo\ for\ Powerline:h12
@@ -339,11 +342,11 @@
     autocmd QuickFixCmdPost *grep* cwindow
 
     "ctags autogen on save
-    au BufWritePost *.php silent! !ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null &
+    " au BufWritePost *.php silent! !ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null &
 
     " tag generation command (not working)
-    set exrc
-    set secure
-    " let g:vim_tags_project_tags_command = 'ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf'
+    " set exrc
+    " set secure
+    let g:vim_tags_project_tags_command = 'ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null'
 " }}}
 
