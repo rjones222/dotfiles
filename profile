@@ -45,12 +45,15 @@ function phpunitnotify () {
         terminal-notifier -message "PHPUnit tests failed" -title "Failed" -activate "com.apple.Terminal";
     fi
 }
+function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # add to path
-function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
-PATH=$PATH:/Applications/VirtualBox.app/Contents/MacOS
-PATH=$PATH:~/.bin
-PATH=$PATH:vendor/bin
+if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
+    PATH=$PATH:/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
+fi
+if [ -f ~/.bin ]; then
+    PATH=$PATH:~/.bin
+fi
 export PATH
 
 # more environment vars
@@ -59,65 +62,63 @@ export CLICOLOR=1
 # export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # get bash git completion
-# source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+# source /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -f /usr/local/etc/bash_completion ]; then
+  . /usr/local/etc/bash_completion
+fi
+if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
+    source /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 fi
 
-if [ -f $(brew --prefix)/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
-    source $(brew --prefix)/Cellar/tmux/1.8/etc/bash_completion.d/tmux
-fi
-
-# make prompt look like this, with colors: 12:11:28 Sites $ 
+# make prompt look like this, with colors: 12:11:28 Sites $
 # export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
 # export PS1="\W $(__git_ps1) \$"
 # export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
 
 # set vim as default editor
-export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
+if [ -f $HOME/Applications/MacVim.app/Contents/MacOS/Vim ]; then
+    export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
 
 # add to manpath for ranger manual to show up
-export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
+if [ -f $MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man ]; then
+    export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
+fi
 
 # always cd into web root
 # cd ~/Sites/einstein2/
 
 # powerline shell
-function _update_ps1() {
-   export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
-}
-export PROMPT_COMMAND="_update_ps1"
+if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
+    function _update_ps1() {
+        export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
+    }
+    export PROMPT_COMMAND="_update_ps1"
+fi
 
 # generic colorizer
-source "`brew --prefix`/etc/grc.bashrc"
+if [ -f /usr/local/etc/grc.bashrc ]; then
+    source "/usr/local/etc/grc.bashrc"
+fi
 
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
 # drops and creates einstein2 database
 function dbreset() {
-    # drop database
+    # drop database, create database
     echo drop database
     mysql -uroot -e 'DROP DATABASE IF EXISTS einstein2;'
 
-    # create database
     echo create database
     mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS einstein2;'
 
-    # migrate database
+    # migrate database, seed database
     php artisan migrate
-
-    # seed database
     php artisan db:seed
 }
 
 # http://www.reddit.com/r/commandline/comments/1j7y16/handy_bash_function_i_just_wrote_to_move_up/
-# I was working on some source with a deep directory structure, so wrote this 
-# little function to help in going up a few levels.
-# Instead of having to do "cd../../../../../" over and over!
-# You just type "up dirname" and it changes to the first parent directory that 
-# contains dirname, or to "/" if not found. Haven't tested it extensively yet, so 
-# likely to not work in all situations!
 up() {
     echo $(pwd)
 
