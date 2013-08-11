@@ -1,3 +1,22 @@
+# add rvm to path, load
+if [ -d "$HOME/.rvm/bin" ]; then
+    export PATH="$PATH:$HOME/.rvm/bin"
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+fi
+
+# add to path
+if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
+    export PATH=$PATH:/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
+fi
+if [ -f ~/.bin ]; then
+    export PATH=$PATH:~/.bin
+fi
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+# aliases
 alias wr='cd ~/Sites' # web root
 alias selenium='java -jar /usr/local/bin/selenium-server.jar'
 alias gitk='gitk 2>/dev/null' # fix terminal output error
@@ -13,7 +32,7 @@ alias :so="source"
 alias mux="tmuxinator"
 alias artisan="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
-alias vim="mvim -v" # use macvim executable in terminal mode
+# alias vim="mvim -v" # use macvim executable in terminal mode
 alias e2='cd ~/Sites/einstein2'
 eval "$(hub alias -s)" # alias hub to git
 alias g="git"
@@ -46,15 +65,6 @@ function phpunitnotify () {
     fi
 }
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
-
-# add to path
-if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
-    PATH=$PATH:/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
-fi
-if [ -f ~/.bin ]; then
-    PATH=$PATH:~/.bin
-fi
-export PATH
 
 # more environment vars
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
