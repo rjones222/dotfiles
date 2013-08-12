@@ -26,6 +26,7 @@
 
     " turn off relative line numbering
     set nornu
+    set number
 
     " disable spellcheck
     set nospell
@@ -76,7 +77,7 @@
     UnBundle 'Lokaltog/vim-powerline'
 
     " temporary due to crippling bug"
-    UnBundle 'bling/vim-airline'
+    " UnBundle 'bling/vim-airline'
 
     " I already use phpqatools
     UnBundle 'scrooloose/syntastic'
