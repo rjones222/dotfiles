@@ -32,7 +32,9 @@ alias :so="source"
 alias mux="tmuxinator"
 alias artisan="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
-# alias vim="mvim -v" # use macvim executable in terminal mode
+if [ -f /usr/local/bin/mvim ]; then
+    alias vim="mvim -v" # use macvim executable in terminal mode
+fi
 alias e2='cd ~/Sites/einstein2'
 eval "$(hub alias -s)" # alias hub to git
 alias g="git"
