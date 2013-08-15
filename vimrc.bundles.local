@@ -119,6 +119,9 @@ Bundle 'rking/ag.vim'
 " on linux it leaves this out for some reason
 Bundle 'bling/vim-airline'
 
+" open directory in finder
+Bundle 'justinmk/vim-gtfo'
+
 " --------------------------------------------------
 
 " prevent autocd into file directory
