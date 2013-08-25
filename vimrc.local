@@ -125,6 +125,7 @@
 
     " vimux
     map <leader>rp :VimuxPromptCommand<cr>
+    map <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
     map <leader>rl :VimuxRunLastCommand<cr>
     map <leader>ri :VimuxInspectRunner<cr>
     map <leader>rx :VimuxCloseRunner<cr>
@@ -356,5 +357,8 @@
     " set exrc
     " set secure
     let g:vim_tags_project_tags_command = 'ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null'
+
+    " gitgutter is wigging out with 7.4 and airline for some reason
+    let g:gitgutter_enabled = 0
 " }}}
 
