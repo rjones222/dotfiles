@@ -196,13 +196,17 @@
         let g:phpqa_messdetector_ruleset = "~/.dotfiles/phpmd_ruleset.xml"
 
         " Clover code coverage XML file
-        let g:phpqa_codecoverage_file = "/Library/WebServer/Documents/einstein2/build/logs/clover.xml"
+        if filereadable("/Library/WebServer/Documents/einstein2/build/logs/clover.xml")
+            let g:phpqa_codecoverage_file = "/Library/WebServer/Documents/einstein2/build/logs/clover.xml"
+        endif
 
         " Show code coverage on load (default = 0)
         let g:phpqa_codecoverage_autorun=1
 
         " path to php
-        let g:phpqa_php_cmd='/usr/local/php5/bin/php'
+        if filereadable('/usr/local/php5/bin/php')
+            let g:phpqa_php_cmd='/usr/local/php5/bin/php'
+        endif
     " }}}
 
     " cd to project root
