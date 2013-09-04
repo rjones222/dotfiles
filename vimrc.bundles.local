@@ -1,3 +1,4 @@
+" which bundle groups to install
 let g:spf13_bundle_groups=['general', 'programming', 'php', 'javascript', 'html', 'misc']
 
 " adds extra intuitive keyboard shortcuts
@@ -121,14 +122,3 @@ Bundle 'bling/vim-airline'
 
 " open directory in finder
 Bundle 'justinmk/vim-gtfo'
-
-" --------------------------------------------------
-
-" prevent autocd into file directory
-let g:spf13_no_autochdir = 1
-
-" this keeps trying to load powerline
-let g:spf13_no_views = 1
-
-" keep H and L shortcuts
-let g:spf13_no_fastTabs = 1

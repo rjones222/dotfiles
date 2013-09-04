@@ -14,6 +14,7 @@ ln -s ~/.dotfiles/inputrc ~/.inputrc
 ln -s ~/.dotfiles/rainbarf.conf ~/.rainbarf.conf
 ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
 ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
+ln -s ~/.dotfiles/vimrc.before ~/.vimrc.before
 ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
 ln -s ~/.dotfiles/ctags ~/.ctags
 ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini

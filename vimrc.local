@@ -334,10 +334,11 @@
     au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
 
     " vim-airline
-    let g:airline_powerline_fonts = 1
     let g:airline_theme = 'solarized'
     let g:airline_left_sep = '⮀'
     let g:airline_right_sep = '⮂'
+    " unlet g:airline_left_sep
+    " unlet g:airline_right_sep
 
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
@@ -361,6 +362,7 @@
     let g:vim_tags_project_tags_command = 'ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null'
 
     " gitgutter is wigging out with 7.4 and airline for some reason
-    let g:gitgutter_enabled = 0
+    " https://github.com/airblade/vim-gitgutter/issues/106
+    let g:gitgutter_realtime = 0
 " }}}
 
