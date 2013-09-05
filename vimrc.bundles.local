@@ -19,8 +19,8 @@ Bundle 'SirVer/ultisnips'
 " make ultisnips work with neocomplcache
 " Bundle 'JazzCore/neocomplcache-ultisnips'
 
-" better than neocomplcache but no support for ultisnips
-" Bundle 'Valloric/YouCompleteMe'
+" better than neocomplcache with built-in ultisnips support
+Bundle 'Valloric/YouCompleteMe'
 
 " vim-autoclose causes problems with youcompleteme, it says use this instead
 Bundle 'Raimondi/delimitMate'
