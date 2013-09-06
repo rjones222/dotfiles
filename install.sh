@@ -1,5 +1,29 @@
 #!/bin/bash
 
+# install homebrew stuff
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+brew install ack
+brew install bash-completion
+brew install git
+brew install graphviz
+brew install highlight
+brew install hub
+brew install imagemagick
+brew install macvim
+brew install mysql
+brew install qcachegrind
+brew install reattach-to-user-namespace
+brew install ruby
+brew install the_silver_searcher
+brew install tmux
+brew install tree
+brew install wget
+
+# install cli stuff
+sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
+sudo chmod a+x /usr/local/bin/php-cs-fixer
+# install ctags patched
+
 # Symlink the configuration files into their appropriate homes
 ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/config ~/.config
