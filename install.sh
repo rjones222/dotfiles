@@ -22,7 +22,12 @@ brew install wget
 # install cli stuff
 sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
 sudo chmod a+x /usr/local/bin/php-cs-fixer
+
 # install ctags patched
+# @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
+cd /usr/local/Library/Formula
+curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
+brew install ctags --HEAD
 
 # Symlink the configuration files into their appropriate homes
 ln -s ~/.dotfiles/gitconfig ~/.gitconfig
