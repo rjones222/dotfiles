@@ -15,6 +15,8 @@ fi
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
+# add ruby gems to PATH
+export PATH=$(brew --prefix ruby)/bin:$PATH
 
 # aliases
 alias wr='cd ~/Sites' # web root

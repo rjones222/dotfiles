@@ -38,6 +38,7 @@ brew install ctags --HEAD
 # Symlink the configuration files into their appropriate homes if they don't already exist
 [ -f ~/.gitconfig ] && ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 [ -f ~/.config ] && ln -s ~/.dotfiles/config ~/.config
+[ -f ~/.ssh/config ] && ln -s ~/.dotfiles/ssh/config ~/.ssh/config
 [ -f ~/.gitignore ] && ln -s ~/.dotfiles/gitignore ~/.gitignore
 [ -f ~/.profile ] && ln -s ~/.dotfiles/profile ~/.profile
 [ -f ~/.screenrc ] && ln -s ~/.dotfiles/screenrc ~/.screenrc
@@ -53,7 +54,7 @@ brew install ctags --HEAD
 [ -f ~/.tmuxinator ] && ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
 [ -f ~/.ctags ] && ln -s ~/.dotfiles/ctags ~/.ctags
 [ -f /usr/local/php5/php.d/999-my-php.ini ] && ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini
-[ -f /etc/apache2/other/999-my-httpd.conf ] && ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
+[ -f /etc/apache2/other/999-my-httpd.conf ] && sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 
 # install vim packages
 vim +BundleInstall +BundleClean! +qall
@@ -62,3 +63,7 @@ vim +BundleInstall +BundleClean! +qall
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
 cd -
+
+# prepend to /etc/paths
+sudo cp /etc/paths /etc/paths_BACKUP
+echo "/usr/local/bin"|cat - /etc/paths > /tmp/out && sudo mv /tmp/out /etc/paths
