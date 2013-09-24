@@ -1,8 +1,17 @@
 #!/bin/bash
 
 # pretty colors
-GREEN='\e[42m'
-RESET='\e[49m'
+# GREEN='\e[42m'
+# RESET='\e[49m'
+GREEN=''
+RESET=''
+
+# finder show hidden stuff
+if [ -f ~/Library/Preferences/com.apple.finder.plist ];
+then
+    defaults write com.apple.Finder AppleShowAllFiles TRUE
+    killall Finder
+fi
 
 # install homebrew stuff
 echo -e "${GREEN} installing homebrew... ${RESET}"
