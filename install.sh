@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # pretty colors
-GREEN = "\e[42m"
-RESET = "\e[49m"
+GREEN="\e[42m"
+RESET="\e[49m"
 
 # install homebrew stuff
 echo -e "$GREEN installing homebrew... $RESET"
