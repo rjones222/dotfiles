@@ -5,7 +5,7 @@ GREEN = "\e[42m"
 RESET = "\e[49m"
 
 # install homebrew stuff
-echo "$GREEN installing homebrew... $RESET"
+echo -e "$GREEN installing homebrew... $RESET"
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew install ack
 brew install bash-completion
@@ -36,13 +36,13 @@ gem install pygmentize
 
 # install ctags patched
 # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
-echo "$GREEN installing ctags patched... $RESET"
+echo -e "$GREEN installing ctags patched... $RESET"
 cd /usr/local/Library/Formula
 curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
 brew install ctags --HEAD
 
 # Symlink the configuration files into their appropriate homes if they don't already exist
-echo "$GREEN installing symlinks... $RESET"
+echo -e "$GREEN installing symlinks... $RESET"
 [ ! -f ~/.gitconfig ] && ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 [ ! -f ~/.config ] && ln -s ~/.dotfiles/config ~/.config
 [ ! -f ~/.ssh/config ] && ln -s ~/.dotfiles/ssh/config ~/.ssh/config
@@ -64,18 +64,18 @@ echo "$GREEN installing symlinks... $RESET"
 [ ! -f /etc/apache2/other/999-my-httpd.conf ] && sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 
 # install vim packages
-echo "$GREEN installing vim packages... $RESET"
+echo -e "$GREEN installing vim packages... $RESET"
 vim +BundleInstall +BundleClean! +qall
 
 # install youcompleteme
-echo "$GREEN installing youcompleteme... $RESET"
+echo -e "$GREEN installing youcompleteme... $RESET"
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
 cd -
 
 # prepend to /etc/paths
-echo "$GREEN prepending to paths... $RESET"
+echo -e "$GREEN prepending to paths... $RESET"
 sudo cp /etc/paths /etc/paths_BACKUP
-echo "/usr/local/bin"|cat - /etc/paths > /tmp/out && sudo mv /tmp/out /etc/paths
+echo -e "/usr/local/bin"|cat - /etc/paths > /tmp/out && sudo mv /tmp/out /etc/paths
 
-echo "$GREEN install complete $RESET"
+echo -e "$GREEN install complete $RESET"
