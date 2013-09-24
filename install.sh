@@ -26,12 +26,12 @@ brew install wget
 brew linkapps
 
 # install cli stuff
-echo "$GREEN installing cli tools... $RESET"
+echo -e "$GREEN installing cli tools... $RESET"
 sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
 sudo chmod a+x /usr/local/bin/php-cs-fixer
 
 # install gems
-echo "$GREEN installing gems... $RESET"
+ "$GREEN installing gems... $RESET"
 gem install pygmentize
 
 # install ctags patched
