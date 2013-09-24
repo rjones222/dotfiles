@@ -57,3 +57,8 @@ brew install ctags --HEAD
 
 # install vim packages
 vim +BundleInstall +BundleClean! +qall
+
+# install youcompleteme
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+cd -
