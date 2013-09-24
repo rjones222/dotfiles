@@ -15,5 +15,6 @@ My Vim, Git, and other dotfiles. This is now customized from [spf13](https://git
 
 # Other stuff to install:
 
-[XtraFinder](http://www.trankynam.com/xtrafinder/)
-[MouseTerm](https://bitheap.org/mouseterm/)
+* [XCode Command Line Tools](https://developer.apple.com/downloads/index.action)
+* [XtraFinder](http://www.trankynam.com/xtrafinder/)
+* [MouseTerm](https://bitheap.org/mouseterm/)
