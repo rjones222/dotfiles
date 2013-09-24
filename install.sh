@@ -23,6 +23,12 @@ brew install wget
 sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
 sudo chmod a+x /usr/local/bin/php-cs-fixer
 
+# install gems
+gem install pygmentize
+
+# add ruby gems to path
+export PATH=$(brew --prefix ruby)/bin:$PATH
+
 # install ctags patched
 # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
 cd /usr/local/Library/Formula
@@ -51,3 +57,8 @@ brew install ctags --HEAD
 
 # install vim packages
 vim +BundleInstall +BundleClean! +qall
+
+# install youcompleteme
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+cd -
