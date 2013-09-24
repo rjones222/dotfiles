@@ -31,7 +31,7 @@ sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-c
 sudo chmod a+x /usr/local/bin/php-cs-fixer
 
 # install gems
- "$GREEN installing gems... $RESET"
+echo -e "$GREEN installing gems... $RESET"
 gem install pygmentize
 
 # install ctags patched
