@@ -12,3 +12,8 @@ My Vim, Git, and other dotfiles. This is now customized from [spf13](https://git
 # All in one line
 
     curl http://j.mp/spf13-vim3 -L -o - | sh && cd ~ && git clone git@github.com:mikedfunk/dotfiles.git .dotfiles --recursive && cd ~/.dotfiles && sudo chmod +x install.sh && ./install.sh && vim +BundleInstall! +BundleClean! +qall
+
+# Other stuff to install:
+
+[XtraFinder](http://www.trankynam.com/xtrafinder/)
+[MouseTerm](https://bitheap.org/mouseterm/)
