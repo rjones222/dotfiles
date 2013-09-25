@@ -18,3 +18,7 @@ My Vim, Git, and other dotfiles. This is now customized from [spf13](https://git
 * [XCode Command Line Tools](https://developer.apple.com/downloads/index.action)
 * [XtraFinder](http://www.trankynam.com/xtrafinder/)
 * [MouseTerm](https://bitheap.org/mouseterm/)
+* [Dropbox](https://www.dropbox.com/downloading?src=index)
+* [Google Drive](https://tools.google.com/dlpage/drive)
+* [Google Music](https://support.google.com/googleplay/answer/1229970?hl=en)
+* [Sizewell](http://sizewellplugin.com/)
