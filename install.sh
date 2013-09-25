@@ -38,6 +38,8 @@ brew linkapps
 echo -e "${GREEN} installing cli tools... ${RESET}"
 sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
 sudo chmod a+x /usr/local/bin/php-cs-fixer
+ln -s ~/.dotfiles/reattach-to-user-namespace-tmux /usr/local/bin/reattach-to-user-namespace-tmux
+sudo chmod a+x /usr/local/bin/reattach-to-user-namespace-tmux
 
 # install gems
 echo -e "${GREEN} installing gems... ${RESET}"
