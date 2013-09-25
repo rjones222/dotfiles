@@ -37,14 +37,13 @@ alias migrate="php artisan migrate:refresh --seed"
 if [ -f /usr/local/bin/mvim ]; then
     alias vim="mvim -v" # use macvim executable in terminal mode
 fi
-alias e2='cd ~/Sites/einstein2'
 eval "$(hub alias -s)" # alias hub to git
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
-alias test="artisan dump-autoload && artisan clear-compiled && phpunit --debug"
+alias test="composer dump-autoload && artisan clear-compiled && phpunit --debug"
 alias pf="phpunit --debug --filter "
 alias pu="phpunit"
-alias cda="php artisan dump-autoload"
+alias cda="composer dump-autoload"
 alias cu="composer update"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
@@ -54,7 +53,9 @@ alias ma="git pull origin develop" # merge alert!
 alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
 alias profile="source ~/.profile"
-alias cat="pygmentize -g" # colorizes cat
+if gem list pygmentize -i; then
+    alias cat="pygmentize -g" # colorizes cat
+fi
 alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
 alias orig="find . -name '*.orig' -delete" # delete .orig files
 alias conflicts="grep -lir '<<<<<' *"
