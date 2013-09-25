@@ -53,7 +53,9 @@ alias ma="git pull origin develop" # merge alert!
 alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
 alias profile="source ~/.profile"
-if gem list pygmentize -i; then
+chk=''
+gem list pygmentize -i | $chk
+if [ $chk ]; then
     alias cat="pygmentize -g" # colorizes cat
 fi
 alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
@@ -133,24 +135,4 @@ function dbreset() {
     # migrate database, seed database
     php artisan migrate
     php artisan db:seed
-}
-
-# http://www.reddit.com/r/commandline/comments/1j7y16/handy_bash_function_i_just_wrote_to_move_up/
-up() {
-    echo $(pwd)
-
-    if [[ $1 == "" ]]
-        then
-            newdir=/
-        else
-            local newdir=$(dirname $(pwd))
-    fi
-
-    while [[ "$(basename $newdir)" != *$1* ]] && [[ "$(basename $newdir)" != "/" ]]
-    do
-        newdir=$(dirname $newdir)
-    done
-
-    echo $newdir
-    cd $newdir
 }
