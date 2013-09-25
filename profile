@@ -58,6 +58,8 @@ alias cat="pygmentize -g" # colorizes cat
 alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
 alias orig="find . -name '*.orig' -delete" # delete .orig files
 alias conflicts="grep -lir '<<<<<' *"
+alias new-work="tmux new-session -s Work"
+alias attach-work="tmux attach -t Work"
 
 # phpunit with notification
 function phpunitnotify () {
