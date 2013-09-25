@@ -77,7 +77,8 @@ echo -e "${GREEN} installing symlinks... ${RESET}"
 
 # install vim packages
 echo -e "${GREEN} installing vim packages... ${RESET}"
-vim +BundleInstall +BundleClean! +qall
+curl http://j.mp/spf13-vim3 -L -o - | sh #install spf-13-vim
+vim +BundleClean! +qall
 
 # install youcompleteme
 echo -e "${GREEN} installing youcompleteme... ${RESET}"
