@@ -44,6 +44,7 @@ sudo chmod a+x /usr/local/bin/reattach-to-user-namespace-tmux
 # install gems
 echo -e "${GREEN} installing gems... ${RESET}"
 gem install pygmentize
+gem install observr
 
 # install ctags patched
 # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
