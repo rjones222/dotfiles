@@ -50,6 +50,9 @@
 
     " set this to a blade view
     nnoremap <leader>h :setlocal ft=html shiftwidth=2 tabstop=2<cr>
+
+    " open tag in tab
+    :nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " }}}
 
 " Unbundle {{{
