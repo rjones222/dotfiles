@@ -1,37 +1,3 @@
-[user]
-    name = Mike Funk
-    email = mfunk@christianpublishing.com
-[push]
-    default = current
-[merge]
-    tool = opendiff
-[diff]
-    tool = opendiff
-[core]
-    editor = /usr/local/bin/mvim -vf
-[pre-commit]
-    checks = php, tabs, jshint, whitespace, console_log
-[color]
-    ui = true
-  [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-  [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
-  [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
-    ui = true
-  [core]
-    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    trustctime = false
-    excludesfile = /Users/mikedfunk/.gitignore
 [alias]
     ci = commit
     br = branch
@@ -49,16 +15,49 @@
     standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mfunk@christianpublishing.com
     purr = pull --rebase
     sync = "!f() { echo Syncing $1 with develop && git checkout develop && git pull && git checkout $1 && git merge develop; }; f"
-	latest = for-each-ref --sort=-committerdate refs/heads --format='%(committerdate:relative) %(refname:short)'
-[mergetool]
-    keepBackup = false
+    latest = for-each-ref --sort=-committerdate refs/heads --format='%(committerdate:relative) %(refname:short)'
+[color]
+    ui = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+    ui = true
+[core]
+    editor = /usr/local/bin/mvim -vf
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    trustctime = false
+    excludesfile = /Users/mikedfunk/.gitignore
+[diff]
+    tool = opendiff
 [github]
     user = mikedfunk
-[web]
-	browser = open
-[url "git@github.com"]
-	insteadOf = gh
-[url "git@bitbucket.org"]
-	insteadOf = bb
+[merge]
+    tool = opendiff
+[mergetool]
+    keepBackup = false
+[pre-commit]
+    checks = php, tabs, jshint, whitespace, console_log
+[push]
+    default = current
 [rebase]
-	autosquash = true
+    autosquash = true
+[user]
+    name = Mike Funk
+    email = mfunk@christianpublishing.com
+[url "git@github.com"]
+    insteadOf = gh
+[url "git@bitbucket.org"]
+    insteadOf = bb
+[web]
+    browser = open
