@@ -20,6 +20,7 @@ export PATH=$(brew --prefix ruby)/bin:$PATH
 
 # aliases
 alias wr='cd ~/Sites' # web root
+alias ld='cd /Volumes/Lucid\ Dev'
 alias selenium='java -jar /usr/local/bin/selenium-server.jar'
 alias gitk='gitk 2>/dev/null' # fix terminal output error
 alias vimupdate='vim +BundleClean! +qall && vim +BundleInstall! +qall'
