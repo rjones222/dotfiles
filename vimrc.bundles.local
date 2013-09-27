@@ -31,6 +31,15 @@ Bundle 'joonty/vim-phpqa'
 " improved php omnicompletion
 Bundle 'shawncplus/phpcomplete.vim'
 
+" php completion for composer projects
+Bundle 'm2mdas/phpcomplete-extended'
+
+" required for phpcomplete-extended
+Bundle 'Shougo/vimproc.vim'
+
+" laravel completion
+Bundle 'm2mdas/phpcomplete-extended-laravel'
+
 " better vim start screen
 Bundle 'mhinz/vim-startify'
 
