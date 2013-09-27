@@ -51,6 +51,11 @@ cd /usr/local/Library/Formula
 curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
 brew install ctags --HEAD
 
+# install phpctags
+cd ~/.dotfiles/phpctags
+make
+cd -
+
 # Symlink the configuration files into their appropriate homes if they don't already exist
 echo -e "${GREEN} installing symlinks... ${RESET}"
 [ ! -f ~/.gitconfig ] && ln -s ~/.dotfiles/gitconfig ~/.gitconfig

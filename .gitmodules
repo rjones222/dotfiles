@@ -1,3 +1,6 @@
 [submodule "powerline-fonts"]
 	path = powerline-fonts
 	url = https://github.com/Lokaltog/powerline-fonts.git
+[submodule "phpctags"]
+	path = phpctags
+	url = https://github.com/techlivezheng/phpctags.git
