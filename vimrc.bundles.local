@@ -31,11 +31,11 @@ Bundle 'joonty/vim-phpqa'
 " improved php omnicompletion
 Bundle 'shawncplus/phpcomplete.vim'
 
-" php completion for composer projects
-Bundle 'm2mdas/phpcomplete-extended'
-
 " required for phpcomplete-extended
 Bundle 'Shougo/vimproc.vim'
+
+" php completion for composer projects
+Bundle 'm2mdas/phpcomplete-extended'
 
 " laravel completion
 Bundle 'm2mdas/phpcomplete-extended-laravel'

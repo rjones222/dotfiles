@@ -78,10 +78,12 @@ echo -e "${GREEN} installing vim packages... ${RESET}"
 curl http://j.mp/spf13-vim3 -L -o - | sh #install spf-13-vim
 vim +BundleClean! +qall
 
-# install youcompleteme
+# build some vim packages
 echo -e "${GREEN} installing youcompleteme... ${RESET}"
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
+cd ~/.vim/bundle/vimproc.vim
+make
 cd -
 
 # prepend to /etc/paths
