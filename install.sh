@@ -54,6 +54,7 @@ brew install ctags --HEAD
 # install phpctags
 cd ~/.dotfiles/phpctags
 make
+ln -s ~/.dotfiles/phpctags/phpctags /usr/local/bin/phpctags
 cd -
 
 # Symlink the configuration files into their appropriate homes if they don't already exist
