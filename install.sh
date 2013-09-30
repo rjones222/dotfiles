@@ -40,10 +40,10 @@ sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-c
 sudo chmod a+x /usr/local/bin/php-cs-fixer
 
 # install composer
-cd /usr/local
+cd /usr/local/bin
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar composer
-sudo chmod +x composer.phar
+sudo chmod +x composer
 
 # install gems
 echo -e "${GREEN} installing gems... ${RESET}"
