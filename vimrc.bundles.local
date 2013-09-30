@@ -131,3 +131,6 @@ Bundle 'bling/vim-airline'
 
 " open directory in finder
 Bundle 'justinmk/vim-gtfo'
+
+" jump to definition even if tags file doesn't exist
+Bundle 'tacahiroy/ctrlp-funky'
