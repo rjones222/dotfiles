@@ -312,7 +312,12 @@
     endfunction
 
     " ctrlp extensions
-    let g:ctrlp_extensions = ['tag']
+    let g:ctrlp_extensions = ['tag', 'funky']
+
+    " ctrlpfunky shortcuts
+    nnoremap <Leader>fu :CtrlPFunky<Cr>
+    " narrow the list down with a word under cursor
+    nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
 
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
