@@ -20,6 +20,7 @@ brew uninstall wget
 
 # uninstall cli stuff
 rm /usr/local/bin/php-cs-fixer
+rm /usr/local/bin/composer
 
 # uninstall gems
 gem uninstall pygmentize

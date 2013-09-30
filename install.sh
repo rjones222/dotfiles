@@ -34,10 +34,16 @@ brew install tree
 brew install wget
 brew linkapps
 
-# install cli stuff
 echo -e "${GREEN} installing cli tools... ${RESET}"
+# install php-cs-fixer
 sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
 sudo chmod a+x /usr/local/bin/php-cs-fixer
+
+# install composer
+cd /usr/local
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar composer
+sudo chmod +x composer.phar
 
 # install gems
 echo -e "${GREEN} installing gems... ${RESET}"
