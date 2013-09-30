@@ -82,6 +82,7 @@ echo -e "${GREEN} installing symlinks... ${RESET}"
 [ ! -f ~/.vimrc.before.local ] && ln -s ~/.dotfiles/vimrc.before.local ~/.vimrc.before.local
 [ ! -f ~/.tmuxinator ] && ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
 [ ! -f ~/.ctags ] && ln -s ~/.dotfiles/ctags ~/.ctags
+[ ! -f ~/.vim/UltiSnips ] && ln -s ~/.dotfiles/UltiSnips ~/.vim/UltiSnips
 [ ! -f /usr/local/php5/php.d/999-my-php.ini ] && ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini
 [ ! -f /etc/apache2/other/999-my-httpd.conf ] && sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 

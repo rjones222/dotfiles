@@ -46,6 +46,7 @@ brew uninstall ctags
 [ -L ~/.vimrc.before.local ] && rm ~/.vimrc.before.local
 [ -L ~/.tmuxinator ] && rm ~/.tmuxinator
 [ -L ~/.ctags ] && rm ~/.ctags
+[ -L ~/.vim/UltiSnips ] && rm ~/.vim/UltiSnips
 [ -L /usr/local/php5/php.d/999-my-php.ini ] && rm /usr/local/php5/php.d/999-my-php.ini
 [ -L /etc/apache2/other/999-my-httpd.conf ] && sudo rm /etc/apache2/other/999-my-httpd.conf
 
