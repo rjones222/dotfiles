@@ -91,6 +91,9 @@
     " causes problems with youcompleteme
     UnBundle 'Townk/vim-autoclose'
 
+    " I installed newer versions of the same stuff
+    UnBundle 'spf13/PIV'
+
     " various spf-13 stuff I don't use
     " UnBundle 'jnwhiteh/vim-golang'
     " UnBundle 'python.vim'
@@ -340,6 +343,9 @@
     let g:pdv_cfg_Author    = 'Michael Funk <mfunk@christianpublishing.com>'
     let g:pdv_cfg_Copyright = '2013 Xulon Press, Inc. All Rights Reserved.'
     let g:pdv_cfg_ClassTags = ["package","author","copyright"]
+    " let g:pdv_cfg_folds = 0
+    " let g:pdv_cfg_CommentEnd = ""
+
     au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
     au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
     au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
