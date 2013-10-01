@@ -32,6 +32,7 @@ brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install wget
+brew install nodejs
 brew linkapps
 
 echo -e "${GREEN} installing cli tools... ${RESET}"
@@ -44,6 +45,9 @@ cd /usr/local/bin
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar composer
 sudo chmod +x composer
+
+# install node packages
+npm install -g powerline-js
 
 # install gems
 echo -e "${GREEN} installing gems... ${RESET}"
@@ -82,6 +86,7 @@ echo -e "${GREEN} installing symlinks... ${RESET}"
 [ ! -f ~/.vimrc.before.local ] && ln -s ~/.dotfiles/vimrc.before.local ~/.vimrc.before.local
 [ ! -f ~/.tmuxinator ] && ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
 [ ! -f ~/.ctags ] && ln -s ~/.dotfiles/ctags ~/.ctags
+# [ ! -f /usr/local/bin/powerline.js ] && ln -s /usr/local/lib/node_modules/powerline/powerline.js /usr/local/bin/powerline.js
 [ ! -f ~/.vim/UltiSnips ] && ln -s ~/.dotfiles/UltiSnips ~/.vim/UltiSnips
 [ ! -f /usr/local/php5/php.d/999-my-php.ini ] && ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini
 [ ! -f /etc/apache2/other/999-my-httpd.conf ] && sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
@@ -102,6 +107,7 @@ cd -
 # prepend to /etc/paths
 echo -e "${GREEN} prepending to paths... ${RESET}"
 sudo cp /etc/paths /etc/paths_BACKUP
-echo -e "/usr/local/bin"|cat - /etc/paths > /tmp/out && sudo mv /tmp/out /etc/paths
+echo -e "/usr/local/bin"|cat - /etc/paths > /tmp/out 
+sudo mv /tmp/out /etc/paths
 
 echo -e "${GREEN} install complete ${RESET}"

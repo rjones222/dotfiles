@@ -113,9 +113,13 @@ fi
 if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
     function _update_ps1() {
         export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
+        # export PS1="$(powerline $? --shell bash --depth 4)"
     }
     export PROMPT_COMMAND="_update_ps1"
 fi
+
+# powerline shell
+# source ~/.bash-powerline.sh
 
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then

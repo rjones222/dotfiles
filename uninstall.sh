@@ -17,6 +17,7 @@ brew uninstall the_silver_searcher
 brew uninstall tmux
 brew uninstall tree
 brew uninstall wget
+brew uninstall nodejs
 
 # uninstall cli stuff
 rm /usr/local/bin/php-cs-fixer
