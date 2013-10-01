@@ -134,3 +134,6 @@ Bundle 'justinmk/vim-gtfo'
 
 " jump to definition even if tags file doesn't exist
 Bundle 'tacahiroy/ctrlp-funky'
+
+" was used in PIV for php folding
+Bundle 'rayburgemeestre/phpfolding.vim'
