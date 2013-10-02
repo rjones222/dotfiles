@@ -99,9 +99,16 @@ if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
 fi
 
 # make prompt look like this, with colors: 12:11:28 Sites $
-export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
-export PS1="\W $(__git_ps1) \$"
-export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
+# if __git_ps1 is set
+if hash __git_ps1 2>/dev/null; then
+    export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
+    export PS1="\W $(__git_ps1) \$"
+    export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
+else
+    export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED $RS \$ $RS "
+    export PS1="\W \$"
+    export PS1="\h:\W \u\$ "
+fi
 
 # set vim as default editor
 if [ -f $HOME/Applications/MacVim.app/Contents/MacOS/Vim ]; then
@@ -117,18 +124,15 @@ fi
 # cd ~/Sites/einstein2/
 
 # powerline shell
-# if __git_ps1 is set
-if hash __git_ps1 2>/dev/null; then
-    # if python exists
-    if ! $(python -c "import distutils.sysconfig.get_config_vars" &> /dev/null); then
-        # if powerline-shell.py file exists
-        if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
-            function _update_ps1() {
-                export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
-                # export PS1="$(powerline $? --shell bash --depth 4)"
-            }
-            export PROMPT_COMMAND="_update_ps1"
-        fi
+# if python exists
+if ! $(python -c "import distutils.sysconfig.get_config_vars" &> /dev/null); then
+    # if powerline-shell.py file exists
+    if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
+        function _update_ps1() {
+            export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
+            # export PS1="$(powerline $? --shell bash --depth 4)"
+        }
+        export PROMPT_COMMAND="_update_ps1"
     fi
 fi
 
