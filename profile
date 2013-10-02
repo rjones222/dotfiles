@@ -8,7 +8,7 @@ fi
 if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
     export PATH=$PATH:/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 fi
-if [ -f ~/.bin ]; then
+if [ -d ~/.bin ]; then
     export PATH=$PATH:~/.bin
 fi
 # set PATH so it includes user's private bin if it exists
@@ -16,7 +16,9 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 # add ruby gems to PATH
-export PATH=$(brew --prefix ruby)/bin:$PATH
+if [ -f "/usr/local/bin/brew" ]; then
+    export PATH=$(brew --prefix ruby)/bin:$PATH
+fi
 
 # aliases
 alias wr='cd ~/Sites' # web root
@@ -59,7 +61,9 @@ alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
 alias profile="source ~/.profile"
 chk=''
-gem list pygmentize -i | $chk
+if [ -f "/usr/local/opt/ruby/bin/gem" ]; then
+    gem list pygmentize -i | $chk
+fi
 if [ $chk ]; then
     alias cat="pygmentize -g" # colorizes cat
 fi
