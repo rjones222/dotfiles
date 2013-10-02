@@ -42,7 +42,8 @@ fi
 eval "$(hub alias -s)" # alias hub to git
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
-alias test="composer dump-autoload && artisan clear-compiled && phpunit --debug"
+# alias test="composer dump-autoload && artisan clear-compiled && phpunit --debug"
+alias test="php artisan test "
 alias pf="phpunit --debug --filter "
 alias pu="phpunit"
 alias cda="composer dump-autoload"
@@ -92,9 +93,9 @@ if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
 fi
 
 # make prompt look like this, with colors: 12:11:28 Sites $
-# export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
-# export PS1="\W $(__git_ps1) \$"
-# export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
+export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
+export PS1="\W $(__git_ps1) \$"
+export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
 
 # set vim as default editor
 if [ -f $HOME/Applications/MacVim.app/Contents/MacOS/Vim ]; then
@@ -110,12 +111,15 @@ fi
 # cd ~/Sites/einstein2/
 
 # powerline shell
-if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
-    function _update_ps1() {
-        export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
-        # export PS1="$(powerline $? --shell bash --depth 4)"
-    }
-    export PROMPT_COMMAND="_update_ps1"
+# if python exists
+if ! $(python -c "import distutils.sysconfig.get_config_vars" &> /dev/null); then
+    if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
+        function _update_ps1() {
+            export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
+            # export PS1="$(powerline $? --shell bash --depth 4)"
+        }
+        export PROMPT_COMMAND="_update_ps1"
+    fi
 fi
 
 # powerline shell
