@@ -39,7 +39,9 @@ alias migrate="php artisan migrate:refresh --seed"
 if [ -f /usr/local/bin/mvim ]; then
     alias vim="mvim -v" # use macvim executable in terminal mode
 fi
-eval "$(hub alias -s)" # alias hub to git
+if [ -f /usr/local/bin/hub ]; then
+    eval "$(hub alias -s)" # alias hub to git
+fi
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
 # alias test="composer dump-autoload && artisan clear-compiled && phpunit --debug"
