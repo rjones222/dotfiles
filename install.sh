@@ -33,6 +33,7 @@ brew install tmux
 brew install tree
 brew install wget
 brew install nodejs
+brew install virtualhost.sh
 brew linkapps
 
 echo -e "${GREEN} installing cli tools... ${RESET}"

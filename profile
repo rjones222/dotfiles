@@ -150,3 +150,6 @@ function dbreset() {
     php artisan migrate
     php artisan db:seed
 }
+
+# easy vhost adding
+# source "$HOME/.dotfiles/vhost.sh"
