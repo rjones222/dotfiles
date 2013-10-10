@@ -51,15 +51,16 @@ namespace ${3:MyNamespace};
 /**
  * ${4:ClassName}
  *
- * @author ${5:`!v g:snips_author`}
+ * @author `!v g:snips_author`
  */
-class $4
+class $4 $5
 {
     $7
 }
 endsnippet
 
 snippet meth
+
 /**
  * $2
  *
@@ -79,6 +80,7 @@ interface ${1:MyRepository}
 endsnippet
 
 snippet va "var with docblock"
+
 /**
  * ${1:description}
  *
@@ -86,7 +88,6 @@ snippet va "var with docblock"
  * @access ${3:protected}
  */
 $3 ${4:$myvar};
-$5
 endsnippet
 
 snippet varblock "var docblock"
@@ -111,12 +112,13 @@ snippet classblock "class level docblock"
 /**
  * ${1:title}
  *
- * @author ${2:`!v g:snips_author`}
+ * @author `!v g:snips_author`
  */$3
 endsnippet
 
 
 snippet methodblock "method level docblock"
+
 /**
  * ${1:title}
  *

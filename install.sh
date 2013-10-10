@@ -34,6 +34,8 @@ brew install tree
 brew install wget
 brew install nodejs
 brew install virtualhost.sh
+brew install selenium-server-standalone
+brew install grc
 brew linkapps
 
 echo -e "${GREEN} installing cli tools... ${RESET}"
@@ -89,6 +91,7 @@ echo -e "${GREEN} installing symlinks... ${RESET}"
 [ ! -f ~/.ctags ] && ln -s ~/.dotfiles/ctags ~/.ctags
 # [ ! -f /usr/local/bin/powerline.js ] && ln -s /usr/local/lib/node_modules/powerline/powerline.js /usr/local/bin/powerline.js
 [ ! -f ~/.vim/UltiSnips ] && ln -s ~/.dotfiles/UltiSnips ~/.vim/UltiSnips
+[ ! -f /usr/local/bin/selenium-server.jar ] && ln -s ~/.dotfiles/selenium-server.jar /usr/local/bin/selenium-server.jar
 [ ! -f /usr/local/php5/php.d/999-my-php.ini ] && ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini
 [ ! -f /etc/apache2/other/999-my-httpd.conf ] && sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 

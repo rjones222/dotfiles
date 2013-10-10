@@ -20,7 +20,7 @@ Bundle 'SirVer/ultisnips'
 " Bundle 'JazzCore/neocomplcache-ultisnips'
 
 " better than neocomplcache with built-in ultisnips support
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
 " vim-autoclose causes problems with youcompleteme, it says use this instead
 Bundle 'Raimondi/delimitMate'
@@ -32,13 +32,14 @@ Bundle 'joonty/vim-phpqa'
 Bundle 'shawncplus/phpcomplete.vim'
 
 " required for phpcomplete-extended
-Bundle 'Shougo/vimproc.vim'
+" won't make
+" Bundle 'Shougo/vimproc.vim'
 
 " php completion for composer projects
-Bundle 'm2mdas/phpcomplete-extended'
+" Bundle 'm2mdas/phpcomplete-extended'
 
 " laravel completion
-Bundle 'm2mdas/phpcomplete-extended-laravel'
+" Bundle 'm2mdas/phpcomplete-extended-laravel'
 
 " better vim start screen
 Bundle 'mhinz/vim-startify'
