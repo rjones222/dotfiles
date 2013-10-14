@@ -28,11 +28,16 @@ $1->expects($this->any())
 endsnippet
 
 snippet construct "laravel 4 DI construct"
+
+/**
+ * dependency injection
+ *
+ * @param $1 $$2
+ */
 public function __construct(${1:UserRepositoryInterface} $${2:user})
 {
     $this->$2 = $$2;
 }
-$3
 endsnippet
 
 snippet php "opening php tag"
@@ -43,10 +48,10 @@ endsnippet
 snippet cla "mike's class with namespace, file and class docblocks"
 <?php
 /**
- * @package ${2:Template}
+ * @package ${2:ExampleBlog}
  * @copyright `date +%Y` SpinMedia, Inc. All Rights Reserved.
  */
-namespace ${3:MyNamespace};
+namespace ${3:SpinMedia\ExampleBlog};
 
 /**
  * ${4:ClassName}
@@ -55,11 +60,11 @@ namespace ${3:MyNamespace};
  */
 class $4 $5
 {
-    $7
+    $6
 }
 endsnippet
 
-snippet meth
+snippet meth "php method"
 
 /**
  * $2
@@ -82,12 +87,10 @@ endsnippet
 snippet va "var with docblock"
 
 /**
- * ${1:description}
- *
- * @var ${2:mixed}
- * @access ${3:protected}
+ * @var ${1:mixed}
  */
-$3 ${4:$myvar};
+protected ${2:$myvar};
+
 endsnippet
 
 snippet varblock "var docblock"
@@ -166,3 +169,8 @@ return array(
 );
 endsnippet
 
+snippet call "Laravel http call"
+$this->call('${1:GET}', ${2:myurl});
+endsnippet
+
+snippet mock_collection "mock laravel collection with mockery"

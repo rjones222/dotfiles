@@ -5,13 +5,13 @@ let g:spf13_bundle_groups=['general', 'programming', 'php', 'javascript', 'html'
 Bundle 'tpope/vim-unimpaired'
 
 " xdebug integration
-Bundle 'joonty/vdebug'
+" Bundle 'joonty/vdebug'
 
 " zen coding / emmett integration
 Bundle 'mattn/emmet-vim'
 
 " create tmux window with a command from vim
-Bundle 'benmills/vimux'
+" Bundle 'benmills/vimux'
 
 " much better than snipmate or neosnippet
 Bundle 'SirVer/ultisnips'
@@ -23,7 +23,7 @@ Bundle 'SirVer/ultisnips'
 " Bundle 'Valloric/YouCompleteMe'
 
 " vim-autoclose causes problems with youcompleteme, it says use this instead
-Bundle 'Raimondi/delimitMate'
+" Bundle 'Raimondi/delimitMate'
 
 " phpmd, phpcs, php lint, and coverage on save
 Bundle 'joonty/vim-phpqa'
@@ -91,15 +91,15 @@ Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 " Bundle 'goldfeld/ctrlr.vim'
 
 " better iterm2/tmux compatibility
-Bundle 'vim-scripts/Vitality'
+Bundle 'sjl/vitality.vim'
 
 " allow to close all buffers but the current one
 Bundle 'vim-scripts/BufOnly.vim'
 
 " improved phpdoc implementation
 " Bundle 'tobyS/pdv'
-" Bundle 'sumpygump/php-documentor-vim'
-Bundle 'mikedfunk/php-documentor-vim'
+Bundle 'sumpygump/php-documentor-vim'
+" Bundle 'mikedfunk/php-documentor-vim'
 
 " required for pdv
 Bundle 'tobyS/vmustache'
@@ -121,7 +121,7 @@ Bundle 'yonchu/accelerated-smooth-scroll'
 " Bundle 'kana/vim-textobj-indent'
 Bundle 'michaeljsmith/vim-indent-object'
 
-" better tag selector
+" better tag selector with ctrlp
 Bundle 'ivalkeen/vim-ctrlp-tjump'
 
 " better than Ack
@@ -134,7 +134,7 @@ Bundle 'bling/vim-airline'
 Bundle 'justinmk/vim-gtfo'
 
 " jump to definition even if tags file doesn't exist
-Bundle 'tacahiroy/ctrlp-funky'
+" Bundle 'tacahiroy/ctrlp-funky'
 
 " was used in PIV for php folding
 Bundle 'rayburgemeestre/phpfolding.vim'
