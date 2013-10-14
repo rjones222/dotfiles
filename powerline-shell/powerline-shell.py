@@ -148,21 +148,6 @@ class Color:
 
 import os
 
-def add_virtual_env_segment():
-    env = os.getenv('VIRTUAL_ENV')
-    if env is None:
-        return
-
-    env_name = os.path.basename(env)
-    bg = Color.VIRTUAL_ENV_BG
-    fg = Color.VIRTUAL_ENV_FG
-    powerline.append(' %s ' % env_name, fg, bg)
-
-add_virtual_env_segment()
-
-
-import os
-
 def get_short_path(cwd):
     home = os.getenv('HOME')
     names = cwd.split(os.sep)
@@ -242,115 +227,6 @@ def add_git_segment():
 
 try:
     add_git_segment()
-except OSError:
-    pass
-except subprocess.CalledProcessError:
-    pass
-
-
-import os
-import subprocess
-
-def get_hg_status():
-    has_modified_files = False
-    has_untracked_files = False
-    has_missing_files = False
-    output = subprocess.Popen(['hg', 'status'],
-            stdout=subprocess.PIPE).communicate()[0]
-    for line in output.split('\n'):
-        if line == '':
-            continue
-        elif line[0] == '?':
-            has_untracked_files = True
-        elif line[0] == '!':
-            has_missing_files = True
-        else:
-            has_modified_files = True
-    return has_modified_files, has_untracked_files, has_missing_files
-
-def add_hg_segment():
-    branch = os.popen('hg branch 2> /dev/null').read().rstrip()
-    if len(branch) == 0:
-        return False
-    bg = Color.REPO_CLEAN_BG
-    fg = Color.REPO_CLEAN_FG
-    has_modified_files, has_untracked_files, has_missing_files = get_hg_status()
-    if has_modified_files or has_untracked_files or has_missing_files:
-        bg = Color.REPO_DIRTY_BG
-        fg = Color.REPO_DIRTY_FG
-        extra = ''
-        if has_untracked_files:
-            extra += '+'
-        if has_missing_files:
-            extra += '!'
-        branch += (' ' + extra if extra != '' else '')
-    return powerline.append(' %s ' % branch, fg, bg)
-
-add_hg_segment()
-
-
-import subprocess
-
-def add_svn_segment():
-    is_svn = subprocess.Popen(['svn', 'status'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    is_svn_output = is_svn.communicate()[1].strip()
-    if len(is_svn_output) != 0:
-        return
-
-    #"svn status | grep -c "^[ACDIMRX\\!\\~]"
-    p1 = subprocess.Popen(['svn', 'status'], stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE)
-    p2 = subprocess.Popen(['grep', '-c', '^[ACDIMR\\!\\~]'],
-            stdin=p1.stdout, stdout=subprocess.PIPE)
-    output = p2.communicate()[0].strip()
-    if len(output) > 0 and int(output) > 0:
-        changes = output.strip()
-        powerline.append(' %s ' % changes, Color.SVN_CHANGES_FG, Color.SVN_CHANGES_BG)
-
-try:
-    add_svn_segment()
-except OSError:
-    pass
-except subprocess.CalledProcessError:
-    pass
-
-
-import os
-import subprocess
-
-def get_fossil_status():
-    has_modified_files = False
-    has_untracked_files = False
-    has_missing_files = False
-    output = os.popen('fossil changes 2>/dev/null').read().strip()
-    has_untracked_files = True if os.popen("fossil extras 2>/dev/null").read().strip() else False
-    has_missing_files = 'MISSING' in output
-    has_modified_files = 'EDITED' in output
-
-    return has_modified_files, has_untracked_files, has_missing_files
-
-def add_fossil_segment():
-    subprocess.Popen(['fossil'], stdout=subprocess.PIPE).communicate()[0]
-    branch = ''.join([i.replace('*','').strip() for i in os.popen("fossil branch 2> /dev/null").read().strip().split("\n") if i.startswith('*')])
-    if len(branch) == 0:
-        return
-
-    bg = Color.REPO_CLEAN_BG
-    fg = Color.REPO_CLEAN_FG
-    has_modified_files, has_untracked_files, has_missing_files = get_fossil_status()
-    if has_modified_files or has_untracked_files or has_missing_files:
-        bg = Color.REPO_DIRTY_BG
-        fg = Color.REPO_DIRTY_FG
-        extra = ''
-        if has_untracked_files:
-            extra += '+'
-        if has_missing_files:
-            extra += '!'
-        branch += (' ' + extra if extra != '' else '')
-    powerline.append(' %s ' % branch, fg, bg)
-
-try:
-    add_fossil_segment()
 except OSError:
     pass
 except subprocess.CalledProcessError:
