@@ -39,7 +39,7 @@ alias mux="tmuxinator"
 alias artisan="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
 if [ -f /usr/local/bin/mvim ]; then
-    alias vim="mvim -v" # use macvim executable in terminal mode
+    alias vim="mvim -v --servername mikefunk" # use macvim executable in terminal mode
 fi
 if [ -f /usr/local/bin/hub ]; then
     eval "$(hub alias -s)" # alias hub to git

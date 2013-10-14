@@ -138,3 +138,6 @@ Bundle 'justinmk/vim-gtfo'
 
 " was used in PIV for php folding
 Bundle 'rayburgemeestre/phpfolding.vim'
+
+" share registers across vim installations
+Bundle 'ardagnir/united-front'
