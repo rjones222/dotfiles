@@ -95,26 +95,26 @@
     UnBundle 'spf13/PIV'
 
     " various spf-13 stuff I don't use
-    " UnBundle 'jnwhiteh/vim-golang'
-    " UnBundle 'python.vim'
-    " UnBundle 'python_match.vim'
-    " UnBundle 'pythoncomplete'
-    " UnBundle 'briancollins/vim-jst'
-    " UnBundle 'derekwyatt/vim-scala'
-    " UnBundle 'derekwyatt/vim-sbt'
-    " UnBundle 'spf13/vim-gocode'
-    " UnBundle 'klen/python-mode'
-    " UnBundle 'tpope/vim-cucumber'
-    " UnBundle 'quentindecock/vim-cucumber-align-pipes'
-    " UnBundle 'beyondwords/vim-twig'
-    " UnBundle 'adinapoli/cumino'
-    " UnBundle 'Twinside/vim-haskellConceal'
-    " UnBundle 'travitch/hasksyn'
-    " UnBundle 'lukerandall/haskellmode-vim'
-    " UnBundle 'bitc/hdevtools'
-    " UnBundle 'bitc/vim-hdevtools'
-    " UnBundle 'dag/vim2hs'
-    " UnBundle 'eagletmt/ghcmod-vim'
+    UnBundle 'jnwhiteh/vim-golang'
+    UnBundle 'python.vim'
+    UnBundle 'python_match.vim'
+    UnBundle 'pythoncomplete'
+    UnBundle 'briancollins/vim-jst'
+    UnBundle 'derekwyatt/vim-scala'
+    UnBundle 'derekwyatt/vim-sbt'
+    UnBundle 'spf13/vim-gocode'
+    UnBundle 'klen/python-mode'
+    UnBundle 'tpope/vim-cucumber'
+    UnBundle 'quentindecock/vim-cucumber-align-pipes'
+    UnBundle 'beyondwords/vim-twig'
+    UnBundle 'adinapoli/cumino'
+    UnBundle 'Twinside/vim-haskellConceal'
+    UnBundle 'travitch/hasksyn'
+    UnBundle 'lukerandall/haskellmode-vim'
+    UnBundle 'bitc/hdevtools'
+    UnBundle 'bitc/vim-hdevtools'
+    UnBundle 'dag/vim2hs'
+    UnBundle 'eagletmt/ghcmod-vim'
 " }}}
 
 " Key Mapping {{{
@@ -380,7 +380,7 @@
     " tag generation command (not working)
     " set exrc
     " set secure
-    let g:vim_tags_project_tags_command = 'ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null'
+    let g:vim_tags_project_tags_command = 'ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf {OPTIONS} {DIRECTORY} 2>/dev/null'
 
     " gitgutter is wigging out with 7.4 and airline for some reason
     " https://github.com/airblade/vim-gitgutter/issues/106
