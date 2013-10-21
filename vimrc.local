@@ -184,6 +184,9 @@
     " change the default EasyMotion shading to something more readable with Solarized
     hi link EasyMotionTarget ErrorMsg
     hi link EasyMotionShade  Comment
+
+    " vim-gitgutter better background
+    highlight clear SignColumn
 " }}}
 
 " Plugins {{{

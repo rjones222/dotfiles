@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# uninstall homebrew stuff
+# pretty colors
+GREEN=$(tput setaf 2)
+RESET=$(tput setaf 0)
+
+echo -e "${GREEN}uninstalling homebrew apps...${RESET}"
 brew uninstall ack
 brew uninstall bash-completion
 brew uninstall git
@@ -18,18 +22,25 @@ brew uninstall tmux
 brew uninstall tree
 brew uninstall wget
 brew uninstall nodejs
+brew uninstall virtualhost.sh
+brew uninstall selenium-server-standalone
+brew uninstall grc
+brew uninstall ctags
 
-# uninstall cli stuff
+echo -e "${GREEN}uninstalling executables...${RESET}"
 rm /usr/local/bin/php-cs-fixer
 rm /usr/local/bin/composer
 
-# uninstall gems
+echo -e "${GREEN}uninstalling gems...${RESET}"
 gem uninstall pygmentize
+gem uninstall observr
+gem uninstall tmuxinator
 
-# uninstall ctags patched
-brew uninstall ctags
+# uninstall npm packages
+echo -e "${GREEN}uninstalling npm packages...${RESET}"
+# npm uninstall -g powerline-js
 
-# remove symlinked configs
+echo -e "${GREEN}removing symlinked configs...${RESET}"
 [ -L ~/.gitconfig ] && rm ~/.gitconfig
 [ -L ~/.config ] && rm ~/.config
 [ -L ~/.ssh/config ] && rm ~/.ssh/config
@@ -47,9 +58,19 @@ brew uninstall ctags
 [ -L ~/.vimrc.before.local ] && rm ~/.vimrc.before.local
 [ -L ~/.tmuxinator ] && rm ~/.tmuxinator
 [ -L ~/.ctags ] && rm ~/.ctags
+# [ -L /usr/local/bin/powerline.js ] && rm /usr/local/bin/powerline.js
 [ -L ~/.vim/UltiSnips ] && rm ~/.vim/UltiSnips
 [ -L /usr/local/php5/php.d/999-my-php.ini ] && rm /usr/local/php5/php.d/999-my-php.ini
 [ -L /etc/apache2/other/999-my-httpd.conf ] && sudo rm /etc/apache2/other/999-my-httpd.conf
 
-# uninstall vim packages
-# vim +BundleClean! +qall
+echo -e "${GREEN}restoring paths...${RESET}"
+if [ -f /etc/paths_BACKUP ];
+then
+    sudo rm /etc/paths
+    sudo mv /etc/paths_BACKUP /etc/paths
+fi
+
+echo -e "${GREEN}uninstalling vim packages...${RESET}"
+vim +BundleClean! +qall
+
+echo -e "${GREEN}uninstall complete!${RESET}"

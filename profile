@@ -102,6 +102,9 @@ fi
 if [ -f $HOME/Applications/MacVim.app/Contents/MacOS/Vim ]; then
     export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
+if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+    export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
 
 # add to manpath for ranger manual to show up
 if [ -f $MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man ]; then
