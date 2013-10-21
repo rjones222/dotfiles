@@ -94,6 +94,9 @@
     " I installed newer versions of the same stuff
     UnBundle 'spf13/PIV'
 
+    " I use vim-signify instead
+    UnBundle 'airblade/vim-gitgutter'
+
     " various spf-13 stuff I don't use
     UnBundle 'jnwhiteh/vim-golang'
     UnBundle 'python.vim'
