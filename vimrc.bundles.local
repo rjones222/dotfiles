@@ -143,4 +143,4 @@ Bundle 'rayburgemeestre/phpfolding.vim'
 Bundle 'ardagnir/united-front'
 
 " git gutter that also supports mercurial and others
-Bundle 'mhinz/vim-signify'
+" Bundle 'mhinz/vim-signify'

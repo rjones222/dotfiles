@@ -4,6 +4,10 @@ if [ -d "$HOME/.rvm/bin" ]; then
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 fi
 
+# pretty colors
+GREEN=$(tput setaf 2)
+RESET=$(tput setaf 0)
+
 # add to path
 if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
     export PATH=$PATH:/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
@@ -143,10 +147,10 @@ export GREP_OPTIONS='--color=auto'
 # drops and creates einstein2 database
 function dbreset() {
     # drop database, create database
-    echo drop database
+    echo ${GREEN}drop database${RESET}
     mysql -uroot -e 'DROP DATABASE IF EXISTS einstein2;'
 
-    echo create database
+    echo ${GREEN}create database${RESET}
     mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS einstein2;'
 
     # migrate database, seed database

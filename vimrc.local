@@ -95,7 +95,7 @@
     UnBundle 'spf13/PIV'
 
     " I use vim-signify instead
-    UnBundle 'airblade/vim-gitgutter'
+    " UnBundle 'airblade/vim-gitgutter'
 
     " various spf-13 stuff I don't use
     UnBundle 'jnwhiteh/vim-golang'
@@ -233,9 +233,9 @@
     vmap <leader>a> :Tabularize /=><cr>
 
     " PDV comment parameters
-    let g:pdv_cfg_Package   = "Einstein2"
-    let g:pdv_cfg_Author    = "Michael Funk <mfunk@christianpublishing.com>"
-    let g:pdv_cfg_Copyright = "Copyright 2013 Xulon Press, Inc. All Rights Reserved."
+    let g:pdv_cfg_Package   = "Example"
+    let g:pdv_cfg_Author    = "Michael Funk <mfunk@spinmedia.com>"
+    let g:pdv_cfg_Copyright = "Copyright 2013 SpinMedia, Inc. All Rights Reserved."
     let g:pdv_cfg_License   = ""
 
     " reset file to HEAD in fugitive commit window
@@ -271,6 +271,7 @@
 
     " set guifont to powerline compatible for macvim
     " set guifont=Menlo\ for\ Powerline:h12
+    set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h14
     " let g:Powerline_symbols = 'fancy'
 
     " syntastic
