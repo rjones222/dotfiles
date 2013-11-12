@@ -32,7 +32,7 @@ alias selenium='java -jar /usr/local/bin/selenium-server.jar'
 alias gitk='gitk 2>/dev/null' # fix terminal output error
 alias vimupdate='vim +BundleClean! +qall && vim +BundleInstall! +qall'
 alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
-alias watch='observr ~/.dotfiles/observr.conf.rb' # phpunit on dir change
+# alias watch='observr ~/.dotfiles/observr.conf.rb' # phpunit on dir change
 alias lsd="ls -GpFha" # additional details
 # I forget I'm not in vim sometimes...
 alias :q="exit"
