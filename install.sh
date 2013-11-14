@@ -4,6 +4,15 @@
 GREEN=$(tput setaf 2)
 RESET=$(tput setaf 0)
 
+# clone dotfiles with submodules
+echo -e "${GREEN}cloning dotfiles into home directory...${RESET}"
+cd ~
+git clone git@github.com:mikedfunk/dotfiles.git .dotfiles --recursive
+
+# install spf13
+echo -e "${GREEN}installing spf13...${RESET}"
+curl http://j.mp/spf13-vim3 -L -o - | sh
+
 # finder show hidden stuff
 if [ -f ~/Library/Preferences/com.apple.finder.plist ];
 then
