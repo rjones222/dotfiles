@@ -23,7 +23,7 @@ if [[ "$(type -P brew)" ]]; then
   # Install Homebrew recipes.
   recipes=(
     ack
-    bash-completion
+    # bash-completion
     brew-cask
     cowsay
     git
