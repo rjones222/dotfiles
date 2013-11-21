@@ -15,6 +15,7 @@ if [! -f /usr/bin/xcrun-orig]; then
   sudo mv /usr/bin/xcrun /usr/bin/xcrun-orig
   sudo echo '#!/bin/bash' >> /usr/bin/xcrun
   sudo echo 'exec "$@"' >> /usr/bin/xcrun
+  [! -f /Developer/usr/bin/xcrun] && ln -s /usr/bin/xcrun /Developer/usr/bin/
 fi
 
 # Install Homebrew.
