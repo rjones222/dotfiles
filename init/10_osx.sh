@@ -8,6 +8,15 @@ if [[ ! -d "$('xcode-select' -print-path 2>/dev/null)" ]]; then
   sudo xcode-select -switch /usr/bin
 fi
 
+# fix xcrun
+# https://gist.github.com/thelibrarian/5520597
+if [! -f /usr/bin/xcrun-orig]; then
+  e_header "Fixing xcrun"
+  sudo mv /usr/bin/xcrun /usr/bin/xcrun-orig
+  sudo echo '#!/bin/bash' >> /usr/bin/xcrun
+  sudo echo 'exec "$@"' >> /usr/bin/xcrun
+fi
+
 # Install Homebrew.
 if [[ ! "$(type -P brew)" ]]; then
   e_header "Installing Homebrew"
@@ -85,7 +94,4 @@ if [[ "$(type -P brew)" ]]; then
     sudo chown root:wheel "$binroot/htop"
     sudo chmod u+s "$binroot/htop"
   fi
-
-  # brew cask
-  e_hearder "Installing Homebrew casks"
 fi
