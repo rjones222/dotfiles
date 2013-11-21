@@ -34,7 +34,7 @@ if [[ "$(type -P brew)" ]]; then
   recipes=(
     ack
     # bash-completion
-    brew-cask
+    # brew-cask
     cowsay
     git
     git-extras
@@ -81,10 +81,10 @@ if [[ "$(type -P brew)" ]]; then
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
-  if [[ "$list" ]]; then
-    e_header "Installing Homebrew casks: $list"
-    brew cask install $list
-  fi
+  # if [[ "$list" ]]; then
+    # e_header "Installing Homebrew casks: $list"
+    # brew cask install $list
+  # fi
 
   # This is where brew stores its binary symlinks
   local binroot="$(brew --config | awk '/HOMEBREW_PREFIX/ {print $2}')"/bin
