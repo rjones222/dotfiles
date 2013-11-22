@@ -163,6 +163,12 @@ else
   git submodule update --init --recursive --quiet
 fi
 
+# set mac preferences
+e_header "Setting Mac preferences"
+defaults write com.apple.finder NewWindowTargetPath file://Users/mfunk/
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
+
 # Utilities, helpers.
 # source ~/.dotfiles/source/10_misc.sh
 
@@ -185,6 +191,24 @@ backup=
 do_stuff "init"
 do_stuff "copy"
 do_stuff "link"
+
+# install spf13, remove unnecessary bundles
+# (must be done after symlinks)
+if [[ ! -d ~/.spf-13-vim-3 ]]; then
+  e_header "Installing spf-13-vim"
+  curl http://j.mp/spf13-vim3 -L -o - | sh
+  vim +BundleClean! +qall!
+fi
+
+# install composer
+if [[ ! "$(type -P composer)" ]]; then
+  e_header "Installing composer"
+  cd /usr/local/bin
+  curl -sS https://getcomposer.org/installer | php
+  mv composer.phar composer
+  sudo chmod +x composer
+  cd -
+fi
 
 # Alert if backups were made.
 if [[ "$backup" ]]; then

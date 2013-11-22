@@ -33,12 +33,13 @@ if [[ "$(type -P brew)" ]]; then
   # Install Homebrew recipes.
   recipes=(
     ack
-    # bash-completion
-    # brew-cask
-    cowsay
+    bash-completion
+    brew-cask
+    # cowsay
+    ctags
     git
     git-extras
-    graphviz
+    # graphviz
     grc
     highlight
     htop-osx
@@ -81,13 +82,19 @@ if [[ "$(type -P brew)" ]]; then
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
-  # if [[ "$list" ]]; then
-    # e_header "Installing Homebrew casks: $list"
-    # brew cask install $list
-  # fi
+  if [[ "$list" ]]; then
+     e_header "Installing Homebrew casks: $list"
+     brew cask install $list
+  fi
 
   # This is where brew stores its binary symlinks
   local binroot="$(brew --config | awk '/HOMEBREW_PREFIX/ {print $2}')"/bin
+
+  # install ctags patched
+  cd /usr/local/Library/Formula
+  curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
+  brew install ctags --HEAD
+  cd -
 
   # htop
   if [[ "$(type -P $binroot/htop)" && "$(stat -L -f "%Su:%Sg" "$binroot/htop")" != "root:wheel" || ! "$(($(stat -L -f "%DMp" "$binroot/htop") & 4))" ]]; then

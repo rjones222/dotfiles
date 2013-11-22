@@ -1,28 +1,15 @@
-# add rvm to path, load
-if [ -d "$HOME/.rvm/bin" ]; then
-    export PATH="$PATH:$HOME/.rvm/bin"
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-fi
-
-# pretty colors
-GREEN=$(tput setaf 2)
-RESET=$(tput setaf 0)
+# add some folders to the PATH
+[ -d "/usr/local/bin" ] && export PATH='/usr/local/bin:$PATH'
+[ -d "$HOME/bin" ] && export PATH='$HOME/bin:$PATH'
 
 # add to path
 if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
     export PATH=$PATH:/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 fi
-if [ -d ~/.bin ]; then
-    export PATH=$PATH:~/.bin
-fi
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-# add ruby gems to PATH
-if [ -f "/usr/local/bin/brew" ]; then
-    export PATH=$(brew --prefix ruby)/bin:$PATH
-fi
+
+# pretty colors
+GREEN=$(tput setaf 2)
+RESET=$(tput setaf 0)
 
 # aliases
 alias wr='cd ~/Sites' # web root
@@ -125,13 +112,14 @@ if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
         export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
         # export PS1="$(powerline $? --shell bash --depth 4)"
 
-        # make prompt look like this, with colors: 12:11:28 Sites $
-        # export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
-        # export PS1="\W $(__git_ps1) \$"
-        # export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
     }
     export PROMPT_COMMAND="_update_ps1"
 fi
+
+# make prompt look like this, with colors: 12:11:28 Sites $
+export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
+export PS1="\W $(__git_ps1) \$"
+export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
 
 # powerline shell
 # source ~/.bash-powerline.sh
