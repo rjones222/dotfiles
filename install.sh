@@ -9,10 +9,6 @@ echo -e "${GREEN}cloning dotfiles into home directory...${RESET}"
 cd ~
 git clone git@github.com:mikedfunk/dotfiles.git .dotfiles --recursive
 
-# install spf13
-echo -e "${GREEN}installing spf13...${RESET}"
-curl http://j.mp/spf13-vim3 -L -o - | sh
-
 # finder show hidden stuff
 if [ -f ~/Library/Preferences/com.apple.finder.plist ];
 then
@@ -80,28 +76,31 @@ cd -
 
 # Symlink the configuration files into their appropriate homes if they don't already exist
 echo -e "${GREEN}installing symlinks...${RESET}"
-[ ! -f ~/.gitconfig ] && ln -s ~/.dotfiles/gitconfig ~/.gitconfig
-[ ! -f ~/.config ] && ln -s ~/.dotfiles/config ~/.config
-[ ! -f ~/.ssh/config ] && ln -s ~/.dotfiles/ssh/config ~/.ssh/config
-[ ! -f ~/.gitignore ] && ln -s ~/.dotfiles/gitignore ~/.gitignore
-[ ! -f ~/.profile ] && ln -s ~/.dotfiles/profile ~/.profile
-[ ! -f ~/.screenrc ] && ln -s ~/.dotfiles/screenrc ~/.screenrc
-[ ! -f ~/.tmux.conf ] && ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-[ ! -f ~/.grcat ] && ln -s ~/.dotfiles/grcat ~/.grcat
-[ ! -f ~/.my.cnf ] && ln -s ~/.dotfiles/my.cnf ~/.my.cnf
-[ ! -f ~/.my.ini ] && ln -s ~/.dotfiles/my.ini ~/.my.ini
-[ ! -f ~/.inputrc ] && ln -s ~/.dotfiles/inputrc ~/.inputrc
-[ ! -f ~/.rainbarf.conf ] && ln -s ~/.dotfiles/rainbarf.conf ~/.rainbarf.conf
-[ ! -f ~/.vimrc.bundles.local ] && ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
-[ ! -f ~/.vimrc.local ] && ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
-[ ! -f ~/.vimrc.before.local ] && ln -s ~/.dotfiles/vimrc.before.local ~/.vimrc.before.local
-[ ! -f ~/.tmuxinator ] && ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
-[ ! -f ~/.ctags ] && ln -s ~/.dotfiles/ctags ~/.ctags
-# [ ! -f /usr/local/bin/powerline.js ] && ln -s /usr/local/lib/node_modules/powerline/powerline.js /usr/local/bin/powerline.js
-[ ! -f ~/.vim/UltiSnips ] && ln -s ~/.dotfiles/UltiSnips ~/.vim/UltiSnips
-[ ! -f /usr/local/bin/selenium-server.jar ] && ln -s ~/.dotfiles/selenium-server.jar /usr/local/bin/selenium-server.jar
-[ ! -f /usr/local/php5/php.d/999-my-php.ini ] && ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini
-[ ! -f /etc/apache2/other/999-my-httpd.conf ] && sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
+ln -s ~/.dotfiles/gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/config ~/.config
+ln -s ~/.dotfiles/ssh/config ~/.ssh/config
+ln -s ~/.dotfiles/gitignore ~/.gitignore
+ln -s ~/.dotfiles/profile ~/.profile
+ln -s ~/.dotfiles/screenrc ~/.screenrc
+ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/grcat ~/.grcat
+ln -s ~/.dotfiles/my.cnf ~/.my.cnf
+ln -s ~/.dotfiles/my.ini ~/.my.ini
+ln -s ~/.dotfiles/inputrc ~/.inputrc
+ln -s ~/.dotfiles/rainbarf.conf ~/.rainbarf.conf
+ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
+ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
+ln -s ~/.dotfiles/vimrc.before.local ~/.vimrc.before.local
+ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
+ln -s ~/.dotfiles/ctags ~/.ctags
+ln -s ~/.dotfiles/UltiSnips ~/.vim/UltiSnips
+ln -s ~/.dotfiles/selenium-server.jar /usr/local/bin/selenium-server.jar
+ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini
+sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
+
+# install spf13
+echo -e "${GREEN}installing spf13...${RESET}"
+curl http://j.mp/spf13-vim3 -L -o - | sh
 
 # install vim packages
 echo -e "${GREEN}installing vim packages...${RESET}"
