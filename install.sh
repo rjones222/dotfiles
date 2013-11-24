@@ -1,124 +1,251 @@
 #!/bin/bash
 
-# pretty colors
-GREEN=$(tput setaf 2)
-RESET=$(tput setaf 0)
+# Logging stuff.
+function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
+function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
+function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 
-# clone dotfiles with submodules
-echo -e "${GREEN}cloning dotfiles into home directory...${RESET}"
-cd ~
-git clone git@github.com:mikedfunk/dotfiles.git .dotfiles --recursive
-
-# finder show hidden stuff
-if [ -f ~/Library/Preferences/com.apple.finder.plist ];
-then
-    defaults write com.apple.Finder AppleShowAllFiles TRUE
-    killall Finder
+# Ensure that we can actually, like, compile anything.
+if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
+  e_error "XCode or the Command Line Tools for XCode must be installed first."
+  exit 1
 fi
 
-# install homebrew stuff
-echo -e "${GREEN}installing homebrew...${RESET}"
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-brew install ack
-brew install bash-completion
-brew install git
-brew install graphviz
-brew install highlight
-brew install hub
-brew install imagemagick
-brew install macvim
-brew install mysql
-brew install qcachegrind
-brew install reattach-to-user-namespace
-brew install ruby
-brew install the_silver_searcher
-brew install tmux
-brew install tree
-brew install wget
-brew install nodejs
-brew install virtualhost.sh
-brew install selenium-server-standalone
-brew install grc
-brew linkapps
+# If Git is not installed, install it (Ubuntu only, since Git comes standard
+# with recent XCode or CLT)
+if [[ ! "$(type -P git)" && "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
+  e_header "Installing Git"
+  sudo apt-get -qq install git-core
+fi
 
-echo -e "${GREEN}installing cli tools...${RESET}"
+# If Git isn't installed by now, something exploded. We gots to quit!
+if [[ ! "$(type -P git)" ]]; then
+  e_error "Git should be installed. It isn't. Aborting."
+  exit 1
+fi
+
+# Download or update.
+if [[ ! -d ~/.dotfiles ]]; then
+  new_dotfiles_install=1
+  # ~/.dotfiles doesn't exist? Clone it!
+  e_header "Downloading dotfiles"
+  cd
+  git clone --recursive https://github.com/mikedfunk/dotfiles.git ~/.dotfiles
+  cd ~/.dotfiles
+else
+  # Make sure we have the latest files.
+  e_header "Updating dotfiles"
+  cd ~/.dotfiles
+  git pull
+  git submodule update --init --recursive --quiet
+fi
+
+# -------------------------------
+# OSX-only stuff. Abort if not OSX.
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+
+	# set mac preferences
+	e_header "Setting Mac preferences"
+	defaults write com.apple.finder NewWindowTargetPath file://Users/mfunk/
+	defaults write com.apple.finder AppleShowAllFiles TRUE
+	killall Finder
+
+	# Install Homebrew.
+	if [[ ! "$(type -P brew)" ]]; then
+		e_header "Installing Homebrew"
+		true | ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+	fi
+
+	if [[ "$(type -P brew)" ]]; then
+		e_header "Updating Homebrew"
+		brew doctor
+		brew update
+		brew tap phinze/homebrew-cask
+
+		# Install Homebrew recipes.
+		recipes=(
+			ack
+			bash-completion
+			brew-cask
+			# cowsay
+			ctags
+			git
+			git-extras
+			# graphviz
+			grc
+			highlight
+			htop-osx
+			man2html
+			hub
+			id3tool
+			imagemagick
+			lesspipe nmap
+			macvim
+			mysql
+			nodejs
+			qcachegrind
+			reattach-to-user-namespace
+			rbenv
+			selenium-server-standalone
+			sl
+			ssh-copy-id
+			the_silver_searcher
+			tmux
+			tree
+			wget
+		)
+
+		list="$(to_install "${recipes[*]}" "$(brew list)")"
+		if [[ "$list" ]]; then
+			e_header "Installing Homebrew recipes: $list"
+			brew install $list
+		fi
+
+		# Install brew casks
+		casks=(
+			cyberduck
+			dropbox
+			google-chrome
+			google-drive
+			google-music-manager
+			iterm2
+			sequel-pro
+			virtualbox
+		)
+
+		list="$(to_install "${casks[*]}" "$(brew cask list)")"
+		if [[ "$list" ]]; then
+			 e_header "Installing Homebrew casks: $list"
+			 brew cask install $list
+		fi
+fi
+
+# end mac only
+# ------------------------
+
+e_header "installing cli tools"
 # install php-cs-fixer
-sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
-sudo chmod a+x /usr/local/bin/php-cs-fixer
+if [[ ! -f /usr/local/bin/php-cs-fixer ]]; then
+	sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
+	sudo chmod a+x /usr/local/bin/php-cs-fixer
+fi
 
 # install composer
-cd /usr/local/bin
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar composer
-sudo chmod +x composer
+if [[ ! -f /usr/local/bin/composer ]]; then
+  e_header "installing composer"
+	cd /usr/local/bin
+	curl -sS https://getcomposer.org/installer | php
+	mv composer.phar composer
+	sudo chmod +x composer
+	cd
+fi
 
 # install node packages
 # npm install -g powerline-js
 
 # install gems
-echo -e "${GREEN}installing gems...${RESET}"
+e_header "installing gems"
 gem install pygmentize
 gem install observr
 gem install tmuxinator
 
 # install ctags patched
 # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
-echo -e "${GREEN}installing ctags patched...${RESET}"
-cd /usr/local/Library/Formula
-curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
-brew install ctags --HEAD
+if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
+	e_header "installing ctags patched"
+	cd /usr/local/Library/Formula
+	curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
+	brew install ctags --HEAD
+	touch /usr/local/etc/.ctags_patched_installed
+fi
 
 # install phpctags
-cd ~/.dotfiles/phpctags
-make
-ln -s ~/.dotfiles/phpctags/phpctags /usr/local/bin/phpctags
-cd -
+if [[ ! -d ~/.dotfiles/phpctags/build ]]; then
+	e_header "installing phpctags"
+	cd ~/.dotfiles/phpctags
+	make
+	ln -s ~/.dotfiles/phpctags/phpctags /usr/local/bin/phpctags
+	cd -
+fi
 
+function link_this() {
+
+	# set better vars for source and dest
+	local dstfile srcfile
+	srcfile = $1
+	dstfile = $2
+
+	# if the file already exists
+	if [[ -e "$dstfile" ]]; then
+
+		# create a backup dir if it doesn't already exist and notify
+		backup_dir = "$HOME/backup/"
+		[[ -e "$backup_dir" ]] || mkdir -p "$backup_dir"
+
+		# move the file to the backup dir and notify
+		e_success "backing up $dstfile"
+		mv $dstfile $backup_dir
+	fi
+
+	# if the symlink exists, skip it and notify
+	if [[ "$srcfile" -ef "$dstfile" ]]; then
+		e_error "symlink $dstfile exists"
+		return
+
+	# else symlink it and notify
+	else
+		e_success "linking $srcfile to $dstfile"
+		ln -s $srcfile $dstfile
+	fi
+}
 # Symlink the configuration files into their appropriate homes if they don't already exist
-echo -e "${GREEN}installing symlinks...${RESET}"
-ln -s ~/.dotfiles/gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/config ~/.config
-ln -s ~/.dotfiles/ssh/config ~/.ssh/config
-ln -s ~/.dotfiles/gitignore ~/.gitignore
-ln -s ~/.dotfiles/profile ~/.profile
-ln -s ~/.dotfiles/screenrc ~/.screenrc
-ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/grcat ~/.grcat
-ln -s ~/.dotfiles/my.cnf ~/.my.cnf
-ln -s ~/.dotfiles/my.ini ~/.my.ini
-ln -s ~/.dotfiles/inputrc ~/.inputrc
-ln -s ~/.dotfiles/rainbarf.conf ~/.rainbarf.conf
-ln -s ~/.dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
-ln -s ~/.dotfiles/vimrc.local ~/.vimrc.local
-ln -s ~/.dotfiles/vimrc.before.local ~/.vimrc.before.local
-ln -s ~/.dotfiles/tmuxinator ~/.tmuxinator
-ln -s ~/.dotfiles/ctags ~/.ctags
-ln -s ~/.dotfiles/UltiSnips ~/.vim/UltiSnips
-ln -s ~/.dotfiles/selenium-server.jar /usr/local/bin/selenium-server.jar
-ln -s ~/.dotfiles/999-my-php.ini /usr/local/php5/php.d/999-my-php.ini
-sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
+e_header "installing symlinks"
+link_this "~/.dotfiles/gitconfig" "~/.gitconfig"
+link_this "~/.dotfiles/config" "~/.config"
+link_this "~/.dotfiles/ssh/config" "~/.ssh/config"
+link_this "~/.dotfiles/gitignore" "~/.gitignore"
+link_this "~/.dotfiles/profile" "~/.profile"
+link_this "~/.dotfiles/screenrc" "~/.screenrc"
+link_this "~/.dotfiles/tmux.conf" "~/.tmux.conf"
+link_this "~/.dotfiles/grcat" "~/.grcat"
+link_this "~/.dotfiles/my.cnf" "~/.my.cnf"
+link_this "~/.dotfiles/my.ini" "~/.my.ini"
+link_this "~/.dotfiles/inputrc" "~/.inputrc"
+link_this "~/.dotfiles/rainbarf.conf" "~/.rainbarf.conf"
+link_this "~/.dotfiles/vimrc.bundles.local" "~/.vimrc.bundles.local"
+link_this "~/.dotfiles/vimrc.local" "~/.vimrc.local"
+link_this "~/.dotfiles/vimrc.before.local" "~/.vimrc.before.local"
+link_this "~/.dotfiles/tmuxinator" "~/.tmuxinator"
+link_this "~/.dotfiles/ctags" "~/.ctags"
+link_this "~/.dotfiles/UltiSnips" "~/.vim/UltiSnips"
+link_this "~/.dotfiles/selenium-server.jar" "/usr/local/bin/selenium-server.jar"
+link_this "~/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
+# sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 
-# install spf13
-echo -e "${GREEN}installing spf13...${RESET}"
-curl http://j.mp/spf13-vim3 -L -o - | sh
+if [[ ! -d $HOME/.spf13-vim-3 ]]; then
+  # install spf13
+  e_header "installing spf13"
+  curl http://j.mp/spf13-vim3 -L -o - | sh
+  e_header "removing unused vim plugins"
+  vim +BundleClean! +qall
 
-# install vim packages
-echo -e "${GREEN}installing vim packages...${RESET}"
-curl http://j.mp/spf13-vim3 -L -o - | sh #install spf-13-vim
-vim +BundleClean! +qall
+  # build some vim packages
+  # e_header "installing youcompleteme"
+  # cd ~/.vim/bundle/YouCompleteMe
+  # ./install.sh --clang-completer
+  # cd ~/.vim/bundle/vimproc.vim
+  # make
+  # cd -
+fi
 
-# build some vim packages
-echo -e "${GREEN}installing youcompleteme...${RESET}"
-cd ~/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer
-cd ~/.vim/bundle/vimproc.vim
-make
-cd -
+if grep -q "^/usr/local/bin" /etc/paths
+then
+  # prepend to /etc/paths
+  e_header "prepending to paths"
+  sudo cp /etc/paths /etc/paths_BACKUP
+  echo -e "/usr/local/bin"|cat - /etc/paths > /tmp/out 
+  sudo mv /tmp/out /etc/paths
+fi
 
-# prepend to /etc/paths
-echo -e "${GREEN}prepending to paths...${RESET}"
-sudo cp /etc/paths /etc/paths_BACKUP
-echo -e "/usr/local/bin"|cat - /etc/paths > /tmp/out 
-sudo mv /tmp/out /etc/paths
-
-echo -e "${GREEN}install complete!${RESET}"
+e_success "install complete!"
+fi
