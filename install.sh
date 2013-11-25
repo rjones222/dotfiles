@@ -115,6 +115,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             rbenv
             selenium-server-standalone
             ssh-copy-id
+            terminal-notifier
             the_silver_searcher
             tmux
             tree
@@ -272,6 +273,7 @@ link_this "$HOME/.dotfiles/rainbarf.conf" "$HOME/.rainbarf.conf"
 link_this "$HOME/.dotfiles/vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
 link_this "$HOME/.dotfiles/vimrc.local" "$HOME/.vimrc.local"
 link_this "$HOME/.dotfiles/vimrc.before.local" "$HOME/.vimrc.before.local"
+link_this "$HOME/.dotfiles/tmuxinator" "$HOME/.tmuxinator"
 link_this "$HOME/.dotfiles/tmuxinator" "$HOME/.tmuxinator"
 # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
