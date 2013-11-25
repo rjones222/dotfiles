@@ -179,7 +179,8 @@ if [[ ! "$(type -P apt-get)" ]]; then
     sudo apt-get install tmux
     sudo apt-get install tree
     sudo apt-get install vagrant
-    sudo apt-get install vim
+    # sudo apt-get install vim
+    sudo apt-get install vim-nox
 
     # install github's hub
     git clone git://github.com/github/hub.git
