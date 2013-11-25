@@ -96,7 +96,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             ack
             bash-completion
             brew-cask
-            # cowsay
             ctags
             git
             git-extras
@@ -104,11 +103,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             grc
             highlight
             htop-osx
-            man2html
             hub
-            id3tool
             imagemagick
-            lesspipe nmap
+            # lesspipe nmap
             macvim
             mysql
             nodejs
@@ -116,7 +113,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             reattach-to-user-namespace
             rbenv
             selenium-server-standalone
-            sl
             ssh-copy-id
             the_silver_searcher
             tmux
@@ -152,6 +148,31 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 fi
 
 # end mac only
+# ------------------------
+
+# Linux only
+if [[ ! "$(type -P apt-get)" ]]; then
+
+    # install linux packages
+    sudo apt-get install ack
+    sudo apt-get install ctags
+    sudo apt-get install git-extras
+    sudo apt-get install highlight
+    sudo apt-get install htop
+    sudo apt-get install rake
+    sudo apt-get install rbenv
+    sudo apt-get install silversearcher-ag
+    sudo apt-get install tmux
+    sudo apt-get install tree
+    sudo apt-get install vagrant
+
+    # install github's hub
+    git clone git://github.com/github/hub.git
+    cd hub
+    rake install
+fi
+
+# end linux only
 # ------------------------
 
 # install php-cs-fixer
