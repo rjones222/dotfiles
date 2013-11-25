@@ -105,6 +105,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             htop-osx
             hub
             imagemagick
+            irssi
             # lesspipe nmap
             macvim
             mysql
@@ -170,6 +171,7 @@ if [[ ! "$(type -P apt-get)" ]]; then
     sudo apt-get install git-extras
     sudo apt-get install highlight
     sudo apt-get install htop
+    sudo apt-get install irssi
     sudo apt-get install rake
     sudo apt-get install rbenv
     sudo apt-get install silversearcher-ag
