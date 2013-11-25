@@ -145,6 +145,17 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             brew cask install $list
         fi
     fi
+
+    # install ctags patched
+    # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
+    if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
+        e_header "installing ctags patched"
+        cd /usr/local/Library/Formula
+        curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
+        brew install ctags --HEAD
+        touch /usr/local/etc/.ctags_patched_installed
+    fi
+
 fi
 
 # end mac only
@@ -165,6 +176,7 @@ if [[ ! "$(type -P apt-get)" ]]; then
     sudo apt-get install tmux
     sudo apt-get install tree
     sudo apt-get install vagrant
+    sudo apt-get install vim
 
     # install github's hub
     git clone git://github.com/github/hub.git
@@ -183,11 +195,10 @@ if [[ ! -f /usr/local/bin/php-cs-fixer ]]; then
 fi
 
 # install composer
-if [[ ! -f /usr/local/bin/composer ]]; then
+if [[ ! "$(type -P composer)" ]]; then
   e_header "installing composer"
-    cd /usr/local/bin
     curl -sS https://getcomposer.org/installer | php
-    mv composer.phar composer
+    sudo mv composer.phar /usr/local/bin/composer
     sudo chmod +x composer
     cd
 fi
@@ -200,16 +211,6 @@ e_header "installing gems"
 sudo gem install pygmentize
 sudo gem install observr
 sudo gem install tmuxinator
-
-# install ctags patched
-# @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
-if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
-    e_header "installing ctags patched"
-    cd /usr/local/Library/Formula
-    curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
-    brew install ctags --HEAD
-    touch /usr/local/etc/.ctags_patched_installed
-fi
 
 # install phpctags
 if [[ ! -d ~/.dotfiles/phpctags/build ]]; then
@@ -273,3 +274,10 @@ link_this "$HOME/.dotfiles/ctags" "$HOME/.ctags"
 link_this "$HOME/.dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
 # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
+
+# install spf13
+e_header "installing spf13"
+curl http://j.mp/spf13-vim3 -L -o - | sh
+vim +BundleClean! +qall!
+
+e_success "installation complete!"
