@@ -4,7 +4,7 @@ My Vim, Git, and other dotfiles. My Vim config starts with [spf13](https://githu
 
 # Directions
 
-1. Run install script: ```curl https://raw.github.com/mikedfunk/dotfiles/master/install.sh -L -o - | sh```
+1. Run install script: ```curl https://raw.github.com/mikedfunk/dotfiles/master/install.sh -L -o - | bash```
 2. There is no step 2!
 
 # Other stuff to install:
