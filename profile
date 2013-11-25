@@ -122,7 +122,7 @@ fi
 # if powerline-shell.py file exists
 if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
     function _update_ps1() {
-        export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
+        export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $? --mode flat)"
         # export PS1="$(powerline $? --shell bash --depth 4)"
 
         # make prompt look like this, with colors: 12:11:28 Sites $
@@ -134,7 +134,7 @@ if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
 fi
 
 # powerline shell
-# source ~/.bash-powerline.sh
+# source ~/.dotfiles/bash-powerline/bash-powerline.sh
 
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then

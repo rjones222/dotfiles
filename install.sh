@@ -69,100 +69,101 @@ fi
 # OSX-only stuff. Abort if not OSX.
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 
-	# set mac preferences
-	e_header "Setting Mac preferences"
-	defaults write com.apple.finder NewWindowTargetPath file://Users/mfunk/
-	defaults write com.apple.finder AppleShowAllFiles TRUE
-	killall Finder
+    # set mac preferences
+    e_header "Setting Mac preferences"
+    defaults write com.apple.finder NewWindowTargetPath file://Users/mfunk/
+    defaults write com.apple.finder AppleShowAllFiles TRUE
+    killall Finder
 
-	# Install Homebrew.
-	if [[ ! "$(type -P brew)" ]]; then
-		e_header "Installing Homebrew"
-		true | ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
-	fi
+    # Install Homebrew.
+    if [[ ! "$(type -P brew)" ]]; then
+        e_header "Installing Homebrew"
+        true | ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+    fi
 
-	if [[ "$(type -P brew)" ]]; then
-		e_header "Updating Homebrew"
-		brew doctor
-		brew update
-		brew tap phinze/homebrew-cask
+    if [[ "$(type -P brew)" ]]; then
+        e_header "Updating Homebrew"
+        brew doctor
+        brew update
+        brew tap phinze/homebrew-cask
 
-		# Install Homebrew recipes.
-		recipes=(
-			ack
-			bash-completion
-			brew-cask
-			# cowsay
-			ctags
-			git
-			git-extras
-			# graphviz
-			grc
-			highlight
-			htop-osx
-			man2html
-			hub
-			id3tool
-			imagemagick
-			lesspipe nmap
-			macvim
-			mysql
-			nodejs
-			qcachegrind
-			reattach-to-user-namespace
-			rbenv
-			selenium-server-standalone
-			sl
-			ssh-copy-id
-			the_silver_searcher
-			tmux
-			tree
-			wget
-		)
+        # Install Homebrew recipes.
+        recipes=(
+            ack
+            bash-completion
+            brew-cask
+            # cowsay
+            ctags
+            git
+            git-extras
+            # graphviz
+            grc
+            highlight
+            htop-osx
+            man2html
+            hub
+            id3tool
+            imagemagick
+            lesspipe nmap
+            macvim
+            mysql
+            nodejs
+            # qcachegrind
+            reattach-to-user-namespace
+            rbenv
+            selenium-server-standalone
+            sl
+            ssh-copy-id
+            the_silver_searcher
+            tmux
+            tree
+            wget
+        )
 
-		list="$(to_install "${recipes[*]}" "$(brew list)")"
-		if [[ "$list" ]]; then
-			e_header "Installing Homebrew recipes: $list"
-			brew install $list
-		fi
+        list="$(to_install "${recipes[*]}" "$(brew list)")"
+        if [[ "$list" ]]; then
+            e_header "Installing Homebrew recipes: $list"
+            brew install $list
+        fi
 
-		# Install brew casks
-		casks=(
-			cyberduck
-			dropbox
-			google-chrome
-			google-drive
-			google-music-manager
-			iterm2
-			sequel-pro
-			virtualbox
-		)
+        # Install brew casks
+        casks=(
+            cyberduck
+            dropbox
+            google-chrome
+            google-drive
+            google-music-manager
+            iterm2
+            sequel-pro
+            virtualbox
+        )
 
-		list="$(to_install "${casks[*]}" "$(brew cask list)")"
-		if [[ "$list" ]]; then
-			 e_header "Installing Homebrew casks: $list"
-			 brew cask install $list
-		fi
+        list="$(to_install "${casks[*]}" "$(brew cask list)")"
+        if [[ "$list" ]]; then
+             e_header "Installing Homebrew casks: $list"
+             brew cask install $list
+        fi
+    fi
 fi
 
 # end mac only
 # ------------------------
 
-e_header "installing cli tools"
 # install php-cs-fixer
 if [[ ! -f /usr/local/bin/php-cs-fixer ]]; then
-	sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
-	sudo chmod a+x /usr/local/bin/php-cs-fixer
+    e_header "installing cli tools"
+    sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
+    sudo chmod a+x /usr/local/bin/php-cs-fixer
 fi
 
 # install composer
 if [[ ! -f /usr/local/bin/composer ]]; then
   e_header "installing composer"
-	cd /usr/local/bin
-	curl -sS https://getcomposer.org/installer | php
-	mv composer.phar composer
-	sudo chmod +x composer
-	cd
+    cd /usr/local/bin
+    curl -sS https://getcomposer.org/installer | php
+    mv composer.phar composer
+    sudo chmod +x composer
+    cd
 fi
 
 # install node packages
@@ -170,107 +171,79 @@ fi
 
 # install gems
 e_header "installing gems"
-gem install pygmentize
-gem install observr
-gem install tmuxinator
+sudo gem install pygmentize
+sudo gem install observr
+sudo gem install tmuxinator
 
 # install ctags patched
 # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
 if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
-	e_header "installing ctags patched"
-	cd /usr/local/Library/Formula
-	curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
-	brew install ctags --HEAD
-	touch /usr/local/etc/.ctags_patched_installed
+    e_header "installing ctags patched"
+    cd /usr/local/Library/Formula
+    curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
+    brew install ctags --HEAD
+    touch /usr/local/etc/.ctags_patched_installed
 fi
 
 # install phpctags
 if [[ ! -d ~/.dotfiles/phpctags/build ]]; then
-	e_header "installing phpctags"
-	cd ~/.dotfiles/phpctags
-	make
-	ln -s ~/.dotfiles/phpctags/phpctags /usr/local/bin/phpctags
-	cd -
+    e_header "installing phpctags"
+    cd ~/.dotfiles/phpctags
+    make
+    ln -s ~/.dotfiles/phpctags/phpctags /usr/local/bin/phpctags
+    cd -
 fi
 
 function link_this() {
 
-	# set better vars for source and dest
-	local dstfile srcfile
-	srcfile = $1
-	dstfile = $2
+    # set better vars for source and dest
 
-	# if the file already exists
-	if [[ -e "$dstfile" ]]; then
+    # if the symlink exists, skip it and notify
+    if [[ "$1" -ef "$2" ]]; then
+        e_error "symlink $2 exists"
+        return
 
-		# create a backup dir if it doesn't already exist and notify
-		backup_dir = "$HOME/backup/"
-		[[ -e "$backup_dir" ]] || mkdir -p "$backup_dir"
+    # if the file already exists
+    if [ -e $2 ]; then
 
-		# move the file to the backup dir and notify
-		e_success "backing up $dstfile"
-		mv $dstfile $backup_dir
-	fi
+        # create a backup dir if it doesn't already exist and notify
+        backup_dir = "$HOME/backup/"
+        [[ -e "$backup_dir" ]] || mkdir -p "$backup_dir"
 
-	# if the symlink exists, skip it and notify
-	if [[ "$srcfile" -ef "$dstfile" ]]; then
-		e_error "symlink $dstfile exists"
-		return
+        # move the file to the backup dir and notify
+        e_success "backing up $2"
+        mv $2 $backup_dir
+    else
+        e_success "files dont exist $2"
+    fi
 
-	# else symlink it and notify
-	else
-		e_success "linking $srcfile to $dstfile"
-		ln -s $srcfile $dstfile
-	fi
+
+    # else symlink it and notify
+    else
+        e_success "linking $1 to $2"
+        ln -s $1 $2
+    fi
 }
 # Symlink the configuration files into their appropriate homes if they don't already exist
 e_header "installing symlinks"
-link_this "~/.dotfiles/gitconfig" "~/.gitconfig"
-link_this "~/.dotfiles/config" "~/.config"
-link_this "~/.dotfiles/ssh/config" "~/.ssh/config"
-link_this "~/.dotfiles/gitignore" "~/.gitignore"
-link_this "~/.dotfiles/profile" "~/.profile"
-link_this "~/.dotfiles/screenrc" "~/.screenrc"
-link_this "~/.dotfiles/tmux.conf" "~/.tmux.conf"
-link_this "~/.dotfiles/grcat" "~/.grcat"
-link_this "~/.dotfiles/my.cnf" "~/.my.cnf"
-link_this "~/.dotfiles/my.ini" "~/.my.ini"
-link_this "~/.dotfiles/inputrc" "~/.inputrc"
-link_this "~/.dotfiles/rainbarf.conf" "~/.rainbarf.conf"
-link_this "~/.dotfiles/vimrc.bundles.local" "~/.vimrc.bundles.local"
-link_this "~/.dotfiles/vimrc.local" "~/.vimrc.local"
-link_this "~/.dotfiles/vimrc.before.local" "~/.vimrc.before.local"
-link_this "~/.dotfiles/tmuxinator" "~/.tmuxinator"
-link_this "~/.dotfiles/ctags" "~/.ctags"
-link_this "~/.dotfiles/UltiSnips" "~/.vim/UltiSnips"
-link_this "~/.dotfiles/selenium-server.jar" "/usr/local/bin/selenium-server.jar"
-link_this "~/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
-# sudo ln -s ~/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
-
-if [[ ! -d $HOME/.spf13-vim-3 ]]; then
-  # install spf13
-  e_header "installing spf13"
-  curl http://j.mp/spf13-vim3 -L -o - | sh
-  e_header "removing unused vim plugins"
-  vim +BundleClean! +qall
-
-  # build some vim packages
-  # e_header "installing youcompleteme"
-  # cd ~/.vim/bundle/YouCompleteMe
-  # ./install.sh --clang-completer
-  # cd ~/.vim/bundle/vimproc.vim
-  # make
-  # cd -
-fi
-
-if grep -q "^/usr/local/bin" /etc/paths
-then
-  # prepend to /etc/paths
-  e_header "prepending to paths"
-  sudo cp /etc/paths /etc/paths_BACKUP
-  echo -e "/usr/local/bin"|cat - /etc/paths > /tmp/out 
-  sudo mv /tmp/out /etc/paths
-fi
-
-e_success "install complete!"
-fi
+cd ~/.dotfiles
+link_this "$HOME/.dotfiles/gitconfig" "$HOME/.gitconfig"
+link_this "$HOME/.dotfiles/config" "$HOME/.config"
+link_this "$HOME/.dotfiles/ssh/config" "$HOME/.ssh/config"
+link_this "$HOME/.dotfiles/gitignore" "$HOME/.gitignore"
+link_this "$HOME/.dotfiles/profile" "$HOME/.profile"
+link_this "$HOME/.dotfiles/screenrc" "$HOME/.screenrc"
+link_this "$HOME/.dotfiles/tmux.conf" "$HOME/.tmux.conf"
+link_this "$HOME/.dotfiles/grcat" "$HOME/.grcat"
+link_this "$HOME/.dotfiles/my.cnf" "$HOME/.my.cnf"
+link_this "$HOME/.dotfiles/my.ini" "$HOME/.my.ini"
+link_this "$HOME/.dotfiles/inputrc" "$HOME/.inputrc"
+link_this "$HOME/.dotfiles/rainbarf.conf" "$HOME/.rainbarf.conf"
+link_this "$HOME/.dotfiles/vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
+link_this "$HOME/.dotfiles/vimrc.local" "$HOME/.vimrc.local"
+link_this "$HOME/.dotfiles/vimrc.before.local" "$HOME/.vimrc.before.local"
+link_this "$HOME/.dotfiles/tmuxinator" "$HOME/.tmuxinator"
+link_this "$HOME/.dotfiles/ctags" "$HOME/.ctags"
+link_this "$HOME/.dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
+# link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
+# sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf

@@ -4,3 +4,6 @@
 [submodule "phpctags"]
 	path = phpctags
 	url = https://github.com/techlivezheng/phpctags.git
+[submodule "bash-powerline"]
+	path = bash-powerline
+	url = https://github.com/riobard/bash-powerline.git
