@@ -110,6 +110,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             macvim
             mysql
             nodejs
+            postgresql
             # qcachegrind
             reattach-to-user-namespace
             rbenv
@@ -173,6 +174,7 @@ if [[ ! "$(type -P apt-get)" ]]; then
     sudo apt-get install highlight
     sudo apt-get install htop
     sudo apt-get install irssi
+    sudo apt-get install postgresql
     sudo apt-get install rake
     sudo apt-get install rbenv
     sudo apt-get install silversearcher-ag
