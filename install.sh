@@ -10,9 +10,11 @@ function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 function to_install() {
   local debug desired installed i desired_s installed_s remain
   if [[ "$1" == 1 ]]; then debug=1; shift; fi
+
   # Convert args to arrays, handling both space- and newline-separated lists.
   read -ra desired < <(echo "$1" | tr '\n' ' ')
   read -ra installed < <(echo "$2" | tr '\n' ' ')
+
   # Sort desired and installed arrays.
   unset i; while read -r; do desired_s[i++]=$REPLY; done < <(
     printf "%s\n" "${desired[@]}" | sort
@@ -52,12 +54,14 @@ fi
 # Download or update.
 if [[ ! -d ~/.dotfiles ]]; then
   new_dotfiles_install=1
+
   # ~/.dotfiles doesn't exist? Clone it!
   e_header "Downloading dotfiles"
   cd
   git clone --recursive https://github.com/mikedfunk/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles
 else
+
   # Make sure we have the latest files.
   e_header "Updating dotfiles"
   cd ~/.dotfiles
@@ -117,6 +121,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             the_silver_searcher
             tmux
             tree
+            vagrant
             wget
         )
 
@@ -140,8 +145,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
         list="$(to_install "${casks[*]}" "$(brew cask list)")"
         if [[ "$list" ]]; then
-             e_header "Installing Homebrew casks: $list"
-             brew cask install $list
+            e_header "Installing Homebrew casks: $list"
+            brew cask install $list
         fi
     fi
 fi
