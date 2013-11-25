@@ -257,9 +257,10 @@ function link_this() {
 e_header "installing symlinks"
 cd ~/.dotfiles
 link_this "$HOME/.dotfiles/gitconfig" "$HOME/.gitconfig"
+link_this "$HOME/.dotfiles/gitignore" "$HOME/.gitignore"
 link_this "$HOME/.dotfiles/config" "$HOME/.config"
 link_this "$HOME/.dotfiles/ssh/config" "$HOME/.ssh/config"
-link_this "$HOME/.dotfiles/gitignore" "$HOME/.gitignore"
+link_this "$HOME/.dotfiles/ctags" "$HOME/.ctags"
 link_this "$HOME/.dotfiles/profile" "$HOME/.profile"
 link_this "$HOME/.dotfiles/screenrc" "$HOME/.screenrc"
 link_this "$HOME/.dotfiles/tmux.conf" "$HOME/.tmux.conf"
@@ -272,8 +273,6 @@ link_this "$HOME/.dotfiles/vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
 link_this "$HOME/.dotfiles/vimrc.local" "$HOME/.vimrc.local"
 link_this "$HOME/.dotfiles/vimrc.before.local" "$HOME/.vimrc.before.local"
 link_this "$HOME/.dotfiles/tmuxinator" "$HOME/.tmuxinator"
-link_this "$HOME/.dotfiles/ctags" "$HOME/.ctags"
-link_this "$HOME/.dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
 # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 
@@ -281,5 +280,8 @@ link_this "$HOME/.dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
 e_header "installing spf13"
 curl http://j.mp/spf13-vim3 -L -o - | sh
 vim +BundleClean! +qall!
+
+# this needs to be after the .vim folder is created
+link_this "$HOME/.dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
 
 e_success "installation complete!"
