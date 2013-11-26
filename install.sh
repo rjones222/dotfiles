@@ -110,11 +110,13 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             macvim
             mysql
             nodejs
+            postgresql
             # qcachegrind
             reattach-to-user-namespace
             rbenv
             selenium-server-standalone
             ssh-copy-id
+            solr
             terminal-notifier
             the_silver_searcher
             tmux
@@ -173,19 +175,22 @@ if [[ ! "$(type -P apt-get)" ]]; then
     sudo apt-get install highlight
     sudo apt-get install htop
     sudo apt-get install irssi
+    sudo apt-get install postgresql
     sudo apt-get install rake
     sudo apt-get install rbenv
     sudo apt-get install silversearcher-ag
+    sudo apt-get install solr-tomcat
     sudo apt-get install tmux
     sudo apt-get install tree
     sudo apt-get install vagrant
-    # sudo apt-get install vim
-    sudo apt-get install vim-nox
+    sudo apt-get install vim
+    # sudo apt-get install vim-nox
 
     # install github's hub
     git clone git://github.com/github/hub.git
     cd hub
     rake install
+
 fi
 
 # end linux only
