@@ -116,6 +116,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             rbenv
             selenium-server-standalone
             ssh-copy-id
+            solr
             terminal-notifier
             the_silver_searcher
             tmux
@@ -178,6 +179,7 @@ if [[ ! "$(type -P apt-get)" ]]; then
     sudo apt-get install rake
     sudo apt-get install rbenv
     sudo apt-get install silversearcher-ag
+    sudo apt-get install solr-tomcat
     sudo apt-get install tmux
     sudo apt-get install tree
     sudo apt-get install vagrant
@@ -188,6 +190,7 @@ if [[ ! "$(type -P apt-get)" ]]; then
     git clone git://github.com/github/hub.git
     cd hub
     rake install
+
 fi
 
 # end linux only
