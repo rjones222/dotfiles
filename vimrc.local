@@ -223,6 +223,9 @@
         if filereadable('/usr/local/php5/bin/php')
             let g:phpqa_php_cmd='/usr/local/php5/bin/php'
         endif
+        if filereadable('/usr/bin/php')
+            let g:phpqa_php_cmd='/usr/bin/php'
+        endif
 
         " standard
         let g:phpqa_codesniffer_args = "--standard=psr2"
