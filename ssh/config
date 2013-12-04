@@ -5,3 +5,7 @@ User mfunk
 Host lucid
 Hostname lucid-dev1.bno
 User mfunk
+
+Host ubuntubox
+Hostname 172.16.109.116
+User mikedfunk

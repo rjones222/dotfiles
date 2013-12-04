@@ -45,8 +45,8 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'mhinz/vim-startify'
 
 " auto-update ctags on save
-Bundle 'szw/vim-tags'
-Bundle 'tpope/vim-dispatch'
+" Bundle 'szw/vim-tags'
+" Bundle 'tpope/vim-dispatch'
 
 " auto ctags"
 " Bundle 'xolox/vim-misc'
@@ -56,7 +56,7 @@ Bundle 'tpope/vim-dispatch'
 " Bundle 'nacitar/terminalkeys.vim'
 
 " coding standards fixer integration
-Bundle 'stephpy/vim-php-cs-fixer'
+" Bundle 'stephpy/vim-php-cs-fixer'
 
 " smart search, replace, abbreviation fixer
 Bundle 'tpope/vim-abolish'
@@ -68,7 +68,7 @@ Bundle 'dbakker/vim-projectroot'
 " Bundle 'joonty/vim-phpunitqf.git'
 
 " php namespace and use block autocomplete
-Bundle 'arnaud-lb/vim-php-namespace'
+" Bundle 'arnaud-lb/vim-php-namespace'
 
 " create text tables. 
 " conflicts with tagbar mapping in spf-13
@@ -81,7 +81,7 @@ Bundle 'tpope/vim-repeat'
 " Bundle 'zhaocai/linepower.vim'
 
 " better php ctags in tagbar
-Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
+" Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
 " better paste
 " Bundle 'sickill/vim-pasta'
@@ -128,7 +128,7 @@ Bundle 'ivalkeen/vim-ctrlp-tjump'
 Bundle 'rking/ag.vim'
 
 " on linux it leaves this out for some reason
-Bundle 'bling/vim-airline'
+" Bundle 'bling/vim-airline'
 
 " open directory in finder
 Bundle 'justinmk/vim-gtfo'
@@ -141,6 +141,3 @@ Bundle 'rayburgemeestre/phpfolding.vim'
 
 " share registers across vim installations
 Bundle 'ardagnir/united-front'
-
-" git gutter that also supports mercurial and others
-" Bundle 'mhinz/vim-signify'

@@ -6,10 +6,11 @@
 " }}}
 
 " General {{{
-    let g:snips_author = 'Michael Funk <mfunk@spinmedia.com>'
+    " let g:snips_author = 'Michael Funk <mfunk@spinmedia.com>'
 
     " disable auto folding
     set nofoldenable
+    " and in PIV
     let g:DisableAutoPHPFolding = 1
 
     " enable the preview window for omnicompletion
@@ -48,7 +49,7 @@
     nnoremap gl gt
     nnoremap gn :tabnew<cr>
 
-    " set this to a blade view
+    " set this to an html view
     nnoremap <leader>h :setlocal ft=html shiftwidth=2 tabstop=2<cr>
 
     " open tag in tab
@@ -73,7 +74,7 @@
     UnBundle 'godlygeek/csapprox'
 
     " too many slowdowns and freezes.
-    UnBundle 'Shougo/neocomplcache'
+    " UnBundle 'Shougo/neocomplcache'
 
     " it slows down vim
     UnBundle 'Lokaltog/powerline'
@@ -133,11 +134,11 @@
     " inoremap kj <Esc>
 
     " vimux
-    map <leader>rp :VimuxPromptCommand<cr>
-    map <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
-    map <leader>rl :VimuxRunLastCommand<cr>
-    map <leader>ri :VimuxInspectRunner<cr>
-    map <leader>rx :VimuxCloseRunner<cr>
+    " map <leader>rp :VimuxPromptCommand<cr>
+    " map <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+    " map <leader>rl :VimuxRunLastCommand<cr>
+    " map <leader>ri :VimuxInspectRunner<cr>
+    " map <leader>rx :VimuxCloseRunner<cr>
 
     " resize splits, consistent with tmux bindings
     map <c-w><c-j> :resize +10<cr>
@@ -169,7 +170,7 @@
         " Compatibility for Terminal
         " let g:solarized_termtrans=1
         " let g:solarized_termcolors=16
-        
+
         " works in 256 mode
         let g:solarized_termtrans=0
         let g:solarized_contrast="normal"
@@ -183,7 +184,7 @@
         " hi ColorColumn guibg=#242424 ctermbg=235
         " hi TabLine ctermfg=Black
     endif
-    
+
     " change the default EasyMotion shading to something more readable with Solarized
     hi link EasyMotionTarget ErrorMsg
     hi link EasyMotionShade  Comment
@@ -206,7 +207,9 @@
 
     " phpqa {{{
         " PHPMD Ruleset
-        let g:phpqa_messdetector_ruleset = "~/.dotfiles/phpmd_ruleset.xml"
+        if filereadable("~/.dotfiles/phpmd_ruleset.xml")
+            let g:phpqa_messdetector_ruleset = "~/.dotfiles/phpmd_ruleset.xml"
+        fi
 
         " Clover code coverage XML file
         if filereadable("/Library/WebServer/Documents/einstein2/build/logs/clover.xml")
@@ -234,8 +237,8 @@
 
     " PDV comment parameters
     let g:pdv_cfg_Package   = "Example"
-    let g:pdv_cfg_Author    = "Michael Funk <mfunk@spinmedia.com>"
-    let g:pdv_cfg_Copyright = "Copyright 2013 SpinMedia, Inc. All Rights Reserved."
+    let g:pdv_cfg_Author    = "Michael Funk <mfunk@internetbrands.com>"
+    let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
     let g:pdv_cfg_License   = ""
 
     " reset file to HEAD in fugitive commit window
@@ -245,12 +248,12 @@
     " let g:phpunit_cmd = "cd ~/Sites/einstein2 && php artisan dump-autoload && php artisan clear-compiled && phpunit"
 
     " add use statements
-    inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
-    noremap <Leader>u :call PhpInsertUse()<CR>
+    " inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+    " noremap <Leader>u :call PhpInsertUse()<CR>
 
     " make class names fully qualified
-    inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
-    noremap <Leader>e :call PhpExpandClass()<CR>
+    " inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
+    " noremap <Leader>e :call PhpExpandClass()<CR>
 
     " for mouseterm
     if has("mouse")
@@ -271,7 +274,7 @@
 
     " set guifont to powerline compatible for macvim
     " set guifont=Menlo\ for\ Powerline:h12
-    set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h14
+    " set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h14
     " let g:Powerline_symbols = 'fancy'
 
     " syntastic
@@ -325,18 +328,21 @@
     endfunction
 
     " ctrlp extensions
-    let g:ctrlp_extensions = ['tag', 'funky']
+    " let g:ctrlp_extensions = ['tag', 'funky']
+    let g:ctrlp_extensions = ['tag']
 
     " ctrlpfunky shortcuts
-    nnoremap <Leader>fu :CtrlPFunky<Cr>
+    " nnoremap <Leader>fu :CtrlPFunky<Cr>
     " narrow the list down with a word under cursor
-    nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
+    " nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
 
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
 
     " pdv map phpdoc
-    let g:pdv_template_dir = "$HOME/.vim/bundle/pdv/templates"
+    " if filereadable("$HOME/.vim/bundle/pdv/templates")
+        " let g:pdv_template_dir = '$HOME/.vim/bundle/pdv/templates'
+    " fi
     " nnoremap <buffer> <Leader>pd :call pdv#DocumentCurrentLine()<CR>
 
     " ultisnips start with my ultisnips
@@ -346,10 +352,10 @@
     let g:UltiSnipsExpandTrigger='<c-J>'
 
     " pdv 1.1.1
-    let g:pdv_cfg_Package   = 'Einstein2'
-    let g:pdv_cfg_Author    = 'Michael Funk <mfunk@christianpublishing.com>'
-    let g:pdv_cfg_Copyright = '2013 Xulon Press, Inc. All Rights Reserved.'
-    let g:pdv_cfg_ClassTags = ["package","author","copyright"]
+    " let g:pdv_cfg_Package   = 'Einstein2'
+    " let g:pdv_cfg_Author    = 'Michael Funk <mfunk@christianpublishing.com>'
+    " let g:pdv_cfg_Copyright = '2013 Xulon Press, Inc. All Rights Reserved.'
+    " let g:pdv_cfg_ClassTags = ["package","author","copyright"]
     " let g:pdv_cfg_folds = 0
     " let g:pdv_cfg_CommentEnd = ""
 
