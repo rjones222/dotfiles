@@ -74,7 +74,7 @@ fi
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 
     # set mac preferences
-    e_header "Setting Mac preferences"
+    e_header "Setting Mac Preferences"
     defaults write com.apple.finder NewWindowTargetPath file://Users/mfunk/
     defaults write com.apple.finder AppleShowAllFiles TRUE
     killall Finder
@@ -89,20 +89,20 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         e_header "Updating Homebrew"
         brew doctor
         brew update
-        brew tap phinze/homebrew-cask
+        # brew tap phinze/homebrew-cask
 
         # Install Homebrew recipes.
         recipes=(
             ack
             bash-completion
-            brew-cask
+            # brew-cask
             ctags
             git
             git-extras
             # graphviz
             grc
             highlight
-            htop-osx
+            # htop-osx
             hub
             imagemagick
             irssi
@@ -127,33 +127,33 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
         list="$(to_install "${recipes[*]}" "$(brew list)")"
         if [[ "$list" ]]; then
-            e_header "Installing Homebrew recipes: $list"
+            e_header "Installing Homebrew Recipes: $list"
             brew install $list
         fi
 
         # Install brew casks
-        casks=(
-            cyberduck
-            dropbox
-            google-chrome
-            google-drive
-            google-music-manager
-            iterm2
-            sequel-pro
-            virtualbox
-        )
+        # casks=(
+            # cyberduck
+            # dropbox
+            # google-chrome
+            # google-drive
+            # google-music-manager
+            # iterm2
+            # sequel-pro
+            # virtualbox
+        # )
 
-        list="$(to_install "${casks[*]}" "$(brew cask list)")"
-        if [[ "$list" ]]; then
-            e_header "Installing Homebrew casks: $list"
-            brew cask install $list
-        fi
+        # list="$(to_install "${casks[*]}" "$(brew cask list)")"
+        # if [[ "$list" ]]; then
+            # e_header "Installing Homebrew casks: $list"
+            # brew cask install $list
+        # fi
     fi
 
     # install ctags patched
     # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
     if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
-        e_header "installing ctags patched"
+        e_header "Installing Ctags Patched"
         cd /usr/local/Library/Formula
         curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
         brew install ctags --HEAD
@@ -190,6 +190,7 @@ if [[ ! "$(type -P apt-get)" ]]; then
     git clone git://github.com/github/hub.git
     cd hub
     rake install
+    rm -rf hub
 
 fi
 
@@ -197,15 +198,15 @@ fi
 # ------------------------
 
 # install php-cs-fixer
-if [[ ! -f /usr/local/bin/php-cs-fixer ]]; then
-    e_header "installing cli tools"
-    sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
-    sudo chmod a+x /usr/local/bin/php-cs-fixer
-fi
+# if [[ ! -f /usr/local/bin/php-cs-fixer ]]; then
+    # e_header "Installing PHP CS Fixer"
+    # sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
+    # sudo chmod a+x /usr/local/bin/php-cs-fixer
+# fi
 
 # install composer
 if [[ ! "$(type -P composer)" ]]; then
-  e_header "installing composer"
+  e_header "Installing Composer"
     curl -sS https://getcomposer.org/installer | php
     sudo mv composer.phar /usr/local/bin/composer
     sudo chmod +x composer
@@ -216,19 +217,19 @@ fi
 # npm install -g powerline-js
 
 # install gems
-e_header "installing gems"
+e_header "Installing Gems"
 sudo gem install pygmentize
-sudo gem install observr
+# sudo gem install observr
 sudo gem install tmuxinator
 
 # install phpctags
-if [[ ! -d ~/.dotfiles/phpctags/build ]]; then
-    e_header "installing phpctags"
-    cd ~/.dotfiles/phpctags
-    make
-    ln -s ~/.dotfiles/phpctags/phpctags /usr/local/bin/phpctags
-    cd -
-fi
+# if [[ ! -d ~/.dotfiles/phpctags/build ]]; then
+    # e_header "installing phpctags"
+    # cd ~/.dotfiles/phpctags
+    # make
+    # ln -s ~/.dotfiles/phpctags/phpctags /usr/local/bin/phpctags
+    # cd -
+# fi
 
 function link_this() {
 
@@ -285,11 +286,11 @@ link_this "$HOME/.dotfiles/tmuxinator" "$HOME/.tmuxinator"
 # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 
 # install spf13
-e_header "installing spf13"
+e_header "Installing Spf13-vim"
 curl http://j.mp/spf13-vim3 -L -o - | sh
 vim +BundleClean! +qall!
 
 # this needs to be after the .vim folder is created
 link_this "$HOME/.dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
 
-e_success "installation complete!"
+e_success "Installation Complete!"

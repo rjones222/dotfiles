@@ -9,15 +9,18 @@ GREEN=$(tput setaf 2)
 RESET=$(tput setaf 0)
 
 # add to path
-if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
-    export PATH=$PATH:/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
+if [ -d "/usr/local/bin" ] ; then
+    export PATH="/usr/local/bin:$PATH"
 fi
-if [ -d ~/.bin ]; then
-    export PATH=$PATH:~/.bin
+if [ -f "/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux" ]; then
+    export PATH="/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux:$PATH"
 fi
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
+fi
+if [ -d "$HOME/.bin" ] ; then
+    export PATH="$HOME/.bin:$PATH"
 fi
 # add ruby gems to PATH
 if [ -f "/usr/local/bin/brew" ]; then
@@ -41,10 +44,10 @@ alias :so="source"
 alias mux="tmuxinator"
 alias artisan="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
-if [ -f /usr/local/bin/mvim ]; then
+if [ -f "/usr/local/bin/mvim" ]; then
     alias vim="mvim -v --servername mikefunk" # use macvim executable in terminal mode
 fi
-if [ -f /usr/local/bin/hub ]; then
+if [ -f "/usr/local/bin/hub" ]; then
     eval "$(hub alias -s)" # alias hub to git
 fi
 alias g="git"
@@ -63,13 +66,15 @@ alias ma="git pull origin develop" # merge alert!
 alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
 alias profile="source ~/.profile"
+
 chk=''
-if [ -f "/usr/local/opt/ruby/bin/gem" ]; then
+if which gem >/dev/null; then
     gem list pygmentize -i | $chk
 fi
 if [ $chk ]; then
     alias cat="pygmentize -g" # colorizes cat
 fi
+
 alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
 alias orig="find . -name '*.orig' -delete" # delete .orig files
 alias conflicts="grep -lir '<<<<<' *"
