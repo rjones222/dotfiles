@@ -39,7 +39,7 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     trustctime = false
     excludesfile = ~/.gitignore
-    autocrlf = false
+	autocrlf = false
 [diff]
     tool = opendiff
 [github]

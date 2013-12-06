@@ -26,9 +26,8 @@ fi
 
 # aliases
 alias wr='cd ~/Sites' # web root
-alias ld='cd ~/development/lucid_dev_1'
-alias ldmount='sshfs lucid:/var/www ~/sshfs/lucid_dev_1 -oauto_cache,reconnect,defer_permissions,negative_vncache'
-alias selenium='java -jar /usr/local/bin/selenium-server.jar'
+# alias ldmount='sshfs lucid:/var/www ~/sshfs/lucid_dev_1 -oauto_cache,reconnect,defer_permissions,negative_vncache'
+# alias selenium='java -jar /usr/local/bin/selenium-server.jar'
 alias gitk='gitk 2>/dev/null' # fix terminal output error
 alias vimupdate='vim +BundleClean! +qall && vim +BundleInstall! +qall'
 alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
@@ -118,23 +117,25 @@ fi
 # always cd into web root
 # cd ~/Sites/einstein2/
 
-# powerline shell
-# if powerline-shell.py file exists
-if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]; then
-    function _update_ps1() {
-        export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $? --mode flat)"
-        # export PS1="$(powerline $? --shell bash --depth 4)"
-
-        # make prompt look like this, with colors: 12:11:28 Sites $
-        # export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
-        # export PS1="\W $(__git_ps1) \$"
+# function _update_ps1() {
+    # powerline shell
+    # if powerline-shell.py file exists
+    # if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]
+    # then
+        # export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
+        # # export PS1="$(powerline $? --shell bash --depth 4 --mode flat)"
+    # else
+        # # make prompt look like this, with colors: 12:11:28 Sites $
+        # # export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
+        # # export PS1="\W $(__git_ps1) \$"
         # export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
-    }
-    export PROMPT_COMMAND="_update_ps1"
-fi
+    # fi
+# }
+
+# export PROMPT_COMMAND="_update_ps1"
 
 # powerline shell
-# source ~/.dotfiles/bash-powerline/bash-powerline.sh
+source ~/.dotfiles/bash-powerline/bash-powerline.sh
 
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then
