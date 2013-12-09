@@ -166,7 +166,7 @@ fi
 # ------------------------
 
 # Linux only
-if [[ ! "$(type -P apt-get)" ]]; then
+if [[ "$(type -P apt-get)" ]]; then
 
     # install linux packages
     sudo apt-get install ack
