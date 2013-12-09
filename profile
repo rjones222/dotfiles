@@ -175,6 +175,10 @@ _my_ps1 () {
         PS1+="$GREEN"
     fi
 
+    # ssh text
+    if [ -n "$SSH_CLIENT" ]; then PS1+=" ssh "
+    fi
+
     # reset
     PS1+=" \$ $(tput sgr0) "
 }
