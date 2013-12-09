@@ -107,6 +107,11 @@ if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
     source /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 fi
 
+# git ps1 prompt
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+
 # set vim as default editor
 if [ -f "$HOME/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
