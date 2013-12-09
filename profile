@@ -66,7 +66,7 @@ alias ma="git pull origin develop" # merge alert!
 alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
 alias profile="source ~/.profile"
-alias resetnet="sudo /etc/init.d/networking stop; sudo /etc/init.d/networking start"
+alias resetnet="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
 
 chk=''
 if which gem >/dev/null; then
