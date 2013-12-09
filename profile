@@ -147,15 +147,45 @@ fi
 
 # powerline shell
 # if [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
-    fast_git_ps1 () {
-        printf -- "$(tput setab 4)$(tput setaf 7)$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1} /')"
-    }
     # PS1='\w$(__git_ps1)$ '
     # PS1='\e[97m\e[44m \w$(fast_git_ps1) \$ \e[0m '
-    PS1='$(tput setab 14)$(tput setaf 7) \w $(fast_git_ps1)$(tput setab 2)$(tput setaf 7) \$ $(tput sgr0) '
+    # PS1='$(tput setab 14)$(tput setaf 7) \w $(fast_git_ps1)$(tput setab 2)$(tput setaf 7) \$ $(tput sgr0) '
 # else
     # source ~/.dotfiles/bash-powerline/bash-powerline.sh
 # fi
+
+# git line for ps1
+fast_git_ps1 () {
+    printf -- "$(tput setab 4)$(tput setaf 7)$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1} /')"
+}
+
+# custom ps1
+_my_ps1 () {
+    # check non-zero exit status
+    local EXIT="$?"
+
+    # start with white fg
+    PS1="$(tput setaf 7)"
+
+    # set some background color vars
+    local RED="$(tput setab 1)"
+    local GREEN="$(tput setab 2)"
+    local GRAY="$(tput setab 14)"
+
+    # gray path, git in blue if there is a git repo
+    PS1+="$GRAY \w $(fast_git_ps1)"
+
+    # red if non-zero exit status, otherwise green
+    if [ $EXIT != 0 ]; then
+        PS1+="$RED"
+    else
+        PS1+="$GREEN"
+    fi
+
+    # reset
+    PS1+=" \$ $(tput sgr0) "
+}
+export PROMPT_COMMAND="_my_ps1"
 
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then
