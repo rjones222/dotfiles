@@ -151,7 +151,7 @@ if [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
         printf -- "$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1} /')"
     }
     # PS1='\w$(__git_ps1)$ '
-    PS1='\e[97m\e[44m]\w$(fast_git_ps1)$\e[0m '
+    PS1=' \e[97m\e[44m\w$(fast_git_ps1) \$ \e[0m '
 else
     source ~/.dotfiles/bash-powerline/bash-powerline.sh
 fi
