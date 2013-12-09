@@ -197,6 +197,11 @@ fi
 # end linux only
 # ------------------------
 
+# install pear packages
+e_header "Installing Pear Packages"
+sudo pear config-set auto_discover 1
+sudo pear install pear.phpqatools.org/phpqatools
+
 # install php-cs-fixer
 # if [[ ! -f /usr/local/bin/php-cs-fixer ]]; then
     # e_header "Installing PHP CS Fixer"
