@@ -146,15 +146,16 @@ fi
 # export PROMPT_COMMAND="_update_ps1"
 
 # powerline shell
-if [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
+# if [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
     fast_git_ps1 () {
-        printf -- "$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1} /')"
+        printf -- "$(tput setab 4)$(tput setaf 7)$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1} /')"
     }
     # PS1='\w$(__git_ps1)$ '
-    PS1='\e[97m\e[44m \w$(fast_git_ps1) \$ \e[0m '
-else
-    source ~/.dotfiles/bash-powerline/bash-powerline.sh
-fi
+    # PS1='\e[97m\e[44m \w$(fast_git_ps1) \$ \e[0m '
+    PS1='$(tput setab 14)$(tput setaf 7) \w $(fast_git_ps1)$(tput setab 2)$(tput setaf 7) \$ $(tput sgr0) '
+# else
+    # source ~/.dotfiles/bash-powerline/bash-powerline.sh
+# fi
 
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then
