@@ -82,15 +82,15 @@ alias new-work="tmux new-session -s Work"
 alias attach-work="tmux attach -t Work"
 
 # phpunit with notification
-function phpunitnotify () {
-    /usr/local/php5/bin/phpunit $@
+phpunitnotify () {
+    /usr/local/php5/bin/phpunit "${@}"
     if [[ $? == 0 ]]; then
         terminal-notifier -message "PHPUnit tests passed" -title "Passed" -activate "com.apple.Terminal";
     else
         terminal-notifier -message "PHPUnit tests failed" -title "Failed" -activate "com.apple.Terminal";
     fi
 }
-function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # more environment vars
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
@@ -107,22 +107,22 @@ if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
 fi
 
 # set vim as default editor
-if [ -f $HOME/Applications/MacVim.app/Contents/MacOS/Vim ]; then
+if [ -f "$HOME/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
-if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
 # add to manpath for ranger manual to show up
-if [ -f $MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man ]; then
+if [ -f "$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man" ]; then
     export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
 fi
 
 # always cd into web root
 # cd ~/Sites/einstein2/
 
-# function _update_ps1() {
+# _update_ps1() {
     # powerline shell
     # if powerline-shell.py file exists
     # if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]
@@ -151,12 +151,12 @@ fi
 export GREP_OPTIONS='--color=auto'
 
 # drops and creates einstein2 database
-function dbreset() {
+dbreset() {
     # drop database, create database
-    echo ${GREEN}drop database${RESET}
+    echo "${GREEN}drop database${RESET}"
     mysql -uroot -e 'DROP DATABASE IF EXISTS einstein2;'
 
-    echo ${GREEN}create database${RESET}
+    echo "${GREEN}create database${RESET}"
     mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS einstein2;'
 
     # migrate database, seed database
