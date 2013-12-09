@@ -176,7 +176,7 @@ _my_ps1 () {
     fi
 
     # ssh text
-    if [ -n "$SSH_CLIENT" ]; then PS1+=" ssh "
+    if [ -n "$SSH_CLIENT" ]; then PS1+=" ssh"
     fi
 
     # reset
