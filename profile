@@ -146,7 +146,11 @@ fi
 # export PROMPT_COMMAND="_update_ps1"
 
 # powerline shell
-source ~/.dotfiles/bash-powerline/bash-powerline.sh
+if [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
+    PS1='\w$(__git_ps1): '
+else
+    source ~/.dotfiles/bash-powerline/bash-powerline.sh
+fi
 
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then
