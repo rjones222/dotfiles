@@ -147,14 +147,14 @@ fi
 
 # powerline shell
 if [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
-    __git_ps1 () {
+    fast_git_ps1 () {
         printf -- "$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1} /')"
     }
-    # PS1='\w$(__git_ps1): '
-# else
-    # source ~/.dotfiles/bash-powerline/bash-powerline.sh
+    # PS1='\w$(__git_ps1)$ '
+    PS1='\w$(fast_git_ps1)$ '
+else
+    source ~/.dotfiles/bash-powerline/bash-powerline.sh
 fi
-source ~/.dotfiles/bash-powerline/bash-powerline.sh
 
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then
