@@ -143,18 +143,11 @@ fi
     # fi
 # }
 
-# export PROMPT_COMMAND="_update_ps1"
-
-# powerline shell
-# if [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
-    # PS1='\w$(__git_ps1)$ '
-    # PS1='\e[97m\e[44m \w$(fast_git_ps1) \$ \e[0m '
-    # PS1='$(tput setab 14)$(tput setaf 7) \w $(fast_git_ps1)$(tput setab 2)$(tput setaf 7) \$ $(tput sgr0) '
-# else
-    # source ~/.dotfiles/bash-powerline/bash-powerline.sh
-# fi
+# bash powerline
+# source ~/.dotfiles/bash-powerline/bash-powerline.sh
 
 # git line for ps1
+# @link http://stackoverflow.com/questions/4485059/git-bash-is-extremely-slow-in-windows-7-x64
 fast_git_ps1 () {
     printf -- "$(tput setab 4)$(tput setaf 7)$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1} /')"
 }
