@@ -38,6 +38,7 @@ alias wr='cd ~/Sites' # web root
 alias updates='git pull && git commit -am "updates"; git pull; git push'
 # alias ldmount='sshfs lucid:/var/www ~/sshfs/lucid_dev_1 -oauto_cache,reconnect,defer_permissions,negative_vncache'
 # alias selenium='java -jar /usr/local/bin/selenium-server.jar'
+alias mountwww='mount -t vboxsf ubuntubox /var/www'
 alias gitk='gitk 2>/dev/null' # fix terminal output error
 alias vimupdate='vim +BundleClean! +qall && vim +BundleInstall! +qall'
 alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
