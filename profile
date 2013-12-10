@@ -12,9 +12,12 @@ RESET=$(tput setaf 0)
 if [ -d "/usr/local/bin" ] ; then
     export PATH="/usr/local/bin:$PATH"
 fi
+
 if [ -d "$HOME/.rbenv/bin" ] ; then
     export PATH="$HOME/.rbenv/bin:$PATH"
 fi
+eval "$(rbenv init -)"
+
 if [ -f "/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux" ]; then
     export PATH="/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux:$PATH"
 fi
@@ -211,7 +214,6 @@ dbreset() {
     php artisan db:seed
 }
 
-eval "$(rbenv init -)"
 
 # easy vhost adding
 # source "$HOME/.dotfiles/vhost.sh"

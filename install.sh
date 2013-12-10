@@ -132,6 +132,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             brew install $list
         fi
 
+        # installing gcc so rbenv can install
+        brew tap homebrew/dupes; brew install apple-gcc42
+
         # Install brew casks
         # casks=(
             # cyberduck
@@ -179,7 +182,7 @@ if [[ "$(type -P apt-get)" ]]; then
     sudo apt-get install irssi
     sudo apt-get install postgresql
     sudo apt-get install rake
-    sudo apt-get install rbenv
+    # sudo apt-get install rbenv
     sudo apt-get install silversearcher-ag
     sudo apt-get install solr-tomcat
     sudo apt-get install tmux
@@ -187,6 +190,12 @@ if [[ "$(type -P apt-get)" ]]; then
     sudo apt-get install vagrant
     sudo apt-get install vim
     # sudo apt-get install vim-nox
+
+    # install rbenv
+    if hash hub 2>/dev/null; then
+        e_header "Installing rbenv"
+        curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+    fi
 
     # install github's hub
     if hash hub 2>/dev/null; then
