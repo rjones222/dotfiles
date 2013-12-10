@@ -188,13 +188,13 @@ if [[ "$(type -P apt-get)" ]]; then
     # sudo apt-get install vim-nox
 
     # install github's hub
-    e_header "Installing Hub"
-    cd
-    git clone git://github.com/github/hub.git
-    cd hub
-    sudo rake install
-    cd
-    rm -rf hub
+    if hash hub 2>/dev/null; then
+        e_error "Hub Installed"
+    else
+        e_header "Installing Hub"
+        cd ~/.dotfiles/hub
+        sudo rake install
+    fi
 
 fi
 
