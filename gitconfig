@@ -42,6 +42,7 @@
     excludesfile = ~/.gitignore
 	autocrlf = false
 	ignorecase = true
+	preloadindex = true
 [diff]
     tool = opendiff
 [github]
