@@ -149,7 +149,7 @@ fi
 # git line for ps1
 # @link http://stackoverflow.com/questions/4485059/git-bash-is-extremely-slow-in-windows-7-x64
 fast_git_ps1 () {
-    printf -- "$(tput setab 4)$(tput setaf 7)$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1} /')"
+    printf -- "$(tput setab 4)$(tput setaf 7)$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ \1 /')"
 }
 
 # custom ps1
