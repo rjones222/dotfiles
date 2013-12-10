@@ -33,9 +33,30 @@ if [ -f "/usr/local/bin/brew" ]; then
     export PATH=$(brew --prefix ruby)/bin:$PATH
 fi
 
+# ----------------------------------
 # aliases
+
 alias wr='cd ~/Sites' # web root
 alias updates='git pull && git commit -am "updates"; git pull; git push'
+
+# json pretty print
+alias json="python -mjson.tool"
+
+# identify and search for active network connections
+spy () { lsof -i -P +c 0 +M | grep -i "$1" }
+
+# find a string in the entire git history
+alias gitsearch='git rev-list --all | xargs git grep -F'
+
+#history search
+alias hs='history | grep --color=auto'
+
+# view apache error logs
+alias logs="tac /var/log/apache2/error.log | less"
+
+# gitignore.io
+function gi() { curl http://gitignore.io/api/\$@ ;}
+
 # alias ldmount='sshfs lucid:/var/www ~/sshfs/lucid_dev_1 -oauto_cache,reconnect,defer_permissions,negative_vncache'
 # alias selenium='java -jar /usr/local/bin/selenium-server.jar'
 alias mountwww='mount -t vboxsf ubuntubox /var/www'

@@ -141,3 +141,6 @@ Bundle 'rayburgemeestre/phpfolding.vim'
 
 " share registers across vim installations
 Bundle 'ardagnir/united-front'
+
+" create files and parent dirs at the same time
+Bundle 'dockyard/vim-easydir'
