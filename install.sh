@@ -241,21 +241,20 @@ function link_this() {
     # set better vars for source and dest
 
     # if the symlink exists, skip it and notify
-    if [[ "$1" -L "$2" ]]; then
+    if [[ -L "$2" ]]; then
         e_error "symlink $2 exists"
         return
 
-        # if the file already exists
-        if [ -f $2 || -d $2 ]; then
+    # if the file already exists
+    elif [ -f $2 || -d $2 ]; then
 
-            # create a backup dir if it doesn't already exist and notify
-            backup_dir = "$HOME/backup/"
-            [[ -d "$backup_dir" ]] || mkdir -p "$backup_dir"
+        # create a backup dir if it doesn't already exist and notify
+        backup_dir = "$HOME/backup/"
+        [[ -d "$backup_dir" ]] || mkdir -p "$backup_dir"
 
-            # move the file to the backup dir and notify
-            e_success "backing up $2"
-            mv -R $2 $backup_dir
-        fi
+        # move the file to the backup dir and notify
+        e_success "backing up $2"
+        mv -R $2 $backup_dir
 
     # else symlink it and notify
     else
