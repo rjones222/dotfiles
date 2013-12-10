@@ -246,7 +246,7 @@ function link_this() {
         return
 
     # if the file already exists
-    elif [ -f $2 || -d $2 ]; then
+    elif [[ -f $2 || -d $2 ]]; then
 
         # create a backup dir if it doesn't already exist and notify
         backup_dir = "$HOME/backup/"
