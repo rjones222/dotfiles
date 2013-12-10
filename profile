@@ -208,5 +208,7 @@ dbreset() {
     php artisan db:seed
 }
 
+eval "$(rbenv init -)"
+
 # easy vhost adding
 # source "$HOME/.dotfiles/vhost.sh"
