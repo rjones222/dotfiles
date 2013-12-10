@@ -192,7 +192,8 @@ if [[ "$(type -P apt-get)" ]]; then
     cd
     git clone git://github.com/github/hub.git
     cd hub
-    rake install
+    sudo rake install
+    cd
     rm -rf hub
 
 fi
