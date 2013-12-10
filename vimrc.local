@@ -146,6 +146,10 @@
     map <c-w><c-l> :vertical resize +10<cr>
     map <c-w><c-h> :vertical resize -10<cr>
 
+    " maximize split
+    nnoremap <C-L> <C-W>l<C-W><bar>
+    nnoremap <C-H> <C-W>h<C-W><bar>
+
     " open all buffers in new tabs
     map <leader>bt :tab sball<CR>
     " open existing buffer in a newtab
