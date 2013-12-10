@@ -115,9 +115,10 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 # set vim as default editor
 if [ -f "$HOME/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
-fi
-if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
+elif [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
+else
+    export EDITOR="vim"
 fi
 
 # add to manpath for ranger manual to show up

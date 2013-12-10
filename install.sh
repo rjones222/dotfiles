@@ -238,10 +238,13 @@ sudo gem install tmuxinator
 
 function link_this() {
 
-    # set better vars for source and dest
+    # if the file/dir to link doesn't exist
+    if [[ ! -f "$1" ]] && [[ ! -d "$1" ]]; then
+        e_error "file/directory $1 does not exist"
+        return
 
     # if the symlink exists, skip it and notify
-    if [[ -L "$2" ]]; then
+    elif [[ -L "$2" ]]; then
         e_error "symlink $2 exists"
         return
 
@@ -283,6 +286,8 @@ link_this "$HOME/.dotfiles/vimrc.local" "$HOME/.vimrc.local"
 link_this "$HOME/.dotfiles/vimrc.before.local" "$HOME/.vimrc.before.local"
 link_this "$HOME/.dotfiles/tmuxinator" "$HOME/.tmuxinator"
 link_this "$HOME/.dotfiles/tmuxinator" "$HOME/.tmuxinator"
+link_this "/var/www/sites" "$HOME/Sites"
+link_this "/Library/WebServer/Documents" "$HOME/Sites"
 # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 
