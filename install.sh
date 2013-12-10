@@ -297,6 +297,9 @@ link_this "/Library/WebServer/Documents" "$HOME/Sites"
 # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
 
+# ruby build plugin for rbenv
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
 # install spf13
 e_header "Installing Spf13-vim"
 curl http://j.mp/spf13-vim3 -L -o - | sh
