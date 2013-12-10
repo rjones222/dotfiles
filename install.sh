@@ -169,6 +169,7 @@ fi
 if [[ "$(type -P apt-get)" ]]; then
 
     # install linux packages
+    e_header "Installing apt-get Packages"
     sudo apt-get install ack
     sudo apt-get install ctags
     sudo apt-get install git-extras
@@ -187,6 +188,8 @@ if [[ "$(type -P apt-get)" ]]; then
     # sudo apt-get install vim-nox
 
     # install github's hub
+    e_header "Installing Hub"
+    cd
     git clone git://github.com/github/hub.git
     cd hub
     rake install
