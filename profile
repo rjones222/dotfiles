@@ -1,8 +1,8 @@
 # add rvm to path, load
-if [ -d "$HOME/.rvm/bin" ]; then
-    export PATH="$PATH:$HOME/.rvm/bin"
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-fi
+# if [ -d "$HOME/.rvm/bin" ]; then
+    # export PATH="$PATH:$HOME/.rvm/bin"
+    # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# fi
 
 # pretty colors
 GREEN=$(tput setaf 2)
@@ -11,6 +11,9 @@ RESET=$(tput setaf 0)
 # add to path
 if [ -d "/usr/local/bin" ] ; then
     export PATH="/usr/local/bin:$PATH"
+fi
+if [ -d "$HOME/.rbenv/bin" ] ; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 if [ -f "/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux" ]; then
     export PATH="/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux:$PATH"
