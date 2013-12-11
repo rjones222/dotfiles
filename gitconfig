@@ -18,6 +18,11 @@
     sync = "!f() { echo Syncing $1 with develop && git checkout develop && git pull && git checkout $1 && git merge develop; }; f"
     wiff = diff --color-words
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+[color]
+    ui = true
+    branch = true
+    diff = true
+    statis = true
 [color "branch"]
     current = yellow reverse
     local = yellow
