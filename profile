@@ -33,6 +33,9 @@ fi
 alias wr='cd ~/Sites' # web root
 alias updates='git pull && git commit -am "updates"; git pull; git push'
 
+# apache restart
+alias ares="sudo apachectl restart"
+
 # json pretty print
 alias json="python -mjson.tool"
 
