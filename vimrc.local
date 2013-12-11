@@ -252,15 +252,7 @@
     autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
 
     " phpunitqf
-    " let g:phpunit_cmd = "cd ~/Sites/einstein2 && php artisan dump-autoload && php artisan clear-compiled && phpunit"
-
-    " add use statements
-    " inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
-    " noremap <Leader>u :call PhpInsertUse()<CR>
-
-    " make class names fully qualified
-    " inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
-    " noremap <Leader>e :call PhpExpandClass()<CR>
+    " let g:phpunit_cmd = 'cd ~/Sites/einstein2 && php artisan dump-autoload && php artisan clear-compiled && phpunit'
 
     " for mouseterm
     if has("mouse")
@@ -300,34 +292,6 @@
     " fugitive
     hi default link User4 Special
 
-    " statusline
-    " set statusline=
-    " set statusline+=\ ⌸\ %F\ "full file path
-    " set statusline+=%5*⮀
-    " set statusline+=%1*" Switch to colour User1
-
-    " fugitive statusline
-    " set statusline+=%{strlen(fugitive#statusline())>0?'\ ⭠\ ':''}
-    " set statusline+=%{fugitive#head()}
-    " set statusline+=%{&ro?'\ ⭤':''}%{&mod?'\ ✚':''}%<
-    " set statusline+=%{strlen(fugitive#statusline())>0?'\ \ ⮁\ ':''}
-
-    " align right stuff
-    " set statusline+=%=" align right
-    " set statusline+=%2*" Switch to colour User2
-    " set statusline+=\ %{tagbar#currenttag('⮃\ %s\ ','','f')}
-    " set statusline+=%5*⮂
-    " set statusline+=%*" Switch to default colour
-    " set statusline+=\ %{&filetype}\ ⮃
-    " set statusline+=\ %p%%\ ⮃
-    " set statusline+=\ ⭡\ %l:%c\ 
-
-    " default statusline with fugitive
-    " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-    " tabgar show current function in footer
-    " set statusline+=\ %{tagbar#currenttag('[%s]','')}
-
     " set quickfix window height automatically
     au FileType qf call AdjustWindowHeight(3, 5)
     function! AdjustWindowHeight(minheight, maxheight)
@@ -335,36 +299,16 @@
     endfunction
 
     " ctrlp extensions
-    " let g:ctrlp_extensions = ['tag', 'funky']
     let g:ctrlp_extensions = ['tag']
-
-    " ctrlpfunky shortcuts
-    " nnoremap <Leader>fu :CtrlPFunky<Cr>
-    " narrow the list down with a word under cursor
-    " nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
 
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
-
-    " pdv map phpdoc
-    " if filereadable("$HOME/.vim/bundle/pdv/templates")
-        " let g:pdv_template_dir = '$HOME/.vim/bundle/pdv/templates'
-    " endif
-    " nnoremap <buffer> <Leader>pd :call pdv#DocumentCurrentLine()<CR>
 
     " ultisnips start with my ultisnips
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsListSnippets='<c-L>'
     let g:UltiSnipsExpandTrigger='<c-J>'
-
-    " pdv 1.1.1
-    " let g:pdv_cfg_Package   = 'Einstein2'
-    " let g:pdv_cfg_Author    = 'Michael Funk <mfunk@christianpublishing.com>'
-    " let g:pdv_cfg_Copyright = '2013 Xulon Press, Inc. All Rights Reserved.'
-    " let g:pdv_cfg_ClassTags = ["package","author","copyright"]
-    " let g:pdv_cfg_folds = 0
-    " let g:pdv_cfg_CommentEnd = ""
 
     au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
     au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>

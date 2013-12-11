@@ -1,5 +1,5 @@
 " which bundle groups to install
-let g:spf13_bundle_groups=['general', 'programming', 'php', 'javascript', 'html', 'misc']
+let g:spf13_bundle_groups=['general', 'programming', 'php', 'javascript', 'html', 'misc', 'neocomplcache']
 
 " adds extra intuitive keyboard shortcuts
 Bundle 'tpope/vim-unimpaired'
