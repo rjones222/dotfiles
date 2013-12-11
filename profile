@@ -1,9 +1,3 @@
-# add rvm to path, load
-# if [ -d "$HOME/.rvm/bin" ]; then
-    # export PATH="$PATH:$HOME/.rvm/bin"
-    # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-# fi
-
 # pretty colors
 GREEN=$(tput setaf 2)
 RESET=$(tput setaf 0)
@@ -42,29 +36,24 @@ alias updates='git pull && git commit -am "updates"; git pull; git push'
 # json pretty print
 alias json="python -mjson.tool"
 
-# identify and search for active network connections
-spy () { lsof -i -P +c 0 +M | grep -i "$1" }
-
-# find a string in the entire git history
-alias gitsearch='git rev-list --all | xargs git grep -F'
-
 #history search
 alias hs='history | grep --color=auto'
 
 # view apache error logs
 alias logs="tac /var/log/apache2/error.log | less"
 
-# gitignore.io
-function gi() { curl http://gitignore.io/api/\$@ ;}
-
-# alias ldmount='sshfs lucid:/var/www ~/sshfs/lucid_dev_1 -oauto_cache,reconnect,defer_permissions,negative_vncache'
-# alias selenium='java -jar /usr/local/bin/selenium-server.jar'
+# for virtualbox
 alias mountwww='mount -t vboxsf ubuntubox /var/www'
-alias gitk='gitk 2>/dev/null' # fix terminal output error
+
+# fix terminal output error
+alias gitk='gitk 2>/dev/null'
+
 alias vimupdate='vim +BundleClean! +qall && vim +BundleInstall! +qall'
 alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
-# alias watch='observr ~/.dotfiles/observr.conf.rb' # phpunit on dir change
-alias lsd="ls -GpFha" # additional details
+
+ # additional details
+alias lsd="ls -GpFha"
+
 # I forget I'm not in vim sometimes...
 alias :q="exit"
 alias :pwd="pwd"
@@ -73,15 +62,19 @@ alias :so="source"
 alias mux="tmuxinator"
 alias artisan="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
+
+# use macvim executable in terminal mode
 if [ -f "/usr/local/bin/mvim" ]; then
-    alias vim="mvim -v --servername mikefunk" # use macvim executable in terminal mode
+    alias vim="mvim -v --servername mikefunk" 
 fi
+
+# alias hub to git
 if [ -f "/usr/local/bin/hub" ]; then
-    eval "$(hub alias -s)" # alias hub to git
+    eval "$(hub alias -s)" 
 fi
+
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
-# alias test="composer dump-autoload && artisan clear-compiled && phpunit --debug"
 alias test="php artisan test "
 alias pf="phpunit --debug --filter "
 alias pu="phpunit"
@@ -90,19 +83,28 @@ alias cu="composer update"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 alias quickserver="python -m SimpleHTTPServer"
-alias lines="find . -name '*.php' | xargs wc -l" # count php line numbers in dir
-alias ma="git pull origin develop" # merge alert!
+
+# count php line numbers in dir
+alias lines="find . -name '*.php' | xargs wc -l" 
+
+# merge alert!
+alias ma="git pull origin develop" 
+
 alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
 alias profile="source ~/.profile"
 alias resetnet="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
 
+# end aliases
+# --------------------------------
+
+# colorize cat
 chk=''
 if which gem >/dev/null; then
     gem list pygmentize -i | $chk
 fi
 if [ $chk ]; then
-    alias cat="pygmentize -g" # colorizes cat
+    alias cat="pygmentize -g"
 fi
 
 alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
@@ -125,14 +127,12 @@ mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 # more environment vars
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export CLICOLOR=1
-# export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # get bash git completion
-# source /usr/local/etc/bash_completion.d/git-prompt.sh
-if [ -f /usr/local/etc/bash_completion ]; then
+if [ -f "/usr/local/etc/bash_completion" ]; then
   . /usr/local/etc/bash_completion
 fi
-if [ -f /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux ]; then
+if [ -f "/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux" ]; then
     source /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 fi
 
@@ -155,33 +155,13 @@ if [ -f "$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Ver
     export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
 fi
 
-# always cd into web root
-# cd ~/Sites/einstein2/
-
-# _update_ps1() {
-    # powerline shell
-    # if powerline-shell.py file exists
-    # if [ -f $HOME/.dotfiles/powerline-shell/powerline-shell.py ]
-    # then
-        # export PS1="$(~/.dotfiles/powerline-shell/powerline-shell.py $?)"
-        # # export PS1="$(powerline $? --shell bash --depth 4 --mode flat)"
-    # else
-        # # make prompt look like this, with colors: 12:11:28 Sites $
-        # # export PS1="$HFWHT$BBLE \T $RS$HFWHT$HBBLE \W $RS$HFWHT$BBLE $BRED$(__git_ps1 "(%s)")$RS \$ $RS "
-        # # export PS1="\W $(__git_ps1) \$"
-        # export PS1="\h:\W \u\$(__git_ps1 \" (%s) \")\$ "
-    # fi
-# }
-
-# bash powerline
-# source ~/.dotfiles/bash-powerline/bash-powerline.sh
-
 # git line for ps1
 # @link http://stackoverflow.com/questions/4485059/git-bash-is-extremely-slow-in-windows-7-x64
 fast_git_ps1 () {
     printf -- "$(tput setab 4)$(tput setaf 7)$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ \1 /')"
 }
 
+# ---------------------------------
 # custom ps1
 _my_ps1 () {
     # check non-zero exit status
@@ -214,6 +194,9 @@ _my_ps1 () {
 }
 export PROMPT_COMMAND="_my_ps1"
 
+# end ps1
+# ---------------------------------
+
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then
     source "/usr/local/etc/grc.bashrc"
@@ -224,6 +207,7 @@ export GREP_OPTIONS='--color=auto'
 
 # drops and creates einstein2 database
 dbreset() {
+
     # drop database, create database
     echo "${GREEN}drop database${RESET}"
     mysql -uroot -e 'DROP DATABASE IF EXISTS einstein2;'
@@ -235,7 +219,3 @@ dbreset() {
     php artisan migrate
     php artisan db:seed
 }
-
-
-# easy vhost adding
-# source "$HOME/.dotfiles/vhost.sh"
