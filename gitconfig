@@ -20,6 +20,7 @@
 	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 [color]
 	ui = true
+	status = true
 [color "branch"]
     current = yellow reverse
     local = yellow
