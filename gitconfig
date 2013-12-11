@@ -21,6 +21,8 @@
 [color]
 	ui = true
 	status = true
+	branch = true
+	decorate = true
 [color "branch"]
     current = yellow reverse
     local = yellow
