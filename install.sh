@@ -216,13 +216,6 @@ e_header "Installing Pear Packages"
 sudo pear config-set auto_discover 1
 sudo pear install pear.phpqatools.org/phpqatools
 
-# install php-cs-fixer
-# if [[ ! -f /usr/local/bin/php-cs-fixer ]]; then
-    # e_header "Installing PHP CS Fixer"
-    # sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
-    # sudo chmod a+x /usr/local/bin/php-cs-fixer
-# fi
-
 # install composer
 if [[ ! "$(type -P composer)" ]]; then
   e_header "Installing Composer"
@@ -231,9 +224,6 @@ if [[ ! "$(type -P composer)" ]]; then
     sudo chmod +x composer
     cd
 fi
-
-# install node packages
-# npm install -g powerline-js
 
 # install gems
 e_header "Installing Gems"
@@ -305,9 +295,6 @@ link_this "/var/www/sites" "$HOME/Sites"
 link_this "/Library/WebServer/Documents" "$HOME/Sites"
 # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
-
-# ruby build plugin for rbenv
-git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 # install spf13
 e_header "Installing Spf13-vim"
