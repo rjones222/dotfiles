@@ -19,7 +19,7 @@
     wiff = diff --color-words
 	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 [color]
-    ui = true
+	ui = true
 [color "branch"]
     current = yellow reverse
     local = yellow
