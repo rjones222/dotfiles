@@ -177,6 +177,7 @@ if [[ "$(type -P apt-get)" ]]; then
     sudo apt-get install ack
     sudo apt-get install ctags
     sudo apt-get install git-extras
+    sudo apt-get install grc
     sudo apt-get install highlight
     sudo apt-get install htop
     sudo apt-get install irssi
