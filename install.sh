@@ -218,11 +218,22 @@ sudo pear install pear.phpqatools.org/phpqatools
 
 # install composer
 if [[ ! "$(type -P composer)" ]]; then
-  e_header "Installing Composer"
+    e_header "Installing Composer"
+    cd
     curl -sS https://getcomposer.org/installer | php
     sudo mv composer.phar /usr/local/bin/composer
     sudo chmod +x composer
+    cd -
+fi
+
+# install laravel installer
+if [[ ! "$(type -P laravel)" ]]; then
+    e_header "Installing Laravel Installer"
     cd
+    wget http://laravel.com/laravel.phar
+    sudo mv laravel.phar /usr/local/bin/laravel
+    sudo chmod +x laravel
+    cd -
 fi
 
 # install gems

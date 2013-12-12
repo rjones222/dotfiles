@@ -5,6 +5,8 @@ project_name: Work
 project_root: ~/Sites
 windows:
   - config: vim -S ~/.vim/sessions/config
-  - zend: vim ./skeleton-application
-  # - mysql: mysql -u root einstein2
-  # - tests: watch
+  - rjunk: cd ~/Sites/racingjunk/
+  - oldride: cd ~/Sites/oldride.com/
+  - logs: ssh ubuntubox; tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log /var/log/postgresql/*log
+  - ssh: ssh ubuntubox
+  - mysql: ssh ubuntubox; mysql -u mikedfunk

@@ -1,11 +1,12 @@
-Host boson
-Hostname 10.100.1.3
-User mfunk
-
-Host lucid
-Hostname lucid-dev1.bno
-User mfunk
-
 Host ubuntubox
 Hostname 172.16.109.116
 User mikedfunk
+
+Host oldride
+Hostname stg-oldride1.dhcp.internetbrands.com
+User mfunk
+# PasswordAuthentication yes
+# PubKeyAuthentication no
+# PreferredAuthentications password,publickey
+# RSAAuthentication no
+# Port 443
