@@ -114,7 +114,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             # qcachegrind
             reattach-to-user-namespace
             rbenv
-            ruby-build
+            # ruby-build
             selenium-server-standalone
             ssh-copy-id
             solr

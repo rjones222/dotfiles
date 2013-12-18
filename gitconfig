@@ -61,11 +61,13 @@
 [rebase]
     autosquash = true
 [user]
-    email = mfunk@christianpublishing.com
-    name = Mike Funk
+	email = mfunk@internetbrands.com
+	name = Mike Funk
 [url "git@github.com"]
     insteadOf = gh
 [url "git@bitbucket.org"]
     insteadOf = bb
 [web]
     browser = open
+[http]
+	sslVerify = false
