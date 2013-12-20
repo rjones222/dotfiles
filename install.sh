@@ -5,6 +5,10 @@ function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
 function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
 function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 
+# sudo
+e_header "You'll need sudo soon"
+sudo e_success "Sudo password entered"
+
 # Given a list of desired items and installed items, return a list
 # of uninstalled items. Arrays in bash are insane (not in a good way).
 function to_install() {
@@ -91,67 +95,41 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         brew update
         # brew tap phinze/homebrew-cask
 
-        # Install Homebrew recipes.
-        recipes=(
-            ack
-            bash-completion
-            # brew-cask
-            ctags
-            git
-            git-extras
-            # graphviz
-            grc
-            highlight
-            # htop-osx
-            hub
-            imagemagick
-            irssi
-            # lesspipe nmap
-            macvim
-            mysql
-            nodejs
-            postgresql
-            # qcachegrind
-            reattach-to-user-namespace
-            rbenv
-            ruby-build
-            selenium-server-standalone
-            ssh-copy-id
-            solr
-            terminal-notifier
-            the_silver_searcher
-            tmux
-            tree
-            vagrant
-            wget
-        )
-
-        list="$(to_install "${recipes[*]}" "$(brew list)")"
-        if [[ "$list" ]]; then
-            e_header "Installing Homebrew Recipes: $list"
-            brew install $list
-        fi
+        e_header "Installing Homebrew Recipes"
+        brew install ack
+        brew install bash-completion
+        # brew install brew-cask
+        brew install ctags
+        brew install git
+        brew install git-extras
+        # brew install graphviz
+        brew install grc
+        brew install highlight
+        # brew install htop-osx
+        brew install hub
+        brew install imagemagick
+        brew install irssi
+        # brew install lesspipe nmap
+        brew install macvim
+        brew install mysql
+        brew install nodejs
+        brew install postgresql
+        # brew install qcachegrind
+        brew install reattach-to-user-namespace
+        brew install rbenv
+        brew install ruby-build
+        brew install selenium-server-standalone
+        brew install ssh-copy-id
+        brew install solr
+        brew install terminal-notifier
+        brew install the_silver_searcher
+        brew install tmux
+        brew install tree
+        brew install vagrant
+        brew install wget
 
         # installing gcc so rbenv can install
         brew tap homebrew/dupes; brew install apple-gcc42
-
-        # Install brew casks
-        # casks=(
-            # cyberduck
-            # dropbox
-            # google-chrome
-            # google-drive
-            # google-music-manager
-            # iterm2
-            # sequel-pro
-            # virtualbox
-        # )
-
-        # list="$(to_install "${casks[*]}" "$(brew cask list)")"
-        # if [[ "$list" ]]; then
-            # e_header "Installing Homebrew casks: $list"
-            # brew cask install $list
-        # fi
     fi
 
     # install ctags patched
@@ -174,26 +152,28 @@ if [[ "$(type -P apt-get)" ]]; then
 
     # install linux packages
     e_header "Installing apt-get Packages"
-    sudo apt-get install ack
-    sudo apt-get install ctags
-    sudo apt-get install git-extras
-    sudo apt-get install grc
-    sudo apt-get install highlight
-    sudo apt-get install htop
-    sudo apt-get install irssi
-    sudo apt-get install postgresql
-    sudo apt-get install rake
-    # sudo apt-get install rbenv
-    sudo apt-get install silversearcher-ag
-    sudo apt-get install solr-tomcat
-    sudo apt-get install tmux
-    sudo apt-get install tree
-    sudo apt-get install vagrant
-    sudo apt-get install vim
+    sudo apt-get install -y ack
+    sudo apt-get install -y ctags
+    sudo apt-get install -y git-extras
+    sudo apt-get install -y grc
+    sudo apt-get install -y highlight
+    sudo apt-get install -y htop
+    sudo apt-get install -y irssi
+    sudo apt-get install -y postgresql
+    sudo apt-get install -y rake
+    # sudo apt-get install -y rbenv
+    sudo apt-get install -y silversearcher-ag
+    sudo apt-get install -y solr-tomcat
+    sudo apt-get install -y tmux
+    sudo apt-get install -y tree
+    sudo apt-get install -y vagrant
+    sudo apt-get install -y vim
     # sudo apt-get install vim-nox
 
     # install rbenv
-    if hash hub 2>/dev/null; then
+    if hash rbenv 2>/dev/null; then
+        e_error "rbenv installed"
+    else
         e_header "Installing rbenv"
         curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
     fi
