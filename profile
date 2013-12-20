@@ -46,7 +46,7 @@ alias hs='history | grep --color=auto'
 alias logs="tac /var/log/apache2/error.log | less"
 
 # for virtualbox
-alias mountwww='sudo mount -t vboxsf www /var/www'
+alias mountwww='sudo mount -t vboxsf ubuntubox /var/www'
 
 # fix terminal output error
 alias gitk='gitk 2>/dev/null'
