@@ -177,7 +177,7 @@ _my_ps1 () {
     # set some background color vars
     local RED="$(tput setab 1)"
     local GREEN="$(tput setab 2)"
-    local GRAY="$(tput setab 14)"
+    local GRAY="$(tput setab 6)"
 
     # gray path, git in blue if there is a git repo
     PS1+="$GRAY \w $(fast_git_ps1)"

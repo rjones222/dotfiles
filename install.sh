@@ -276,7 +276,7 @@ function link_this() {
 
         # move the file to the backup dir and notify
         e_success "backing up $2"
-        mv -R $2 $backup_dir
+        mv $2 $backup_dir
 
     # else symlink it and notify
     else
