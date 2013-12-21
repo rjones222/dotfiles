@@ -166,7 +166,7 @@ if [[ "$(type -P apt-get)" ]]; then
     sudo apt-get install -y solr-tomcat
     sudo apt-get install -y tmux
     sudo apt-get install -y tree
-    sudo apt-get install -y vagrant
+    # sudo apt-get install -y vagrant
     sudo apt-get install -y vim
     # sudo apt-get install vim-nox
 
