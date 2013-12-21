@@ -322,7 +322,7 @@ link_this "/Library/WebServer/Documents" "$HOME/Sites"
 
 # install spf13
 e_header "Installing Spf13-vim"
-curl http://j.mp/spf13-vim3 -L -o - | sh
+curl http://j.mp/spf13-vim3 -L -o - | bash
 rm -rf ~/.vim/bundle/csapprox
 vim +BundleClean! +qall!
 
