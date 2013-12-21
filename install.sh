@@ -249,11 +249,20 @@ if [[ ! "$(type -P laravel)" ]]; then
     cd -
 fi
 
+# install a gem if it's not already installed
+function geminstall() {
+    if gem list $1 -i; then
+        e_error "Gem $1 already installed"
+    else
+        sudo gem install $1
+    fi
+}
+
 # install gems
 e_header "Installing Gems"
-sudo gem install pygmentize
-# sudo gem install observr
-sudo gem install tmuxinator
+gem_install "pygmentize"
+# gem_install "observr"
+gem_install "tmuxinator"
 
 # install phpctags
 # if [[ ! -d ~/.dotfiles/phpctags/build ]]; then
