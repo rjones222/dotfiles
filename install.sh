@@ -250,7 +250,7 @@ if [[ ! "$(type -P laravel)" ]]; then
 fi
 
 # install a gem if it's not already installed
-function geminstall() {
+function gem_install() {
     if gem list $1 -i; then
         e_error "Gem $1 already installed"
     else
