@@ -183,6 +183,7 @@ if [[ "$(type -P apt-get)" ]]; then
     sudo apt-get install -y htop
     sudo apt-get install -y irssi
     sudo apt-get install -y php5-json
+    sudo apt-get install -y php-pear
     sudo apt-get install -y postgresql
     sudo apt-get install -y rake
     # sudo apt-get install -y rbenv
