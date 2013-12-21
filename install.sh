@@ -251,7 +251,8 @@ fi
 
 # install a gem if it's not already installed
 function gem_install() {
-    if gem list $1 -i; then
+    chk=$(gem list $1 -i)
+    if [ "$chk" == "true" ]; then
         e_error "Gem $1 already installed"
     else
         sudo gem install $1
