@@ -328,4 +328,5 @@ vim +BundleClean! +qall!
 # this needs to be after the .vim folder is created
 link_this "$HOME/.dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
 
+source ~/.profile
 e_success "Installation Complete!"
