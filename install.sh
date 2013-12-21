@@ -7,7 +7,7 @@ function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 
 # sudo
 e_header "You'll need sudo soon"
-function e_success()  { echo -e " \033[1;32m✔\033[0m Sudo password entered"; }
+sudo echo -e " \033[1;32m✔\033[0m Sudo password entered"
 
 # Given a list of desired items and installed items, return a list
 # of uninstalled items. Arrays in bash are insane (not in a good way).
