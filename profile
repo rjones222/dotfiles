@@ -115,6 +115,7 @@ alias orig="find . -name '*.orig' -delete" # delete .orig files
 alias conflicts="grep -lir '<<<<<' *"
 alias new-work="tmux new-session -s Work"
 alias attach-work="tmux attach -t Work"
+alias work="tmux attach -t Work || tmux new-session -s Work"
 
 # phpunit with notification
 phpunitnotify () {
