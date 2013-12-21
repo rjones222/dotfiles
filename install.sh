@@ -220,6 +220,13 @@ e_header "Installing Pear Packages"
 sudo pear config-set auto_discover 1
 sudo pear install pear.phpqatools.org/phpqatools
 
+# fix tmux namespace issue on macos only
+if [[ ! "$(type -P reattach-to-user-namespace-tmux)" ]]; then
+    e_header "Installing reattach-to-user-namespace-tmux"
+    sudo mv ~/.dotfiles/reattach-to-user-namespace-tmux /usr/local/bin/
+    sudo chmod +x /usr/local/bin/reattach-to-user-namespace-tmux
+fi
+
 # install composer
 if [[ ! "$(type -P composer)" ]]; then
     e_header "Installing Composer"
