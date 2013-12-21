@@ -330,3 +330,4 @@ link_this "$HOME/.dotfiles/UltiSnips" "$HOME/.vim/UltiSnips"
 
 source ~/.profile
 e_success "Installation Complete!"
+echo ''
