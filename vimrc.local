@@ -98,6 +98,9 @@
     " I use vim-signify instead
     " UnBundle 'airblade/vim-gitgutter'
 
+    " This breaks s for substitute
+    UnBundle 'justinmk/vim-sneak'
+
     " various spf-13 stuff I don't use
     UnBundle 'jnwhiteh/vim-golang'
     UnBundle 'python.vim'

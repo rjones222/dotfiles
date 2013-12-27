@@ -103,6 +103,7 @@ channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#motorhead"; chatnet = "IB"; autojoin = "yes"; }
+  { name = "#noc"; chatnet = "IB"; autojoin = "yes"; }
 );
 
 aliases = {
