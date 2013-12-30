@@ -140,11 +140,6 @@ if [ -f "/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux" ]; then
     source /usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux
 fi
 
-# git ps1 prompt
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-
 # set vim as default editor
 if [ -f "$HOME/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
     export EDITOR="$HOME/Applications/MacVim.app/Contents/MacOS/Vim"
@@ -159,47 +154,7 @@ if [ -f "$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Ver
     export MANPATH=$MANPATH:/usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/share/man
 fi
 
-# git line for ps1
-# @link http://stackoverflow.com/questions/4485059/git-bash-is-extremely-slow-in-windows-7-x64
-fast_git_ps1 () {
-    printf -- "$(tput setab 4)$(tput setaf 7)$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ \1 /')"
-}
-
-# ---------------------------------
-# custom ps1
-_my_ps1 () {
-    # check non-zero exit status
-    local EXIT="$?"
-
-    # start with white fg
-    PS1="$(tput setaf 7)"
-
-    # set some background color vars
-    local RED="$(tput setab 1)"
-    local GREEN="$(tput setab 2)"
-    local GRAY="$(tput setab 6)"
-
-    # gray path, git in blue if there is a git repo
-    PS1+="$GRAY \w $(fast_git_ps1)"
-
-    # red if non-zero exit status, otherwise green
-    if [ $EXIT != 0 ]; then
-        PS1+="$RED"
-    else
-        PS1+="$GREEN"
-    fi
-
-    # ssh text
-    if [ -n "$SSH_CLIENT" ]; then PS1+=" ssh"
-    fi
-
-    # reset
-    PS1+=" \$ $(tput sgr0) "
-}
-export PROMPT_COMMAND="_my_ps1"
-
-# end ps1
-# ---------------------------------
+source ~/.ps1
 
 # generic colorizer
 if [ -f /usr/local/etc/grc.bashrc ]; then
