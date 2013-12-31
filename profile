@@ -51,8 +51,12 @@ alias mountwww='sudo mount -t vboxsf ubuntubox /var/www'
 # fix terminal output error
 alias gitk='gitk 2>/dev/null'
 
+# update/install with vundle
 alias vimupdate='vim +BundleClean! +qall && vim +BundleInstall! +qall'
 alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
+
+# php 5.4 built-in web server
+alias phpserver='php -S localhost:8000'
 
  # additional details
 alias lsd="ls -GpFha"

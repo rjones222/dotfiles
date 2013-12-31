@@ -6,7 +6,7 @@
 " }}}
 
 " General {{{
-    " let g:snips_author = 'Michael Funk <mfunk@spinmedia.com>'
+    let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
 
     " disable auto folding
     set nofoldenable
