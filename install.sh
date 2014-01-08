@@ -294,16 +294,16 @@ function link_this() {
 
         # create a backup dir if it doesn't already exist and notify
         backup_dir = "$HOME/backup/"
-        [[ -d "$backup_dir" ]] || mkdir -p "$backup_dir"
+        [[ -d "$backup_dir" ]] || sudo mkdir -p "$backup_dir"
 
         # move the file to the backup dir and notify
         e_success "backing up $2"
-        mv $2 $backup_dir
+        sudo mv $2 $backup_dir
 
     # else symlink it and notify
     else
         e_success "linking $1 to $2"
-        ln -s $1 $2
+        sudo ln -s $1 $2
     fi
 }
 # Symlink the configuration files into their appropriate homes if they don't already exist
