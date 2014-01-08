@@ -9,6 +9,9 @@ function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 e_header "Verifying sudo password"
 sudo echo -e " \033[1;32m✔\033[0m Sudo password entered"
 
+# create this if it doesn't exist - we'll need it later.
+sudo mkdir -p /usr/local/bin
+
 # Given a list of desired items and installed items, return a list
 # of uninstalled items. Arrays in bash are insane (not in a good way).
 function to_install() {
@@ -244,7 +247,6 @@ if [[ ! "$(type -P laravel)" ]]; then
     e_header "Installing Laravel Installer"
     cd
     wget http://laravel.com/laravel.phar
-    sudo mkdir -p /usr/local/bin
     sudo mv laravel.phar /usr/local/bin/laravel
     sudo chmod +x laravel
     cd -
