@@ -17,7 +17,7 @@ _my_ps1 () {
     local EXIT="$?"
 
     # start with white fg
-    PS1="$(tput setaf 7)"
+    PS1="\[$(tput setaf 7)"
 
     # set some background color vars
     local RED="$(tput setab 1)"
@@ -39,7 +39,7 @@ _my_ps1 () {
     fi
 
     # reset
-    PS1+=" \$ $(tput sgr0) "
+    PS1+=" \$ $(tput sgr0) \]"
 }
 export PROMPT_COMMAND="_my_ps1"
 
