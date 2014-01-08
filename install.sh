@@ -244,6 +244,7 @@ if [[ ! "$(type -P laravel)" ]]; then
     e_header "Installing Laravel Installer"
     cd
     wget http://laravel.com/laravel.phar
+    sudo mkdir -p /usr/local/bin
     sudo mv laravel.phar /usr/local/bin/laravel
     sudo chmod +x laravel
     cd -
