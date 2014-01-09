@@ -17,15 +17,16 @@ _my_ps1 () {
     local EXIT="$?"
 
     # start with white fg
-    PS1="\[$(tput setaf 7)"
+    PS1="\["
+    PS1+="$(tput setaf 7)"
 
     # set some background color vars
-    local RED="$(tput setab 1)"
-    local GREEN="$(tput setab 2)"
-    local GRAY="$(tput setab 6)"
+    local RED="\[$(tput setab 1)\]"
+    local GREEN="\[$(tput setab 2)\]"
+    local GRAY="\[$(tput setab 6)\]"
 
     # gray path, git in blue if there is a git repo
-    PS1+="$GRAY \w $(fast_git_ps1)"
+    PS1+="$GRAY \w \[$(fast_git_ps1)\]"
 
     # red if non-zero exit status, otherwise green
     if [ $EXIT != 0 ]; then
@@ -39,7 +40,8 @@ _my_ps1 () {
     fi
 
     # reset
-    PS1+=" \$ $(tput sgr0) \]"
+    PS1+=" \$ \[$(tput sgr0)\] "
+    PS1+="\]"
 }
 export PROMPT_COMMAND="_my_ps1"
 

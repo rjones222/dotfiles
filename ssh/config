@@ -34,12 +34,17 @@ Hostname racingjunk-web1.internetbrands.com
 
 # -----------
 
+Host koding
+Hostname mikedfunk.kd.io
+User mikedfunk
+IdentityFile ~/.ssh/id_rsa.pub
+
 # PasswordAuthentication yes
 # PubKeyAuthentication no
 # PreferredAuthentications password,publickey
 # RSAAuthentication no
 # Port 443
 
-Host *.dhcp.internetbrands.com
-AddressFamily inet
-GSSAPIAuthentication no
+# Host *.dhcp.internetbrands.com
+# AddressFamily inet
+# GSSAPIAuthentication no
