@@ -34,10 +34,9 @@ Hostname racingjunk-web1.internetbrands.com
 
 # -----------
 
-Host koding
-Hostname mikedfunk.kd.io
-User mikedfunk
-IdentityFile ~/.ssh/id_rsa.pub
+Host *.kd.io
+  User mikedfunk
+  ProxyCommand ssh %r@ssh.koding.com nc %h %p
 
 # PasswordAuthentication yes
 # PubKeyAuthentication no
