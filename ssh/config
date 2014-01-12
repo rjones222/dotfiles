@@ -34,9 +34,17 @@ Hostname racingjunk-web1.internetbrands.com
 
 # -----------
 
+Host do
+Hostname 192.241.223.52
+User root
+
+# -----------
+
 Host *.kd.io
   User mikedfunk
+  # ProxyCommand ssh -i ~/.ssh/koding %r@ssh.koding.com nc %h %p
   ProxyCommand ssh %r@ssh.koding.com nc %h %p
+  # IdentityFile ~/.ssh/koding
 
 # PasswordAuthentication yes
 # PubKeyAuthentication no
