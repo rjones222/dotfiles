@@ -226,6 +226,11 @@ fi
 # end linux only
 # ------------------------
 
+# install npm packages
+sudo npm install -g yo
+sudo npm install -g bower
+sudo npm install -g grunt
+
 # install pear packages
 e_header "Installing Pear Packages"
 sudo pear config-set auto_discover 1
