@@ -19,7 +19,7 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
-# bash completion
+# tmux bash completion
 if [ -f "/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux" ]; then
     export PATH="/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux:$PATH"
 fi
@@ -31,9 +31,17 @@ fi
 if [ -d "$HOME/.bin" ] ; then
     export PATH="$HOME/.bin:$PATH"
 fi
-# add ruby gems to PATH
+
+# if homebrew installed
 if [ -f "/usr/local/bin/brew" ]; then
+
+    # add ruby gems to PATH
     export PATH=$(brew --prefix ruby)/bin:$PATH
+
+    # source homebrew bash completion
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        $(brew --prefix)/etc/bash_completion
+    fi
 fi
 
 # ----------------------------------
