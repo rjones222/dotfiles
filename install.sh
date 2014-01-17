@@ -227,9 +227,8 @@ fi
 # ------------------------
 
 # install npm packages
+# yo includes grunt and bower
 sudo npm install -g yo
-sudo npm install -g bower
-sudo npm install -g grunt
 
 # install pear packages
 e_header "Installing Pear Packages"
