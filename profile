@@ -7,15 +7,23 @@ if [ -d "/usr/local/bin" ] ; then
     export PATH="/usr/local/bin:$PATH"
 fi
 
+# phpenv
+if [ -d "$HOME/.phpenv/bin" ] ; then
+    export PATH="$HOME/.phpenv/bin:$PATH"
+fi
+
+# rbenv
 export RBENV_ROOT="${HOME}/.rbenv"
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
   eval "$(rbenv init -)"
 fi
 
+# bash completion
 if [ -f "/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux" ]; then
     export PATH="/usr/local/Cellar/tmux/1.8/etc/bash_completion.d/tmux:$PATH"
 fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
