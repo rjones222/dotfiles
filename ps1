@@ -18,7 +18,7 @@ _my_ps1 () {
 
     # start with white fg
     PS1="\["
-    PS1+="$(tput setaf 7)"
+    PS1+="\[$(tput setaf 7)\]"
 
     # set some background color vars
     local RED="\[$(tput setab 1)\]"
@@ -26,13 +26,13 @@ _my_ps1 () {
     local GRAY="\[$(tput setab 6)\]"
 
     # gray path, git in blue if there is a git repo
-    PS1+="$GRAY \w \[$(fast_git_ps1)\]"
+    PS1+="\[$GRAY\] \[\w\] \[$(fast_git_ps1)\]"
 
     # red if non-zero exit status, otherwise green
     if [ $EXIT != 0 ]; then
-        PS1+="$RED"
+        PS1+="\[$RED\]"
     else
-        PS1+="$GREEN"
+        PS1+="\[$GREEN\]"
     fi
 
     # ssh text
@@ -41,7 +41,8 @@ _my_ps1 () {
 
     # reset
     PS1+=" \$ \[$(tput sgr0)\]"
-    PS1+="\] "
+    PS1+=" "
+    PS1+="\]"
 }
 export PROMPT_COMMAND="_my_ps1"
 
