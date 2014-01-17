@@ -198,6 +198,12 @@ if [[ "$(type -P apt-get)" ]]; then
     # sudo apt-get install -y vim
     # sudo apt-get install vim-nox
 
+    # install npm for ubuntu 13.04 64 bit
+    sudo apt-get install python-software-properties python g++ make
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get install -y nodejs
+
     # install rbenv
     if hash rbenv 2>/dev/null; then
         e_error "rbenv installed"
