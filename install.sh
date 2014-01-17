@@ -287,6 +287,9 @@ gem_install "tmuxinator"
     # cd -
 # fi
 
+# install phpenv
+git clone git://github.com/phpenv/phpenv.git ~/.phpenv
+
 function link_this() {
 
     # if the file/dir to link doesn't exist
