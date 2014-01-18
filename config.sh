@@ -13,7 +13,7 @@
 #INITIAL_TOUCH_ALL=1
 
 # Overwrite default utils & tasks directories.
-UTILS_DIR=${INSTALLER_PATH}/bash-installer-framework/data/utils
+UTILS_DIR=${INSTALLER_PATH}/bash-installer-framework/utils
 #TASKS_DIR=${INSTALLER_PATH}/data/tasks
 
 # Overwrite default log-to-stdout config.
@@ -21,28 +21,28 @@ UTILS_DIR=${INSTALLER_PATH}/bash-installer-framework/data/utils
 
 
 function welcome() {
-  echo -e "\e[00;32mWelcome to the new and shiny installer framework!\e[00m"
+  echo -e "$(tput setaf 4)Welcome to the new and shiny installer framework!$(tput sgr0)"
 }
 
 function installation_complete() {
-  echo -e "\e[00;32mMove along now, there's nothing else you can do!\e[00m"
+  echo -e "$(tput setaf 2)Move along now, there's nothing else you can do!$(tput sgr0)"
 
   # If you want the install script to terminate automatically:
   #exit 0
 }
 
 function installation_incomplete() {
-  echo -e "\e[00;31mWhoopsie!\e[00m"
+  echo -e "$(tput setaf 1)Whoopsie!$(tput sgr0)"
 }
 
 #function main_menu_prompt() {
-#  echo "What ye want?"
+#  echo "$(tput setaf 2)What ye want?$(tput sgr0)"
 #}
 
 #function task_menu_prompt() {
-#  echo "TAAASK?"
+#  echo "$(tput setaf 2)Select a task$(tput sgr0)"
 #}
 
 #function skip_menu_prompt() {
-#  echo "SKIPP?"
+#  echo "$(tput setaf 2)Skip?$(tput sgr0)"
 #}
