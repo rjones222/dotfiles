@@ -1,0 +1,6 @@
+[submodule "bash-installer-framework"]
+	path = bash-installer-framework
+	url = https://github.com/mikedfunk/bash-installer-framework.git
+[submodule "bash-it"]
+	path = bash-it
+	url = https://github.com/revans/bash-it.git
