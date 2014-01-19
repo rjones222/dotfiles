@@ -6,7 +6,7 @@ function bashit_init() {
 
 function bashit_run() {
 
-    if [[ ! -L "$HOME/.bash_it" ]]; then
+    if [[ ! -d "$HOME/.bash_it" ]]; then
         log_info "cloning into ~/.bash_it"
         git clone https://github.com/revans/bash-it.git ~/.bash_it
     fi
@@ -37,8 +37,8 @@ function bashit_run() {
         return ${E_FAILURE}
     fi
     log_info "Running bash-it installer"
-    if [[ -f "$HOME/.bashit.status" ]]; then
-        source ~/.bashit_status
+    if [[ -f "$HOME/.dotfiles/.bashit.status" ]]; then
+        source ~/.dotfiles/.bashit.status
         if [[ $bashit_dependencies == "setup" ]]; then
             log_info "bashit already installed"
             return ${E_SUCCESS}
