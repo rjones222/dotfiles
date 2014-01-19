@@ -23,7 +23,7 @@ function final_tasks_run() {
     log_info "linking UltiSnips custom snippets dir"
     link_this "$HOME/.dotfiles/to_link/UltiSnips" "$HOME/.vim/UltiSnips"
 
-    log_info "reloading .bash_profile"
-    source ~/.bash_profile
+    #log_info "reloading .bash_profile"
+    #source ~/.bash_profile
     return ${E_SUCCESS}
 }
