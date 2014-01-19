@@ -20,27 +20,27 @@ UTILS_DIR=${INSTALLER_PATH}/bash-installer-framework/utils
 #LOG_STDOUT=( "ERROR" "IMPORTANT" "WARNING" "INFO" "SKIP" "START" "FINISH" )
 
 
-function welcome() {
-  echo -e "$(tput setaf 4)Welcome to the new and shiny installer framework!$(tput sgr0)"
-}
+#function welcome() {
+#  echo -e "$(tput setaf 4)Welcome to the new and shiny installer framework!$(tput sgr0)"
+#}
 
-function installation_complete() {
-  echo -e "$(tput setaf 2)Move along now, there's nothing else you can do!$(tput sgr0)"
+#function installation_complete() {
+#  echo -e "$(tput setaf 2)Installation Complete$(tput sgr0)"
+#
+#  # If you want the install script to terminate automatically:
+#  exit 0
+#}
 
-  # If you want the install script to terminate automatically:
-  #exit 0
-}
-
-function installation_incomplete() {
-  echo -e "$(tput setaf 1)Whoopsie!$(tput sgr0)"
-}
+#function installation_incomplete() {
+#  echo -e "$(tput setaf 1)Installation Incomplete$(tput sgr0)"
+#}
 
 #function main_menu_prompt() {
-#  echo "$(tput setaf 2)What ye want?$(tput sgr0)"
+#  echo "$(tput setaf 2)Main Menu$(tput sgr0)"
 #}
 
 #function task_menu_prompt() {
-#  echo "$(tput setaf 2)Select a task$(tput sgr0)"
+#  echo "$(tput setaf 2)Select a Task$(tput sgr0)"
 #}
 
 #function skip_menu_prompt() {
