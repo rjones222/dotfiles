@@ -66,7 +66,7 @@ function symlinks_run() {
     link_this "/var/www/sites" "$HOME/Sites"
     link_this "/Library/WebServer/Documents" "$HOME/Sites"
 
-    link_this "$HOME/.dotfiles/bin $HOME/.bin"
+    link_this "$HOME/.dotfiles/bin" "$HOME/.bin"
 
     # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
     # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
