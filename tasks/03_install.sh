@@ -41,13 +41,6 @@ function install_run() {
         # fi
     done
 
-    # fix tmux namespace issue on macos only
-    if [[ ! "$(type -P reattach-to-user-namespace-tmux)" ]]; then
-        log_info "Installing reattach-to-user-namespace-tmux"
-        sudo mv ~/.dotfiles/reattach-to-user-namespace-tmux /usr/local/bin/
-        sudo chmod +x /usr/local/bin/reattach-to-user-namespace-tmux
-    fi
-
     # install composer
     if [[ ! "$(type -P composer)" ]]; then
         log_info "Installing Composer"
@@ -69,7 +62,7 @@ function install_run() {
     fi
 
     if [[ ! "$(type -P gem)" ]]; then
-        log_error "gem not installed"
+        log_error "gem utility not installed"
         return ${E_FAILURE}
     fi
     log_info "Installing Gems"
@@ -87,13 +80,14 @@ function install_run() {
     done
 
     # install phpctags
-    # if [[ ! -d ~/.dotfiles/phpctags/build ]]; then
-        # e_header "installing phpctags"
-        # cd ~/.dotfiles/phpctags
-        # make
-        # ln -s ~/.dotfiles/phpctags/phpctags /usr/local/bin/phpctags
-        # cd -
-    # fi
+    hash phpctags 2>/dev/null || {
+        log_info "installing phpctags"
+        cd ~/.dotfiles/support/phpctags
+        make
+        sudo ln -s ~/.dotfiles/support/phpctags/phpctags /usr/local/bin/phpctags
+        sudo chmod +x /usr/local/bin/phpctags
+        cd -
+    }
 
     # install phpenv
     if [[ ! -d ~/.phpenv ]]; then

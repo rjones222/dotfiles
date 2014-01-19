@@ -9,10 +9,16 @@ function osx_tasks_run() {
     if [[ "$OSTYPE" =~ ^darwin ]]; then
 
         # set mac preferences
-        log_info "Setting Mac Preferences"
-        defaults write com.apple.finder NewWindowTargetPath file://Users/mfunk/
-        defaults write com.apple.finder AppleShowAllFiles TRUE
-        killall Finder
+        if [[ $(defaults read com.apple.finder NewWindowTargetPath) != "file://Users/mfunk" ]]; then
+            log_info "setting finder default location"
+            defaults write com.apple.finder NewWindowTargetPath file://Users/mfunk/
+        fi
+
+        if [[ $(defaults read com.apple.finder AppleShowAllFiles) != "TRUE" ]]; then
+            log_info "setting finder to show hidden files"
+            defaults write com.apple.finder AppleShowAllFiles TRUE
+            killall Finder
+        fi
 
         # Install Homebrew.
         if [[ ! "$(type -P brew)" ]]; then
@@ -43,7 +49,6 @@ function osx_tasks_run() {
             nodejs
             postgresql
             reattach-to-user-namespace
-            rbenv
             ssh-copy-id
             solr
             terminal-notifier
@@ -60,8 +65,10 @@ function osx_tasks_run() {
                 }
             done
 
-            log_info "install bash to /etc/paths"
-            sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
+            if [[ $(grep "/usr/local/bin/bash" /etc/shells -c) == 0 ]]; then
+                log_info "installing bash to /etc/paths"
+                sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
+            fi
 
             # install packages without the same cli name
             packages=(
@@ -72,11 +79,12 @@ function osx_tasks_run() {
             )
             for package in "${packages[@]}"
             do
-                log_info "installing $package"
+                log_info "attempting to install $package"
                 brew install install $package
             done
 
             # installing gcc so rbenv can install
+            log_info "attempting to install gcc"
             brew tap homebrew/dupes
             brew install apple-gcc42
         fi
@@ -91,7 +99,7 @@ function osx_tasks_run() {
             sudo touch /usr/local/etc/.ctags_patched_installed
         fi
     else
-        log_finish "This is not OSX"
+        log_error "This is not OSX so not running osx tasks"
     fi
 
     return ${E_SUCCESS}

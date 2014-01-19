@@ -64,16 +64,10 @@ function linux_tasks_run() {
         # install npm for ubuntu 13.04 64 bit
         if [[ ! "$(type -P npm)" ]]; then
             log_info "installing nodejs"
-            sudo apt-get install python-software-properties python g++ make
+            sudo apt-get install python-software-properties python g++ make -y
             sudo add-apt-repository ppa:chris-lea/node.js
             sudo apt-get update
             sudo apt-get install -y nodejs
-        fi
-
-        # install rbenv
-        if [[ ! "$(type -P rbenv)" ]]; then
-            log_info "Installing rbenv"
-            curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
         fi
 
         if [[ ! "$(type -P rake)" ]]; then
@@ -84,10 +78,12 @@ function linux_tasks_run() {
         # install github's hub
         if [[ ! "$(type -P hub)" ]]; then
             log_info "Installing hub"
-            cd ~/.dotfiles/hub
+            cd ~/.dotfiles/support/hub
             sudo rake install
         fi
 
+    else
+        log_error "This is not linux so not running linux tasks"
     fi
     return ${E_SUCCESS}
 }

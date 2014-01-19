@@ -12,7 +12,10 @@ alias ares="sudo apachectl restart"
 # json pretty print
 alias json="python -mjson.tool"
 
-#history search
+# I tend to forget the syntax for this
+alias apt-get-search="apt-cache search"
+
+# history search
 alias hs='history | grep --color=auto'
 
 # view apache error logs
