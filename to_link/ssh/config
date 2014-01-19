@@ -1,0 +1,57 @@
+Host ubuntubox
+Hostname 172.16.109.46
+# Hostname 10.0.2.15
+User mfunk
+
+# ----------
+
+Host oldride-staging
+Hostname stg-oldride1.dhcp.internetbrands.com
+User mfunk
+
+Host oldride-production
+Hostname oldride1.dhcp.internetbrands.com
+User mfunk
+
+# -----------
+
+Host hotrodhotline-staging
+Hostname stg-hotrodhotline1.dhcp.internetbrands.com
+User mfunk
+
+Host hotrodhotline-production
+Hostname hotrodhotline1.dhcp.internetbrands.com
+User mfunk
+
+# -----------
+
+Host racingjunk-staging
+Hostname sonic.racingjunk.com
+User mike
+
+Host racingjunk-production
+Hostname racingjunk-web1.internetbrands.com
+
+# -----------
+
+Host do
+Hostname 192.241.223.52
+User root
+
+# -----------
+
+Host *.kd.io
+  User mikedfunk
+  # ProxyCommand ssh -i ~/.ssh/koding %r@ssh.koding.com nc %h %p
+  ProxyCommand ssh %r@ssh.koding.com nc %h %p
+  # IdentityFile ~/.ssh/koding
+
+# PasswordAuthentication yes
+# PubKeyAuthentication no
+# PreferredAuthentications password,publickey
+# RSAAuthentication no
+# Port 443
+
+# Host *.dhcp.internetbrands.com
+# AddressFamily inet
+# GSSAPIAuthentication no

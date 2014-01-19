@@ -1,0 +1,73 @@
+[alias]
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    dc = diff --cached
+    ign = ls-files -o -i --exclude-standard
+    latest = for-each-ref --sort=-committerdate refs/heads --format='%(committerdate:relative) %(refname:short)'
+    lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls = ls-files
+    olg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    purr = pull --rebase
+    ready = rebase -i @{u}
+    st = status -sb
+    standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mfunk@christianpublishing.com
+    sync = "!f() { echo Syncing $1 with develop && git checkout develop && git pull && git checkout $1 && git merge develop; }; f"
+    wiff = diff --color-words
+    permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+[color]
+    ui = true
+    branch = true
+    diff = true
+    statis = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+    ui = true
+[core]
+    editor = /usr/local/bin/mvim -vf
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    trustctime = false
+    excludesfile = ~/.gitignore
+    autocrlf = false
+    ignorecase = true
+    preloadindex = true
+[diff]
+    tool = opendiff
+[github]
+    user = mikedfunk
+[merge]
+    tool = opendiff
+[mergetool]
+    keepBackup = false
+[pre-commit]
+    checks = php, tabs, jshint, whitespace, console_log
+[push]
+    default = current
+[rebase]
+    autosquash = true
+[user]
+	email = mfunk@internetbrands.com
+	name = Mike Funk
+[url "git@github.com"]
+    insteadOf = gh
+[url "git@bitbucket.org"]
+    insteadOf = bb
+[web]
+    browser = open
+[http]
+	sslVerify = false

@@ -1,0 +1,2 @@
+# for scrollbar in tmux
+termcapinfo xterm*|xs|rxvt|terminal ti@:te@

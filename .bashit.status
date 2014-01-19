@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+bashit_dependencies="setup"
+bashit_description="Run bashit framework setup"
+bashit_dir="/Users/mfunk/.bash_it/install.sh"
+bashit_shortname="bash-it install"
+bashit_status="3"

@@ -1,0 +1,15 @@
+" airline use patched fonts in status bar
+let g:airline_powerline_fonts = 1
+
+" prevent autocd into file directory
+let g:spf13_no_autochdir = 1
+
+" this keeps trying to load powerline
+let g:spf13_no_views = 1
+
+" keep H and L shortcuts
+let g:spf13_no_fastTabs = 1
+
+" vim-tags"
+set exrc
+set secure
