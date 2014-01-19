@@ -6,3 +6,4 @@ id_rsa*
 *key.pub
 authorized_keys
 known_hosts
+to_link/.config/hub
