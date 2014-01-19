@@ -6,7 +6,10 @@ function final_tasks_init() {
 
 function final_tasks_run() {
     # make local bin executable
-    sudo chmod +x ~/.bin/*
+    if [[ ! -d ~/.bin ]]; then
+        log_info "giving write permissions to ~/.bin/*"
+        sudo chmod +x ~/.bin/*
+    fi
 
     # install spf13
     if [[ ! -d ~/.spf13-vim-3/ ]]; then
