@@ -61,7 +61,7 @@
 [rebase]
     autosquash = true
 [user]
-	email = mfunk@internetbrands.com
+	email = mike@mikefunk.com
 	name = Mike Funk
 [url "git@github.com"]
     insteadOf = gh
