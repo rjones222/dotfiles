@@ -1,13 +1,11 @@
 cite 'about-alias'
 about-alias 'custom aliases'
 
-# ----------------------------------------
-# aliases
-
 # web root
 alias wr='cd ~/Sites'
 
-alias updates='git pull && git commit -am "updates"; git pull; git push'
+# commit and sync
+alias updates='git add -A; git commit -am "updates"; git pull && git push'
 
 # apache restart
 alias ares="sudo apachectl restart"
@@ -59,6 +57,7 @@ if [ -f "/usr/local/bin/hub" ]; then
     eval "$(hub alias -s)" 
 fi
 
+# shortcuts
 alias g="git"
 alias coverage="phpunit --debug && open build/coverage/index.html"
 alias test="php artisan test "
@@ -68,7 +67,7 @@ alias cda="composer dump-autoload"
 alias cu="composer update"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
-alias quickserver="python -m SimpleHTTPServer"
+# alias quickserver="python -m SimpleHTTPServer"
 
 # count php line numbers in dir
 alias lines="find . -name '*.php' | xargs wc -l" 
@@ -77,9 +76,13 @@ alias lines="find . -name '*.php' | xargs wc -l"
 alias ma="git pull origin develop" 
 
 alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
+
+# updates spf-13-vim
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
-alias profile="source ~/.profile"
-alias resetnet="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
+alias profile="source ~/.bash_profile"
+
+#restart networking
+alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
 
 # colorize cat
 chk=''
@@ -90,9 +93,16 @@ if [ $chk ]; then
     alias cat="pygmentize -g"
 fi
 
+
+# delete .orig files
+alias orig="find . -name '*.orig' -delete" 
+
 alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
-alias orig="find . -name '*.orig' -delete" # delete .orig files
+
+# grep for merge conflicts
 alias conflicts="grep -lir '<<<<<' *"
+
+# tmux
 alias new-work="tmux new-session -s Work"
 alias attach-work="tmux attach -t Work"
 alias work="tmux attach -t Work || tmux new-session -s Work"

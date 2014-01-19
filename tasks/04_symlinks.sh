@@ -56,6 +56,11 @@ function symlinks_run() {
     link_this "$HOME/.dotfiles/to_link/.vimrc.local" "$HOME/.vimrc.local"
     link_this "$HOME/.dotfiles/to_link/.vimrc.before.local" "$HOME/.vimrc.before.local"
 
+    link_this "$HOME/.dotfiles/to_link/custom.aliases.bash" "$HOME/.bash_it/aliases/custom.aliases.bash"
+    link_this "$HOME/.dotfiles/to_link/custom.plugins.bash" "$HOME/.bash_it/plugins/custom.plugins.bash"
+    link_this "$HOME/.dotfiles/to_link/custom.theme.bash" "$HOME/.bash_it/custom/custom.theme.bash"
+    link_this "$HOME/.dotfiles/to_link/custom.bash" "$HOME/.bash_it/lib/custom.bash"
+
     link_this "$HOME/.dotfiles/to_link/.tmuxinator" "$HOME/.tmuxinator"
     # link_this "$HOME/rbenv" "$HOME/.rbenv"
     link_this "/var/www/sites" "$HOME/Sites"
