@@ -7,7 +7,7 @@ function final_tasks_init() {
 function final_tasks_run() {
     # make local bin executable
     if [[ ! -d ~/.bin ]]; then
-        log_info "giving write permissions to ~/.bin/*"
+        log_info "giving execute permissions to ~/.bin/*"
         sudo chmod +x ~/.bin/*
     fi
 
