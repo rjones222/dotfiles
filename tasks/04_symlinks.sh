@@ -20,7 +20,7 @@ function link_this() {
 
         # create a backup dir if it doesn't already exist and notify
     log_info "creating backup directory"
-        backup_dir = "$HOME/backup/"
+        backup_dir="$HOME/backup/"
         [[ -d "$backup_dir" ]] || sudo mkdir -p "$backup_dir"
 
         # move the file to the backup dir and notify
@@ -36,27 +36,26 @@ function link_this() {
 
 function symlinks_run() {
 
-    link_this "$HOME/.dotfiles/to_link/.gitconfig" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.gitignore" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.config" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.ssh/config" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.ctags" "$HOME/"
+    link_this "$HOME/.dotfiles/to_link/.gitconfig" "$HOME/.gitconfig"
+    link_this "$HOME/.dotfiles/to_link/.gitignore" "$HOME/.gitignore"
+    link_this "$HOME/.dotfiles/to_link/.config" "$HOME/.config"
+    link_this "$HOME/.dotfiles/to_link/.ssh" "$HOME/.ssh"
+    link_this "$HOME/.dotfiles/to_link/.ctags" "$HOME/.ctags"
+    link_this "$HOME/.dotfiles/to_link/.irssi" "$HOME/.irssi"
 
-    link_this "$HOME/.dotfiles/to_link/.irssi" "$HOME/"
+    link_this "$HOME/.dotfiles/to_link/.screenrc" "$HOME/.screenrc"
+    link_this "$HOME/.dotfiles/to_link/.tmux.conf" "$HOME/.tmux.conf"
+    link_this "$HOME/.dotfiles/to_link/.grcat" "$HOME/.grcat"
+    link_this "$HOME/.dotfiles/to_link/.my.cnf" "$HOME/.my.cnf"
+    link_this "$HOME/.dotfiles/to_link/.my.ini" "$HOME/.my.ini"
 
-    link_this "$HOME/.dotfiles/to_link/.screenrc" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.tmux.conf" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.grcat" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.my.cnf" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.my.ini" "$HOME/"
+    link_this "$HOME/.dotfiles/to_link/.inputrc" "$HOME/.inputrc"
+    link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/.rainbarf.conf"
+    link_this "$HOME/.dotfiles/to_link/.vimrc.bundles.local" "$HOME/.vimrc.bundles.local"
+    link_this "$HOME/.dotfiles/to_link/.vimrc.local" "$HOME/.vimrc.local"
+    link_this "$HOME/.dotfiles/to_link/.vimrc.before.local" "$HOME/.vimrc.before.local"
 
-    link_this "$HOME/.dotfiles/to_link/.inputrc" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.vimrc.bundles.local" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.vimrc.local" "$HOME/"
-    link_this "$HOME/.dotfiles/to_link/.vimrc.before.local" "$HOME/"
-
-    link_this "$HOME/.dotfiles/to_link/.tmuxinator" "$HOME/"
+    link_this "$HOME/.dotfiles/to_link/.tmuxinator" "$HOME/.tmuxinator"
     # link_this "$HOME/rbenv" "$HOME/.rbenv"
     link_this "/var/www/sites" "$HOME/Sites"
     link_this "/Library/WebServer/Documents" "$HOME/Sites"
