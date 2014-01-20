@@ -6,8 +6,9 @@ My Vim, Git, and other dotfiles. My Vim config starts with [spf13](https://githu
 
 Run install script: ```curl https://raw.github.com/mikedfunk/dotfiles/master/install.sh -L -o - | bash```
 
-Or if you have git installed: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install -r```
-Or just do the bash-it and customizations: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install -t bashit```
+Or if you have git installed: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install.sh -r```
+
+Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install.sh -t bashit```
 
 # Other stuff to install:
 
