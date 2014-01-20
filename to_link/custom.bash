@@ -9,7 +9,7 @@ else
     export EDITOR='vim'
 fi
 
-# virtualbox
+# for vagrant
 if [ -d /Applications/VirtualBox.app/Contents/MacOS/ ]; then
     export PATH="/Applications/VirtualBox.app/Contents/MacOS:$PATH"
 fi
