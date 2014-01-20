@@ -1,6 +1,6 @@
 # dotfiles
 
-My Vim, Git, and other dotfiles. My Vim config starts with [spf13](https://github.com/spf13/spf13-vim) and adds/removes a bunch of stuff. My PS1 requires Python 2.7 and is a powerline-ish theme. It's a little slow but it has a lot of features and looks great. I use the Solarized theme in iTerm, Vim, and vim-airline. This combination of tools works best on Mac. Some things are abstracted to either work or fail gracefully on Linux, but not all. I've commented all config files and install scripts indicating *why* I'm doing what I'm doing.
+My Bash, Vim, Git, and other dotfiles. My Vim config starts with [spf13](https://github.com/spf13/spf13-vim) and adds/removes a bunch of stuff. I use the Solarized theme in iTerm, Vim, and vim-airline. I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the tasks directory to see what each install task does.
 
 # Directions
 
