@@ -9,6 +9,10 @@ else
     export EDITOR='vim'
 fi
 
+# phpbrew
+export PHPBREW_SET_PROMPT=1
+source ~/.phpbrew/bashrc
+
 # add to path
 if [ -d "/usr/local/bin" ] ; then
     export PATH="/usr/local/bin:$PATH"
