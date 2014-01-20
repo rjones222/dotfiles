@@ -4,8 +4,10 @@ My Vim, Git, and other dotfiles. My Vim config starts with [spf13](https://githu
 
 # Directions
 
-1. Run install script: ```curl https://raw.github.com/mikedfunk/dotfiles/master/install.sh -L -o - | bash```
-2. There is no step 2!
+Run install script: ```curl https://raw.github.com/mikedfunk/dotfiles/master/install.sh -L -o - | bash```
+
+Or if you have git installed: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install -r```
+Or just do the bash-it and customizations: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install -t bashit```
 
 # Other stuff to install:
 

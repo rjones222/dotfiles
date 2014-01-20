@@ -10,7 +10,7 @@
 #ROOT_ONLY=1
 
 # Overwrite to disable the initial touch-all-files.
-#INITIAL_TOUCH_ALL=1
+INITIAL_TOUCH_ALL=0
 
 # Overwrite default utils & tasks directories.
 UTILS_DIR=${INSTALLER_PATH}/support/bash-installer-framework/utils
