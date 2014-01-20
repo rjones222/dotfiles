@@ -2,8 +2,6 @@
 .*.status
 .DS_Store
 id_rsa*
-*key
-*key.pub
 authorized_keys
 known_hosts
 to_link/.config/hub
