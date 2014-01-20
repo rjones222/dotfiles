@@ -9,9 +9,14 @@ else
     export EDITOR='vim'
 fi
 
+# virtualbox
+if [ -d /Applications/VirtualBox.app/Contents/MacOS/ ]; then
+    export PATH="/Applications/VirtualBox.app/Contents/MacOS:$PATH"
+fi
+
 # phpbrew
-export PHPBREW_SET_PROMPT=1
 if [ -f ~/.phpbrew/bashrc ]; then
+    export PHPBREW_SET_PROMPT=1
     source ~/.phpbrew/bashrc
 fi
 
