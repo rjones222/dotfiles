@@ -11,7 +11,9 @@ fi
 
 # phpbrew
 export PHPBREW_SET_PROMPT=1
-source ~/.phpbrew/bashrc
+if [ -f ~/.phpbrew/bashrc ]; then
+    source ~/.phpbrew/bashrc
+fi
 
 # add to path
 if [ -d "/usr/local/bin" ] ; then
