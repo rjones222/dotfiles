@@ -106,3 +106,12 @@ alias conflicts="grep -lir '<<<<<' *"
 alias new-work="tmux new-session -s Work"
 alias attach-work="tmux attach -t Work"
 alias work="tmux attach -t Work || tmux new-session -s Work"
+
+# create any dirs in path
+alias mkdir='mkdir -pv'
+
+# mount human readable
+alias mount='mount |column -t'
+
+# resume wget by default
+alias wget='wget -c'

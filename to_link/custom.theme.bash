@@ -42,4 +42,4 @@ _my_ps1 () {
     PS1+=" \$ \[$(tput sgr0)\]"
     PS1+=" "
 }
-export PROMPT_COMMAND="_my_ps1"
+# export PROMPT_COMMAND="_my_ps1"
