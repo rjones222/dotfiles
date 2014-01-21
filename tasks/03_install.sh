@@ -68,6 +68,7 @@ function install_run() {
     log_info "Installing Gems"
     packages=(
     jekyll
+    kramdown
     pygmentize
     watch
     tmuxinator
