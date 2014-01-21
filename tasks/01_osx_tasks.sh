@@ -54,7 +54,6 @@ function osx_tasks_run() {
             terminal-notifier
             tmux
             tree
-            vagrant
             wget
             )
             for package in "${packages[@]}"
