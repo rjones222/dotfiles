@@ -35,11 +35,13 @@ function linux_tasks_run() {
         vim
         ack
         ctags
+        g++
         git-extras
         grc
         highlight
         htop
         irssi
+        make
         php5-json
         php-pear
         postgresql
@@ -50,8 +52,6 @@ function linux_tasks_run() {
         tree
         python-software-properties
         python
-        g++
-        make
         )
         for package in "${packages[@]}"
         do

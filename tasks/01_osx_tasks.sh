@@ -61,7 +61,7 @@ function osx_tasks_run() {
             do
                 hash $package 2>/dev/null || {
                     log_info "installing $package"
-                    brew install install $package
+                    brew install $package
                 }
             done
 
@@ -80,13 +80,8 @@ function osx_tasks_run() {
             for package in "${packages[@]}"
             do
                 log_info "attempting to install $package"
-                brew install install $package
+                brew install $package
             done
-
-            # installing gcc so rbenv can install
-            log_info "attempting to install gcc"
-            brew tap homebrew/dupes
-            brew install apple-gcc42
         fi
 
         # install ctags patched
