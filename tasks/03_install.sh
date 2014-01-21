@@ -70,6 +70,7 @@ function install_run() {
     jekyll
     kramdown
     pygmentize
+    rdiscount
     watch
     tmuxinator
     )
