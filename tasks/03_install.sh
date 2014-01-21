@@ -67,6 +67,7 @@ function install_run() {
     fi
     log_info "Installing Gems"
     packages=(
+    bundler
     jekyll
     kramdown
     pygmentize
