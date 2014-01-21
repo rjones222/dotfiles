@@ -8,6 +8,7 @@ if [[ $(type -p mvim) ]]; then
 else
     export EDITOR='vim'
 fi
+export HOMEBREW_GITHUB_API_TOKEN='14421939804382280abaad5535d4434da567fe15'
 
 # for vagrant
 if [ -d /Applications/VirtualBox.app/Contents/MacOS/ ]; then

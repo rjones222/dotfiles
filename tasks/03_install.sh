@@ -70,7 +70,6 @@ function install_run() {
     pygmentize
     watch
     tmuxinator
-    vagrant
     )
     for package in "${packages[@]}"
     do

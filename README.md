@@ -17,5 +17,6 @@ Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfun
 * [Google Music](https://support.google.com/googleplay/answer/1229970?hl=en)
 * [Sizewell](http://sizewellplugin.com/) for Mac
 * [VirtualBox](http://virtualbox.org)
+* [Vagrant](http://www.vagrantup.com/downloads)
 * [IE VMs](https://github.com/xdissent/ievms)
 * [Sequel Pro](http://www.sequelpro.com/) for Mac or [MySQL Workbench](http://dev.mysql.com/downloads/tools/workbench/) for Windows/Linux
