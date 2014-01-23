@@ -1,5 +1,5 @@
 [alias]
-    ahead = log --stat origin/develop..HEAD
+    ahead = git log --branches --not --remotes
     ci = commit
     br = branch
     co = checkout
