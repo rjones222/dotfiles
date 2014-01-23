@@ -95,9 +95,6 @@
     " I installed newer versions of the same stuff
     UnBundle 'spf13/PIV'
 
-    " I use vim-signify instead
-    " UnBundle 'airblade/vim-gitgutter'
-
     " This breaks s for substitute
     UnBundle 'justinmk/vim-sneak'
 
@@ -132,8 +129,8 @@
     " map <c-n> :tabnew<cr>
     nmap <leader>bpw :BreakpointWindow<cr>
     nmap <leader>bpt :Breakpoint<cr>
-    inoremap jj <Esc>
-    inoremap jk <Esc>
+    " inoremap jj <Esc>
+    " inoremap jk <Esc>
     " inoremap kj <Esc>
 
     " vimux
@@ -179,10 +176,10 @@
         " let g:solarized_termcolors=16
 
         " works in 256 mode
-        let g:solarized_termtrans=0
-        let g:solarized_contrast="normal"
-        let g:solarized_visibility="normal"
-        let g:solarized_italic=1
+        " let g:solarized_termtrans=0
+        " let g:solarized_contrast="normal"
+        " let g:solarized_visibility="normal"
+        " let g:solarized_italic=1
 
         " colorscheme lucius
         " LuciusDark
@@ -215,17 +212,17 @@
 
     " phpqa {{{
         " PHPMD Ruleset
-        if filereadable("~/.dotfiles/phpmd_ruleset.xml")
-            let g:phpqa_messdetector_ruleset = "~/.dotfiles/phpmd_ruleset.xml"
+        if filereadable("~/.dotfiles/support/phpmd_ruleset.xml")
+            let g:phpqa_messdetector_ruleset = "~/.dotfiles/support/phpmd_ruleset.xml"
         endif
 
         " Clover code coverage XML file
-        if filereadable("/Library/WebServer/Documents/einstein2/build/logs/clover.xml")
-            let g:phpqa_codecoverage_file = "/Library/WebServer/Documents/einstein2/build/logs/clover.xml"
-        endif
+        " if filereadable('/Library/WebServer/Documents/einstein2/build/logs/clover.xml')
+            " let g:phpqa_codecoverage_file = '/Library/WebServer/Documents/einstein2/build/logs/clover.xml'
+        " endif
 
         " Show code coverage on load (default = 0)
-        let g:phpqa_codecoverage_autorun=1
+        " let g:phpqa_codecoverage_autorun=1
 
         " path to php
         if filereadable('/usr/bin/php')
