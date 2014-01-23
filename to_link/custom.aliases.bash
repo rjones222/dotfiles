@@ -68,7 +68,7 @@ alias pu="phpunit"
 alias cda="composer dump-autoload"
 alias cu="composer update"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-# alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
+alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 # alias quickserver="python -m SimpleHTTPServer"
 
 # count php line numbers in dir
