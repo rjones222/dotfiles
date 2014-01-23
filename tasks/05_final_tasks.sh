@@ -22,6 +22,13 @@ function final_tasks_run() {
         vim +BundleUpdate +qall!
     fi
 
+    # build vim plugin buildables
+    if [[ ! "$(type -P phpctags)" ]]
+        cd ~/.vim/bundle/vim-plugin-tagbar-phpctags/
+        make
+        cd -
+    fi
+
     # this needs to be after the .vim folder is created
     log_info "linking UltiSnips custom snippets dir"
     link_this "$HOME/.dotfiles/to_link/UltiSnips" "$HOME/.vim/UltiSnips"

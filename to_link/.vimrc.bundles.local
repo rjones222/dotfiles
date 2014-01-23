@@ -81,7 +81,7 @@ Bundle 'tpope/vim-repeat'
 " Bundle 'zhaocai/linepower.vim'
 
 " better php ctags in tagbar
-" Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
+Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
 " better paste
 " Bundle 'sickill/vim-pasta'
@@ -126,9 +126,6 @@ Bundle 'ivalkeen/vim-ctrlp-tjump'
 
 " better than Ack
 Bundle 'rking/ag.vim'
-
-" on linux it leaves this out for some reason
-" Bundle 'bling/vim-airline'
 
 " open directory in finder
 Bundle 'justinmk/vim-gtfo'

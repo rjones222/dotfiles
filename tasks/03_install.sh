@@ -61,6 +61,7 @@ function install_run() {
         cd -
     fi
 
+    # install gems
     if [[ ! "$(type -P gem)" ]]; then
         log_error "gem utility not installed"
         return ${E_FAILURE}
@@ -82,22 +83,6 @@ function install_run() {
             sudo gem install $package
         }
     done
-
-    # install phpctags
-    hash phpctags 2>/dev/null || {
-        log_info "installing phpctags"
-        cd ~/.dotfiles/support/phpctags
-        make
-        sudo ln -s ~/.dotfiles/support/phpctags/phpctags /usr/local/bin/phpctags
-        sudo chmod +x /usr/local/bin/phpctags
-        cd -
-    }
-
-    # install phpenv
-    if [[ ! -d ~/.phpenv ]]; then
-        log_info "installing phpenv"
-        git clone git://github.com/phpenv/phpenv.git ~/.phpenv
-    fi
 
     return ${E_SUCCESS}
 }

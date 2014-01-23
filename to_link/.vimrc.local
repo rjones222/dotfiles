@@ -168,6 +168,9 @@
 " Theme {{{
     set colorcolumn=80
 
+    "toggle between day and night theme
+    call togglebg#map("<leader>bg")
+
     if has('gui_running')
         " use solarized
     else
@@ -252,9 +255,6 @@
     " reset file to HEAD in fugitive commit window
     autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
 
-    " phpunitqf
-    " let g:phpunit_cmd = 'cd ~/Sites/einstein2 && php artisan dump-autoload && php artisan clear-compiled && phpunit'
-
     " for mouseterm
     if has("mouse")
         set mouse=a
@@ -275,7 +275,6 @@
     " set guifont to powerline compatible for macvim
     " set guifont=Menlo\ for\ Powerline:h12
     " set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h14
-    " let g:Powerline_symbols = 'fancy'
 
     " syntastic
     " set statusline+=%#warningmsg#
@@ -284,7 +283,7 @@
     " let g:syntastic_php_checkers=['php']
     " let g:syntastic_php_phpmd_post_args = '~/.dotfiles/phpmd_ruleset.xml'
 
-    "filename
+    " filename
     hi default link User1 Identifier"blue
     " flags
     hi default link User2 Statement"green
@@ -316,15 +315,15 @@
     au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
 
     " vim-airline
-    let g:airline_powerline_fonts=1
     let g:airline_theme = 'solarized'
     let g:airline#extensions#tagbar#enabled = 1
     " let g:airline_left_sep = '⮀'
     " let g:airline_right_sep = '⮂'
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_powerline_fonts=0
+    " let g:airline_left_sep = ''
+    " let g:airline_right_sep = ''
+    " let g:airline_right_alt_sep = ''
+    let g:airline_powerline_fonts=1
+    " let g:airline_powerline_fonts=0
 
     " advanced tabline vertical separators
     " let g:airline#extensions#tabline#enabled = 1
