@@ -82,6 +82,18 @@ function linux_tasks_run() {
             sudo rake install
         fi
 
+        # install ctags patched
+        if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
+            log_info "Installing Ctags Patched"
+            cd
+            wget "https://github.com/shawncplus/phpcomplete.vim/blob/master/misc/ctags-better-php-parser.tar.bz2?raw=true" -O ctags-better-php-parser.tar.bz2
+            tar xvjf ctags-better-php-parser.tar.bz2
+            ./configure
+            make
+            sudo make install
+            sudo touch /usr/local/etc/.ctags_patched_installed
+        fi
+
     else
         log_error "This is not linux so not running linux tasks"
     fi
