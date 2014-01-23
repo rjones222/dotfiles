@@ -1,0 +1,4 @@
+#!/bin/bash
+cd $GIT_DIR
+exec &> /dev/null
+tags
