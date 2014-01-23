@@ -69,6 +69,7 @@ function symlinks_run() {
     link_this "$HOME/.dotfiles/bin" "$HOME/.bin"
     link_this "$HOME/.dotfiles/to_link/.bashrc" "$HOME/.bashrc"
     link_this "$HOME/.dotfiles/to_link/.git_template" "$HOME/.git_template"
+    sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
 
     # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
     # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
