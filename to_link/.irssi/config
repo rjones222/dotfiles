@@ -278,9 +278,20 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Mike Funk"; user_name = "mfunk"; nick = "mfunk"; };
+  core = {
+    real_name = "Mike Funk";
+    user_name = "mfunk";
+    nick = "mfunk";
+    settings_autosave = "no";
+  };
   "fe-text" = { actlist_sort = "refnum"; term_force_colors = "yes"; };
   "perl/core/scripts" = { notifier_on_regex = ".*"; };
-  "fe-common/core" = { use_msgs_window = "yes"; };
+  "fe-common/core" = {
+    use_msgs_window = "yes";
+    beep_msg_level = "MSG HILIGHT";
+    beep_when_away = "yes";
+    beep_when_window_active = "yes";
+    bell_beeps = "yes";
+  };
 };
 hilights = ( { text = "nick"; nick = "yes"; word = "yes"; } );
