@@ -68,6 +68,7 @@ function symlinks_run() {
 
     link_this "$HOME/.dotfiles/bin" "$HOME/.bin"
     link_this "$HOME/.dotfiles/to_link/.bashrc" "$HOME/.bashrc"
+    link_this "$HOME/.dotfiles/to_link/notifier.pl" "$HOME/notifier.pl"
     link_this "$HOME/.dotfiles/to_link/.git_template" "$HOME/.git_template"
     sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
 
