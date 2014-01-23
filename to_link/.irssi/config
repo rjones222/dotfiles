@@ -30,6 +30,12 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+    autoconnect = "yes";
   }
 );
 
@@ -97,13 +103,17 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   IB = { type = "IRC"; };
+  Freenode = { type = "IRC"; };
 };
 
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
-  { name = "#motorhead"; chatnet = "IB"; autojoin = "yes"; }
-  { name = "#noc"; chatnet = "IB"; autojoin = "yes"; }
+  { name = "#motorhead"; chatnet = "IB"; autojoin = "yes"; },
+  { name = "#noc"; chatnet = "IB"; autojoin = "yes"; },
+  { name = "#laravel"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#vim"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#php"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -268,7 +278,7 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Funk"; user_name = "mfunk"; nick = "mfunk"; };
+  core = { real_name = "Mike Funk"; user_name = "mfunk"; nick = "mfunk"; };
   "fe-text" = { actlist_sort = "refnum"; term_force_colors = "yes"; };
   "perl/core/scripts" = { notifier_on_regex = ".*"; };
 };

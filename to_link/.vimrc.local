@@ -129,7 +129,7 @@
     " map <c-n> :tabnew<cr>
     nmap <leader>bpw :BreakpointWindow<cr>
     nmap <leader>bpt :Breakpoint<cr>
-    " inoremap jj <Esc>
+    inoremap jj <Esc>
     " inoremap jk <Esc>
     " inoremap kj <Esc>
 
@@ -168,8 +168,16 @@
 " Theme {{{
     set colorcolumn=80
 
+    " custom indent guide colors
+    let g:indent_guides_auto_colors = 0
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+
     "toggle between day and night theme
     call togglebg#map("<leader>bg")
+
+    hi IndentGuidesOdd ctermbg=235
+    hi IndentGuidesEven ctermbg=236
 
     if has('gui_running')
         " use solarized
@@ -319,11 +327,11 @@
     let g:airline#extensions#tagbar#enabled = 1
     " let g:airline_left_sep = '⮀'
     " let g:airline_right_sep = '⮂'
-    " let g:airline_left_sep = ''
-    " let g:airline_right_sep = ''
-    " let g:airline_right_alt_sep = ''
-    let g:airline_powerline_fonts=1
-    " let g:airline_powerline_fonts=0
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_powerline_fonts=0
+    " let g:airline_powerline_fonts=1
 
     " advanced tabline vertical separators
     " let g:airline#extensions#tabline#enabled = 1
