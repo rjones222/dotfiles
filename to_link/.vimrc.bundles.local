@@ -5,7 +5,7 @@ let g:spf13_bundle_groups=['general', 'programming', 'php', 'javascript', 'html'
 Bundle 'tpope/vim-unimpaired'
 
 " xdebug integration
-" Bundle 'joonty/vdebug'
+Bundle 'joonty/vdebug'
 
 " zen coding / emmett integration
 Bundle 'mattn/emmet-vim'

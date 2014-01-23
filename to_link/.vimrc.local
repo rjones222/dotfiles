@@ -362,5 +362,8 @@
     " gitgutter is wigging out with 7.4 and airline for some reason
     " https://github.com/airblade/vim-gitgutter/issues/106
     let g:gitgutter_realtime = 0
+
+    " vim-bufferline prevent from showing in command bar *and* statusline
+    let g:bufferline_echo = 0
 " }}}
 
