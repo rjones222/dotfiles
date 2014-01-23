@@ -117,3 +117,6 @@ alias mount='mount |column -t'
 
 # resume wget by default
 alias wget='wget -c'
+
+# brew upgrade
+alias brewupdate='brew update && brew upgrade'
