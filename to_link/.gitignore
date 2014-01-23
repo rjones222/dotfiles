@@ -1,2 +1,4 @@
 *.swp
 tags
+to_link/.irssi/config.autosave
+.DS_Store
