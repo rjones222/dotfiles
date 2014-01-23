@@ -1,4 +1,5 @@
 [alias]
+    ahead = log --stat origin/develop..HEAD
     ci = commit
     br = branch
     co = checkout
