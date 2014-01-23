@@ -36,10 +36,13 @@ Bundle 'shawncplus/phpcomplete.vim'
 " Bundle 'Shougo/vimproc.vim'
 
 " php completion for composer projects
-" Bundle 'm2mdas/phpcomplete-extended'
+Bundle 'm2mdas/phpcomplete-extended'
 
 " laravel completion
-" Bundle 'm2mdas/phpcomplete-extended-laravel'
+Bundle 'm2mdas/phpcomplete-extended-laravel'
+"
+" symfony completion
+" Bundle 'm2mdas/phpcomplete-extended-symfony'
 
 " better vim start screen
 Bundle 'mhinz/vim-startify'
