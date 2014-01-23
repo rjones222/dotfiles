@@ -26,6 +26,8 @@ function final_tasks_run() {
     if [[ ! "$(type -P phpctags)" ]]
         cd ~/.vim/bundle/vim-plugin-tagbar-phpctags/
         make
+        cd ~/.vim/bundle/vimproc
+        make
         cd -
     fi
 
