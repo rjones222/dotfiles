@@ -1,0 +1,7 @@
+:warnings_remove: []
+:warnings_add:
+- :jshint
+- :php
+- :tabs
+- :whitespace
+- :console_log

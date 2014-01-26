@@ -72,6 +72,7 @@ function install_run() {
     bundler
     jekyll
     kramdown
+    pre-commit
     pygmentize
     rdiscount
     watch

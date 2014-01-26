@@ -62,8 +62,8 @@
 [rebase]
     autosquash = true
 [user]
-	email = mike@mikefunk.com
-	name = Mike Funk
+    email = mike@mikefunk.com
+    name = Mike Funk
 [url "git@github.com"]
     insteadOf = gh
 [url "git@bitbucket.org"]
@@ -71,4 +71,4 @@
 [web]
     browser = open
 [http]
-	sslVerify = false
+    sslVerify = false
