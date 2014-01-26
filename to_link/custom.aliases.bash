@@ -75,7 +75,7 @@ alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 alias lines="find . -name '*.php' | xargs wc -l" 
 
 # merge alert!
-alias ma="git pull origin develop" 
+alias ma="git pull origin develop"
 
 alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 

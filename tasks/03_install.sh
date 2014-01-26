@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function install_init() {
-    task_setup "install" "Install Tasks" "Install these on any system" "setup"
+    task_setup "install" "Install Tasks" "Install cli tools" "setup"
 }
 
 function install_run() {

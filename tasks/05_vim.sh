@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function vim_init() {
-    task_setup "vim" "Vim" "Gets vim going. Works best after symlinks." "symlinks"
+    task_setup "vim" "Vim" "Customize Vim" "symlinks"
 }
 
 function vim_run() {
