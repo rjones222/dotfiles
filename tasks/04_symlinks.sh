@@ -67,6 +67,7 @@ function symlinks_run() {
     link_this "/Library/WebServer/Documents" "$HOME/Sites"
 
     link_this "$HOME/.dotfiles/bin" "$HOME/.bin"
+    sudo chmod a+x ~/.bin/*
     link_this "$HOME/.dotfiles/to_link/.bashrc" "$HOME/.bashrc"
     link_this "$HOME/.dotfiles/to_link/.git_template" "$HOME/.git_template"
     sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*

@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 
-function final_tasks_init() {
-    task_setup "final_tasks" "Final Tasks" "Install stuff that requires symlinks." "symlinks"
+function vim_init() {
+    task_setup "vim" "Vim" "Gets vim going. Works best after symlinks." "symlinks"
 }
 
-function final_tasks_run() {
-    # make local bin executable
-    if [[ ! -d ~/.bin ]]; then
-        log_info "giving execute permissions to ~/.bin/*"
-        sudo chmod +x ~/.bin/*
-    fi
+function vim_run() {
 
     # install spf13
     if [[ ! -d ~/.spf13-vim-3/ ]]; then
