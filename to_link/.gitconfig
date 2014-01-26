@@ -48,6 +48,7 @@
     autocrlf = false
     ignorecase = true
     preloadindex = true
+    pager = less -FRSX
 [apply]
     whitespace = nowarn
 [branch]
@@ -60,6 +61,8 @@
     user = mikedfunk
 [http]
     sslVerify = false
+[help]
+    autocorrect = 1
 [log]
     date = short
 [merge]
