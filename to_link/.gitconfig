@@ -55,7 +55,7 @@
 [diff]
     tool = opendiff
 [format]
-    pretty = '%C(yellow)%h%Creset %C(magenta)%cd%Creset %d %s'
+    pretty = '%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [github]
     user = mikedfunk
 [http]
