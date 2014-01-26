@@ -20,10 +20,11 @@
     wiff = diff --color-words
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 [color]
-    ui = true
     branch = true
     diff = true
-    statis = true
+    status = true
+    showbranch = true
+    ui = true
 [color "branch"]
     current = yellow reverse
     local = yellow
@@ -40,17 +41,27 @@
     untracked = cyan
     ui = true
 [core]
-    editor = /usr/local/bin/mvim -vf
+    editor = vim
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     trustctime = false
     excludesfile = ~/.gitignore
     autocrlf = false
     ignorecase = true
     preloadindex = true
+[apply]
+    whitespace = nowarn
+[branch]
+    autosetuprebase = always
 [diff]
     tool = opendiff
+[format]
+    pretty = '%C(yellow)%h%Creset %C(magenta)%cd%Creset %d %s'
 [github]
     user = mikedfunk
+[http]
+    sslVerify = false
+[log]
+    date = short
 [merge]
     tool = opendiff
 [mergetool]
@@ -61,6 +72,8 @@
     default = current
 [rebase]
     autosquash = true
+[rerere]
+    enabled = 1
 [user]
     email = mike@mikefunk.com
     name = Mike Funk
@@ -70,5 +83,3 @@
     insteadOf = bb
 [web]
     browser = open
-[http]
-    sslVerify = false
