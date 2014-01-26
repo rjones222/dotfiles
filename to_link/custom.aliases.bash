@@ -5,7 +5,7 @@ about-alias 'custom aliases'
 alias wr='cd ~/Sites'
 
 # commit and sync
-alias updates='git add -A; git commit -am "updates"; git pull && git push'
+alias updates='git add --all .; git commit -am "updates"; git pull && git push'
 
 # apache restart
 alias ares="sudo apachectl restart"
