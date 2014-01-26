@@ -365,5 +365,12 @@
 
     " vim-bufferline prevent from showing in command bar *and* statusline
     let g:bufferline_echo = 0
+
+    " vdebug
+    " g:vdebug_options['server'] = 'mfunk-mac.local'
+    let g:vdebug_options= {
+    \    "port" : 9001,
+    \    "server" : '192.168.56.1'
+    \}
 " }}}
 

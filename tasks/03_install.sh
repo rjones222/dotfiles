@@ -13,6 +13,7 @@ function install_run() {
     log_info "Installing npm Packages"
     # yo includes grunt and bower
     packages=(
+    tldr
     yo
     )
     for package in "${packages[@]}"

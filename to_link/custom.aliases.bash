@@ -103,6 +103,7 @@ alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
 
 # grep for merge conflicts
 alias conflicts="grep -lir '<<<<<' *"
+alias grep="grep --color=auto"
 
 # tmux
 alias new-work="tmux new-session -s Work"
