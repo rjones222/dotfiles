@@ -18,13 +18,16 @@ function vim_run() {
     fi
 
     # build vim plugin buildables
-    if [[ ! "$(type -P phpctags)" ]]
+    if [[ ! "$(type -P phpctags)" ]]; then
+        log_info "Building phpctags"
         cd ~/.vim/bundle/vim-plugin-tagbar-phpctags/
         make
-        cd ~/.vim/bundle/vimproc
-        make
-        cd -
     fi
+
+    log_info "Attempting to build vimproc"
+    cd ~/.vim/bundle/vimproc
+    make
+    cd -
 
     # this needs to be after the .vim folder is created
     log_info "linking UltiSnips custom snippets dir"
