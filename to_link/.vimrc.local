@@ -379,5 +379,8 @@
     \    "port" : 9001,
     \    "server" : '192.168.56.1'
     \}
+    
+    " composer install command for phpcomplete
+    let g:phpcomplete_index_composer_command = "composer"
 " }}}
 
