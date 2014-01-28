@@ -42,7 +42,7 @@ Bundle 'm2mdas/phpcomplete-extended'
 Bundle 'm2mdas/phpcomplete-extended-laravel'
 "
 " symfony completion
-" Bundle 'm2mdas/phpcomplete-extended-symfony'
+Bundle 'm2mdas/phpcomplete-extended-symfony'
 
 " better vim start screen
 Bundle 'mhinz/vim-startify'
