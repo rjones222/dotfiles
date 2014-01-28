@@ -272,7 +272,8 @@
     let g:spf13_no_neosnippet_expand=1
 
     " phpcomplete omni complete for neocomplcache
-    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+    " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
     " try to enable omni completion in neocomplcache
     if !exists('g:neocomplcache_omni_patterns')
