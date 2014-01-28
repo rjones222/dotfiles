@@ -72,8 +72,14 @@ function symlinks_run() {
     link_this "$HOME/.dotfiles/to_link/.git_template" "$HOME/.git_template"
     sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
 
-    # link_this "$HOME/.dotfiles/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
-    # sudo ln -s $HOME/.dotfiles/999-my-httpd.conf /etc/apache2/other/999-my-httpd.conf
+    link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
+    link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/etc/php5/apache2/conf.d/999-my-php.ini"
+    link_this "$HOME/.dotfiles/to_link/999-my-httpd.conf" "/etc/apache2/other/999-my-httpd.conf"
+    link_this "$HOME/.dotfiles/to_link/999-my-httpd.conf" "/etc/apache2/conf-available/999-my-httpd.conf"
+    link_this "$HOME/.dotfiles/to_link/999-my-httpd.conf" "/etc/apache2/conf-enabled/999-my-httpd.conf"
+
+    log_info "restarting apache"
+    sudo apachectl restart
 
     return ${E_SUCCESS}
 }
