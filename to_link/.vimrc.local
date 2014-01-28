@@ -376,11 +376,10 @@
 
     " vdebug
     " g:vdebug_options['server'] = 'mfunk-mac.local'
-    let g:vdebug_options= {
-    \    "port" : 9001,
-    \    "server" : '192.168.56.1'
-    \}
-    
+    let g:vdebug_options = {}
+    let g:vdebug_options['server'] = '192.168.56.1'
+    let g:vdebug_options['port'] = '9001'
+
     " composer install command for phpcomplete
     let g:phpcomplete_index_composer_command = "composer"
 " }}}
