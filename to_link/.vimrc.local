@@ -274,6 +274,13 @@
     " phpcomplete omni complete for neocomplcache
     autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
+    " try to enable omni completion in neocomplcache
+    if !exists('g:neocomplcache_omni_patterns')
+        let g:neocomplcache_omni_patterns = {}
+    endif
+
+    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
 

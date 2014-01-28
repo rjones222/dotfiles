@@ -109,11 +109,11 @@ chatnets = {
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
-  { name = "#motorhead"; chatnet = "IB"; autojoin = "yes"; },
+  { name = "#motorhead"; chatnet = "IB"; autojoin = "no"; },
   { name = "#noc"; chatnet = "IB"; autojoin = "yes"; },
-  { name = "#laravel"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#vim"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#php"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#laravel"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#vim"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#php"; chatnet = "Freenode"; autojoin = "no"; }
 );
 
 aliases = {
@@ -289,11 +289,11 @@ settings = {
     notifier_on_privmsg = "1";
   };
   "fe-common/core" = {
-    use_msgs_window = "yes";
+    use_msgs_window = "no";
     beep_msg_level = "MSG HILIGHT";
     beep_when_away = "yes";
     beep_when_window_active = "yes";
     bell_beeps = "yes";
   };
 };
-hilights = ( { text = "nick"; nick = "yes"; word = "yes"; } );
+hilights = ( { text = "mfunk"; nick = "yes"; word = "yes"; } );

@@ -73,6 +73,7 @@ function install_run() {
     jekyll
     kramdown
     pre-commit
+    puppet
     pygmentize
     rdiscount
     watch
@@ -83,6 +84,26 @@ function install_run() {
         hash $package 2>/dev/null || {
             log_info "installing $package"
             sudo gem install $package
+        }
+    done
+
+    # install python packages
+    if [[ ! "$(type -P easy_install)" ]]; then
+        log_error "easy_install not installed"
+        return ${E_FAILURE}
+    fi
+    log_info "Installing Python packages"
+
+    # install pip
+    sudo easy_install pip
+
+    packages=(
+    )
+    for package in "${packages[@]}"
+    do
+        hash $package 2>/dev/null || {
+            log_info "installing $package"
+            sudo pip install $package
         }
     done
 
