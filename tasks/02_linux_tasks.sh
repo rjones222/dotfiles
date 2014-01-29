@@ -2,6 +2,7 @@
 
 function linux_tasks_init() {
     task_setup "linux_tasks" "Linux Tasks" "Execute tasks only if on Linux" "setup"
+    . ~/.dotfiles/support/install_functions.sh
 }
 
 function linux_tasks_run() {

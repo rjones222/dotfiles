@@ -2,6 +2,7 @@
 
 function install_init() {
     task_setup "install" "Install Tasks" "Install cli tools" "setup"
+    . ~/.dotfiles/support/install_functions.sh
 }
 
 function install_run() {
