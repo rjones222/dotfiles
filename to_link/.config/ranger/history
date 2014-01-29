@@ -1,8 +1,0 @@
-open_with 
-search 
-echo $EDITOR
-
-help
-e
-edit
-search ins
