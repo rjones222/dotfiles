@@ -76,8 +76,7 @@ alias lines="find . -name '*.php' | xargs wc -l"
 
 # run log.io server
 function logio() {
-    log.io-harvester &
-    log.io-server &
+    log.io-server && log.io-harvester
 }
 
 # merge alert!
