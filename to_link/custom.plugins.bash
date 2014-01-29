@@ -1,7 +1,6 @@
 cite about-plugin
 about-plugin "custom plugins"
 
-TERM='xterm-256color'
 # ----------------------------------------
 # functions
 

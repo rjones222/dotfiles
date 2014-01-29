@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 # environment vars
+export TERM='xterm-256color'
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export CLICOLOR=1
-if [[ $(type -p mvim) ]]; then
-    export EDITOR='mvim -v'
-else
-    export EDITOR='vim'
-fi
+# if [[ $(type -p mvim) ]]; then
+    # export EDITOR="$(which mvim) -vp"
+# else
+    # export EDITOR="$(which vim) -p"
+# fi
 export HOMEBREW_GITHUB_API_TOKEN='14421939804382280abaad5535d4434da567fe15'
 
 # for vagrant
@@ -62,9 +63,9 @@ if [ -f "/usr/local/bin/brew" ]; then
     export PATH=$(brew --prefix ruby)/bin:$PATH
 
     # source homebrew bash completion
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-    fi
+    # if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        # . $(brew --prefix)/etc/bash_completion
+    # fi
 fi
 
 # add to manpath for ranger manual to show up

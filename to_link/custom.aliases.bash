@@ -49,9 +49,9 @@ alias migrate="php artisan migrate:refresh --seed"
 
 # use macvim executable in terminal mode
 if [ -f "/usr/local/bin/mvim" ]; then
-    alias vim="mvim -v -p --servername mikefunk" 
+    alias vim="$(which mvim) -v -p --servername mikefunk" 
 else
-    alias vim="vim -p"
+    alias vim="$(which vim) -p"
 fi
 
 # alias hub to git
