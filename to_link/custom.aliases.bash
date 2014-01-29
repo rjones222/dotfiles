@@ -75,7 +75,9 @@ alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 alias lines="find . -name '*.php' | xargs wc -l" 
 
 # run log.io server
-alias logio="echo $(log.io-server; log.io-harvester;) &"
+function logio() {
+    print `(log.io-server; log.io-harvester;) &`;
+}
 
 # merge alert!
 alias ma="git pull origin develop"
