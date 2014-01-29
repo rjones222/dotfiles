@@ -48,6 +48,7 @@ function linux_tasks_run() {
         python-software-properties
         python
         rake
+        ranger
         silversearcher-ag
         solr-tomcat
         tmux

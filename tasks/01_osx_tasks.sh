@@ -50,6 +50,7 @@ function osx_tasks_run() {
             mysql
             nodejs
             postgresql
+            ranger
             reattach-to-user-namespace
             ssh-copy-id
             solr
