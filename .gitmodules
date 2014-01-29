@@ -1,9 +1,6 @@
 [submodule "support/bash-installer-framework"]
 	path = support/bash-installer-framework
 	url = https://github.com/mikedfunk/bash-installer-framework.git
-[submodule "support/bash-it"]
-	path = support/bash-it
-	url = https://github.com/revans/bash-it.git
 [submodule "support/hub"]
 	path = support/hub
 	url = https://github.com/github/hub.git
