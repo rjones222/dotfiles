@@ -5,3 +5,5 @@ id_rsa*
 authorized_keys
 known_hosts
 to_link/.config/hub
+to_link/.config/ranger/history
+to_link/.config/ranger/bookmarks

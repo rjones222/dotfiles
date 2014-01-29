@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # environment vars
-export TERM='xterm-256color'
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export CLICOLOR=1
 # if [[ $(type -p mvim) ]]; then

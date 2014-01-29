@@ -5,3 +5,4 @@ echo $EDITOR
 help
 e
 edit
+search ins
