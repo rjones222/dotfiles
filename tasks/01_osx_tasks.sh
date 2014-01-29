@@ -49,7 +49,6 @@ function osx_tasks_run() {
             nodejs
             postgresql
             reattach-to-user-namespace
-            runit
             ssh-copy-id
             solr
             terminal-notifier
