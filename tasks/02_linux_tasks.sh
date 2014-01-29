@@ -42,6 +42,7 @@ function linux_tasks_run() {
         htop
         irssi
         make
+        multitail
         php5-json
         php-pear
         postgresql

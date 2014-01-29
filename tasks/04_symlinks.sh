@@ -80,6 +80,8 @@ function symlinks_run() {
     link_this "$HOME/.dotfiles/to_link/999-my-httpd.conf" "/etc/apache2/conf-available/999-my-httpd.conf"
     link_this "$HOME/.dotfiles/to_link/999-my-httpd.conf" "/etc/apache2/conf-enabled/999-my-httpd.conf"
 
+    link_this "$HOME/.dotfiles/to_link/multitail.conf" "/etc/multitail.conf"
+
     log_info "restarting apache"
     sudo apachectl restart
 

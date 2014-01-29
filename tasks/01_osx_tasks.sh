@@ -45,6 +45,7 @@ function osx_tasks_run() {
             imagemagick
             irssi
             macvim
+            multitail
             mysql
             nodejs
             postgresql
