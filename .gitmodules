@@ -10,3 +10,6 @@
 [submodule "support/phpctags"]
 	path = support/phpctags
 	url = https://github.com/techlivezheng/phpctags.git
+[submodule "to_link/webgrind"]
+	path = to_link/webgrind
+	url = https://github.com/jokkedk/webgrind.git

@@ -65,7 +65,8 @@ function symlinks_run() {
     link_this "$HOME/.dotfiles/to_link/.tmuxinator" "$HOME/.tmuxinator"
     link_this "/var/www/sites" "$HOME/Sites"
     link_this "/Library/WebServer/Documents" "$HOME/Sites"
-    link_this "$HOME/.dotfiles/to_link/adminer-4.0.2.php" "$HOME/Sites/adminer.php"
+    link_this "$HOME/.dotfiles/to_link/adminer" "$HOME/Sites/adminer"
+    link_this "$HOME/.dotfiles/to_link/webgrind" "$HOME/Sites/webgrind"
 
     link_this "$HOME/.dotfiles/bin" "$HOME/.bin"
     sudo chmod a+x ~/.bin/*
