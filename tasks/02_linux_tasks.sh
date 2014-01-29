@@ -12,47 +12,47 @@ function linux_tasks_run() {
         log_info "Installing apt-get Packages"
 
         packages=(
-        openjdk-7-jre
+        ack
+        apache2
+        cronolog
+        ctags
+        imagemagick
+        g++
         git
         git-core
-        openssh-client
-        openssh-server
-        postfix
-        cronolog
-        apache2
-        imagemagick
-        postgresql
-        postgresql-contrib
-        pgadmin3
-        php5
-        libapache2-mod-php5
-        php5-xdebug
-        php5-imagick
-        php-apc
-        php5-cli
-        php5-pgsql
-        php5-curl
-        vim
-        ack
-        ctags
-        g++
         git-extras
+        git-flow
         grc
         highlight
         htop
         irssi
+        libapache2-mod-php5
         make
         multitail
-        php5-json
+        openjdk-7-jre
+        openssh-client
+        openssh-server
+        pgadmin3
+        php-apc
         php-pear
+        php5
+        php5-cli
+        php5-curl
+        php5-imagick
+        php5-json
+        php5-pgsql
+        php5-xdebug
+        postfix
         postgresql
+        postgresql-contrib
+        python-software-properties
+        python
         rake
         silversearcher-ag
         solr-tomcat
         tmux
         tree
-        python-software-properties
-        python
+        vim
         )
         for package in "${packages[@]}"
         do

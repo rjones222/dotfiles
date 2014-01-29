@@ -39,6 +39,7 @@ function osx_tasks_run() {
             ctags
             git
             git-extras
+            git-flow
             grc
             highlight
             hub
