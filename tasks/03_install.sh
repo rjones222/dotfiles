@@ -13,6 +13,7 @@ function install_run() {
     log_info "Installing npm Packages"
     # yo includes grunt and bower
     packages=(
+    log.io
     tldr
     yo
     )
@@ -20,7 +21,7 @@ function install_run() {
     do
         hash $package 2>/dev/null || {
             log_info "installing $package"
-            sudo npm install -g $package
+            sudo npm install -g $package --user "$(whoami)"
         }
     done
 
