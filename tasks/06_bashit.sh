@@ -2,6 +2,7 @@
 
 function bashit_init() {
     task_setup "bashit" "bash-it install" "Run bashit framework setup" "setup"
+    . ~/.dotfiles/support/install_functions.sh
 }
 
 function bashit_run() {
@@ -11,25 +12,10 @@ function bashit_run() {
         git clone https://github.com/revans/bash-it.git ~/.bash_it
     fi
 
-    if [[ ! -f "$HOME/.bash_it/aliases/custom.aliases.bash" ]]; then
-        log_info "linking bash-it aliases"
-        ln -s ~/.dotfiles/to_link/custom.aliases.bash ~/.bash_it/aliases/
-    fi
-
-    if [[ ! -f "$HOME/.bash_it/plugins/custom.plugins.bash" ]]; then
-        log_info "linking bash-it plugins"
-        ln -s ~/.dotfiles/to_link/custom.plugins.bash ~/.bash_it/custom/
-    fi
-
-    if [[ ! -f "$HOME/.bash_it/lib/custom.bash" ]]; then
-        log_info "linking bash-it libs"
-        ln -s ~/.dotfiles/to_link/custom.bash ~/.bash_it/lib/
-    fi
-
-    if [[ ! -f "$HOME/.bash_it/custom/custom.theme.bash" ]]; then
-        log_info "linking bash-it theme"
-        ln -s ~/.dotfiles/to_link/custom.theme.bash ~/.bash_it/custom/
-    fi
+    link_this "$HOME/.dotfiles/to_link/custom.aliases.bash" "$HOME/.bash_it/aliases/custom.aliases.bash"
+    link_this "$HOME/.dotfiles/to_link/custom.plugins.bash" "$HOME/.bash_it/custom/custom.plugins.bash"
+    link_this "$HOME/.dotfiles/to_link/custom.theme.bash" "$HOME/.bash_it/custom/custom.theme.bash"
+    link_this "$HOME/.dotfiles/to_link/custom.bash" "$HOME/.bash_it/lib/custom.bash"
 
     bashit_dir="$HOME/.bash_it/install.sh"
     if [[ ! -f $bashit_dir ]]; then
