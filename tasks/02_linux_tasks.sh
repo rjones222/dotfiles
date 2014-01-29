@@ -46,6 +46,7 @@ function linux_tasks_run() {
         php-pear
         postgresql
         rake
+        runit
         silversearcher-ag
         solr-tomcat
         tmux
