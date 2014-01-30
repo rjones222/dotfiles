@@ -52,6 +52,7 @@ function linux_tasks_run() {
         ranger
         silversearcher-ag
         solr-tomcat
+        spidermonkey-bin
         tmux
         tree
         vim

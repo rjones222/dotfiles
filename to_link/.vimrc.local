@@ -40,9 +40,7 @@
 
     " 2 space indent in html
     " au BufNewFile,BufRead *.blade.php set filetype=html
-    autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    autocmd FileType smarty setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    autocmd FileType blade setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd FileType smarty,blade,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
@@ -275,6 +273,7 @@
     let g:spf13_no_neosnippet_expand=1
 
     " phpcomplete omni complete for neocomplcache
+    au BufNewFile,BufRead *.blade.php,*.tpl set filetype=html
     autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
     " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
