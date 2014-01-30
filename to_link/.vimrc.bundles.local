@@ -47,6 +47,9 @@ Bundle 'm2mdas/phpcomplete-extended-symfony'
 " better vim start screen
 Bundle 'mhinz/vim-startify'
 
+" runs jshint via :JSHint
+Bundle 'sleistner/vim-jshint'
+
 " auto-update ctags on save
 " Bundle 'szw/vim-tags'
 " Bundle 'tpope/vim-dispatch'

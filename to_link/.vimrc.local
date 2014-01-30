@@ -384,5 +384,8 @@
 
     " composer install command for phpcomplete
     let g:phpcomplete_index_composer_command = "composer"
+
+    " run JSHint on save
+    au BufWritePost *.js :JSHint
 " }}}
 
