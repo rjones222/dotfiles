@@ -39,7 +39,10 @@
     aug END
 
     " 2 space indent in html
-    autocmd FileType html setlocal shiftwidth=2 tabstop=2
+    " au BufNewFile,BufRead *.blade.php set filetype=html
+    autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd FileType smarty setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd FileType blade setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
