@@ -48,4 +48,4 @@ if [[ ! -f ~/.dotfiles/support/bash-installer-framework/install.sh ]]; then
 fi
 
 # source bash-installer-framework installer
-~/.dotfiles/bif_install.sh
+~/.dotfiles/support/bif_install.sh

@@ -1,1 +1,0 @@
-support/bash-installer-framework/install.sh

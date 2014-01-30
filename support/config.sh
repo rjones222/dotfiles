@@ -13,8 +13,8 @@
 INITIAL_TOUCH_ALL=0
 
 # Overwrite default utils & tasks directories.
-UTILS_DIR=${INSTALLER_PATH}/support/bash-installer-framework/utils
-#TASKS_DIR=${INSTALLER_PATH}/data/tasks
+UTILS_DIR=${INSTALLER_PATH}/bash-installer-framework/utils
+TASKS_DIR=${INSTALLER_PATH}/../tasks
 
 # Overwrite default log-to-stdout config.
 #LOG_STDOUT=( "ERROR" "IMPORTANT" "WARNING" "INFO" "SKIP" "START" "FINISH" )
