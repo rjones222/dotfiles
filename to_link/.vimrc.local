@@ -61,6 +61,9 @@
 
     " I don't use this now
     UnBundle 'jonathanfilip/vim-lucius'
+
+    " This is the wrong version, I don't even know how it gets it
+    UnBundle 'Shougo/vimproc'
     "
     " This is super annoying
     UnBundle 'myusuf3/numbers.vim'
@@ -99,6 +102,9 @@
     " This breaks s for substitute
     UnBundle 'justinmk/vim-sneak'
 
+    " temporarily broken with Vundle commands
+    UnBundle 'gorodinskiy/vim-coloresque'
+
     " various spf-13 stuff I don't use
     UnBundle 'jnwhiteh/vim-golang'
     UnBundle 'python.vim'
@@ -126,10 +132,13 @@
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
 
+    " copy all
+    nnoremap <leader>a mmggVGy`m
+
     " remap keys
     " map <c-n> :tabnew<cr>
-    nmap <leader>bpw :BreakpointWindow<cr>
-    nmap <leader>bpt :Breakpoint<cr>
+    " nmap <leader>bpw :BreakpointWindow<cr>
+    " nmap <leader>bpt :Breakpoint<cr>
     inoremap jj <Esc>
     " inoremap jk <Esc>
     " inoremap kj <Esc>
@@ -381,11 +390,12 @@
     let g:vdebug_options = {}
     let g:vdebug_options['server'] = '192.168.56.1'
     let g:vdebug_options['port'] = '9001'
+    let g:vdebug_options["break_on_open"] = 0
 
     " composer install command for phpcomplete
     let g:phpcomplete_index_composer_command = "composer"
-
-    " run JSHint on save
-    au BufWritePost *.js :JSHint
+    
+    " jshint2 plugin
+    let jshint2_save = 1
 " }}}
 

@@ -32,8 +32,7 @@ Bundle 'joonty/vim-phpqa'
 Bundle 'shawncplus/phpcomplete.vim'
 
 " required for phpcomplete-extended
-" won't make
-" Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/vimproc.vim'
 
 " php completion for composer projects
 Bundle 'm2mdas/phpcomplete-extended'
@@ -48,7 +47,7 @@ Bundle 'm2mdas/phpcomplete-extended-symfony'
 Bundle 'mhinz/vim-startify'
 
 " runs jshint via :JSHint
-Bundle 'sleistner/vim-jshint'
+Bundle 'Shutnik/jshint2.vim'
 
 " auto-update ctags on save
 " Bundle 'szw/vim-tags'
@@ -149,4 +148,4 @@ Bundle 'ardagnir/united-front'
 Bundle 'dockyard/vim-easydir'
 
 " blade syntax highlight
-Bundle 'johnhamelink/blade.vim'
+" Bundle 'johnhamelink/blade.vim'

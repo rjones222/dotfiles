@@ -14,6 +14,7 @@ function install_run() {
     log_info "Installing npm Packages"
     # yo includes grunt and bower
     packages=(
+    jshint
     log.io
     tldr
     yo
@@ -72,6 +73,7 @@ function install_run() {
     log_info "Installing Gems"
     packages=(
     bundler
+    execjs
     jekyll
     kramdown
     pre-commit
