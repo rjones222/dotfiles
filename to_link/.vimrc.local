@@ -63,7 +63,7 @@
     UnBundle 'jonathanfilip/vim-lucius'
 
     " This is the wrong version, I don't even know how it gets it
-    UnBundle 'Shougo/vimproc'
+    " UnBundle 'Shougo/vimproc'
     "
     " This is super annoying
     UnBundle 'myusuf3/numbers.vim'
@@ -390,12 +390,15 @@
     let g:vdebug_options = {}
     let g:vdebug_options['server'] = '192.168.56.1'
     let g:vdebug_options['port'] = '9001'
-    let g:vdebug_options["break_on_open"] = 0
+    " let g:vdebug_options["break_on_open"] = 0
 
     " composer install command for phpcomplete
     let g:phpcomplete_index_composer_command = "composer"
     
     " jshint2 plugin
     let jshint2_save = 1
+    
+    " phpcomplete-extended add use statement automatically
+    let g:phpcomplete_extended_auto_add_use = 1
 " }}}
 

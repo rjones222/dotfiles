@@ -32,7 +32,8 @@ Bundle 'joonty/vim-phpqa'
 Bundle 'shawncplus/phpcomplete.vim'
 
 " required for phpcomplete-extended
-Bundle 'Shougo/vimproc.vim'
+" Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/vimproc'
 
 " php completion for composer projects
 Bundle 'm2mdas/phpcomplete-extended'
