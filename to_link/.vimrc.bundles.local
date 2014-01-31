@@ -148,5 +148,8 @@ Bundle 'ardagnir/united-front'
 " create files and parent dirs at the same time
 Bundle 'dockyard/vim-easydir'
 
+" expand the visual selection with + and _
+Bundle 'terryma/vim-expand-region'
+
 " blade syntax highlight
 " Bundle 'johnhamelink/blade.vim'

@@ -292,6 +292,10 @@
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
 
+    " c-j and c-k go down and up in the list
+    inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+    inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
     " preview breaks youcompleteme
     " set completeopt-=preview
 
