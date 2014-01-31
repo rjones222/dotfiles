@@ -24,6 +24,7 @@ function linux_tasks_run() {
         git-extras
         git-flow
         grc
+        hg
         highlight
         htop
         irssi

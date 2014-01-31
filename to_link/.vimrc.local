@@ -13,6 +13,9 @@
     " and in PIV
     let g:DisableAutoPHPFolding = 1
 
+    " highlight matching words in red automatically
+    :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
     " enable the preview window for omnicompletion
     " set completeopt=preview
     set previewheight=15

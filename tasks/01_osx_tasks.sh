@@ -42,6 +42,7 @@ function osx_tasks_run() {
             git-extras
             git-flow
             grc
+            hg
             highlight
             hub
             imagemagick
