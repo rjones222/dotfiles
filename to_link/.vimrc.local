@@ -16,8 +16,8 @@
     " highlight matching words in red automatically
     :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
-    " enable the preview window for omnicompletion
-    " set completeopt=preview
+    " enable the preview window for omnicompletion - doesn't work for some reason
+    " set completeopt+=preview
     set previewheight=15
 
     " supposed to make vim faster in tmux
@@ -289,18 +289,11 @@
     autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
     " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
-    " try to enable omni completion in neocomplcache
-    if !exists('g:neocomplcache_omni_patterns')
-        let g:neocomplcache_omni_patterns = {}
-    endif
-
-    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
 
     " preview breaks youcompleteme
-    set completeopt-=preview
+    " set completeopt-=preview
 
     " set guifont to powerline compatible for macvim
     " set guifont=Menlo\ for\ Powerline:h12

@@ -105,7 +105,7 @@ fi
 # delete .orig files
 alias orig="find . -name '*.orig' -delete" 
 
-alias tags="ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
+alias tags="ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null"
 
 # grep for merge conflicts
 alias conflicts="grep -lir '<<<<<' *"
