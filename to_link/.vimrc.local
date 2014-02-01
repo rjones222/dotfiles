@@ -19,7 +19,11 @@
     " set lazyredraw
 
     " auto source vimrc
-    autocmd BufWritePost .vimrc.local,.vimrc.bundles.local,.vimrc.before.local,.vimrc.custom.local source $MYVIMRC
+    augroup vimrc " {
+        autocmd!
+        " autocmd BufWritePost .vimrc.local,.vimrc.bundles.local,.vimrc.before.local,.vimrc.custom.local source $MYVIMRC
+    augroup END " }
+
     " allow interactive shell commands to source my .bash_profile
     set shell=/bin/bash\ -i
 
@@ -29,7 +33,10 @@
     let g:DisableAutoPHPFolding = 1
 
     " highlight matching words in red automatically
-    :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+    augroup highlight " {
+        autocmd!
+        autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+    augroup END " }
 
     " enable the preview window for omnicompletion - doesn't work for some reason
     " set completeopt+=preview
@@ -51,14 +58,16 @@
     set nospell
 
     " if the last window is a quickfix, close it
-    aug QFClose
-      au!
-      au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
-    aug END
+    augroup qfclose " {
+        autocmd!
+        autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+    augroup END " }
 
     " 2 space indent in html
-    " au BufNewFile,BufRead *.blade.php set filetype=html
-    autocmd FileType smarty,blade,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    augroup highlight " {
+        autocmd!
+        autocmd FileType smarty,blade,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    augroup END " }
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
@@ -111,7 +120,7 @@
     " temporary due to crippling bug"
     " UnBundle 'bling/vim-airline'
 
-    " I already use phpqatools
+    " I already use phpqatools and syntasic is slow as FUCK
     " UnBundle 'scrooloose/syntastic'
 
     " I use a different one
@@ -144,7 +153,7 @@
     UnBundle 'klen/python-mode'
     UnBundle 'tpope/vim-cucumber'
     UnBundle 'quentindecock/vim-cucumber-align-pipes'
-    UnBundle 'beyondwords/vim-twig'
+    " UnBundle 'beyondwords/vim-twig'
     UnBundle 'adinapoli/cumino'
     UnBundle 'Twinside/vim-haskellConceal'
     UnBundle 'travitch/hasksyn'
@@ -207,8 +216,11 @@
 
     " custom indent guide colors
     let g:indent_guides_auto_colors = 0
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+    augroup indent_guides " {
+        autocmd!
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+    augroup END " }
 
     "toggle between day and night theme
     call togglebg#map("<leader>bg")
@@ -274,8 +286,13 @@
     let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
     let g:pdv_cfg_License   = ""
 
-    " reset file to HEAD in fugitive commit window
-    autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+    augroup fugitive " {
+        autocmd!
+        " reset file to HEAD in fugitive commit window
+        autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+        " open quickfix window on git grep
+        autocmd QuickFixCmdPost *grep* cwindow
+    augroup END " }
 
     " for mouseterm
     if has("mouse")
@@ -286,9 +303,12 @@
     let g:spf13_no_neosnippet_expand=1
 
     " phpcomplete omni complete for neocomplcache
-    au BufNewFile,BufRead *.blade.php,*.tpl set filetype=html
-    autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
-    " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    augroup phpcomplete " {
+        autocmd!
+        autocmd BufNewFile,BufRead *.blade.php,*.tpl set filetype=html
+        autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+        " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    augroup END " }
 
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
@@ -310,21 +330,11 @@
         " let g:syntastic_loc_list_height = 3
         " let g:syntastic_enable_highlighting = 1
         " let g:syntastic_always_populate_loc_list=1
-        " let g:syntastic_php_phpmd_post_args = '~/.dotfiles/phpmd_ruleset.xml'
+        let g:syntastic_php_phpmd_post_args = '~/.dotfiles/support/phpmd_ruleset.xml'
 
         " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-        let g:syntastic_php_checkers = ['php', 'phpcs']
-        let g:syntastic_enable_highlighting = 0
-        " let g:systastic_javascript_checkers=['jshint']
-        " let g:systastic_javascript_checkers=['jsonlint']
-        " let g:systastic_css_checkers=['csslint']
-        " let g:systastic_less_checkers=['lessc']
-        " let g:syntastic_html_checkers = ['w3']
-        " let g:syntastic_puppet_checkers = ['puppet']
-
-        " set statusline+=%#warningmsg#
-        " set statusline+=%{SyntasticStatuslineFlag()}
-        " set statusline+=%*
+        " let g:syntastic_php_checkers = ['php', 'phpcs']
+        " let g:syntastic_enable_highlighting = 0
     " }}}
 
     " filename
@@ -337,13 +347,17 @@
     hi default link User4 Special
 
     " set quickfix window height min and max  automatically
-    au FileType qf call AdjustWindowHeight(3, 5)
+    augroup quickfix " {
+        autocmd!
+        autocmd FileType qf call AdjustWindowHeight(3, 5)
+    augroup END " }
+
     function! AdjustWindowHeight(minheight, maxheight)
-      exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+        exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
     endfunction
 
     " ctrlp extensions
-    let g:ctrlp_extensions = ['tag']
+    " let g:ctrlp_extensions = ['tag']
 
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
@@ -354,9 +368,12 @@
     let g:UltiSnipsListSnippets='<c-L>'
     let g:UltiSnipsExpandTrigger='<c-J>'
 
-    au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
-    au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
-    au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
+    augroup phpdoc " {
+        autocmd!
+        au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+        au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+        au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
+    augroup END " }
 
     " vim-airline
     let g:airline_theme = 'solarized'
@@ -388,10 +405,6 @@
     " vim-ctrlp-tjump
     nnoremap <c-]> :CtrlPtjump<cr>
 
-    " fugitive
-    " open quickfix window on git grep
-    autocmd QuickFixCmdPost *grep* cwindow
-
     "ctags autogen on save
     " au BufWritePost *.php silent! !ctags --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null &
 
@@ -421,15 +434,10 @@
     " let g:startify_restore_position = 1
 
     " don't open a split for ctrlp or nerdtree
-    autocmd FileType startify setlocal buftype=
-
-    " nerdtree on startup
-    " autocmd VimEnter *
-                " \ if !argc() |
-                " \   Startify |
-                " \   NERDTree |
-                " \   execute "normal \<c-w>w" |
-                " \ endif
+    augroup startify " {
+        autocmd!
+        autocmd FileType startify setlocal buftype=
+    augroup END " }
 
     " make session autoload work in vim-startify
     " let NERDTreeHijackNetrw = 0

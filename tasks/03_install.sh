@@ -65,11 +65,15 @@ function install_run() {
     # install laravel installer
     if [[ ! "$(type -P laravel)" ]]; then
         log_info "Installing Laravel Installer"
-        cd
-        wget http://laravel.com/laravel.phar
-        sudo mv laravel.phar /usr/local/bin/laravel
-        sudo chmod +x laravel
-        cd -
+        sudo curl http://laravel.com/laravel.phar -o /usr/local/bin/laravel
+        sudo chmod +x /usr/local/bin/laravel
+    fi
+
+    # install php-cs-fixer
+    if [[ ! "$(type -P php-cs-fixer)" ]]; then
+        log_info "Installing php-cs-fixer"
+        sudo curl http://cs.sensiolabs.org/get/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
+        sudo chmod a+x /usr/local/bin/php-cs-fixer
     fi
 
     # install gems

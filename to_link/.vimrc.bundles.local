@@ -45,14 +45,14 @@ Bundle 'Shougo/vimproc'
 " php completion for composer projects
 Bundle 'm2mdas/phpcomplete-extended'
 
-" only for added sources for phpcomplete_extended"
-Bundle 'Shougo/unite.vim'
+" only for added sources for phpcomplete_extended
+" Bundle 'Shougo/unite.vim'
 
 " laravel completion
 Bundle 'm2mdas/phpcomplete-extended-laravel'
 "
 " symfony completion
-" Bundle 'm2mdas/phpcomplete-extended-symfony'
+Bundle 'm2mdas/phpcomplete-extended-symfony'
 
 " better vim start screen
 Bundle 'mhinz/vim-startify'
