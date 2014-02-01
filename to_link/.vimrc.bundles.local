@@ -1,5 +1,9 @@
 " which bundle groups to install
-let g:spf13_bundle_groups=['general', 'programming', 'php', 'javascript', 'html', 'misc', 'neocomplcache']
+let g:spf13_bundle_groups=['general', 'programming', 'javascript', 'html', 'neocomplcache', 'twig']
+
+" the only misc bundles I use
+Bundle 'tpope/vim-markdown'
+Bundle 'Puppet-Syntax-Highlighting'
 
 " adds extra intuitive keyboard shortcuts
 Bundle 'tpope/vim-unimpaired'
@@ -29,7 +33,7 @@ Bundle 'SirVer/ultisnips'
 " Bundle 'joonty/vim-phpqa'
 
 " phpmd, phpcs, php lint, and jshint
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 
 " improved php omnicompletion
 " Bundle 'shawncplus/phpcomplete.vim'
@@ -71,7 +75,7 @@ Bundle 'mhinz/vim-startify'
 " Bundle 'stephpy/vim-php-cs-fixer'
 
 " smart search, replace, abbreviation fixer
-Bundle 'tpope/vim-abolish'
+" Bundle 'tpope/vim-abolish'
 
 " smart jump to project root
 Bundle 'dbakker/vim-projectroot'

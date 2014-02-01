@@ -75,7 +75,13 @@
 
 " Unbundle {{{
 
+    " takes a lot of time and I don't use it right now
+    UnBundle 'spf13/vim-preview'
+
+    " I use solarized
+    UnBundle 'flazz/vim-colorschemes'
     " I don't use this now
+    UnBundle 'bling/vim-bufferline'
     UnBundle 'jonathanfilip/vim-lucius'
 
     " This is the wrong version, I don't even know how it gets it
@@ -117,6 +123,9 @@
 
     " This breaks s for substitute
     UnBundle 'justinmk/vim-sneak'
+
+    " It's awesome but I prefer the command line.
+    UnBundle 'tpope/vim-fugitive'
 
     " temporarily broken with Vundle commands
     UnBundle 'gorodinskiy/vim-coloresque'
@@ -247,7 +256,7 @@
         " map <C-e> :NERDTreeTabsToggle<CR>:NERDTreeMirrorOpen<CR>
         " map <C-e> :NERDTreeTabs<CR>:NERDTreeMirrorOpen<CR>
         " map <C-e> :NERDTreeTabsToggle<CR>
-        " map <C-e> :NERDTreeMirrorToggle<CR>
+        map <C-e> :NERDTreeMirrorToggle<CR>
     " }}}
 
     " cd to project root
@@ -404,9 +413,9 @@
     " vim-startify"
     let g:startify_session_dir = '~/.vim/sessions'
     let g:startify_bookmarks = [ '~/.vimrc.local' ]
-    let g:startify_session_persistence = 1
-    let g:startify_change_to_vcs_root = 1
-    let g:startify_restore_position = 1
+    " let g:startify_session_persistence = 1
+    " let g:startify_change_to_vcs_root = 1
+    " let g:startify_restore_position = 1
 
     " don't open a split for ctrlp or nerdtree
     autocmd FileType startify setlocal buftype=
