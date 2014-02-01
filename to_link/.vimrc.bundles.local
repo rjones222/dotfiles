@@ -72,7 +72,7 @@ Bundle 'mhinz/vim-startify'
 " Bundle 'nacitar/terminalkeys.vim'
 
 " coding standards fixer integration
-" Bundle 'stephpy/vim-php-cs-fixer'
+Bundle 'stephpy/vim-php-cs-fixer'
 
 " smart search, replace, abbreviation fixer
 " Bundle 'tpope/vim-abolish'
