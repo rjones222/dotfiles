@@ -77,6 +77,11 @@ if [ -f /usr/local/etc/grc.bashrc ]; then
     source "/usr/local/etc/grc.bashrc"
 fi
 
+# init fasd
+if [[ "$(type -P fasd)" ]]; then
+    eval "$(fasd --init auto)"
+fi
+
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
