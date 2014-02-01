@@ -7,6 +7,7 @@ alias wr='cd ~/Sites'
 # commit and sync
 alias updates='git add --all .; git commit -am "updates"; git pull && git push'
 alias dotupdates='cd ~/.dotfiles; updates; cd -'
+alias blogupdates='cd ~/Sites/mikedfunk.github.io; updates; cd -'
 
 # apache restart
 alias ares="sudo apachectl restart"
