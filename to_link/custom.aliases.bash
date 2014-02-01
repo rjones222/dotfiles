@@ -59,6 +59,7 @@ else
     vim="vim -p"
 fi
 alias vim="${vim}"
+alias v="${vim}"
 
 # alias hub to git
 if [ -f "/usr/local/bin/hub" ]; then
