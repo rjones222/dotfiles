@@ -71,7 +71,7 @@
 [mergetool]
     keepBackup = false
 [pre-commit]
-    checks = php, tabs, jshint, whitespace, console_log
+    checks = php, tabs, whitespace, console_log
 [push]
     default = current
 [rebase]

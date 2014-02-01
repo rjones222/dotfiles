@@ -51,6 +51,7 @@ alias :so="source"
 alias mux="tmuxinator"
 alias artisan="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
+alias pearupgrade="sudo pear upgrade"
 
 # use macvim executable in terminal mode
 if [ -f "/usr/local/bin/mvim" ]; then

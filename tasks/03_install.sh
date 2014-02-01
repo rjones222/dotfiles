@@ -14,7 +14,9 @@ function install_run() {
     log_info "Installing npm Packages"
     # yo includes grunt and bower
     packages=(
+    csslint
     jshint
+    less
     log.io
     tldr
     yo
@@ -44,6 +46,9 @@ function install_run() {
             sudo pear install $package
         # fi
     done
+
+    # set default phpcs standard
+    phpcs --config-set default_standard psr2
 
     # install composer
     if [[ ! "$(type -P composer)" ]]; then

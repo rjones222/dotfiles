@@ -26,7 +26,10 @@ Bundle 'SirVer/ultisnips'
 " Bundle 'Raimondi/delimitMate'
 
 " phpmd, phpcs, php lint, and coverage on save
-Bundle 'joonty/vim-phpqa'
+" Bundle 'joonty/vim-phpqa'
+
+" phpmd, phpcs, php lint, and jshint
+Bundle 'scrooloose/syntastic'
 
 " improved php omnicompletion
 Bundle 'shawncplus/phpcomplete.vim'
@@ -51,7 +54,7 @@ Bundle 'm2mdas/phpcomplete-extended-symfony'
 Bundle 'mhinz/vim-startify'
 
 " runs jshint via :JSHint
-Bundle 'Shutnik/jshint2.vim'
+" Bundle 'Shutnik/jshint2.vim'
 
 " auto-update ctags on save
 " Bundle 'szw/vim-tags'

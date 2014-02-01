@@ -101,7 +101,7 @@
     " UnBundle 'bling/vim-airline'
 
     " I already use phpqatools
-    UnBundle 'scrooloose/syntastic'
+    " UnBundle 'scrooloose/syntastic'
 
     " I use a different one
     UnBundle 'tobyS/pdv'
@@ -247,32 +247,6 @@
         " map <C-e> :NERDTreeTabsToggle<CR>
     " }}}
 
-    " phpqa {{{
-        " PHPMD Ruleset
-        if filereadable("~/.dotfiles/support/phpmd_ruleset.xml")
-            let g:phpqa_messdetector_ruleset = "~/.dotfiles/support/phpmd_ruleset.xml"
-        endif
-
-        " Clover code coverage XML file
-        " if filereadable('/Library/WebServer/Documents/einstein2/build/logs/clover.xml')
-            " let g:phpqa_codecoverage_file = '/Library/WebServer/Documents/einstein2/build/logs/clover.xml'
-        " endif
-
-        " Show code coverage on load (default = 0)
-        " let g:phpqa_codecoverage_autorun=1
-
-        " path to php
-        if filereadable('/usr/bin/php')
-            let g:phpqa_php_cmd='/usr/bin/php'
-        endif
-        if filereadable('/usr/local/php5/bin/php')
-            let g:phpqa_php_cmd='/usr/local/php5/bin/php'
-        endif
-
-        " standard
-        let g:phpqa_codesniffer_args = "--standard=psr2"
-    " }}}
-
     " cd to project root
     nnoremap <leader>dp :ProjectRootCD<cr>
 
@@ -320,8 +294,22 @@
     " set statusline+=%#warningmsg#
     " set statusline+=%{SyntasticStatuslineFlag()}
     " set statusline+=%*
-    " let g:syntastic_php_checkers=['php']
-    " let g:syntastic_php_phpmd_post_args = '~/.dotfiles/phpmd_ruleset.xml'
+
+    " Syntastic {{{
+        let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
+        let g:syntastic_auto_loc_list = 1
+        let g:syntastic_loc_list_height = 3
+        let g:syntastic_enable_highlighting = 1
+        " let g:syntastic_always_populate_loc_list=1
+        " let g:syntastic_php_phpmd_post_args = '~/.dotfiles/phpmd_ruleset.xml'
+
+        let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+        let g:systastic_javascript_checkers=['jshint']
+        let g:systastic_css_checkers=['csslint']
+        let g:systastic_less_checkers=['lessc']
+        let g:syntastic_html_checkers = ['w3']
+        let g:syntastic_puppet_checkers = ['puppet']
+    " }}}
 
     " filename
     hi default link User1 Identifier"blue
