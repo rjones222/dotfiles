@@ -1,3 +1,10 @@
+"  ___  ____ _         ______           _
+"  |  \/  (_) |        |  ___|         | |
+"  | .  . |_| | _____  | |_ _   _ _ __ | | __
+"  | |\/| | | |/ / _ \ |  _| | | | '_ \| |/ /
+"  | |  | | |   <  __/ | | | |_| | | | |   <
+"  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
+"
 " Modeline {{{
 " vim:fdm=marker
 "
@@ -231,6 +238,9 @@
         " let NERDTreeCasadeOpenSingleChildDir=1
 
         " NERDTree change keyboard shortcuts to use vim-nerdtree-tabs
+        " map <C-e> :NERDTreeTabsToggle<CR>:NERDTreeMirrorOpen<CR>
+        " map <C-e> :NERDTreeTabs<CR>:NERDTreeMirrorOpen<CR>
+        map <C-e> :NERDTreeMirrorToggle<CR>
         " map <C-e> :NERDTreeTabsToggle<CR>
     " }}}
 
@@ -350,7 +360,11 @@
     let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''
     let g:airline_powerline_fonts=0
-    " let g:airline_powerline_fonts=1
+    let g:airline#extensions#hunks#non_zero_only = 1
+    let g:airline#extensions#bufferline#enabled = 0
+    " vim-bufferline prevent from showing in command bar *and* statusline
+    let g:bufferline_echo = 0
+
 
     " advanced tabline vertical separators
     " let g:airline#extensions#tabline#enabled = 1
@@ -381,10 +395,7 @@
 
     " gitgutter is wigging out with 7.4 and airline for some reason
     " https://github.com/airblade/vim-gitgutter/issues/106
-    let g:gitgutter_realtime = 0
-
-    " vim-bufferline prevent from showing in command bar *and* statusline
-    let g:bufferline_echo = 0
+    " let g:gitgutter_realtime = 0
 
     " vdebug
     " "g:vdebug_options['server'] = 'mfunk-mac.local'
@@ -401,6 +412,34 @@
 
     " phpcomplete-extended add use statement automatically
     let g:phpcomplete_extended_auto_add_use = 1
+
+    " vim-startify"
+    let g:startify_session_dir = '~/.vim/sessions'
+    let g:startify_bookmarks = [ '~/.vimrc.local' ]
+    let g:startify_session_persistence = 1
+    let g:startify_change_to_vcs_root = 1
+    let g:startify_restore_position = 1
+
+    " don't open a split for ctrlp or nerdtree
+    autocmd FileType startify setlocal buftype=
+
+    " nerdtree on startup
+    " autocmd VimEnter *
+                " \ if !argc() |
+                " \   Startify |
+                " \   NERDTree |
+                " \   execute "normal \<c-w>w" |
+                " \ endif
+    
+    " make session autoload work in vim-startify
+    " let NERDTreeHijackNetrw = 0
+
+    " disable common but unimportant files
+    let g:startify_skiplist = [
+           \ 'COMMIT_EDITMSG',
+           \ '\.DS_Store'
+           \ ]
+
 " }}}
 " Include Custom vimrc if exists {{{
     if filereadable($HOME . "/.vimrc.custom.local")
