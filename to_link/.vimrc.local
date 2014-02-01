@@ -15,6 +15,9 @@
 " General {{{
     let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
 
+    " allow interactive shell commands to source my .bash_profile
+    set shell=/bin/bash\ -i
+
     " disable auto folding
     set nofoldenable
     " and in PIV

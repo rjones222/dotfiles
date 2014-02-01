@@ -16,7 +16,7 @@ alias ares="sudo apachectl restart"
 alias json="python -mjson.tool"
 
 # jekyll build via bundle
-alias jbuild="bundle exec jekyll build"
+alias blogbuild="cd ~/Sites/mikedfunk.github.io/; bundle exec jekyll build; cd -"
 
 # I tend to forget the syntax for this
 alias apt-get-search="apt-cache search"
