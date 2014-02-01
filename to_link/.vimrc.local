@@ -18,6 +18,8 @@
     " do not redraw while running macros - faster
     " set lazyredraw
 
+    " auto source vimrc
+    autocmd BufWritePost .vimrc.local,.vimrc.bundles.local,.vimrc.before.local,.vimrc.custom.local source $MYVIMRC
     " allow interactive shell commands to source my .bash_profile
     set shell=/bin/bash\ -i
 
@@ -125,7 +127,7 @@
     UnBundle 'justinmk/vim-sneak'
 
     " It's awesome but I prefer the command line.
-    UnBundle 'tpope/vim-fugitive'
+    " UnBundle 'tpope/vim-fugitive'
 
     " temporarily broken with Vundle commands
     UnBundle 'gorodinskiy/vim-coloresque'
@@ -310,7 +312,8 @@
         " let g:syntastic_always_populate_loc_list=1
         " let g:syntastic_php_phpmd_post_args = '~/.dotfiles/phpmd_ruleset.xml'
 
-        let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+        " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+        let g:syntastic_php_checkers = ['php', 'phpcs']
         let g:syntastic_enable_highlighting = 0
         " let g:systastic_javascript_checkers=['jshint']
         " let g:systastic_javascript_checkers=['jsonlint']

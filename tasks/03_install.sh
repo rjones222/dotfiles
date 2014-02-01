@@ -50,7 +50,7 @@ function install_run() {
 
     # set default phpcs standard
     log_info "setting phpcs default to psr2"
-    sudo phpcs --config-set default_standard psr2
+    sudo phpcs --config-set default_standard PSR2
 
     # install composer
     if [[ ! "$(type -P composer)" ]]; then
