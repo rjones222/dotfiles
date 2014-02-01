@@ -32,7 +32,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'scrooloose/syntastic'
 
 " improved php omnicompletion
-Bundle 'shawncplus/phpcomplete.vim'
+" Bundle 'shawncplus/phpcomplete.vim'
 
 " required for phpcomplete-extended
 " Bundle 'Shougo/vimproc.vim'
@@ -48,7 +48,7 @@ Bundle 'Shougo/unite.vim'
 Bundle 'm2mdas/phpcomplete-extended-laravel'
 "
 " symfony completion
-Bundle 'm2mdas/phpcomplete-extended-symfony'
+" Bundle 'm2mdas/phpcomplete-extended-symfony'
 
 " better vim start screen
 Bundle 'mhinz/vim-startify'
@@ -103,7 +103,7 @@ Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 " Bundle 'goldfeld/ctrlr.vim'
 
 " better iterm2/tmux compatibility
-Bundle 'sjl/vitality.vim'
+" Bundle 'sjl/vitality.vim'
 
 " allow to close all buffers but the current one
 Bundle 'vim-scripts/BufOnly.vim'
@@ -114,14 +114,14 @@ Bundle 'sumpygump/php-documentor-vim'
 " Bundle 'mikedfunk/php-documentor-vim'
 
 " required for pdv
-Bundle 'tobyS/vmustache'
+" Bundle 'tobyS/vmustache'
 
 " go to current quickfix item
 " doesn't work
 " Bundle 'vim-scripts/QuickFixCurrentNumber'
 "
 " allow to star search from a visual selection
-Bundle 'thinca/vim-visualstar'
+" Bundle 'thinca/vim-visualstar'
 
 " smooth vertical scrolling
 Bundle 'yonchu/accelerated-smooth-scroll'
@@ -140,7 +140,7 @@ Bundle 'ivalkeen/vim-ctrlp-tjump'
 Bundle 'rking/ag.vim'
 
 " open directory in finder
-Bundle 'justinmk/vim-gtfo'
+" Bundle 'justinmk/vim-gtfo'
 
 " jump to definition even if tags file doesn't exist
 " Bundle 'tacahiroy/ctrlp-funky'

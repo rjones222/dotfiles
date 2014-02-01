@@ -15,6 +15,9 @@
 " General {{{
     let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
 
+    " do not redraw while running macros - faster
+    " set lazyredraw
+
     " allow interactive shell commands to source my .bash_profile
     set shell=/bin/bash\ -i
 
@@ -64,7 +67,7 @@
     nnoremap gn :tabnew<cr>
 
     " set this to an html view
-    nnoremap <leader>h :setlocal ft=html shiftwidth=2 tabstop=2<cr>
+    " nnoremap <leader>h :setlocal ft=html shiftwidth=2 tabstop=2<cr>
 
     " open tag in tab
     :nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -180,7 +183,7 @@
 
     " omnicompletion like Visual Studio or NetBeans
     imap <C-Space> <C-x><C-o>
-    imap <C-@> <C-Space>
+    " imap <C-@> <C-Space>
 
     " put cursor at end of text on y and p
     vnoremap <silent> y y`]
@@ -202,9 +205,9 @@
     hi IndentGuidesOdd ctermbg=235
     hi IndentGuidesEven ctermbg=236
 
-    if has('gui_running')
+    " if has('gui_running')
         " use solarized
-    else
+    " else
         " Compatibility for Terminal
         " let g:solarized_termtrans=1
         " let g:solarized_termcolors=16
@@ -222,7 +225,7 @@
         " LuciusLightHighContrast
         " hi ColorColumn guibg=#242424 ctermbg=235
         " hi TabLine ctermfg=Black
-    endif
+    " endif
 
     " change the default EasyMotion shading to something more readable with Solarized
     hi link EasyMotionTarget ErrorMsg
@@ -243,8 +246,8 @@
         " NERDTree change keyboard shortcuts to use vim-nerdtree-tabs
         " map <C-e> :NERDTreeTabsToggle<CR>:NERDTreeMirrorOpen<CR>
         " map <C-e> :NERDTreeTabs<CR>:NERDTreeMirrorOpen<CR>
-        map <C-e> :NERDTreeMirrorToggle<CR>
         " map <C-e> :NERDTreeTabsToggle<CR>
+        " map <C-e> :NERDTreeMirrorToggle<CR>
     " }}}
 
     " cd to project root
@@ -279,7 +282,7 @@
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
 
-    " c-j and c-k go down and up in the list
+    " c-j and c-k go down and up in the list for neocomplcache
     inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
     inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
@@ -292,13 +295,14 @@
 
     " Syntastic {{{
         let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
-        let g:syntastic_auto_loc_list = 1
+        " let g:syntastic_auto_loc_list = 1
         " let g:syntastic_loc_list_height = 3
         " let g:syntastic_enable_highlighting = 1
         " let g:syntastic_always_populate_loc_list=1
         " let g:syntastic_php_phpmd_post_args = '~/.dotfiles/phpmd_ruleset.xml'
 
-        " let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+        let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+        let g:syntastic_enable_highlighting = 0
         " let g:systastic_javascript_checkers=['jshint']
         " let g:systastic_javascript_checkers=['jsonlint']
         " let g:systastic_css_checkers=['csslint']
@@ -320,7 +324,7 @@
     " fugitive
     hi default link User4 Special
 
-    " set quickfix window height automatically
+    " set quickfix window height min and max  automatically
     au FileType qf call AdjustWindowHeight(3, 5)
     function! AdjustWindowHeight(minheight, maxheight)
       exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
@@ -359,9 +363,9 @@
 
     " advanced tabline vertical separators
     " let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#left_sep = ' '
+    " let g:airline#extensions#tabline#left_sep = ' '
     " let g:airline#extensions#tabline#left_alt_sep = '|'
-    let g:airline#extensions#tabline#left_alt_sep = ' '
+    " let g:airline#extensions#tabline#left_alt_sep = ' '
 
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
@@ -384,10 +388,6 @@
     " set secure
     let g:vim_tags_project_tags_command = 'ctags -R --fields=+aimS --languages=php --PHP-kinds=+cf {OPTIONS} {DIRECTORY} 2>/dev/null'
 
-    " gitgutter is wigging out with 7.4 and airline for some reason
-    " https://github.com/airblade/vim-gitgutter/issues/106
-    " let g:gitgutter_realtime = 0
-
     " vdebug
     " "g:vdebug_options['server'] = 'mfunk-mac.local'
     let g:vdebug_options = {}
@@ -398,11 +398,8 @@
     " composer install command for phpcomplete
     let g:phpcomplete_index_composer_command = "composer"
 
-    " jshint2 plugin
-    let jshint2_save = 1
-
     " phpcomplete-extended add use statement automatically
-    let g:phpcomplete_extended_auto_add_use = 1
+    " let g:phpcomplete_extended_auto_add_use = 1
 
     " vim-startify"
     let g:startify_session_dir = '~/.vim/sessions'
@@ -421,7 +418,7 @@
                 " \   NERDTree |
                 " \   execute "normal \<c-w>w" |
                 " \ endif
-    
+
     " make session autoload work in vim-startify
     " let NERDTreeHijackNetrw = 0
 
