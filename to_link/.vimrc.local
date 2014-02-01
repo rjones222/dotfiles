@@ -83,6 +83,10 @@
 
 " Unbundle {{{
 
+    " slow as FUCK
+    UnBundle 'mhinz/vim-signify'
+    UnBundle 'majutsushi/tagbar'
+
     " takes a lot of time and I don't use it right now
     UnBundle 'spf13/vim-preview'
 
@@ -114,9 +118,6 @@
     " it slows down vim
     UnBundle 'Lokaltog/powerline'
     UnBundle 'Lokaltog/vim-powerline'
-
-    " I already use phpqatools and syntasic is slow as FUCK
-    " UnBundle 'scrooloose/syntastic'
 
     " I use a different one
     UnBundle 'tobyS/pdv'
@@ -237,10 +238,6 @@
 
     " cd to project root
     nnoremap <leader>dp :ProjectRootCD<cr>
-    augroup ProjectRootCD " {
-        autocmd!
-        autocmd BufEnter * if &ft != 'help' | call ProjectRootCD() | endif
-    augroup END " }
 
     " tabular
     nmap <leader>a> :Tabularize /=><cr>
@@ -288,8 +285,8 @@
 
     " Syntastic {{{
         let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
-        " let g:syntastic_auto_loc_list = 1
-        " let g:syntastic_enable_highlighting = 0
+        let g:syntastic_auto_loc_list = 1
+        let g:syntastic_enable_highlighting = 0
         let g:syntastic_php_phpmd_post_args = '~/.dotfiles/support/phpmd_ruleset.xml'
     " }}}
 
@@ -333,7 +330,8 @@
 
     " vim-airline
     let g:airline_theme = 'solarized'
-    let g:airline#extensions#tagbar#enabled = 1
+    " warning this is really slow
+    " let g:airline#extensions#tagbar#enabled = 1
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''
@@ -353,7 +351,7 @@
     let g:tagbar_autofocus = 1
 
     " phpctags
-    let g:tagbar_phpctags_memory_limit = '512M'
+    " let g:tagbar_phpctags_memory_limit = '512M'
 
     " vim-ctrlp-tjump
     nnoremap <c-]> :CtrlPtjump<cr>

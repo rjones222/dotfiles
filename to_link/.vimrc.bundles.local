@@ -32,11 +32,8 @@ Bundle 'SirVer/ultisnips'
 " phpmd, phpcs, php lint, and coverage on save
 " Bundle 'joonty/vim-phpqa'
 
-" phpmd, phpcs, php lint, and jshint
-" Bundle 'scrooloose/syntastic'
-
 " improved php omnicompletion
-" Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'shawncplus/phpcomplete.vim'
 
 " required for phpcomplete-extended
 " Bundle 'Shougo/vimproc.vim'
@@ -93,11 +90,8 @@ Bundle 'dbakker/vim-projectroot'
 " enable repeat in certain plugins
 Bundle 'tpope/vim-repeat'
 
-" additional stuff for powerline. couldn't get it to work.
-" Bundle 'zhaocai/linepower.vim'
-
 " better php ctags in tagbar
-Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
+" Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
 " better paste
 " Bundle 'sickill/vim-pasta'
