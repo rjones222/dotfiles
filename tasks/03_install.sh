@@ -16,6 +16,7 @@ function install_run() {
     packages=(
     csslint
     jshint
+    jsonlint
     less
     log.io
     tldr

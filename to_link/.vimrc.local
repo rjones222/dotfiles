@@ -305,6 +305,7 @@
 
         let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
         let g:systastic_javascript_checkers=['jshint']
+        let g:systastic_javascript_checkers=['jsonlint']
         let g:systastic_css_checkers=['csslint']
         let g:systastic_less_checkers=['lessc']
         let g:syntastic_html_checkers = ['w3']
