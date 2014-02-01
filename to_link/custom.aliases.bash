@@ -96,6 +96,9 @@ alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
 alias profile="source ~/.bash_profile"
 
+# pull latest upstream
+alias upstream="git pull upstream master"
+
 #restart networking
 alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
 
