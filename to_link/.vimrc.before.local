@@ -1,5 +1,5 @@
 " prevent autocd into file directory
-" let g:spf13_no_autochdir = 1
+let g:spf13_no_autochdir = 1
 
 " keep H and L shortcuts
 let g:spf13_no_fastTabs = 1

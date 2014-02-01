@@ -237,6 +237,10 @@
 
     " cd to project root
     nnoremap <leader>dp :ProjectRootCD<cr>
+    augroup ProjectRootCD " {
+        autocmd!
+        autocmd BufEnter * if &ft != 'help' | call ProjectRootCD() | endif
+    augroup END " }
 
     " tabular
     nmap <leader>a> :Tabularize /=><cr>
@@ -338,7 +342,6 @@
     let g:airline#extensions#bufferline#enabled = 0
     " vim-bufferline prevent from showing in command bar *and* statusline
     let g:bufferline_echo = 0
-
 
     " advanced tabline vertical separators
     " let g:airline#extensions#tabline#enabled = 1
