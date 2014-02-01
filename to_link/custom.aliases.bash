@@ -98,6 +98,7 @@ alias profile="source ~/.bash_profile"
 
 # pull latest upstream
 alias upstream="git pull upstream master"
+alias origin="git pull origin master"
 
 #restart networking
 alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
