@@ -66,6 +66,16 @@ function linux_tasks_run() {
             }
         done
 
+        # install fasd
+        if [[ ! "$(type -P fasd)" ]]; then
+            cd ~
+            git clone https://github.com/clvv/fasd.git
+            cd fasd
+            make install
+            cd ..
+            rm -rf fasd
+        fi
+
         # install npm for ubuntu 13.04 64 bit
         if [[ ! "$(type -P npm)" ]]; then
             log_info "installing nodejs"

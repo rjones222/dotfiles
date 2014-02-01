@@ -38,6 +38,7 @@ function osx_tasks_run() {
             bash
             ack
             ctags
+            fasd
             git
             git-extras
             git-flow
