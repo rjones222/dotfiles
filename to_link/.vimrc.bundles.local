@@ -43,7 +43,7 @@ Bundle 'Shougo/vimproc'
 Bundle 'm2mdas/phpcomplete-extended'
 
 " only for added sources for phpcomplete_extended
-" Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite.vim'
 
 " laravel completion
 Bundle 'm2mdas/phpcomplete-extended-laravel'

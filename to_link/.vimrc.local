@@ -18,13 +18,12 @@
     " set lazyredraw
 
     " auto source vimrc
-    augroup vimrc
-        autocmd!
+    " augroup vimrc
         " autocmd BufWritePost .vimrc.local,.vimrc.bundles.local,.vimrc.before.local,.vimrc.custom.local source $MYVIMRC
-    augroup END
+    " augroup END
 
     " allow interactive shell commands to source my .bash_profile
-    set shell=/bin/bash\ -i
+    " set shell=/bin/bash\ -i
 
     " disable auto folding
     set nofoldenable
@@ -32,10 +31,9 @@
     let g:DisableAutoPHPFolding = 1
 
     " highlight matching words in red automatically
-    augroup highlight
-        autocmd!
+    " augroup highlight
         autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-    augroup END
+    " augroup END
 
     " enable the preview window for omnicompletion - doesn't work for some reason
     " set completeopt+=preview
@@ -57,16 +55,14 @@
     set nospell
 
     " if the last window is a quickfix, close it
-    augroup qfclose
-        autocmd!
+    " augroup qfclose
         autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
-    augroup END
+    " augroup END
 
     " 2 space indent in html
-    augroup highlight
-        autocmd!
+    " augroup highlight
         autocmd FileType smarty,blade,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    augroup END
+    " augroup END
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
@@ -196,11 +192,10 @@
 
     " custom indent guide colors
     let g:indent_guides_auto_colors = 0
-    augroup indent_guides
-        autocmd!
+    " augroup indent_guides
         autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
         autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
-    augroup END
+    " augroup END
 
     "toggle between day and night theme
     call togglebg#map("<leader>bg")
@@ -244,13 +239,12 @@
     let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
     let g:pdv_cfg_License   = ""
 
-    augroup fugitive
-        autocmd!
+    " augroup fugitive
         " reset file to HEAD in fugitive commit window
         autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
         " open quickfix window on git grep
         autocmd QuickFixCmdPost *grep* cwindow
-    augroup END
+    " augroup END
 
     " for mouseterm
     if has("mouse")
@@ -261,12 +255,11 @@
     let g:spf13_no_neosnippet_expand=1
 
     " phpcomplete omni complete for neocomplcache
-    augroup phpcomplete
-        autocmd!
+    " augroup phpcomplete
         autocmd BufNewFile,BufRead *.blade.php,*.tpl set filetype=html
         autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
         " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-    augroup END
+    " augroup END
 
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
@@ -297,10 +290,9 @@
     hi default link User4 Special
 
     " set quickfix window height min and max  automatically
-    augroup quickfix
-        autocmd!
+    " augroup quickfix
         autocmd FileType qf call AdjustWindowHeight(3, 5)
-    augroup END
+    " augroup END
 
     function! AdjustWindowHeight(minheight, maxheight)
         exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
@@ -318,12 +310,11 @@
     let g:UltiSnipsListSnippets='<c-L>'
     let g:UltiSnipsExpandTrigger='<c-J>'
 
-    augroup phpdoc
-        autocmd!
+    " augroup phpdoc
         au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
         au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
         au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
-    augroup END
+    " augroup END
 
     " vim-airline
     let g:airline_theme = 'solarized'
@@ -361,6 +352,7 @@
 
     " composer install command for phpcomplete
     let g:phpcomplete_index_composer_command = "composer"
+    let g:phpcomplete_parse_docblock_comments = 1
 
     " vim-startify"
     let g:startify_session_dir = '~/.vim/sessions'
@@ -368,10 +360,9 @@
     " let g:startify_change_to_vcs_root = 1
 
     " don't open a split for ctrlp or nerdtree
-    augroup startify
-        autocmd!
+    " augroup startify
         autocmd FileType startify setlocal buftype=
-    augroup END
+    " augroup END
 
     " make session autoload work in vim-startify
     " let NERDTreeHijackNetrw = 0
