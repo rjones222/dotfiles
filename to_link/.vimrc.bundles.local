@@ -21,7 +21,7 @@ Bundle 'mattn/emmet-vim'
 Bundle 'SirVer/ultisnips'
 
 " make ultisnips work with neocomplcache
-" Bundle 'JazzCore/neocomplcache-ultisnips'
+Bundle 'JazzCore/neocomplcache-ultisnips'
 
 " better than neocomplcache with built-in ultisnips support
 " Bundle 'Valloric/YouCompleteMe'
