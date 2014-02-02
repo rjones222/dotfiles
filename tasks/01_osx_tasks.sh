@@ -90,6 +90,16 @@ function osx_tasks_run() {
             done
         fi
 
+        # install ngrok
+        if [[ ! "$(type -P ngrok)" ]]; then
+            log_info "Installing ngrok"
+            cd
+            wget https://dl.ngrok.com/darwin_386/ngrok.zip
+            extract ngrok.zip
+            sudo mv ngrok /usr/local/bin/ngrok
+            sudo chmod +x /usr/local/bin/ngrok
+        fi
+
         # install ctags patched
         # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
         if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then

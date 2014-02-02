@@ -114,6 +114,16 @@ function linux_tasks_run() {
             sudo touch /usr/local/etc/.ctags_patched_installed
         fi
 
+        # install ngrok
+        if [[ ! "$(type -P ngrok)" ]]; then
+            log_info "Installing ngrok"
+            cd
+            wget https://dl.ngrok.com/linux_386/ngrok.zip
+            extract ngrok.zip
+            sudo mv ngrok /usr/local/bin/ngrok
+            sudo chmod +x /usr/local/bin/ngrok
+        fi
+
     else
         log_error "This is not linux so not running linux tasks"
     fi
