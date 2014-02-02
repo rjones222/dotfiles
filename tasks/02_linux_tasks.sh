@@ -73,6 +73,14 @@ function linux_tasks_run() {
             }
         done
 
+        # enable mcrypt for php
+        if [[ ! -L "/etc/php5/mods-available/mcrypt.ini" ]]; then
+            log_info "enabling mcrypt for php"
+            sudo ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available/
+            sudo php5enmod mcrypt
+            sudo service apache2 restart
+        fi
+
         # install fasd
         if [[ ! "$(type -P fasd)" ]]; then
             log_info "installing fasd"
