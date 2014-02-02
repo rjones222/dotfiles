@@ -15,7 +15,8 @@ function bashit_run() {
 
     link_this "$HOME/.dotfiles/to_link/custom.aliases.bash" "$HOME/.bash_it/aliases/custom.aliases.bash"
     link_this "$HOME/.dotfiles/to_link/custom.plugins.bash" "$HOME/.bash_it/custom/custom.plugins.bash"
-    link_this "$HOME/.dotfiles/to_link/custom.theme.bash" "$HOME/.bash_it/custom/custom.theme.bash"
+    # link_this "$HOME/.dotfiles/to_link/custom.theme.bash" "$HOME/.bash_it/custom/custom.theme.bash"
+    link_this "$HOME/.dotfiles/to_link/promptline.theme.bash" "$HOME/.bash_it/custom/promptline.theme.bash"
     link_this "$HOME/.dotfiles/to_link/custom.bash" "$HOME/.bash_it/lib/custom.bash"
 
     bashit_dir="$HOME/.bash_it/install.sh"
