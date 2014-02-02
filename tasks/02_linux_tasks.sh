@@ -18,6 +18,7 @@ function linux_tasks_run() {
         ack
         apache2
         bison
+        build-essential
         cronolog
         ctags
         imagemagick
@@ -52,7 +53,8 @@ function linux_tasks_run() {
         postgresql
         postgresql-contrib
         python-software-properties
-        python
+        python-pip
+        python-dev
         rake
         ranger
         ruby1.9.1-dev
