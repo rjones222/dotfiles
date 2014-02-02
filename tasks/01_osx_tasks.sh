@@ -109,6 +109,10 @@ function osx_tasks_run() {
             brew install ctags --HEAD
             sudo touch /usr/local/etc/.ctags_patched_installed
         fi
+
+        # install pip
+        sudo easy_install pip
+
     else
         log_error "This is not OSX so not running osx tasks"
     fi

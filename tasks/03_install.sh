@@ -105,14 +105,11 @@ function install_run() {
     done
 
     # install python packages
-    if [[ ! "$(type -P easy_install)" ]]; then
-        log_error "easy_install not installed"
+    if [[ ! "$(type -P pip)" ]]; then
+        log_error "pip not installed"
         return ${E_FAILURE}
     fi
     log_info "Installing Python packages"
-
-    # install pip
-    sudo easy_install pip
 
     packages=(
     )

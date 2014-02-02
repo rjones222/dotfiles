@@ -47,6 +47,7 @@ function linux_tasks_run() {
         php5-json
         php5-pgsql
         php5-xdebug
+        pip
         postfix
         postgresql
         postgresql-contrib
