@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+. ~/.dotfiles/support/install_functions.sh
+
 function vim_init() {
     task_setup "vim" "Vim" "Customize Vim" "symlinks"
-    . ~/.dotfiles/support/install_functions.sh
 }
 
 function vim_run() {

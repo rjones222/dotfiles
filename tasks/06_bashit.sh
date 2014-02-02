@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+. ~/.dotfiles/support/install_functions.sh
+
 function bashit_init() {
     task_setup "bashit" "bash-it install" "Run bashit framework setup" "symlinks"
-    . ~/.dotfiles/support/install_functions.sh
 }
 
 function bashit_run() {

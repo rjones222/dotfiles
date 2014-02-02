@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+. ~/.dotfiles/support/install_functions.sh
+
 function symlinks_init() {
     task_setup "symlinks" "Create Symlinks" "Create Symbolic Links" "install"
-    . ~/.dotfiles/support/install_functions.sh
 }
 
 function symlinks_run() {

@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
+. ~/.dotfiles/support/install_functions.sh
+
 function linux_tasks_init() {
     task_setup "linux_tasks" "Linux Tasks" "Execute tasks only if on Linux"
 }
 
 function linux_tasks_run() {
-    source ~/.dotfiles/support/install_functions.sh
 
     # Linux only
     if [[ "$(type -P apt-get)" ]]; then
