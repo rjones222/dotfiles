@@ -33,7 +33,7 @@
     " highlight matching words in red automatically
     augroup highlight_augroup
         " autocmd!
-        autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+        autocmd CursorMoved * exe printf('match SignColumn /\V\<%s\>/', escape(expand('<cword>'), '/\'))
     augroup END
 
     " enable the preview window for omnicompletion - doesn't work for some reason
@@ -195,11 +195,11 @@
 
     " custom indent guide colors
     let g:indent_guides_auto_colors = 0
-    augroup indent_guides_augroup
+    " augroup indent_guides_augroup
         " autocmd!
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
-    augroup END
+        " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
+        " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+    " augroup END
 
     "toggle between day and night theme
     call togglebg#map("<leader>bg")
