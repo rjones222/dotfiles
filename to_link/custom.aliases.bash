@@ -4,6 +4,9 @@ about-alias 'custom aliases'
 # web root
 alias wr='cd ~/Sites'
 
+# serve port 80 on ngrok
+alias ngrokserve="ngrok -subdomain=mikedfunk -authtoken CBLb8X5ikqjKSdnXcZDD 80"
+
 # commit and sync
 alias updates='git add --all .; git commit -am "updates"; git pull && git push'
 alias dotupdates='cd ~/.dotfiles; updates; cd -'
