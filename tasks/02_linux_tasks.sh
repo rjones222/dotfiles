@@ -106,6 +106,7 @@ function linux_tasks_run() {
             cd
             wget "https://github.com/shawncplus/phpcomplete.vim/blob/master/misc/ctags-better-php-parser.tar.bz2?raw=true" -O ctags-better-php-parser.tar.bz2
             tar xvjf ctags-better-php-parser.tar.bz2
+            cd ctags
             ./configure
             make
             sudo make install
