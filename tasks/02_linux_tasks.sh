@@ -46,6 +46,7 @@ function linux_tasks_run() {
         php5-curl
         php5-imagick
         php5-json
+        php5-mcrypt
         php5-pgsql
         php5-xdebug
         pip
