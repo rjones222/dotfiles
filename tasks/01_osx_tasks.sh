@@ -95,7 +95,7 @@ function osx_tasks_run() {
             log_info "Installing ngrok"
             cd
             wget https://dl.ngrok.com/darwin_386/ngrok.zip
-            extract ngrok.zip
+            unzip ngrok.zip
             sudo mv ngrok /usr/local/bin/ngrok
             sudo chmod +x /usr/local/bin/ngrok
         fi
