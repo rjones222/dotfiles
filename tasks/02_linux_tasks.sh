@@ -2,10 +2,11 @@
 
 function linux_tasks_init() {
     task_setup "linux_tasks" "Linux Tasks" "Execute tasks only if on Linux" "setup"
-    . ~/.dotfiles/support/install_functions.sh
 }
 
 function linux_tasks_run() {
+    source ~/.dotfiles/support/install_functions.sh
+
     # Linux only
     if [[ "$(type -P apt-get)" ]]; then
 
@@ -69,6 +70,7 @@ function linux_tasks_run() {
 
         # install fasd
         if [[ ! "$(type -P fasd)" ]]; then
+            log_info "installing fasd"
             cd ~
             git clone https://github.com/clvv/fasd.git
             cd fasd
