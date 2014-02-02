@@ -54,6 +54,7 @@ function linux_tasks_run() {
         python
         rake
         ranger
+        ruby1.9.1-dev
         silversearcher-ag
         solr-tomcat
         # spidermonkey-bin
