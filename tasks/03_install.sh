@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function install_init() {
-    task_setup "install" "Install Tasks" "Install cli tools" "setup"
+    task_setup "install" "Install Tasks" "Install cli tools"
     . ~/.dotfiles/support/install_functions.sh
 }
 

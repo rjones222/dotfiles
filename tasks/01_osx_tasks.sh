@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function osx_tasks_init() {
-    task_setup "osx_tasks" "OSX Tasks" "Execute tasks only if on Mac OSX" "setup"
+    task_setup "osx_tasks" "OSX Tasks" "Execute tasks only if on Mac OSX"
     . ~/.dotfiles/support/install_functions.sh
 }
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function linux_tasks_init() {
-    task_setup "linux_tasks" "Linux Tasks" "Execute tasks only if on Linux" "setup"
+    task_setup "linux_tasks" "Linux Tasks" "Execute tasks only if on Linux"
 }
 
 function linux_tasks_run() {
