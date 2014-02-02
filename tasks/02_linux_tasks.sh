@@ -74,7 +74,7 @@ function linux_tasks_run() {
             cd ~
             git clone https://github.com/clvv/fasd.git
             cd fasd
-            make install
+            sudo make install
             cd ..
             rm -rf fasd
         fi
