@@ -87,6 +87,7 @@ function install_run() {
     execjs
     jekyll
     kramdown
+    mailcatcher
     pre-commit
     puppet
     pygmentize

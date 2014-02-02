@@ -15,6 +15,7 @@ function linux_tasks_run() {
         packages=(
         ack
         apache2
+        bison
         cronolog
         ctags
         imagemagick
