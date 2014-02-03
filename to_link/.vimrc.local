@@ -33,7 +33,7 @@
     " highlight matching words in red automatically
     augroup highlight_augroup
         " autocmd!
-        autocmd CursorMoved * exe printf('match SignColumn /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+        autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
     augroup END
 
     " enable the preview window for omnicompletion - doesn't work for some reason
@@ -325,7 +325,7 @@
     augroup END
 
     " vim-airline
-    " let g:airline_theme = 'solarized'
+    let g:airline_theme = 'solarized'
     " warning this is really slow
     " let g:airline#extensions#tagbar#enabled = 1
     let g:airline_left_sep = ''
@@ -336,7 +336,6 @@
     let g:airline#extensions#bufferline#enabled = 0
     " vim-bufferline prevent from showing in command bar *and* statusline
     let g:bufferline_echo = 0
-  let g:promptline_powerline_symbols = 0
 
     " advanced tabline vertical separators
     " let g:airline#extensions#tabline#enabled = 1
