@@ -83,7 +83,7 @@
 
     " slow as FUCK
     UnBundle 'mhinz/vim-signify'
-    " UnBundle 'majutsushi/tagbar'
+    UnBundle 'majutsushi/tagbar'
 
     " takes a lot of time and I don't use it right now
     UnBundle 'spf13/vim-preview'
@@ -197,24 +197,22 @@
     let g:indent_guides_auto_colors = 0
     " augroup indent_guides_augroup
         " autocmd!
-        " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
-        " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
     " augroup END
-
-    " hi IndentGuidesOdd ctermbg=235
-    " hi IndentGuidesEven ctermbg=236
-    hi IndentGuidesOdd ctermbg=black
-    hi IndentGuidesEven ctermbg=black
 
     "toggle between day and night theme
     call togglebg#map("<leader>bg")
+
+    hi IndentGuidesOdd ctermbg=235
+    hi IndentGuidesEven ctermbg=236
 
     " change the default EasyMotion shading to something more readable with Solarized
     hi link EasyMotionTarget ErrorMsg
     hi link EasyMotionShade  Comment
 
     " vim-gitgutter better background
-    " highlight clear SignColumn
+    highlight clear SignColumn
 " }}}
 
 " Plugins {{{
@@ -329,7 +327,7 @@
     " vim-airline
     let g:airline_theme = 'solarized'
     " warning this is really slow
-    let g:airline#extensions#tagbar#enabled = 1
+    " let g:airline#extensions#tagbar#enabled = 1
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''

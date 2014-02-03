@@ -91,7 +91,7 @@ Bundle 'dbakker/vim-projectroot'
 Bundle 'tpope/vim-repeat'
 
 " better php ctags in tagbar
-" Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
+Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
 " better paste
 " Bundle 'sickill/vim-pasta'
