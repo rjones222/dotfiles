@@ -37,14 +37,14 @@ function osx_tasks_run() {
             log_info "Installing Homebrew Recipes"
             packages=(
             bash
-            ack
+            # ack
             ctags
-            fasd
+            # fasd
             git
             git-extras
             git-flow
             grc
-            hg
+            # hg
             highlight
             hub
             imagemagick
@@ -53,11 +53,11 @@ function osx_tasks_run() {
             multitail
             mysql
             nodejs
-            postgresql
+            # postgresql
             ranger
             reattach-to-user-namespace
             ssh-copy-id
-            solr
+            # solr
             terminal-notifier
             tmux
             tree

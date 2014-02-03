@@ -81,15 +81,15 @@ function linux_tasks_run() {
         fi
 
         # install fasd
-        if [[ ! "$(type -P fasd)" ]]; then
-            log_info "installing fasd"
-            cd ~
-            git clone https://github.com/clvv/fasd.git
-            cd fasd
-            sudo make install
-            cd ..
-            rm -rf fasd
-        fi
+        # if [[ ! "$(type -P fasd)" ]]; then
+            # log_info "installing fasd"
+            # cd ~
+            # git clone https://github.com/clvv/fasd.git
+            # cd fasd
+            # sudo make install
+            # cd ..
+            # rm -rf fasd
+        # fi
 
         # install npm for ubuntu 13.04 64 bit
         if [[ ! "$(type -P npm)" ]]; then
