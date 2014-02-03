@@ -123,6 +123,9 @@ function linux_tasks_run() {
             make
             sudo make install
             sudo touch /usr/local/etc/.ctags_patched_installed
+            cd ..
+            sudo rm ctags-better-php-parser.tar.bz2
+            sudo rm -rf ctags
         fi
 
         # install ngrok
@@ -133,6 +136,7 @@ function linux_tasks_run() {
             unzip ngrok.zip
             sudo mv ngrok /usr/local/bin/ngrok
             sudo chmod +x /usr/local/bin/ngrok
+            sudo rm ngrok.zip
         fi
 
     else

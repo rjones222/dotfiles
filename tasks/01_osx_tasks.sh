@@ -98,6 +98,7 @@ function osx_tasks_run() {
             unzip ngrok.zip
             sudo mv ngrok /usr/local/bin/ngrok
             sudo chmod +x /usr/local/bin/ngrok
+            sudo rm ngrok.zip
         fi
 
         # install ctags patched
