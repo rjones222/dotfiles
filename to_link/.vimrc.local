@@ -325,7 +325,7 @@
     augroup END
 
     " vim-airline
-    let g:airline_theme = 'solarized'
+    " let g:airline_theme = 'solarized'
     " warning this is really slow
     " let g:airline#extensions#tagbar#enabled = 1
     let g:airline_left_sep = ''
