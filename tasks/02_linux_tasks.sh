@@ -50,7 +50,7 @@ function linux_tasks_run() {
         php5-pgsql
         php5-xdebug
         pip
-        postfix
+        # postfix
         postgresql
         postgresql-contrib
         python-software-properties
