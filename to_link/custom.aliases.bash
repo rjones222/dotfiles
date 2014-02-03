@@ -126,9 +126,9 @@ alias conflicts="grep -lir '<<<<<' *"
 alias grep="grep --color=auto"
 
 # tmux
-alias new-work="tmux new-session -s Work"
-alias attach-work="tmux attach -t Work"
-alias work="tmux attach -t Work || tmux new-session -s Work"
+alias new-work="tmux -2 new-session -s Work"
+alias attach-work="tmux -2 attach -t Work"
+alias work="tmux -2 attach -t Work || tmux -2 new-session -s Work"
 
 # create any dirs in path
 alias mkdir='mkdir -pv'
