@@ -15,30 +15,29 @@ function linux_tasks_run() {
         log_info "Installing apt-get Packages"
 
         packages=(
-        ack
+        # ack
         apache2
         bison
         build-essential
         cronolog
         ctags
         imagemagick
-        g++
+        # g++
         git
-        git-core
         git-extras
-        git-flow
+        # git-flow
         grc
-        hg
+        # hg
         highlight
         htop
         irssi
         libapache2-mod-php5
         make
         multitail
-        openjdk-7-jre
-        openssh-client
-        openssh-server
-        pgadmin3
+        # openjdk-7-jre
+        # openssh-client
+        # openssh-server
+        # pgadmin3
         php-apc
         php-pear
         php5
@@ -47,20 +46,19 @@ function linux_tasks_run() {
         php5-imagick
         php5-json
         php5-mcrypt
-        php5-pgsql
+        # php5-pgsql
         php5-xdebug
-        pip
         # postfix
-        postgresql
-        postgresql-contrib
-        python-software-properties
+        # postgresql
+        # postgresql-contrib
+        # python-software-properties
+        # python-dev
         python-pip
-        python-dev
         rake
         ranger
-        ruby1.9.1-dev
+        # ruby1.9.1-dev
         silversearcher-ag
-        solr-tomcat
+        # solr-tomcat
         # spidermonkey-bin
         tmux
         tree
