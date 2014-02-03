@@ -18,7 +18,7 @@ function link_this() {
 
         # create a backup dir if it doesn't already exist and notify
         log_info "creating backup directory"
-        backup_dir="$HOME/backup/"
+        backup_dir="$HOME/Backup/"
         [[ -d "$backup_dir" ]] || sudo mkdir -p "$backup_dir"
 
         # move the file to the backup dir and notify
