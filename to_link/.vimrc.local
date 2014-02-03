@@ -336,6 +336,7 @@
     let g:airline#extensions#bufferline#enabled = 0
     " vim-bufferline prevent from showing in command bar *and* statusline
     let g:bufferline_echo = 0
+  let g:promptline_powerline_symbols = 0
 
     " advanced tabline vertical separators
     " let g:airline#extensions#tabline#enabled = 1
