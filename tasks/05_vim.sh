@@ -4,6 +4,14 @@
 
 function vim_init() {
     task_setup "vim" "Vim" "Customize Vim" "symlinks"
+    . ~/.dotfiles/support/install_functions.sh
+}
+
+function make_vimproc() {
+    log_info "Attempting to build vimproc"
+    cd ~/.vim/bundle/vimproc
+    make
+    cd -
 }
 
 function vim_run() {
@@ -13,9 +21,11 @@ function vim_run() {
         log_info "Installing Spf13-vim"
         curl http://j.mp/spf13-vim3 -L -o - | bash
         rm -rf ~/.vim/bundle/csapprox
+        make_vimproc
         vim +BundleClean! +qall!
     else
         log_info "Updating vim bundles"
+        make_vimproc
         vim +BundleUpdate +qall!
     fi
 
@@ -25,11 +35,6 @@ function vim_run() {
         cd ~/.vim/bundle/vim-plugin-tagbar-phpctags/
         make
     fi
-
-    log_info "Attempting to build vimproc"
-    cd ~/.vim/bundle/vimproc
-    make
-    cd -
 
     # this needs to be after the .vim folder is created
     log_info "linking UltiSnips custom snippets dir"
