@@ -33,7 +33,7 @@
     " highlight matching words in red automatically
     augroup highlight_augroup
         " autocmd!
-        " autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+        autocmd CursorMoved * exe printf('match Underlined /\V\<%s\>/', escape(expand('<cword>'), '/\'))
     augroup END
 
     " enable the preview window for omnicompletion - doesn't work for some reason
