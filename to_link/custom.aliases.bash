@@ -114,8 +114,6 @@ alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/i
 # if [ $chk ]; then
     # alias cat="pygmentize -g"
 # fi
-alias cat="grc cat"
-
 
 # delete .orig files
 alias orig="find . -name '*.orig' -delete" 
@@ -147,3 +145,8 @@ alias brewupdate='brew update && brew upgrade'
 alias ping='grc ping'
 alias tail='grc tail'
 alias traceroute='grc traceroute'
+alias cat="grc cat"
+alias make="grc make"
+alias rake="grc rake"
+alias netstat="grc netstat"
+alias diff="grc diff"
