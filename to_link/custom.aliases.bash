@@ -107,13 +107,14 @@ alias origin="git pull origin master"
 alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
 
 # colorize cat
-chk=''
-if which gem >/dev/null; then
-    gem list pygmentize -i | $chk
-fi
-if [ $chk ]; then
-    alias cat="pygmentize -g"
-fi
+# chk=''
+# if which gem >/dev/null; then
+    # gem list pygmentize -i | $chk
+# fi
+# if [ $chk ]; then
+    # alias cat="pygmentize -g"
+# fi
+alias cat="grc cat"
 
 
 # delete .orig files
@@ -141,3 +142,8 @@ alias wget='wget -c'
 
 # brew upgrade
 alias brewupdate='brew update && brew upgrade'
+
+# use grc
+alias ping='grc ping'
+alias tail='grc tail'
+alias traceroute='grc traceroute'
