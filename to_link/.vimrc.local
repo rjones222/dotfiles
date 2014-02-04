@@ -31,9 +31,10 @@
     let g:DisableAutoPHPFolding = 1
 
     " highlight matching words in red automatically
+    hi WordMatch cterm=underline
     augroup highlight_augroup
         " autocmd!
-        autocmd CursorMoved * exe printf('match Underlined /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+        autocmd CursorMoved * exe printf('match WordMatch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
     augroup END
 
     " enable the preview window for omnicompletion - doesn't work for some reason
