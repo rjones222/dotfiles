@@ -359,6 +359,8 @@
     let g:vdebug_options = {}
     let g:vdebug_options['server'] = '192.168.56.1'
     let g:vdebug_options['port'] = '9001'
+    " guest: host
+    let g:vdebug_options['path_maps'] = {'/media/sf_ubuntubox/': '/media/sf_ubuntubox/'}
     " let g:vdebug_options["break_on_open"] = 0
 
     " composer install command for phpcomplete
