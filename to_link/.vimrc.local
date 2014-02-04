@@ -129,7 +129,7 @@
     " UnBundle 'tpope/vim-fugitive'
 
     " temporarily broken with Vundle commands
-    UnBundle 'gorodinskiy/vim-coloresque'
+    " UnBundle 'gorodinskiy/vim-coloresque'
 
     " various spf-13 stuff I don't use
     UnBundle 'jnwhiteh/vim-golang'
