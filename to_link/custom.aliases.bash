@@ -11,7 +11,7 @@ alias ngrokserve="ngrok -subdomain=mikedfunk -authtoken CBLb8X5ikqjKSdnXcZDD 80"
 alias updates='git add --all .; git commit -am "updates"; git pull && git push'
 alias dotupdates='cd ~/.dotfiles; updates; cd -'
 alias blogupdates='cd ~/Sites/mikedfunk.github.io; updates; cd -'
-alias working='git add --all .; git commit -am "working"; git pull && push'
+alias working='git add --all .; git commit -am "working"; git pull && git push'
 
 # apache restart
 alias ares="sudo apachectl restart"
