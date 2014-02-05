@@ -118,7 +118,7 @@
     UnBundle 'tobyS/pdv'
 
     " causes problems with youcompleteme
-    UnBundle 'Townk/vim-autoclose'
+    " UnBundle 'Townk/vim-autoclose'
 
     " I installed newer versions of the same stuff
     UnBundle 'spf13/PIV'
@@ -153,6 +153,9 @@
     UnBundle 'bitc/vim-hdevtools'
     UnBundle 'dag/vim2hs'
     UnBundle 'eagletmt/ghcmod-vim'
+    UnBundle 'Blackrush/vim-gocode'
+    UnBundle 'tpope/vim-rails'
+    UnBundle 'eagletmt/neco-ghc'
 " }}}
 
 " Key Mapping {{{
@@ -161,6 +164,9 @@
 
     " copy all
     nnoremap <leader>a mmggVGy`m
+
+    " find all todos
+    noremap <Leader>td :noautocmd vimgrep /TODO/j **/*.php<CR>:cw<CR>
 
     " remap keys
     inoremap jj <Esc>
@@ -332,6 +338,7 @@
     " warning this is really slow
     let g:airline#extensions#tagbar#enabled = 1
     let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''
     let g:airline_powerline_fonts=0

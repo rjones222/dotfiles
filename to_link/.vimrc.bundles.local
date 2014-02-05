@@ -72,7 +72,7 @@ Bundle 'mhinz/vim-startify'
 Bundle 'stephpy/vim-php-cs-fixer'
 
 " smart search, replace, abbreviation fixer
-" Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-abolish'
 
 " smart jump to project root
 Bundle 'dbakker/vim-projectroot'
@@ -83,7 +83,7 @@ Bundle 'dbakker/vim-projectroot'
 " php namespace and use block autocomplete
 " Bundle 'arnaud-lb/vim-php-namespace'
 
-" create text tables. 
+" create text tables.
 " conflicts with tagbar mapping in spf-13
 " Bundle 'dhruvasagar/vim-table-mode'
 
@@ -94,7 +94,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
 " better paste
-" Bundle 'sickill/vim-pasta'
+Bundle 'sickill/vim-pasta'
 
 " reverse-i-search with ctrl-r
 " conflicts with pasting buffer into search command
@@ -127,7 +127,7 @@ Bundle 'yonchu/accelerated-smooth-scroll'
 " show current buffers in vim command line
 " Bundle 'bling/vim-bufferline'
 
-" vai and vii text indent objects
+" vai and vii text indent objects - REALLY useful
 " Bundle 'kana/vim-textobj-indent'
 Bundle 'michaeljsmith/vim-indent-object'
 
@@ -138,7 +138,7 @@ Bundle 'ivalkeen/vim-ctrlp-tjump'
 Bundle 'rking/ag.vim'
 
 " open directory in finder
-" Bundle 'justinmk/vim-gtfo'
+Bundle 'justinmk/vim-gtfo'
 
 " jump to definition even if tags file doesn't exist
 " Bundle 'tacahiroy/ctrlp-funky'
