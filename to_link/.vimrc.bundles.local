@@ -81,7 +81,7 @@ Bundle 'dbakker/vim-projectroot'
 " Bundle 'joonty/vim-phpunitqf.git'
 
 " php namespace and use block autocomplete
-" Bundle 'arnaud-lb/vim-php-namespace'
+Bundle 'arnaud-lb/vim-php-namespace'
 
 " create text tables.
 " conflicts with tagbar mapping in spf-13
@@ -91,7 +91,7 @@ Bundle 'dbakker/vim-projectroot'
 Bundle 'tpope/vim-repeat'
 
 " better php ctags in tagbar
-Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
+" Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
 " better paste
 Bundle 'sickill/vim-pasta'
