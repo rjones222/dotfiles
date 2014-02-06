@@ -118,7 +118,7 @@
     UnBundle 'tobyS/pdv'
 
     " causes problems with youcompleteme
-    " UnBundle 'Townk/vim-autoclose'
+    UnBundle 'Townk/vim-autoclose'
 
     " I installed newer versions of the same stuff
     UnBundle 'spf13/PIV'

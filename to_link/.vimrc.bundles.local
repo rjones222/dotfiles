@@ -27,7 +27,7 @@ Bundle 'JazzCore/neocomplcache-ultisnips'
 " Bundle 'Valloric/YouCompleteMe'
 
 " vim-autoclose causes problems with youcompleteme, it says use this instead
-" Bundle 'Raimondi/delimitMate'
+Bundle 'Raimondi/delimitMate'
 
 " phpmd, phpcs, php lint, and coverage on save
 " Bundle 'joonty/vim-phpqa'

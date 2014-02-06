@@ -10,6 +10,7 @@ function symlinks_run() {
 
     link_this "$HOME/.dotfiles/to_link/.gitconfig" "$HOME/.gitconfig"
     link_this "$HOME/.dotfiles/to_link/.gitignore" "$HOME/.gitignore"
+    link_this "$HOME/.dotfiles/to_link/.agignore" "$HOME/.agignore"
     link_this "$HOME/.dotfiles/to_link/.config" "$HOME/.config"
     link_this "$HOME/.dotfiles/to_link/.ssh" "$HOME/.ssh"
     link_this "$HOME/.dotfiles/to_link/.ctags" "$HOME/.ctags"
