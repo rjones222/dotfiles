@@ -73,6 +73,8 @@ fi
 
 # shortcuts
 alias g="git"
+# do git completion with g
+__git_complete g __git_main
 alias coverage="phpunit --debug && open build/coverage/index.html"
 alias test="php artisan test "
 alias pf="phpunit --debug --filter "
