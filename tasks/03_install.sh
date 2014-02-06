@@ -84,6 +84,7 @@ function install_run() {
     fi
     log_info "Installing Gems"
     packages=(
+    bluecloth
     bundler
     execjs
     jekyll

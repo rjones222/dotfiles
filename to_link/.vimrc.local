@@ -87,7 +87,7 @@
     UnBundle 'majutsushi/tagbar'
 
     " takes a lot of time and I don't use it right now
-    UnBundle 'spf13/vim-preview'
+    " UnBundle 'spf13/vim-preview'
 
     " I use solarized
     UnBundle 'flazz/vim-colorschemes'
@@ -399,6 +399,11 @@
     " php add use statement for current class
     inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     noremap <Leader><Leader>u :call PhpInsertUse()<CR>
+
+    " markdown preview css"
+    if filereadable($HOME . '/.dotfiles/support/github_markdown_css/github.css')
+        let g:PreviewCSSPath=$HOME.'/.dotfiles/support/github_markdown_css/github.css'
+    endif
 " }}}
 " Include Custom vimrc if exists {{{
     if filereadable($HOME . "/.vimrc.custom.local")
