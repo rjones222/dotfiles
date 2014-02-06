@@ -84,7 +84,7 @@
 
     " slow as FUCK
     UnBundle 'mhinz/vim-signify'
-    UnBundle 'majutsushi/tagbar'
+    " UnBundle 'majutsushi/tagbar'
 
     " takes a lot of time and I don't use it right now
     " UnBundle 'spf13/vim-preview'
@@ -339,6 +339,7 @@
     let g:airline_theme = 'solarized'
     " warning this is really slow
     " let g:airline#extensions#tagbar#enabled = 1
+    let g:airline#extensions#tagbar#enabled = 0
     let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
     let g:airline_right_sep = ''
