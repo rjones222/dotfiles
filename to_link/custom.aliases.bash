@@ -144,7 +144,7 @@ alias wget='wget -c'
 # brew upgrade
 alias brewupdate='brew update && brew upgrade'
 
-# use grc
+# use grc to add pretty colors to commands
 alias ping='grc ping'
 alias tail='grc tail'
 alias traceroute='grc traceroute'

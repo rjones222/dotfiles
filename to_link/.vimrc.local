@@ -14,6 +14,16 @@
 " General {{{
     let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
 
+    " use php documentation with <shift>K from pear package pman"
+    " this ensures it doesn't say hit enter to continue
+    command! -nargs=1 Silent
+                \ | execute ':silent !'.<q-args>
+                \ | execute ':redraw!'
+    augroup phpman_autogroup
+        " autocmd FileType php set keywordprg=pman
+        autocmd FileType php nnoremap K :Silent pman <cword> <CR>
+    augroup END
+
     " do not redraw while running macros - faster
     " set lazyredraw
 
@@ -251,6 +261,7 @@
     let g:pdv_cfg_Author    = "Michael Funk <mfunk@internetbrands.com>"
     let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
     let g:pdv_cfg_License   = ""
+    let g:pdv_cfg_ClassTags = ["author"]
 
     augroup fugitive_augroup
         " autocmd!

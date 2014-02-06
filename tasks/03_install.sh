@@ -40,6 +40,7 @@ function install_run() {
     sudo pear config-set auto_discover 1
     packages=(
     pear.phpqatools.org/phpqatools
+    doc.php.net/pman
     )
     for package in "${packages[@]}"
     do
