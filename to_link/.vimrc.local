@@ -14,11 +14,12 @@
 " General {{{
     let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
 
-    " use php documentation with <shift>K from pear package pman"
     " this ensures it doesn't say hit enter to continue
     command! -nargs=1 Silent
                 \ | execute ':silent !'.<q-args>
                 \ | execute ':redraw!'
+
+    " use php documentation with <shift>K from pear package pman"
     augroup phpman_autogroup
         " autocmd FileType php set keywordprg=pman
         autocmd FileType php nnoremap K :Silent pman <cword> <CR>
