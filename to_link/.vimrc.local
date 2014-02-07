@@ -65,7 +65,7 @@
     set number
 
     " disable spellcheck
-    set nospell
+    " set nospell
 
     " if the last window is a quickfix, close it
     augroup qfclose_augroup

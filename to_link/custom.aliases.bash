@@ -143,6 +143,7 @@ alias wget='wget -c'
 
 # brew upgrade
 alias brewupdate='brew update && brew upgrade'
+alias vpn='netExtender -u mfunk -d CARSDIRECT ibhq1vpn.internetbrands.com'
 
 # use grc to add pretty colors to commands
 alias ping='grc ping'
