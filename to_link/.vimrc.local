@@ -261,6 +261,7 @@
     let g:pdv_cfg_Author    = "Michael Funk <mfunk@internetbrands.com>"
     let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
     let g:pdv_cfg_License   = ""
+    let g:pdv_cfg_Version   = ""
     let g:pdv_cfg_ClassTags = ["author"]
 
     augroup fugitive_augroup
