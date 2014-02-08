@@ -40,3 +40,9 @@ dbreset() {
     php artisan migrate
     php artisan db:seed
 }
+
+# ls after every cd
+cd() {
+    echo 'test'
+    builtin cd "$@" && ls;
+}

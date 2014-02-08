@@ -49,6 +49,7 @@ alias lsd="ls -GpFha"
 
 # I forget I'm not in vim sometimes...
 alias :q="exit"
+alias :e="vim"
 alias :pwd="pwd"
 alias :cd="cd"
 alias :so="source"
@@ -154,3 +155,8 @@ alias make="grc make"
 alias rake="grc rake"
 alias netstat="grc netstat"
 alias diff="grc diff"
+
+alias please='sudo !!'
+
+# don't forget there are reload commands in bash_it for everything
+# just type reload<tab>

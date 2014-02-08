@@ -60,6 +60,7 @@ function osx_tasks_run() {
             # solr
             terminal-notifier
             tmux
+            trash
             tree
             wget
             )
