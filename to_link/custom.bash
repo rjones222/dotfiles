@@ -85,3 +85,8 @@ fi
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+# use lessfilter for less (colorize less with pygmentize)
+export LESS='-R'
+if [[ -f "$HOME/.lessfilter" ]]; then
+    export LESSOPEN='|~/.lessfilter %s'
+fi
