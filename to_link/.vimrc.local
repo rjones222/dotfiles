@@ -193,7 +193,9 @@
     nnoremap <C-H> <C-W>h<C-W><bar>
 
     " open all buffers in new tabs
-    map <leader>bt :tab sball<CR>
+    " map <leader>bt :tab sball<CR>
+    " map <leader>bt :bufdo tab split<CR>
+    map <leader>bt cd :BufOnly<CR>:args ./*.*<CR>:tab sball<CR>
 
     " open existing buffer in a newtab
     map <leader>te :ls<cr>:tabedit #
