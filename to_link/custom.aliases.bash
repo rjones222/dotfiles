@@ -160,3 +160,5 @@ alias please='sudo !!'
 
 # don't forget there are reload commands in bash_it for everything
 # just type reload<tab>
+
+# pushd and popd are useful for saving bookmarks in cd! random reminder.
