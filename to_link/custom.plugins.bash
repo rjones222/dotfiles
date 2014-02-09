@@ -43,6 +43,5 @@ dbreset() {
 
 # ls after every cd
 cd() {
-    echo 'test'
     builtin cd "$@" && ls;
 }
