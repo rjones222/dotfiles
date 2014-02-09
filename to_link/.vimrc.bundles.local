@@ -1,165 +1,243 @@
-" which bundle groups to install
-let g:spf13_bundle_groups=['general', 'programming', 'javascript', 'html', 'neocomplcache', 'twig']
+" Bundle {{{
 
-" the only misc bundles I use
-Bundle 'tpope/vim-markdown'
-Bundle 'Puppet-Syntax-Highlighting'
+    " the only misc bundles I use
+    Bundle 'tpope/vim-markdown'
+    Bundle 'Puppet-Syntax-Highlighting'
 
-" adds extra intuitive keyboard shortcuts
-Bundle 'tpope/vim-unimpaired'
+    " adds extra intuitive keyboard shortcuts
+    Bundle 'tpope/vim-unimpaired'
 
-" xdebug integration
-Bundle 'joonty/vdebug'
+    " xdebug integration
+    Bundle 'joonty/vdebug'
 
-" zen coding / emmett integration
-Bundle 'mattn/emmet-vim'
+    " zen coding / emmett integration
+    Bundle 'mattn/emmet-vim'
 
-" create tmux window with a command from vim
-" Bundle 'benmills/vimux'
+    " create tmux window with a command from vim
+    " Bundle 'benmills/vimux'
 
-" much better than snipmate or neosnippet
-Bundle 'SirVer/ultisnips'
+    " much better than snipmate or neosnippet
+    Bundle 'SirVer/ultisnips'
 
-" make ultisnips work with neocomplcache
-Bundle 'JazzCore/neocomplcache-ultisnips'
+    " make ultisnips work with neocomplcache
+    Bundle 'JazzCore/neocomplcache-ultisnips'
 
-" better than neocomplcache with built-in ultisnips support
-" Bundle 'Valloric/YouCompleteMe'
+    " better than neocomplcache with built-in ultisnips support
+    " Bundle 'Valloric/YouCompleteMe'
 
-" vim-autoclose causes problems with youcompleteme, it says use this instead
-Bundle 'Raimondi/delimitMate'
+    " vim-autoclose causes problems with youcompleteme, it says use this instead
+    Bundle 'Raimondi/delimitMate'
 
-" phpmd, phpcs, php lint, and coverage on save
-" Bundle 'joonty/vim-phpqa'
+    " phpmd, phpcs, php lint, and coverage on save
+    " Bundle 'joonty/vim-phpqa'
 
-" improved php omnicompletion
-Bundle 'shawncplus/phpcomplete.vim'
+    " improved php omnicompletion
+    Bundle 'shawncplus/phpcomplete.vim'
 
-" required for phpcomplete-extended
-" Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/vimproc'
+    " required for phpcomplete-extended
+    " Bundle 'Shougo/vimproc.vim'
+    Bundle 'Shougo/vimproc'
 
-" php completion for composer projects
-Bundle 'm2mdas/phpcomplete-extended'
+    " php completion for composer projects
+    Bundle 'm2mdas/phpcomplete-extended'
 
-" only for added sources for phpcomplete_extended
-Bundle 'Shougo/unite.vim'
+    " only for added sources for phpcomplete_extended
+    Bundle 'Shougo/unite.vim'
 
-" laravel completion
-Bundle 'm2mdas/phpcomplete-extended-laravel'
-"
-" symfony completion
-Bundle 'm2mdas/phpcomplete-extended-symfony'
+    " laravel completion
+    Bundle 'm2mdas/phpcomplete-extended-laravel'
+    "
+    " symfony completion
+    Bundle 'm2mdas/phpcomplete-extended-symfony'
 
-" better vim start screen
-Bundle 'mhinz/vim-startify'
+    " better vim start screen
+    Bundle 'mhinz/vim-startify'
 
-" runs jshint via :JSHint
-" Bundle 'Shutnik/jshint2.vim'
+    " runs jshint via :JSHint
+    " Bundle 'Shutnik/jshint2.vim'
 
-" auto-update ctags on save
-" Bundle 'szw/vim-tags'
-" Bundle 'tpope/vim-dispatch'
+    " auto-update ctags on save
+    " Bundle 'szw/vim-tags'
+    " Bundle 'tpope/vim-dispatch'
 
-" auto ctags"
-" Bundle 'xolox/vim-misc'
-" Bundle 'xolox/vim-easytags'
+    " auto ctags"
+    " Bundle 'xolox/vim-misc'
+    " Bundle 'xolox/vim-easytags'
 
-" rxvt keyboard fixes
-" Bundle 'nacitar/terminalkeys.vim'
+    " rxvt keyboard fixes
+    " Bundle 'nacitar/terminalkeys.vim'
 
-" coding standards fixer integration
-Bundle 'stephpy/vim-php-cs-fixer'
+    " coding standards fixer integration
+    Bundle 'stephpy/vim-php-cs-fixer'
 
-" smart search, replace, abbreviation fixer
-Bundle 'tpope/vim-abolish'
+    " smart search, replace, abbreviation fixer
+    Bundle 'tpope/vim-abolish'
 
-" smart jump to project root
-Bundle 'dbakker/vim-projectroot'
+    " smart jump to project root
+    Bundle 'dbakker/vim-projectroot'
 
-" phpunit integration
-" Bundle 'joonty/vim-phpunitqf.git'
+    " phpunit integration
+    " Bundle 'joonty/vim-phpunitqf.git'
 
-" php namespace and use block autocomplete
-Bundle 'arnaud-lb/vim-php-namespace'
+    " php namespace and use block autocomplete
+    Bundle 'arnaud-lb/vim-php-namespace'
 
-" create text tables.
-" conflicts with tagbar mapping in spf-13
-" Bundle 'dhruvasagar/vim-table-mode'
+    " create text tables.
+    " conflicts with tagbar mapping in spf-13
+    " Bundle 'dhruvasagar/vim-table-mode'
 
-" enable repeat in certain plugins
-Bundle 'tpope/vim-repeat'
+    " enable repeat in certain plugins
+    Bundle 'tpope/vim-repeat'
 
-" better php ctags in tagbar
-Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
+    " better php ctags in tagbar
+    Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
-" better paste
-Bundle 'sickill/vim-pasta'
+    " better paste
+    Bundle 'sickill/vim-pasta'
 
-" reverse-i-search with ctrl-r
-" conflicts with pasting buffer into search command
-" Bundle 'goldfeld/ctrlr.vim'
+    " reverse-i-search with ctrl-r
+    " conflicts with pasting buffer into search command
+    " Bundle 'goldfeld/ctrlr.vim'
 
-" better iterm2/tmux compatibility
-" Bundle 'sjl/vitality.vim'
+    " better iterm2/tmux compatibility
+    " Bundle 'sjl/vitality.vim'
 
-" allow to close all buffers but the current one
-Bundle 'vim-scripts/BufOnly.vim'
+    " allow to close all buffers but the current one
+    Bundle 'vim-scripts/BufOnly.vim'
 
-" improved phpdoc implementation
-" Bundle 'tobyS/pdv'
-Bundle 'sumpygump/php-documentor-vim'
-" Bundle 'mikedfunk/php-documentor-vim'
+    " improved phpdoc implementation
+    " Bundle 'tobyS/pdv'
+    Bundle 'sumpygump/php-documentor-vim'
+    " Bundle 'mikedfunk/php-documentor-vim'
 
-" required for pdv
-" Bundle 'tobyS/vmustache'
+    " required for pdv
+    " Bundle 'tobyS/vmustache'
 
-" go to current quickfix item
-" doesn't work
-" Bundle 'vim-scripts/QuickFixCurrentNumber'
-"
-" allow to star search from a visual selection
-" Bundle 'thinca/vim-visualstar'
+    " go to current quickfix item
+    " doesn't work
+    " Bundle 'vim-scripts/QuickFixCurrentNumber'
+    "
+    " allow to star search from a visual selection
+    " Bundle 'thinca/vim-visualstar'
 
-" smooth vertical scrolling
-Bundle 'yonchu/accelerated-smooth-scroll'
+    " smooth vertical scrolling
+    Bundle 'yonchu/accelerated-smooth-scroll'
 
-" show current buffers in vim command line
-" Bundle 'bling/vim-bufferline'
+    " show current buffers in vim command line
+    " Bundle 'bling/vim-bufferline'
 
-" vai and vii text indent objects - REALLY useful
-" Bundle 'kana/vim-textobj-indent'
-Bundle 'michaeljsmith/vim-indent-object'
+    " vai and vii text indent objects - REALLY useful
+    " Bundle 'kana/vim-textobj-indent'
+    Bundle 'michaeljsmith/vim-indent-object'
 
-" better tag selector with ctrlp
-Bundle 'ivalkeen/vim-ctrlp-tjump'
+    " better tag selector with ctrlp
+    Bundle 'ivalkeen/vim-ctrlp-tjump'
 
-" better than Ack
-Bundle 'rking/ag.vim'
+    " better than Ack
+    Bundle 'rking/ag.vim'
 
-" open directory in finder
-Bundle 'justinmk/vim-gtfo'
+    " open directory in finder
+    Bundle 'justinmk/vim-gtfo'
 
-" jump to definition even if tags file doesn't exist
-" Bundle 'tacahiroy/ctrlp-funky'
+    " jump to definition even if tags file doesn't exist
+    " Bundle 'tacahiroy/ctrlp-funky'
 
-" was used in PIV for php folding
-Bundle 'rayburgemeestre/phpfolding.vim'
+    " was used in PIV for php folding
+    Bundle 'rayburgemeestre/phpfolding.vim'
 
-" share registers across vim installations
-Bundle 'ardagnir/united-front'
+    " share registers across vim installations
+    Bundle 'ardagnir/united-front'
 
-" create files and parent dirs at the same time
-Bundle 'dockyard/vim-easydir'
+    " create files and parent dirs at the same time
+    Bundle 'dockyard/vim-easydir'
 
-" expand the visual selection with + and _
-Bundle 'terryma/vim-expand-region'
+    " expand the visual selection with + and _
+    Bundle 'terryma/vim-expand-region'
 
-" blade syntax highlight
-" Bundle 'johnhamelink/blade.vim'
+    " blade syntax highlight
+    " Bundle 'johnhamelink/blade.vim'
 
-" tmux custom statusline in sync with airline
-" Bundle 'edkolev/tmuxline.vim'
+    " tmux custom statusline in sync with airline
+    " Bundle 'edkolev/tmuxline.vim'
 
-" custom bash prompt in sync with airline
-Bundle 'edkolev/promptline.vim'
+    " custom bash prompt in sync with airline
+    Bundle 'edkolev/promptline.vim'
+" }}}
+
+" Unbundle {{{
+
+    " slow as FUCK
+    UnBundle 'mhinz/vim-signify'
+    " UnBundle 'majutsushi/tagbar'
+
+    " takes a lot of time and I don't use it right now
+    " UnBundle 'spf13/vim-preview'
+
+    " I use solarized
+    UnBundle 'flazz/vim-colorschemes'
+
+    " I don't use this now
+    UnBundle 'bling/vim-bufferline'
+    UnBundle 'jonathanfilip/vim-lucius'
+
+    " This is the wrong version, I don't even know how it gets it
+    " UnBundle 'Shougo/vimproc'
+    "
+    " This is super annoying
+    UnBundle 'myusuf3/numbers.vim'
+
+    " I use ultisnips
+    UnBundle 'Shougo/neosnippet'
+
+    " I use ultisnips
+    UnBundle 'honza/vim-snippets'
+
+    " I learned that 16 color is better than 256/csapprox
+    UnBundle 'godlygeek/csapprox'
+
+    " too many slowdowns and freezes.
+    " UnBundle 'Shougo/neocomplcache'
+
+    " I use a different one
+    UnBundle 'tobyS/pdv'
+
+    " causes problems with youcompleteme
+    UnBundle 'Townk/vim-autoclose'
+
+    " I installed newer versions of the same stuff
+    UnBundle 'spf13/PIV'
+
+    " This breaks s for substitute
+    UnBundle 'justinmk/vim-sneak'
+
+    " It's awesome but I prefer the command line.
+    " UnBundle 'tpope/vim-fugitive'
+
+    " temporarily broken with Vundle commands
+    " UnBundle 'gorodinskiy/vim-coloresque'
+
+    " various spf-13 stuff I don't use
+    UnBundle 'jnwhiteh/vim-golang'
+    UnBundle 'python.vim'
+    UnBundle 'python_match.vim'
+    UnBundle 'pythoncomplete'
+    UnBundle 'briancollins/vim-jst'
+    UnBundle 'derekwyatt/vim-scala'
+    UnBundle 'derekwyatt/vim-sbt'
+    UnBundle 'spf13/vim-gocode'
+    UnBundle 'klen/python-mode'
+    UnBundle 'tpope/vim-cucumber'
+    UnBundle 'quentindecock/vim-cucumber-align-pipes'
+    " UnBundle 'beyondwords/vim-twig'
+    UnBundle 'adinapoli/cumino'
+    UnBundle 'Twinside/vim-haskellConceal'
+    UnBundle 'travitch/hasksyn'
+    UnBundle 'lukerandall/haskellmode-vim'
+    UnBundle 'bitc/hdevtools'
+    UnBundle 'bitc/vim-hdevtools'
+    UnBundle 'dag/vim2hs'
+    UnBundle 'eagletmt/ghcmod-vim'
+    UnBundle 'Blackrush/vim-gocode'
+    UnBundle 'tpope/vim-rails'
+    UnBundle 'eagletmt/neco-ghc'
+" }}}

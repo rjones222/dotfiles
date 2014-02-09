@@ -77,11 +77,6 @@ if [ -f /usr/local/etc/grc.bashrc ]; then
     source "/usr/local/etc/grc.bashrc"
 fi
 
-# if git likes git-prompt instead of git for completion
-if [ -f /etc/bash_completion.d/git-prompt.bash ]; then
-   . /etc/bash_completion.d/git-prompt.bash
-fi
-
 # init fasd
 if [[ "$(type -P fasd)" ]]; then
     eval "$(fasd --init auto)"
