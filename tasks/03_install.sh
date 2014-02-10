@@ -16,6 +16,7 @@ function install_run() {
     # yo includes grunt and bower
     packages=(
     csslint
+    instant-markdown-d
     jshint
     jsonlint
     less
@@ -94,6 +95,7 @@ function install_run() {
     pre-commit
     puppet
     pygmentize
+    pygments.rb
     redcarpet
     rdiscount
     watch

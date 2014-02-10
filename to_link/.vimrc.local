@@ -41,7 +41,7 @@
     " and in PIV
     let g:DisableAutoPHPFolding = 1
 
-    " highlight matching words in red automatically
+    " highlight matching words in underline automatically
     hi WordMatch cterm=underline
     augroup highlight_augroup
         " autocmd!
