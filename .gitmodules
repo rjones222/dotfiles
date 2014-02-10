@@ -10,6 +10,3 @@
 [submodule "to_link/webgrind"]
 	path = to_link/webgrind
 	url = https://github.com/jokkedk/webgrind.git
-[submodule "support/github_markdown_css"]
-	path = support/github_markdown_css
-	url = https://gist.github.com/2554919.git

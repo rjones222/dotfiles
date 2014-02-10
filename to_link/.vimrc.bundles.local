@@ -19,6 +19,9 @@
     " much better than snipmate or neosnippet
     Bundle 'SirVer/ultisnips'
 
+    " instant markdown preview
+    Bundle 'suan/vim-instant-markdown'
+
     " make ultisnips work with neocomplcache
     Bundle 'JazzCore/neocomplcache-ultisnips'
 

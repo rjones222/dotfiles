@@ -94,6 +94,7 @@ function install_run() {
     pre-commit
     puppet
     pygmentize
+    redcarpet
     rdiscount
     watch
     tmuxinator
