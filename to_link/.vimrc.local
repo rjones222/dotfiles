@@ -338,10 +338,6 @@
     inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     noremap <Leader><Leader>u :call PhpInsertUse()<CR>
 
-    " markdown preview css"
-    if filereadable($HOME . '/.dotfiles/support/github_markdown_css/github.css')
-        let g:PreviewCSSPath=$HOME.'/.dotfiles/support/github_markdown_css/github.css'
-    endif
 " }}}
 " Include Custom vimrc if exists {{{
     if filereadable($HOME . "/.vimrc.custom.local")
