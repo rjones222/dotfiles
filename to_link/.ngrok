@@ -1,2 +1,6 @@
+auth_token: CBLb8X5ikqjKSdnXcZDD
 tunnels:
-  sshtunnel:
+  ssh:
+    subdomain: "dfds"
+    proto:
+      tcp: "22"
