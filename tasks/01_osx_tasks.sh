@@ -39,6 +39,7 @@ function osx_tasks_run() {
             bash
             # ack
             ctags
+            curl-ca-bundle
             # fasd
             git
             git-extras
@@ -75,6 +76,13 @@ function osx_tasks_run() {
             if [[ $(grep "/usr/local/bin/bash" /etc/shells -c) == 0 ]]; then
                 log_info "installing bash to /etc/paths"
                 sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
+            fi
+
+            if [[ ! "$(type -P openssl-osx-ca)" ]]; then
+                log_info "installing openssl-osx-ca to sync certificates"
+                brew tap raggi/ale
+                brew install openssl-osx-ca
+                openssl-osx-ca
             fi
 
             # install packages without the same cli name
