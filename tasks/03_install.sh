@@ -76,7 +76,7 @@ function install_run() {
     if [[ ! "$(type -P envoy)" ]]; then
         log_info "Installing Laravel Envoy"
         sudo curl https://github.com/laravel/envoy/raw/master/envoy.phar -o /usr/local/bin/envoy
-        sudo chmod +x /usr/local/bin/laravel
+        sudo chmod +x /usr/local/bin/envoy
     fi
 
     # install php-cs-fixer
