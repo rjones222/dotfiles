@@ -47,6 +47,9 @@
     " only for added sources for phpcomplete_extended
     Bundle 'Shougo/unite.vim'
 
+    " this makes it not complain when you use sudo
+    Bundle 'vim-scripts/SudoEdit.vim'
+
     " laravel completion
     Bundle 'm2mdas/phpcomplete-extended-laravel'
     "
