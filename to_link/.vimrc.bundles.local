@@ -23,7 +23,8 @@
     Bundle 'suan/vim-instant-markdown'
 
     " make ultisnips work with neocomplcache
-    Bundle 'JazzCore/neocomplcache-ultisnips'
+    " temporarily broken
+    " Bundle 'JazzCore/neocomplcache-ultisnips'
 
     " better than neocomplcache with built-in ultisnips support
     " Bundle 'Valloric/YouCompleteMe'

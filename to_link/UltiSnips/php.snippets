@@ -160,14 +160,6 @@ snippet vd "var_dump and exit"
 var_dump($1); exit;
 endsnippet
 
-snippet cfg "SpinMedia config"
-<?php
-
-return array(
-    'url' => 'http://mf.${1:prefix}1.lucid-dev.bno/',
-);
-endsnippet
-
 snippet call "Laravel http call"
 $this->call('${1:GET}', ${2:myurl});
 endsnippet
@@ -278,7 +270,7 @@ class Bootstrap
         }
 
         if (!$zf2Path) {
-            throw new RuntimeException('Unable to load ZF2. Run `php composer.phar install` or define a ZF2_PATH environment variable.');
+            throw new RuntimeException('Unable to load ZF2. Run "php composer.phar install" or define a ZF2_PATH environment variable.');
         }
 
         include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
@@ -359,10 +351,4 @@ return array(
         ),
     ),
 );
-endsnippet
-
-snippet [ "array brackets"
-[
-    $1
-
 endsnippet
