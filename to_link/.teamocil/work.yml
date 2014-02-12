@@ -24,10 +24,10 @@ session:
       clear: true
       panes:
         - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
-    - name: "mysql"
+    - name: "vm"
       root: "~/vms/mikes_vagrant_box"
       filters:
           before: "cd ~/vms/mikes_vagrant_box; vagrant up"
       clear: true
       panes:
-        - cmd: "vagrant ssh -c 'mysql -uroot -proot rm'"
+        - cmd: "vagrant ssh"

@@ -156,6 +156,9 @@ alias diff="grc diff"
 
 alias please='sudo !!'
 
+# copy ssh key
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+
 # don't forget there are reload commands in bash_it for everything
 # just type reload<tab>
 
