@@ -128,11 +128,9 @@ alias tags="ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages
 alias conflicts="grep -lir '<<<<<' *"
 alias grep="grep --color=auto"
 
-# tmux
-alias new-work="tmux -2 -S /tmp/pair new-session -s Work"
-alias attach-work="tmux -2 -S /tmp/pair attach -t Work"
+# tmux session for work
 alias work="tmux -2 -S /tmp/pair attach -t Work || (tmux -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -S /tmp/pair attach)"
-
+alias layoutwork="teamocil work --here"
 
 # create any dirs in path
 alias mkdir='mkdir -pv'

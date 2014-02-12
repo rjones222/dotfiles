@@ -1,6 +1,10 @@
 auth_token: CBLb8X5ikqjKSdnXcZDD
 tunnels:
   ssh:
-    subdomain: "dfds"
+    remote_port: 66166
     proto:
-      tcp: "22"
+      tcp: 22
+  web:
+    subdomain: "mikedfunk"
+    proto:
+      http: 80
