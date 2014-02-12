@@ -109,7 +109,6 @@
         endif
     endfunction
 " }}}
-
 " Key Mapping {{{
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
@@ -150,7 +149,6 @@
     vnoremap <silent> p p`]
     nnoremap <silent> p p`]
 " }}}
-
 " Theme {{{
     set colorcolumn=80
 
@@ -177,7 +175,6 @@
     " vim-gitgutter better background
     highlight clear SignColumn
 " }}}
-
 " Plugins {{{
     " NERDTree {{{
         " extra space in NERDCommenter comments
