@@ -30,4 +30,5 @@ session:
           before: "cd ~/vms/mikes_vagrant_box; vagrant up"
       clear: true
       panes:
+        - cmd: "vim files/rm.sql"
         - cmd: "vagrant ssh"

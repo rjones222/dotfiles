@@ -22,7 +22,9 @@
     " use php documentation with <shift>K from pear package pman"
     augroup phpman_autogroup
         " autocmd FileType php set keywordprg=pman
-        autocmd FileType php nnoremap K :Silent pman <cword> <CR>
+        " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
+        " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
+        autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
     augroup END
 
     " do not redraw while running macros - faster
