@@ -17,18 +17,16 @@ session:
         - cmd: "vim -S ~/.vim/sessions/rj"
           focus: true
         # - cmd: "git status"
-    - name: "logs"
-      root: "~/vms/mikes_vagrant_box"
-      filters:
-          before: "cd ~/vms/mikes_vagrant_box; vagrant up"
-      clear: true
-      panes:
-        - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
     - name: "vm"
       root: "~/vms/mikes_vagrant_box"
       filters:
           before: "cd ~/vms/mikes_vagrant_box; vagrant up"
       clear: true
       panes:
+        - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
         - cmd: "vim files/rm.sql"
         - cmd: "vagrant ssh"
+    - name: "vpn"
+      root: "~"
+      panes:
+        - cmd: "vpn"
