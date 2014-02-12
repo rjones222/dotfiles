@@ -1,0 +1,33 @@
+session:
+  name: "Work"
+  windows:
+    - name: "cfg"
+      root: "~/.dotfiles"
+      layout: main-horizontal
+      clear: true
+      panes:
+        - cmd: "vim -S ~/.vim/sessions/config"
+          focus: true
+        - cmd: "git status"
+    - name: "rjunk"
+      root: "~/Sites/racingjunk"
+      clear: true
+      layout: main-horizontal
+      panes:
+        - cmd: "vim -S ~/.vim/sessions/rj"
+          focus: true
+        - cmd: "git status"
+    - name: "logs"
+      root: "~/vms/mikes_vagrant_box"
+      filters:
+          before: "cd ~/vms/mikes_vagrant_box; vagrant up"
+      clear: true
+      panes:
+        - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
+    - name: "mysql"
+      root: "~/vms/mikes_vagrant_box"
+      filters:
+          before: "cd ~/vms/mikes_vagrant_box; vagrant up"
+      clear: true
+      panes:
+        - cmd: "vagrant ssh -c 'mysql -uroot -proot rm'"

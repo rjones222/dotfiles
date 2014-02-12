@@ -3,10 +3,12 @@
 
 project_name: Work
 project_root: ~/Sites
+socket_path: /tmp/pair
+pre: cd ~/vms/mikes_vagrant_box; vagrant up
+
 windows:
   - config: vim -S ~/.vim/sessions/config
-  - rjunk: cd ~/Sites/racingjunk/
-  - oldride: cd ~/Sites/oldride.com/
-  - logs: ssh ubuntubox; tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log /var/log/postgresql/*log
-  - ssh: ssh ubuntubox
-  - mysql: ssh ubuntubox; mysql -u mikedfunk
+  - rjunk: vim -S ~/.vim/sessions/rj
+  - logs: cd ~/vms/mikes_vagrant_box && vagrant ssh -c "tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log /var/log/postgresql/*log"
+  - mysql: cd ~/vms/mikes_vagrant_box && vagrant ssh -c "mysql -uroot -proot rm"
+  - ngrok: ngrok start ssh

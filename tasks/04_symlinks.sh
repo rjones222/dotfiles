@@ -34,7 +34,7 @@ function symlinks_run() {
     # link_this "$HOME/.dotfiles/to_link/custom.theme.bash" "$HOME/.bash_it/custom/custom.theme.bash"
     # link_this "$HOME/.dotfiles/to_link/custom.bash" "$HOME/.bash_it/lib/custom.bash"
 
-    link_this "$HOME/.dotfiles/to_link/.tmuxinator" "$HOME/.tmuxinator"
+    link_this "$HOME/.dotfiles/to_link/.teamocil" "$HOME/.teamocil"
     link_this "/var/www/sites" "$HOME/Sites"
     link_this "/Library/WebServer/Documents" "$HOME/Sites"
     link_this "$HOME/.dotfiles/to_link/adminer" "$HOME/Sites/adminer"

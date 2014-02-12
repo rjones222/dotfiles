@@ -80,6 +80,14 @@ function linux_tasks_run() {
             sudo service apache2 restart
         fi
 
+        if [[ ! "$(type -P tmate)" ]]; then
+            log_info "installing tmate"
+            sudo apt-get install python-software-properties && \
+            sudo add-apt-repository ppa:nviennot/tmate      && \
+            sudo apt-get update                             && \
+            sudo apt-get install tmate
+        fi
+
         # install fasd
         # if [[ ! "$(type -P fasd)" ]]; then
             # log_info "installing fasd"

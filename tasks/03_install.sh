@@ -105,6 +105,7 @@ function install_run() {
     pygments.rb
     redcarpet
     rdiscount
+    teamocil
     watch
     tmuxinator
     )

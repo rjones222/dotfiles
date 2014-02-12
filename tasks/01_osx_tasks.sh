@@ -85,6 +85,12 @@ function osx_tasks_run() {
                 openssl-osx-ca
             fi
 
+            if [[ ! "$(type -P tmate)" ]]; then
+                log_info "installing tmate"
+                brew tap nviennot/tmate
+                brew install tmate
+            fi
+
             # install packages without the same cli name
             packages=(
             bash-completion
