@@ -276,10 +276,11 @@
     " ultisnips start with my ultisnips
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
-    " let g:UltiSnipsListSnippets='<c-L>'
-    let g:UltiSnipsExpandTrigger='<c-J>'
+    let g:UltiSnipsListSnippets='<c-L>'
+    " let g:UltiSnipsExpandTrigger='<c-;>'
     let g:UltiSnipsJumpForwardTrigger='<c-l>'
     let g:UltiSnipsJumpBackwardTrigger='<c-h>'
+    " let g:UltiSnips#ExpandSnippetOrJump='<c-;>'
 
     augroup phpdoc_augroup
         autocmd!
