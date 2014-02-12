@@ -77,6 +77,11 @@ if [ -f /usr/local/etc/grc.bashrc ]; then
     source "/usr/local/etc/grc.bashrc"
 fi
 
+# teamocil completion
+if [[ "$(type -P teamocil)" ]]; then
+    complete -W "$(teamocil --list)" teamocil
+fi
+
 # init fasd
 if [[ "$(type -P fasd)" ]]; then
     eval "$(fasd --init auto)"

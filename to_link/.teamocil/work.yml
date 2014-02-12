@@ -3,7 +3,7 @@ session:
   windows:
     - name: "cfg"
       root: "~/.dotfiles"
-      layout: main-horizontal
+      layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
       clear: true
       panes:
         - cmd: "vim -S ~/.vim/sessions/config"
@@ -12,11 +12,11 @@ session:
     - name: "rjunk"
       root: "~/Sites/racingjunk"
       clear: true
-      layout: main-horizontal
+      # layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
       panes:
         - cmd: "vim -S ~/.vim/sessions/rj"
           focus: true
-        - cmd: "git status"
+        # - cmd: "git status"
     - name: "logs"
       root: "~/vms/mikes_vagrant_box"
       filters:
