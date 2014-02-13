@@ -142,7 +142,7 @@ alias wget='wget -c'
 
 # brew upgrade
 alias brewupdate='brew update && brew upgrade'
-alias vpn='netExtender -u mfunk -d CARSDIRECT ibhq1vpn.internetbrands.com'
+# alias vpn='netExtender -u mfunk -d CARSDIRECT ibhq1vpn.internetbrands.com'
 
 # use grc to add pretty colors to commands
 alias ping='grc ping'
@@ -154,6 +154,7 @@ alias rake="grc rake"
 alias netstat="grc netstat"
 alias diff="grc diff"
 
+# what's the magic word?
 alias please='sudo !!'
 
 # copy ssh key
