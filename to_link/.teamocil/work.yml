@@ -19,6 +19,7 @@ session:
         # - cmd: "git status"
     - name: "vm"
       root: "~/vms/mikes_vagrant_box"
+      layout: "main-horizontal"
       filters:
           before: "cd ~/vms/mikes_vagrant_box; vagrant up"
       clear: true
