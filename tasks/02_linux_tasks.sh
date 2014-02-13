@@ -72,6 +72,15 @@ function linux_tasks_run() {
             }
         done
 
+        # install battery script
+        if [[ ! "$(type -P battery)" ]]; then
+            log_info "installing battery script"
+            cd
+            curl -O https://raw.github.com/richo/battery/master/bin/battery
+            sudo mv battery /usr/local/bin/battery
+            sudo chmod +x /usr/local/bin/battery
+        fi
+
         # enable mcrypt for php
         if [[ ! -L "/etc/php5/mods-available/mcrypt.ini" ]]; then
             log_info "enabling mcrypt for php"

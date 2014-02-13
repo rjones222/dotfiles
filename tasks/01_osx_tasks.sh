@@ -59,6 +59,7 @@ function osx_tasks_run() {
             reattach-to-user-namespace
             ssh-copy-id
             # solr
+            spark
             terminal-notifier
             tmux
             trash
@@ -83,6 +84,12 @@ function osx_tasks_run() {
                 brew tap raggi/ale
                 brew install openssl-osx-ca
                 openssl-osx-ca
+            fi
+
+            if [[ ! "$(type -P battery)" ]]; then
+                log_info "installing battery script"
+                brew tap Goles/battery
+                brew install battery
             fi
 
             if [[ ! "$(type -P tmate)" ]]; then
