@@ -32,6 +32,7 @@ function linux_tasks_run() {
         htop
         irssi
         libapache2-mod-php5
+        libsqlite3-dev
         make
         multitail
         # openjdk-7-jre
@@ -80,6 +81,15 @@ function linux_tasks_run() {
             sudo mv battery /usr/local/bin/battery
             sudo chmod +x /usr/local/bin/battery
         fi
+        
+         # install the silver searcher
+        if [[ ! "$(type -P ag)" ]]; then
+            log_info "installing the silver searcher"
+            sudo apt-get install software-properties-common # (if required)
+            sudo apt-add-repository ppa:mizuno-as/silversearcher-ag
+            sudo apt-get update
+            sudo apt-get install -y silversearcher-ag
+        fi
 
         # enable mcrypt for php
         if [[ ! -L "/etc/php5/mods-available/mcrypt.ini" ]]; then
@@ -94,7 +104,7 @@ function linux_tasks_run() {
             sudo apt-get install python-software-properties && \
             sudo add-apt-repository ppa:nviennot/tmate      && \
             sudo apt-get update                             && \
-            sudo apt-get install tmate
+            sudo apt-get install -y tmate
         fi
 
         # install fasd

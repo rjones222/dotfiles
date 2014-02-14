@@ -128,7 +128,7 @@ alias conflicts="grep -lir '<<<<<' *"
 alias grep="grep --color=auto"
 
 # tmux session for work
-alias work="tmux -2 -S /tmp/pair attach -t Work || (tmux -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -S /tmp/pair attach)"
+alias work="tmux -2 -S /tmp/pair attach -t Work || (tmux -2 -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -2 -S /tmp/pair attach)"
 alias layout="teamocil work --here"
 
 # create any dirs in path
