@@ -100,7 +100,7 @@ alias storage="sudo chmod -R 777 app/storage public/assets/builds; echo 'done'"
 
 # updates spf-13-vim
 alias spfupdate="cd ~/.spf13-vim-3 && git pull && cd -"
-alias profile="source ~/.bash_profile"
+alias profile="source ~/.bash_profile && echo 'bash profile reloaded'"
 
 # pull latest upstream
 alias upstream="git pull upstream master"
