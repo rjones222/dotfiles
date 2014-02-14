@@ -246,6 +246,10 @@
         " underlining errors slows it down, it's in the sidebar already
         let g:syntastic_enable_highlighting = 0
         let g:syntastic_php_phpmd_post_args = '~/.dotfiles/support/phpmd_ruleset.xml'
+
+        " auto open loc list and jump to error when there's a php error
+        let g:syntastic_auto_loc_list = 2
+        let g:syntastic_auto_jump = 2
     " }}}
 
     " filename
