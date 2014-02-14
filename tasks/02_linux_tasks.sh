@@ -87,7 +87,7 @@ function linux_tasks_run() {
             sudo apt-get install software-properties-common # (if required)
             sudo apt-add-repository ppa:mizuno-as/silversearcher-ag
             sudo apt-get update
-            sudo apt-get install silversearcher-ag
+            sudo apt-get install -y silversearcher-ag
         fi
 
         # enable mcrypt for php
@@ -103,7 +103,7 @@ function linux_tasks_run() {
             sudo apt-get install python-software-properties && \
             sudo add-apt-repository ppa:nviennot/tmate      && \
             sudo apt-get update                             && \
-            sudo apt-get install tmate
+            sudo apt-get install -y tmate
         fi
 
         # install fasd
