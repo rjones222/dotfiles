@@ -121,7 +121,7 @@ alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/i
 # delete .orig files
 alias orig="find . -name '*.orig' -delete" 
 
-alias tags="ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null && echo 'tags file regenerated'"
+alias tags="echo 'generating tags file...' && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null && echo 'tags file regenerated'"
 
 # grep for merge conflicts
 alias conflicts="grep -lir '<<<<<' *"

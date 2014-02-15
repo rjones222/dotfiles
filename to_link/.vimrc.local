@@ -248,7 +248,7 @@
         let g:syntastic_php_phpmd_post_args = '~/.dotfiles/support/phpmd_ruleset.xml'
 
         " auto open loc list and jump to error when there's a php error
-        let g:syntastic_auto_loc_list = 2
+        let g:syntastic_auto_loc_list = 1
         let g:syntastic_auto_jump = 2
     " }}}
 
@@ -386,6 +386,11 @@
     " php add use statement for current class
     inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     noremap <Leader><Leader>u :call PhpInsertUse()<CR>
+
+    " promptline
+    let g:promptline_theme = 'airline'
+    " let g:promptline_theme = 'powerlineclone'
+    let g:promptline_powerline_symbols = 0
 
 " }}}
 " Include Custom vimrc if exists {{{
