@@ -42,6 +42,13 @@
     " set nofoldenable
     " and in PIV
     let g:DisableAutoPHPFolding = 1
+    " map space to toggle folds
+    nnoremap <space> za
+    vnoremap <space> zf
+
+    " alt-O creates new line in normal mode
+    nnoremap <Esc>o o<Esc>
+    nnoremap <Esc>O O<Esc>
 
     " highlight matching words in underline automatically
     hi WordMatch cterm=underline
@@ -225,8 +232,8 @@
     augroup phpcomplete_augroup
         " autocmd!
         autocmd BufNewFile,BufRead *.blade.php,*.tpl set filetype=html
-        autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
-        " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+        " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
     augroup END
 
     " neocomplcache disable auto popup
