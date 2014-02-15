@@ -65,6 +65,7 @@ function linux_tasks_run() {
         tmux
         tree
         vim
+        watch
         )
         for package in "${packages[@]}"
         do

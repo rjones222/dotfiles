@@ -66,6 +66,7 @@ function osx_tasks_run() {
             tmux
             trash
             tree
+            watch
             wget
             )
             for package in "${packages[@]}"
