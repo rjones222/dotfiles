@@ -388,8 +388,9 @@
     noremap <Leader><Leader>u :call PhpInsertUse()<CR>
 
     " promptline
-    let g:promptline_theme = 'airline'
+    let g:promptline_theme = 'airline_visual'
     " let g:promptline_theme = 'powerlineclone'
+    let g:promptline_preset = 'clear'
     let g:promptline_powerline_symbols = 0
 
 " }}}
