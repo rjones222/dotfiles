@@ -369,6 +369,8 @@
     " composer install command for phpcomplete
     let g:phpcomplete_index_composer_command = "composer"
     let g:phpcomplete_parse_docblock_comments = 1
+    let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
+    let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
 
     " vim-startify"
     let g:startify_session_dir = '~/.vim/sessions'

@@ -47,6 +47,7 @@ function osx_tasks_run() {
             grc
             # hg
             highlight
+            htop
             hub
             imagemagick
             irssi
@@ -61,6 +62,7 @@ function osx_tasks_run() {
             # solr
             spark
             terminal-notifier
+            tig
             tmux
             trash
             tree

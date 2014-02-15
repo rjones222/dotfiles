@@ -61,6 +61,7 @@ function linux_tasks_run() {
         silversearcher-ag
         # solr-tomcat
         # spidermonkey-bin
+        tig
         tmux
         tree
         vim
