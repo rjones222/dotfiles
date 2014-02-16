@@ -16,6 +16,9 @@ alias working='git add --all .; git commit -am "working"; git pull && git push'
 # apache restart
 alias ares="sudo apachectl restart"
 
+# force color version of tree
+alias tree="tree -C"
+
 # json pretty print
 alias json="python -mjson.tool"
 

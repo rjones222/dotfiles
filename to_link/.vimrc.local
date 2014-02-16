@@ -256,7 +256,7 @@
 
         " auto open loc list and jump to error when there's a php error
         let g:syntastic_auto_loc_list = 1
-        let g:syntastic_auto_jump = 2
+        " let g:syntastic_auto_jump = 2
     " }}}
 
     " filename
