@@ -5,6 +5,7 @@
     co = checkout
     df = diff
     dc = diff --cached
+    dt = difftool
     ign = ls-files -o -i --exclude-standard
     latest = for-each-ref --sort=-committerdate refs/heads --format='%(committerdate:relative) %(refname:short)'
     lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -55,7 +56,8 @@
 [branch]
     autosetuprebase = always
 [diff]
-    tool = opendiff
+    ; tool = opendiff
+    tool = vimdiff
 [format]
     pretty = '%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [github]
@@ -67,7 +69,8 @@
 [log]
     date = short
 [merge]
-    tool = opendiff
+    ; tool = opendiff
+    tool = vimdiff
 [mergetool]
     keepBackup = false
 [pre-commit]

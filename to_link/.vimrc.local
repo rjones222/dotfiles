@@ -180,7 +180,7 @@
     hi link EasyMotionShade  Comment
 
     " vim-gitgutter better background
-    highlight clear SignColumn
+    " highlight clear SignColumn
 " }}}
 " Plugins {{{
     " NERDTree {{{
