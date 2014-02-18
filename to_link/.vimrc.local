@@ -120,6 +120,9 @@
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
 
+    " increment with c-b
+    nnoremap <C-B> <C-A>
+
     " copy all
     nnoremap <leader>a mmggVGy`m
 
