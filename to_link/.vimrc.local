@@ -11,6 +11,7 @@
 " My customizations to spf13.com.
 " http://mikefunk.com
 " }}}
+
 " General {{{
     let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
 
@@ -47,8 +48,8 @@
     vnoremap <space> zf
 
     " alt-O creates new line in normal mode
-    nnoremap <Esc>o o<Esc>
-    nnoremap <Esc>O O<Esc>
+    " nnoremap <Esc>o o<Esc>
+    " nnoremap <Esc>O O<Esc>
 
     " highlight matching words in underline automatically
     hi WordMatch cterm=underline
@@ -116,6 +117,7 @@
         endif
     endfunction
 " }}}
+
 " Key Mapping {{{
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
@@ -159,8 +161,10 @@
     vnoremap <silent> p p`]
     nnoremap <silent> p p`]
 " }}}
+
 " Theme {{{
     set colorcolumn=80
+    let g:solarized_termcolors=16
 
     " custom indent guide colors
     let g:indent_guides_auto_colors = 0
@@ -185,6 +189,7 @@
     " vim-gitgutter better background
     " highlight clear SignColumn
 " }}}
+
 " Plugins {{{
     " NERDTree {{{
         " extra space in NERDCommenter comments
@@ -236,6 +241,7 @@
         " autocmd!
         autocmd BufNewFile,BufRead *.blade.php,*.tpl set filetype=html
         " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
         autocmd FileType php set omnifunc=phpcomplete#CompletePHP
     augroup END
 
@@ -412,6 +418,7 @@
     nnoremap <leader>pp :call PHPUnitRunPreviousTest()<cr>
 
 " }}}
+
 " Include Custom vimrc if exists {{{
     if filereadable($HOME . "/.vimrc.custom.local")
         source ~/.vimrc.custom.local

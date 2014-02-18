@@ -1,4 +1,5 @@
 " Bundle {{{
+" vim:fdm=marker
 
     " the only misc bundles I use
     Bundle 'tpope/vim-markdown'
@@ -196,6 +197,7 @@
 
     " I use ultisnips
     UnBundle 'Shougo/neosnippet'
+    UnBundle 'Shougo/neosnippet-snippets'
 
     " I use ultisnips
     UnBundle 'honza/vim-snippets'
