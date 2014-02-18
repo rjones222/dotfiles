@@ -402,6 +402,12 @@
     let g:promptline_preset = 'clear'
     let g:promptline_powerline_symbols = 0
 
+    " phpunit use vim-dispatch
+    let g:phpunit_command = "Dispatch phpunit {test}"
+    nnoremap <leader>pf :call PHPUnitRunCurrentFile()<cr>
+    nnoremap <leader>pt :call PHPUnitRunCurrentTest()<cr>
+    nnoremap <leader>pp :call PHPUnitRunPreviousTest()<cr>
+
 " }}}
 " Include Custom vimrc if exists {{{
     if filereadable($HOME . "/.vimrc.custom.local")

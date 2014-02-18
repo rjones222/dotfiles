@@ -48,7 +48,7 @@
     trustctime = false
     excludesfile = ~/.gitignore
     autocrlf = false
-    ignorecase = true
+    ignorecase = false
     preloadindex = true
     pager = less -FRSX
 [apply]

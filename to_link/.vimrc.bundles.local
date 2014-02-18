@@ -46,14 +46,14 @@
     " Bundle 'm2mdas/phpcomplete-extended'
 
     " only for added sources for phpcomplete_extended
-    " Bundle 'Shougo/unite.vim'
+    Bundle 'Shougo/unite.vim'
 
     " this makes it not complain when you use sudo
     Bundle 'vim-scripts/SudoEdit.vim'
 
     " laravel completion
     " Bundle 'm2mdas/phpcomplete-extended-laravel'
-    "
+
     " symfony completion
     " Bundle 'm2mdas/phpcomplete-extended-symfony'
 
@@ -65,7 +65,7 @@
 
     " auto-update ctags on save
     " Bundle 'szw/vim-tags'
-    " Bundle 'tpope/vim-dispatch'
+    Bundle 'tpope/vim-dispatch'
 
     " auto ctags"
     " Bundle 'xolox/vim-misc'
@@ -85,6 +85,7 @@
 
     " phpunit integration
     " Bundle 'joonty/vim-phpunitqf.git'
+    Bundle 'jonyamo/phpunit.vim'
 
     " php namespace and use block autocomplete
     Bundle 'arnaud-lb/vim-php-namespace'

@@ -96,6 +96,7 @@ function install_run() {
     bluecloth
     bundler
     execjs
+    haste
     jekyll
     kramdown
     mailcatcher
