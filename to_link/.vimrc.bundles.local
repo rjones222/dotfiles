@@ -173,7 +173,8 @@
     Bundle 'edkolev/promptline.vim'
 
     " show @TODOs and stuff
-    Bundle 'vim-scripts/TaskList.vim'
+    " Bundle 'vim-scripts/TaskList.vim'
+    Bundle 'mikedfunk/TaskList.vim'
 " }}}
 
 " Unbundle {{{
