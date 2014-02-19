@@ -37,11 +37,17 @@ function install_run() {
         log_error "pear not installed"
         return ${E_FAILURE}
     fi
+
+    # discover pear sources
+    sudo pear install phpdoc/phpDocumentor
+
+    # install pear packages
     log_info "Installing Pear Packages"
     sudo pear config-set auto_discover 1
     packages=(
     pear.phpqatools.org/phpqatools
     doc.php.net/pman
+    phpdoc/phpDocumentor
     )
     for package in "${packages[@]}"
     do
