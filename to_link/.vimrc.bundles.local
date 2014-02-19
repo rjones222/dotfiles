@@ -171,6 +171,9 @@
 
     " custom bash prompt in sync with airline
     Bundle 'edkolev/promptline.vim'
+
+    " show @TODOs and stuff
+    Bundle 'vim-scripts/TaskList.vim'
 " }}}
 
 " Unbundle {{{
