@@ -15,7 +15,7 @@ snippet author
  *
  * @package ${2}
  * @author Michael Funk <mfunk@internetbrands.com>
- * @copyright 2013 Internet Brands, Inc. All Rights Reserved.
+ * @copyright 2014 Internet Brands, Inc. All Rights Reserved.
  */
 
 endsnippet
@@ -48,6 +48,8 @@ endsnippet
 snippet cla "mike's class with namespace, file and class docblocks"
 <?php
 /**
+ * ${1:Description}
+ *
  * @package ${2:RacingJunk}
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
@@ -67,7 +69,7 @@ endsnippet
 snippet meth "php method"
 
 /**
- * $2
+ * ${1:Description}
  *
  * @return ${4:void}
  */
@@ -87,9 +89,11 @@ endsnippet
 snippet va "var with docblock"
 
 /**
- * @var ${1:mixed}
+ * ${1:Description}
+ *
+ * @var ${2:mixed}
  */
-protected ${2:$myvar};
+protected ${3:$myvar};
 
 endsnippet
 

@@ -44,6 +44,7 @@ function osx_tasks_run() {
             git
             git-extras
             git-flow
+            graphviz
             grc
             # hg
             highlight
