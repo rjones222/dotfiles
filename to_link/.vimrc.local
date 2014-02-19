@@ -417,6 +417,10 @@
     nnoremap <leader>pt :call PHPUnitRunCurrentTest()<cr>
     nnoremap <leader>pp :call PHPUnitRunPreviousTest()<cr>
 
+    " tasklist plugin
+    nnoremap <leader>td :TaskList<CR>
+    nnoremap <leader>tl :TaskList<CR>
+
 " }}}
 
 " Include Custom vimrc if exists {{{
