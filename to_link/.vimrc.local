@@ -313,7 +313,10 @@
 
     let g:airline_theme = 'solarized'
     " warning this is really slow
-    let g:airline#extensions#tagbar#enabled = 1
+    let g:airline#extensions#tagbar#enabled = 0
+    augroup php_tagbar
+        autocmd FileType php let g:airline#extensions#tagbar#enabled = 1
+    augroup END
     let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
     let g:airline_right_sep = ''
@@ -362,15 +365,26 @@
 
     " tmuxline if used
     let g:tmuxline_powerline_separators = 0
-    let g:tmuxline_preset = 'airline'
 
     let g:tmuxline_preset = {
-        \'c'    : ['#S'],
-        \'win'  : ['#I', '#W'],
-        \'cwin' : ['#I', '#W', '#F'],
-        \'x'    : ['#(battery -t)'],
+        \'a'    : ['#S'],
+        \'win'  : ['#I:#W'],
+        \'cwin' : ['#I:#W #F'],
         \'y'    : ['%a', '%I:%M %p'],
+        \'z'    : ['#(battery -t)'],
     \}
+
+    " custom tmuxline theme
+    call tmuxline#api#set_theme({
+        \ 'a': ['colour2', 'default'],
+        \ 'b': ['default', 'default'],
+        \ 'bg': ['default', 'colour8'],
+        \ 'c': ['default', 'default'],
+        \ 'cwin': ['black', 'colour6'],
+        \ 'win': ['colour11', 'black'],
+        \ 'x': ['default', 'default'],
+        \ 'y': ['colour10', 'default'],
+        \ 'z': ['default', 'default']})
 
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
