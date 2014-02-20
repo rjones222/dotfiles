@@ -385,12 +385,12 @@
         \ 'a': ['green', 'default'],
         \ 'b': ['colour10', 'default'],
         \ 'bg': ['default', 'black'],
-        \ 'c': ['default', 'default'],
+        \ 'c': ['colour10', 'default'],
         \ 'cwin': ['red', 'default'],
         \ 'win': ['colour11', 'default'],
-        \ 'x': ['default', 'default'],
+        \ 'x': ['colour10', 'default'],
         \ 'y': ['colour10', 'default'],
-        \ 'z': ['default', 'default']
+        \ 'z': ['blue', 'default']
     \}
 
     " }}}
