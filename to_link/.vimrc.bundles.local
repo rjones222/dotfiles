@@ -167,7 +167,7 @@
     " Bundle 'johnhamelink/blade.vim'
 
     " tmux custom statusline in sync with airline
-    " Bundle 'edkolev/tmuxline.vim'
+    Bundle 'edkolev/tmuxline.vim'
 
     " custom bash prompt in sync with airline
     Bundle 'edkolev/promptline.vim'

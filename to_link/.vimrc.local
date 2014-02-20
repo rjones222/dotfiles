@@ -309,15 +309,16 @@
         au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
     augroup END
 
-    " vim-airline
+    " {{{ vim-airline
+
     let g:airline_theme = 'solarized'
     " warning this is really slow
-    " let g:airline#extensions#tagbar#enabled = 1
-    let g:airline#extensions#tagbar#enabled = 0
+    let g:airline#extensions#tagbar#enabled = 1
     let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''
+
     " unicode symbols
     " let g:airline_left_sep = '»'
     " let g:airline_left_sep = '▶'
@@ -356,6 +357,20 @@
     " let g:airline#extensions#tabline#left_sep = ' '
     " let g:airline#extensions#tabline#left_alt_sep = '|'
     " let g:airline#extensions#tabline#left_alt_sep = ' '
+
+    " }}}
+
+    " tmuxline if used
+    let g:tmuxline_powerline_separators = 0
+    let g:tmuxline_preset = 'airline'
+
+    let g:tmuxline_preset = {
+        \'c'    : ['#S'],
+        \'win'  : ['#I', '#W'],
+        \'cwin' : ['#I', '#W', '#F'],
+        \'x'    : ['#(battery -t)'],
+        \'y'    : ['%a', '%I:%M %p'],
+    \}
 
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
