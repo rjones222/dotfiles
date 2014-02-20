@@ -373,23 +373,25 @@
     " the segments used
     let g:tmuxline_preset = {
         \'a'    : ['❏ #S'],
+        \'b'    : ['#H'],
         \'win'  : ['#I:#W'],
         \'cwin' : ['#I:#W #F'],
-        \'y'    : ['%a', '%I:%M %p'],
+        \'y'    : ['%a', '%b %d', '%I:%M %p'],
         \'z'    : ['#(battery -t)'],
     \}
 
     " custom tmuxline theme
-    call tmuxline#api#set_theme({
-        \ 'a': ['colour2', 'default'],
-        \ 'b': ['default', 'default'],
+    let g:tmuxline_theme = {
+        \ 'a': ['green', 'default'],
+        \ 'b': ['colour10', 'default'],
         \ 'bg': ['default', 'black'],
         \ 'c': ['default', 'default'],
         \ 'cwin': ['red', 'default'],
         \ 'win': ['colour11', 'default'],
         \ 'x': ['default', 'default'],
         \ 'y': ['colour10', 'default'],
-        \ 'z': ['default', 'default']})
+        \ 'z': ['default', 'default']
+    \}
 
     " }}}
 
