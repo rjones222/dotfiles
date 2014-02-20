@@ -363,11 +363,16 @@
 
     " }}}
 
-    " tmuxline if used
+    " {{{ tmuxline
+
     let g:tmuxline_powerline_separators = 0
 
+    " don't overwrite the theme
+    let g:airline#extensions#tmuxline#enabled = 0
+
+    " the segments used
     let g:tmuxline_preset = {
-        \'a'    : ['#S'],
+        \'a'    : ['❏ #S'],
         \'win'  : ['#I:#W'],
         \'cwin' : ['#I:#W #F'],
         \'y'    : ['%a', '%I:%M %p'],
@@ -378,13 +383,15 @@
     call tmuxline#api#set_theme({
         \ 'a': ['colour2', 'default'],
         \ 'b': ['default', 'default'],
-        \ 'bg': ['default', 'colour8'],
+        \ 'bg': ['default', 'black'],
         \ 'c': ['default', 'default'],
-        \ 'cwin': ['black', 'colour6'],
-        \ 'win': ['colour11', 'black'],
+        \ 'cwin': ['red', 'default'],
+        \ 'win': ['colour11', 'default'],
         \ 'x': ['default', 'default'],
         \ 'y': ['colour10', 'default'],
         \ 'z': ['default', 'default']})
+
+    " }}}
 
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
