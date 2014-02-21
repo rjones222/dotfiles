@@ -78,11 +78,11 @@
     let g:DisableAutoPHPFolding = 1
 
     " underline matching words automatically
-    hi WordMatch cterm=underline
-    augroup highlight_augroup
-        " autocmd!
-        autocmd CursorMoved * exe printf('match WordMatch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-    augroup END
+    " hi WordMatch cterm=underline
+    " augroup highlight_augroup
+        " " autocmd!
+        " autocmd CursorMoved * exe printf('match WordMatch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+    " augroup END
 
     " enable the preview window for omnicompletion - doesn't work for some reason
     " set completeopt+=preview
@@ -212,6 +212,9 @@
 
 " Theme {{{
     let g:solarized_termcolors=16
+    " let g:solarized_italic=1
+    " let g:solarized_contrast='high'
+    " let g:solarized_visibility='high'
 
     " custom indent guide colors
     set colorcolumn=80

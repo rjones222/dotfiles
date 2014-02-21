@@ -5,6 +5,9 @@
     Bundle 'tpope/vim-markdown'
     Bundle 'Puppet-Syntax-Highlighting'
 
+    " highlight matches for word, current line, etc."
+    Bundle 'vim-scripts/highlight.vim'
+
     " adds extra intuitive keyboard shortcuts
     Bundle 'tpope/vim-unimpaired'
 
