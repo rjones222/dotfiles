@@ -145,9 +145,11 @@
     fun! ToggleFold()
         if g:FoldMethod == 0
             exe 'set foldmethod=indent'
+            exe 'set foldcolumn=4'
             let g:FoldMethod = 1
         else
             exe 'set foldmethod=marker'
+            exe 'set foldcolumn=0'
             let g:FoldMethod = 0
         endif
     endfun
@@ -439,7 +441,6 @@
 
     let g:airline_theme = 'solarized'
     " warning this is really slow. So I only enabled it for php files.
-    let g:airline#extensions#tagbar#enabled = 0
     augroup php_tagbar
         autocmd FileType php let g:airline#extensions#tagbar#enabled = 1
     augroup END

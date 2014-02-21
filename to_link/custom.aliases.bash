@@ -113,13 +113,13 @@ alias origin="git pull origin master"
 alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
 
 # colorize cat
-# chk=''
-# if which gem >/dev/null; then
-    # gem list pygmentize -i | $chk
-# fi
-# if [ $chk ]; then
-    # alias cat="pygmentize -g"
-# fi
+chk=''
+if which gem >/dev/null; then
+    gem list pygmentize -i | $chk
+fi
+if [ $chk ]; then
+    alias cat="pygmentize -g"
+fi
 
 # delete .orig files
 alias orig="find . -name '*.orig' -delete" 
@@ -144,7 +144,7 @@ alias mount='mount |column -t'
 alias wget='wget -c'
 
 # brew upgrade
-alias brewupdate='brew update && brew upgrade'
+alias brewup='brew update && brew upgrade'
 # alias vpn='netExtender -u mfunk -d CARSDIRECT ibhq1vpn.internetbrands.com'
 
 # use grc to add pretty colors to commands
