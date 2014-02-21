@@ -7,6 +7,7 @@
     dc = diff --cached
     dt = difftool
     ign = ls-files -o -i --exclude-standard
+    iw = instaweb --httpd webrick
     latest = for-each-ref --sort=-committerdate refs/heads --format='%(committerdate:relative) %(refname:short)'
     lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
@@ -90,3 +91,5 @@
     insteadOf = bb
 [web]
     browser = open
+[instaweb]
+    httpd = webrick
