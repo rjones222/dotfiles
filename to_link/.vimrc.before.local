@@ -1,5 +1,5 @@
 " which bundle groups to install
-let g:spf13_bundle_groups=['general', 'programming', 'javascript', 'html', 'neocomplcache', 'twig']
+let g:spf13_bundle_groups=['general', 'programming', 'javascript', 'html', 'youcompleteme', 'twig']
 
 " either of these break phpcomplete_extended
 " prevent autocd into file directory

@@ -14,6 +14,13 @@ function make_vimproc() {
     cd -
 }
 
+function make_youcompleteme() {
+    log_info "Attempting to build youcompleteme"
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.sh
+    cd -
+}
+
 function vim_run() {
 
     # install spf13
@@ -22,11 +29,13 @@ function vim_run() {
         curl http://j.mp/spf13-vim3 -L -o - | bash
         rm -rf ~/.vim/bundle/csapprox
         make_vimproc
+        make_youcompleteme
         vim +BundleClean! +qall!
     else
         log_info "Updating vim bundles"
-        make_vimproc
         vim +BundleUpdate +qall!
+        make_vimproc
+        make_youcompleteme
     fi
 
     # build vim plugin buildables

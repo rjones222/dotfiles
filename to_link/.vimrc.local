@@ -236,6 +236,7 @@
     " turn off neosnippet mapping
     let g:spf13_no_neosnippet_expand=1
 
+    " {{{ neocomplcache
     " phpcomplete omni complete for neocomplcache
     augroup phpcomplete_augroup
         " autocmd!
@@ -251,9 +252,11 @@
     " c-j and c-k go down and up in the list for neocomplcache
     " inoremap <expr> <C-j> pumvisible() ? '\<C-n>' : '\<C-j>'
     " inoremap <expr> <C-k> pumvisible() ? '\<C-p>' : '\<C-k>'
+    " }}}"
 
-    " preview breaks youcompleteme
-    " set completeopt-=preview
+    " {{{ youcompleteme
+    let g:ycm_add_preview_to_completeopt=1
+    " }}}
 
     " Syntastic {{{
         let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
@@ -297,10 +300,10 @@
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsListSnippets='<c-l>'
-    let g:UltiSnipsExpandTrigger='<a-;>'
-    let g:UltiSnipsJumpForwardTrigger='<c-l>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-h>'
-    let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
+    " let g:UltiSnipsExpandTrigger='<a-;>'
+    " let g:UltiSnipsJumpForwardTrigger='<c-l>'
+    " let g:UltiSnipsJumpBackwardTrigger='<c-h>'
+    " let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
 
     augroup phpdoc_augroup
         autocmd!
