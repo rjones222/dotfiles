@@ -1,4 +1,4 @@
-" Modeline {{{
+" Modeline and Notes {{{
 " vim:fdm=marker
 "
 "  ___  ____ _         ______           _
@@ -101,7 +101,7 @@
     set number
 
     " disable spellcheck
-    " set nospell
+    set nospell
 
     " if the last window is a quickfix, close it
     augroup qfclose_augroup
@@ -211,10 +211,10 @@
 " }}}
 
 " Theme {{{
-    set colorcolumn=80
     let g:solarized_termcolors=16
 
     " custom indent guide colors
+    set colorcolumn=80
     let g:indent_guides_auto_colors = 0
     " augroup indent_guides_augroup
         " autocmd!
@@ -516,6 +516,7 @@
     " }}}"
 
     " {{{ youcompleteme
+    " open preview window while completing
     let g:ycm_add_preview_to_completeopt=1
     " }}}
 

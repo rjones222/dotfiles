@@ -166,6 +166,9 @@ alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 # show all cowsays! :D
 alias cowsays='cowsay -l | tail +2 | tr " " "\\n" | xargs -I {} cowsay -f {} "cowsay -f {} \"Message\""'
 
+# install the vaprobash vagrant file here
+alias vaprobash='curl -L http://bit.ly/vaprobash > Vagrantfile'
+
 # don't forget there are reload commands in bash_it for everything
 # just type reload<tab>
 
