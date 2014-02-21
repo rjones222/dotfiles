@@ -11,6 +11,9 @@ let g:spf13_clear_search_highlight = 1
 " keep H and L shortcuts
 let g:spf13_no_fastTabs = 1
 
+" turn off neosnippet key mapping
+let g:spf13_no_neosnippet_expand=1
+
 " vim-tags
 " set exrc
 " set secure
