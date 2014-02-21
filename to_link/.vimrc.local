@@ -30,6 +30,19 @@
     endfunction
     " }}}"
 
+    function! NeatFoldText() "{{{2
+        let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+        let lines_count = v:foldend - v:foldstart + 1
+        let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+        let foldchar = matchstr(&fillchars, 'fold:\zs.')
+        let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+        let foldtextend = lines_count_text . repeat(foldchar, 8)
+        let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+        return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+    endfunction
+    set foldtext=NeatFoldText()
+    " }}}2
+
     " for mouseterm
     if has("mouse")
         set mouse=a
@@ -63,15 +76,8 @@
     " set nofoldenable
     " and in PIV
     let g:DisableAutoPHPFolding = 1
-    " map space to toggle folds
-    nnoremap <space> za
-    vnoremap <space> zf
 
-    " alt-O creates new line in normal mode
-    " nnoremap <Esc>o o<Esc>
-    " nnoremap <Esc>O O<Esc>
-
-    " highlight matching words in underline automatically
+    " underline matching words automatically
     hi WordMatch cterm=underline
     augroup highlight_augroup
         " autocmd!
@@ -90,7 +96,7 @@
     " also supposed to make vim faster
     " set nocursorline
 
-    " turn off relative line numbering
+    " turn off relative line numbering because it fucking sucks
     set nornu
     set number
 
@@ -108,21 +114,17 @@
         " autocmd!
         autocmd FileType smarty,blade,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
     augroup END
+" }}}
 
-    " visually select a search result
-    nnoremap g/ //e<Enter>v??<Enter>
-
-    " my version of fast tabs
-    nnoremap gh gT
-    nnoremap gl gt
-    nnoremap gn :tabnew<cr>
-
-    " open tag in tab
-    :nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+" Key Mapping {{{
+    " soft wrapping
+    command! -nargs=* Wrap set wrap linebreak nolist
 
     " go to next/previous closed fold
     nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
     nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
+
+    " function to use above key maps
     function! NextClosedFold(dir)
         let cmd = 'norm!z' . a:dir
         let view = winsaveview()
@@ -136,17 +138,41 @@
             call winrestview(view)
         endif
     endfunction
-" }}}
 
-" Key Mapping {{{
-    " soft wrapping
-    command! -nargs=* Wrap set wrap linebreak nolist
+    " foldmethod toggle
+    let g:FoldMethod = 0
+    map <leader>fm :call ToggleFold()<cr>
+    fun! ToggleFold()
+        if g:FoldMethod == 0
+            exe 'set foldmethod=indent'
+            let g:FoldMethod = 1
+        else
+            exe 'set foldmethod=marker'
+            let g:FoldMethod = 0
+        endif
+    endfun
+
+
+    " map space to toggle folds
+    nnoremap <space> za
+    vnoremap <space> zf
 
     " increment with c-b
     nnoremap <C-B> <C-A>
 
     " copy all
     nnoremap <leader>a mmggVGy`m
+
+    " visually select a search result
+    nnoremap g/ //e<Enter>v??<Enter>
+
+    " my version of fast tabs
+    nnoremap gh gT
+    nnoremap gl gt
+    nnoremap gn :tabnew<cr>
+
+    " open tag in tab
+    nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
     " find all todos
     noremap <Leader>td :noautocmd vimgrep /TODO/j **/*.php<CR>:cw<CR>
@@ -211,74 +237,11 @@
 " }}}
 
 " Plugins {{{
-    " NERDTree {{{
-        " extra space in NERDCommenter comments
-        let g:NERDSpaceDelims="1"
 
-        " NERDTree expand dirs with one child
-        " let NERDTreeCasadeOpenSingleChildDir=1
-
-        " NERDTree change keyboard shortcuts to use vim-nerdtree-tabs
-        " map <C-e> :NERDTreeTabsToggle<CR>:NERDTreeMirrorOpen<CR>
-        " map <C-e> :NERDTreeTabs<CR>:NERDTreeMirrorOpen<CR>
-        " map <C-e> :NERDTreeTabsToggle<CR>
-        map <C-e> :NERDTreeMirrorToggle<CR>
-    " }}}
-
-    " {{{ projectroot
-    " cd to project root
-    nnoremap <leader>dp :ProjectRootCD<cr>
-    " }}}"
-
-    " {{{ tabular
-    nmap <leader>a> :Tabularize /=><cr>
-    vmap <leader>a> :Tabularize /=><cr>
-    " }}}"
-
-    " {{{ PDV
-    " PDV comment parameters
-    let g:pdv_cfg_Package   = "Example"
-    let g:pdv_cfg_Author    = "Michael Funk <mfunk@internetbrands.com>"
-    let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
-    let g:pdv_cfg_License   = ""
-    let g:pdv_cfg_Version   = ""
-    let g:pdv_cfg_ClassTags = ["author"]
-    " }}}"
-
-    " {{{ neocomplcache
-    " phpcomplete omni complete for neocomplcache
-    augroup phpcomplete_augroup
-        " autocmd!
-        autocmd BufNewFile,BufRead *.blade.php,*.tpl set filetype=html
-        " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
-        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-    augroup END
-
-    " neocomplcache disable auto popup
-    " let g:neocomplcache_disable_auto_complete = 1
-
-    " c-j and c-k go down and up in the list for neocomplcache
-    " inoremap <expr> <C-j> pumvisible() ? '\<C-n>' : '\<C-j>'
-    " inoremap <expr> <C-k> pumvisible() ? '\<C-p>' : '\<C-k>'
-    " }}}"
-
-    " {{{ youcompleteme
-    let g:ycm_add_preview_to_completeopt=1
-    " }}}
-
-    " Syntastic {{{
-    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
-    " let g:syntastic_auto_loc_list = 1
-
-    " underlining errors slows it down, it's in the sidebar already
-    let g:syntastic_enable_highlighting = 0
-    let g:syntastic_php_phpmd_post_args = '~/.dotfiles/support/phpmd_ruleset.xml'
-
-    " auto open loc list and jump to error when there's a php error
-    let g:syntastic_auto_loc_list = 1
-    " let g:syntastic_auto_jump = 2
-    " }}}
+" {{{ ctrlp
+" ctrlp extensions
+" let g:ctrlp_extensions = ['tag']
+" }}}"
 
     " {{{ fugitive
     " filename
@@ -299,10 +262,157 @@
     augroup END
     " }}}"
 
-    " {{{ ctrlp
-    " ctrlp extensions
-    " let g:ctrlp_extensions = ['tag']
+    " NERDTree {{{
+        " extra space in NERDCommenter comments
+        let g:NERDSpaceDelims="1"
+
+        " NERDTree expand dirs with one child
+        " let NERDTreeCasadeOpenSingleChildDir=1
+
+        " NERDTree change keyboard shortcuts to use vim-nerdtree-tabs
+        " map <C-e> :NERDTreeTabsToggle<CR>:NERDTreeMirrorOpen<CR>
+        " map <C-e> :NERDTreeTabs<CR>:NERDTreeMirrorOpen<CR>
+        " map <C-e> :NERDTreeTabsToggle<CR>
+        map <C-e> :NERDTreeMirrorToggle<CR>
+
+        " don't open a split for ctrlp or nerdtree
+        augroup startify_augroup
+            " autocmd!
+            autocmd FileType startify setlocal buftype=
+        augroup END
+    " }}}
+
+    " {{{ neocomplcache
+    " phpcomplete omni complete for neocomplcache
+    augroup phpcomplete_augroup
+        " autocmd!
+        autocmd BufNewFile,BufRead *.blade.php,*.tpl set filetype=html
+        " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    augroup END
+
+    " neocomplcache disable auto popup
+    " let g:neocomplcache_disable_auto_complete = 1
+
+    " c-j and c-k go down and up in the list for neocomplcache
+    " inoremap <expr> <C-j> pumvisible() ? '\<C-n>' : '\<C-j>'
+    " inoremap <expr> <C-k> pumvisible() ? '\<C-p>' : '\<C-k>'
     " }}}"
+
+    " {{{ PDV
+    " PDV comment parameters
+    let g:pdv_cfg_Package   = "Example"
+    let g:pdv_cfg_Author    = "Michael Funk <mfunk@internetbrands.com>"
+    let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
+    let g:pdv_cfg_License   = ""
+    let g:pdv_cfg_Version   = ""
+    let g:pdv_cfg_ClassTags = ["author"]
+    " }}}"
+
+    " {{{ phpcomplete
+    " composer install command for phpcomplete
+    let g:phpcomplete_index_composer_command = "composer"
+    let g:phpcomplete_parse_docblock_comments = 1
+    let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
+    let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
+    " }}}"
+
+    " {{{ phpctags
+    " phpctags
+    " let g:tagbar_phpctags_memory_limit = '512M'
+    " }}}"
+
+    " {{{ phpdoc
+    augroup phpdoc_augroup
+        autocmd!
+        au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+        au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+        au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
+    augroup END
+    " }}}"
+
+    " {{{ phpunit.vim
+    " phpunit use vim-dispatch
+    let g:phpunit_command = "Dispatch phpunit {test}"
+    nnoremap <leader>pf :call PHPUnitRunCurrentFile()<cr>
+    nnoremap <leader>pt :call PHPUnitRunCurrentTest()<cr>
+    nnoremap <leader>pp :call PHPUnitRunPreviousTest()<cr>
+    " }}}"
+
+    " {{{ projectroot
+    " cd to project root
+    nnoremap <leader>dp :ProjectRootCD<cr>
+    " }}}"
+
+    " {{{ promptline
+    " promptline
+    let g:promptline_theme = 'airline_visual'
+    " let g:promptline_theme = 'powerlineclone'
+    let g:promptline_preset = 'clear'
+    let g:promptline_powerline_symbols = 0
+    " }}}"
+
+    " Syntastic {{{
+    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
+    " let g:syntastic_auto_loc_list = 1
+
+    " underlining errors slows it down, it's in the sidebar already
+    let g:syntastic_enable_highlighting = 0
+    let g:syntastic_php_phpmd_post_args = '~/.dotfiles/support/phpmd_ruleset.xml'
+
+    " auto open loc list and jump to error when there's a php error
+    let g:syntastic_auto_loc_list = 1
+    " let g:syntastic_auto_jump = 2
+    " }}}
+
+    " {{{ tabular
+    nmap <leader>a> :Tabularize /=><cr>
+    vmap <leader>a> :Tabularize /=><cr>
+    " }}}"
+
+    " {{{ tagbar
+    " tagbar autofocus is the whole point of tagbar
+    let g:tagbar_autofocus = 1
+    " }}}"
+
+    " {{{ tasklist
+    " tasklist plugin
+    nnoremap <leader>td :TaskList<CR>
+    nnoremap <leader>tl :TaskList<CR>
+    " }}}"
+
+    " {{{ tmuxline
+
+    let g:tmuxline_powerline_separators = 0
+
+    " don't overwrite the theme
+    let g:airline#extensions#tmuxline#enabled = 0
+
+    " the segments used
+    let g:tmuxline_preset = {
+        \'a'    : ['❏ #S'],
+        \'b'    : ['#H'],
+        \'win'  : ['#I:#W'],
+        \'cwin' : ['#I:#W #F'],
+        \'y'    : ['%a', '%b %d', '%I:%M %p'],
+        \'z'    : ['#(battery -t)'],
+    \}
+
+    " custom tmuxline theme
+    let g:tmuxline_theme = {
+        \ 'a': ['green', 'default'],
+        \ 'b': ['colour10', 'default'],
+        \ 'bg': ['default', 'black'],
+        \ 'c': ['colour10', 'default'],
+        \ 'cwin': ['red', 'default'],
+        \ 'win': ['colour11', 'default'],
+        \ 'x': ['colour10', 'default'],
+        \ 'y': ['colour10', 'default'],
+        \ 'z': ['blue', 'default']
+    \}
+
+    " }}}
 
     " {{{ ultisnips
     " ultisnips start with my ultisnips
@@ -315,13 +425,14 @@
     " let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
     " }}}"
 
-    " {{{ phpdoc
-    augroup phpdoc_augroup
-        autocmd!
-        au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
-        au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
-        au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
-    augroup END
+    " {{{ vdebug
+    let g:vdebug_options = {}
+    let g:vdebug_options['server'] = '192.168.56.1'
+    let g:vdebug_options['port'] = '9001'
+    " guest: host
+    let g:vdebug_options['path_maps'] = {'/var/www': '/media/sf_ubuntubox'}
+    " let g:vdebug_options["break_on_open"] = 0
+    let g:vdebug_options["watch_window_style"] = 'compact'
     " }}}"
 
     " {{{ vim-airline
@@ -378,68 +489,8 @@
 
     " }}}
 
-    " {{{ tmuxline
-
-    let g:tmuxline_powerline_separators = 0
-
-    " don't overwrite the theme
-    let g:airline#extensions#tmuxline#enabled = 0
-
-    " the segments used
-    let g:tmuxline_preset = {
-        \'a'    : ['❏ #S'],
-        \'b'    : ['#H'],
-        \'win'  : ['#I:#W'],
-        \'cwin' : ['#I:#W #F'],
-        \'y'    : ['%a', '%b %d', '%I:%M %p'],
-        \'z'    : ['#(battery -t)'],
-    \}
-
-    " custom tmuxline theme
-    let g:tmuxline_theme = {
-        \ 'a': ['green', 'default'],
-        \ 'b': ['colour10', 'default'],
-        \ 'bg': ['default', 'black'],
-        \ 'c': ['colour10', 'default'],
-        \ 'cwin': ['red', 'default'],
-        \ 'win': ['colour11', 'default'],
-        \ 'x': ['colour10', 'default'],
-        \ 'y': ['colour10', 'default'],
-        \ 'z': ['blue', 'default']
-    \}
-
-    " }}}
-
-    " {{{ tagbar
-    " tagbar autofocus is the whole point of tagbar
-    let g:tagbar_autofocus = 1
-    " }}}"
-
-    " {{{ phpctags
-    " phpctags
-    " let g:tagbar_phpctags_memory_limit = '512M'
-    " }}}"
-
     " {{{ vim-ctrlp-tjump
     nnoremap <c-]> :CtrlPtjump<cr>
-    " }}}"
-
-    " {{{ vdebug
-    let g:vdebug_options = {}
-    let g:vdebug_options['server'] = '192.168.56.1'
-    let g:vdebug_options['port'] = '9001'
-    " guest: host
-    let g:vdebug_options['path_maps'] = {'/var/www': '/media/sf_ubuntubox'}
-    " let g:vdebug_options["break_on_open"] = 0
-    let g:vdebug_options["watch_window_style"] = 'compact'
-    " }}}"
-
-    " {{{ phpcomplete
-    " composer install command for phpcomplete
-    let g:phpcomplete_index_composer_command = "composer"
-    let g:phpcomplete_parse_docblock_comments = 1
-    let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
-    let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
     " }}}"
 
     " {{{ vim-startify
@@ -457,41 +508,15 @@
            \ ]
     " }}}"
 
-    " {{{ NERDTree
-    " don't open a split for ctrlp or nerdtree
-    augroup startify_augroup
-        " autocmd!
-        autocmd FileType startify setlocal buftype=
-    augroup END
-    " }}}"
-
     " {{{ vim-php-namespace
     " php add use statement for current class
     inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     noremap <Leader><Leader>u :call PhpInsertUse()<CR>
     " }}}"
 
-    " {{{ promptline
-    " promptline
-    let g:promptline_theme = 'airline_visual'
-    " let g:promptline_theme = 'powerlineclone'
-    let g:promptline_preset = 'clear'
-    let g:promptline_powerline_symbols = 0
-    " }}}"
-
-    " {{{ phpunit.vim
-    " phpunit use vim-dispatch
-    let g:phpunit_command = "Dispatch phpunit {test}"
-    nnoremap <leader>pf :call PHPUnitRunCurrentFile()<cr>
-    nnoremap <leader>pt :call PHPUnitRunCurrentTest()<cr>
-    nnoremap <leader>pp :call PHPUnitRunPreviousTest()<cr>
-    " }}}"
-
-    " {{{ tasklist
-    " tasklist plugin
-    nnoremap <leader>td :TaskList<CR>
-    nnoremap <leader>tl :TaskList<CR>
-    " }}}"
+    " {{{ youcompleteme
+    let g:ycm_add_preview_to_completeopt=1
+    " }}}
 
 " }}}
 
