@@ -39,9 +39,11 @@ function symlinks_run() {
     link_this "/var/www/sites" "$HOME/Sites"
     link_this "/Library/WebServer/Documents" "$HOME/Sites"
     link_this "$HOME/.dotfiles/to_link/adminer" "$HOME/Sites/adminer"
+
     link_this "$HOME/.dotfiles/to_link/webgrind" "$HOME/Sites/webgrind"
     link_this "$HOME/.dotfiles/to_link/.jshintrc" "$HOME/.jshintrc"
     link_this "$HOME/.dotfiles/to_link/.ngrok" "$HOME/.ngrok"
+    link_this "$HOME/.dotfiles/to_link/.virtualhost.sh.conf" "$HOME/.virtualhost.sh.conf"
 
     link_this "$HOME/.dotfiles/bin" "$HOME/.bin"
     sudo chmod a+x ~/.bin/*

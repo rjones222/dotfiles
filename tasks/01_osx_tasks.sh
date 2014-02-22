@@ -67,6 +67,7 @@ function osx_tasks_run() {
             tmux
             trash
             tree
+            virtualhost.sh
             watch
             wget
             )

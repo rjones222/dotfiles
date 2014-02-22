@@ -141,6 +141,14 @@ function linux_tasks_run() {
             sudo rake install
         fi
 
+        # install fideloper vhost
+        if [[ ! "$(type -P vhost)" ]]; then
+            log_info "Installing vhost tool"
+            curl https://gist.github.com/fideloper/2710970/raw/vhost.sh > vhost
+            sudo chmod guo+x vhost
+            sudo mv vhost /usr/local/bin
+        fi
+
         # install ctags patched
         if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
             log_info "Installing Ctags Patched"
