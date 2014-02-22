@@ -169,6 +169,9 @@ alias cowsays='cowsay -l | tail +2 | tr " " "\\n" | xargs -I {} cowsay -f {} "co
 # install the vaprobash vagrant file here
 alias vaprobash='curl -L http://bit.ly/vaprobash > Vagrantfile'
 
+# symfony console
+alias sc='php app/console'
+
 # don't forget there are reload commands in bash_it for everything
 # just type reload<tab>
 

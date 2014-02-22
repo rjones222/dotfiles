@@ -177,7 +177,7 @@
     nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
     " find all todos
-    noremap <Leader>td :noautocmd vimgrep /TODO/j **/*.php<CR>:cw<CR>
+    " noremap <Leader>td :noautocmd vimgrep /TODO/j **/*.php<CR>:cw<CR>
 
     " remap keys
     inoremap jj <Esc>
@@ -391,6 +391,8 @@
 
     " {{{ tasklist
     " tasklist plugin
+    let g:tlTokenList = ['@TODO', '@FIXME']
+    let g:tlWindowPosition = 1
     nnoremap <leader>td :TaskList<CR>
     nnoremap <leader>tl :TaskList<CR>
     " }}}"
