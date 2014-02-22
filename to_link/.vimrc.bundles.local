@@ -5,6 +5,9 @@
     Bundle 'tpope/vim-markdown'
     Bundle 'Puppet-Syntax-Highlighting'
 
+    " Blade Syntax Highlighting
+    Bundle 'xsbeats/vim-blade'
+
     " highlight matches for word, current line, etc."
     Bundle 'vim-scripts/highlight.vim'
 
