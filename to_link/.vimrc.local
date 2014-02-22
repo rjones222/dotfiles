@@ -30,6 +30,18 @@
     endfunction
     " }}}"
 
+    " {{{ change tab width
+    function! MyTabWidth(fromwidth, towidth)
+        " change every 4 spaces to a tab character
+        exe "set ts=".a:fromwidth." sts=".a:fromwidth." noet"
+        exe 'retab!'
+
+        " change tab length to 2 spaces, expandtab, retab
+        exe "set ts=".a:towidth." sts=".a:towidth." et"
+        exe 'retab'
+    endfunction
+    " }}}
+
     function! NeatFoldText() "{{{2
         let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
         let lines_count = v:foldend - v:foldstart + 1
@@ -119,6 +131,12 @@
 " Key Mapping {{{
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
+
+    " change tab width from 4 to 2 spaces and retab
+    nnoremap <leader>t2 :call MyTabWidth(4,2)<cr>
+
+    " change tab width from 2 to 4 spaces and retab
+    nnoremap <leader>t4 :call MyTabWidth(2,4)<cr>
 
     " go to next/previous closed fold
     nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
@@ -218,7 +236,7 @@
     " let g:solarized_italic=1
     " let g:solarized_termcolors=16
     " let g:solarized_contrast="high"
-    let g:solarized_visibility="high"
+    " let g:solarized_visibility="high"
     let g:solarized_diffmode="high"
     " let g:solarized_hitrail=1
     " let g:solarized_menu=1

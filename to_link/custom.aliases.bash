@@ -172,6 +172,9 @@ alias vaprobash='curl -L http://bit.ly/vaprobash > Vagrantfile'
 # symfony console
 alias sc='php app/console'
 
+# remove folder
+alias rmf='rm -rf'
+
 # don't forget there are reload commands in bash_it for everything
 # just type reload<tab>
 
