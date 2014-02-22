@@ -16,8 +16,8 @@ function install_run() {
     # yo includes grunt and bower
     packages=(
     csslint
-    grunt
-    grunt-cli
+    gulp
+    gulp-watch
     instant-markdown-d
     jshint
     jsonlint
