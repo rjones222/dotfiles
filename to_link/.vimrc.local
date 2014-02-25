@@ -33,11 +33,11 @@
     " {{{ change tab width
     function! MyTabWidth(fromwidth, towidth)
         " change every 4 spaces to a tab character
-        exe "set ts=".a:fromwidth." sts=".a:fromwidth." noet"
+        exe "setlocal ts=".a:fromwidth." sts=".a:fromwidth." noet"
         exe 'retab!'
 
         " change tab length to 2 spaces, expandtab, retab
-        exe "set ts=".a:towidth." sts=".a:towidth." et"
+        exe "setlocal ts=".a:towidth." sts=".a:towidth." et"
         exe 'retab'
     endfunction
     " }}}
@@ -64,10 +64,25 @@
 \       'File': 'Filesystem/Filesystem.php',
 \       'Eloquent': 'Database/Eloquent/Model.php'
 \   }
-
         execute ":edit vendor/laravel/framework/src/Illuminate/" . classes[facade]
     endfunction
     nmap ,lf :call FacadeLookup()<cr>
+    " }}}
+
+    " {{{ Add a new dependency to a PHP class - doesn't work
+    function! AddDependency()
+        let dependency = input('Var Name: ')
+        let namespace = input('Class Path: ')
+
+        let segments = split(namespace, '\')
+        let typehint = segments[-1]
+
+        exec 'normal gg/construct^M:H^Mf)i, ' . typehint . ' $' . dependency . '^[/}^>O$this->^[a' . dependency . ' = $' . dependency . ';^[?{^MkOprotected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
+
+        " Remove opening comma if there is only one dependency
+        exec 'normal :%s/(, /(/g'
+    endfunction
+    " nmap <leader>2  :call AddDependency()<cr>
     " }}}
 
     " for mouseterm
@@ -130,6 +145,12 @@
     " disable spellcheck
     set nospell
 
+    " Abbreviations
+    abbrev pft PHPUnit_Framework_TestCase
+    abbrev gm !php artisan generate:model
+    abbrev gc !php artisan generate:controller
+    abbrev gmig !php artisan generate:migration
+
     " if the last window is a quickfix, close it
     augroup qfclose_augroup
         " autocmd!
@@ -187,6 +208,12 @@
         endif
     endfun
 
+    " {{{ Laravel framework commons
+    nmap <leader>lr :e app/routes.php<cr>
+    nmap <leader>lca :e app/config/app.php<cr>81Gf(%O
+    nmap <leader>lcd :e app/config/database.php<cr>
+    nmap <leader>lc :e composer.json<cr>
+    " }}}"
 
     " map space to toggle folds
     nnoremap <space> za

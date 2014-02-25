@@ -181,6 +181,9 @@
     " show @TODOs and stuff
     " Bundle 'vim-scripts/TaskList.vim'
     Bundle 'mikedfunk/TaskList.vim'
+    
+    " Automatically detect indentation and set it
+    Bundle 'tpope/vim-sleuth'
 " }}}
 
 " Unbundle {{{
