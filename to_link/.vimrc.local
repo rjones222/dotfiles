@@ -596,7 +596,12 @@
 
     " {{{ gitv
     nnoremap <Leader>gv :Gitv --all<CR>
+
+    " browser mode
     nnoremap <Leader>gV :Gitv! --all<CR>
+
+    " automatically split in whatever direction fits best
+     let g:Gitv_OpenHorizontal = 'auto'
     " }}}
 
 " }}}

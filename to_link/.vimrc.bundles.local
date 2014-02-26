@@ -8,6 +8,12 @@
     " Gitk clone in vim"
     Bundle 'gregsexton/gitv'
 
+    " adds more text objects"
+    Bundle 'wellle/targets.vim'
+
+    " swap blocks of code with cx
+    Bundle 'tommcdo/vim-exchange'
+
     " Look up a github issue with :Gissues
     Bundle 'jaxbot/github-issues.vim'
 
