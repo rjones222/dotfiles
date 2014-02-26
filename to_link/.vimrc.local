@@ -104,7 +104,7 @@
     augroup END
 
     " do not redraw while running macros - faster
-    " set lazyredraw
+    set lazyredraw
 
     " auto source vimrc
     " augroup vimrc_augroup
