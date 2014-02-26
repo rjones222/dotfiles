@@ -594,6 +594,11 @@
     let g:ycm_add_preview_to_completeopt=1
     " }}}
 
+    " {{{ gitv
+    nnoremap <Leader>gv :Gitv --all<CR>
+    nnoremap <Leader>gV :Gitv! --all<CR>
+    " }}}
+
 " }}}
 
 " Include Custom vimrc if exists {{{

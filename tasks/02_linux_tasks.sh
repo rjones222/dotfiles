@@ -75,6 +75,13 @@ function linux_tasks_run() {
             }
         done
 
+        # install massren
+        if [[ ! "$(type -P massren)" ]]; then
+            log_info "installing massren"
+            curl -O https://raw.github.com/laurent22/massren/master/install/install.linux-amd64.sh
+            sudo bash install.linux-amd64.sh
+        fi
+
         # install battery script
         if [[ ! "$(type -P battery)" ]]; then
             log_info "installing battery script"

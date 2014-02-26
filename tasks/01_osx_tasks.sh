@@ -84,6 +84,12 @@ function osx_tasks_run() {
                 sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
             fi
 
+            if [[ ! "$(type -P massren)" ]]; then
+                log_info "installing massren"
+                brew tap laurent22/massren
+                brew install massren
+            fi
+
             if [[ ! "$(type -P openssl-osx-ca)" ]]; then
                 log_info "installing openssl-osx-ca to sync certificates"
                 brew tap raggi/ale

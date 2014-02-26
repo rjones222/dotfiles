@@ -5,6 +5,12 @@
     Bundle 'tpope/vim-markdown'
     Bundle 'Puppet-Syntax-Highlighting'
 
+    " Gitk clone in vim"
+    Bundle 'gregsexton/gitv'
+
+    " Look up a github issue with :Gissues
+    Bundle 'jaxbot/github-issues.vim'
+
     " Blade Syntax Highlighting
     Bundle 'xsbeats/vim-blade'
 
@@ -235,9 +241,6 @@
 
     " It's awesome but I prefer the command line.
     " UnBundle 'tpope/vim-fugitive'
-
-    " Look up a github issue with :Gissues
-    Bundle 'jaxbot/github-issues.vim'
 
     " temporarily broken with Vundle commands
     " UnBundle 'gorodinskiy/vim-coloresque'
