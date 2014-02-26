@@ -133,6 +133,8 @@ function install_run() {
     log_info "Installing Python packages"
 
     packages=(
+    distribute
+    supervisor
     )
     for package in "${packages[@]}"
     do
