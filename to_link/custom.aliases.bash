@@ -175,6 +175,15 @@ alias sc='php app/console'
 # remove folder
 alias rmf='rm -rf'
 
+# racingjunk stuff
+RJ1="rjprodtail /var/log/httpd/racingjunk.com/"
+RJ2="$(date +%Y%m%d)"
+RJ3="-error.log"
+alias rjerrors=$RJ1$RJ2$RJ3
+
+RJ4="-access_log"
+alias rjaccess=$RJ1$RJ2$RJ4
+
 # don't forget there are reload commands in bash_it for everything
 # just type reload<tab>
 
