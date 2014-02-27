@@ -2,25 +2,26 @@
 " vim:fdm=marker
 
     " the only misc bundles I use
+    " syntax highlighting for markdown and puppet
     Bundle 'tpope/vim-markdown'
     Bundle 'Puppet-Syntax-Highlighting'
 
-    " Gitk clone in vim"
+    " Gitk clone in vim
     Bundle 'gregsexton/gitv'
 
-    " adds more text objects"
+    " adds more text objects
     Bundle 'wellle/targets.vim'
 
-    " swap blocks of code with cx
+    " swap blocks of code with cx (c then x)
     Bundle 'tommcdo/vim-exchange'
 
     " Look up a github issue with :Gissues
     Bundle 'jaxbot/github-issues.vim'
 
-    " Blade Syntax Highlighting
+    " Laravel Blade Syntax Highlighting
     Bundle 'xsbeats/vim-blade'
 
-    " highlight matches for word, current line, etc."
+    " highlight matches for word, current line, etc.
     Bundle 'vim-scripts/highlight.vim'
 
     " adds extra intuitive keyboard shortcuts
