@@ -19,6 +19,7 @@ function linux_tasks_run() {
         apache2
         bison
         build-essential
+        cloc
         cronolog
         ctags
         imagemagick

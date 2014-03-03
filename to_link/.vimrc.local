@@ -219,6 +219,11 @@
     nnoremap <space> za
     vnoremap <space> zf
 
+    " open new lines without entering insert mode
+    " just use unimpaired intead: ]<space> and [<space>
+    " nnoremap <leader>o o<esc>
+    " nnoremap <leader>O O<esc>
+
     " increment with c-b
     nmap <C-B> <C-A>
 

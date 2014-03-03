@@ -38,6 +38,7 @@ function osx_tasks_run() {
             packages=(
             bash
             # ack
+            cloc
             ctags
             curl-ca-bundle
             # fasd

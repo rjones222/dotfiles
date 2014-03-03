@@ -184,6 +184,12 @@ alias rjerrors=$RJ1$RJ2$RJ3
 RJ4="-access_log"
 alias rjaccess=$RJ1$RJ2$RJ4
 
+# release and renew ip address on mac
+alias renewip="sudo ipconfig set en0 BOOTP && sudo ipconfig set en0 DHCP && echo 'ip renewed'"
+
+# mac flush dns
+alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && echo 'dns flushed'"
+
 # don't forget there are reload commands in bash_it for everything
 # just type reload<tab>
 

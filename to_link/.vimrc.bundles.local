@@ -6,6 +6,9 @@
     Bundle 'tpope/vim-markdown'
     Bundle 'Puppet-Syntax-Highlighting'
 
+    " css coloring that works and is fast
+    Bundle 'ap/vim-css-color'
+
     " Gitk clone in vim
     Bundle 'gregsexton/gitv'
 
@@ -249,8 +252,8 @@
     " It's awesome but I prefer the command line.
     " UnBundle 'tpope/vim-fugitive'
 
-    " temporarily broken with Vundle commands
-    " UnBundle 'gorodinskiy/vim-coloresque'
+    " this breaks BundleInstall
+    UnBundle 'gorodinskiy/vim-coloresque'
 
     " various spf-13 stuff I don't use
     UnBundle 'jnwhiteh/vim-golang'
