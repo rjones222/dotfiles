@@ -33,11 +33,11 @@
     " {{{ change tab width
     function! MyTabWidth(fromwidth, towidth)
         " change every 4 spaces to a tab character
-        exe "setlocal ts=".a:fromwidth." sts=".a:fromwidth." noet"
+        exe "setlocal sw=".a:fromwidth." ts=".a:fromwidth." sts=".a:fromwidth." noet"
         exe 'retab!'
 
         " change tab length to 2 spaces, expandtab, retab
-        exe "setlocal ts=".a:towidth." sts=".a:towidth." et"
+        exe "setlocal sw=".a:fromwidth." ts=".a:towidth." sts=".a:towidth." et"
         exe 'retab'
     endfunction
     " }}}
@@ -157,10 +157,10 @@
         autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
     augroup END
 
-    " 2 space indent in html
+    " 2 space indent in front-end
     augroup highlight_augroup
         " autocmd!
-        autocmd FileType smarty,blade,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+        autocmd FileType smarty,blade,html,javascript,css setlocal shiftwidth=2 tabstop=2 softtabstop=2
     augroup END
 " }}}
 
@@ -365,7 +365,7 @@
     augroup phpcomplete_augroup
         " autocmd!
         " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
-        autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set ts=2 sts=2
+        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
         " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
         autocmd FileType php set omnifunc=phpcomplete#CompletePHP
         autocmd FileType php set omnifunc=phpcomplete#CompletePHP
