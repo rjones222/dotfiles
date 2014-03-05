@@ -509,7 +509,8 @@
     " {{{ vdebug
     let g:vdebug_options = {}
     let g:vdebug_options['server'] = '192.168.56.1'
-    let g:vdebug_options['port'] = '9001'
+    " let g:vdebug_options['port'] = '9001'
+    let g:vdebug_options['port'] = '9000'
     " guest: host
     let g:vdebug_options['path_maps'] = {'/var/www': '/media/sf_ubuntubox'}
     " let g:vdebug_options["break_on_open"] = 0
