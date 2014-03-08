@@ -114,6 +114,7 @@ function install_run() {
     pygments.rb
     redcarpet
     rdiscount
+    rhc
     teamocil
     watch
     )
