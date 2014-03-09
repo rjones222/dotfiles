@@ -9,25 +9,35 @@ session:
         - cmd: "vim -S ~/.vim/sessions/config"
           focus: true
         - cmd: "git status"
-    - name: "rjunk"
-      root: "~/Sites/racingjunk"
-      clear: true
-      # layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
-      panes:
-        - cmd: "vim -S ~/.vim/sessions/rj"
-          focus: true
-        # - cmd: "git status"
-    - name: "vm"
-      root: "~/vms/mikes_vagrant_box"
+    - name: "acp-hrh-vm"
+      root: "~/Sites/acp-hotrodhotline"
       layout: "main-horizontal"
       filters:
-          before: "cd ~/vms/mikes_vagrant_box; vagrant up"
+        before: "cd ~/Sites/acp-hotrodhotline; vagrant up"
       clear: true
       panes:
-        - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
-        - cmd: "vim files/rm.sql"
+        - cmd: "vim -S ~/.vim/sessions/hrh-vm"
+          focus: true
         - cmd: "vagrant ssh"
-    - name: "vpn"
-      root: "~"
-      panes:
-        - cmd: "vpn"
+    # - name: "rj"
+      # root: "~/Sites/racingjunk"
+      # clear: true
+      # layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+      # panes:
+        # - cmd: "vim -S ~/.vim/sessions/rj"
+          # focus: true
+        # - cmd: "git status"
+    # - name: "rj-vm"
+      # root: "~/vms/mikes_vagrant_box"
+      # layout: "main-horizontal"
+      # filters:
+          # before: "cd ~/vms/rjvagrant; vagrant up"
+      # clear: true
+      # panes:
+        # - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
+        # - cmd: "vim files/rm.sql"
+        # - cmd: "vagrant ssh"
+    # - name: "vpn"
+      # root: "~"
+      # panes:
+        # - cmd: "vpn"

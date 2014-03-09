@@ -59,10 +59,11 @@
     function! FacadeLookup()
         let facade = input('Facade Name: ')
         let classes = {
+\       'Eloquent': 'Database/Eloquent/Model.php'
+\       'File': 'Filesystem/Filesystem.php',
 \       'Form': 'Html/FormBuilder.php',
 \       'Html': 'Html/HtmlBuilder.php',
-\       'File': 'Filesystem/Filesystem.php',
-\       'Eloquent': 'Database/Eloquent/Model.php'
+\       'View': 'View/View.php',
 \   }
         execute ":edit vendor/laravel/framework/src/Illuminate/" . classes[facade]
     endfunction
@@ -202,7 +203,7 @@
         endif
     endfunction
 
-    " foldmethod toggle
+    " {{{ foldmethod toggle between indent and marker
     let g:FoldMethod = 0
     map <leader>fm :call ToggleFold()<cr>
     fun! ToggleFold()
@@ -216,17 +217,19 @@
             let g:FoldMethod = 0
         endif
     endfun
+    " }}}
 
     " {{{ Laravel framework commons
     nmap <leader>lr :e app/routes.php<cr>
     nmap <leader>lca :e app/config/app.php<cr>81Gf(%O
     nmap <leader>lcd :e app/config/database.php<cr>
     nmap <leader>lc :e composer.json<cr>
-    " }}}"
+    " }}}
 
-    " map space to toggle folds
+    " {{{ map space to toggle folds
     nnoremap <space> za
     vnoremap <space> zf
+    " }}}
 
     " open new lines without entering insert mode
     " just use unimpaired intead: ]<space> and [<space>
@@ -321,6 +324,12 @@
 
     " vim-gitgutter better background
     " highlight clear SignColumn
+
+    " syntax highlighting for Vagrantfile"
+    augroup vagrant
+        au!
+        au BufRead,BufNewFile Vagrantfile set filetype=ruby
+    augroup END
 " }}}
 
 " Plugins {{{
@@ -593,9 +602,9 @@
 
     " disable common but unimportant files
     let g:startify_skiplist = [
-           \ 'COMMIT_EDITMSG',
-           \ '\.DS_Store'
-           \ ]
+        \ 'COMMIT_EDITMSG',
+        \ '\.DS_Store'
+        \ ]
     " }}}"
 
     " {{{ vim-php-namespace
@@ -607,6 +616,14 @@
     " {{{ youcompleteme
     " open preview window while completing
     let g:ycm_add_preview_to_completeopt=1
+
+    " disable youcompleteme in views for now
+    " @link https://github.com/mattn/emmet-vim/issues/162
+    let g:ycm_filetype_blacklist = {
+        \ 'smarty' : 1,
+        \ 'blade' : 1,
+        \ 'html' : 1
+        \}
     " }}}
 
     " {{{ gitv

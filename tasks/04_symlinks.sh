@@ -13,15 +13,17 @@ function symlinks_run() {
     link_this "$HOME/.dotfiles/to_link/.agignore" "$HOME/.agignore"
     link_this "$HOME/.dotfiles/to_link/.config" "$HOME/.config"
     link_this "$HOME/.dotfiles/to_link/.ssh" "$HOME/.ssh"
+
     link_this "$HOME/.dotfiles/to_link/.ctags" "$HOME/.ctags"
     link_this "$HOME/.dotfiles/to_link/.irssi" "$HOME/.irssi"
-
     link_this "$HOME/.dotfiles/to_link/.screenrc" "$HOME/.screenrc"
     link_this "$HOME/.dotfiles/to_link/.tmux.conf" "$HOME/.tmux.conf"
     link_this "$HOME/.dotfiles/to_link/.tmate.conf" "$HOME/.tmate.conf"
+
     link_this "$HOME/.dotfiles/to_link/.grcat" "$HOME/.grcat"
     link_this "$HOME/.dotfiles/to_link/.my.cnf" "$HOME/.my.cnf"
     link_this "$HOME/.dotfiles/to_link/.my.ini" "$HOME/.my.ini"
+    link_this "$HOME/.dotfiles/to_link/composer.json" "$HOME/.composer/composer.json"
 
     link_this "$HOME/.dotfiles/to_link/.inputrc" "$HOME/.inputrc"
     link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/.rainbarf.conf"

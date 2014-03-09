@@ -15,6 +15,11 @@ if [ -d /Applications/VirtualBox.app/Contents/MacOS/ ]; then
     export PATH="/Applications/VirtualBox.app/Contents/MacOS:$PATH"
 fi
 
+# composer global
+if [ -d ~/.composer/vendor/bin ]; then
+    export PATH="~/.composer/vendor/bin:$PATH"
+fi
+
 # phpbrew
 if [ -f ~/.phpbrew/bashrc ]; then
     export PHPBREW_SET_PROMPT=1

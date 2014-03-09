@@ -73,6 +73,12 @@ function install_run() {
         cd -
     fi
 
+    # install global composer.json
+    if [[ ! -d ~/.composer ]]; then
+        log_info "creating global composer directory"
+        mkdir ~/.composer
+    fi
+
     # install laravel installer
     if [[ ! "$(type -P laravel)" ]]; then
         log_info "Installing Laravel Installer"
