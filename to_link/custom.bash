@@ -17,7 +17,7 @@ fi
 
 # composer global
 if [ -d ~/.composer/vendor/bin ]; then
-    export PATH="~/.composer/vendor/bin:$PATH"
+    export PATH="$HOME/.composer/vendor/bin:$PATH"
 fi
 
 # phpbrew

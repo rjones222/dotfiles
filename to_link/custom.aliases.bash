@@ -84,6 +84,9 @@ alias pf="phpunit --debug --filter "
 alias pu="phpunit"
 alias cda="composer dump-autoload"
 alias cu="composer update"
+alias cs="php app/console"
+alias cpt="codecept"
+alias cept="codecept"
 # alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 # alias quickserver="python -m SimpleHTTPServer"
@@ -133,6 +136,7 @@ alias grep="grep --color=auto"
 # tmux session for work
 alias work="tmux -2 -S /tmp/pair attach -t Work || (tmux -2 -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -2 -S /tmp/pair attach)"
 alias layout="teamocil work --here"
+alias bookymark="teamocil bookymark --here"
 
 # create any dirs in path
 alias mkdir='mkdir -pv'

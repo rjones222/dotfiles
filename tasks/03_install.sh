@@ -73,6 +73,13 @@ function install_run() {
         cd -
     fi
 
+    # install codeception
+    if [[ ! "$(type -P codeception)" ]]; then
+        log_info "Installing codeception"
+        wget https://codeception.com/codecept.phar /usr/local/bin/codecept
+        sudo chmod +x /usr/local/bin/codecept
+    fi
+
     # install global composer.json
     if [[ ! -d ~/.composer ]]; then
         log_info "creating global composer directory"

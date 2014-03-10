@@ -432,8 +432,14 @@
     " {{{ phpunit.vim
     " phpunit use vim-dispatch
     let g:phpunit_command = "Dispatch phpunit {test}"
+
+    " only way to filter to a test file"
     nnoremap <leader>pf :call PHPUnitRunCurrentFile()<cr>
+
+    " place cursor over test method to run a specific test method
     nnoremap <leader>pt :call PHPUnitRunCurrentTest()<cr>
+
+    " run one test from the test file first, then do this repeatedly
     nnoremap <leader>pp :call PHPUnitRunPreviousTest()<cr>
     " }}}"
 
