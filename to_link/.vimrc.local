@@ -530,10 +530,9 @@
     " let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
     " }}}"
 
-    " {{{ vdebug
+    " {{{ vdebug xdebug plugin
     let g:vdebug_options = {}
     let g:vdebug_options['server'] = '192.168.56.1'
-    " let g:vdebug_options['port'] = '9001'
     let g:vdebug_options['port'] = '9000'
     " guest: host
     let g:vdebug_options['path_maps'] = {'/var/www': '/media/sf_ubuntubox'}
@@ -622,15 +621,6 @@
     " {{{ youcompleteme
     " open preview window while completing
     let g:ycm_add_preview_to_completeopt=1
-
-    " disable youcompleteme in views for now
-    " @link https://github.com/mattn/emmet-vim/issues/162
-    let g:ycm_filetype_blacklist = {
-        \ 'smarty' : 1,
-        \ 'blade' : 1,
-        \ 'html' : 1
-        \}
-    " }}}
 
     " {{{ gitv
     nnoremap <Leader>gv :Gitv --all<CR>
