@@ -87,12 +87,12 @@
     " Bundle 'Shutnik/jshint2.vim'
 
     " auto-update ctags on save
-    " Bundle 'szw/vim-tags'
+    Bundle 'szw/vim-tags'
     Bundle 'tpope/vim-dispatch'
 
-    " auto ctags"
-    Bundle 'xolox/vim-misc'
-    Bundle 'xolox/vim-easytags'
+    " auto update ctags on pause
+    " Bundle 'xolox/vim-misc'
+    " Bundle 'xolox/vim-easytags'
 
     " rxvt keyboard fixes
     " Bundle 'nacitar/terminalkeys.vim'

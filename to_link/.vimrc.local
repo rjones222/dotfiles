@@ -227,8 +227,8 @@
     " }}}
 
     " {{{ map space to toggle folds
-    " nnoremap <space> za
-    " vnoremap <space> zf
+    nnoremap <space> za
+    vnoremap <space> zf
     " }}}
 
     " open new lines without entering insert mode
@@ -281,10 +281,12 @@
     imap <C-Space> <C-x><C-o>
     " imap <C-@> <C-Space>
 
-    " put cursor at end of text on y and p
+    " {{{ put cursor at end of text on y and p
     vnoremap <silent> y y`]
     vnoremap <silent> p p`]
     nnoremap <silent> p p`]
+    " }}}
+
 " }}}
 
 " Theme {{{
@@ -301,7 +303,7 @@
     " let g:solarized_menu=1
     " set fillchars="fold: "
 
-    " custom indent guide colors
+    " {{{ custom indent guide colors
     set colorcolumn=80
     let g:indent_guides_auto_colors = 0
     " augroup indent_guides_augroup
@@ -309,27 +311,35 @@
         " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
         " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
     " augroup END
+    " }}}
 
+    " {{{ fix weird indent guide colors 
     " hi IndentGuidesOdd ctermbg=235
     " hi IndentGuidesEven ctermbg=236
     hi IndentGuidesOdd ctermbg=black
     hi IndentGuidesEven ctermbg=black
+    " }}}
 
-    "toggle between day and night theme
+    " {{{ toggle between day and night theme
     call togglebg#map("<leader>bg")
+    " }}}
 
-    " change the default EasyMotion shading to something more readable with Solarized
+    " {{{ change the default EasyMotion shading to something more readable with Solarized
     hi link EasyMotionTarget ErrorMsg
     hi link EasyMotionShade  Comment
+    " }}}
 
-    " vim-gitgutter better background
+    " {{{ vim-gitgutter better background
     " highlight clear SignColumn
+    " }}}
 
-    " syntax highlighting for Vagrantfile"
+    " {{{ syntax highlighting for Vagrantfile
     augroup vagrant
         au!
         au BufRead,BufNewFile Vagrantfile set filetype=ruby
     augroup END
+    " }}}
+
 " }}}
 
 " Plugins {{{
@@ -446,6 +456,12 @@
     " {{{ projectroot
     " cd to project root
     nnoremap <leader>dp :ProjectRootCD<cr>
+
+    " always auto cd to project root! helps with vim-tag
+    augroup ProjectRootGroup
+        " au!
+        au BufEnter * if &ft != 'help' | call ProjectRootCD() | endif
+    augroup END
     " }}}"
 
     " {{{ promptline
@@ -634,17 +650,28 @@
     " }}}
 
     " {{{ easytags
-    let g:easytags_updatetime_warn=0
-    let g:easytags_python_enabled=1
-    let b:easytags_auto_highlight = 0
-    " let g:easytags_cmd="ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf"
+    " let g:easytags_auto_update = 0
+    " let g:easytags_dynamic_files = 1
+    " let g:easytags_updatetime_warn=0
+    " let g:easytags_python_enabled=1
+    " let b:easytags_auto_highlight = 0
+    " let g:easytags_cmd='ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes 2>/dev/null'
     " highlight phpFunctionsTag gui=underline cterm=underline term=underline
     " highlight phpClassesTag gui=underline cterm=underline term=underline
     " }}}
 
+    " {{{ vim-tags
+    " doesn't want to auto-generate for some reason
+    " augroup PhpVimTag
+        " " autocmd!
+        " autocmd BufWritePost *.php :TagsGenerate
+    " augroup END
+    let g:vim_tags_project_tags_command='ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes {OPTIONS} {DIRECTORY} 2>/dev/null'
+    " }}}
+
     " {{{ underline tags
     augroup UnderlineTag
-      autocmd!
+      " autocmd!
       autocmd BufEnter *.php UnderlineTagOn
     augroup END
     " }}}
