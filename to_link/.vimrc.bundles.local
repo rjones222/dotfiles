@@ -91,8 +91,8 @@
     Bundle 'tpope/vim-dispatch'
 
     " auto ctags"
-    " Bundle 'xolox/vim-misc'
-    " Bundle 'xolox/vim-easytags'
+    Bundle 'xolox/vim-misc'
+    Bundle 'xolox/vim-easytags'
 
     " rxvt keyboard fixes
     " Bundle 'nacitar/terminalkeys.vim'
@@ -177,7 +177,8 @@
     Bundle 'rayburgemeestre/phpfolding.vim'
 
     " share registers across vim installations
-    Bundle 'ardagnir/united-front'
+    " sets the updatetime to 200ms. bad.
+    " Bundle 'ardagnir/united-front'
 
     " create files and parent dirs at the same time
     Bundle 'dockyard/vim-easydir'
@@ -197,9 +198,13 @@
     " show @TODOs and stuff
     " Bundle 'vim-scripts/TaskList.vim'
     Bundle 'mikedfunk/TaskList.vim'
-    
+
+    " underline tags
+    Bundle 't9md/vim-underlinetag'
+
     " Automatically detect indentation and set it
-    Bundle 'tpope/vim-sleuth'
+    " BUT it sets expandtab on php! Lame!
+    " Bundle 'tpope/vim-sleuth'
 " }}}
 
 " Unbundle {{{

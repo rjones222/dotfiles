@@ -11,7 +11,7 @@ alias ngrokserve="ngrok -subdomain=mikedfunk -authtoken CBLb8X5ikqjKSdnXcZDD 80"
 alias updates='git add --all .; git commit -am "updates"; git pull && git push'
 alias dotupdates='cd ~/.dotfiles; updates; cd -'
 alias blogupdates='cd ~/Sites/mikedfunk.github.io; updates; cd -'
-alias working='git add --all .; git commit -am "fixup! working"; git pull && git push'
+alias working='git add --all .; git commit -am "fixup!"'
 
 # apache restart
 alias ares="sudo apachectl restart"
@@ -88,6 +88,7 @@ alias cs="php app/console"
 alias cpt="codecept"
 alias cept="codecept"
 alias cr="codecept run"
+alias com="composer"
 # alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 # alias quickserver="python -m SimpleHTTPServer"

@@ -33,7 +33,7 @@
     " {{{ change tab width
     function! MyTabWidth(fromwidth, towidth)
         " change every 4 spaces to a tab character
-        exe "setlocal sw=".a:fromwidth." ts=".a:fromwidth." sts=".a:fromwidth." noet"
+        exe "setlocal sw=".a:fromwidth." ts=".a:fromwidth." sts=".a:fromwidth." et"
         exe 'retab!'
 
         " change tab length to 2 spaces, expandtab, retab
@@ -98,8 +98,8 @@
 
     " use php documentation with <shift>K from pear package pman"
     augroup phpman_autogroup
-        " autocmd FileType php set keywordprg=pman
-        autocmd FileType php nnoremap K :Silent pman <cword> <CR>
+        autocmd FileType php set keywordprg=pman\ -P\ less
+        " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
         " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
         " autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
     augroup END
@@ -227,8 +227,8 @@
     " }}}
 
     " {{{ map space to toggle folds
-    nnoremap <space> za
-    vnoremap <space> zf
+    " nnoremap <space> za
+    " vnoremap <space> zf
     " }}}
 
     " open new lines without entering insert mode
@@ -621,6 +621,7 @@
     " {{{ youcompleteme
     " open preview window while completing
     let g:ycm_add_preview_to_completeopt=1
+    " let g:ycm_allow_changing_updatetime=0
 
     " {{{ gitv
     nnoremap <Leader>gv :Gitv --all<CR>
@@ -630,6 +631,22 @@
 
     " automatically split in whatever direction fits best
      let g:Gitv_OpenHorizontal = 'auto'
+    " }}}
+
+    " {{{ easytags
+    let g:easytags_updatetime_warn=0
+    let g:easytags_python_enabled=1
+    let b:easytags_auto_highlight = 0
+    " let g:easytags_cmd="ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf"
+    " highlight phpFunctionsTag gui=underline cterm=underline term=underline
+    " highlight phpClassesTag gui=underline cterm=underline term=underline
+    " }}}
+
+    " {{{ underline tags
+    augroup UnderlineTag
+      autocmd!
+      autocmd BufEnter *.php UnderlineTagOn
+    augroup END
     " }}}
 
 " }}}
