@@ -1,5 +1,6 @@
 {
     "require": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "phpcs": "*"
     }
 }
