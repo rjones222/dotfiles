@@ -175,6 +175,8 @@ alias cowsays='cowsay -l | tail +2 | tr " " "\\n" | xargs -I {} cowsay -f {} "co
 
 # install the vaprobash vagrant file here
 alias vaprobash='curl -L http://bit.ly/vaprobash > Vagrantfile'
+alias vpro='vagrant provision'
+alias vdst='vagrant destroy'
 
 # symfony console
 alias sc='php app/console'
