@@ -675,6 +675,11 @@
       autocmd BufEnter *.php UnderlineTagOn
     augroup END
     " }}}
+    "
+    " {{{ vim-autoclose
+    " don't put closing "s in vimscript files
+    let g:autoclose_vim_commentmode = 1
+    " }}}
 
 " }}}
 

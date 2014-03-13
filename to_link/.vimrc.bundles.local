@@ -218,6 +218,7 @@
 
     " I use solarized
     UnBundle 'flazz/vim-colorschemes'
+    UnBundle 'vim-colors'
 
     " I don't use this now
     UnBundle 'bling/vim-bufferline'
@@ -282,6 +283,8 @@
     UnBundle 'dag/vim2hs'
     UnBundle 'eagletmt/ghcmod-vim'
     UnBundle 'Blackrush/vim-gocode'
+    " I don't use HAML but I use SASS, which is also in here
+    " UnBundle 'tpope/vim-haml'
     UnBundle 'tpope/vim-rails'
     UnBundle 'eagletmt/neco-ghc'
 " }}}
