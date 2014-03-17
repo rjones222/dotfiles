@@ -460,7 +460,7 @@
     " always auto cd to project root! helps with vim-tag
     augroup ProjectRootGroup
         " au!
-        au BufEnter * if &ft != 'help' | call ProjectRootCD() | endif
+        " au BufEnter * :silent call ProjectRootCD()
     augroup END
     " }}}"
 
@@ -651,13 +651,13 @@
 
     " {{{ easytags
     " let g:easytags_auto_update = 0
-    " let g:easytags_dynamic_files = 1
-    " let g:easytags_updatetime_warn=0
+    let g:easytags_dynamic_files=1
+    let g:easytags_updatetime_warn=0
     " let g:easytags_python_enabled=1
-    " let b:easytags_auto_highlight = 0
-    " let g:easytags_cmd='ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes 2>/dev/null'
-    " highlight phpFunctionsTag gui=underline cterm=underline term=underline
-    " highlight phpClassesTag gui=underline cterm=underline term=underline
+    " let b:easytags_auto_highlight=0
+    " let g:easytags_cmd="ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes 2>/dev/null"
+    highlight phpFunctionsTag gui=underline cterm=underline term=underline
+    highlight phpClassesTag gui=underline cterm=underline term=underline
     " }}}
 
     " {{{ vim-tags
@@ -666,13 +666,14 @@
         " " autocmd!
         " autocmd BufWritePost *.php :TagsGenerate
     " augroup END
-    let g:vim_tags_project_tags_command='ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes {OPTIONS} {DIRECTORY} 2>/dev/null'
+    " let g:vim_tags_project_tags_command='ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes {OPTIONS} {DIRECTORY} 2>/dev/null'
+    " let g:vim_tags_use_vim_dispatch=1
     " }}}
 
     " {{{ underline tags
     augroup UnderlineTag
       " autocmd!
-      autocmd BufEnter *.php UnderlineTagOn
+      " autocmd BufEnter *.php UnderlineTagOn
     augroup END
     " }}}
     "
