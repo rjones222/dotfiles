@@ -47,6 +47,9 @@ alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
 # php 5.4 built-in web server
 alias phpserver='php -S localhost:8000'
 
+# php-cs-fixer
+alias pcf='php-cs-fixer'
+
  # additional details
 alias lsd="ls -GpFha"
 
@@ -57,6 +60,7 @@ alias :pwd="pwd"
 alias :cd="cd"
 alias :so="source"
 alias artisan="php artisan"
+alias art="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
 alias pearupgrade="sudo pear upgrade"
 

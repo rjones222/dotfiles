@@ -93,6 +93,8 @@
     " auto update ctags on pause
     Bundle 'xolox/vim-misc'
     Bundle 'xolox/vim-easytags'
+    " until he makes tag indexing non-blocking (asynchronous)
+    " Bundle 'mikedfunk/vim-easytags'
 
     " rxvt keyboard fixes
     " Bundle 'nacitar/terminalkeys.vim'

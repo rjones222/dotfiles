@@ -73,6 +73,16 @@ function install_run() {
         cd -
     fi
 
+    # install pyrus
+    if [[ ! "$(type -P pyrus)" ]]; then
+        log_info "Installing pyrus"
+        cd
+        curl -sS http://pear2.php.net/pyrus.phar | php
+        sudo mv pyrus.phar /usr/local/bin/pyrus
+        sudo chmod +x /usr/local/bin/pyrus
+        cd -
+    fi
+
     # install codeception
     if [[ ! "$(type -P codeception)" ]]; then
         log_info "Installing codeception"
