@@ -653,11 +653,11 @@
     " let g:easytags_auto_update = 0
     let g:easytags_dynamic_files=1
     let g:easytags_updatetime_warn=0
-    " let g:easytags_python_enabled=1
+    let g:easytags_python_enabled=1
     " let b:easytags_auto_highlight=0
     " let g:easytags_cmd="ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes 2>/dev/null"
-    highlight phpFunctionsTag gui=underline cterm=underline term=underline
-    highlight phpClassesTag gui=underline cterm=underline term=underline
+    highlight phpFunctionsTag cterm=underline gui=underline term=underline
+    highlight phpClassesTag cterm=underline gui=underline term=underline
     " }}}
 
     " {{{ vim-tags
@@ -671,10 +671,10 @@
     " }}}
 
     " {{{ underline tags
-    augroup UnderlineTag
+    " augroup UnderlineTag
       " autocmd!
       " autocmd BufEnter *.php UnderlineTagOn
-    augroup END
+    " augroup END
     " }}}
     "
     " {{{ vim-autoclose
