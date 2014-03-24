@@ -22,6 +22,7 @@
     wiff = diff --color-words
     pup = pull --recurse-submodules && git submodule update
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+    unstage = reset HEAD
 [color]
     branch = true
     diff = true

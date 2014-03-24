@@ -36,6 +36,11 @@ if [ -d "$HOME/.phpenv/bin" ] ; then
     export PATH="$HOME/.phpenv/bin:$PATH"
 fi
 
+# pear
+if [ -d "$HOME/pear/bin" ] ; then
+    export PATH="$HOME/pear/bin:$PATH"
+fi
+
 # rbenv
 export RBENV_ROOT="${HOME}/.rbenv"
 if [ -d "${RBENV_ROOT}" ]; then
