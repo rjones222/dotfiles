@@ -375,11 +375,12 @@
     command! Gprp silent Gpurr | Gpush
 
     unmap <leader>gp
-    " nnoremap <silent> <leader>gpu :Gpush<CR>
+    " nnoremap <silent> <leader>gpu :Gpuspacesh<CR>
     " nnoremap <silent> <leader>gpl :Gpull<CR>:e<CR>
     nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
     nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
     nnoremap <leader>gps :Dispatch! git push<CR>
+    nnoremap <leader>gpu :Dispatch! git push<CR>
     nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
     " }}}"
 
