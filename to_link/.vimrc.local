@@ -366,6 +366,21 @@
         " open quickfix window on git grep
         autocmd QuickFixCmdPost *grep* cwindow
     augroup END
+
+    " Fugitive Commands
+    command! -bar -nargs=* Gpull execute 'Git pull' <q-args> 'origin' fugitive#head()
+    command! -bar -nargs=* Gpush execute 'Git push' <q-args> 'origin' fugitive#head()
+    command! -bar -nargs=* Gpurr execute 'Git pull --rebase' <q-args> 'origin' fugitive#head()
+    command! Gpnp silent Gpull | Gpush
+    command! Gprp silent Gpurr | Gpush
+
+    unmap <leader>gp
+    " nnoremap <silent> <leader>gpu :Gpush<CR>
+    " nnoremap <silent> <leader>gpl :Gpull<CR>:e<CR>
+    nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
+    nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
+    nnoremap <leader>gps :Dispatch! git push<CR>
+    nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
     " }}}"
 
     " NERDTree {{{

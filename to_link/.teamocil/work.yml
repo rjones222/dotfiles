@@ -9,14 +9,29 @@ session:
         - cmd: "vim -S ~/.vim/sessions/config"
           focus: true
         - cmd: "git status"
-    - name: "acp-hrh-vm"
+    - name: "hrh"
       root: "~/Sites/acp-hotrodhotline"
       layout: "main-horizontal"
       filters:
         before: "cd ~/Sites/acp-hotrodhotline; vagrant up"
       clear: true
       panes:
-        - cmd: "vim -S ~/.vim/sessions/hrh-vm"
+        - cmd: "vim -S ~/.vim/sessions/hrh"
+    - name: "acp"
+      root: "~/Sites/auto-classifieds-platform"
+      layout: "main-horizontal"
+      clear: true
+      panes:
+        - cmd: "vim -S ~/.vim/sessions/acp"
+          focus: true
+    - name: "vm"
+      root: "~/Sites/acp-hotrodhotline"
+      layout: "main-horizontal"
+      filters:
+        before: "cd ~/Sites/acp-hotrodhotline; vagrant up"
+      clear: true
+      panes:
+        - cmd: "vim -S ~/.vim/sessions/vm"
           focus: true
         - cmd: "vagrant ssh"
     # - name: "rj"
