@@ -7,7 +7,8 @@
     Bundle 'Puppet-Syntax-Highlighting'
 
     " css coloring that works and is fast
-    Bundle 'ap/vim-css-color'
+    " buggy lately
+    " Bundle 'ap/vim-css-color'
 
     " Gitk clone in vim
     Bundle 'gregsexton/gitv'
@@ -268,7 +269,7 @@
     " UnBundle 'tpope/vim-fugitive'
 
     " this breaks BundleInstall
-    UnBundle 'gorodinskiy/vim-coloresque'
+    " UnBundle 'gorodinskiy/vim-coloresque'
 
     " various spf-13 stuff I don't use
     UnBundle 'jnwhiteh/vim-golang'
