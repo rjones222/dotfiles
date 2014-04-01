@@ -18,6 +18,10 @@
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
 
+    " {{{ format json
+    nnoremap <leader>fj :%!python -m json.tool<cr>
+    " }}}
+
     " {{{ quickfix window
     " set quickfix window height min and max  automatically
     augroup quickfix_augroup
