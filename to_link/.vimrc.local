@@ -183,7 +183,7 @@
     command! -nargs=* Wrap set wrap linebreak nolist
 
     " dotfile updates
-    command! -nargs=* Dotupdates :Dispatch cd $HOME/.dotfiles; git add -A && git commmit -am 'updates' && git push; cd -; echo 'dotfiles updated'
+    command! -nargs=* Dotupdates :Dispatch cd $HOME/.dotfiles; git add -A && git commit -am 'updates' && git push; cd -; echo 'dotfiles updated'
 
     " change tab width from 4 to 2 spaces and retab
     nnoremap <leader>t2 :call MyTabWidth(4,2)<cr>
