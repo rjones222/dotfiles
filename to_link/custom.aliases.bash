@@ -12,7 +12,7 @@ alias updates='git add --all .; git commit -am "updates"; git pull && git push'
 alias dotupdates='cd ~/.dotfiles; updates; cd -'
 alias blogupdates='cd ~/Sites/mikedfunk.github.io; updates; cd -'
 alias working='git add --all .; git commit -am "fixup!"'
-alias git-root='cd $(git rev-parse --show-cdup)'
+alias git-root='cd $(git rev-parse --show-toplevel)'
 alias gr='git-root'
 
 # apache restart
