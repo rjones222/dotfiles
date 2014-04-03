@@ -364,7 +364,7 @@
 " let g:ctrlp_extensions = ['tag']
 " }}}"
 
-    " {{{ dispatch
+    " {{{ dispatch 
     nnoremap <silent> <Leader>di :call CallDispatchWithCommand() <CR>
 
     function! CallDispatchWithCommand()
