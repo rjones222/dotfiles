@@ -575,6 +575,20 @@
     let g:vdebug_options['path_maps'] = {'/var/www': '/media/sf_ubuntubox'}
     " let g:vdebug_options["break_on_open"] = 0
     let g:vdebug_options["watch_window_style"] = 'compact'
+    " move run_to_cursor from F1 to F9
+    let g:vdebug_keymap = {
+    \    "run" : "<F5>",
+    \    "run_to_cursor" : "<F9>",
+    \    "step_over" : "<F2>",
+    \    "step_into" : "<F3>",
+    \    "step_out" : "<F4>",
+    \    "close" : "<F6>",
+    \    "detach" : "<F7>",
+    \    "set_breakpoint" : "<F10>",
+    \    "get_context" : "<F11>",
+    \    "eval_under_cursor" : "<F12>",
+    \    "eval_visual" : "<Leader>e",
+    \}
     " }}}"
 
     " {{{ vim-airline
@@ -681,7 +695,7 @@
     let g:easytags_updatetime_warn=0
     let g:easytags_python_enabled=1
     let b:easytags_auto_highlight=0
-    nnoremap <Leader>ct :UpdateTags<CR>
+    nnoremap <Leader>ut :UpdateTags<CR>
 
     " this doesn't work. Apparently it's only for the path to ctags, not args.
     " let g:easytags_cmd="ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes 2>/dev/null"
@@ -707,6 +721,11 @@
       " autocmd!
       " autocmd BufEnter *.php UnderlineTagOn
     " augroup END
+    " }}}
+
+    " {{{ undotree
+    unmap <leader>u
+    nnoremap <leader>uu :UndotreeToggle<CR>
     " }}}
     "
     " {{{ vim-autoclose
