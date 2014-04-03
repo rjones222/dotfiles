@@ -92,8 +92,8 @@
     Bundle 'tpope/vim-dispatch'
 
     " auto update ctags on pause
-    Bundle 'xolox/vim-misc'
-    Bundle 'xolox/vim-easytags'
+    " Bundle 'xolox/vim-misc'
+    " Bundle 'xolox/vim-easytags'
     " until he makes tag indexing non-blocking (asynchronous)
     " Bundle 'mikedfunk/vim-easytags'
 
