@@ -183,7 +183,7 @@
     command! -nargs=* Wrap set wrap linebreak nolist
 
     " dotfile updates
-    command! Dotupdates :Dispatch cd $HOME/.dotfiles; git add -A && git commit -am 'updates' && git push; cd -
+    command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
 
     " spf13-vim updates
     command! Spfupdate :Dispatch cd ~/.spf13-vim-3 && git pull && cd -
