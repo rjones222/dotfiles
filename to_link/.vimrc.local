@@ -377,7 +377,7 @@
     " easytags just doesn't work well. it blocks the ui when updating (doesn't
     " use dispatch), it doesn't use my custom easy_tags_cmd, and the
     " highlighting won't use my custom highlight. Fuck it, we'll do it live!
-    nnoremap <silent> <Leader>ut :Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null<CR><CR>
+    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null<CR>
 
     " Easytags blocks the UI on pause, which sucks! It also apparently
     " slows down the UI with it's highlighting, which I can't seem to switch
