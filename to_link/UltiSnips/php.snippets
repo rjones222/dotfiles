@@ -4,8 +4,14 @@ snippet prt "print_r true"
 print_r(${1}, true)${2}
 endsnippet
 
-snippet fail "phpunit incomplete test"
+snippet markTestIncomplete "phpunit incomplete test"
 $this->markTestIncomplete();${1}
+endsnippet
+
+snippet codingStandardsIgnore "magical docblock to make phpcs shut up!"
+/**
+ * @codingStandardsIgnoreFile
+ */
 endsnippet
 
 snippet author
