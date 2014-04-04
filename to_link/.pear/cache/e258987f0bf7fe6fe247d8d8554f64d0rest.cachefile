@@ -1,0 +1,34 @@
+a:16:{s:7:"attribs";a:4:{s:5:"xmlns";s:37:"http://pear.php.net/dtd/rest.release2";s:9:"xmlns:xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:11:"xmlns:xlink";s:28:"http://www.w3.org/1999/xlink";s:18:"xsi:schemaLocation";s:83:"http://pear.php.net/dtd/rest.release2     http://pear.php.net/dtd/rest.release2.xsd";}s:1:"p";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:23:"/rest/p/php_codesniffer";}s:8:"_content";s:15:"PHP_CodeSniffer";}s:1:"c";s:12:"pear.php.net";s:1:"v";s:5:"1.5.2";s:1:"a";s:5:"1.5.2";s:2:"mp";s:5:"5.1.2";s:2:"st";s:6:"stable";s:1:"l";s:20:"BSD 3-Clause License";s:1:"m";s:5:"squiz";s:1:"s";s:116:"PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.";s:1:"d";s:290:"PHP_CodeSniffer is a PHP5 script that tokenises PHP, JavaScript and CSS files to detect violations of a defined coding standard. It is an essential development tool that ensures your code remains clean and consistent. It can also help prevent some common semantic errors made by developers.";s:2:"da";s:19:"2014-02-05 01:07:51";s:1:"n";s:2674:"- Improved support for the PHP 5.5. classname::class syntax
+  -- PSR2 SwitchDeclarationSniff no longer throws errors when this syntax is used in CASE conditions
+- Improved support for negative checks of instanceOf in Squiz ComparisonOperatorUsageSniff
+  -- Thanks to Martin Winkel for the patch
+- Generic FunctionCallArgumentSpacingSniff now longer complains about space before comma when using here/nowdocs
+  -- Thanks to Richard van Velzen for the patch
+- Generic LowerCaseConstantSniff and UpperCaseConstantSniff now ignore class constants
+  -- Thanks to Kristopher Wilson for the patch
+- PEAR FunctionCallSignatureSniff now has settings to specify how many spaces should appear before/after parentheses
+  -- Override the 'requiredSpacesAfterOpen' and 'requiredSpacesBeforeClose' settings in a ruleset.xml file to change
+  -- Default remains at 0 for both
+  -- Thanks to Astinus Eberhard for the patch
+- PSR2 ControlStructureSpacingSniff now has settings to specify how many spaces should appear before/after parentheses
+  -- Override the 'requiredSpacesAfterOpen' and 'requiredSpacesBeforeClose' settings in a ruleset.xml file to change
+  -- Default remains at 0 for both
+  -- Thanks to Astinus Eberhard for the patch
+- Squiz ForEachLoopDeclarationSniff now has settings to specify how many spaces should appear before/after parentheses
+  -- Override the 'requiredSpacesAfterOpen' and 'requiredSpacesBeforeClose' settings in a ruleset.xml file to change
+  -- Default remains at 0 for both
+  -- Thanks to Astinus Eberhard for the patch
+- Squiz ForLoopDeclarationSniff now has settings to specify how many spaces should appear before/after parentheses
+  -- Override the 'requiredSpacesAfterOpen' and 'requiredSpacesBeforeClose' settings in a ruleset.xml file to change
+  -- Default remains at 0 for both
+  -- Thanks to Astinus Eberhard for the patch
+- Squiz FunctionDeclarationArgumentSpacingSniff now has settings to specify how many spaces should appear before/after parentheses
+  -- Override the 'requiredSpacesAfterOpen' and 'requiredSpacesBeforeClose' settings in a ruleset.xml file to change
+  -- Default remains at 0 for both
+  -- Thanks to Astinus Eberhard for the patch
+- Removed UnusedFunctionParameter, CyclomaticComplexity and NestingLevel from the Squiz standard
+- Generic FixmeSniff and TodoSniff now work correctly with accented characters
+- Fixed bug #20145 : Custom ruleset preferences directory over installed standard
+- Fixed bug #20147 : phpcs-svn-pre-commit - no more default error report
+- Fixed bug #20151 : Problem handling "if(): ... else: ... endif;" syntax
+- Fixed bug #20190 : Invalid regex in Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff";s:1:"f";s:6:"406544";s:1:"g";s:45:"http://pear.php.net/get/PHP_CodeSniffer-1.5.2";s:1:"x";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:17:"package.1.5.2.xml";}}}

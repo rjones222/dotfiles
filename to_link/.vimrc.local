@@ -191,6 +191,9 @@
     " working commit
     command! Working :Dispatch cd $(git rev-parse --show-toplevel) && git add --all .; git commit -am "fixup!" && cd -
 
+    " remove trailing spaces
+    command! StripTrailingWhitespace :%s/\s\+$//
+
     " change tab width from 4 to 2 spaces and retab
     nnoremap <leader>t2 :call MyTabWidth(4,2)<cr>
 
@@ -253,7 +256,7 @@
     nmap <C-B> <C-A>
 
     " copy all
-    nnoremap <leader>a mmggVGy`m
+    nnoremap <leader>ya mzggVGy`z
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
@@ -328,7 +331,7 @@
     " augroup END
     " }}}
 
-    " {{{ fix weird indent guide colors 
+    " {{{ fix weird indent guide colors
     " hi IndentGuidesOdd ctermbg=235
     " hi IndentGuidesEven ctermbg=236
     hi IndentGuidesOdd ctermbg=black
@@ -643,7 +646,7 @@
     \    "set_breakpoint" : "<F10>",
     \    "get_context" : "<F11>",
     \    "eval_under_cursor" : "<F12>",
-    \    "eval_visual" : "<Leader>e",
+    \    "eval_visual" : "<Leader>ev",
     \}
     " }}}"
 
