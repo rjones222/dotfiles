@@ -21,6 +21,9 @@ alias ares="sudo apachectl restart"
 # force color version of tree
 alias tree="tree -C"
 
+# ranger
+alias rr="ranger"
+
 # json pretty print
 alias json="python -mjson.tool"
 
