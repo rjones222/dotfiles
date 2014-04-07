@@ -103,6 +103,9 @@
     " coding standards fixer integration
     Bundle 'stephpy/vim-php-cs-fixer'
 
+    " open jira under cursor
+    Bundle 'markabe/vim-jira-open'
+
     " smart search, replace, abbreviation fixer
     Bundle 'tpope/vim-abolish'
 

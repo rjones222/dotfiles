@@ -707,6 +707,11 @@
     nnoremap <c-]> :CtrlPtjump<cr>
     " }}}"
 
+    " {{{ vim-jira-open
+    " default is <leader>jo
+    let g:jira_browse_url = 'http://10.17.37.213/browse/'
+    " }}}
+
     " {{{ vim-startify
     let g:startify_session_dir = '~/.vim/sessions'
     let g:startify_bookmarks = [ '~/.vimrc.local' ]
