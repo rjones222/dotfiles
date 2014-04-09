@@ -518,20 +518,6 @@
     augroup END
     " }}}"
 
-    " {{{ phpunit.vim
-    " phpunit use vim-dispatch
-    let g:phpunit_command = "Dispatch phpunit {test}"
-
-    " only way to filter to a test file"
-    nnoremap <leader>pf :call PHPUnitRunCurrentFile()<cr>
-
-    " place cursor over test method to run a specific test method
-    nnoremap <leader>pt :call PHPUnitRunCurrentTest()<cr>
-
-    " run one test from the test file first, then do this repeatedly
-    nnoremap <leader>pp :call PHPUnitRunPreviousTest()<cr>
-    " }}}"
-
     " {{{ projectroot
     " cd to project root
     nnoremap <leader>dp :ProjectRootCD<cr>
@@ -767,11 +753,19 @@
     " }}}
 
     " {{{ vimux
-    map <leader>rp :VimuxPromptCommand<cr>
-    map <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
-    map <leader>rl :VimuxRunLastCommand<cr>
-    map <leader>ri :VimuxInspectRunner<cr>
-    map <leader>rx :VimuxCloseRunner<cr>
+    let g:VimuxHeight = "40"
+    nnoremap <leader>rp :VimuxPromptCommand<cr>
+    nnoremap <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+    nnoremap <leader>rl :VimuxRunLastCommand<cr>
+    nnoremap <leader>rr :VimuxRunLastCommand<cr>
+    nnoremap <leader>ri :VimuxInspectRunner<cr>
+    nnoremap <leader>rx :VimuxCloseRunner<cr>
+    " }}}
+
+    " {{{ vimux-phpunit
+    nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
+    nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
+    nnoremap <leader>pp :VimuxRunLastCommand<cr>
     " }}}
 
 " }}}

@@ -66,6 +66,7 @@ function osx_tasks_run() {
             terminal-notifier
             tig
             tmux
+            tofrodos
             trash
             tree
             virtualhost.sh

@@ -124,7 +124,10 @@
     " phpunit integration
     " Bundle 'joonty/vim-phpunitqf.git'
     " Works but kind of lame. Can't specify the window size.
-    Bundle 'jonyamo/phpunit.vim'
+    " Bundle 'jonyamo/phpunit.vim'
+
+    " more flexible phpunit integration with vimux
+    Bundle 'thiagoalessio/vimux-phpunit'
 
     " php namespace and use block autocomplete
     Bundle 'arnaud-lb/vim-php-namespace'

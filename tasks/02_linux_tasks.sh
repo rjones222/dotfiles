@@ -64,6 +64,7 @@ function linux_tasks_run() {
         # spidermonkey-bin
         tig
         tmux
+        tofrodos
         tree
         vim
         watch
