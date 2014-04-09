@@ -766,6 +766,14 @@
     let g:autoclose_vim_commentmode = 1
     " }}}
 
+    " {{{ vimux
+    map <leader>rp :VimuxPromptCommand<cr>
+    map <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+    map <leader>rl :VimuxRunLastCommand<cr>
+    map <leader>ri :VimuxInspectRunner<cr>
+    map <leader>rx :VimuxCloseRunner<cr>
+    " }}}
+
 " }}}
 
 " Include Custom vimrc if exists {{{

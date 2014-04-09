@@ -38,7 +38,7 @@
     Bundle 'mattn/emmet-vim'
 
     " create tmux window with a command from vim
-    " Bundle 'benmills/vimux'
+    Bundle 'benmills/vimux'
 
     " much better than snipmate or neosnippet
     Bundle 'SirVer/ultisnips'
@@ -50,24 +50,34 @@
     " temporarily broken
     " Bundle 'JazzCore/neocomplcache-ultisnips'
 
-    " better than neocomplcache with built-in ultisnips support
-    " Bundle 'Valloric/YouCompleteMe'
-
     " vim-autoclose causes problems with youcompleteme, it says use this instead
     Bundle 'Raimondi/delimitMate'
 
     " phpmd, phpcs, php lint, and coverage on save
+    " I use syntastic now
     " Bundle 'joonty/vim-phpqa'
 
     " improved php omnicompletion
     Bundle 'shawncplus/phpcomplete.vim'
 
     " required for phpcomplete-extended
-    " Bundle 'Shougo/vimproc.vim'
     Bundle 'Shougo/vimproc'
 
     " php completion for composer projects
+    " php-complete-extended breaks horribly with any php files with multiple
+    " classes. I reported the bug and the author does not want to fix that. It
+    " also asks 'composer project detected. Do you want to index?' every time
+    " you open a composer project. Combination of these means forget about it
+    " for now.
     " Bundle 'm2mdas/phpcomplete-extended'
+
+    " laravel completion
+    " See above
+    " Bundle 'm2mdas/phpcomplete-extended-laravel'
+
+    " symfony completion
+    " See above
+    " Bundle 'm2mdas/phpcomplete-extended-symfony'
 
     " only for added sources for phpcomplete_extended
     Bundle 'Shougo/unite.vim'
@@ -75,19 +85,21 @@
     " this makes it not complain when you use sudo
     Bundle 'vim-scripts/SudoEdit.vim'
 
-    " laravel completion
-    " Bundle 'm2mdas/phpcomplete-extended-laravel'
-
-    " symfony completion
-    " Bundle 'm2mdas/phpcomplete-extended-symfony'
-
     " better vim start screen
     Bundle 'mhinz/vim-startify'
 
     " runs jshint via :JSHint
+    " No need - I use Syntastic now
     " Bundle 'Shutnik/jshint2.vim'
 
+    " move vertically with <M-f> and the like
+    " Doesn't work, probably because my meta key is not configured, which I
+    " don't care to fix right now
+    " Bundle 'machakann/vim-columnmove'
+
     " auto-update ctags on save
+    " I just use a custom dispatch command for this now instead of a plugin.
+    " So much more reliable.
     " Bundle 'szw/vim-tags'
     Bundle 'tpope/vim-dispatch'
 
@@ -96,9 +108,6 @@
     " Bundle 'xolox/vim-easytags'
     " until he makes tag indexing non-blocking (asynchronous)
     " Bundle 'mikedfunk/vim-easytags'
-
-    " rxvt keyboard fixes
-    " Bundle 'nacitar/terminalkeys.vim'
 
     " coding standards fixer integration
     Bundle 'stephpy/vim-php-cs-fixer'
@@ -114,6 +123,7 @@
 
     " phpunit integration
     " Bundle 'joonty/vim-phpunitqf.git'
+    " Works but kind of lame. Can't specify the window size.
     Bundle 'jonyamo/phpunit.vim'
 
     " php namespace and use block autocomplete
@@ -137,6 +147,7 @@
     " Bundle 'goldfeld/ctrlr.vim'
 
     " better iterm2/tmux compatibility
+    " I don't care about FocusLost and FocusGained.
     " Bundle 'sjl/vitality.vim'
 
     " allow to close all buffers but the current one
@@ -145,7 +156,6 @@
     " improved phpdoc implementation
     " Bundle 'tobyS/pdv'
     Bundle 'sumpygump/php-documentor-vim'
-    " Bundle 'mikedfunk/php-documentor-vim'
 
     " required for pdv
     " Bundle 'tobyS/vmustache'
@@ -153,14 +163,16 @@
     " go to current quickfix item
     " doesn't work
     " Bundle 'vim-scripts/QuickFixCurrentNumber'
-    "
+
     " allow to star search from a visual selection
-    " Bundle 'thinca/vim-visualstar'
+    Bundle 'thinca/vim-visualstar'
 
     " smooth vertical scrolling
+    " This is AWESOME. One of my favorite plugins
     Bundle 'yonchu/accelerated-smooth-scroll'
 
     " show current buffers in vim command line
+    " This is redundant - it's already in vim-airline
     " Bundle 'bling/vim-bufferline'
 
     " vai and vii text indent objects - REALLY useful
@@ -177,6 +189,7 @@
     Bundle 'justinmk/vim-gtfo'
 
     " jump to definition even if tags file doesn't exist
+    " I use ctags so this is redundant and adds clutter to ctrlp
     " Bundle 'tacahiroy/ctrlp-funky'
 
     " was used in PIV for php folding
@@ -192,9 +205,6 @@
     " expand the visual selection with + and _
     Bundle 'terryma/vim-expand-region'
 
-    " blade syntax highlight
-    " Bundle 'johnhamelink/blade.vim'
-
     " tmux custom statusline in sync with airline
     Bundle 'edkolev/tmuxline.vim'
 
@@ -209,7 +219,7 @@
     Bundle 'wellle/tmux-complete.vim'
 
     " show marks in the sign column
-    " totally screwed up.
+    " Totally screwed up. Broken.
     " Bundle 'jeetsukumaran/vim-markology'
 
     " query surrounding tmux splits to add to autocomplete
@@ -259,7 +269,7 @@
     " I use a different one
     UnBundle 'tobyS/pdv'
 
-    " causes problems with youcompleteme
+    " causes problems with youcompleteme - I use a different plugin instead
     UnBundle 'Townk/vim-autoclose'
 
     " I installed newer versions of the same stuff
