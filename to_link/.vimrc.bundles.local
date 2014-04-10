@@ -56,6 +56,9 @@
     " vim-autoclose causes problems with youcompleteme, it says use this instead
     Bundle 'Raimondi/delimitMate'
 
+    " Add some unix stuff like :Chmod, :Unlink, etc.
+    Bundle 'tpope/vim-eunuch'
+
     " phpmd, phpcs, php lint, and coverage on save
     " I use syntastic now
     " Bundle 'joonty/vim-phpqa'
