@@ -753,6 +753,11 @@
     " let g:vim_tags_use_vim_dispatch=1
     " }}}
 
+    " {{{ vim-togglelist
+    nmap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
+    nmap <script> <silent> <leader>qq :call ToggleQuickfixList()<CR>
+    " }}}
+
     " {{{ underline tags
     " augroup UnderlineTag
       " autocmd!

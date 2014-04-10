@@ -59,6 +59,9 @@
     " Add some unix stuff like :Chmod, :Unlink, etc.
     Bundle 'tpope/vim-eunuch'
 
+    " Toggle the location list and quickfix list windows
+    Bundle 'milkypostman/vim-togglelist'
+
     " phpmd, phpcs, php lint, and coverage on save
     " I use syntastic now
     " Bundle 'joonty/vim-phpqa'
