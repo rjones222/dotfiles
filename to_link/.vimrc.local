@@ -46,18 +46,19 @@
     endfunction
     " }}}
 
-    function! NeatFoldText() "{{{2
-        let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-        let lines_count = v:foldend - v:foldstart + 1
-        let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-        let foldchar = matchstr(&fillchars, 'fold:\zs.')
-        let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-        let foldtextend = lines_count_text . repeat(foldchar, 8)
-        let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-        return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-    endfunction
-    set foldtext=NeatFoldText()
-    " }}}2
+    " function! NeatFoldText() "{{{
+        " I use spiffy_foldtext plugin instead
+        " let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+        " let lines_count = v:foldend - v:foldstart + 1
+        " let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+        " let foldchar = matchstr(&fillchars, 'fold:\zs.')
+        " let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+        " let foldtextend = lines_count_text . repeat(foldchar, 8)
+        " let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+        " return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+    " endfunction
+    " set foldtext=NeatFoldText()
+    " }}}
 
     " {{{ Concept - load underlying class for Laravel
     function! FacadeLookup()
@@ -191,6 +192,9 @@
     " working commit
     command! Working :Dispatch cd $(git rev-parse --show-toplevel) && git add --all .; git commit -am "fixup!" && cd -
 
+    " source vimrc
+    command! Source :so $MYVIMRC
+
     " remove trailing spaces
     command! StripTrailingWhitespace :%s/\s\+$//
 
@@ -203,6 +207,11 @@
     " go to next/previous closed fold
     nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
     nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
+
+    " Vundle actions
+    nnoremap <leader>bi :so $MYVIMRC<cr> :BundleInstall<cr>
+    nnoremap <leader>bc :so $MYVIMRC<cr> :BundleClean!<cr>
+    nnoremap <leader>bu :so $MYVIMRC<cr> :BundleUpdate<cr>
 
     " function to use above key maps
     function! NextClosedFold(dir)

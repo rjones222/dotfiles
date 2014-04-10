@@ -126,8 +126,14 @@
     " Works but kind of lame. Can't specify the window size.
     " Bundle 'jonyamo/phpunit.vim'
 
-    " more flexible phpunit integration with vimux
+    " more flexible phpunit integration with vimux. combine this with my own
+    " phpunit command for all tests and I can rerun the latest vimux command,
+    " set the window size, adjust size and it will stick, run arbitrary
+    " commands and filters from vim, etc.
     Bundle 'thiagoalessio/vimux-phpunit'
+
+    " What it sounds like!
+    Bundle 'atimholt/spiffy_foldtext'
 
     " php namespace and use block autocomplete
     Bundle 'arnaud-lb/vim-php-namespace'
