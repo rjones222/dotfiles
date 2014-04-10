@@ -204,6 +204,10 @@
     " change tab width from 2 to 4 spaces and retab
     nnoremap <leader>t4 :call MyTabWidth(2,4)<cr>
 
+    " vertical and horizontal splits like tmux
+    nnoremap <c-w>" :sp<cr>
+    nnoremap <c-w>% :vsp<cr>
+
     " go to next/previous closed fold
     nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
     nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
@@ -621,6 +625,11 @@
     " let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
     " }}}"
 
+    " {{{ undoclosewin
+    " really it's undo close tab
+    nnoremap <leader>uc :UcwRestoreWindow<cr>
+    " }}}
+
     " {{{ vdebug xdebug plugin
     let g:vdebug_options = {}
     let g:vdebug_options['server'] = '192.168.56.1'
@@ -775,6 +784,11 @@
     nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
     nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
     nnoremap <leader>pp :VimuxRunLastCommand<cr>
+    " }}}
+
+    " {{{ ZoomWin
+    " mapping just like <c-a>z for tmux
+    nnoremap <c-w>z :ZoomWin<cr>
     " }}}
 
 " }}}

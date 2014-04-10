@@ -80,7 +80,7 @@ alias v="${vim}"
 
 # alias hub to git
 if [ -f "/usr/local/bin/hub" ]; then
-    eval "$(hub alias -s)" 
+    eval "$(hub alias -s)"
 fi
 
 # shortcuts
@@ -105,7 +105,7 @@ alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 # alias quickserver="python -m SimpleHTTPServer"
 
 # count php line numbers in dir
-alias lines="find . -name '*.php' | xargs wc -l" 
+alias lines="find . -name '*.php' | xargs wc -l"
 
 # run log.io server
 function logio() {
@@ -138,7 +138,7 @@ if [ $chk ]; then
 fi
 
 # delete .orig files
-alias orig="find . -name '*.orig' -delete" 
+alias orig="find . -name '*.orig' -delete"
 
 alias tags="echo 'generating tags file...' && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null && echo 'tags file regenerated'"
 

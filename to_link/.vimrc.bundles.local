@@ -50,6 +50,9 @@
     " temporarily broken
     " Bundle 'JazzCore/neocomplcache-ultisnips'
 
+    " reopen closed window, mapping in .vimrc.local
+    Bundle 'tyru/undoclosewin.vim'
+
     " vim-autoclose causes problems with youcompleteme, it says use this instead
     Bundle 'Raimondi/delimitMate'
 
@@ -131,6 +134,11 @@
     " set the window size, adjust size and it will stick, run arbitrary
     " commands and filters from vim, etc.
     Bundle 'thiagoalessio/vimux-phpunit'
+
+    " Zoom toggle current window like tmux pane zooming
+    " Bundle 'vim-scripts/ZoomWin'
+    " Latest version someone hosted
+    Bundle 'regedarek/ZoomWin'
 
     " What it sounds like!
     Bundle 'atimholt/spiffy_foldtext'
