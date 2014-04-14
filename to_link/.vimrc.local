@@ -749,6 +749,11 @@
     let g:jira_browse_url = 'http://10.17.37.213/browse/'
     " }}}
 
+    " {{{ vim-signify
+    " I only want signify to worry about git
+    let g:signify_vcs_list = [ 'git' ]
+    " }}}
+
     " {{{ vim-startify
     let g:startify_session_dir = '~/.vim/sessions'
     let g:startify_bookmarks = [ '~/.vimrc.local' ]

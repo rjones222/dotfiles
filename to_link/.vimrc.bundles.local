@@ -287,8 +287,10 @@
 
 " Unbundle {{{
 
-    " slow as FUCK
-    UnBundle 'mhinz/vim-signify'
+    " super slow unless you limit to git only. Now much faster!
+    " UnBundle 'mhinz/vim-signify'
+
+    " used to be slow but recent commits made it much faster
     " UnBundle 'majutsushi/tagbar'
 
     " takes a lot of time and I don't use it right now
