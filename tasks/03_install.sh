@@ -129,6 +129,7 @@ function install_run() {
     execjs
     haste
     jekyll
+    json_pure
     kramdown
     mailcatcher
     pre-commit

@@ -310,6 +310,9 @@
     imap <C-Space> <C-x><C-o>
     " imap <C-@> <C-Space>
 
+    " open link under cursor in browser
+    nmap <leader>ou yiW:!open <c-r>" &<cr><cr>
+
     " {{{ put cursor at end of text on y and p
     vnoremap <silent> y y`]
     vnoremap <silent> p p`]
@@ -439,6 +442,7 @@
     command! -bar -nargs=* Gpurr execute 'Git pull --rebase' <q-args> 'origin' fugitive#head()
     command! Gpnp silent Gpull | Gpush
     command! Gprp silent Gpurr | Gpush
+    command! Gsync :Dispatch git checkout develop && git pull && git checkout - && git merge develop
 
     unmap <leader>gp
     " nnoremap <silent> <leader>gpu :Gpuspacesh<CR>
@@ -625,9 +629,26 @@
     " let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
     " }}}"
 
+    " {{{ underline tags
+    " augroup UnderlineTag
+      " autocmd!
+      " autocmd BufEnter *.php UnderlineTagOn
+    " augroup END
+    " }}}
+
     " {{{ undoclosewin
     " really it's undo close tab
     nnoremap <leader>uc :UcwRestoreWindow<cr>
+    " }}}
+
+    " {{{ undotree
+    unmap <leader>u
+    nnoremap <leader>uu :UndotreeToggle<CR>
+    " }}}
+
+    " {{{ utl.vim
+    " open urls
+    let g:utl_cfg_hdl_scm_http_system = "silent !open '%u'"
     " }}}
 
     " {{{ vdebug xdebug plugin
@@ -711,6 +732,15 @@
     nnoremap <c-]> :CtrlPtjump<cr>
     " }}}"
 
+    " {{{ vim-github-dashboard
+    let g:github_dashboard = { 'username': 'mikedfunk' }
+    " }}}
+
+    " {{{ vim-instant-markdown
+    " turns off auto preview and enables the :InstantMarkdownPreview command
+    let g:instant_markdown_autostart = 0
+    " }}}
+
     " {{{ vim-jira-open
     " default is <leader>jo
     let g:jira_browse_url = 'http://10.17.37.213/browse/'
@@ -737,12 +767,6 @@
     noremap <Leader><Leader>u :call PhpInsertUse()<CR>
     " }}}"
 
-    " {{{ youcompleteme
-    " open preview window while completing
-    let g:ycm_add_preview_to_completeopt=1
-    " let g:ycm_allow_changing_updatetime=0
-    " }}}
-
     " {{{ vim-tags
     " doesn't want to auto-generate for some reason
     " augroup PhpVimTag
@@ -756,18 +780,6 @@
     " {{{ vim-togglelist
     nmap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
     nmap <script> <silent> <leader>qq :call ToggleQuickfixList()<CR>
-    " }}}
-
-    " {{{ underline tags
-    " augroup UnderlineTag
-      " autocmd!
-      " autocmd BufEnter *.php UnderlineTagOn
-    " augroup END
-    " }}}
-
-    " {{{ undotree
-    unmap <leader>u
-    nnoremap <leader>uu :UndotreeToggle<CR>
     " }}}
 
     " {{{ vim-autoclose
@@ -789,6 +801,12 @@
     nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
     nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
     nnoremap <leader>pp :VimuxRunLastCommand<cr>
+    " }}}
+
+    " {{{ youcompleteme
+    " open preview window while completing
+    let g:ycm_add_preview_to_completeopt=1
+    " let g:ycm_allow_changing_updatetime=0
     " }}}
 
     " {{{ ZoomWin

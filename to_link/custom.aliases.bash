@@ -137,6 +137,9 @@ if [ $chk ]; then
     alias cat="pygmentize -g"
 fi
 
+# HEMING!!!!!!!!!!
+alias freakingwindows='find . -not -type d -exec file "{}" ";" | grep CRLF'
+
 # delete .orig files
 alias orig="find . -name '*.orig' -delete"
 

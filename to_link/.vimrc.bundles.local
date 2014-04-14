@@ -53,6 +53,12 @@
     " reopen closed window, mapping in .vimrc.local
     Bundle 'tyru/undoclosewin.vim'
 
+    " a github dashboard in vim? Let's see how I like it...
+    Bundle 'junegunn/vim-github-dashboard'
+
+    " Open urls from vim
+    Bundle 'vim-scripts/utl.vim'
+
     " vim-autoclose causes problems with youcompleteme, it says use this instead
     Bundle 'Raimondi/delimitMate'
 
@@ -121,6 +127,9 @@
     " coding standards fixer integration
     Bundle 'stephpy/vim-php-cs-fixer'
 
+    " increment/decrement dates
+    Bundle 'tpope/vim-speeddating'
+
     " open jira under cursor. MAC ONLY.
     Bundle 'markabe/vim-jira-open'
 
@@ -145,6 +154,14 @@
     " Bundle 'vim-scripts/ZoomWin'
     " Latest version someone hosted
     Bundle 'regedarek/ZoomWin'
+
+    " .tmux.conf syntax hilighting
+    Bundle 'vimez/vim-tmux'
+
+    " DB tools in vim
+    " A little too complex right now, I am good with SequelPro or
+    " MySQLWorkbench
+    " Bundle 'vim-scripts/dbext.vim'
 
     " What it sounds like!
     Bundle 'atimholt/spiffy_foldtext'
@@ -201,6 +218,18 @@
     " vai and vii text indent objects - REALLY useful
     " Bundle 'kana/vim-textobj-indent'
     Bundle 'michaeljsmith/vim-indent-object'
+
+    " entire document: ae, ie
+    Bundle 'kana/vim-textobj-entire'
+
+    " last search pattern: a/, i/, a?, i?
+    Bundle 'kana/vim-textobj-lastpat'
+
+    " al, il
+    Bundle 'kana/vim-textobj-line'
+
+    " underscore: a_, i_
+    Bundle 'kana/vim-textobj-underscore'
 
     " better tag selector with ctrlp
     Bundle 'ivalkeen/vim-ctrlp-tjump'
@@ -304,7 +333,7 @@
     " It's awesome but I prefer the command line.
     " UnBundle 'tpope/vim-fugitive'
 
-    " this breaks BundleInstall
+    " this breaks BundleInstall after re-sourcing $MYVIMRC
     " UnBundle 'gorodinskiy/vim-coloresque'
 
     " various spf-13 stuff I don't use

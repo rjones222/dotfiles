@@ -81,6 +81,36 @@ class $4 $5
 }
 endsnippet
 
+snippet phpunitTestClass "mike's phpunit test template with docblocks"
+<?php
+/**
+ * ${1:Unit Tests}
+ *
+ * @package ${2:RacingJunk}
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+
+/**
+ * ${3:ClassName}Test
+ *
+ * @author `!v g:snips_author`
+ */
+class $3Test extends \PHPUnit_Framework_TestCase
+{
+    public function setUp()
+    {
+
+    }
+
+    public function tearDown()
+    {
+
+    }
+
+    $4
+}
+endsnippet
+
 snippet meth "php method"
 
 /**
