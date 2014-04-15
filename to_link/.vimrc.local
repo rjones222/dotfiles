@@ -554,7 +554,7 @@
     let g:promptline_theme = 'airline_visual'
     " let g:promptline_theme = 'powerlineclone'
     let g:promptline_preset = 'clear'
-    let g:promptline_powerline_symbols = 0
+    let g:promptline_powerline_symbols = 1
     " }}}"
 
     " Syntastic {{{
@@ -685,10 +685,10 @@
     augroup php_tagbar
         autocmd FileType php let g:airline#extensions#tagbar#enabled = 1
     augroup END
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
+    " let g:airline_left_sep = ''
+    " let g:airline_left_alt_sep = ''
+    " let g:airline_right_sep = ''
+    " let g:airline_right_alt_sep = ''
 
     " unicode symbols
     " let g:airline_left_sep = '»'
@@ -703,7 +703,8 @@
     " let g:airline_symbols.paste = 'Þ'
     " let g:airline_symbols.paste = '∥'
     " let g:airline_symbols.whitespace = 'Ξ'
-    let g:airline_powerline_fonts=0
+    let g:airline_powerline_fonts = 1
+    " let g:airline_powerline_fonts=0
     " let g:airline#extensions#hunks#non_zero_only = 1
     let g:airline#extensions#bufferline#enabled = 0
     " vim-bufferline prevent from showing in command bar *and* statusline

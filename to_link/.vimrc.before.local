@@ -17,3 +17,6 @@ let g:spf13_no_neosnippet_expand=1
 " vim-tags
 " set exrc
 " set secure
+
+" enable powerline fonts for vim-airline
+let g:airline_powerline_fonts=1
