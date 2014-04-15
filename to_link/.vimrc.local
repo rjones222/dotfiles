@@ -368,6 +368,7 @@
 
     " {{{ vim-gitgutter better background
     " highlight clear SignColumn
+    " hi link SignColumn LineNr
     " }}}
 
     " {{{ syntax highlighting for Vagrantfile
@@ -753,6 +754,10 @@
     " {{{ vim-signify
     " I only want signify to worry about git
     let g:signify_vcs_list = [ 'git' ]
+    let g:signify_sign_add               = '+'
+    let g:signify_sign_change            = '!'
+    let g:signify_sign_delete            = '_'
+    let g:signify_sign_delete_first_line = '‾'
     " }}}
 
     " {{{ vim-startify

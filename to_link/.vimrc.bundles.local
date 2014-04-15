@@ -6,6 +6,10 @@
     Bundle 'tpope/vim-markdown'
     Bundle 'Puppet-Syntax-Highlighting'
 
+    " different fork of solarized that fixes stuff
+    " Bundle 'blueyed/vim-colors-solarized'
+    Bundle 'jwhitley/vim-colors-solarized'
+
     " css coloring that works and is fast
     " buggy lately
     " Bundle 'ap/vim-css-color'
@@ -300,6 +304,9 @@
     UnBundle 'flazz/vim-colorschemes'
     UnBundle 'vim-colors'
     UnBundle 'jonathanfilip/vim-lucius'
+
+    " I use a different fork that fixes some stuff
+    UnBundle 'altercation/vim-colors-solarized'
 
     " I prefer the default tab implementation
     UnBundle 'bling/vim-bufferline'
