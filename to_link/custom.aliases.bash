@@ -102,6 +102,7 @@ alias cr="codecept run"
 alias com="composer"
 # alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
+alias ltp="lt --port 80"
 # alias quickserver="python -m SimpleHTTPServer"
 
 # count php line numbers in dir

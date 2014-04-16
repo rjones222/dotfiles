@@ -30,13 +30,21 @@
     Bundle 'xsbeats/vim-blade'
 
     " highlight matches for word, current line, etc.
+    " doesn't work after switching to light mode or resourcing vimrc
     Bundle 'vim-scripts/highlight.vim'
+
+    " check what highlights are on the current line with :HLT! and :HLTm to
+    " disable. Useful for debugging highlight groups
+    " Bundle 'kergoth/vim-hilinks'
 
     " adds extra intuitive keyboard shortcuts
     Bundle 'tpope/vim-unimpaired'
 
     " xdebug integration
     Bundle 'joonty/vdebug'
+
+    " :BD to load previous buffer in current window
+    Bundle 'vim-scripts/bufkill.vim'
 
     " zen coding / emmett integration
     Bundle 'mattn/emmet-vim'
