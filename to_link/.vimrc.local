@@ -46,20 +46,6 @@
     endfunction
     " }}}
 
-    " function! NeatFoldText() "{{{
-        " I use spiffy_foldtext plugin instead
-        " let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-        " let lines_count = v:foldend - v:foldstart + 1
-        " let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-        " let foldchar = matchstr(&fillchars, 'fold:\zs.')
-        " let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-        " let foldtextend = lines_count_text . repeat(foldchar, 8)
-        " let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-        " return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-    " endfunction
-    " set foldtext=NeatFoldText()
-    " }}}
-
     " {{{ Concept - load underlying class for Laravel
     function! FacadeLookup()
         let facade = input('Facade Name: ')
@@ -280,7 +266,7 @@
     " my version of fast tabs
     nnoremap gh gT
     nnoremap gl gt
-    nnoremap gn :tabnew<cr>
+    " nnoremap gn :tabnew<cr>
 
     " open tag in tab
     nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -326,6 +312,7 @@
 
 " Theme {{{
     " {{{ solarized
+    let g:solarized_termtrans=0
     let g:solarized_termcolors=16
     " let g:solarized_degrade=0
     " let g:solarized_bold=1
@@ -358,7 +345,7 @@
     " }}}
 
     " {{{ toggle between day and night theme
-    call togglebg#map("<leader>bg")
+    silent call togglebg#map("<leader>bg")
     " }}}
 
     " {{{ change the default EasyMotion shading to something more readable with Solarized
@@ -459,13 +446,26 @@
     " }}}"
 
     " {{{ gitv
+    " browser mode
     nnoremap <Leader>gv :Gitv --all<CR>
 
-    " browser mode
+    " file mode
     nnoremap <Leader>gV :Gitv! --all<CR>
+    vnoremap <leader>gV :Gitv! --all<cr>
+
+    " easily perform arbitrary git commands
+    cabbrev git Git
 
     " automatically split in whatever direction fits best
-     let g:Gitv_OpenHorizontal = 'auto'
+    let g:Gitv_OpenHorizontal = 'auto'
+
+    " breaks ctrl-p and multiple cursors
+    let g:Gitv_DoNotMapCtrlKey = 1
+
+    " up/down commit nav
+    " doesn't work
+    " nnoremap <silent> <leader>gn :<C-U>call <SID>JumpToCommit(0)<cr>
+    " nnoremap <silent> <leader>gp :<C-U>call <SID>JumpToCommit(1)<cr>
     " }}}
 
     " NERDTree {{{
@@ -536,17 +536,6 @@
         au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
         au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
         au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
-    augroup END
-    " }}}"
-
-    " {{{ projectroot
-    " cd to project root
-    nnoremap <leader>dp :ProjectRootCD<cr>
-
-    " always auto cd to project root! helps with vim-tag
-    augroup ProjectRootGroup
-        " au!
-        " au BufEnter * :silent call ProjectRootCD()
     augroup END
     " }}}"
 
@@ -650,11 +639,6 @@
     nnoremap <leader>uu :UndotreeToggle<CR>
     " }}}
 
-    " {{{ utl.vim
-    " open urls
-    let g:utl_cfg_hdl_scm_http_system = "silent !open '%u'"
-    " }}}
-
     " {{{ vdebug xdebug plugin
     let g:vdebug_options = {}
     let g:vdebug_options['server'] = '192.168.56.1'
@@ -735,6 +719,8 @@
 
     " {{{ vim-ctrlp-tjump
     nnoremap <c-]> :CtrlPtjump<cr>
+    nnoremap <leader>pb :CtrlPBuffer<CR>
+    nnoremap <leader>pm :CtrlPMRUFiles<CR>
     " }}}"
 
     " {{{ vim-github-dashboard
@@ -758,6 +744,10 @@
     let g:signify_sign_change            = '!'
     let g:signify_sign_delete            = '_'
     let g:signify_sign_delete_first_line = '‾'
+    " }}}
+
+    " {{{ vim-rooter
+    nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
     " }}}
 
     " {{{ vim-startify

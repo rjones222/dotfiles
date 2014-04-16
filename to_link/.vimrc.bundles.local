@@ -60,9 +60,6 @@
     " a github dashboard in vim? Let's see how I like it...
     Bundle 'junegunn/vim-github-dashboard'
 
-    " Open urls from vim
-    Bundle 'vim-scripts/utl.vim'
-
     " vim-autoclose causes problems with youcompleteme, it says use this instead
     Bundle 'Raimondi/delimitMate'
 
@@ -142,6 +139,7 @@
 
     " smart jump to project root
     Bundle 'dbakker/vim-projectroot'
+    Bundle 'airblade/vim-rooter'
 
     " phpunit integration
     " Bundle 'joonty/vim-phpunitqf.git'
@@ -271,15 +269,16 @@
     " Bundle 'vim-scripts/TaskList.vim'
     Bundle 'mikedfunk/TaskList.vim'
 
-    " complete words in adjacent tmux panes
-    Bundle 'wellle/tmux-complete.vim'
-
     " show marks in the sign column
     " Totally screwed up. Broken.
     " Bundle 'jeetsukumaran/vim-markology'
 
     " query surrounding tmux splits to add to autocomplete
     Bundle 'buztard/vim-nomad'
+
+    " complete words in adjacent tmux panes
+    " Same thing as above...
+    " Bundle 'wellle/tmux-complete.vim'
 
     " underline tags
     Bundle 't9md/vim-underlinetag'
@@ -329,6 +328,9 @@
 
     " I use a different one
     UnBundle 'tobyS/pdv'
+
+    " Super-cool but I don't use it and it conflicts with gitv mappings
+    " UnBundle 'terryma/vim-multiple-cursors'
 
     " causes problems with youcompleteme - I use a different plugin instead
     UnBundle 'Townk/vim-autoclose'
