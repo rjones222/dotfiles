@@ -22,6 +22,7 @@ function install_run() {
     jshint
     jsonlint
     less
+    localtunnel
     log.io
     tldr
     yo
