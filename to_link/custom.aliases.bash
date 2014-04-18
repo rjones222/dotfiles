@@ -102,8 +102,15 @@ alias cr="codecept run"
 alias com="composer"
 # alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
-alias ltp="lt --port 80"
 # alias quickserver="python -m SimpleHTTPServer"
+
+# local tunnel - make localhost viewable on the web
+alias localtunnel="lt --port 80"
+
+# irssi nicklist in a split
+alias nicklist="cat ~/.irssi/nicklistfifo"
+
+alias myirc="irssi; tmux split-window -h"
 
 # count php line numbers in dir
 alias lines="find . -name '*.php' | xargs wc -l"

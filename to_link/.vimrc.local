@@ -255,7 +255,7 @@
     " nnoremap <leader>O O<esc>
 
     " increment with c-b
-    nmap <C-B> <C-A>
+    nnoremap <C-B> <C-A>
 
     " copy all
     nnoremap <leader>ya mzggVGy`z
@@ -278,10 +278,10 @@
     inoremap jj <Esc>
 
     " resize splits, consistent with tmux bindings
-    map <c-w><c-j> :resize +10<cr>
-    map <c-w><c-k> :resize -10<cr>
-    map <c-w><c-l> :vertical resize +10<cr>
-    map <c-w><c-h> :vertical resize -10<cr>
+    nnoremap <c-w><c-j> :resize +10<cr>
+    nnoremap <c-w><c-k> :resize -10<cr>
+    nnoremap <c-w><c-l> :vertical resize +10<cr>
+    nnoremap <c-w><c-h> :vertical resize -10<cr>
 
     " maximize split
     nnoremap <C-L> <C-W>l<C-W><bar>
@@ -290,17 +290,18 @@
     " open all buffers in new tabs
     " map <leader>bt :tab sball<CR>
     " map <leader>bt :bufdo tab split<CR>
-    map <leader>bt cd :BufOnly<CR>:args ./*.*<CR>:tab sball<CR>
+    nnoremap <leader>bt cd :BufOnly<CR>:args ./*.*<CR>:tab sball<CR>
+    nnoremap <leader>bo :BufOnly<cr>
 
     " open existing buffer in a newtab
-    map <leader>te :ls<cr>:tabedit #
+    nnoremap <leader>te :ls<cr>:tabedit #
 
     " omnicompletion like Visual Studio or NetBeans
-    imap <C-Space> <C-x><C-o>
+    inoremap <C-Space> <C-x><C-o>
     " imap <C-@> <C-Space>
 
     " open link under cursor in browser
-    nmap <leader>ou yiW:!open <c-r>" &<cr><cr>
+    nnoremap <leader>ou yiW:!open <c-r>" &<cr><cr>
 
     " {{{ put cursor at end of text on y and p
     vnoremap <silent> y y`]
@@ -782,8 +783,8 @@
     " }}}
 
     " {{{ vim-togglelist
-    nmap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
-    nmap <script> <silent> <leader>qq :call ToggleQuickfixList()<CR>
+    nnoremap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
+    nnoremap <script> <silent> <leader>qq :call ToggleQuickfixList()<CR>
     " }}}
 
     " {{{ vim-autoclose

@@ -4,7 +4,6 @@ about-plugin "custom plugins"
 # ----------------------------------------
 # functions
 
-# phpunit with notification
 phpunitnotify () {
     about 'runs phpunit and uses terminal-notifier to show the results'
     group 'custom'
@@ -24,7 +23,6 @@ mkdircd () {
     mkdir -p "$@" && eval cd "\"\$$#\"";
 }
 
-# drops and creates einstein2 database
 dbreset() {
     about 'drops and creates a specific database'
     group 'custom'
@@ -41,7 +39,9 @@ dbreset() {
     php artisan db:seed
 }
 
-# ls after every cd
 cd() {
+    about 'ls after every cd'
+    group 'custom'
+
     builtin cd "$@" && ls;
 }

@@ -10,20 +10,19 @@
     " Bundle 'blueyed/vim-colors-solarized'
     Bundle 'jwhitley/vim-colors-solarized'
 
-    " css coloring that works and is fast
-    " buggy lately
-    " Bundle 'ap/vim-css-color'
-
-    " Gitk clone in vim
+    " Gitk clone in vim. ,gv and ,gV to view, <cr> to view commits in a
+    " split or view diffs.
     Bundle 'gregsexton/gitv'
 
-    " adds more text objects
+    " adds more text objects such as in' and ip'
     Bundle 'wellle/targets.vim'
 
-    " swap blocks of code with cx (c then x)
+    " swap blocks of code with cx (c then x) example: cxiw to mark a word,
+    " then go to another word and cxiw. The words will swap.
     Bundle 'tommcdo/vim-exchange'
 
-    " Look up a github issue with :Gissues
+    " Look up a github issue with :Gissues . You can also autocomplete issues
+    " in fugitive window by typing #[issue number]<c-space>.
     Bundle 'jaxbot/github-issues.vim'
 
     " Laravel Blade Syntax Highlighting
@@ -31,6 +30,8 @@
 
     " highlight matches for word, current line, etc.
     " doesn't work after switching to light mode or resourcing vimrc
+    "<c-h><c-h> to sticy highlight a selection. <c-h><c-n> to remove all
+    "highlights.
     Bundle 'vim-scripts/highlight.vim'
 
     " check what highlights are on the current line with :HLT! and :HLTm to
@@ -38,53 +39,114 @@
     " Bundle 'kergoth/vim-hilinks'
 
     " adds extra intuitive keyboard shortcuts
+    " *[a*     |:previous|
+    " *]a*     |:next|
+    " *[A*     |:first|
+    " *]A*     |:last|
+    " *[b*     |:bprevious|
+    " *]b*     |:bnext|
+    " *[B*     |:bfirst|
+    " *]B*     |:blast|
+    " *[l*     |:lprevious|
+    " *]l*     |:lnext|
+    " *[L*     |:lfirst|
+    " *]L*     |:llast|
+    " *[<C-L>* |:lpfile|
+    " *]<C-L>* |:lnfile|
+    " *[q*     |:cprevious|
+    " *]q*     |:cnext|
+    " *[Q*     |:cfirst|
+    " *]Q*     |:clast|
+    " *[<C-Q>* |:cpfile| (Note that <C-Q> only works in a terminal if you disable
+    " *]<C-Q>* |:cnfile| flow control: stty -ixon)
+    " *[t*     |:tprevious|
+    " *]t*     |:tnext|
+    " *[T*     |:tfirst|
+    " *]T*     |:tlast|
     Bundle 'tpope/vim-unimpaired'
 
     " xdebug integration
+    " Run <F5>
+    " Step over <F2>
+    " Step in <F3>
+    " Step out <F4>
+    " Run to cursor <F9>
+    " Detach <F7>
+    " Stop/close <F6>
     Bundle 'joonty/vdebug'
 
     " :BD to load previous buffer in current window
+    " :BB and :BF to move backwards and forwards in buffer history of current
+    " window
+    " :BUN to unload a buffer without closing window
+    " :BW to wipe a buffer without closing window
     Bundle 'vim-scripts/bufkill.vim'
 
     " zen coding / emmett integration
+    " div#page>div.logo+ul#navigation>li*5>a<c-y>, to get html
+    " <c-y>n and <c-y>N to go to next and previous insert points
     Bundle 'mattn/emmet-vim'
 
     " create tmux window with a command from vim
+    " nnoremap <leader>rp :VimuxPromptCommand<cr>
+    " nnoremap <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+    " nnoremap <leader>rl :VimuxRunLastCommand<cr>
+    " nnoremap <leader>rr :VimuxRunLastCommand<cr>
+    " nnoremap <leader>ri :VimuxInspectRunner<cr>
+    " nnoremap <leader>rx :VimuxCloseRunner<cr>
+    "
+    " nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
+    " nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
+    " nnoremap <leader>pp :VimuxRunLastCommand<cr>
     Bundle 'benmills/vimux'
 
     " much better than snipmate or neosnippet
+    " :UltiSnipsEdit to edit the snippets file for the current file type
+    " YouCompleteMe will autocomplete your snippets. <c-j> to complete.
     Bundle 'SirVer/ultisnips'
 
     " instant markdown preview
+    " :InstantMarkdownPreview to enable as-you-type preview for markdown files
     Bundle 'suan/vim-instant-markdown'
 
-    " make ultisnips work with neocomplcache
-    " temporarily broken
-    " Bundle 'JazzCore/neocomplcache-ultisnips'
-
     " reopen closed window, mapping in .vimrc.local
+    " nnoremap <leader>uc :UcwRestoreWindow<cr>
     Bundle 'tyru/undoclosewin.vim'
 
     " a github dashboard in vim? Let's see how I like it...
+    " :GHD to see dashboard
     Bundle 'junegunn/vim-github-dashboard'
 
     " vim-autoclose causes problems with youcompleteme, it says use this instead
+    " automatically closes your html/xml tags, [], (), '', etc.
     Bundle 'Raimondi/delimitMate'
 
     " Add some unix stuff like :Chmod, :Unlink, etc.
+    " :Unlink[!]
+    " :Remove[!]
+    " :Move[!] {file}
+    " :Rename[!] {file}
+    " :Chmod {mode}
+    " :Mkdir {dir}
+    " :Mkdir! {dir}
+    " :Mkdir[!]
+    " :Find[!] {args}
+    " :Locate[!] {args}
+    " :SudoEdit [file]
+    " :SudoWrite
+    " :W
     Bundle 'tpope/vim-eunuch'
 
     " Toggle the location list and quickfix list windows
+    " <leader>qq
+    " <leader>ll
     Bundle 'milkypostman/vim-togglelist'
-
-    " phpmd, phpcs, php lint, and coverage on save
-    " I use syntastic now
-    " Bundle 'joonty/vim-phpqa'
 
     " improved php omnicompletion
     Bundle 'shawncplus/phpcomplete.vim'
 
     " required for phpcomplete-extended
+    " And perhaps other packages...
     Bundle 'Shougo/vimproc'
 
     " php completion for composer projects
@@ -104,65 +166,68 @@
     " Bundle 'm2mdas/phpcomplete-extended-symfony'
 
     " only for added sources for phpcomplete_extended
-    Bundle 'Shougo/unite.vim'
-
-    " this makes it not complain when you use sudo
-    Bundle 'vim-scripts/SudoEdit.vim'
+    " Bundle 'Shougo/unite.vim'
 
     " better vim start screen
     Bundle 'mhinz/vim-startify'
 
-    " runs jshint via :JSHint
-    " No need - I use Syntastic now
-    " Bundle 'Shutnik/jshint2.vim'
-
-    " move vertically with <M-f> and the like
-    " Doesn't work, probably because my meta key is not configured, which I
-    " don't care to fix right now
-    " Bundle 'machakann/vim-columnmove'
-
     " auto-update ctags on save
     " I just use a custom dispatch command for this now instead of a plugin.
+    " nnoremap <silent> <Leader>ut
     " So much more reliable.
     " Bundle 'szw/vim-tags'
     Bundle 'tpope/vim-dispatch'
 
     " auto update ctags on pause
+    " see above
     " Bundle 'xolox/vim-misc'
     " Bundle 'xolox/vim-easytags'
     " until he makes tag indexing non-blocking (asynchronous)
     " Bundle 'mikedfunk/vim-easytags'
 
     " coding standards fixer integration
+    " nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+    " nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
     Bundle 'stephpy/vim-php-cs-fixer'
 
     " increment/decrement dates
+    " <c-b> on date. I remapped vim's default <c-a> to <c-b> because of tmux.
     Bundle 'tpope/vim-speeddating'
 
     " open jira under cursor. MAC ONLY.
+    " <leader>jo
     Bundle 'markabe/vim-jira-open'
 
     " smart search, replace, abbreviation fixer
+    " :%S/mixed_case_thing/other_thing/g replaces MixedCaseThing in context as
+    " well. Also camel-case, etc.
     Bundle 'tpope/vim-abolish'
 
     " smart jump to project root
-    Bundle 'dbakker/vim-projectroot'
+    " nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
+    " Bundle 'dbakker/vim-projectroot'
     Bundle 'airblade/vim-rooter'
 
     " phpunit integration
     " Bundle 'joonty/vim-phpunitqf.git'
     " Works but kind of lame. Can't specify the window size.
+    " I replaced this with my own Dispatch commands.
+    " nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
+    " nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
+    " nnoremap <leader>pp :VimuxRunLastCommand<cr>
     " Bundle 'jonyamo/phpunit.vim'
 
     " more flexible phpunit integration with vimux. combine this with my own
     " phpunit command for all tests and I can rerun the latest vimux command,
     " set the window size, adjust size and it will stick, run arbitrary
     " commands and filters from vim, etc.
+    " see above for commands
     Bundle 'thiagoalessio/vimux-phpunit'
 
     " Zoom toggle current window like tmux pane zooming
     " Bundle 'vim-scripts/ZoomWin'
     " Latest version someone hosted
+    " <c-w>z to toggle zoom
     Bundle 'regedarek/ZoomWin'
 
     " .tmux.conf syntax hilighting
@@ -177,77 +242,72 @@
     Bundle 'atimholt/spiffy_foldtext'
 
     " php namespace and use block autocomplete
+    " inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
+    " noremap <Leader><Leader>u :call PhpInsertUse()<CR>
     Bundle 'arnaud-lb/vim-php-namespace'
 
-    " create text tables.
-    " conflicts with tagbar mapping in spf-13
-    " Bundle 'dhruvasagar/vim-table-mode'
-
-    " enable repeat in certain plugins
+    " enable . repeat in certain plugins
     Bundle 'tpope/vim-repeat'
 
     " better php ctags in tagbar
+    " <leader>tt to toggle tagbar. This makes it look prettier
     Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
 
-    " better paste
+    " paste with context-sensitive indenting
     Bundle 'sickill/vim-pasta'
 
-    " reverse-i-search with ctrl-r
-    " conflicts with pasting buffer into search command
-    " Bundle 'goldfeld/ctrlr.vim'
-
-    " better iterm2/tmux compatibility
-    " I don't care about FocusLost and FocusGained.
-    " Bundle 'sjl/vitality.vim'
-
     " allow to close all buffers but the current one
+    " :BufOnly
     Bundle 'vim-scripts/BufOnly.vim'
 
     " improved phpdoc implementation
+    " au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+    " au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+    " au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
     " Bundle 'tobyS/pdv'
     Bundle 'sumpygump/php-documentor-vim'
 
-    " required for pdv
-    " Bundle 'tobyS/vmustache'
-
-    " go to current quickfix item
-    " doesn't work
-    " Bundle 'vim-scripts/QuickFixCurrentNumber'
-
     " allow to star search from a visual selection
+    " viw *
     Bundle 'thinca/vim-visualstar'
 
     " smooth vertical scrolling
-    " This is AWESOME. One of my favorite plugins
+    " This is AWESOME. One of my favorite plugins. animates scrolling.
     Bundle 'yonchu/accelerated-smooth-scroll'
-
-    " show current buffers in vim command line
-    " This is redundant - it's already in vim-airline
-    " Bundle 'bling/vim-bufferline'
 
     " vai and vii text indent objects - REALLY useful
     " Bundle 'kana/vim-textobj-indent'
     Bundle 'michaeljsmith/vim-indent-object'
 
-    " entire document: ae, ie
+    " entire document
+    " vae, vie
     Bundle 'kana/vim-textobj-entire'
 
-    " last search pattern: a/, i/, a?, i?
+    " last search pattern:
+    " va/, vi/, va?, vi?
     Bundle 'kana/vim-textobj-lastpat'
 
     " al, il
     Bundle 'kana/vim-textobj-line'
 
-    " underscore: a_, i_
+    " selection in/around underscore
+    " a_, i_
     Bundle 'kana/vim-textobj-underscore'
 
     " better tag selector with ctrlp
+    " <c-]> will open ctrl-p with possible links if more than one is available
     Bundle 'ivalkeen/vim-ctrlp-tjump'
 
     " better than Ack
+    " :Ag 'my search' [options]
     Bundle 'rking/ag.vim'
 
     " open directory in finder
+    " gof opens the file manager at the directory of the file you are currently
+    " editing in Vim.
+    "
+    " got opens the terminal at the directory of the file you are currently 
+    " editing in Vim. Works with tmux - makes a vertical split!
     Bundle 'justinmk/vim-gtfo'
 
     " jump to definition even if tags file doesn't exist
@@ -255,6 +315,10 @@
     " Bundle 'tacahiroy/ctrlp-funky'
 
     " was used in PIV for php folding
+    " <space> toggle fold
+    " za toggle fold
+    " <leader>f[number] set the fold level to this number
+    " zR open all folds
     Bundle 'rayburgemeestre/phpfolding.vim'
 
     " share registers across vim installations
@@ -262,19 +326,24 @@
     " Bundle 'ardagnir/united-front'
 
     " create files and parent dirs at the same time
+    " :e my/non-existent/dir/file.php
     Bundle 'dockyard/vim-easydir'
 
     " expand the visual selection with + and _
     Bundle 'terryma/vim-expand-region'
 
     " tmux custom statusline in sync with airline
+    " :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
     Bundle 'edkolev/tmuxline.vim'
 
     " custom bash prompt in sync with airline
+    " :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
     Bundle 'edkolev/promptline.vim'
 
     " show @TODOs and stuff
     " Bundle 'vim-scripts/TaskList.vim'
+    " nnoremap <leader>td :TaskList<CR>
+    " nnoremap <leader>tl :TaskList<CR>
     Bundle 'mikedfunk/TaskList.vim'
 
     " show marks in the sign column
@@ -284,15 +353,11 @@
     " query surrounding tmux splits to add to autocomplete
     Bundle 'buztard/vim-nomad'
 
-    " complete words in adjacent tmux panes
-    " Same thing as above...
-    " Bundle 'wellle/tmux-complete.vim'
-
-    " underline tags
+    " Underline ctags. Sometimes works.
     Bundle 't9md/vim-underlinetag'
 
     " Automatically detect indentation and set it
-    " BUT it sets expandtab on php! Lame!
+    " BUT it sets expandtab on php by default! Lame!
     " Bundle 'tpope/vim-sleuth'
 " }}}
 
