@@ -41,16 +41,11 @@ function install_run() {
         return ${E_FAILURE}
     fi
 
-    # discover pear sources
-    sudo pear install phpdoc/phpDocumentor
-
     # install pear packages
     log_info "Installing Pear Packages"
     sudo pear config-set auto_discover 1
     packages=(
-    pear.phpqatools.org/phpqatools
     doc.php.net/pman
-    phpdoc/phpDocumentor
     )
     for package in "${packages[@]}"
     do
@@ -73,6 +68,10 @@ function install_run() {
         sudo chmod +x composer
         cd -
     fi
+
+    # composer global install
+    link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
+    composer global install
 
     # install bldr
     if [[ ! "$(type -P bldr)" ]]; then
