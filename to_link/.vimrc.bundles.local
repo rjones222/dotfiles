@@ -118,7 +118,7 @@
     Bundle 'junegunn/vim-github-dashboard'
 
     " vim-autoclose causes problems with youcompleteme, it says use this instead
-    " automatically closes your html/xml tags, [], (), '', etc.
+    " automatically closes [], (), '', etc.
     Bundle 'Raimondi/delimitMate'
 
     " Add some unix stuff like :Chmod, :Unlink, etc.
@@ -323,7 +323,7 @@
 
     " share registers across vim installations
     " sets the updatetime to 200ms. bad.
-    " Bundle 'ardagnir/united-front'
+    Bundle 'ardagnir/united-front'
 
     " create files and parent dirs at the same time
     " :e my/non-existent/dir/file.php
@@ -421,6 +421,7 @@
     " UnBundle 'gorodinskiy/vim-coloresque'
 
     " various spf-13 stuff I don't use
+    UnBundle 'mileszs/ack.vim'
     UnBundle 'jnwhiteh/vim-golang'
     UnBundle 'python.vim'
     UnBundle 'python_match.vim'
