@@ -74,6 +74,16 @@ function install_run() {
         cd -
     fi
 
+    # install bldr
+    if [[ ! "$(type -P bldr)" ]]; then
+        log_info "Installing bldr"
+        cd
+        curl -sS http://bldr.io/installer | php
+        sudo mv bldr.phar /usr/local/bin/bldr
+        sudo chmod +x bldr
+        cd -
+    fi
+
     # install pyrus
     if [[ ! "$(type -P pyrus)" ]]; then
         log_info "Installing pyrus"
