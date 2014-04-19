@@ -33,6 +33,8 @@ function linux_tasks_run() {
         # latest git
         sudo add-apt-repository -y ppa:git-core/ppa
 
+        sudo apt-get update
+
         # python 2.7
         sudo apt-get install -y python-dev
 
