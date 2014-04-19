@@ -22,8 +22,14 @@ function linux_tasks_run() {
 
         # install linux packages
         log_info "Installing apt-get Packages"
+
+        # latest php
         sudo apt-get -y install python-software-properties
         sudo add-apt-repository -y ppa:ondrej/php5
+
+        # latest vim
+        sudo add-apt-repository -y ppa:fcwu-tw/ppa
+
         sudo apt-get update
 
         packages=(

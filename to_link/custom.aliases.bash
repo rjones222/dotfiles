@@ -161,8 +161,8 @@ alias conflicts="grep -lir '<<<<<' *"
 alias grep="grep --color=auto"
 
 # tmux session for work
-alias work="tmux -2 -S /tmp/pair attach -t Work || (tmux -2 -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -2 -S /tmp/pair attach)"
-alias home="tmux -2 attach -t Home || (tmux -2 new -d -s Home && tmux -2 attach)"
+alias work="tmux -2 -u -S /tmp/pair attach -t Work || (tmux -2 -u -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -2 -u -S /tmp/pair attach)"
+alias home="tmux -2 -u attach -t Home || (tmux -2 -u new -d -s Home && tmux -2 -u attach)"
 alias layout="teamocil work --here"
 alias bookymark="teamocil bookymark --here"
 
