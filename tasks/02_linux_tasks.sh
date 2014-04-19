@@ -23,7 +23,7 @@ function linux_tasks_run() {
         # install linux packages
         log_info "Installing apt-get Packages"
         sudo apt-get -y install python-software-properties
-        sudo add-apt-repository ppa:ondrej/php5
+        sudo add-apt-repository -y ppa:ondrej/php5
         sudo apt-get update
 
         packages=(
@@ -109,7 +109,7 @@ function linux_tasks_run() {
         if [[ ! "$(type -P ag)" ]]; then
             log_info "installing the silver searcher"
             sudo apt-get install software-properties-common # (if required)
-            sudo apt-add-repository ppa:mizuno-as/silversearcher-ag
+            sudo apt-add-repository -y ppa:mizuno-as/silversearcher-ag
             sudo apt-get update
             sudo apt-get install -y silversearcher-ag
         fi
@@ -125,7 +125,7 @@ function linux_tasks_run() {
         if [[ ! "$(type -P tmate)" ]]; then
             log_info "installing tmate"
             sudo apt-get install python-software-properties && \
-            sudo add-apt-repository ppa:nviennot/tmate      && \
+            sudo add-apt-repository -y ppa:nviennot/tmate   && \
             sudo apt-get update                             && \
             sudo apt-get install -y tmate
         fi
@@ -145,7 +145,7 @@ function linux_tasks_run() {
         if [[ ! "$(type -P npm)" ]]; then
             log_info "installing nodejs"
             sudo apt-get install python-software-properties python g++ make -y
-            sudo add-apt-repository ppa:chris-lea/node.js
+            sudo add-apt-repository -y ppa:chris-lea/node.js
             sudo apt-get update
             sudo apt-get install -y nodejs
         fi
