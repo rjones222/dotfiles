@@ -206,6 +206,16 @@ function linux_tasks_run() {
             sudo rm ngrok.zip
         fi
 
+        # install powerline fonts
+        if [[ ! -d "~/.fonts/powerline-fonts" ]]; then
+            cd ~/.fonts
+            git clone https://github.com/Lokaltog/powerline-fonts
+            wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+            wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+            # Merge the contents of 10-powerline-symbols.conf to ~/.fonts.conf
+            fc-cache -vf ~/.fonts
+        fi
+
     else
         log_error "This is not linux so not running linux tasks"
     fi
