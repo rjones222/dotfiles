@@ -208,6 +208,8 @@ function linux_tasks_run() {
 
         # install powerline fonts
         if [[ ! -d "~/.fonts/powerline-fonts" ]]; then
+            log_info "installing powerline fonts"
+            (( -d "~/.fonts" )) || mkdir ~/.fonts
             cd ~/.fonts
             git clone https://github.com/Lokaltog/powerline-fonts
             wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
