@@ -33,7 +33,10 @@ function linux_tasks_run() {
         # latest git
         sudo add-apt-repository -y ppa:git-core/ppa
 
+        # python 2.7
+        sudo add-apt-repository -y ppa:fkrull/deadsnakes
         sudo apt-get update
+        sudo apt-get install -y python2.7
 
         packages=(
         # ack
@@ -114,7 +117,7 @@ function linux_tasks_run() {
             sudo mv battery /usr/local/bin/battery
             sudo chmod +x /usr/local/bin/battery
         fi
-        
+
          # install the silver searcher
         if [[ ! "$(type -P ag)" ]]; then
             log_info "installing the silver searcher"
