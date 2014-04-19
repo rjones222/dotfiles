@@ -41,6 +41,7 @@ function linux_tasks_run() {
         bison
         build-essential
         cloc
+        cmake
         cronolog
         ctags
         imagemagick
