@@ -16,7 +16,7 @@ function linux_tasks_run() {
         # if [[ ! "$(type -P php)" ]]; then
         log_info "installing EasyEngine"
         curl -sL rt.cx/ee | sudo bash
-        ee system install
+        sudo ee system install
         # fi
 
         # install linux packages
