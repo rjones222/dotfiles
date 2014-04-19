@@ -4,9 +4,7 @@ My Bash, Vim, Git, and other dotfiles. My Vim config starts with [spf13](https:/
 
 # Directions
 
-Run install script: ```curl https://raw.github.com/mikedfunk/dotfiles/master/install.sh -L -o - | bash```
-
-Or if you have git installed: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install.sh -r```
+First install git, then: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install.sh -r```
 
 Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install.sh -t bashit```
 
@@ -15,10 +13,10 @@ Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfun
 * [XCode Command Line Tools](https://developer.apple.com/downloads/index.action) for Mac
 * [Google Drive](https://tools.google.com/dlpage/drive)
 * [Google Music](https://support.google.com/googleplay/answer/1229970?hl=en)
-* [Sizewell](http://sizewellplugin.com/) for Mac
+* [Spectacle](http://spectacleapp.com/)
 * [VirtualBox](http://virtualbox.org)
 * [Vagrant](http://www.vagrantup.com/downloads)
 * [IE VMs](https://github.com/xdissent/ievms)
 * [Sequel Pro](http://www.sequelpro.com/) for Mac or [MySQL Workbench](http://dev.mysql.com/downloads/tools/workbench/) for Windows/Linux
 * [TinyGrab](http://tinygrab.com/download.php)
-* [MacGDBP](http://www.bluestatic.org/software/macgdbp/)
+* [ScreenHero](http://screenhero.com/) for pair programming

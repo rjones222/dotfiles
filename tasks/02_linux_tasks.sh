@@ -11,8 +11,19 @@ function linux_tasks_run() {
     # Linux only
     if [[ "$(type -P apt-get)" ]]; then
 
+        # so easy!
+        # @link https://rtcamp.com/easyengine/
+        # if [[ ! "$(type -P php)" ]]; then
+        log_info "installing EasyEngine"
+        curl -sL rt.cx/ee | sudo bash
+        ee system install
+        # fi
+
         # install linux packages
         log_info "Installing apt-get Packages"
+        sudo apt-get -y install python-software-properties
+        sudo add-apt-repository ppa:ondrej/php5
+        sudo apt-get update
 
         packages=(
         # ack
@@ -40,11 +51,11 @@ function linux_tasks_run() {
         # openssh-client
         # openssh-server
         # pgadmin3
-        php-apc
-        php-pear
-        php5
-        php5-cli
-        php5-curl
+        # php-apc
+        # php-pear
+        # php5
+        # php5-cli
+        # php5-curl
         php5-imagick
         php5-json
         php5-mcrypt
