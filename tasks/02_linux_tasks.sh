@@ -34,9 +34,7 @@ function linux_tasks_run() {
         sudo add-apt-repository -y ppa:git-core/ppa
 
         # python 2.7
-        sudo add-apt-repository -y ppa:fkrull/deadsnakes
-        sudo apt-get update
-        sudo apt-get install -y python2.7
+        sudo apt-get install -y python-dev
 
         packages=(
         # ack
