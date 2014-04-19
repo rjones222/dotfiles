@@ -12,11 +12,12 @@ function linux_tasks_run() {
     if [[ "$(type -P apt-get)" ]]; then
 
         # so easy!
+        # fails on the first task - apt-cache
         # @link https://rtcamp.com/easyengine/
         # if [[ ! "$(type -P php)" ]]; then
-        log_info "installing EasyEngine"
-        curl -sL rt.cx/ee | sudo bash
-        sudo ee system install
+            # log_info "installing EasyEngine"
+            # curl -sL rt.cx/ee | sudo bash
+            # sudo ee system install
         # fi
 
         # install linux packages
@@ -51,11 +52,11 @@ function linux_tasks_run() {
         # openssh-client
         # openssh-server
         # pgadmin3
-        # php-apc
-        # php-pear
-        # php5
-        # php5-cli
-        # php5-curl
+        php-apc
+        php-pear
+        php5
+        php5-cli
+        php5-curl
         php5-imagick
         php5-json
         php5-mcrypt
