@@ -55,10 +55,6 @@ function install_run() {
         # fi
     done
 
-    # set default phpcs standard
-    log_info "setting phpcs default to psr2"
-    sudo phpcs --config-set default_standard PSR2
-
     # install composer
     if [[ ! "$(type -P composer)" ]]; then
         log_info "Installing Composer"
@@ -72,6 +68,10 @@ function install_run() {
     # composer global install
     link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
     composer global install
+
+    # set default phpcs standard
+    log_info "setting phpcs default to psr2"
+    sudo phpcs --config-set default_standard PSR2
 
     # install bldr
     if [[ ! "$(type -P bldr)" ]]; then
