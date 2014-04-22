@@ -15,14 +15,16 @@
     ls = ls-files
     olg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     purr = pull --rebase
+    pu = push
+    pl = pull
+    pup = pull --recurse-submodules && git submodule update
+    permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
     ready = rebase -i @{u}
     st = status -sb
     standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mfunk@christianpublishing.com
     sync = "!f() { echo 'Syncing current branch with develop' && git checkout develop && git pull && git checkout - && git merge develop; }; f"
-    wiff = diff --color-words
-    pup = pull --recurse-submodules && git submodule update
-    permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
     unstage = reset HEAD
+    wiff = diff --color-words
 [color]
     branch = true
     diff = true

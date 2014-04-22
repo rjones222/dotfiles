@@ -45,3 +45,15 @@ cd() {
 
     builtin cd "$@" && ls;
 }
+
+pcs() {
+    about 'use phpcs.xml if exists'
+    group 'custom'
+
+    echo "Sniffing for coding standards violations..."
+    if [[ -f "phpcs.xml" ]]; then
+        phpcs --standard=phpcs.xml -p .
+    else
+        phpcs **/*.php
+    fi
+}
