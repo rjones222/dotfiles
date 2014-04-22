@@ -1,6 +1,7 @@
 [alias]
     ahead = git log --branches --not --remotes
     ci = commit
+    cm = !git add -A && git commit -am
     br = branch
     co = checkout
     df = diff
@@ -17,7 +18,8 @@
     purr = pull --rebase
     pu = push
     pl = pull
-    pup = pull --recurse-submodules && git submodule update
+    pp = !git pull && git push
+    pup = !git pull --recurse-submodules && git submodule update
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
     ready = rebase -i @{u}
     st = status -sb

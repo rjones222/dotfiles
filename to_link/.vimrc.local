@@ -319,12 +319,6 @@
             let g:promptline_powerline_symbols = 1
             let g:tmuxline_powerline_separators = 1
             let g:airline_powerline_fonts=1
-            let g:tmuxline_separators = {
-                \ 'left' : '',
-                \ 'left_alt': '',
-                \ 'right' : '',
-                \ 'right_alt' : '|',
-                \ 'space' : ' '}
             " let g:tmuxline_separators = {
                 " \ 'left' : '',
                 " \ 'left_alt': '',
@@ -627,6 +621,14 @@
 
     " don't overwrite the theme
     let g:airline#extensions#tmuxline#enabled = 0
+
+    " fits well with my theme - powerline or not
+    let g:tmuxline_separators = {
+        \ 'left' : '',
+        \ 'left_alt': '',
+        \ 'right' : '',
+        \ 'right_alt' : '|',
+        \ 'space' : ' '}
 
     " the segments used
     " let g:tmuxline_preset = 'full'
