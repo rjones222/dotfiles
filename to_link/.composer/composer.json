@@ -8,8 +8,9 @@
     "phploc/phploc": "2.0.*",
     "phpmd/phpmd": "2.0.0.*@dev",
     "phpunit/phpunit": "4.0.*",
-    "bldr-io/bldr" : "~3.0.0",
     "squizlabs/php_codesniffer": "2.0.*@dev"
+
   },
-  "process-timeout": 120
+  "process-timeout": 120,
+  "minimum-stability": "stable"
 }
