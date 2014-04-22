@@ -1,14 +1,15 @@
 {
-    "require": {
-      "codeception/codeception": "2.0-beta@dev",
-      "covex-nn/phpcb": "1.0.*",
-      "sebastian/phpcpd": "2.0.*",
-      "pdepend/pdepend": "2.0.*@dev",
-      "phing/phing": "dev-master",
-      "phploc/phploc": "2.0.*",
-      "phpmd/phpmd": "2.0.0.*@dev",
-      "phpunit/phpunit": "4.0.*",
-      "bldr-io/bldr" : "~3.0.0",
-      "squizlabs/php_codesniffer": "2.0.*@dev"
-    }
+  "require": {
+    "codeception/codeception": "2.0-beta@dev",
+    "covex-nn/phpcb": "1.0.*",
+    "sebastian/phpcpd": "2.0.*",
+    "pdepend/pdepend": "2.0.*@dev",
+    "phing/phing": "dev-master",
+    "phploc/phploc": "2.0.*",
+    "phpmd/phpmd": "2.0.0.*@dev",
+    "phpunit/phpunit": "4.0.*",
+    "bldr-io/bldr" : "~3.0.0",
+    "squizlabs/php_codesniffer": "2.0.*@dev"
+  },
+  "process-timeout": 120
 }

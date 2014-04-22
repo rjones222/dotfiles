@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ed3ae4d3886f6efed57354e56c5ecae5",
+    "hash": "504da1e8184ebb5577480172e021d8c5",
     "packages": [
         {
             "name": "bldr-io/bldr",
@@ -1075,12 +1075,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "a7166dfd097a7010e36d16e0a5ee6d51afe9bea2"
+                "reference": "6dead21f35abda04c30b75ab499203d7336ccc4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/a7166dfd097a7010e36d16e0a5ee6d51afe9bea2",
-                "reference": "a7166dfd097a7010e36d16e0a5ee6d51afe9bea2",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/6dead21f35abda04c30b75ab499203d7336ccc4f",
+                "reference": "6dead21f35abda04c30b75ab499203d7336ccc4f",
                 "shasum": ""
             },
             "require": {
@@ -1089,7 +1089,7 @@
                 "symfony/filesystem": "@stable"
             },
             "require-dev": {
-                "phpunit/phpunit": "@stable",
+                "phpunit/phpunit": "3.*@stable",
                 "squizlabs/php_codesniffer": "@stable"
             },
             "bin": [
@@ -1111,7 +1111,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2014-03-19 22:21:06"
+            "time": "2014-04-22 19:25:39"
         },
         {
             "name": "phine/exception",
@@ -1222,12 +1222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "1a3542c07996f3e46641d62919eb9d708681ba0c"
+                "reference": "e1f0e3c53e0764c21bc1ffc3610dd9bbd68edd90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/1a3542c07996f3e46641d62919eb9d708681ba0c",
-                "reference": "1a3542c07996f3e46641d62919eb9d708681ba0c",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/e1f0e3c53e0764c21bc1ffc3610dd9bbd68edd90",
+                "reference": "e1f0e3c53e0764c21bc1ffc3610dd9bbd68edd90",
                 "shasum": ""
             },
             "require": {
@@ -1266,7 +1266,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-04-17 12:43:58"
+            "time": "2014-04-21 14:52:48"
         },
         {
             "name": "phploc/phploc",
@@ -1324,12 +1324,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "399c70b4fbe43613249d1f40f9ab9a12f97070dc"
+                "reference": "d20d6fec505b6d5a337740342db49a9cd9d6c313"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/399c70b4fbe43613249d1f40f9ab9a12f97070dc",
-                "reference": "399c70b4fbe43613249d1f40f9ab9a12f97070dc",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/d20d6fec505b6d5a337740342db49a9cd9d6c313",
+                "reference": "d20d6fec505b6d5a337740342db49a9cd9d6c313",
                 "shasum": ""
             },
             "require": {
@@ -1360,7 +1360,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of PHPMD handled with Composer.",
-            "time": "2014-03-19 22:06:20"
+            "time": "2014-04-22 16:21:20"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -1706,16 +1706,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.0.15",
+            "version": "4.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "47b0850e47b7667ef0ddf296bc27906155ac752d"
+                "reference": "8185f4bd21860cc72466009070a50bed6cd2eaca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/47b0850e47b7667ef0ddf296bc27906155ac752d",
-                "reference": "47b0850e47b7667ef0ddf296bc27906155ac752d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8185f4bd21860cc72466009070a50bed6cd2eaca",
+                "reference": "8185f4bd21860cc72466009070a50bed6cd2eaca",
                 "shasum": ""
             },
             "require": {
@@ -1777,7 +1777,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-04-16 15:05:25"
+            "time": "2014-04-21 06:33:32"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
