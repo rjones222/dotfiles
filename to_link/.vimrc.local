@@ -313,12 +313,24 @@
 
 " Theme {{{
     " {{{ global powerline fonts switch
-        let g:global_powerline_switch = 0
+        let g:global_powerline_switch = 1
 
         if g:global_powerline_switch == 1
             let g:promptline_powerline_symbols = 1
             let g:tmuxline_powerline_separators = 1
             let g:airline_powerline_fonts=1
+            let g:tmuxline_separators = {
+                \ 'left' : '',
+                \ 'left_alt': '',
+                \ 'right' : '',
+                \ 'right_alt' : '|',
+                \ 'space' : ' '}
+            " let g:tmuxline_separators = {
+                " \ 'left' : '',
+                " \ 'left_alt': '',
+                " \ 'right' : '',
+                " \ 'right_alt' : '',
+                " \ 'space' : ' '}
         else
             let g:promptline_powerline_symbols = 0
             let g:tmuxline_powerline_separators = 0
@@ -453,7 +465,7 @@
     command! Gprp silent Gpurr | Gpush
     command! Gsync :Dispatch git checkout develop && git pull && git checkout - && git merge develop
 
-    unmap <leader>gp
+    silent! unmap <leader>gp
     " nnoremap <silent> <leader>gpu :Gpuspacesh<CR>
     " nnoremap <silent> <leader>gpl :Gpull<CR>:e<CR>
     nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
@@ -562,7 +574,7 @@
     command! MyPromptline :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
 
     " promptline and tmuxline configs
-    function MyConfigs()
+    function! MyConfigs()
         :MyPromptline
         :MyTmuxline
     endfunction
@@ -617,6 +629,7 @@
     let g:airline#extensions#tmuxline#enabled = 0
 
     " the segments used
+    " let g:tmuxline_preset = 'full'
     let g:tmuxline_preset = {
         \'a'    : ['❏ #S'],
         \'b'    : ['#H'],
@@ -627,6 +640,7 @@
     \}
 
     " custom tmuxline theme
+    " let g:tmuxline_theme = 'iceberg'
     let g:tmuxline_theme = {
         \ 'a': ['green', 'default'],
         \ 'b': ['colour10', 'default'],
@@ -665,7 +679,7 @@
     " }}}
 
     " {{{ undotree
-    unmap <leader>u
+    silent! unmap <leader>u
     nnoremap <leader>uu :UndotreeToggle<CR>
     " }}}
 
