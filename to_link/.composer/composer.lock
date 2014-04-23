@@ -3,8 +3,103 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6119dc106163301a156153d1986e2c2e",
+    "hash": "fe8df20b78646c04f30e58bdd9c86cbc",
     "packages": [
+        {
+            "name": "andrewsville/php-token-reflection",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Andrewsville/PHP-Token-Reflection.git",
+                "reference": "3e3a36de17f32889fd2d4b8108af16d3033ce9bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Andrewsville/PHP-Token-Reflection/zipball/3e3a36de17f32889fd2d4b8108af16d3033ce9bf",
+                "reference": "3e3a36de17f32889fd2d4b8108af16d3033ce9bf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "TokenReflection": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3"
+            ],
+            "authors": [
+                {
+                    "name": "Ondřej Nešpor",
+                    "homepage": "https://github.com/Andrewsville"
+                },
+                {
+                    "name": "Jaroslav Hanslík",
+                    "homepage": "https://github.com/kukulich"
+                }
+            ],
+            "description": "Library emulating the PHP internal reflection using just the tokenized source code.",
+            "homepage": "http://andrewsville.github.com/PHP-Token-Reflection/",
+            "keywords": [
+                "library",
+                "reflection",
+                "tokenizer"
+            ],
+            "time": "2012-08-25 21:26:44"
+        },
+        {
+            "name": "beberlei/assert",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/assert.git",
+                "reference": "85ba3497e59e33f3d4a1754aafb33c82512f7647"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/85ba3497e59e33f3d4a1754aafb33c82512f7647",
+                "reference": "85ba3497e59e33f3d4a1754aafb33c82512f7647",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Assert": "lib/"
+                },
+                "files": [
+                    "lib/Assert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                }
+            ],
+            "description": "Thin assertion library for input validation in business models.",
+            "keywords": [
+                "assert",
+                "assertion",
+                "validation"
+            ],
+            "time": "2014-01-26 15:26:52"
+        },
         {
             "name": "codeception/codeception",
             "version": "2.0.0-beta",
@@ -412,6 +507,50 @@
             "time": "2014-01-28 22:14:17"
         },
         {
+            "name": "nikic/php-parser",
+            "version": "v0.9.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "1e5e280ae88a27effa2ae4aa2bd088494ed8594f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1e5e280ae88a27effa2ae4aa2bd088494ed8594f",
+                "reference": "1e5e280ae88a27effa2ae4aa2bd088494ed8594f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PHPParser": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2013-08-25 17:11:40"
+        },
+        {
             "name": "pdepend/pdepend",
             "version": "dev-master",
             "source": {
@@ -600,6 +739,39 @@
             ],
             "description": "Official version of PHPMD handled with Composer.",
             "time": "2014-04-22 16:21:20"
+        },
+        {
+            "name": "phpspec/php-diff",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/php-diff.git",
+                "reference": "30e103d19519fe678ae64a60d77884ef3d71b28a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/php-diff/zipball/30e103d19519fe678ae64a60d77884ef3d71b28a",
+                "reference": "30e103d19519fe678ae64a60d77884ef3d71b28a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Diff": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Boulton",
+                    "homepage": "http://github.com/chrisboulton"
+                }
+            ],
+            "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
+            "time": "2013-11-01 13:02:21"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -979,6 +1151,59 @@
                 "xunit"
             ],
             "time": "2014-04-16 14:50:10"
+        },
+        {
+            "name": "qafoolabs/php-refactoring-browser",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/QafooLabs/php-refactoring-browser.git",
+                "reference": "c951cbf2d957b5ced0546691710c09e4fadd3723"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/QafooLabs/php-refactoring-browser/zipball/c951cbf2d957b5ced0546691710c09e4fadd3723",
+                "reference": "c951cbf2d957b5ced0546691710c09e4fadd3723",
+                "shasum": ""
+            },
+            "require": {
+                "andrewsville/php-token-reflection": "@stable",
+                "beberlei/assert": "@stable",
+                "nikic/php-parser": "@stable",
+                "symfony/console": "@stable",
+                "symfony/finder": "@stable",
+                "tomphp/patch-builder": "dev-master"
+            },
+            "require-dev": {
+                "behat/behat": "@stable",
+                "mikey179/vfsstream": "@stable",
+                "phake/phake": "@stable",
+                "php": ">=5.4",
+                "symfony/process": "@stable"
+            },
+            "bin": [
+                "src/bin/refactor"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "QafooLabs\\Refactoring": "src/main/",
+                    "QafooLabs\\Patches": "src/main/",
+                    "QafooLabs\\Collections": "src/main/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                }
+            ],
+            "description": "Refactoring Browser for PHP",
+            "time": "2014-01-09 13:00:40"
         },
         {
             "name": "sebastian/diff",
@@ -2011,6 +2236,41 @@
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
             "time": "2014-02-19 00:20:43"
+        },
+        {
+            "name": "tomphp/patch-builder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tomphp/PatchBuilder.git",
+                "reference": "4419eaad23016c7db1deffc6cce3f539096c11ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tomphp/PatchBuilder/zipball/4419eaad23016c7db1deffc6cce3f539096c11ce",
+                "reference": "4419eaad23016c7db1deffc6cce3f539096c11ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "phpspec/php-diff": "1.0.2"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "dev-master",
+                "phpmd/phpmd": "1.4.0",
+                "phpspec/phpspec": "2.0.*@dev",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "TomPHP\\PatchBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "PHP Library for manipulating files to produce a patch.",
+            "time": "2014-01-10 16:47:41"
         }
     ],
     "packages-dev": [
@@ -2025,7 +2285,9 @@
         "pdepend/pdepend": 20,
         "phing/phing": 20,
         "phpmd/phpmd": 20,
-        "squizlabs/php_codesniffer": 20
+        "squizlabs/php_codesniffer": 20,
+        "tomphp/patch-builder": 20,
+        "qafoolabs/php-refactoring-browser": 20
     },
     "platform": [
 

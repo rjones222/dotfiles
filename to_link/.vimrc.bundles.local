@@ -88,12 +88,12 @@
     Bundle 'mattn/emmet-vim'
 
     " create tmux window with a command from vim
-    " nnoremap <leader>rp :VimuxPromptCommand<cr>
-    " nnoremap <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
-    " nnoremap <leader>rl :VimuxRunLastCommand<cr>
-    " nnoremap <leader>rr :VimuxRunLastCommand<cr>
-    " nnoremap <leader>ri :VimuxInspectRunner<cr>
-    " nnoremap <leader>rx :VimuxCloseRunner<cr>
+    " nnoremap <leader>vp :VimuxPromptCommand<cr>
+    " nnoremap <leader>vc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+    " nnoremap <leader>vl :VimuxRunLastCommand<cr>
+    " nnoremap <leader>vr :VimuxRunLastCommand<cr>
+    " nnoremap <leader>vi :VimuxInspectRunner<cr>
+    " nnoremap <leader>vx :VimuxCloseRunner<cr>
     "
     " nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
     " nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
@@ -241,6 +241,31 @@
     " What it sounds like!
     Bundle 'atimholt/spiffy_foldtext'
 
+    " whoa, cool. change variable names, extract code to a function, extract
+    " local var to instance var.
+    "
+    " doesn't work very well. Can only extract a visual selection to a method.
+    " Everything else says 'not enough parameters'. Maybe I can get it to work
+    " someday.
+    "
+    " EXTRACT METHOD
+    " Go into visual mode and select the code you want to extract to a new 
+    " method the press <Leader>rem You will be prompted for the name of the new 
+    " method.
+    "
+    " RENAME LOCAL VARIABLE
+    " In normal mode move the cursor so it's inside the name of the variable 
+    " which you want to rename. Press <Leader>rlv
+    "
+    " LOCAL VARIABLE TO INSTANCE VARIABLE
+    " In normal mode move the cursor so it's inside the name of the variable 
+    " which you want to rename. Press <Leader>rli
+    "
+    " OPTIMIZE USE
+    " Simple press <Leader>rou to run the optimize use refactoring.
+    " Bundle 'vim-php/vim-php-refactoring'
+    " Bundle 'beberlei/vim-php-refactor'
+
     " php namespace and use block autocomplete
     " inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     " noremap <Leader><Leader>u :call PhpInsertUse()<CR>
@@ -252,6 +277,7 @@
     " better php ctags in tagbar
     " <leader>tt to toggle tagbar. This makes it look prettier
     Bundle 'techlivezheng/vim-plugin-tagbar-phpctags'
+    " Bundle 'vim-php/tagbar-phpctags.vim'
 
     " paste with context-sensitive indenting
     Bundle 'sickill/vim-pasta'
@@ -278,6 +304,9 @@
     " vai and vii text indent objects - REALLY useful
     " Bundle 'kana/vim-textobj-indent'
     Bundle 'michaeljsmith/vim-indent-object'
+
+    " apparently better php indenting for PHP 5.4+
+    Bundle '2072/PHP-Indenting-for-VIm'
 
     " entire document
     " vae, vie

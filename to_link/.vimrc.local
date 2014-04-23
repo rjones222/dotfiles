@@ -819,6 +819,10 @@
     noremap <Leader><Leader>u :call PhpInsertUse()<CR>
     " }}}"
 
+    " {{{ vim-php-refactoring
+    let g:php_refactor_command='~/.composer/vendor/bin/refactor'
+    " }}}
+
     " {{{ vim-tags
     " doesn't want to auto-generate for some reason
     " augroup PhpVimTag
@@ -841,12 +845,12 @@
 
     " {{{ vimux
     let g:VimuxHeight = "40"
-    nnoremap <leader>rp :VimuxPromptCommand<cr>
-    nnoremap <leader>rc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
-    nnoremap <leader>rl :VimuxRunLastCommand<cr>
-    nnoremap <leader>rr :VimuxRunLastCommand<cr>
-    nnoremap <leader>ri :VimuxInspectRunner<cr>
-    nnoremap <leader>rx :VimuxCloseRunner<cr>
+    nnoremap <leader>vp :VimuxPromptCommand<cr>
+    nnoremap <leader>vc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+    nnoremap <leader>vl :VimuxRunLastCommand<cr>
+    nnoremap <leader>vr :VimuxRunLastCommand<cr>
+    nnoremap <leader>vi :VimuxInspectRunner<cr>
+    nnoremap <leader>vx :VimuxCloseRunner<cr>
     " }}}
 
     " {{{ vimux-phpunit
