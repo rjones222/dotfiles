@@ -249,16 +249,16 @@
     " someday.
     "
     " EXTRACT METHOD
-    " Go into visual mode and select the code you want to extract to a new 
-    " method the press <Leader>rem You will be prompted for the name of the new 
+    " Go into visual mode and select the code you want to extract to a new
+    " method the press <Leader>rem You will be prompted for the name of the new
     " method.
     "
     " RENAME LOCAL VARIABLE
-    " In normal mode move the cursor so it's inside the name of the variable 
+    " In normal mode move the cursor so it's inside the name of the variable
     " which you want to rename. Press <Leader>rlv
     "
     " LOCAL VARIABLE TO INSTANCE VARIABLE
-    " In normal mode move the cursor so it's inside the name of the variable 
+    " In normal mode move the cursor so it's inside the name of the variable
     " which you want to rename. Press <Leader>rli
     "
     " OPTIMIZE USE
@@ -332,10 +332,10 @@
     Bundle 'rking/ag.vim'
 
     " open directory in finder
-    " gof opens the file manager at the directory of the file you are currently
+    " <gof> opens the file manager at the directory of the file you are currently
     " editing in Vim.
     "
-    " got opens the terminal at the directory of the file you are currently 
+    " <got> opens the terminal at the directory of the file you are currently
     " editing in Vim. Works with tmux - makes a vertical split!
     Bundle 'justinmk/vim-gtfo'
 
