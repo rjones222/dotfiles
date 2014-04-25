@@ -307,6 +307,7 @@
 " }}}
 
 " Theme {{{
+
     " {{{ global powerline fonts switch is defined in .vimrc.before.local
         " let g:global_powerline_switch = 0
 
@@ -331,7 +332,8 @@
         endif
     " }}}
 
-    " {{{ solarized
+    " {{{ colorscheme
+    colorscheme lucius
     let g:solarized_termtrans=0
     let g:solarized_termcolors=16
     " let g:solarized_degrade=0
@@ -345,7 +347,6 @@
     " let g:solarized_hitrail=1
     " let g:solarized_menu=1
     " set fillchars="fold: "
-    colorscheme lucius
     " }}}
 
     " {{{ set background based on time of day!
