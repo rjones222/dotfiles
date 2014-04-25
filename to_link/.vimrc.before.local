@@ -18,5 +18,18 @@ let g:spf13_no_neosnippet_expand=1
 " set exrc
 " set secure
 
-" enable powerline fonts for vim-airline
-let g:airline_powerline_fonts=1
+" global powerline switch
+let g:global_powerline_switch = 1
+
+" set airline powerline fonts
+if g:global_powerline_switch == 1
+    let g:airline_powerline_fonts=1
+else
+    let g:airline_powerline_fonts=0
+endif
+
+" this ensures it doesn't say hit enter to continue
+command! -nargs=1 Silent
+            \ | execute ':silent !'.<q-args>
+            \ | execute ':redraw!'
+

@@ -82,11 +82,6 @@
         set mouse=a
     endif
 
-    " this ensures it doesn't say hit enter to continue
-    command! -nargs=1 Silent
-                \ | execute ':silent !'.<q-args>
-                \ | execute ':redraw!'
-
     " use php documentation with <shift>K from pear package pman"
     augroup phpman_autogroup
         autocmd FileType php set keywordprg=pman\ -P\ less
@@ -312,13 +307,13 @@
 " }}}
 
 " Theme {{{
-    " {{{ global powerline fonts switch
-        let g:global_powerline_switch = 1
+    " {{{ global powerline fonts switch is defined in .vimrc.before.local
+        " let g:global_powerline_switch = 0
 
         if g:global_powerline_switch == 1
             let g:promptline_powerline_symbols = 1
             let g:tmuxline_powerline_separators = 1
-            let g:airline_powerline_fonts=1
+            " let g:airline_powerline_fonts=1
             " let g:tmuxline_separators = {
                 " \ 'left' : '',
                 " \ 'left_alt': '',
@@ -328,13 +323,14 @@
         else
             let g:promptline_powerline_symbols = 0
             let g:tmuxline_powerline_separators = 0
-            let g:airline_powerline_fonts=0
+            " let g:airline_powerline_fonts=0
             let g:airline_left_sep = ''
             let g:airline_left_alt_sep = ''
             let g:airline_right_sep = ''
             let g:airline_right_alt_sep = ''
         endif
     " }}}
+
     " {{{ solarized
     let g:solarized_termtrans=0
     let g:solarized_termcolors=16
@@ -349,6 +345,17 @@
     " let g:solarized_hitrail=1
     " let g:solarized_menu=1
     " set fillchars="fold: "
+    " }}}
+
+    " {{{ set background based on time of day!
+    let hr = str2nr(strftime('%H'))
+    if hr <= 7
+        set background=dark
+    elseif hr <= 18
+        set background=light
+    else
+        set background=dark
+    endif
     " }}}
 
     " {{{ custom indent guide colors
@@ -595,6 +602,8 @@
     " auto open loc list and jump to error when there's a php error
     let g:syntastic_auto_loc_list = 1
     " let g:syntastic_auto_jump = 2
+    " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+    let g:syntastic_php_checkers = ['php', 'phpcs']
     " }}}
 
     " {{{ tabular
