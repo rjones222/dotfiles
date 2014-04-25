@@ -9,6 +9,7 @@
     " different fork of solarized that fixes stuff
     " Bundle 'blueyed/vim-colors-solarized'
     Bundle 'jwhitley/vim-colors-solarized'
+    Bundle 'jonathanfilip/vim-lucius'
 
     " Gitk clone in vim. ,gv and ,gV to view, <cr> to view commits in a
     " split or view diffs.
@@ -404,7 +405,7 @@
     " I use solarized
     UnBundle 'flazz/vim-colorschemes'
     UnBundle 'vim-colors'
-    UnBundle 'jonathanfilip/vim-lucius'
+    " UnBundle 'jonathanfilip/vim-lucius'
 
     " I use a different fork that fixes some stuff
     UnBundle 'altercation/vim-colors-solarized'

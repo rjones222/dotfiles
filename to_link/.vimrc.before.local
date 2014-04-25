@@ -21,6 +21,9 @@ let g:spf13_no_neosnippet_expand=1
 " global powerline switch
 let g:global_powerline_switch = 1
 
+" lucius color theme
+let g:airline_theme='lucius'
+
 " set airline powerline fonts
 if g:global_powerline_switch == 1
     let g:airline_powerline_fonts=1

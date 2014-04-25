@@ -345,17 +345,18 @@
     " let g:solarized_hitrail=1
     " let g:solarized_menu=1
     " set fillchars="fold: "
+    colorscheme lucius
     " }}}
 
     " {{{ set background based on time of day!
-    let hr = str2nr(strftime('%H'))
-    if hr <= 7
-        set background=dark
-    elseif hr <= 18
-        set background=light
-    else
-        set background=dark
-    endif
+    " let hr = str2nr(strftime('%H'))
+    " if hr <= 7
+        " set background=dark
+    " elseif hr <= 18
+        " set background=light
+    " else
+        " set background=dark
+    " endif
     " }}}
 
     " {{{ custom indent guide colors
@@ -634,37 +635,49 @@
     let g:airline#extensions#tmuxline#enabled = 0
 
     " fits well with my theme - powerline or not
-    let g:tmuxline_separators = {
-        \ 'left' : '',
-        \ 'left_alt': '',
-        \ 'right' : '',
-        \ 'right_alt' : '|',
-        \ 'space' : ' '}
+    " let g:tmuxline_separators = {
+        " \ 'left'      : '',
+        " \ 'left_alt'  : '',
+        " \ 'right'     : '',
+        " \ 'right_alt' : '|',
+        " \ 'space'     : ' '}
 
     " the segments used
     " let g:tmuxline_preset = 'full'
+    " let g:tmuxline_theme = 'airline_insert'
+    let g:tmuxline_theme = 'powerline'
+    " let g:tmuxline_preset = 'powerline'
+
+    " let g:tmuxline_preset = {
+        " \'a'    : ['❏ #S'],
+        " \'b'    : ['#H'],
+        " \'win'  : ['#I:#W'],
+        " \'cwin' : ['#I:#W #F'],
+        " \'y'    : ['%a', '%b %d', '%I:%M %p'],
+        " \'z'    : ['#(battery -t)'],
+    " \}
     let g:tmuxline_preset = {
-        \'a'    : ['❏ #S'],
-        \'b'    : ['#H'],
-        \'win'  : ['#I:#W'],
-        \'cwin' : ['#I:#W #F'],
-        \'y'    : ['%a', '%b %d', '%I:%M %p'],
-        \'z'    : ['#(battery -t)'],
+        \ 'a'    : ['❏ #S'],
+        \ 'b'    : ['#H'],
+        \ 'win'  : ['#I', '#W'],
+        \ 'cwin' : ['#I', '#W'],
+        \ 'x'    : ['#(battery -t)'],
+        \ 'z'    : ['%a', '%b %d', '%I:%M %p'],
     \}
 
     " custom tmuxline theme
     " let g:tmuxline_theme = 'iceberg'
-    let g:tmuxline_theme = {
-        \ 'a': ['green', 'default'],
-        \ 'b': ['colour10', 'default'],
-        \ 'bg': ['default', 'black'],
-        \ 'c': ['colour10', 'default'],
-        \ 'cwin': ['red', 'default'],
-        \ 'win': ['colour11', 'default'],
-        \ 'x': ['colour10', 'default'],
-        \ 'y': ['colour10', 'default'],
-        \ 'z': ['blue', 'default']
-    \}
+    " let g:tmuxline_theme = {
+        " \ 'a': ['green', 'default'],
+        " \ 'b': ['colour10', 'default'],
+        " \ 'bg': ['default', 'black'],
+        " \ 'c': ['colour10', 'default'],
+        " \ 'cwin': ['red', 'default'],
+        " \ 'win': ['colour11', 'default'],
+        " \ 'x': ['colour10', 'default'],
+        " \ 'y': ['colour10', 'default'],
+        " \ 'z': ['blue', 'default']
+    " \}
 
     " }}}
 
@@ -722,7 +735,7 @@
 
     " {{{ vim-airline
 
-    let g:airline_theme = 'solarized'
+    " let g:airline_theme = 'solarized'
     " warning this is really slow. So I only enabled it for php files.
     augroup php_tagbar
         autocmd FileType php let g:airline#extensions#tagbar#enabled = 1
