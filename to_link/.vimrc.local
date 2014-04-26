@@ -632,8 +632,12 @@
     " moved to global powerline switch above
     " let g:tmuxline_powerline_separators = 0
 
+    " ok overwrite the theme
+    let g:airline#extensions#tmuxline#enabled = 1
+    " let g:airline#extensions#tmuxline#color_template = 'replace'
+    " let g:airline#extensions#tmuxline#color_template = 'visual'
     " don't overwrite the theme
-    let g:airline#extensions#tmuxline#enabled = 0
+    " let g:airline#extensions#tmuxline#enabled = 0
 
     " fits well with my theme - powerline or not
     " let g:tmuxline_separators = {
@@ -646,7 +650,9 @@
     " the segments used
     " let g:tmuxline_preset = 'full'
     " let g:tmuxline_theme = 'airline_insert'
-    let g:tmuxline_theme = 'powerline'
+    let g:tmuxline_theme = 'airline_visual'
+    " let g:tmuxline_theme = 'airline_replace'
+    " let g:tmuxline_theme = 'airline'
     " let g:tmuxline_preset = 'powerline'
 
     " let g:tmuxline_preset = {
@@ -665,6 +671,8 @@
         \ 'x'    : ['#(battery -t)'],
         \ 'z'    : ['%a', '%b %d', '%I:%M %p'],
     \}
+    let g:airline#extensions#tmuxline#snapshot_file = "~/.dotfiles/support/tmuxline.conf"
+    let g:airline#extensions#promptline#snapshot_file = "~/.dotfiles/to_link/promptline.theme.bash"
 
     " custom tmuxline theme
     " let g:tmuxline_theme = 'iceberg'
@@ -678,6 +686,17 @@
         " \ 'x': ['colour10', 'default'],
         " \ 'y': ['colour10', 'default'],
         " \ 'z': ['blue', 'default']
+    " \}
+    " let g:tmuxline_theme = {
+        " \ 'a': ['16', '254'],
+        " \ 'b': ['254', '240'],
+        " \ 'bg': ['240', '234'],
+        " \ 'c': ['240', '234'],
+        " \ 'cwin': ['234', '31'],
+        " \ 'win': ['234', '234'],
+        " \ 'x': ['240', '234'],
+        " \ 'y': ['254', '240'],
+        " \ 'z': ['16', '254'],
     " \}
 
     " }}}
