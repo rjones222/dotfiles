@@ -650,9 +650,9 @@
     " the segments used
     " let g:tmuxline_preset = 'full'
     " let g:tmuxline_theme = 'airline_insert'
-    let g:tmuxline_theme = 'airline_visual'
-    " let g:tmuxline_theme = 'airline_replace'
-    " let g:tmuxline_theme = 'airline'
+    " let g:tmuxline_theme = 'airline_visual'
+    let g:tmuxline_theme = 'airline'
+    " let g:tmuxline_theme = 'powerline'
     " let g:tmuxline_preset = 'powerline'
 
     " let g:tmuxline_preset = {
