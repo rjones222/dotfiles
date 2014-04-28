@@ -34,21 +34,21 @@ session:
         - cmd: "vim -S ~/.vim/sessions/vm"
           focus: true
         - cmd: "vagrant ssh"
-    - name: "bustersphp"
-      root: "~/Sites/bustersphp"
-      layout: "main-horizontal"
-      clear: true
-      panes:
-        - cmd: "vim -S ~/.vim/sessions/busters"
-          focus: true
-    - name: "gitolite"
-      root: "~/Sites/gitolite-admin"
-      layout: "main-horizontal"
-      clear: true
-      panes:
-        - cmd: "vim -S ~/.vim/sessions/gitolite"
-          focus: true
-        - cmd: "cd keydir"
+    # - name: "bustersphp"
+      # root: "~/Sites/bustersphp"
+      # layout: "main-horizontal"
+      # clear: true
+      # panes:
+        # - cmd: "vim -S ~/.vim/sessions/busters"
+          # focus: true
+    # - name: "gitolite"
+      # root: "~/Sites/gitolite-admin"
+      # layout: "main-horizontal"
+      # clear: true
+      # panes:
+        # - cmd: "vim -S ~/.vim/sessions/gitolite"
+          # focus: true
+        # - cmd: "cd keydir"
     # - name: "rj"
       # root: "~/Sites/racingjunk"
       # clear: true
