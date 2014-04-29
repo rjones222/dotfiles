@@ -57,3 +57,22 @@ pcs() {
         phpcs **/*.php
     fi
 }
+
+togglexdebug() {
+    about 'toggle local xdebug on or off'
+    group 'custom'
+
+    XDEBUGPATH="/usr/local/php5/php.d/50-extension-xdebug.ini"
+    XDEBUGDIS="${XDEBUGPATH}.disabled"
+    if [[ -f $XDEBUGPATH ]]; then
+        echo "Disabling Xdebug"
+        sudo mv $XDEBUGPATH $XDEBUGDIS
+        sudo apachectl restart
+    elif [[ -f $XDEBUGDIS ]]; then
+        echo "Disabling Xdebug"
+        sudo mv $XDEBUGDIS $XDEBUGPATH
+        sudo apachectl restart
+    else
+        echo "Xdebug ini file not found!"
+    fi
+}

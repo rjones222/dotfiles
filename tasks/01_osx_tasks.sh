@@ -61,6 +61,7 @@ function osx_tasks_run() {
             ranger
             reattach-to-user-namespace
             ssh-copy-id
+            sshfs
             # solr
             spark
             terminal-notifier

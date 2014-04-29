@@ -308,6 +308,8 @@
 
 " Theme {{{
 
+    set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
+
     " {{{ global powerline fonts switch is defined in .vimrc.before.local
         " let g:global_powerline_switch = 0
 
