@@ -33,6 +33,6 @@ endif
 
 " this ensures it doesn't say hit enter to continue
 command! -nargs=1 Silent
-            \ | execute ':silent !'.<q-args>
-            \ | execute ':redraw!'
+\ | execute ':silent !'.<q-args>
+\ | execute ':redraw!'
 

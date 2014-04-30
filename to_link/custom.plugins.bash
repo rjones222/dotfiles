@@ -69,7 +69,7 @@ togglexdebug() {
         sudo mv $XDEBUGPATH $XDEBUGDIS
         sudo apachectl restart
     elif [[ -f $XDEBUGDIS ]]; then
-        echo "Disabling Xdebug"
+        echo "Enabling Xdebug"
         sudo mv $XDEBUGDIS $XDEBUGPATH
         sudo apachectl restart
     else
