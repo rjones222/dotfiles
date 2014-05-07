@@ -67,7 +67,8 @@
     ; tool = opendiff
     tool = vimdiff
 [format]
-    pretty = '%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    ; sets the git log format to be one line
+    ; pretty = '%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [github]
     user = mikedfunk
 [http]

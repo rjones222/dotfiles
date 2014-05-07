@@ -9,9 +9,9 @@
     " takes a lot of time and I don't use it right now
     " UnBundle 'spf13/vim-preview'
 
-    " I use solarized
+    " I don't use these
     UnBundle 'flazz/vim-colorschemes'
-    UnBundle 'vim-colors'
+    UnBundle 'spf13/vim-colors'
     " UnBundle 'jonathanfilip/vim-lucius'
 
     " I use a different fork that fixes some stuff
@@ -72,6 +72,7 @@
     UnBundle 'quentindecock/vim-cucumber-align-pipes'
     " UnBundle 'beyondwords/vim-twig'
     UnBundle 'adinapoli/cumino'
+    UnBundle 'tpope/vim-haml'
     UnBundle 'Twinside/vim-haskellConceal'
     UnBundle 'travitch/hasksyn'
     UnBundle 'lukerandall/haskellmode-vim'
@@ -98,6 +99,9 @@
     " Plugin 'blueyed/vim-colors-solarized'
     Plugin 'https://github.com/jwhitley/vim-colors-solarized.git', {'name': 'vim-colors-solarized-fork'}
     Plugin 'jonathanfilip/vim-lucius'
+
+    " easy way to scroll through color schemes
+    Plugin 'vim-scripts/ScrollColors'
 
     " Gitk clone in vim. ,gv and ,gV to view, <cr> to view commits in a
     " split or view diffs.
@@ -203,8 +207,9 @@
     Plugin 'tyru/undoclosewin.vim'
 
     " a github dashboard in vim? Let's see how I like it...
+    " answer: why? web is better.
     " :GHD to see dashboard
-    Plugin 'junegunn/vim-github-dashboard'
+    " Plugin 'junegunn/vim-github-dashboard'
 
     " vim-autoclose causes problems with youcompleteme, it says use this instead
     " automatically closes [], (), '', etc.
@@ -471,8 +476,29 @@
     " query surrounding tmux splits to add to autocomplete
     Plugin 'buztard/vim-nomad'
 
+    " open url
+    " nnoremap <leader>gu <Plug>(openbrowser-open)
+    Plugin 'tyru/open-browser.vim'
+
+    " just for testing some of the top color schemes
+    " Plugin 'vim-scripts/Colour-Sampler-Pack'
+    "
+    " Color schemes
+    " Plugin '29decibel/codeschool-vim-theme'
+    " Plugin 'tpope/vim-vividchalk'
+    " Plugin 'morhetz/gruvbox'
+    " Plugin 'chriskempson/base16-vim'
+
+    " :MarksBrowser
+    " <cr> to go to a mark
+    " d to delete
+    Plugin 'vim-scripts/Marks-Browser'
+
+    " vim search and replace
+    " Plugin 'vim-scripts/Greplace.vim'
+
     " Underline ctags. Sometimes works.
-    Plugin 't9md/vim-underlinetag'
+    " Plugin 't9md/vim-underlinetag'
 
     " Automatically detect indentation and set it
     " BUT it sets expandtab on php by default! Lame!
