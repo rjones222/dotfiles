@@ -260,7 +260,7 @@
     " Plugin 'm2mdas/phpcomplete-extended-symfony'
 
     " only for added sources for phpcomplete_extended
-    " Plugin 'Shougo/unite.vim'
+    Plugin 'Shougo/unite.vim'
 
     " better vim start screen
     Plugin 'mhinz/vim-startify'
@@ -333,7 +333,7 @@
     " Plugin 'vim-scripts/dbext.vim'
 
     " What it sounds like!
-    Plugin 'atimholt/spiffy_foldtext'
+    " Plugin 'atimholt/spiffy_foldtext'
 
     " whoa, cool. change variable names, extract code to a function, extract
     " local var to instance var.
@@ -442,7 +442,7 @@
     " za toggle fold
     " <leader>f[number] set the fold level to this number
     " zR open all folds
-    Plugin 'rayburgemeestre/phpfolding.vim'
+    " Plugin 'rayburgemeestre/phpfolding.vim'
 
     " share registers across vim installations
     " sets the updatetime to 200ms. bad.
