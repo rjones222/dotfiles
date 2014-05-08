@@ -76,3 +76,19 @@ togglexdebug() {
         echo "Xdebug ini file not found!"
     fi
 }
+
+upgrades() {
+    about 'upgrade everything'
+    group 'custom'
+
+    echo "Upgrading everything!"
+    sudo echo ""
+    brew update
+    brew upgrade
+    composer global update
+    sudo pear upgrade
+    sudo gem update
+    npm update -g
+    composer self-update
+    php-cs-fixer self-update
+}

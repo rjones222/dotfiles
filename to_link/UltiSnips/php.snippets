@@ -36,10 +36,10 @@ snippet top "File-level PHP docblock"
 endsnippet
 
 snippet mock
-$1 = $this->getMock('$2');
-$1->expects($this->any())
-    ->method('$4')
-    ->will($this->returnValue(${5:true}));
+$1 = Mockery::mock('$2');
+$1->shouldReceive('$3')
+    ->once()
+    ->andReturn(${4:true});
 endsnippet
 
 snippet construct "laravel 4 DI construct"
@@ -52,6 +52,17 @@ snippet construct "laravel 4 DI construct"
 public function __construct(${1:UserRepositoryInterface} $${2:user})
 {
     $this->$2 = $$2;
+}
+endsnippet
+
+snippet datapro "PHPUnit Data Provider function"
+public function $1DataProvider()
+{
+    return array(
+        array(
+            $2
+        ),
+    );
 }
 endsnippet
 
