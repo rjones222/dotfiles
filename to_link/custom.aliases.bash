@@ -17,6 +17,8 @@ alias gr='git-root'
 
 # use xdebug on the command line
 alias phpx="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug"
+
+# xdebug and phpunit sitting in a tree
 alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug `which phpunit`"
 
 # apache restart

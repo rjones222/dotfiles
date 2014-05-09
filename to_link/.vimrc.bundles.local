@@ -262,6 +262,9 @@
     " only for added sources for phpcomplete_extended
     Plugin 'Shougo/unite.vim'
 
+    " php getters and setters
+    Plugin 'docteurklein/php-getter-setter.vim'
+
     " better vim start screen
     Plugin 'mhinz/vim-startify'
 

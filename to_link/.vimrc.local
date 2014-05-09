@@ -450,6 +450,7 @@
     " }}}
 
     " {{{ fugitive
+    let g:fugitive_github_domains = ['https://gitlab.git.internetbrands.com', 'https://git.github.com']
     " filename
     hi default link User1 Identifier"blue
     " flags
@@ -631,6 +632,7 @@
     " {{{ tagbar
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
+    let g:tagbar_autoclose = 1
     " }}}"
 
     " {{{ tasklist
