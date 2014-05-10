@@ -215,6 +215,10 @@
     " automatically closes [], (), '', etc.
     Plugin 'Raimondi/delimitMate'
 
+    " Similar to emmett but also can autoclose
+    " <c-x>/ close latest html tag
+    Plugin 'tpope/vim-ragtag'
+
     " Add some unix stuff like :Chmod, :Unlink, etc.
     " :Unlink[!]
     " :Remove[!]
@@ -254,6 +258,9 @@
     " laravel completion
     " See above
     " Plugin 'm2mdas/phpcomplete-extended-laravel'
+
+    " Match html/xml tags with %
+    " Plugin 'tmhedberg/matchit'
 
     " symfony completion
     " See above
@@ -470,7 +477,7 @@
     " Plugin 'vim-scripts/TaskList.vim'
     " nnoremap <leader>td :TaskList<CR>
     " nnoremap <leader>tl :TaskList<CR>
-    Plugin 'mikedfunk/TaskList.vim'
+    " Plugin 'mikedfunk/TaskList.vim'
 
     " show marks in the sign column
     " Totally screwed up. Broken.

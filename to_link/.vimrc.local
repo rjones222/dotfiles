@@ -91,6 +91,9 @@
         " autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
     augroup END
 
+    " enable matching of xml tags with %
+    " runtime macros/matchit.vim
+
     " do not redraw while running macros - faster
     set lazyredraw
 
@@ -286,7 +289,17 @@
     " open all buffers in new tabs
     " map <leader>bt :tab sball<CR>
     " map <leader>bt :bufdo tab split<CR>
-    nnoremap <leader>bt cd :BufOnly<CR>:args ./*.*<CR>:tab sball<CR>
+    " let g:NERDTreeCustomReuseWindows = '1'
+    " function! NERDTreeOpenAllInCurrentDirectory()
+        " cd :BufOnly<CR>:args ./*.*<CR>:tab sball<CR>
+    " endfunction
+    " call NERDTreeAddKeyMap({
+        " \ 'key': 'X',
+        " \ 'scope': 'all',
+        " \ 'callback': 'NERDTreeOpenAllInCurrentDirectory',
+        " \ 'quickhelpText': 'Open all tags in current cd directory' })
+    " doesn't work in NERDTree but that's where I want to use it
+    " nnoremap <leader>bt cd :BufOnly<CR>:args ./*.*<CR>:tab sball<CR>
     nnoremap <leader>bo :BufOnly<cr>
 
     " open existing buffer in a newtab
@@ -510,6 +523,13 @@
     " nnoremap <silent> <leader>gn :<C-U>call <SID>JumpToCommit(0)<cr>
     " nnoremap <silent> <leader>gp :<C-U>call <SID>JumpToCommit(1)<cr>
     " }}}
+    "
+    " matchit {{{
+    augroup blade_html_features
+        " autocmd!
+        au FileType blade set ft=html | set syntax=blade
+    augroup END
+    " }}}
 
     " NERDTree {{{
         " extra space in NERDCommenter comments
@@ -637,10 +657,12 @@
 
     " {{{ tasklist
     " tasklist plugin
-    let g:tlTokenList = ['@TODO', '@FIXME']
-    let g:tlWindowPosition = 1
-    nnoremap <leader>td :TaskList<CR>
-    nnoremap <leader>tl :TaskList<CR>
+    " let g:tlTokenList = ['@TODO', '@FIXME']
+    " let g:tlWindowPosition = 1
+    " nnoremap <leader>td :TaskList<CR>
+    " nnoremap <leader>tl :TaskList<CR>
+    nnoremap <leader>td :Ag "@TODO"<CR>:cw<CR>
+    nnoremap <leader>tl :Ag "@TODO"<CR>:cw<CR>
     " }}}"
 
     " {{{ tmuxline
