@@ -205,6 +205,9 @@
     nnoremap <leader>bc :so $MYVIMRC<cr> :BundleClean!<cr>
     nnoremap <leader>bu :so $MYVIMRC<cr> :BundleUpdate<cr>
 
+    " Clear all marks for the current buffer
+    " nnoremap <leader>mc :delm! | delm A-Z0-9
+
     " function to use above key maps
     function! NextClosedFold(dir)
         let cmd = 'norm!z' . a:dir
@@ -625,6 +628,12 @@
     let g:promptline_theme = 'airline_visual'
     let g:promptline_preset = 'clear'
     " }}}"
+
+    " sunset {{{
+    let g:sunset_utc_offset = -8
+    let g:sunset_latitude = 33.930324
+    let g:sunset_longitude = -118.395538
+    " }}}
 
     " Syntastic {{{
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }

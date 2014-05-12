@@ -219,6 +219,12 @@
     " <c-x>/ close latest html tag
     Plugin 'tpope/vim-ragtag'
 
+    " Set background to light or dark automatically at sunrise/sunset
+    Plugin 'amdt/sunset'
+
+    " use c-n and c-p to complete from your buffers in search or command mode
+    Plugin 'vim-scripts/CmdlineComplete'
+
     " Add some unix stuff like :Chmod, :Unlink, etc.
     " :Unlink[!]
     " :Remove[!]
@@ -479,9 +485,30 @@
     " nnoremap <leader>tl :TaskList<CR>
     " Plugin 'mikedfunk/TaskList.vim'
 
-    " show marks in the sign column
-    " Totally screwed up. Broken.
-    " Plugin 'jeetsukumaran/vim-markology'
+    " show marks in the sign column and a lot more
+    " m,           Place the next available mark
+    " m.           If no mark on line, place the next available mark. Otherwise,
+                 " remove (first) existing mark.
+    " m-           Delete all marks from the current line
+    " m<Space>     Delete all marks from the current buffer
+    " ]`           Jump to next mark
+    " [`           Jump to prev mark
+    " ]'           Jump to start of next line containing a mark
+    " ['           Jump to start of prev line containing a mark
+    " `]           Jump by alphabetical order to next mark
+    " `[           Jump by alphabetical order to prev mark
+    " ']           Jump by alphabetical order to start of next line having a mark
+    " '[           Jump by alphabetical order to start of prev line having a mark
+    " '?           Open location list and display local marks
+
+    " m[0-9]       Toggle the corresponding marker !@#$%^&*()
+    " m<S-[0-9]>   Remove all markers of the same type
+    " ]-           Jump to next line having a marker of the same type
+    " [-           Jump to prev line having a marker of the same type
+    " ]=           Jump to next line having a marker of any type
+    " [=           Jump to prev line having a marker of any type
+    " m<BS>        Remove all markers
+    Plugin 'kshenoy/vim-signature'
 
     " query surrounding tmux splits to add to autocomplete
     Plugin 'buztard/vim-nomad'
