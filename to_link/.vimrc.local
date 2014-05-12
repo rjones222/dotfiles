@@ -257,10 +257,11 @@
     " nnoremap <leader>O O<esc>
 
     " increment with c-b
-    nnoremap <C-B> <C-A>
+    nunmap <c-b>
+    nnoremap <c-b> <c-a>
 
     " copy all
-    nnoremap <leader>ya mzggVGy`z
+    nnoremap <leader>ya mzggVGy`z :delmarks z<cr>h :echo "copied all text"<cr>
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
@@ -268,7 +269,9 @@
     " my version of fast tabs
     nnoremap gh gT
     nnoremap gl gt
-    " nnoremap gn :tabnew<cr>
+    nnoremap gn :tabnew<cr>
+    2011
+    2011
 
     " open tag in tab
     nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T

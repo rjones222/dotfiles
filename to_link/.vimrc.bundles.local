@@ -485,6 +485,10 @@
     " nnoremap <leader>tl :TaskList<CR>
     " Plugin 'mikedfunk/TaskList.vim'
 
+    " Align in columns
+    " Too much crossover with tabularize
+    " Plugin 'junegunn/vim-easy-align'
+
     " show marks in the sign column and a lot more
     " m,           Place the next available mark
     " m.           If no mark on line, place the next available mark. Otherwise,
