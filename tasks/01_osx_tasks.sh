@@ -93,6 +93,13 @@ function osx_tasks_run() {
                 brew install massren
             fi
 
+            if [[ ! "$(type -P libxml2)" ]]; then
+                log_info "installing libxml2 with python (for phpqa vim package)"
+                brew install libxml2 --with-python
+                mkdir -p ~/Library/Python/2.7/lib/python/site-packages
+                echo '/usr/local/opt/libxml2/lib/python2.7/site-packages' > ~/Library/Python/2.7/lib/python/site-packages/homebrew.pth
+            fi
+
             if [[ ! "$(type -P openssl-osx-ca)" ]]; then
                 log_info "installing openssl-osx-ca to sync certificates"
                 brew tap raggi/ale

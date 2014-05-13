@@ -59,6 +59,7 @@ function linux_tasks_run() {
         irssi
         libapache2-mod-php5
         libsqlite3-dev
+        # libxml2
         make
         multitail
         # openjdk-7-jre

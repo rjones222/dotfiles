@@ -548,6 +548,9 @@
     " Highlight the current word throughout the doc
     Plugin 'OrelSokolov/HiCursorWords'
 
+    " Just for code coverage highlighting
+    Plugin 'joonty/vim-phpqa'
+
     " Automatically detect indentation and set it
     " BUT it sets expandtab on php by default! Lame!
     " Plugin 'tpope/vim-sleuth'
