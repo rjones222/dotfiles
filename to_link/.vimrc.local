@@ -257,11 +257,14 @@
     " nnoremap <leader>O O<esc>
 
     " increment with c-b
-    nunmap <c-b>
     nnoremap <c-b> <c-a>
+    vnoremap <c-b> <c-a>
 
     " copy all
     nnoremap <leader>ya mzggVGy`z :delmarks z<cr>h :echo "copied all text"<cr>
+
+    " format all
+    nnoremap <leader>fa mzggVG=`z :delmarks z<cr>h :echo "formatted file"<cr>
 
     " visually select a search result
     nnoremap g/ //e<Enter>v??<Enter>
@@ -428,10 +431,20 @@
 
 " Plugins {{{
 
-" {{{ ctrlp
-" ctrlp extensions
-" let g:ctrlp_extensions = ['tag']
-" }}}"
+    " accelerated-smooth-scroll {{{
+    " only enable c-d and c-u. I don't use c-f and c-b and I want to use c-b
+    " for incrementing values.
+    let g:ac_smooth_scroll_no_default_key_mappings = 1
+    nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
+    nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
+    xmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d_v)
+    xmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u_v)
+    " }}}
+
+    " {{{ ctrlp
+    " ctrlp extensions
+    " let g:ctrlp_extensions = ['tag']
+    " }}}"
 
     " {{{ dispatch
     nnoremap <silent> <Leader>di :call CallDispatchWithCommand() <CR>
@@ -839,6 +852,17 @@
     let g:signify_sign_change            = '!'
     let g:signify_sign_delete            = '_'
     let g:signify_sign_delete_first_line = '‾'
+    " }}}
+
+    " vim-speeddating {{{
+    " use <c-b> instead
+    let g:speeddating_no_mappings = 1
+    nmap  <C-B>     <Plug>SpeedDatingUp
+    nmap  <C-X>     <Plug>SpeedDatingDown
+    xmap  <C-B>     <Plug>SpeedDatingUp
+    xmap  <C-X>     <Plug>SpeedDatingDown
+    nmap d<C-B>     <Plug>SpeedDatingNowUTC
+    nmap d<C-X>     <Plug>SpeedDatingNowLocal
     " }}}
 
     " {{{ vim-rooter

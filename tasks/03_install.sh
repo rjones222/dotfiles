@@ -83,6 +83,12 @@ function install_run() {
         cd -
     fi
 
+    # install bowery
+    if [[ ! "$(type -P bowery)" ]]; then
+        log_info "installing bowery"
+        curl -O download.bowery.io/downloads/bowery_2.2.0_darwin_amd64.zip && sudo unzip bowery_2.2.0_darwin_amd64.zip -d /usr/local/bin
+    fi
+
     # install pyrus
     if [[ ! "$(type -P pyrus)" ]]; then
         log_info "Installing pyrus"

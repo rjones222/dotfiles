@@ -480,6 +480,7 @@
     Plugin 'edkolev/promptline.vim'
 
     " show @TODOs and stuff
+    " I just made an alias for this now with Ag. Simpler and more capable.
     " Plugin 'vim-scripts/TaskList.vim'
     " nnoremap <leader>td :TaskList<CR>
     " nnoremap <leader>tl :TaskList<CR>
@@ -514,6 +515,9 @@
     " m<BS>        Remove all markers
     Plugin 'kshenoy/vim-signature'
 
+    " Deal with swap files better, automatically
+    Plugin 'vim-scripts/autoswap.vim'
+
     " query surrounding tmux splits to add to autocomplete
     Plugin 'buztard/vim-nomad'
 
@@ -540,6 +544,9 @@
 
     " Underline ctags. Sometimes works.
     " Plugin 't9md/vim-underlinetag'
+
+    " Highlight the current word throughout the doc
+    Plugin 'OrelSokolov/HiCursorWords'
 
     " Automatically detect indentation and set it
     " BUT it sets expandtab on php by default! Lame!
