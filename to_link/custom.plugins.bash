@@ -92,3 +92,20 @@ upgrades() {
     composer self-update
     php-cs-fixer self-update
 }
+
+whitespace() {
+    about 'strip all trailing whitespace in files in the current dir'
+    group 'custom'
+
+    echo "Stripping ALL trailing whitespace in the current dir"
+    read -p "Are you sure? " -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+        # exit 1
+        echo "cancelled"
+        return
+    fi
+    echo "proceeding..."
+    export LANG=C; find . -not \( -name .svn -prune -o -name .git -prune \) -type f -print0 | xargs -0 sed -i '' -E "s/[[:space:]]\+$//"
+}

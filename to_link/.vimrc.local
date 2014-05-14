@@ -407,7 +407,8 @@
     " }}}
 
     " {{{ toggle between day and night theme
-    silent call togglebg#map("<leader>bg")
+    " silent call togglebg#map("<leader>bg")
+    nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
     " }}}
 
     " {{{ change the default EasyMotion shading to something more readable with Solarized
@@ -443,7 +444,7 @@
 
     " {{{ ctrlp
     " ctrlp extensions
-    " let g:ctrlp_extensions = ['tag']
+    let g:ctrlp_extensions = ['tag']
     " }}}"
 
     " {{{ dispatch

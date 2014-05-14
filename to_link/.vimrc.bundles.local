@@ -533,6 +533,26 @@
     " Plugin 'tpope/vim-vividchalk'
     " Plugin 'morhetz/gruvbox'
     " Plugin 'chriskempson/base16-vim'
+    " Plugin 'daylerees/colour-schemes', { 'rtp': 'vim/' }
+    " Plugin 'endel/vim-github-colorscheme'
+    " Plugin 'ricardovaleriano/vim-github-theme'
+    " Plugin '29decibel/codeschool-vim-theme'
+    " grb256 color scheme
+    " Plugin 'garybernhardt/dotfiles', { 'rtp': '.vim/colors' }
+    " Plugin 'morhetz/gruvbox'
+    " Plugin 'vim-scripts/guardian'
+    " Plugin 'vim-scripts/herald.vim'
+    Plugin 'nanotech/jellybeans.vim'
+    Plugin 'zeis/vim-kolor'
+    Plugin 'tomasr/molokai'
+    " Plugin 'vim-scripts/moria'
+    Plugin 'Lokaltog/vim-distinguished'
+    " Plugin 'matthewtodd/vim-twilight'
+    " Plugin 'tpope/vim-vividchalk'
+    " Plugin 'vim-scripts/Zenburn'
+
+    " unicode character metadata with ga
+    Plugin 'tpope/vim-characterize'
 
     " :MarksBrowser
     " <cr> to go to a mark

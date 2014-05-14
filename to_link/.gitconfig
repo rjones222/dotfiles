@@ -83,7 +83,7 @@
 [mergetool]
     keepBackup = false
 [pre-commit]
-    checks = php, tabs, whitespace, console_log
+    checks = php, tabs, white_space, console_log, merge_conflict, json, yaml, coffeelint
 [push]
     default = current
 [rebase]

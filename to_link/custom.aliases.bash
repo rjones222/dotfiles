@@ -8,9 +8,9 @@ alias wr='cd ~/Sites'
 alias ngrokserve="ngrok -subdomain=mikedfunk -authtoken CBLb8X5ikqjKSdnXcZDD 80"
 
 # commit and sync
-alias updates='git add --all .; git commit -am "updates"; git pull && git push'
-alias dotupdates='cd ~/.dotfiles; updates; cd -'
-alias blogupdates='cd ~/Sites/mikedfunk.github.io; updates; cd -'
+alias gitupdates='git add --all .; git commit -am "updates"; git pull && git push'
+alias dotupdates='cd ~/.dotfiles; gitupdates; cd -'
+alias blogupdates='cd ~/Sites/mikedfunk.github.io; gitupdates; cd -'
 alias working='git add --all .; git commit -am "fixup!"'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias gr='git-root'
@@ -20,6 +20,9 @@ alias phpx="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug
 
 # xdebug and phpunit sitting in a tree
 alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug `which phpunit`"
+
+# A function I have defined... I keep forgetting - upgrades or updates?
+alias updates="upgrades"
 
 # apache restart
 alias ares="sudo apachectl restart"
@@ -117,7 +120,7 @@ alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 alias localtunnel="lt --port 80"
 
 # better YouCompleteMe install command
-alias ycminstall = "DYLD_LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib /Users/mfunk/.vim/bundle/YouCompleteMe/install.sh --clang-completer"
+alias ycminstall="DYLD_LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib /Users/mfunk/.vim/bundle/YouCompleteMe/install.sh --clang-completer"
 
 # irssi nicklist in a split
 alias nicklist="cat ~/.irssi/nicklistfifo"
@@ -233,6 +236,11 @@ alias renewip="sudo ipconfig set en0 BOOTP && sudo ipconfig set en0 DHCP && echo
 
 # mac flush dns
 alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && echo 'dns flushed'"
+
+# go to git root
+# already there! gr
+# alias gitroot="cd $(git rev-parse --show-toplevel)"
+# alias gr="gitroot"
 
 # don't forget there are reload commands in bash_it for everything
 # just type reload<tab>
