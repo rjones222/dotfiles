@@ -116,6 +116,9 @@ alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 # local tunnel - make localhost viewable on the web
 alias localtunnel="lt --port 80"
 
+# better YouCompleteMe install command
+alias ycminstall = "DYLD_LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib /Users/mfunk/.vim/bundle/YouCompleteMe/install.sh --clang-completer"
+
 # irssi nicklist in a split
 alias nicklist="cat ~/.irssi/nicklistfifo"
 

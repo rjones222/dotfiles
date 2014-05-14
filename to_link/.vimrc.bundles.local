@@ -273,7 +273,7 @@
     " Plugin 'm2mdas/phpcomplete-extended-symfony'
 
     " only for added sources for phpcomplete_extended
-    Plugin 'Shougo/unite.vim'
+    " Plugin 'Shougo/unite.vim'
 
     " php getters and setters
     Plugin 'docteurklein/php-getter-setter.vim'
@@ -544,9 +544,11 @@
 
     " Underline ctags. Sometimes works.
     " Plugin 't9md/vim-underlinetag'
+    " Plugin 'vim-scripts/TagHighlight'
 
     " Highlight the current word throughout the doc
-    Plugin 'OrelSokolov/HiCursorWords'
+    " I use a autocmd for this that works better instead in my .vimrc.local
+    " Plugin 'OrelSokolov/HiCursorWords'
 
     " Just for code coverage highlighting
     Plugin 'joonty/vim-phpqa'
