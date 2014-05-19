@@ -15,6 +15,7 @@ function install_run() {
     log_info "Installing npm Packages"
     # yo includes grunt and bower
     packages=(
+    coffeelint
     csslint
     gulp
     gulp-watch

@@ -166,6 +166,7 @@
     " Run to cursor <F9>
     " Detach <F7>
     " Stop/close <F6>
+    " :VdebugEval <code>
     Plugin 'joonty/vdebug'
 
     " :BD to load previous buffer in current window
@@ -311,6 +312,12 @@
     " smart search, replace, abbreviation fixer
     " :%S/mixed_case_thing/other_thing/g replaces MixedCaseThing in context as
     " well. Also camel-case, etc.
+    "
+    " coerce to a different case:
+    " crs convert to snake_case
+    " crm MixedCase
+    " crc camelCase
+    " cru UPPER_CASE
     " Plugin 'tpope/vim-abolish'
 
     " smart jump to project root

@@ -88,7 +88,7 @@ upgrades() {
     composer global update
     sudo pear upgrade
     sudo gem update
-    npm update -g
+    sudo npm update -g
     composer self-update
     php-cs-fixer self-update
 }

@@ -24,7 +24,7 @@
     ready = rebase -i @{u}
     st = status -sb
     standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mfunk@christianpublishing.com
-    sync = "!f() { echo 'Syncing current branch with develop' && git checkout develop && git pull && git checkout - && git merge develop; }; f"
+    sync = "!f() { echo 'Syncing current branch with develop' && git checkout develop && git pull && git checkout - && git rebase develop; }; f"
     unstage = reset HEAD
     wiff = diff --color-words
 [color]

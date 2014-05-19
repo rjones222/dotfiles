@@ -212,27 +212,24 @@
         },
         {
             "name": "fabpot/goutte",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Goutte.git",
-                "reference": "268a8d77e176d33816030cb89235b6e5dfc9cc2d"
+                "reference": "104ef44a9fc8a8dfe66fef5f8e8deb4567f3dc7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Goutte/zipball/268a8d77e176d33816030cb89235b6e5dfc9cc2d",
-                "reference": "268a8d77e176d33816030cb89235b6e5dfc9cc2d",
+                "url": "https://api.github.com/repos/fabpot/Goutte/zipball/104ef44a9fc8a8dfe66fef5f8e8deb4567f3dc7c",
+                "reference": "104ef44a9fc8a8dfe66fef5f8e8deb4567f3dc7c",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
                 "guzzlehttp/guzzle": "4.*",
                 "php": ">=5.4.0",
                 "symfony/browser-kit": "~2.1",
                 "symfony/css-selector": "~2.1",
-                "symfony/dom-crawler": "~2.1",
-                "symfony/finder": "~2.1",
-                "symfony/process": "~2.1"
+                "symfony/dom-crawler": "~2.1"
             },
             "type": "application",
             "extra": {
@@ -262,7 +259,7 @@
             "keywords": [
                 "scraper"
             ],
-            "time": "2014-05-08 06:57:32"
+            "time": "2014-05-13 05:05:35"
         },
         {
             "name": "facebook/webdriver",
@@ -512,12 +509,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "e747901f4d9b56162edc9b0322cba62249ee756e"
+                "reference": "5fa52540e4d47c0a311d472cb5dbe95c3b531240"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/e747901f4d9b56162edc9b0322cba62249ee756e",
-                "reference": "e747901f4d9b56162edc9b0322cba62249ee756e",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/5fa52540e4d47c0a311d472cb5dbe95c3b531240",
+                "reference": "5fa52540e4d47c0a311d472cb5dbe95c3b531240",
                 "shasum": ""
             },
             "require": {
@@ -573,7 +570,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-05-08 15:27:15"
+            "time": "2014-05-16 08:55:54"
         },
         {
             "name": "phploc/phploc",
@@ -1480,12 +1477,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "9b7f10067ffa71c6edbf67b8906f9615f97f097e"
+                "reference": "01f86d7cadfd8f5b1c07c04af88a16df6e51acd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9b7f10067ffa71c6edbf67b8906f9615f97f097e",
-                "reference": "9b7f10067ffa71c6edbf67b8906f9615f97f097e",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/01f86d7cadfd8f5b1c07c04af88a16df6e51acd9",
+                "reference": "01f86d7cadfd8f5b1c07c04af88a16df6e51acd9",
                 "shasum": ""
             },
             "require": {
@@ -1545,7 +1542,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-05-06 06:28:35"
+            "time": "2014-05-12 23:03:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -2027,55 +2024,6 @@
                 }
             ],
             "description": "Symfony Finder Component",
-            "homepage": "http://symfony.com",
-            "time": "2014-04-27 13:34:57"
-        },
-        {
-            "name": "symfony/process",
-            "version": "v2.4.4",
-            "target-dir": "Symfony/Component/Process",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Process.git",
-                "reference": "8721f1476d5d38a43c7d6ccb6435b351cf8f3bb7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/8721f1476d5d38a43c7d6ccb6435b351cf8f3bb7",
-                "reference": "8721f1476d5d38a43c7d6ccb6435b351cf8f3bb7",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Process\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
             "time": "2014-04-27 13:34:57"
         },
