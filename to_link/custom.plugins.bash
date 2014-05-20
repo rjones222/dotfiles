@@ -109,3 +109,11 @@ whitespace() {
     echo "proceeding..."
     export LANG=C; find . -not \( -name .svn -prune -o -name .git -prune \) -type f -print0 | xargs -0 sed -i '' -E "s/[[:space:]]\+$//"
 }
+
+pcf() {
+    about 'php-cs-fixer and phpcbf'
+    group 'custom'
+
+    php /usr/local/bin/php-cs-fixer --fixers=-phpdoc_params fix $1
+    /Users/mfunk/.composer/vendor/bin/phpcbf $1
+}

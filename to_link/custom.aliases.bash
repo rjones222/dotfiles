@@ -62,7 +62,7 @@ alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
 alias phpserver='php -S localhost:8000'
 
 # php-cs-fixer
-alias pcf='php-cs-fixer'
+# alias pcf='php-cs-fixer'
 
  # additional details
 alias lsd="ls -GpFha"

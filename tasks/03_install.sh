@@ -71,8 +71,13 @@ function install_run() {
     composer global install
 
     # set default phpcs standard
-    log_info "setting phpcs default to psr2"
-    sudo phpcs --config-set default_standard PSR2
+    if [[ "$(type -P phpcs)" ]]; then
+        log_info "setting phpcs defaults"
+        sudo phpcs --config-set default_standard PSR2
+        sudo phpcs --config-set show_progress 1
+        sudo phpcs --config-set encoding utf-8
+        sudo phpcs --config-set tab_width 4
+    fi
 
     # install bldr
     if [[ ! "$(type -P bldr)" ]]; then
