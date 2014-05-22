@@ -120,7 +120,8 @@ alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 alias localtunnel="lt --port 80"
 
 # better YouCompleteMe install command
-alias ycminstall="DYLD_LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib /Users/mfunk/.vim/bundle/YouCompleteMe/install.sh --clang-completer"
+# alias ycminstall="DYLD_LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib /Users/mfunk/.vim/bundle/YouCompleteMe/install.sh --clang-completer"
+alias ycminstall="/Users/mfunk/.vim/bundle/YouCompleteMe/install.sh"
 
 # irssi nicklist in a split
 alias nicklist="cat ~/.irssi/nicklistfifo"
@@ -167,7 +168,7 @@ alias dos2unix='grep -URl  . | xargs fromdos'
 # delete .orig files
 alias orig="find . -name '*.orig' -delete"
 
-alias tags="echo 'generating tags file...' && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null && echo 'tags file regenerated'"
+alias tags="echo 'generating tags file...' && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase 2>/dev/null && echo 'tags file regenerated'"
 
 # grep for merge conflicts
 alias conflicts="grep -lir '<<<<<' *"

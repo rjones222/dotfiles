@@ -315,7 +315,7 @@
     nnoremap <leader>te :ls<cr>:tabedit #
 
     " omnicompletion like Visual Studio or NetBeans
-    inoremap <C-Space> <C-x><C-o>
+    " inoremap <C-Space> <C-x><C-o>
     " imap <C-@> <C-Space>
 
     " open link under cursor in browser
@@ -460,7 +460,7 @@
     " easytags just doesn't work well. it blocks the ui when updating (doesn't
     " use dispatch), it doesn't use my custom easy_tags_cmd, and the
     " highlighting won't use my custom highlight. Fuck it, we'll do it live!
-    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf 2>/dev/null<CR>
+    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase 2>/dev/null<CR>
 
     " Easytags blocks the UI on pause, which sucks! It also apparently
     " slows down the UI with it's highlighting, which I can't seem to switch
@@ -552,6 +552,7 @@
     " }}}
 
     " NERDTree {{{
+        let NERDTreeIgnore=['\.DS_Store$', '\.vim$']
         " extra space in NERDCommenter comments
         let g:NERDSpaceDelims="1"
 
@@ -572,15 +573,6 @@
     " }}}
 
     " {{{ neocomplcache
-    " phpcomplete omni complete for neocomplcache
-    augroup phpcomplete_augroup
-        " autocmd!
-        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
-        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
-        " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
-        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-    augroup END
 
     " neocomplcache disable auto popup
     " let g:neocomplcache_disable_auto_complete = 1
@@ -609,16 +601,27 @@
     " }}}"
 
     " {{{ phpcomplete
+    " phpcomplete omni complete for neocomplcache
+    augroup phpcomplete_augroup
+        " autocmd!
+        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
+        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
+        autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+        " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    augroup END
+
     " composer install command for phpcomplete
+    let g:phpcomplete_relax_static_constraint = 1
     let g:phpcomplete_index_composer_command = "composer"
     let g:phpcomplete_parse_docblock_comments = 1
+    let g:phpcomplete_cache_taglists = 1
     let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
     let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
     " }}}"
 
     " {{{ phpctags
     " phpctags
-    " let g:tagbar_phpctags_memory_limit = '512M'
+    let g:tagbar_phpctags_memory_limit = '512M'
     " }}}"
 
     " {{{ phpdoc
@@ -955,7 +958,10 @@
     " {{{ youcompleteme
     " open preview window while completing
     let g:ycm_add_preview_to_completeopt=1
+    " let g:ycm_auto_trigger=0
     " let g:ycm_allow_changing_updatetime=0
+    let g:ycm_collect_identifiers_from_tags_files=1
+    let g:ycm_seed_identifiers_with_syntax = 1
     " }}}
 
     " {{{ ZoomWin

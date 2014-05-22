@@ -70,6 +70,14 @@ function install_run() {
     link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
     composer global install
 
+    # build phpctags
+    if [[ ! "$(type -P phpctags)" ]]; then
+        log_info "building phpctags"
+        cd $HOME/.composer/vendor/techlivezheng/phpctags
+        make
+        cd -
+    fi
+
     # set default phpcs standard
     if [[ "$(type -P phpcs)" ]]; then
         log_info "setting phpcs defaults"
@@ -106,10 +114,10 @@ function install_run() {
     fi
 
     # install global composer.json
-    if [[ ! -d ~/.composer ]]; then
-        log_info "creating global composer directory"
-        mkdir ~/.composer
-    fi
+    # if [[ ! -d ~/.composer ]]; then
+        # log_info "creating global composer directory"
+        # mkdir ~/.composer
+    # fi
 
     # install laravel installer
     if [[ ! "$(type -P laravel)" ]]; then

@@ -148,9 +148,10 @@ function osx_tasks_run() {
         # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
         if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
             log_info "Installing Ctags Patched"
-            cd /usr/local/Library/Formula
-            curl https://gist.github.com/cweagans/6141478/raw/aea352bf2914832515a5a1f3529e830c7b97c468/- | git apply
-            brew install ctags --HEAD
+            cd /usr/local/Library/Formula/
+            wget https://gist.githubusercontent.com/complex857/9570127/raw/8b71bf4f6cb12c8e3f483c2f61f43f99d8f7835f/ctags-better-php.rb
+            brew install ctags-better-php
+            brew link --overwrite ctags-better-php
             sudo touch /usr/local/etc/.ctags_patched_installed
         fi
 

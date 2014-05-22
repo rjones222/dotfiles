@@ -260,11 +260,11 @@
     " also asks 'composer project detected. Do you want to index?' every time
     " you open a composer project. Combination of these means forget about it
     " for now.
-    " Plugin 'm2mdas/phpcomplete-extended'
+    Plugin 'm2mdas/phpcomplete-extended'
 
     " laravel completion
     " See above
-    " Plugin 'm2mdas/phpcomplete-extended-laravel'
+    Plugin 'm2mdas/phpcomplete-extended-laravel'
 
     " Match html/xml tags with %
     " Plugin 'tmhedberg/matchit'
@@ -393,7 +393,7 @@
 
     " better php ctags in tagbar
     " <leader>tt to toggle tagbar. This makes it look prettier
-    Plugin 'techlivezheng/vim-plugin-tagbar-phpctags'
+    " Plugin 'techlivezheng/vim-plugin-tagbar-phpctags'
     " Plugin 'vim-php/tagbar-phpctags.vim'
 
     " paste with context-sensitive indenting
@@ -469,7 +469,7 @@
 
     " share registers across vim installations
     " sets the updatetime to 200ms. bad.
-    Plugin 'ardagnir/united-front'
+    " Plugin 'ardagnir/united-front'
 
     " create files and parent dirs at the same time
     " :e my/non-existent/dir/file.php
