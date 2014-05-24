@@ -578,7 +578,14 @@
     " Plugin 'OrelSokolov/HiCursorWords'
 
     " Just for code coverage highlighting
+    " :Phpcc - show code coverage (will ask for a clover XML file if not set)
+    " <Leader>qc  " Show/hide code coverage markers
     Plugin 'joonty/vim-phpqa'
+
+    " put html tags from one line to multiline or the opposite
+    " gS to split
+    " gJ to join
+    Plugin 'AndrewRadev/splitjoin.vim'
 
     " Automatically detect indentation and set it
     " BUT it sets expandtab on php by default! Lame!

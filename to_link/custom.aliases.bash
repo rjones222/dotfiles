@@ -19,7 +19,8 @@ alias gr='git-root'
 alias phpx="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug"
 
 # xdebug and phpunit sitting in a tree
-alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug `which phpunit`"
+alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug `which phpunit` -c ./phpunit.xml"
+alias puxf="pux --filter "
 
 # A function I have defined... I keep forgetting - upgrades or updates?
 alias updates="upgrades"
@@ -101,6 +102,7 @@ alias test="php artisan test "
 alias pf="phpunit --debug --filter "
 alias pu="phpunit"
 alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=netbeans-xdebug ~/.composer/vendor/bin/phpunit"
+alias puf="phpunit --filter "
 alias cda="composer dump-autoload"
 alias cu="composer update"
 alias ci="composer install --prefer-dist"

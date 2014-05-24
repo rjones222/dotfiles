@@ -617,6 +617,7 @@
     let g:phpcomplete_cache_taglists = 1
     let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
     let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
+    let g:phpcomplete_enhance_jump_to_definition = 0
     " }}}"
 
     " {{{ phpctags
@@ -755,17 +756,18 @@
     let g:vdebug_options['port'] = '9000'
     let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
     let g:vdebug_options['path_maps'] = {'/var/www': '/media/sf_ubuntubox'}
-    " let g:vdebug_options["break_on_open"] = 0
+    " stop on first line of execution
+    let g:vdebug_options["break_on_open"] = 0
     let g:vdebug_options["watch_window_style"] = 'compact'
     " move run_to_cursor from F1 to F9
     let g:vdebug_keymap = {
-    \    "run" : "<F5>",
-    \    "run_to_cursor" : "<F9>",
     \    "step_over" : "<F2>",
     \    "step_into" : "<F3>",
     \    "step_out" : "<F4>",
+    \    "run" : "<F5>",
     \    "close" : "<F6>",
     \    "detach" : "<F7>",
+    \    "run_to_cursor" : "<F9>",
     \    "set_breakpoint" : "<F10>",
     \    "get_context" : "<F11>",
     \    "eval_under_cursor" : "<F12>",
@@ -913,6 +915,8 @@
     let g:phpqa_codesniffer_autorun = 0
 
     " Show code coverage on load (default = 0)
+    " :Phpcc - show code coverage (will ask for a clover XML file if not set)
+    " <Leader>qc  " Show/hide code coverage markers
     " let g:phpqa_codecoverage_autorun = 1
 
     " Clover code coverage XML file
