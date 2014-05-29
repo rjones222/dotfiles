@@ -81,6 +81,7 @@ alias pearupgrade="sudo pear upgrade"
 
 # use macvim executable in terminal mode
 if [ -f "/usr/local/bin/mvim" ]; then
+    # servername is for united-front
     vim="mvim -vp --servername mikefunk"
 else
     vim="vim -p"

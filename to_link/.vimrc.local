@@ -16,6 +16,9 @@
 " General {{{
     let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
 
+    " supposed to speed syntax highlighting
+    set re=1
+
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
 
@@ -114,7 +117,7 @@
     " hi WordMatch cterm=underline
     augroup highlight_augroup
         " autocmd!
-        autocmd CursorMoved * exe printf('match Underlined /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+        " autocmd CursorMoved * exe printf('match Underlined /\V\<%s\>/', escape(expand('<cword>'), '/\'))
     augroup END
 
     " enable the preview window for omnicompletion - doesn't work for some reason
@@ -442,6 +445,13 @@
     xmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u_v)
     " }}}
 
+    " cosco.vim {{{
+    augroup cosco_vim_augroup
+        autocmd FileType javascript,css,php nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
+        autocmd FileType javascript,css,php inoremap <silent> <leader>; <ESC>:call cosco#commaOrSemiColon()"<CR>a
+    augroup END
+    " }}}
+
     " {{{ ctrlp
     " ctrlp extensions
     let g:ctrlp_extensions = ['tag']
@@ -691,8 +701,8 @@
     " let g:tlWindowPosition = 1
     " nnoremap <leader>td :TaskList<CR>
     " nnoremap <leader>tl :TaskList<CR>
-    nnoremap <leader>td :Ag "@TODO"<CR>:cw<CR>
-    nnoremap <leader>tl :Ag "@TODO"<CR>:cw<CR>
+    nnoremap <leader>td :Ag "todo"<CR>:cw<CR>
+    nnoremap <leader>tl :Ag "todo"<CR>:cw<CR>
     " }}}"
 
     " {{{ tmuxline
@@ -962,7 +972,7 @@
     " {{{ youcompleteme
     " open preview window while completing
     let g:ycm_add_preview_to_completeopt=1
-    " let g:ycm_auto_trigger=0
+    let g:ycm_auto_trigger=0
     " let g:ycm_allow_changing_updatetime=0
     let g:ycm_collect_identifiers_from_tags_files=1
     let g:ycm_seed_identifiers_with_syntax = 1

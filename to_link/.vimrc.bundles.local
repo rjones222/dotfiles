@@ -334,6 +334,17 @@
     " nnoremap <leader>pp :VimuxRunLastCommand<cr>
     " Plugin 'jonyamo/phpunit.vim'
 
+    " No more caps lock troubles in normal mode!
+    " Plugin 'suxpert/vimcaps'
+
+    " wget menu item in NERDTree!
+    " m then w, then type url
+    Plugin 'markgandolfo/nerdtree-wget.vim'
+
+    " auto add comma or semicolon to end of line
+    " <leader>;
+    Plugin 'lfilho/cosco.vim'
+
     " more flexible phpunit integration with vimux. combine this with my own
     " phpunit command for all tests and I can rerun the latest vimux command,
     " set the window size, adjust size and it will stick, run arbitrary
