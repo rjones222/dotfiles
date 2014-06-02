@@ -42,7 +42,7 @@ $1->shouldReceive('$3')
     ->andReturn(${4:true});
 endsnippet
 
-snippet construct "laravel 4 DI construct"
+snippet constr "laravel 4 DI construct"
 
 /**
  * dependency injection
@@ -92,7 +92,7 @@ class $4 $5
 }
 endsnippet
 
-snippet phpunitTestClass "mike's phpunit test template with docblocks"
+snippet pucla "mike's phpunit test template with docblocks"
 <?php
 /**
  * ${1:Unit Tests}
@@ -135,7 +135,7 @@ public function ${2:functionname}(${3})
 }
 endsnippet
 
-snippet setUp "phpunit setup"
+snippet stp "phpunit setup"
 
 /**
  * phpunit setup
@@ -147,7 +147,7 @@ public function setUp()
 }
 endsnippet
 
-snippet interface
+snippet inte
 interface ${1:MyRepository}
 {
     $2
@@ -164,7 +164,7 @@ snippet va "var with docblock"
 protected ${3:$myvar};
 endsnippet
 
-snippet const "constant with docblock"
+snippet cst "constant with docblock"
 
 /**
  * ${1:Description}
@@ -208,7 +208,7 @@ snippet methodblock "method level docblock"
  */
 endsnippet
 
-snippet lang "laravel Lang::get()"
+snippet lng "laravel Lang::get()"
 Lang::get('$1')
 endsnippet
 
@@ -224,6 +224,10 @@ snippet me "@author"
 @author Michael Funk <mike.funk@internetbrands.com>
 endsnippet
 
+snippet hm "@author home address"
+@author Michael Funk <mike@mikefunk.com>
+endsnippet
+
 snippet uns "Laravel Unsigned Integer"
 $table->unsignedInteger('$1');
 endsnippet
@@ -232,7 +236,7 @@ snippet forn "Laravel Foreign Key"
 $table->foreign('$1')->references('id')->on('$2');
 endsnippet
 
-snippet soft "Laravel Soft Delete"
+snippet sft "Laravel Soft Delete"
 $table->softDeletes();
 endsnippet
 
@@ -240,7 +244,7 @@ snippet vd "var_dump and exit"
 var_dump($1); exit;
 endsnippet
 
-snippet call "Laravel http call"
+snippet cl "Laravel http call"
 $this->call('${1:GET}', ${2:myurl});
 endsnippet
 
