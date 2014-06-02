@@ -25,6 +25,7 @@ function install_run() {
     less
     localtunnel
     log.io
+    phantomjs
     tldr
     yo
     )
@@ -183,6 +184,8 @@ function install_run() {
 
     packages=(
     distribute
+    robotframework
+    robotframework-selenium2screenshots
     supervisor
     )
     for package in "${packages[@]}"

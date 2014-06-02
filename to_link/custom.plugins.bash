@@ -77,6 +77,17 @@ togglexdebug() {
     fi
 }
 
+isxdebugon() {
+    about 'tell me whether xdebug is enabled'
+    group 'custom'
+
+    if [[ "$(php -i | grep xdebug)" ]]; then
+        echo 'xdebug is ON'
+    else
+        echo 'xdebug is OFF'
+    fi
+}
+
 upgrades() {
     about 'upgrade everything'
     group 'custom'

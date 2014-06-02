@@ -124,8 +124,9 @@
     " highlight matches for word, current line, etc.
     " doesn't work after switching to light mode or resourcing vimrc
     "<c-h><c-h> to sticy highlight a selection. <c-h><c-n> to remove all
-    "highlights.
-    Plugin 'vim-scripts/highlight.vim'
+    " highlights.
+    " I just don't use this. It also doesn't do much in Lucius.
+    " Plugin 'vim-scripts/highlight.vim'
 
     " check what highlights are on the current line with :HLT! and :HLTm to
     " disable. Useful for debugging highlight groups
@@ -258,13 +259,16 @@
     " php-complete-extended breaks horribly with any php files with multiple
     " classes. I reported the bug and the author does not want to fix that. It
     " also asks 'composer project detected. Do you want to index?' every time
-    " you open a composer project. Combination of these means forget about it
+    " you open a composer project. And it takes longer to load the index when
+    " it works. And it causes crazy problems sometimes with YouCompleteMe. And
+    " it sometimes experiences PHP sytax errors, which it barfs into the vim
+    " window in weird places. Combination of these means forget about it
     " for now.
-    Plugin 'm2mdas/phpcomplete-extended'
+    " Plugin 'm2mdas/phpcomplete-extended'
 
     " laravel completion
     " See above
-    Plugin 'm2mdas/phpcomplete-extended-laravel'
+    " Plugin 'm2mdas/phpcomplete-extended-laravel'
 
     " Match html/xml tags with %
     " Plugin 'tmhedberg/matchit'
@@ -535,6 +539,10 @@
 
     " Deal with swap files better, automatically
     Plugin 'vim-scripts/autoswap.vim'
+
+    " Turn vim options on and off - with tab complete
+    " :onoff <tab> to get options
+    Plugin 'vitalk/vim-onoff'
 
     " query surrounding tmux splits to add to autocomplete
     Plugin 'buztard/vim-nomad'

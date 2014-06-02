@@ -17,7 +17,18 @@
     let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
 
     " supposed to speed syntax highlighting
-    set re=1
+    " set re=1
+
+    " makes netrw look a little like a file drawer (not active since NERDTree
+    " overrides netrw at the moment)
+    let g:netrw_liststyle=3
+
+    " make searching with :find work sort-of like ctrlp
+    set path=**
+    set suffixesadd+=.php,.sh,.js,.less,.css,.coffee,.json
+
+    " ag.vim equivalent with :grep searchterm
+    set grepprg=ag\ --nocolor\ --nogroup\ --silent.
 
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
@@ -616,8 +627,8 @@
         " autocmd!
         " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
         " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
-        autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
-        " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+        " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
     augroup END
 
     " composer install command for phpcomplete
@@ -972,9 +983,8 @@
     " {{{ youcompleteme
     " open preview window while completing
     let g:ycm_add_preview_to_completeopt=1
-    let g:ycm_auto_trigger=0
+    " let g:ycm_auto_trigger=0
     " let g:ycm_allow_changing_updatetime=0
-    let g:ycm_collect_identifiers_from_tags_files=1
     let g:ycm_seed_identifiers_with_syntax = 1
     " }}}
 
