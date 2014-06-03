@@ -14,7 +14,7 @@
 " }}}
 
 " General {{{
-    let g:snips_author = 'Michael Funk <mfunk@internetbrands.com>'
+    let g:snips_author = 'Michael Funk <mike.funk@internetbrands.com>'
 
     " supposed to speed syntax highlighting
     " set re=1
@@ -614,7 +614,7 @@
     " {{{ PDV
     " PDV comment parameters
     let g:pdv_cfg_Package   = "Example"
-    let g:pdv_cfg_Author    = "Michael Funk <mfunk@internetbrands.com>"
+    let g:pdv_cfg_Author    = "Michael Funk <mike.funk@internetbrands.com>"
     let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
     let g:pdv_cfg_License   = ""
     let g:pdv_cfg_Version   = ""

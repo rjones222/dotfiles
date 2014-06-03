@@ -30,6 +30,10 @@
     " I use ultisnips
     UnBundle 'honza/vim-snippets'
 
+    " Ultisnips-style startup snippets for file types
+    " screws up the simplest templates. Uninstalling.
+    " Plugin 'tobyS/skeletons.vim'
+
     " I learned that 16 color is better than 256/csapprox
     UnBundle 'godlygeek/csapprox'
 

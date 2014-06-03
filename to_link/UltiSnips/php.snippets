@@ -21,7 +21,7 @@ snippet author
  *
  * @package ${2}
  * @author Michael Funk <mike.funk@internetbrands.com>
- * @copyright 2014 Internet Brands, Inc. All Rights Reserved.
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 
 endsnippet
@@ -31,7 +31,7 @@ snippet top "File-level PHP docblock"
  * ${1:Description}
  *
  * @package ${2:AutoClassifiedsPlatform}
- * @copyright 2014 Internet Brands, Inc. All Rights Reserved.
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 endsnippet
 
@@ -79,10 +79,10 @@ snippet cla "mike's class with namespace, file and class docblocks"
  * @package ${2:AutoClassifiedsPlatform}
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
-namespace ${3:InternetBrands\AutoClassifiedsPlatform};
+namespace InternetBrands\AutoClassifiedsPlatform\\$3;
 
 /**
- * ${4:ClassName}
+ * ${4:`!v expand("%:t:r")`}
  *
  * @author `!v g:snips_author`
  */
@@ -148,9 +148,23 @@ public function setUp()
 endsnippet
 
 snippet inte
-interface ${1:MyRepository}
+<?php
+/**
+ * ${1:Description}
+ *
+ * @package ${2:AutoClassifiedsPlatform}
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+namespace InternetBrands\AutoClassifiedsPlatform\\$3;
+
+/**
+ * ${4:ClassName}
+ *
+ * @author `!v g:snips_author`
+ */
+interface $4 $5
 {
-    $2
+	$6
 }
 endsnippet
 
@@ -190,7 +204,6 @@ $3
 endsnippet
 
 snippet classblock "class level docblock"
-
 /**
  * ${1:title}
  *
@@ -200,7 +213,6 @@ endsnippet
 
 
 snippet methodblock "method level docblock"
-
 /**
  * ${1:title}
  *
@@ -212,8 +224,12 @@ snippet lng "laravel Lang::get()"
 Lang::get('$1')
 endsnippet
 
-snippet view "View::make"
+snippet vw "View::make"
 return View::make('$1');
+endsnippet
+
+snippet rdr "Redirect::route"
+return Redirect::route('$1');
 endsnippet
 
 snippet -- "// ---"
