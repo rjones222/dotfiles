@@ -1,5 +1,52 @@
 extends html
 
+global !p
+
+def namespace(snip, path):
+    import os
+    namespace = pathToNamespace(path)
+    if (len(namespace) == 0):
+        return ''
+    return os.linesep + snip.mkline('namespace ' + namespace + ';') + os.linesep
+
+def pathToNamespace(path):
+    import re
+    path = path.replace('\\', '/')
+
+    parts = []
+    for part in path.split('/'):
+        if re.match('^[A-Z]', part):
+            parts.append(part)
+        else:
+            parts = []
+    parts.pop()
+
+    return '\\'.join(parts)
+
+endglobal
+
+snippet sg "PHP Class Setter Getter" !b
+/**
+ * @param ${2:mixed} $$1
+ *
+ * @return $this
+ */
+public function set${1/\w+\s*/\u$0/}($$1)
+{
+    $this->$1 = $$1;
+
+    ${4:return $this;}
+}
+
+/**
+ * @return $2
+ */
+public function get${1/\w+\s*/\u$0/}()
+{
+    return $this->$1;
+}
+endsnippet
+
 snippet prt "print_r true"
 print_r(${1}, true)${2}
 endsnippet
@@ -14,13 +61,13 @@ snippet codingStandardsIgnore "magical docblock to make phpcs shut up!"
  */
 endsnippet
 
-snippet author
+snippet authr
 
 /**
  * ${1}
  *
  * @package ${2}
- * @author Michael Funk <mike.funk@internetbrands.com>
+ * @author Michael Funk <`!v g:snips_author`>
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 
@@ -35,23 +82,24 @@ snippet top "File-level PHP docblock"
  */
 endsnippet
 
-snippet mock
-$1 = Mockery::mock('$2');
-$1->shouldReceive('$3')
+snippet mck
+$$1Mock = Mockery::mock('${1/\w+\s*/\u$0/}');
+$$1Mock->shouldReceive('$3')
     ->once()
     ->andReturn(${4:true});
 endsnippet
 
-snippet constr "laravel 4 DI construct"
+snippet cstr "laravel 4 DI construct"
 
 /**
  * dependency injection
  *
- * @param $1 $$2
+ * @param ${1/\w+\s*/\u$0/}Interface $$1
+ * @return void
  */
-public function __construct(${1:UserRepositoryInterface} $${2:user})
+public function __construct(${1/\w+\s*/\u$0/}Interface $$1)
 {
-    $this->$2 = $$2;
+    $this->$1 = $$1;
 }
 endsnippet
 
@@ -79,7 +127,7 @@ snippet cla "mike's class with namespace, file and class docblocks"
  * @package ${2:AutoClassifiedsPlatform}
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
-namespace InternetBrands\AutoClassifiedsPlatform\\$3;
+`!p snip.rv = namespace(snip, path)`
 
 /**
  * ${4:`!v expand("%:t:r")`}
@@ -102,17 +150,27 @@ snippet pucla "mike's phpunit test template with docblocks"
  */
 
 /**
- * ${3:ClassName}Test
+ * ${4:`!v expand("%:t:r")`}
  *
  * @author `!v g:snips_author`
  */
-class $3Test extends \PHPUnit_Framework_TestCase
+class $4 extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * phpunit setup
+     *
+     * @return void
+     */
     public function setUp()
     {
 
     }
 
+    /**
+     * phpunit teardown
+     *
+     * @return void
+     */
     public function tearDown()
     {
 
@@ -155,16 +213,16 @@ snippet inte
  * @package ${2:AutoClassifiedsPlatform}
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
-namespace InternetBrands\AutoClassifiedsPlatform\\$3;
+`!p snip.rv = namespace(snip, path)`
 
 /**
- * ${4:ClassName}
+ * ${4:`!v expand("%:t:r")`}
  *
  * @author `!v g:snips_author`
  */
 interface $4 $5
 {
-	$6
+    $6
 }
 endsnippet
 
@@ -208,7 +266,7 @@ snippet classblock "class level docblock"
  * ${1:title}
  *
  * @author `!v g:snips_author`
- */$3
+ */
 endsnippet
 
 
@@ -232,12 +290,38 @@ snippet rdr "Redirect::route"
 return Redirect::route('$1');
 endsnippet
 
+snippet if "php if" !b
+if (${1}) {
+    ${2}
+}
+endsnippet
+
+snippet ife "php if/else" !b
+if (${1}) {
+    ${2}
+} else {
+
+}
+endsnippet
+
+snippet foreach "php foreach"
+foreach (${1:$things as $thing}) {
+    $2
+}
+endsnippet
+
+snippet /** "php comment block" b
+/**
+ * ${1}
+ */
+endsnippet
+
 snippet -- "// ---"
 // ------------------------------------------------------------------------
 endsnippet
 
 snippet me "@author"
-@author Michael Funk <mike.funk@internetbrands.com>
+@author Michael Funk <`!v g:snips_author`>
 endsnippet
 
 snippet hm "@author home address"
@@ -275,7 +359,7 @@ namespace ${2:Namespace};
 /**
  * Module
  *
- * @author Michael Funk <mike.funk@internetbrands.com>
+ * @author Michael Funk <`!v g:snips_author`>
  */
 class Module
 {
