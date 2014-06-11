@@ -124,7 +124,7 @@ alias localtunnel="lt --port 80"
 
 # better YouCompleteMe install command
 # alias ycminstall="DYLD_LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib /Users/mfunk/.vim/bundle/YouCompleteMe/install.sh --clang-completer"
-alias ycminstall="/Users/mfunk/.vim/bundle/YouCompleteMe/install.sh"
+alias ycminstall="cd /Users/mfunk/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.sh && cd -"
 
 # irssi nicklist in a split
 alias nicklist="cat ~/.irssi/nicklistfifo"

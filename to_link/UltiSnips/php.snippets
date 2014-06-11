@@ -124,7 +124,7 @@ snippet cla "mike's class with namespace, file and class docblocks"
 /**
  * ${1:Description}
  *
- * @package ${2:AutoClassifiedsPlatform}
+ * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 `!p snip.rv = namespace(snip, path)`
@@ -137,6 +137,135 @@ snippet cla "mike's class with namespace, file and class docblocks"
 class $4 $5
 {
     $6
+}
+endsnippet
+
+snippet mgt "laravel migration"
+<?php
+/**
+ * ${1:Description}
+ *
+ * @package ${2:AutoClassifiedsPlatform}
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+
+ use Illuminate\Database\Migrations\Migration;
+
+/**
+ * Create${1:Whatever}Table
+ *
+ * @author `!v g:snips_author`
+ */
+class Create$1Table extends Migration
+{
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create(
+            '${3:table_name}',
+            function ($table) {
+                $table->increments('id');
+                $4
+                // $table->integer('member_ad_id')->index();
+                // $table->string('city', 255)->nullable();
+                // $table->enum(
+                //     'status', array(
+                //         "unfinished",
+                //         "inactive",
+                //     )
+                // )->default("inactive")->index();
+                // $table->timestamp('start_date')->default("0000-00-00 00:00:00");
+                // $table->text('body');
+                // $table->decimal('price', 12, 2)->nullable();
+                // $table->date('featured_expiration_date')->nullable();
+                // $table->boolean('is_bigger');
+            }
+        );
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('$3');
+    }
+}
+endsnippet
+
+snippet sdr "Auto Classifieds Platform laravel seeder"
+<?php
+
+/**
+ * $4
+ *
+ * @link https://github.com/fzaninotto/Faker use this library to provide fake
+ * data to the seeder
+ *
+ * @package   AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+
+use InternetBrands\AutoClassifiedsPlatform\Common\Seeds\BaseSeeder;
+use Str;
+
+/**
+ * ${4:`!v expand("%:t:r")`}
+ *
+ * @author `!v g:snips_author`
+ */
+class $4 extends BaseSeeder
+{
+
+    /**
+     * getTableName
+     *
+     * @return string
+     */
+    protected function getTableName()
+    {
+        return '${5:table_name}';
+    }
+
+    /**
+     * run seeder
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $this->seedFakeRows(10);
+        $this->command->info('$5 table seeded!');
+    }
+
+    /**
+     * provide one fake row
+     *
+     * @return array
+     */
+    protected function provideOneRow()
+    {
+        return array(
+            $6
+            // 'title' => Str::limit($this->faker()->sentence(3), 45),
+            // 'price' => $this->faker()->randomNumber(5),
+            // 'fax' => $this->faker()->phoneNumber(),
+            // 'additional_notes' => $this->faker()->text(),
+            // 'other_payment_method' => $this->faker()->text(20),
+            // 'height' => $this->faker()->randomNumber(),
+            // 'current_step' => $this->faker()->word(),
+            // 'is_exclusive' => $this->faker()->boolean(),
+            // 'exclusive_expiration_date' => $this->faker()->dateTimeThisYear()->format('Y-m-d G:i:s'),
+        );
+    }
 }
 endsnippet
 
