@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "95a23b8096d2eda9441fc427e5209bb1",
+    "hash": "f3a65648e50f66ec36b9d111084de21f",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -496,16 +496,16 @@
         },
         {
             "name": "erusev/parsedown",
-            "version": "0.9.4",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "d29ff18299210b52a75a631a70963e7c8b35b04f"
+                "reference": "d24439ada0704948deef0d3eda2ea20fd8db1747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/d29ff18299210b52a75a631a70963e7c8b35b04f",
-                "reference": "d29ff18299210b52a75a631a70963e7c8b35b04f",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/d24439ada0704948deef0d3eda2ea20fd8db1747",
+                "reference": "d24439ada0704948deef0d3eda2ea20fd8db1747",
                 "shasum": ""
             },
             "type": "library",
@@ -531,7 +531,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2014-02-06 12:16:14"
+            "time": "2014-05-21 20:20:46"
         },
         {
             "name": "fabpot/goutte",
@@ -626,16 +626,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "85a0ba7de064493c928a8bcdc5eef01e0bde9953"
+                "reference": "577a69ff7d0a24e9576a2885c3a7afbaadd51ec1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/85a0ba7de064493c928a8bcdc5eef01e0bde9953",
-                "reference": "85a0ba7de064493c928a8bcdc5eef01e0bde9953",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/577a69ff7d0a24e9576a2885c3a7afbaadd51ec1",
+                "reference": "577a69ff7d0a24e9576a2885c3a7afbaadd51ec1",
                 "shasum": ""
             },
             "require": {
@@ -654,7 +654,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0.x-dev"
+                    "dev-master": "4.1.x-dev"
                 }
             },
             "autoload": {
@@ -687,7 +687,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-05-28 05:13:19"
+            "time": "2014-06-08 20:00:20"
         },
         {
             "name": "guzzlehttp/streams",
@@ -1154,12 +1154,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "473fe203455fcfa48ba145b6b4aa99b822dd93c5"
+                "reference": "7ab91f93cd4203cf87c6879180ac428a444220e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/473fe203455fcfa48ba145b6b4aa99b822dd93c5",
-                "reference": "473fe203455fcfa48ba145b6b4aa99b822dd93c5",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/7ab91f93cd4203cf87c6879180ac428a444220e7",
+                "reference": "7ab91f93cd4203cf87c6879180ac428a444220e7",
                 "shasum": ""
             },
             "require": {
@@ -1215,7 +1215,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-06-02 19:15:39"
+            "time": "2014-06-09 19:18:50"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -1353,22 +1353,22 @@
         },
         {
             "name": "phpdocumentor/phpdocumentor",
-            "version": "v2.5.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/phpDocumentor2.git",
-                "reference": "bf9fa40f6d00412410025b2e16eb16c315eb0216"
+                "reference": "1b5d3dcf7c1bc59a79ec2212be1a332983f7263a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/bf9fa40f6d00412410025b2e16eb16c315eb0216",
-                "reference": "bf9fa40f6d00412410025b2e16eb16c315eb0216",
+                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/1b5d3dcf7c1bc59a79ec2212be1a332983f7263a",
+                "reference": "1b5d3dcf7c1bc59a79ec2212be1a332983f7263a",
                 "shasum": ""
             },
             "require": {
                 "cilex/cilex": "~1.0",
                 "dompdf/dompdf": "~0.6",
-                "erusev/parsedown": "~0.7",
+                "erusev/parsedown": "~1.0",
                 "jms/serializer": "~0.12",
                 "knplabs/knp-menu": "~1.1",
                 "monolog/monolog": "~1.6",
@@ -1421,7 +1421,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "2.5-dev"
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1429,6 +1429,9 @@
                     "phpDocumentor": [
                         "src/",
                         "tests/unit/"
+                    ],
+                    "Cilex\\Provider": [
+                        "src/"
                     ]
                 }
             },
@@ -1445,7 +1448,7 @@
                 "documentation",
                 "phpdoc"
             ],
-            "time": "2014-05-17 12:25:35"
+            "time": "2014-06-06 21:15:22"
         },
         {
             "name": "phpdocumentor/reflection",
@@ -2380,16 +2383,16 @@
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.0.5",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "3697daa12ab57b2bfc27b734ab963142f27b9159"
+                "reference": "a01285d0b705af5963367451088508b6d4e417f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/3697daa12ab57b2bfc27b734ab963142f27b9159",
-                "reference": "3697daa12ab57b2bfc27b734ab963142f27b9159",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/a01285d0b705af5963367451088508b6d4e417f2",
+                "reference": "a01285d0b705af5963367451088508b6d4e417f2",
                 "shasum": ""
             },
             "require": {
@@ -2433,7 +2436,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2014-04-16 14:50:10"
+            "time": "2014-06-07 16:22:54"
         },
         {
             "name": "pimple/pimple",
@@ -2782,16 +2785,16 @@
         },
         {
             "name": "sebastian/git",
-            "version": "1.2.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/git.git",
-                "reference": "a99fbc102e982c1404041ef3e4d431562b29bcba"
+                "reference": "572c35353fefcc8607d6fef0e362a9f3a5e84d96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/git/zipball/a99fbc102e982c1404041ef3e4d431562b29bcba",
-                "reference": "a99fbc102e982c1404041ef3e4d431562b29bcba",
+                "url": "https://api.github.com/repos/sebastianbergmann/git/zipball/572c35353fefcc8607d6fef0e362a9f3a5e84d96",
+                "reference": "572c35353fefcc8607d6fef0e362a9f3a5e84d96",
                 "shasum": ""
             },
             "require": {
@@ -2800,7 +2803,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -2824,7 +2827,7 @@
             "keywords": [
                 "git"
             ],
-            "time": "2013-08-04 09:35:29"
+            "time": "2014-06-14 07:12:53"
         },
         {
             "name": "sebastian/phpcpd",
@@ -2918,12 +2921,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "7a0f6f47655bea2cabbfcfed49eb3b2c169ad673"
+                "reference": "7cb5dce5263dd0de27e995a8fbae4766dbc8e7ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/7a0f6f47655bea2cabbfcfed49eb3b2c169ad673",
-                "reference": "7a0f6f47655bea2cabbfcfed49eb3b2c169ad673",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/7cb5dce5263dd0de27e995a8fbae4766dbc8e7ea",
+                "reference": "7cb5dce5263dd0de27e995a8fbae4766dbc8e7ea",
                 "shasum": ""
             },
             "require": {
@@ -2983,7 +2986,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-06-04 06:20:29"
+            "time": "2014-06-06 00:56:33"
         },
         {
             "name": "symfony/browser-kit",
@@ -4508,7 +4511,8 @@
         "phpmd/phpmd": 20,
         "squizlabs/php_codesniffer": 20,
         "tomphp/patch-builder": 20,
-        "qafoolabs/php-refactoring-browser": 20
+        "qafoolabs/php-refactoring-browser": 20,
+        "phpdocumentor/phpdocumentor": 20
     },
     "platform": [
 

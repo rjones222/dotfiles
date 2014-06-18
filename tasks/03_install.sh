@@ -157,6 +157,7 @@ function install_run() {
     json_pure
     kramdown
     mailcatcher
+    mysql2xxxx
     pre-commit
     puppet
     pygmentize

@@ -553,7 +553,8 @@
 
     " open url
     " nnoremap <leader>gu <Plug>(openbrowser-open)
-    Plugin 'tyru/open-browser.vim'
+    " Plugin 'tyru/open-browser.vim'
+    Plugin 'vim-scripts/open-browser.vim'
 
     " just for testing some of the top color schemes
     " Plugin 'vim-scripts/Colour-Sampler-Pack'

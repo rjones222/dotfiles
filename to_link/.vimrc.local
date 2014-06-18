@@ -605,10 +605,10 @@
 
     " {{{ openbrowser.vim
     " Open URI under cursor.
-    nnoremap <leader>gu <Plug>(openbrowser-open)
+    nmap <leader>gu <Plug>(openbrowser-open)
 
     " Open selected URI.
-    vnoremap <leader>gu <Plug>(openbrowser-open)
+    vmap <leader>gu <Plug>(openbrowser-open)
     " }}}
 
     " {{{ PDV
