@@ -77,7 +77,7 @@ snippet top "File-level PHP docblock"
 /**
  * ${1:Description}
  *
- * @package ${2:AutoClassifiedsPlatform}
+ * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 endsnippet
@@ -131,7 +131,7 @@ snippet cla "mike's class with namespace, file and class docblocks"
 $2
 
 /**
- * ${4:`!v expand("%:t:r")`}
+ * `!v expand("%:t:r")`
  *
  * @author `!v g:snips_author`
  */
@@ -141,12 +141,388 @@ class $4 $5
 }
 endsnippet
 
+snippet mdl "ACP laravel model"
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`} model
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+use InternetBrands\AutoClassifiedsPlatform\Common\Models\BaseModel;
+use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+class `!v expand("%:t:r")` extends BaseModel implements `!v expand("%:t:r")`ModelInterface
+{
+    /**
+     * the name of the table this model represents
+     *
+     * @var string
+     */
+    protected $table = '${4:table_name}';
+
+    /**
+     * whether to use created_at and updated_at
+     *
+     * @var boolean
+     */
+    public $timestamps = false;
+
+    /**
+     * fillable fields whitelist
+     *
+     * @var array
+     */
+    protected $fillable = [
+        $5
+    ];
+
+    /**
+     * these fields should return a Carbon date object
+     *
+     * @var array
+     */
+    protected $dates = [
+        $6
+    ];
+}
+endsnippet
+
+snippet mdli "ACP laravel model interface"
+<?php
+/**
+ * ${1:Listing} model interface
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\BaseModelInterface;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+interface `!v expand("%:t:r")` extends BaseModelInterface
+{
+    $6
+}
+endsnippet
+
+snippet rps "ACP laravel repository"
+<?php
+/**
+ * ${1:Listing} repository for data access
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+use InternetBrands\AutoClassifiedsPlatform\Common\Repositories\EloquentRepository;
+use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface;
+use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+class `!v expand("%:t:r")` extends EloquentRepository implements `!v expand("%:t:r")`Interface
+{
+
+    /**
+     * validation rules
+     *
+     * @var array
+     */
+    public $rules = array(
+        ${2:'title' => 'required',}
+    );
+    
+    /**
+     * dependency injection
+     *
+     * @param $1ModelInterface \$${1/\w+/\l$0/}Model
+     */
+    public function __construct(
+        $1ModelInterface \$${1/\w+/\l$0/}Model,
+    ) {
+        $this->setModel(\$${1/\w+/\l$0/}Model);
+    }
+
+    /**
+     * validate the passed values, return true or validator
+     *
+     * @param  array $attributes
+     * @return boolean|Validator
+     */
+    protected function validateStore(array $attributes)
+    {
+        // get the validation rules
+        // run the validator against these rules
+        return Validator::make($attributes, $this->rules);
+    }
+
+    /**
+     * validate the passed values, return true or validator
+     *
+     * @param  array $attributes
+     * @return boolean|Validator
+     */
+    protected function validateUpdate(array $attributes)
+    {
+        $update_rules = array_intersect_key($this->rules, $attributes);
+        // get the validation rules
+        // run the validator against these rules
+        return Validator::make($attributes, $update_rules);
+    }
+}
+endsnippet
+
+snippet rpsi "ACP laravel repository interface"
+<?php
+/**
+ * ${1:Listing} repository interface
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\EloquentRepositoryInterface;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+interface `!v expand("%:t:r")` extends EloquentRepositoryInterface
+{
+    $6
+}
+endsnippet
+
+snippet rpst "ACP laravel repository test"
+<?php
+/**
+ * ${1:Listing} repository test
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseRepositoryTest;
+use InternetBrands\AutoClassifiedsPlatform\\$1\Repositories\\$1Repository;
+use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface;
+use Mockery;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+class `!v expand("%:t:r")` extends BaseRepositoryTest
+{
+
+    /**
+     * $1 model instance
+     *
+     * @var $1ModelInterface
+     */
+    protected \$${1/\w+/\l$0/}Model;
+
+    /**
+     * $1 repository instance
+     *
+     * @var $1RepositoryInterface
+     */
+    protected \$${1/\w+/\l$0/}Repository;
+
+    /**
+     * phpunit setup
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+
+        // set up some shared mocks and dependencies
+        $ns = "InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface";
+        $this->\$${1/\w+/\l$0/}Model = Mockery::mock($ns);
+
+        // voltron assemble!
+        $this->\$${1/\w+/\l$0/}Repository = new $1Repository(
+            $this->\$${1/\w+/\l$0/}Model
+        );
+    }
+    $3
+}
+endsnippet
+
+snippet ctl "ACP laravel controller"
+<?php
+/**
+ * ${1:Listing} controller
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+use Config;
+use InternetBrands\AutoClassifiedsPlatform\Common\Controllers\BaseController;
+use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface;
+use InternetBrands\AutoClassifiedsPlatform\$1\Interfaces\\$1ControllerInterface;
+use Input;
+use Lang;
+use MikeFunk\BustersPhp\BustersPhpInterface;
+use Notification;
+use Redirect;
+use URL;
+use Validator;
+use View;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+class `!v expand("%:t:r")` extends BaseController implements `!v expand("%:t:r")`Interface
+{
+
+    /**
+     * $1 repository instance
+     *
+     * @var $1RepositoryInterface
+     */
+    protected \$${1/\w+/\l$0/}Repository;
+
+    /**
+     * Dependency Injection
+     *
+     * @param BustersPhpInterface $bustersPhp,
+     * @param $1RepositoryInterface \$${1/\w+/\l$0/}Repository
+     */
+    public function __construct(
+        BustersPhpInterface $bustersPhp,
+        $1RepositoryInterface \$${1/\w+/\l$0/}Repository,
+    ) {
+        parent::__construct($bustersPhp);
+        $this->\$${1/\w+/\l$0/}Repository = \$${1/\w+/\l$0/}Repository;
+    }
+    $5
+}
+endsnippet
+
+snippet ctli "ACP laravel controller interface"
+<?php
+/**
+ * ${1:Listing} controller interface
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\BaseControllerInterface;
+
+/**
+ * ${4:`!v expand("%:t:r")`}
+ *
+ * @author `!v g:snips_author`
+ */
+interface `!v expand("%:t:r")` extends BaseControllerInterface
+{
+    $6
+}
+endsnippet
+
+snippet ctlt "ACP laravel controller test"
+<?php
+/**
+ * ${1:Listing} controller test
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+`!p snip.rv = namespace(snip, path)`
+use Auth;
+use Config;
+use Input;
+use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseControllerTest;
+use InternetBrands\AutoClassifiedsPlatform\\$1\Controllers\\$1Controller;
+use Lang;
+use Mockery;
+use Notification;
+use Redirect;
+use URL;
+use Validator;
+use View;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+class `!v expand("%:t:r")` extends BaseControllerTest
+{
+
+    /**
+     * $1 repository instance
+     *
+     * @var $1RepositoryInterface
+     */
+    protected \$${1/\w+/\l$0/}Repository;
+
+    /**
+     * $1 controller instance
+     *
+     * @var $1ControllerInterface
+     */
+    protected \$${1/\w+/\l$0/}Controller;
+
+    /**
+     * phpunit setup
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+
+        // add some new package providers
+        $newProvider = 'InternetBrands\AutoClassifiedsPlatform\\$1\\$1ServiceProvider';
+        $this->addServiceProviders($newProvider);
+
+        parent::setUp();
+
+        // set up some shared mocks and dependencies
+        $ns = 'MikeFunk\BustersPhp\BustersPhpInterface';
+        $bustersPhp = Mockery::mock($ns);
+
+        $ns = "InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface";
+        $this->\$${1/\w+/\l$0/}Repository = Mockery::mock($ns);
+
+        // voltron assemble!
+        $this->\$${1/\w+/\l$0/}Controller = new $1Controller(
+            $bustersPhp,
+            $this->\$${1/\w+/\l$0/}Repository
+        );
+    }
+    $3
+}
+endsnippet
+
 snippet mgt "laravel migration"
 <?php
 /**
  * ${1:Description}
  *
- * @package ${2:AutoClassifiedsPlatform}
+ * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 
@@ -275,7 +651,7 @@ snippet pucla "mike's phpunit test template with docblocks"
 /**
  * ${1:Unit Tests}
  *
- * @package ${2:AutoClassifiedsPlatform}
+ * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 
@@ -323,6 +699,19 @@ public function ${2:functionname}(${3})
 }
 endsnippet
 
+snippet pumeth "phpunit method"
+
+/**
+ * ${2:functionName}
+ *
+ * @return void
+ */
+public function $2()
+{
+    $3
+}
+endsnippet
+
 snippet stp "phpunit setup"
 
 /**
@@ -340,7 +729,7 @@ snippet inte
 /**
  * ${1:Description}
  *
- * @package ${2:AutoClassifiedsPlatform}
+ * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 `!p snip.rv = namespace(snip, path)`

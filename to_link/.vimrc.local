@@ -33,6 +33,14 @@
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
 
+    " {{{ fix split dragging in tmux
+    set mouse+=a
+    if &term =~ '^screen'
+        " tmux knows the extended mouse mode
+        set ttymouse=xterm2
+    endif
+    " }}}
+
     " {{{ format json
     nnoremap <leader>fj :%!python -m json.tool<cr>
     " }}}
@@ -640,6 +648,10 @@
     let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
     let g:phpcomplete_enhance_jump_to_definition = 0
     " }}}"
+
+    " {{{ php-getter-setter
+    map <buffer> <leader>pgs <Plug>PhpgetsetInsertGetterSetter
+    " }}}
 
     " {{{ phpctags
     " phpctags

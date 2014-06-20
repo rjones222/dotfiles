@@ -105,13 +105,14 @@
     Plugin 'jonathanfilip/vim-lucius'
 
     " easy way to scroll through color schemes
-    Plugin 'vim-scripts/ScrollColors'
+    " Turned off until I need it
+    " Plugin 'vim-scripts/ScrollColors'
 
     " Gitk clone in vim. ,gv and ,gV to view, <cr> to view commits in a
     " split or view diffs.
     Plugin 'gregsexton/gitv'
 
-    " adds more text objects such as in' and ip'
+    " adds more text objects such as in' and ip' (in next and in previous ' )
     Plugin 'wellle/targets.vim'
 
     " swap blocks of code with cx (c then x) example: cxiw to mark a word,
@@ -120,7 +121,8 @@
 
     " Look up a github issue with :Gissues . You can also autocomplete issues
     " in fugitive window by typing #[issue number]<c-space>.
-    Plugin 'jaxbot/github-issues.vim'
+    " I don't use it at the moment
+    " Plugin 'jaxbot/github-issues.vim'
 
     " Laravel Blade Syntax Highlighting
     Plugin 'xsbeats/vim-blade'
@@ -179,7 +181,8 @@
     " window
     " :BUN to unload a buffer without closing window
     " :BW to wipe a buffer without closing window
-    Plugin 'vim-scripts/bufkill.vim'
+    " I don't use it
+    " Plugin 'vim-scripts/bufkill.vim'
 
     " zen coding / emmett integration
     " div#page>div.logo+ul#navigation>li*5>a<c-y>, to get html
@@ -202,6 +205,7 @@
     " much better than snipmate or neosnippet
     " :UltiSnipsEdit to edit the snippets file for the current file type
     " YouCompleteMe will autocomplete your snippets. <c-j> to complete.
+    " spf13-vim already includes this with YouCompleteMe
     " Plugin 'SirVer/ultisnips'
 
     " instant markdown preview
@@ -245,7 +249,8 @@
     " :SudoEdit [file]
     " :SudoWrite
     " :W
-    Plugin 'tpope/vim-eunuch'
+    " I don't use it. I tend to use NERDTree for moving, deleting, etc.
+    " Plugin 'tpope/vim-eunuch'
 
     " Toggle the location list and quickfix list windows
     " <leader>qq
@@ -285,6 +290,7 @@
     " Plugin 'Shougo/unite.vim'
 
     " php getters and setters
+    " map <buffer> <leader>pgs <Plug>PhpgetsetInsertGetterSetter
     Plugin 'docteurklein/php-getter-setter.vim'
 
     " better vim start screen
@@ -347,11 +353,13 @@
 
     " wget menu item in NERDTree!
     " m then w, then type url
-    Plugin 'markgandolfo/nerdtree-wget.vim'
+    " I don't use this
+    " Plugin 'markgandolfo/nerdtree-wget.vim'
 
     " auto add comma or semicolon to end of line
     " <leader>;
-    Plugin 'lfilho/cosco.vim'
+    " I don't use it. A, is just as good it seems
+    " Plugin 'lfilho/cosco.vim'
 
     " more flexible phpunit integration with vimux. combine this with my own
     " phpunit command for all tests and I can rerun the latest vimux command,
@@ -499,11 +507,13 @@
 
     " tmux custom statusline in sync with airline
     " :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
-    Plugin 'edkolev/tmuxline.vim'
+    " Turn if off until I need to customize it
+    " Plugin 'edkolev/tmuxline.vim'
 
     " custom bash prompt in sync with airline
     " :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
-    Plugin 'edkolev/promptline.vim'
+    " Turn if off until I need to customize it
+    " Plugin 'edkolev/promptline.vim'
 
     " show @TODOs and stuff
     " I just made an alias for this now with Ag. Simpler and more capable.
@@ -541,12 +551,13 @@
     " m<BS>        Remove all markers
     Plugin 'kshenoy/vim-signature'
 
-    " Deal with swap files better, automatically
+    " Deal with swap files better, automatically. Really helpful!
     Plugin 'vim-scripts/autoswap.vim'
 
     " Turn vim options on and off - with tab complete
     " :onoff <tab> to get options
-    Plugin 'vitalk/vim-onoff'
+    " I don't use it.
+    " Plugin 'vitalk/vim-onoff'
 
     " query surrounding tmux splits to add to autocomplete
     Plugin 'buztard/vim-nomad'
@@ -573,22 +584,29 @@
     " Plugin 'morhetz/gruvbox'
     " Plugin 'vim-scripts/guardian'
     " Plugin 'vim-scripts/herald.vim'
-    Plugin 'nanotech/jellybeans.vim'
-    Plugin 'zeis/vim-kolor'
-    Plugin 'tomasr/molokai'
     " Plugin 'vim-scripts/moria'
-    Plugin 'Lokaltog/vim-distinguished'
     " Plugin 'matthewtodd/vim-twilight'
     " Plugin 'tpope/vim-vividchalk'
     " Plugin 'vim-scripts/Zenburn'
 
+    " Schemes that look good in 256 colors:
+    Plugin 'nanotech/jellybeans.vim'
+    Plugin 'zeis/vim-kolor'
+    Plugin 'tomasr/molokai'
+    Plugin 'Lokaltog/vim-distinguished'
+    Plugin 'junegunn/seoul256.vim'
+    Plugin 'jnurmine/Zenburn'
+    Plugin 'vim-scripts/summerfruit256.vim'
+
     " unicode character metadata with ga
-    Plugin 'tpope/vim-characterize'
+    " I don't really need this
+    " Plugin 'tpope/vim-characterize'
 
     " :MarksBrowser
     " <cr> to go to a mark
     " d to delete
-    Plugin 'vim-scripts/Marks-Browser'
+    " I don't use this, Marks in the sidebar is fine
+    " Plugin 'vim-scripts/Marks-Browser'
 
     " vim search and replace
     " Plugin 'vim-scripts/Greplace.vim'
