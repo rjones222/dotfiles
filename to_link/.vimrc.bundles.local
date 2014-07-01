@@ -588,6 +588,9 @@
     " Plugin 'matthewtodd/vim-twilight'
     " Plugin 'tpope/vim-vividchalk'
     " Plugin 'vim-scripts/Zenburn'
+    " Plugin 'mattly/iterm-colors-pencil'
+    " 16 colors
+    " Plugin 'noahfrederick/vim-noctu'
 
     " Schemes that look good in 256 colors:
     Plugin 'nanotech/jellybeans.vim'
@@ -597,6 +600,7 @@
     Plugin 'junegunn/seoul256.vim'
     Plugin 'jnurmine/Zenburn'
     Plugin 'vim-scripts/summerfruit256.vim'
+    Plugin 'noahfrederick/vim-hemisu'
 
     " unicode character metadata with ga
     " I don't really need this

@@ -26,19 +26,21 @@ def pathToNamespace(path):
 endglobal
 
 snippet sg "PHP Class Setter Getter" !b
+
 /**
- * @param ${2:mixed} $$1
+ * setter
  *
- * @return $this
+ * @param ${2:mixed} $$1
+ * @return void
  */
 public function set${1/\w+\s*/\u$0/}($$1)
 {
     $this->$1 = $$1;
-
-    ${4:return $this;}
 }
 
 /**
+ * getter
+ *
  * @return $2
  */
 public function get${1/\w+\s*/\u$0/}()
@@ -126,8 +128,7 @@ snippet cla "mike's class with namespace, file and class docblocks"
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
+ */`!p snip.rv = namespace(snip, path)`
 $2
 
 /**
@@ -148,8 +149,7 @@ snippet mdl "ACP laravel model"
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
+ */`!p snip.rv = namespace(snip, path)`
 use InternetBrands\AutoClassifiedsPlatform\Common\Models\BaseModel;
 use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface;
 
@@ -201,8 +201,7 @@ snippet mdli "ACP laravel model interface"
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
+ */`!p snip.rv = namespace(snip, path)`
 use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\BaseModelInterface;
 
 /**
@@ -223,11 +222,10 @@ snippet rps "ACP laravel repository"
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
+ */`!p snip.rv = namespace(snip, path)`
 use InternetBrands\AutoClassifiedsPlatform\Common\Repositories\EloquentRepository;
-use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface;
-use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface;
+use InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Interfaces\\$1ModelInterface;
+use InternetBrands\AutoClassifiedsPlatform\\$2\Interfaces\\$1RepositoryInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -243,7 +241,7 @@ class `!v expand("%:t:r")` extends EloquentRepository implements `!v expand("%:t
      * @var array
      */
     public $rules = array(
-        ${2:'title' => 'required',}
+        ${3:'title' => 'required',}
     );
     
     /**
@@ -252,7 +250,7 @@ class `!v expand("%:t:r")` extends EloquentRepository implements `!v expand("%:t
      * @param $1ModelInterface \$${1/\w+/\l$0/}Model
      */
     public function __construct(
-        $1ModelInterface \$${1/\w+/\l$0/}Model,
+        $1ModelInterface \$${1/\w+/\l$0/}Model
     ) {
         $this->setModel(\$${1/\w+/\l$0/}Model);
     }
@@ -293,8 +291,7 @@ snippet rpsi "ACP laravel repository interface"
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
+ */`!p snip.rv = namespace(snip, path)`
 use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\EloquentRepositoryInterface;
 
 /**
@@ -316,10 +313,11 @@ snippet rpst "ACP laravel repository test"
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
-`!p snip.rv = namespace(snip, path)`
+namespace InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Tests;
+
 use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseRepositoryTest;
-use InternetBrands\AutoClassifiedsPlatform\\$1\Repositories\\$1Repository;
-use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface;
+use InternetBrands\AutoClassifiedsPlatform\\$2\Repositories\\$1Repository;
+use InternetBrands\AutoClassifiedsPlatform\\$2\Models\\$1;
 use Mockery;
 
 /**
@@ -333,7 +331,7 @@ class `!v expand("%:t:r")` extends BaseRepositoryTest
     /**
      * $1 model instance
      *
-     * @var $1ModelInterface
+     * @var $1
      */
     protected \$${1/\w+/\l$0/}Model;
 
@@ -354,15 +352,46 @@ class `!v expand("%:t:r")` extends BaseRepositoryTest
         parent::setUp();
 
         // set up some shared mocks and dependencies
-        $ns = "InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface";
-        $this->\$${1/\w+/\l$0/}Model = Mockery::mock($ns);
+        $ns = "InternetBrands\AutoClassifiedsPlatform\\$2\Models\\$1";
+        $this->${1/\w+/\l$0/}Model = Mockery::mock($ns);
 
         // voltron assemble!
-        $this->\$${1/\w+/\l$0/}Repository = new $1Repository(
-            $this->\$${1/\w+/\l$0/}Model
+        $this->${1/\w+/\l$0/}Repository = new $1Repository(
+            $this->${1/\w+/\l$0/}Model
         );
     }
-    $3
+
+    /**
+     * data that will successfully update
+     *
+     * @return array
+     */
+    public function tryUpdateSuccessDataProvider()
+    {
+        return [
+            [
+                ${3:'name' => 'Hyundai',
+                'aces_name_id' => 1,}
+            ],
+        ];
+    }
+
+    /**
+     * data that will fail validation
+     *
+     * @return array
+     */
+    public function invalidValuesDataProvider()
+    {
+        return [
+            [
+                'values' => [
+                    ${4:'name' => '',}
+                ],
+            ],
+        ];
+    }
+    $5
 }
 endsnippet
 
@@ -373,12 +402,11 @@ snippet ctl "ACP laravel controller"
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
+ */`!p snip.rv = namespace(snip, path)`
 use Config;
 use InternetBrands\AutoClassifiedsPlatform\Common\Controllers\BaseController;
 use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface;
-use InternetBrands\AutoClassifiedsPlatform\$1\Interfaces\\$1ControllerInterface;
+use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ControllerInterface;
 use Input;
 use Lang;
 use MikeFunk\BustersPhp\BustersPhpInterface;
@@ -406,15 +434,15 @@ class `!v expand("%:t:r")` extends BaseController implements `!v expand("%:t:r")
     /**
      * Dependency Injection
      *
-     * @param BustersPhpInterface $bustersPhp,
+     * @param BustersPhpInterface $bustersPhp
      * @param $1RepositoryInterface \$${1/\w+/\l$0/}Repository
      */
     public function __construct(
         BustersPhpInterface $bustersPhp,
-        $1RepositoryInterface \$${1/\w+/\l$0/}Repository,
+        $1RepositoryInterface \$${1/\w+/\l$0/}Repository
     ) {
         parent::__construct($bustersPhp);
-        $this->\$${1/\w+/\l$0/}Repository = \$${1/\w+/\l$0/}Repository;
+        $this->${1/\w+/\l$0/}Repository = \$${1/\w+/\l$0/}Repository;
     }
     $5
 }
@@ -423,16 +451,15 @@ endsnippet
 snippet ctli "ACP laravel controller interface"
 <?php
 /**
- * ${1:Listing} controller interface
+ * `!v expand("%:t:r")`
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
+ */`!p snip.rv = namespace(snip, path)`
 use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\BaseControllerInterface;
 
 /**
- * ${4:`!v expand("%:t:r")`}
+ * `!v expand("%:t:r")`
  *
  * @author `!v g:snips_author`
  */
@@ -450,7 +477,8 @@ snippet ctlt "ACP laravel controller test"
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
-`!p snip.rv = namespace(snip, path)`
+namespace InternetBrands\AutoClassifiedsPlatform\\$1\Tests;
+
 use Auth;
 use Config;
 use Input;
@@ -505,12 +533,12 @@ class `!v expand("%:t:r")` extends BaseControllerTest
         $bustersPhp = Mockery::mock($ns);
 
         $ns = "InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface";
-        $this->\$${1/\w+/\l$0/}Repository = Mockery::mock($ns);
+        $this->${1/\w+/\l$0/}Repository = Mockery::mock($ns);
 
         // voltron assemble!
-        $this->\$${1/\w+/\l$0/}Controller = new $1Controller(
+        $this->${1/\w+/\l$0/}Controller = new $1Controller(
             $bustersPhp,
-            $this->\$${1/\w+/\l$0/}Repository
+            $this->${1/\w+/\l$0/}Repository
         );
     }
     $3
@@ -520,13 +548,13 @@ endsnippet
 snippet mgt "laravel migration"
 <?php
 /**
- * ${1:Description}
+ * $1 initial migration
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
 
- use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Migrations\Migration;
 
 /**
  * Create${1:Whatever}Table
@@ -561,6 +589,7 @@ class Create$1Table extends Migration
                 // $table->decimal('price', 12, 2)->nullable();
                 // $table->date('featured_expiration_date')->nullable();
                 // $table->boolean('is_bigger');
+                // $table->timestamps();
             }
         );
     }
@@ -588,9 +617,7 @@ snippet sdr "Auto Classifieds Platform laravel seeder"
  *
  * @package   AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
-
+ */`!p snip.rv = namespace(snip, path)`
 use InternetBrands\AutoClassifiedsPlatform\Common\Seeds\BaseSeeder;
 use Str;
 
@@ -731,8 +758,7 @@ snippet inte
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */
-`!p snip.rv = namespace(snip, path)`
+ */`!p snip.rv = namespace(snip, path)`
 
 /**
  * ${4:`!v expand("%:t:r")`}
