@@ -416,7 +416,7 @@
     Plugin 'arnaud-lb/vim-php-namespace'
 
     " enable . repeat in certain plugins
-    Plugin 'tpope/vim-repeat'
+    " Plugin 'tpope/vim-repeat'
 
     " better php ctags in tagbar
     " <leader>tt to toggle tagbar. This makes it look prettier
@@ -470,6 +470,9 @@
     " better tag selector with ctrlp
     " <c-]> will open ctrl-p with possible links if more than one is available
     Plugin 'ivalkeen/vim-ctrlp-tjump'
+
+    " faster ctrlp matcher
+    Plugin 'FelikZ/ctrlp-py-matcher'
 
     " better than Ack
     " :Ag 'my search' [options]

@@ -18,14 +18,16 @@
 
     " this allows you to run :checktime to update all open buffers
     set autoread
+    autocmd CursorHold * checktime
 
     " this actively watches for changes and automatically updates files
-    " changed externally in terminal vim. Works!
-    if filereadable($HOME . "/.dotfiles/support/watch_for_changes.vimrc.local")
-        source ~/.dotfiles/support/watch_for_changes.vimrc.local
-        let autoreadargs={'autoread':1}
-        silent execute WatchForChanges("*",autoreadargs)
-    endif
+    " changed externally in terminal vim. Works but it seems to load files
+    " slower.
+    " if filereadable($HOME . '/.dotfiles/support/watch_for_changes.vimrc.local')
+        " source ~/.dotfiles/support/watch_for_changes.vimrc.local
+        " let autoreadargs={'autoread':1}
+        " silent execute WatchForChanges("*",autoreadargs)
+    " endif
 
     " supposed to speed syntax highlighting
     " set re=1
@@ -489,6 +491,8 @@
     " {{{ ctrlp
     " ctrlp extensions
     let g:ctrlp_extensions = ['tag']
+    " alternate python matcher. 22x faster.
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
     " }}}"
 
     " {{{ dispatch
