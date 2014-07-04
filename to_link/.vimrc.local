@@ -189,7 +189,7 @@
     " 2 space indent in front-end
     augroup highlight_augroup
         " autocmd!
-        autocmd FileType smarty,blade,html,javascript,css :call Tab2()
+        autocmd FileType smarty,blade,html,javascript,css,coffee :call Tab2()
     augroup END
 
     " sets everything to 2 spaces. For some reason just calling all this in
@@ -398,6 +398,7 @@
 
     " {{{ colorscheme
     colorscheme lucius
+    " let g:lucius_no_term_bg=1
     " solarized stuff I use
     " let g:solarized_termtrans=0
     " let g:solarized_termcolors=16
@@ -430,19 +431,11 @@
 
     " {{{ custom indent guide colors
     set colorcolumn=80
-    let g:indent_guides_auto_colors = 0
     " augroup indent_guides_augroup
         " autocmd!
         " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
         " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
     " augroup END
-    " }}}
-
-    " {{{ fix weird indent guide colors
-    " hi IndentGuidesOdd ctermbg=235
-    " hi IndentGuidesEven ctermbg=236
-    hi IndentGuidesOdd ctermbg=black
-    hi IndentGuidesEven ctermbg=black
     " }}}
 
     " {{{ toggle between day and night theme
@@ -668,10 +661,6 @@
     let g:phpcomplete_enhance_jump_to_definition = 0
     " }}}"
 
-    " {{{ php-getter-setter
-    map <buffer> <leader>pgs <Plug>PhpgetsetInsertGetterSetter
-    " }}}
-
     " {{{ phpctags
     " phpctags
     let g:tagbar_phpctags_memory_limit = '512M'
@@ -827,6 +816,10 @@
     \}
     " }}}"
 
+    " {{{ vim-activity-log
+    let g:activity_log_location = '~/.vim/activity/%Y/%m/%d.log'
+    " }}}
+
     " {{{ vim-airline
 
     " let g:airline_theme = 'solarized'
@@ -891,6 +884,38 @@
 
     " {{{ vim-github-dashboard
     let g:github_dashboard = { 'username': 'mikedfunk' }
+    " }}}
+
+    " {{{ vim-indent-guides
+    " This variant works in solarized
+    " hi IndentGuidesOdd ctermbg=235
+    " hi IndentGuidesEven ctermbg=236
+    " hi IndentGuidesOdd ctermbg=black
+    " hi IndentGuidesEven ctermbg=black
+
+    " plugin does a crappy job of defining low-contrast indent guide colors
+    let g:indent_guides_auto_colors = 0
+
+    " define a function to change the indent guide color highlights based
+    " on background color
+    function! SetIndentGuideColors()
+        if &background == 'light'
+            :hi IndentGuidesOdd ctermbg=7
+            :hi IndentGuidesEven ctermbg=7
+        else
+            " slightly darker than bg variant
+            " :hi IndentGuidesOdd ctermbg=235
+            :hi IndentGuidesOdd ctermbg=237
+            :hi IndentGuidesEven ctermbg=237
+        endif
+    endfunction
+
+    " call this function when the right stuff happens
+    augroup indent_guides_augroup
+        " autocmd!
+        autocmd VimEnter,Colorscheme * call SetIndentGuideColors()
+        autocmd VimEnter,Colorscheme * call SetIndentGuideColors()
+    augroup END
     " }}}
 
     " {{{ vim-instant-markdown
@@ -1026,6 +1051,8 @@
     " let g:ycm_auto_trigger=0
     " let g:ycm_allow_changing_updatetime=0
     let g:ycm_seed_identifiers_with_syntax = 1
+    " doesn't work but up arrow does
+    " let g:ycm_key_list_previous_completion=['<S-Tab>']
     " }}}
 
     " {{{ ZoomWin

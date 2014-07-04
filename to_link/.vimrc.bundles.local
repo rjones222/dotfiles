@@ -59,7 +59,7 @@
     " UnBundle 'tpope/vim-fugitive'
 
     " this breaks PluginInstall after re-sourcing $MYVIMRC
-    " UnBundle 'gorodinskiy/vim-coloresque'
+    UnBundle 'gorodinskiy/vim-coloresque'
 
     " various spf-13 stuff I don't use
     UnBundle 'mileszs/ack.vim'
@@ -94,6 +94,9 @@
 " Plugin {{{
     " vim:fdm=marker
 
+    " colorize css colors without causing $VIMRC reload problems
+    Plugin 'ap/vim-css-color'
+
     " the only misc bundles I use
     " syntax highlighting for markdown and puppet
     Plugin 'tpope/vim-markdown'
@@ -102,7 +105,8 @@
     " different fork of solarized that fixes stuff
     " Plugin 'blueyed/vim-colors-solarized'
     Plugin 'https://github.com/jwhitley/vim-colors-solarized.git', {'name': 'vim-colors-solarized-fork'}
-    Plugin 'jonathanfilip/vim-lucius'
+    " Plugin 'jonathanfilip/vim-lucius'
+    Plugin 'MarioRicalde/vim-lucius'
 
     " easy way to scroll through color schemes
     " Turned off until I need it
@@ -230,7 +234,7 @@
     Plugin 'tpope/vim-ragtag'
 
     " Set background to light or dark automatically at sunrise/sunset
-    Plugin 'amdt/sunset'
+    " Plugin 'amdt/sunset'
 
     " use c-n and c-p to complete from your buffers in search or command mode
     Plugin 'vim-scripts/CmdlineComplete'
@@ -290,8 +294,9 @@
     " Plugin 'Shougo/unite.vim'
 
     " php getters and setters
-    " map <buffer> <leader>pgs <Plug>PhpgetsetInsertGetterSetter
-    Plugin 'docteurklein/php-getter-setter.vim'
+    " map <buffer> <leader>sg <Plug>PhpgetsetInsertGetterSetter
+    " I use ultisnips instead
+    " Plugin 'docteurklein/php-getter-setter.vim'
 
     " better vim start screen
     Plugin 'mhinz/vim-startify'
@@ -592,6 +597,7 @@
     " Plugin 'tpope/vim-vividchalk'
     " Plugin 'vim-scripts/Zenburn'
     " Plugin 'mattly/iterm-colors-pencil'
+    " Plugin 'modess/vim-phpcolors'
     " 16 colors
     " Plugin 'noahfrederick/vim-noctu'
 
@@ -603,7 +609,15 @@
     Plugin 'junegunn/seoul256.vim'
     Plugin 'jnurmine/Zenburn'
     Plugin 'vim-scripts/summerfruit256.vim'
-    Plugin 'noahfrederick/vim-hemisu'
+    " Plugin 'noahfrederick/vim-hemisu'
+    " Plugin 'vim-scripts/desert256.vim'
+    " Plugin 'vim-scripts/xoria256.vim'
+    Plugin 'trapd00r/neverland-vim-theme'
+    Plugin 'w0ng/vim-hybrid'
+    " Plugin 'Slava/vim-colors-tomorrow'
+    " Plugin 'vim-scripts/blackdust.vim'
+    " Plugin 'vim-scripts/peaksea'
+    " Plugin 'therubymug/vim-pyte'
 
     " unicode character metadata with ga
     " I don't really need this
@@ -639,4 +653,8 @@
     " Automatically detect indentation and set it
     " BUT it sets expandtab on php by default! Lame!
     " Plugin 'tpope/vim-sleuth'
+    "
+    " Automatically logs file and git branch activity to ~/.vim/activity
+    " Useful? We'll see if I ever use it...
+    Plugin 'AD7six/vim-activity-log'
 " }}}

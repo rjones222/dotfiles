@@ -112,3 +112,6 @@ export GREP_OPTIONS='--color=auto'
 # use lessfilter for less (colorize less with pygmentize)
 export LESS='-R'
 export LESSOPEN='|pygmentize -g %s'
+
+# stupid phpcomplete-extended  can't find this
+export DOMPDF_LIB_DIR="$HOME/.composer/vendor/dompdf/dompdf/lib"

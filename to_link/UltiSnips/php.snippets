@@ -129,7 +129,6 @@ snippet cla "mike's class with namespace, file and class docblocks"
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-$2
 
 /**
  * `!v expand("%:t:r")`
@@ -137,6 +136,25 @@ $2
  * @author `!v g:snips_author`
  */
 class $4 $5
+{
+    $6
+}
+endsnippet
+
+snippet trt "mike's trait with namespace, file and class docblocks"
+<?php
+/**
+ * ${1:Description}
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */`!p snip.rv = namespace(snip, path)`
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+trait `!v expand("%:t:r")`
 {
     $6
 }
