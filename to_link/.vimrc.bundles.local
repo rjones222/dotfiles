@@ -657,4 +657,8 @@
     " Automatically logs file and git branch activity to ~/.vim/activity
     " Useful? We'll see if I ever use it...
     Plugin 'AD7six/vim-activity-log'
+
+    " fix broken terminal keys when we use xterm-256-color in iterm prefs and
+    " screen-256-color in tmux.conf prefs
+    Plugin 'nacitar/terminalkeys.vim'
 " }}}

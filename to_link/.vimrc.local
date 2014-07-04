@@ -894,19 +894,23 @@
     " hi IndentGuidesEven ctermbg=black
 
     " plugin does a crappy job of defining low-contrast indent guide colors
-    let g:indent_guides_auto_colors = 0
 
     " define a function to change the indent guide color highlights based
     " on background color
     function! SetIndentGuideColors()
-        if &background == 'light'
-            :hi IndentGuidesOdd ctermbg=7
-            :hi IndentGuidesEven ctermbg=7
+        if g:colors_name == 'lucius'
+            let g:indent_guides_auto_colors = 0
+            if &background == 'light'
+                :hi IndentGuidesOdd ctermbg=7
+                :hi IndentGuidesEven ctermbg=7
+            else
+                " slightly darker than bg variant
+                " :hi IndentGuidesOdd ctermbg=235
+                :hi IndentGuidesOdd ctermbg=237
+                :hi IndentGuidesEven ctermbg=237
+            endif
         else
-            " slightly darker than bg variant
-            " :hi IndentGuidesOdd ctermbg=235
-            :hi IndentGuidesOdd ctermbg=237
-            :hi IndentGuidesEven ctermbg=237
+            let g:indent_guides_auto_colors = 1
         endif
     endfunction
 
