@@ -26,7 +26,7 @@ alias puxf="pux --filter "
 alias updates="upgrades"
 
 # apache restart
-alias ares="sudo apachectl restart"
+alias ares="echo 'restarting apache' && sudo apachectl restart && echo 'apache restarted'"
 
 # force color version of tree
 alias tree="tree -C"
