@@ -979,10 +979,8 @@
     " }}}"
 
     " vim-php-cs-fixer {{{
-    " the full list:
-    " let g:php_cs_fixer_fixers_list = 'indentation,linefeed,trailing_spaces,unused_use,phpdoc_params,short_tag,return,visibility,php_closing_tag,braces,extra_empty_lines,function_declaration,include,controls_spaces,psr0,elseif,eof_ending'
-    " the list without the stuff i don't want
-    let g:php_cs_fixer_fixers_list = 'indentation,linefeed,trailing_spaces,unused_use,short_tag,return,visibility,php_closing_tag,braces,extra_empty_lines,function_declaration,include,controls_spaces,psr0,elseif,eof_ending'
+    " don't align phpdoc params, this could cause merge conflicts
+    let g:php_cs_fixer_fixers_list = '-phpdoc_params'
     " }}}
 
     " {{{ vim-php-namespace

@@ -661,4 +661,8 @@
     " fix broken terminal keys when we use xterm-256-color in iterm prefs and
     " screen-256-color in tmux.conf prefs
     Plugin 'nacitar/terminalkeys.vim'
+
+    " open a scratch buffer with :Scratch that will not ask you to save and
+    " will go away when closing vim
+    Plugin 'duff/vim-scratch'
 " }}}
