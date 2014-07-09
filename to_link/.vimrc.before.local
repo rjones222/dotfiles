@@ -6,7 +6,10 @@ let g:spf13_bundle_groups=['general', 'programming', 'javascript', 'html', 'youc
 let g:spf13_no_autochdir = 1
 let g:spf13_no_views = 1
 
-let g:spf13_clear_search_highlight = 1
+" Most prefer to toggle search highlighting rather than clear the current
+" search results. To clear search highlighting rather than toggle it on
+" and off, add the following to your .vimrc.before.local file:
+" let g:spf13_clear_search_highlight = 1
 
 " keep H and L shortcuts
 let g:spf13_no_fastTabs = 1

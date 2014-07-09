@@ -219,7 +219,7 @@
     command! Source :so $MYVIMRC
 
     " remove trailing spaces
-    command! StripTrailingWhitespace :%s/\s\+$//
+    " command! StripTrailingWhitespace :%s/\s\+$//
 
     " covert dos line endings to unix line endings
     command! Dos2unix :%s///g
@@ -887,13 +887,10 @@
     " }}}
 
     " {{{ vim-indent-guides
-    " This variant works in solarized
-    " hi IndentGuidesOdd ctermbg=235
-    " hi IndentGuidesEven ctermbg=236
-    " hi IndentGuidesOdd ctermbg=black
-    " hi IndentGuidesEven ctermbg=black
+    " let g:indent_guides_guide_size=4
 
     " plugin does a crappy job of defining low-contrast indent guide colors
+    " for terminal vim
 
     " define a function to change the indent guide color highlights based
     " on background color
@@ -901,13 +898,16 @@
         if g:colors_name == 'lucius'
             let g:indent_guides_auto_colors = 0
             if &background == 'light'
-                :hi IndentGuidesOdd ctermbg=7
-                :hi IndentGuidesEven ctermbg=7
+                hi IndentGuidesOdd ctermbg=7
+                hi IndentGuidesEven ctermbg=7
+            elseif g:colors_name == 'solarized'
+                hi IndentGuidesOdd ctermbg=235
+                hi IndentGuidesEven ctermbg=236
             else
                 " slightly darker than bg variant
-                " :hi IndentGuidesOdd ctermbg=235
-                :hi IndentGuidesOdd ctermbg=237
-                :hi IndentGuidesEven ctermbg=237
+                hi IndentGuidesOdd ctermbg=235
+                " :hi IndentGuidesOdd ctermbg=237
+                hi IndentGuidesEven ctermbg=237
             endif
         else
             let g:indent_guides_auto_colors = 1
@@ -917,7 +917,6 @@
     " call this function when the right stuff happens
     augroup indent_guides_augroup
         " autocmd!
-        autocmd VimEnter,Colorscheme * call SetIndentGuideColors()
         autocmd VimEnter,Colorscheme * call SetIndentGuideColors()
     augroup END
     " }}}

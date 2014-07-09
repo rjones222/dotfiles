@@ -17,6 +17,9 @@
     " I use a different fork that fixes some stuff
     UnBundle 'altercation/vim-colors-solarized'
 
+    " I prefer a more subtle replacement
+    " UnBundle 'nathanaelkane/vim-indent-guides'
+
     " I prefer the default tab implementation
     UnBundle 'bling/vim-bufferline'
 
@@ -665,4 +668,13 @@
     " open a scratch buffer with :Scratch that will not ask you to save and
     " will go away when closing vim
     Plugin 'duff/vim-scratch'
+
+    " pulse the background on search to find the currently found item.
+    Plugin 'inside/vim-search-pulse'
+
+    " highlights in bright red any trailing whitespace
+    Plugin 'ntpeters/vim-better-whitespace'
+
+    " I prefer this to those huge vertical lines that come with spf-13-vim
+    " Plugin 'Yggdroot/indentLine'
 " }}}
