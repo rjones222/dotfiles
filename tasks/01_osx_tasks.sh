@@ -45,6 +45,7 @@ function osx_tasks_run() {
             git
             git-extras
             git-flow
+            googlecl
             graphviz
             grc
             # hg
@@ -57,6 +58,7 @@ function osx_tasks_run() {
             multitail
             mysql
             nodejs
+            pandoc
             # postgresql
             ranger
             reattach-to-user-namespace

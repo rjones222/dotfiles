@@ -900,15 +900,22 @@
             if &background == 'light'
                 hi IndentGuidesOdd ctermbg=7
                 hi IndentGuidesEven ctermbg=7
-            elseif g:colors_name == 'solarized'
-                hi IndentGuidesOdd ctermbg=235
-                hi IndentGuidesEven ctermbg=236
             else
+                " lighter than even
+                hi IndentGuidesOdd ctermbg=238
                 " slightly darker than bg variant
-                hi IndentGuidesOdd ctermbg=235
-                " :hi IndentGuidesOdd ctermbg=237
+                " hi IndentGuidesOdd ctermbg=235
                 hi IndentGuidesEven ctermbg=237
             endif
+        elseif g:colors_name == 'solarized'
+            hi IndentGuidesOdd ctermbg=235
+            hi IndentGuidesEven ctermbg=236
+        elseif g:colors_name == 'iceberg'
+            hi IndentGuidesOdd ctermbg=236
+            hi IndentGuidesEven ctermbg=237
+        elseif g:colors_name == 'hickop'
+            hi IndentGuidesOdd ctermbg=black
+            hi IndentGuidesEven ctermbg=237
         else
             let g:indent_guides_auto_colors = 1
         endif

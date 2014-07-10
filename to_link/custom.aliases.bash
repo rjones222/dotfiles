@@ -241,6 +241,9 @@ alias renewip="sudo ipconfig set en0 BOOTP && sudo ipconfig set en0 DHCP && echo
 # mac flush dns
 alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && echo 'dns flushed'"
 
+# phing
+alias ph="phing"
+
 # go to git root
 # already there! gr
 # alias gitroot="cd $(git rev-parse --show-toplevel)"

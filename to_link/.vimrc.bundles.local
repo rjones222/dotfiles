@@ -581,7 +581,7 @@
     " just for testing some of the top color schemes
     " Plugin 'vim-scripts/Colour-Sampler-Pack'
     "
-    " Color schemes
+    " Color schemes that don't look good in xterm-256-colors
     " Plugin '29decibel/codeschool-vim-theme'
     " Plugin 'tpope/vim-vividchalk'
     " Plugin 'morhetz/gruvbox'
@@ -599,10 +599,30 @@
     " Plugin 'matthewtodd/vim-twilight'
     " Plugin 'tpope/vim-vividchalk'
     " Plugin 'vim-scripts/Zenburn'
-    " Plugin 'mattly/iterm-colors-pencil'
+    " Plugin 'reedes/vim-colors-pencil'
     " Plugin 'modess/vim-phpcolors'
-    " 16 colors
+    " Plugin 'noahfrederick/vim-hemisu'
+    " Plugin 'vim-scripts/desert256.vim'
+    " Plugin 'vim-scripts/xoria256.vim'
     " Plugin 'noahfrederick/vim-noctu'
+    " Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+    " Plugin 'Slava/vim-colors-tomorrow'
+    " Plugin 'vim-scripts/blackdust.vim'
+    " Plugin 'vim-scripts/peaksea'
+    " Plugin 'therubymug/vim-pyte'
+    " Plugin 'ercolanelli-leo/candyVirus'
+    " Plugin 'sandeepsinghmails/Dev_Delight'
+    " Plugin 'vim-scripts/forest'
+    " Plugin 'vim-scripts/ecostation'
+    " Plugin 'Marslo/marslo.vim'
+    " Plugin 'vim-scripts/sonoma.vim'
+    " Plugin 'vim-scripts/Gummybears'
+    " Plugin 'vim-scripts/Cleanroom'
+    " Plugin 'veloce/vim-aldmeris'
+    " Plugin 'rainux/vim-desert-warm-256'
+    " Plugin 'vim-scripts/summerfruit256.vim'
+    " Plugin 'trapd00r/neverland-vim-theme'
+    " Plugin 'vim-scripts/robokai'
 
     " Schemes that look good in 256 colors:
     Plugin 'nanotech/jellybeans.vim'
@@ -611,16 +631,10 @@
     Plugin 'Lokaltog/vim-distinguished'
     Plugin 'junegunn/seoul256.vim'
     Plugin 'jnurmine/Zenburn'
-    Plugin 'vim-scripts/summerfruit256.vim'
-    " Plugin 'noahfrederick/vim-hemisu'
-    " Plugin 'vim-scripts/desert256.vim'
-    " Plugin 'vim-scripts/xoria256.vim'
-    Plugin 'trapd00r/neverland-vim-theme'
+    Plugin 'cocopon/iceberg.vim'
     Plugin 'w0ng/vim-hybrid'
-    " Plugin 'Slava/vim-colors-tomorrow'
-    " Plugin 'vim-scripts/blackdust.vim'
-    " Plugin 'vim-scripts/peaksea'
-    " Plugin 'therubymug/vim-pyte'
+    Plugin 'nielsmadan/harlequin'
+    Plugin 'hickop/vim-hickop-colors'
 
     " unicode character metadata with ga
     " I don't really need this
@@ -675,6 +689,8 @@
     " highlights in bright red any trailing whitespace
     Plugin 'ntpeters/vim-better-whitespace'
 
-    " I prefer this to those huge vertical lines that come with spf-13-vim
-    " Plugin 'Yggdroot/indentLine'
+    " Swap windows just like cxiw. Mark the first window with <leader>ww. Then
+    " switch to the second window and do <leader>ww again. The windows will
+    " swap. Simple!
+    Plugin 'wesQ3/vim-windowswap'
 " }}}

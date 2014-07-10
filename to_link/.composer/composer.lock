@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6b591f7b8795456ae582330121960d76",
+    "hash": "beeea9717f3969655f92cc00bc196d3c",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -1137,12 +1137,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/phpDocumentor2.git",
-                "reference": "6c7cb9c50bc68cc936f1374709a2b7ef06795e84"
+                "reference": "76153093d71c8fdfdb4e97601fe220686484e634"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/6c7cb9c50bc68cc936f1374709a2b7ef06795e84",
-                "reference": "6c7cb9c50bc68cc936f1374709a2b7ef06795e84",
+                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/76153093d71c8fdfdb4e97601fe220686484e634",
+                "reference": "76153093d71c8fdfdb4e97601fe220686484e634",
                 "shasum": ""
             },
             "require": {
@@ -1228,7 +1228,7 @@
                 "documentation",
                 "phpdoc"
             ],
-            "time": "2014-07-04 15:43:40"
+            "time": "2014-07-08 20:55:46"
         },
         {
             "name": "phpdocumentor/reflection",
@@ -2819,12 +2819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "4237c2fc98cc838730b76ee9cee316f99286a2a7"
+                "reference": "696ac12f57b185e95b2b300e35a612fb0b724249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/4237c2fc98cc838730b76ee9cee316f99286a2a7",
-                "reference": "4237c2fc98cc838730b76ee9cee316f99286a2a7",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/696ac12f57b185e95b2b300e35a612fb0b724249",
+                "reference": "696ac12f57b185e95b2b300e35a612fb0b724249",
                 "shasum": ""
             },
             "require": {
@@ -2886,7 +2886,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-07-03 00:31:15"
+            "time": "2014-07-09 00:20:18"
         },
         {
             "name": "symfony/config",

@@ -17,6 +17,5 @@
     "dompdf/dompdf": "@dev"
 
   },
-  "process-timeout": 120,
-  "minimum-stability": "stable"
+  "process-timeout": 120
 }

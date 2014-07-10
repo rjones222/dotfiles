@@ -52,6 +52,7 @@ function linux_tasks_run() {
         git
         git-extras
         # git-flow
+        googlecl
         grc
         # hg
         highlight
@@ -65,6 +66,7 @@ function linux_tasks_run() {
         # openjdk-7-jre
         # openssh-client
         # openssh-server
+        pandoc
         # pgadmin3
         php-apc
         php-pear
