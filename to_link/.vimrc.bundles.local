@@ -693,4 +693,12 @@
     " switch to the second window and do <leader>ww again. The windows will
     " swap. Simple!
     Plugin 'wesQ3/vim-windowswap'
+
+    " no more pastetoggle!
+    Plugin 'ConradIrwin/vim-bracketed-paste'
+
+    " replace search functions to do cool stuff. My favorite is removing the
+    " highlight when moving the cursor!
+    " errors out :(
+    " Plugin 'junegunn/vim-oblique'
 " }}}

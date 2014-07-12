@@ -12,7 +12,7 @@
     "tomphp/patch-builder": "dev-master",
     "techlivezheng/phpctags": "*",
     "qafoolabs/php-refactoring-browser": "dev-master@dev",
-    "phpdocumentor/phpdocumentor": "@dev",
+    "phpdocumentor/phpdocumentor": "2.6.0",
     "sebastian/phpdcd": "@dev",
     "dompdf/dompdf": "@dev"
 

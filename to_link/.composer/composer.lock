@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "beeea9717f3969655f92cc00bc196d3c",
+    "hash": "9d6caeab1eb002ab303005240d60aafa",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -476,12 +476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "5c5fd494a0d862121b54f3ea696eb4fe0e657aca"
+                "reference": "5f23c9a4559218446fe15c6e3e01bd6f92104f10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/5c5fd494a0d862121b54f3ea696eb4fe0e657aca",
-                "reference": "5c5fd494a0d862121b54f3ea696eb4fe0e657aca",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/5f23c9a4559218446fe15c6e3e01bd6f92104f10",
+                "reference": "5f23c9a4559218446fe15c6e3e01bd6f92104f10",
                 "shasum": ""
             },
             "require": {
@@ -518,7 +518,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-07-02 12:35:49"
+            "time": "2014-07-10 15:50:48"
         },
         {
             "name": "jms/metadata",
@@ -1133,16 +1133,16 @@
         },
         {
             "name": "phpdocumentor/phpdocumentor",
-            "version": "dev-master",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/phpDocumentor2.git",
-                "reference": "76153093d71c8fdfdb4e97601fe220686484e634"
+                "reference": "f6bba74275b3be0779cd4d80501250243b80548c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/76153093d71c8fdfdb4e97601fe220686484e634",
-                "reference": "76153093d71c8fdfdb4e97601fe220686484e634",
+                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/f6bba74275b3be0779cd4d80501250243b80548c",
+                "reference": "f6bba74275b3be0779cd4d80501250243b80548c",
                 "shasum": ""
             },
             "require": {
@@ -1228,7 +1228,7 @@
                 "documentation",
                 "phpdoc"
             ],
-            "time": "2014-07-08 20:55:46"
+            "time": "2014-06-27 10:53:56"
         },
         {
             "name": "phpdocumentor/reflection",
@@ -2819,12 +2819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "696ac12f57b185e95b2b300e35a612fb0b724249"
+                "reference": "bac165a2d95c9bfb0bf3f76ffcf4aefeec24b817"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/696ac12f57b185e95b2b300e35a612fb0b724249",
-                "reference": "696ac12f57b185e95b2b300e35a612fb0b724249",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/bac165a2d95c9bfb0bf3f76ffcf4aefeec24b817",
+                "reference": "bac165a2d95c9bfb0bf3f76ffcf4aefeec24b817",
                 "shasum": ""
             },
             "require": {
@@ -2886,7 +2886,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-07-09 00:20:18"
+            "time": "2014-07-10 00:18:28"
         },
         {
             "name": "symfony/config",
@@ -4247,7 +4247,6 @@
         "squizlabs/php_codesniffer": 20,
         "tomphp/patch-builder": 20,
         "qafoolabs/php-refactoring-browser": 20,
-        "phpdocumentor/phpdocumentor": 20,
         "sebastian/phpdcd": 20,
         "dompdf/dompdf": 20
     },

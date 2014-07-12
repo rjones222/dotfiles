@@ -486,6 +486,8 @@
     let g:ctrlp_extensions = ['tag']
     " alternate python matcher. 22x faster.
     let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+    nnoremap <leader>pb :CtrlPBuffer<CR>
+    nnoremap <leader>pm :CtrlPMRUFiles<CR>
     " }}}"
 
     " {{{ dispatch
@@ -878,8 +880,8 @@
 
     " {{{ vim-ctrlp-tjump
     nnoremap <c-]> :CtrlPtjump<cr>
-    nnoremap <leader>pb :CtrlPBuffer<CR>
-    nnoremap <leader>pm :CtrlPMRUFiles<CR>
+    let g:ctrlp_tjump_only_silent = 1
+    vnoremap <c-]> :CtrlPtjumpVisual<cr>
     " }}}"
 
     " {{{ vim-github-dashboard
@@ -936,6 +938,11 @@
     " {{{ vim-jira-open
     " default is <leader>jo
     let g:jira_browse_url = 'http://10.17.37.213/browse/'
+    " }}}
+    "
+    " vim-json {{{
+    " turn off stupid no quotes in JSON except for current line
+    set conceallevel=0
     " }}}
 
     " {{{ vim-signify
