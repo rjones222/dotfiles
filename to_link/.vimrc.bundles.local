@@ -701,4 +701,10 @@
     " highlight when moving the cursor!
     " errors out :(
     " Plugin 'junegunn/vim-oblique'
+
+    " search and replace across multiple files!
+    " example:
+    " :GitGrep foo.*bar (or :Ag! mysearchterm)
+    " :Qdo %s/foo.*bar/baz/g | update
+    Plugin 'henrik/vim-qargs'
 " }}}

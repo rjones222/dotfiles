@@ -36,6 +36,9 @@
     " overrides netrw at the moment)
     let g:netrw_liststyle=3
 
+    " select last paste in visual mode
+    nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+
     " make searching with :find work sort-of like ctrlp
     set path=**
     set suffixesadd+=.php,.sh,.js,.less,.css,.coffee,.json
@@ -371,6 +374,8 @@
 " Theme {{{
 
     set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
+    " supposed to help colorschemes work better in 256 colors
+    let g:rehash256 = 1
 
     " {{{ global powerline fonts switch is defined in .vimrc.before.local
         " let g:global_powerline_switch = 0

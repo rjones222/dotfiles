@@ -36,6 +36,7 @@ function osx_tasks_run() {
 
             log_info "Installing Homebrew Recipes"
             packages=(
+            autossh
             bash
             # ack
             cloc
@@ -64,6 +65,7 @@ function osx_tasks_run() {
             reattach-to-user-namespace
             ssh-copy-id
             sshfs
+            sshuttle
             # solr
             spark
             terminal-notifier

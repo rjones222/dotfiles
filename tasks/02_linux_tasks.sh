@@ -41,6 +41,7 @@ function linux_tasks_run() {
         packages=(
         # ack
         apache2
+        autossh
         bison
         build-essential
         cloc
@@ -88,6 +89,7 @@ function linux_tasks_run() {
         ranger
         # ruby1.9.1-dev
         silversearcher-ag
+        sshuttle
         # solr-tomcat
         # spidermonkey-bin
         tig

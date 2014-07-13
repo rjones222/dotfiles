@@ -212,6 +212,9 @@ alias please='sudo !!'
 # copy ssh key
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 
+# use autossh instead of ssh
+alias ssh="autossh"
+
 # show all cowsays! :D
 alias cowsays='cowsay -l | tail +2 | tr " " "\\n" | xargs -I {} cowsay -f {} "cowsay -f {} \"Message\""'
 

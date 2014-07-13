@@ -115,3 +115,6 @@ export LESSOPEN='|pygmentize -g %s'
 
 # stupid phpcomplete-extended  can't find this
 export DOMPDF_LIB_DIR="$HOME/.composer/vendor/dompdf/dompdf/lib"
+
+# for autossh
+export AUTOSSH_PORT=0
