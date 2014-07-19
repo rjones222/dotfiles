@@ -108,8 +108,6 @@
     " different fork of solarized that fixes stuff
     " Plugin 'blueyed/vim-colors-solarized'
     Plugin 'https://github.com/jwhitley/vim-colors-solarized.git', {'name': 'vim-colors-solarized-fork'}
-    " Plugin 'jonathanfilip/vim-lucius'
-    Plugin 'MarioRicalde/vim-lucius'
 
     " easy way to scroll through color schemes
     " Turned off until I need it
@@ -483,7 +481,7 @@
     Plugin 'FelikZ/ctrlp-py-matcher'
 
     " better than Ack
-    " :Ag 'my search' [options]
+    " :Ag! 'my search' [options]
     Plugin 'rking/ag.vim'
 
     " open directory in finder
@@ -635,6 +633,9 @@
     Plugin 'w0ng/vim-hybrid'
     Plugin 'nielsmadan/harlequin'
     Plugin 'hickop/vim-hickop-colors'
+    " lucius fork to include fugitive colors
+    " Plugin 'jonathanfilip/vim-lucius'
+    Plugin 'MarioRicalde/vim-lucius'
 
     " unicode character metadata with ga
     " I don't really need this
@@ -707,4 +708,41 @@
     " :GitGrep foo.*bar (or :Ag! mysearchterm)
     " :Qdo %s/foo.*bar/baz/g | update
     Plugin 'henrik/vim-qargs'
+
+    " github and fugitive together from tim pope
+    Plugin 'tpope/vim-rhubarb'
+
+    " move between function arguments and stuff
+    " Shifting arguments with <, and >,
+    " Moving between argument boundaries with [, and ],
+    " New text objects a, and i,
+    Plugin 'PeterRincker/vim-argumentative'
+
+    " alias commands to other commands, even in lowercase
+    " :call CmdAlias('runtime', 'Runtime')
+    " or simply,
+    " :Alias runtime Runtime
+    " I don't use this
+    " Plugin 'vim-scripts/cmdalias.vim'
+
+    " repl for php, coffee, js, mysql, etc.
+    " I don't use this
+    " Plugin 'zweifisch/pipe2eval'
+
+    " syntastic plugin for vimrc
+    Plugin 'dbakker/vim-lint'
+
+    " crosshairs on parens and such. Much easier to find where you're
+    " currently at!
+    Plugin 'chreekat/vim-paren-crosshairs'
+
+    " toggle most recent yanks backward and forward in history
+    " By default, the keys to toggle the paste are mapped to <c-n> and <c-p>
+    " (similar to yankring). For example, executing p<c-p> will paste, then
+    " toggle it to the most recent yank before that.
+    "
+    " dangit, just too complicated right now. I like the idea. I'll try it
+    " some other time. p<c-p> doesn't work, haven't figured out why yet.
+    " Another plugin interfering maybe?
+    " Plugin 'svermeulen/vim-easyclip'
 " }}}

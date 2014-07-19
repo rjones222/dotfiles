@@ -889,6 +889,11 @@
     vnoremap <c-]> :CtrlPtjumpVisual<cr>
     " }}}"
 
+    " vim-easyclip {{{
+    let g:EasyClipAutoFormat = 1
+    let g:EasyClipAlwaysMoveCursorToEndOfPaste = 1
+    " }}}
+
     " {{{ vim-github-dashboard
     let g:github_dashboard = { 'username': 'mikedfunk' }
     " }}}
@@ -897,7 +902,8 @@
     " let g:indent_guides_guide_size=4
 
     " plugin does a crappy job of defining low-contrast indent guide colors
-    " for terminal vim
+    " for terminal vim. this is really annoying but at least I only have to
+    " find the best colors once per color scheme.
 
     " define a function to change the indent guide color highlights based
     " on background color
@@ -917,7 +923,7 @@
         elseif g:colors_name == 'solarized'
             hi IndentGuidesOdd ctermbg=235
             hi IndentGuidesEven ctermbg=236
-        elseif g:colors_name == 'iceberg'
+        elseif g:colors_name == 'iceberg' || g:colors_name == 'hybrid'
             hi IndentGuidesOdd ctermbg=236
             hi IndentGuidesEven ctermbg=237
         elseif g:colors_name == 'hickop'
@@ -944,10 +950,14 @@
     " default is <leader>jo
     let g:jira_browse_url = 'http://10.17.37.213/browse/'
     " }}}
-    "
+
     " vim-json {{{
     " turn off stupid no quotes in JSON except for current line
     set conceallevel=0
+    " }}}
+
+    " vim-rhubarb {{{
+    let g:RHUBARB_TOKEN = '4b02d1a1f1cec89163f658c5c748881aed23ac72'
     " }}}
 
     " {{{ vim-signify

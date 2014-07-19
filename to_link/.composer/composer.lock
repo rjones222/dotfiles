@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9d6caeab1eb002ab303005240d60aafa",
+    "hash": "3f1664b409abde82f5cb9179a794535d",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -2887,6 +2887,45 @@
                 "standards"
             ],
             "time": "2014-07-10 00:18:28"
+        },
+        {
+            "name": "stecman/symfony-console-completion",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stecman/symfony-console-completion.git",
+                "reference": "820837f6fc7a48c74e5fc673ae3e53a955c30b54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stecman/symfony-console-completion/zipball/820837f6fc7a48c74e5fc673ae3e53a955c30b54",
+                "reference": "820837f6fc7a48c74e5fc673ae3e53a955c30b54",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "~2.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stecman\\Component\\Symfony\\Console\\BashCompletion\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Holdaway",
+                    "email": "stephen@stecman.co.nz"
+                }
+            ],
+            "description": "Automatic BASH completion for Symfony Console Component based applications.",
+            "time": "2014-07-13 10:43:54"
         },
         {
             "name": "symfony/config",
