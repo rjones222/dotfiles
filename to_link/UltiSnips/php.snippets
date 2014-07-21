@@ -135,7 +135,7 @@ snippet cla "mike's class with namespace, file and class docblocks"
  *
  * @author `!v g:snips_author`
  */
-class $4 $5
+class $4
 {
     $6
 }
@@ -1106,4 +1106,24 @@ endsnippet
 
 snippet asr "assert equals expected and actual"
 $this->assertEquals($expected, $actual);
+endsnippet
+
+snippet if "php if statement"
+if ($1) {
+    $2
+}
+endsnippet
+
+snippet ie "php if/else statement"
+if ($1) {
+    $2
+} else {
+    $3
+}
+endsnippet
+
+snippet fe "php foreach"
+foreach ($1) {
+    $2
+}
 endsnippet

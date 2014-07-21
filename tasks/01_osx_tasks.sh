@@ -153,7 +153,7 @@ function osx_tasks_run() {
         if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
             log_info "Installing Ctags Patched"
             cd /usr/local/Library/Formula/
-            wget https://gist.githubusercontent.com/complex857/9570127/raw/8b71bf4f6cb12c8e3f483c2f61f43f99d8f7835f/ctags-better-php.rb
+            curl https://gist.githubusercontent.com/complex857/9570127/raw/dec0f388be51d9ab6888db6d0ee3e82dfc37837c/ctags-better-php.rb > /usr/local/Library/Formula/ctags-better-php.rb
             brew install ctags-better-php
             brew link --overwrite ctags-better-php
             sudo touch /usr/local/etc/.ctags_patched_installed

@@ -402,7 +402,10 @@
     " }}}
 
     " {{{ colorscheme
-    colorscheme lucius
+    if !exists('g:colorscheme_set')
+        colorscheme lucius
+    endif
+    let g:colorscheme_set = 1
     " let g:lucius_no_term_bg=1
     " solarized stuff I use
     " let g:solarized_termtrans=0
@@ -508,7 +511,7 @@
     " easytags just doesn't work well. it blocks the ui when updating (doesn't
     " use dispatch), it doesn't use my custom easy_tags_cmd, and the
     " highlighting won't use my custom highlight. Fuck it, we'll do it live!
-    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase 2>/dev/null<CR>
+    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
 
     " Easytags blocks the UI on pause, which sucks! It also apparently
     " slows down the UI with it's highlighting, which I can't seem to switch
@@ -665,6 +668,7 @@
     let g:phpcomplete_cache_taglists = 1
     let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
     let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
+    " this tries to improve <C-]>. I have a ctrl-p plugin that remaps that.
     let g:phpcomplete_enhance_jump_to_definition = 0
     " }}}"
 
@@ -684,9 +688,15 @@
 
     " {{{ promptline
 
+    " use airline extensions for promptline
+    let g:airline#extensions#promptline#enabled = 1
+    let g:airline#extensions#promptline#snapshot_file = "~/.dotfiles/to_link/promptline.theme.bash"
+    let airline#extensions#promptline#color_template = 'visual'
+
+    " easily save a snapshot of my current setup to my promptline file
     command! MyPromptline :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
 
-    " promptline and tmuxline configs
+    " snapshot promptline and tmuxline configs in one command
     function! MyConfigs()
         :MyPromptline
         :MyTmuxline
@@ -748,6 +758,7 @@
 
     " use airline theme stuff when calling tmuxline
     let g:airline#extensions#tmuxline#enabled = 1
+    let airline#extensions#tmuxline#color_template = 'insert'
 
     " let g:tmuxline_theme = 'airline'
     let g:tmuxline_theme = 'airline_insert'
@@ -767,7 +778,6 @@
         \ 'z'    : ['%a', '%b %d', '%I:%M %p'],
     \}
     let g:airline#extensions#tmuxline#snapshot_file = "~/.dotfiles/support/tmuxline.conf"
-    let g:airline#extensions#promptline#snapshot_file = "~/.dotfiles/to_link/promptline.theme.bash"
     " }}}
 
     " {{{ ultisnips
@@ -828,6 +838,20 @@
     " }}}
 
     " {{{ vim-airline
+    " use short form mode indicators
+    " let g:airline_mode_map = {
+        " \ '__' : '-',
+        " \ 'n'  : 'N',
+        " \ 'i'  : 'I',
+        " \ 'R'  : 'R',
+        " \ 'c'  : 'C',
+        " \ 'v'  : 'V',
+        " \ 'V'  : 'V',
+        " \ '' : 'V',
+        " \ 's'  : 'S',
+        " \ 'S'  : 'S',
+        " \ '' : 'S',
+        " \ }
 
     " let g:airline_theme = 'solarized'
     " warning this is really slow. So I only enabled it for php files.
@@ -920,10 +944,10 @@
                 " hi IndentGuidesOdd ctermbg=235
                 hi IndentGuidesEven ctermbg=237
             endif
-        elseif g:colors_name == 'solarized'
+        elseif g:colors_name == 'solarized' || g:colors_name == 'zenburn'
             hi IndentGuidesOdd ctermbg=235
             hi IndentGuidesEven ctermbg=236
-        elseif g:colors_name == 'iceberg' || g:colors_name == 'hybrid'
+        elseif g:colors_name == 'iceberg' || g:colors_name == 'hybrid' || g:colors_name == 'jellybeans'
             hi IndentGuidesOdd ctermbg=236
             hi IndentGuidesEven ctermbg=237
         elseif g:colors_name == 'hickop'

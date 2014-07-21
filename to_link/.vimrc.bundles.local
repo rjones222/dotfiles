@@ -50,7 +50,8 @@
     " UnBundle 'terryma/vim-multiple-cursors'
 
     " causes problems with youcompleteme - I use a different plugin instead
-    UnBundle 'Townk/vim-autoclose'
+    " seeing if this works now with youcompleteme...
+    " UnBundle 'Townk/vim-autoclose'
 
     " I installed newer versions of the same stuff
     UnBundle 'spf13/PIV'
@@ -115,6 +116,7 @@
 
     " Gitk clone in vim. ,gv and ,gV to view, <cr> to view commits in a
     " split or view diffs.
+    " I might remove this... I don't use it
     Plugin 'gregsexton/gitv'
 
     " adds more text objects such as in' and ip' (in next and in previous ' )
@@ -228,7 +230,8 @@
 
     " vim-autoclose causes problems with youcompleteme, it says use this instead
     " automatically closes [], (), '', etc.
-    Plugin 'Raimondi/delimitMate'
+    " This breaks <s-tab> in youcompleteme
+    " Plugin 'Raimondi/delimitMate'
 
     " Similar to emmett but also can autoclose
     " <c-x>/ close latest html tag
@@ -413,7 +416,7 @@
     "
     " OPTIMIZE USE
     " Simple press <Leader>rou to run the optimize use refactoring.
-    " Plugin 'vim-php/vim-php-refactoring'
+    Plugin 'vim-php/vim-php-refactoring'
     " Plugin 'beberlei/vim-php-refactor'
 
     " php namespace and use block autocomplete
@@ -490,7 +493,8 @@
     "
     " <got> opens the terminal at the directory of the file you are currently
     " editing in Vim. Works with tmux - makes a vertical split!
-    Plugin 'justinmk/vim-gtfo'
+    " I generally don't need to do this
+    " Plugin 'justinmk/vim-gtfo'
 
     " jump to definition even if tags file doesn't exist
     " I use ctags so this is redundant and adds clutter to ctrlp
@@ -512,17 +516,18 @@
     Plugin 'dockyard/vim-easydir'
 
     " expand the visual selection with + and _
-    Plugin 'terryma/vim-expand-region'
+    " I'd rather be specific about my selection
+    " Plugin 'terryma/vim-expand-region'
 
     " tmux custom statusline in sync with airline
     " :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
     " Turn if off until I need to customize it
-    " Plugin 'edkolev/tmuxline.vim'
+    Plugin 'edkolev/tmuxline.vim'
 
     " custom bash prompt in sync with airline
     " :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
     " Turn if off until I need to customize it
-    " Plugin 'edkolev/promptline.vim'
+    Plugin 'edkolev/promptline.vim'
 
     " show @TODOs and stuff
     " I just made an alias for this now with Ag. Simpler and more capable.
@@ -674,7 +679,8 @@
     "
     " Automatically logs file and git branch activity to ~/.vim/activity
     " Useful? We'll see if I ever use it...
-    Plugin 'AD7six/vim-activity-log'
+    " I don't use it
+    " Plugin 'AD7six/vim-activity-log'
 
     " fix broken terminal keys when we use xterm-256-color in iterm prefs and
     " screen-256-color in tmux.conf prefs
@@ -682,7 +688,8 @@
 
     " open a scratch buffer with :Scratch that will not ask you to save and
     " will go away when closing vim
-    Plugin 'duff/vim-scratch'
+    " I don't use this
+    " Plugin 'duff/vim-scratch'
 
     " pulse the background on search to find the currently found item.
     Plugin 'inside/vim-search-pulse'
@@ -693,7 +700,8 @@
     " Swap windows just like cxiw. Mark the first window with <leader>ww. Then
     " switch to the second window and do <leader>ww again. The windows will
     " swap. Simple!
-    Plugin 'wesQ3/vim-windowswap'
+    " cool but I usually don't have more than 2 splits
+    " Plugin 'wesQ3/vim-windowswap'
 
     " no more pastetoggle!
     Plugin 'ConradIrwin/vim-bracketed-paste'
@@ -710,13 +718,15 @@
     Plugin 'henrik/vim-qargs'
 
     " github and fugitive together from tim pope
-    Plugin 'tpope/vim-rhubarb'
+    " I hardly use fugitive and I don't need any github-specific features.
+    " Plugin 'tpope/vim-rhubarb'
 
     " move between function arguments and stuff
     " Shifting arguments with <, and >,
     " Moving between argument boundaries with [, and ],
     " New text objects a, and i,
-    Plugin 'PeterRincker/vim-argumentative'
+    " Cool idea but I don't need it. besides I already have a , object.
+    " Plugin 'PeterRincker/vim-argumentative'
 
     " alias commands to other commands, even in lowercase
     " :call CmdAlias('runtime', 'Runtime')

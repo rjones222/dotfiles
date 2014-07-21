@@ -15,7 +15,7 @@
     "phpdocumentor/phpdocumentor": "2.6.0",
     "sebastian/phpdcd": "@dev",
     "dompdf/dompdf": "@dev",
-    "stecman/symfony-console-completion": "*"
+    "qafoolabs/php-refactoring-browser": "*"
 
   },
   "process-timeout": 120

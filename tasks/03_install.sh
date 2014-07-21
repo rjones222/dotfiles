@@ -16,6 +16,7 @@ function install_run() {
     # yo includes grunt and bower
     packages=(
     coffeelint
+    coffee-script
     csslint
     gulp
     gulp-watch
