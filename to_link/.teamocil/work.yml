@@ -11,19 +11,23 @@ session:
         - cmd: "git status"
     - name: "hrh"
       root: "~/Sites/acp-hotrodhotline"
-      layout: "main-horizontal"
+      layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
       filters:
         before: "cd ~/Sites/acp-hotrodhotline; vagrant up"
       clear: true
       panes:
         - cmd: "vim -S ~/.vim/sessions/hrh"
+          focus: true
+        - cmd: ""
+        - cmd: "gulp"
     - name: "acp"
-      root: "~/Sites/auto-classifieds-platform"
-      layout: "main-horizontal"
+      root: "~/Sites/acp-core"
+      layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
       clear: true
       panes:
         - cmd: "vim -S ~/.vim/sessions/acp"
           focus: true
+        - cmd: ""
     - name: "vm"
       root: "~/Sites/acp-hotrodhotline"
       layout: "main-horizontal"
@@ -31,8 +35,6 @@ session:
         before: "cd ~/Sites/acp-hotrodhotline; vagrant up"
       clear: true
       panes:
-        - cmd: "vim -S ~/.vim/sessions/vm"
-          focus: true
         - cmd: "vagrant ssh"
     # - name: "bustersphp"
       # root: "~/Sites/bustersphp"
@@ -67,7 +69,7 @@ session:
         # - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
         # - cmd: "vim files/rm.sql"
         # - cmd: "vagrant ssh"
-    # - name: "vpn"
-      # root: "~"
-      # panes:
-        # - cmd: "vpn"
+    - name: "vpn"
+      root: "~"
+      panes:
+        - cmd: "vpn"

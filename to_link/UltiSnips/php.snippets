@@ -261,7 +261,7 @@ class `!v expand("%:t:r")` extends EloquentRepository implements `!v expand("%:t
     public $rules = array(
         ${3:'title' => 'required',}
     );
-    
+
     /**
      * dependency injection
      *
@@ -271,33 +271,6 @@ class `!v expand("%:t:r")` extends EloquentRepository implements `!v expand("%:t
         $1ModelInterface \$${1/\w+/\l$0/}Model
     ) {
         $this->setModel(\$${1/\w+/\l$0/}Model);
-    }
-
-    /**
-     * validate the passed values, return true or validator
-     *
-     * @param  array $attributes
-     * @return boolean|Validator
-     */
-    protected function validateStore(array $attributes)
-    {
-        // get the validation rules
-        // run the validator against these rules
-        return Validator::make($attributes, $this->rules);
-    }
-
-    /**
-     * validate the passed values, return true or validator
-     *
-     * @param  array $attributes
-     * @return boolean|Validator
-     */
-    protected function validateUpdate(array $attributes)
-    {
-        $update_rules = array_intersect_key($this->rules, $attributes);
-        // get the validation rules
-        // run the validator against these rules
-        return Validator::make($attributes, $update_rules);
     }
 }
 endsnippet
@@ -410,6 +383,82 @@ class `!v expand("%:t:r")` extends BaseRepositoryTest
         ];
     }
     $5
+}
+endsnippet
+
+snippet sp "ACP Service Provider"
+<?php
+/**
+ * ${1:Listing} service provider. Used for defining IoC bindings, event
+ * listeners, etc.
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */`!p snip.rv = namespace(snip, path)`
+use Illuminate\Support\ServiceProvider;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+class `!v expand("%:t:r")` extends ServiceProvider
+{
+
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
+
+    /**
+     * Bootstrap the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // manually defined the real path of the package
+        $this->package('internet-brands/${1/\w+\s*/\l$0/}', null, __DIR__.'/../../../');
+    }
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+
+        // bind the controller
+        $this->app->bind(
+            'InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ControllerInterface',
+            'InternetBrands\AutoClassifiedsPlatform\\$1\Controllers\\$1Controller'
+        );
+
+        // bind the repository
+        $this->app->bind(
+            'InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface',
+            'InternetBrands\AutoClassifiedsPlatform\\$1\Repositories\\$1Repository'
+        );
+
+        // bind the model
+        $this->app->bind(
+            'InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface',
+            'InternetBrands\AutoClassifiedsPlatform\\$1\Models\\$1'
+        );
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return array();
+    }
 }
 endsnippet
 
