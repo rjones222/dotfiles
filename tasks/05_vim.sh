@@ -47,7 +47,7 @@ function vim_run() {
 
     # this needs to be after the .vim folder is created
     log_info "linking UltiSnips custom snippets dir"
-    link_this "$HOME/.dotfiles/to_link/UltiSnips" "$HOME/.vim/ultisnips_snippets"
+    link_this "$HOME/.dotfiles/to_link/UltiSnips" "$HOME/.vim/UltiSnips"
     log_info "linking NERDTree plugins"
     link_this "$HOME/.dotfiles/to_link/open_multiple.vim" "$HOME/.vim/bundle/nerdtree/nerdtree_plugin/"
 

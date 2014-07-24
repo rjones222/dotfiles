@@ -745,6 +745,16 @@
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
+
+    " enable css ctags
+    let g:tagbar_type_css = {
+    \ 'ctagstype' : 'Css',
+        \ 'kinds'     : [
+            \ 'c:classes',
+            \ 's:selectors',
+            \ 'i:identities'
+        \ ]
+    \ }
     " }}}"
 
     " {{{ tasklist
@@ -786,7 +796,7 @@
 
     " {{{ ultisnips
     " ultisnips start with my ultisnips
-    let g:UltiSnipsSnippetDirectories=["UltiSnips", "ultisnips_snippets"]
+    " let g:UltiSnipsSnippetDirectories=['UltiSnips', 'ultisnips_snippets']
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsListSnippets='<c-l>'

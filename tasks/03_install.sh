@@ -21,6 +21,7 @@ function install_run() {
     gulp
     gulp-watch
     instant-markdown-d
+    jsctags
     jshint
     jsonlint
     less
@@ -152,6 +153,7 @@ function install_run() {
     packages=(
     bluecloth
     bundler
+    CoffeeTags
     execjs
     haste
     jekyll
