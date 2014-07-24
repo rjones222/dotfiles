@@ -209,6 +209,10 @@
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
 
+    " paragraph nav I can remember - like unimpaired
+    nnoremap [{ {j
+    nnoremap ]} }k
+
     " dotfile updates
     command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
 
@@ -782,6 +786,7 @@
 
     " {{{ ultisnips
     " ultisnips start with my ultisnips
+    let g:UltiSnipsSnippetDirectories=["UltiSnips", "ultisnips_snippets"]
     let g:UltiSnipsDontReverseSearchPath="1"
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsListSnippets='<c-l>'
