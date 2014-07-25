@@ -162,6 +162,14 @@ function osx_tasks_run() {
         # install pip
         sudo easy_install pip
 
+        # install phing bash completion
+        log_info
+        if [[ ! -f /usr/local/etc/bash_completion.d/phing ]]; then
+            log_info "Installing phing bash completion"
+            wget https://gist.githubusercontent.com/krymen/4124392/raw/37c8436ac44cdd21620e3a355fc96cf6b7bf61a3/phing
+            sudo mv phing /usr/local/etc/bash_completion.d/
+        fi
+
     else
         log_error "This is not OSX so not running osx tasks"
     fi

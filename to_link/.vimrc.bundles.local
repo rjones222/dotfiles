@@ -34,8 +34,9 @@
     UnBundle 'Shougo/neosnippet-snippets'
 
     " I use ultisnips
-    " wait, honza snippets support ultisnips now!
-    " UnBundle 'honza/vim-snippets'
+    " wait, honza snippets support ultisnips now! but they mess up jumping
+    " between snippet sections when the last word is a snippet.
+    UnBundle 'honza/vim-snippets'
 
     " Ultisnips-style startup snippets for file types
     " screws up the simplest templates. Uninstalling.
