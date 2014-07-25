@@ -73,3 +73,7 @@ session:
       root: "~"
       panes:
         - cmd: "vpn"
+    - name: "jenkins"
+      root: "~"
+      panes:
+        - cmd: "ssh -t jenkins 'cd /var/lib/jenkins; bash'"

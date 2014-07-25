@@ -213,6 +213,10 @@
     nnoremap [{ {j
     nnoremap ]} }k
 
+    " sort use statements and come back
+    command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:nohlsearch<cr>"
+    nnoremap <leader>su :SortUse<cr>
+
     " dotfile updates
     command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
 

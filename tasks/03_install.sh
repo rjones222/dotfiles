@@ -21,7 +21,6 @@ function install_run() {
     gulp
     gulp-watch
     instant-markdown-d
-    jsctags
     jshint
     jsonlint
     less

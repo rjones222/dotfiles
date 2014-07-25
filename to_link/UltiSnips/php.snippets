@@ -53,7 +53,7 @@ snippet prt "print_r true"
 print_r(${1}, true)${2}
 endsnippet
 
-snippet markTestIncomplete "phpunit incomplete test"
+snippet mti "phpunit incomplete test"
 $this->markTestIncomplete();${1}
 endsnippet
 
@@ -544,13 +544,13 @@ snippet ctlt "ACP laravel controller test"
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */
-namespace InternetBrands\AutoClassifiedsPlatform\\$1\Tests;
+namespace InternetBrands\AutoClassifiedsPlatform\\${2:Package}\Tests;
 
 use Auth;
 use Config;
 use Input;
 use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseControllerTest;
-use InternetBrands\AutoClassifiedsPlatform\\$1\Controllers\\$1Controller;
+use InternetBrands\AutoClassifiedsPlatform\\$2\Controllers\\$1Controller;
 use Lang;
 use Mockery;
 use Notification;
@@ -590,7 +590,7 @@ class `!v expand("%:t:r")` extends BaseControllerTest
     {
 
         // add some new package providers
-        $newProvider = 'InternetBrands\AutoClassifiedsPlatform\\$1\\$1ServiceProvider';
+        $newProvider = 'InternetBrands\AutoClassifiedsPlatform\\$2\\$2ServiceProvider';
         $this->addServiceProviders($newProvider);
 
         parent::setUp();
@@ -796,11 +796,11 @@ endsnippet
 snippet pumeth "phpunit method"
 
 /**
- * ${2:functionName}
+ * $2
  *
  * @return void
  */
-public function $2()
+public function ${2:functionName}()
 {
     $3
 }
@@ -1175,4 +1175,8 @@ snippet fe "php foreach"
 foreach ($1) {
     $2
 }
+endsnippet
+
+snippet as "assign variable to instance variable"
+$this->${1:listingModel} = \$$1;
 endsnippet
