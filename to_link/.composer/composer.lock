@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f19c18ac170785ea09bbb23f3f30f098",
+    "hash": "b2a40cf187990172f2fdaacc24d6c1c7",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -476,12 +476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "b94cc3eaf35a1d83d6d39df4ea66e503e1cc99c1"
+                "reference": "2a0af23f781869deb4568f9efeffda41a17df042"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/b94cc3eaf35a1d83d6d39df4ea66e503e1cc99c1",
-                "reference": "b94cc3eaf35a1d83d6d39df4ea66e503e1cc99c1",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/2a0af23f781869deb4568f9efeffda41a17df042",
+                "reference": "2a0af23f781869deb4568f9efeffda41a17df042",
                 "shasum": ""
             },
             "require": {
@@ -512,13 +512,11 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-07-17 13:35:09"
+            "time": "2014-07-25 12:54:24"
         },
         {
             "name": "jms/metadata",
@@ -811,19 +809,20 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v0.9.4",
+            "version": "v0.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "1e5e280ae88a27effa2ae4aa2bd088494ed8594f"
+                "reference": "ef70767475434bdb3615b43c327e2cae17ef12eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1e5e280ae88a27effa2ae4aa2bd088494ed8594f",
-                "reference": "1e5e280ae88a27effa2ae4aa2bd088494ed8594f",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ef70767475434bdb3615b43c327e2cae17ef12eb",
+                "reference": "ef70767475434bdb3615b43c327e2cae17ef12eb",
                 "shasum": ""
             },
             "require": {
+                "ext-tokenizer": "*",
                 "php": ">=5.2"
             },
             "type": "library",
@@ -851,7 +850,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2013-08-25 17:11:40"
+            "time": "2014-07-23 18:24:17"
         },
         {
             "name": "pdepend/pdepend",
@@ -932,12 +931,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "fb5d51bddb2123e3cb5500232771496206848d47"
+                "reference": "fbfc91f7e5427022a614c417c91e7df7a401318f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/fb5d51bddb2123e3cb5500232771496206848d47",
-                "reference": "fb5d51bddb2123e3cb5500232771496206848d47",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/fbfc91f7e5427022a614c417c91e7df7a401318f",
+                "reference": "fbfc91f7e5427022a614c417c91e7df7a401318f",
                 "shasum": ""
             },
             "require": {
@@ -978,13 +977,12 @@
             ],
             "authors": [
                 {
-                    "name": "Michiel Rook",
-                    "email": "mrook@php.net",
-                    "role": "Lead"
-                },
-                {
                     "name": "Phing Community",
                     "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
+                },
+                {
+                    "name": "Michiel Rook",
+                    "email": "mrook@php.net"
                 }
             ],
             "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
@@ -995,7 +993,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-07-18 13:19:27"
+            "time": "2014-07-25 16:38:06"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -1232,22 +1230,22 @@
         },
         {
             "name": "phpdocumentor/reflection",
-            "version": "1.0.5",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/Reflection.git",
-                "reference": "df82db631acd60739c8796b3c6d5e4da970808f3"
+                "reference": "7fa71b389e718ea5c33fa0cf0eb45280a4513b7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/Reflection/zipball/df82db631acd60739c8796b3c6d5e4da970808f3",
-                "reference": "df82db631acd60739c8796b3c6d5e4da970808f3",
+                "url": "https://api.github.com/repos/phpDocumentor/Reflection/zipball/7fa71b389e718ea5c33fa0cf0eb45280a4513b7d",
+                "reference": "7fa71b389e718ea5c33fa0cf0eb45280a4513b7d",
                 "shasum": ""
             },
             "require": {
-                "nikic/php-parser": "0.9.4",
+                "nikic/php-parser": ">=0.9",
                 "php": ">=5.3.3",
-                "phpdocumentor/reflection-docblock": "2.*",
+                "phpdocumentor/reflection-docblock": "2.*@dev",
                 "psr/log": "~1.0"
             },
             "require-dev": {
@@ -1277,7 +1275,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2014-03-28 11:20:22"
+            "time": "2014-02-16 15:05:27"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -4248,6 +4246,7 @@
         "sebastian/phpdcd": 20,
         "dompdf/dompdf": 20
     },
+    "prefer-stable": false,
     "platform": [
 
     ],

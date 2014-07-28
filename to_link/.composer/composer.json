@@ -1,4 +1,9 @@
 {
+  "config": {
+    "github-oauth": {
+      "github.com": "e580d1fa7753330d5257cc1dea21ae9b74503236"
+    }
+  },
   "require": {
     "covex-nn/phpcb": "*",
     "sebastian/phpcpd": "*",

@@ -18,6 +18,7 @@ function install_run() {
     coffeelint
     coffee-script
     csslint
+    git-guilt
     gulp
     gulp-watch
     instant-markdown-d
