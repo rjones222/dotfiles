@@ -931,12 +931,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "fbfc91f7e5427022a614c417c91e7df7a401318f"
+                "reference": "acfa381c5c92dbfd86694199000e57face0e80cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/fbfc91f7e5427022a614c417c91e7df7a401318f",
-                "reference": "fbfc91f7e5427022a614c417c91e7df7a401318f",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/acfa381c5c92dbfd86694199000e57face0e80cf",
+                "reference": "acfa381c5c92dbfd86694199000e57face0e80cf",
                 "shasum": ""
             },
             "require": {
@@ -993,7 +993,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-07-25 16:38:06"
+            "time": "2014-07-26 13:11:01"
         },
         {
             "name": "phpcollection/phpcollection",
