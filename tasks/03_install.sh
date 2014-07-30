@@ -200,5 +200,11 @@ function install_run() {
         }
     done
 
+    # install tmux plugin manager
+    if [[ ! -f "$HOME/.tmux/plugins/tpm" ]]; then
+        log_info "installing tmux plugin manager"
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
+
     return ${E_SUCCESS}
 }
