@@ -152,8 +152,11 @@ alias profile="source ~/.bash_profile && echo 'bash profile reloaded'"
 alias upstream="git pull upstream master"
 alias origin="git pull origin master"
 
-#restart networking
+# restart networking
 alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
+
+# show largest directories in entire file system
+alias largest="du -a /var | sort -n -r | head -n 10"
 
 # colorize cat
 chk=''
