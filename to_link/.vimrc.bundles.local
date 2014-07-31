@@ -14,6 +14,9 @@
     UnBundle 'spf13/vim-colors'
     " UnBundle 'jonathanfilip/vim-lucius'
 
+    " Attempting to use gmarik/Vundle.vim instead
+    UnBundle 'gmarik/vundle'
+
     " I use a different fork that fixes some stuff
     UnBundle 'altercation/vim-colors-solarized'
 
@@ -760,6 +763,9 @@
     " temporary caps lock in insert mode with <c-g>c. Good if you remap
     " capslock.
     Plugin 'tpope/vim-capslock'
+
+    " new repo name for vundle
+    Plugin 'gmarik/Vundle.vim'
 
     " toggle most recent yanks backward and forward in history
     " By default, the keys to toggle the paste are mapped to <c-n> and <c-p>
