@@ -156,7 +156,8 @@ alias origin="git pull origin master"
 alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/init.d/networking start"
 
 # show largest directories in entire file system
-alias largest="du -a /var | sort -n -r | head -n 10"
+alias largestfiles="find . -type f -print0 | xargs -0 du | sort -n | tail -10 | cut -f2 | xargs -I{} du -sh {}"
+alias largestdirs="find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2 | xargs -I{} du -sh {}"
 
 # colorize cat
 chk=''

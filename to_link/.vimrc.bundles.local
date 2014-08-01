@@ -756,6 +756,15 @@
     " currently at!
     Plugin 'chreekat/vim-paren-crosshairs'
 
+    " higlight an interesting word in the doc, in a unique color
+    " <leader>1 higlight in first color
+    " <leader>2 higlight in second color (etc...)
+    " <leader>0 clear all highlights
+    Plugin 'pydave/vim-hiinterestingword'
+
+    " facebook hhvm hack highlight support
+    Plugin 'hhvm/vim-hack'
+
     " TagBar support for coffeescript? Yes please!
     " @note requires CoffeeScript ruby gem
     Plugin 'lukaszkorecki/CoffeeTags'

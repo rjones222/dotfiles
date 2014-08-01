@@ -69,11 +69,11 @@ session:
         # - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
         # - cmd: "vim files/rm.sql"
         # - cmd: "vagrant ssh"
-    - name: "vpn"
-      root: "~"
-      panes:
-        - cmd: "vpn"
-    - name: "jenkins"
-      root: "~"
-      panes:
-        - cmd: "ssh -t jenkins 'cd /var/lib/jenkins; bash'"
+    # - name: "vpn"
+      # root: "~"
+      # panes:
+        # - cmd: "vpn"
+    # - name: "jenkins"
+      # root: "~"
+      # panes:
+        # - cmd: "ssh -t jenkins 'cd /var/lib/jenkins; bash'"
