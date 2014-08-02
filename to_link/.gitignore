@@ -1,5 +1,10 @@
 *.swp
 tags
-to_link/.irssi/config.autosave
 .DS_Store
 .phpcomplete_extended
+.projections.json
+nbproject
+composer.phar
+nbproject
+build
+_ide_helper.php

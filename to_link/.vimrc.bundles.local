@@ -776,6 +776,10 @@
     " new repo name for vundle
     Plugin 'gmarik/Vundle.vim'
 
+    " set up automated test running per project via vim-dispatch, jumping to 
+    " tests from classes and vice-versa, etc.
+    Plugin 'tpope/vim-projectionist'
+
     " toggle most recent yanks backward and forward in history
     " By default, the keys to toggle the paste are mapped to <c-n> and <c-p>
     " (similar to yankring). For example, executing p<c-p> will paste, then
