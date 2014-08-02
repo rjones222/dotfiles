@@ -778,6 +778,14 @@
 
     " set up automated test running per project via vim-dispatch, jumping to 
     " tests from classes and vice-versa, etc.
+    " In addition to any navigation commands provided by your projections (which
+    " take the form :Efoo, :Sfoo, :Vfoo, :Tfoo, and :Dfoo), the following commands
+    " are available.
+    " :A                      Edit the alternate file for the current buffer, as
+                            " defined by the alternate key.
+    " :AS [file]              Like :A, but open in a split.
+    " :AV [file]              Like :A, but open in a vertical split.
+    " :AT [file]              Like :A, but open in a tab.
     Plugin 'tpope/vim-projectionist'
 
     " toggle most recent yanks backward and forward in history
