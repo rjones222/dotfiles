@@ -776,7 +776,7 @@
     " new repo name for vundle
     Plugin 'gmarik/Vundle.vim'
 
-    " set up automated test running per project via vim-dispatch, jumping to 
+    " set up automated test running per project via vim-dispatch, jumping to
     " tests from classes and vice-versa, etc.
     " In addition to any navigation commands provided by your projections (which
     " take the form :Efoo, :Sfoo, :Vfoo, :Tfoo, and :Dfoo), the following commands

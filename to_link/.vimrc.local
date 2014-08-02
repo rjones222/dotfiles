@@ -352,6 +352,8 @@
 
     " open tag in tab
     nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+    " open tag in vertical split
+    nnoremap <silent><Leader>v<C-]> :vsp<CR>:exec("tag ".expand("<cword>"))<CR>
 
     " find all todos
     " noremap <Leader>td :noautocmd vimgrep /TODO/j **/*.php<CR>:cw<CR>
