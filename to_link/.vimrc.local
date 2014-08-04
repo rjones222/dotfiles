@@ -36,6 +36,31 @@
     " overrides netrw at the moment)
     let g:netrw_liststyle=3
 
+    " Scratchpad from
+    " http://dhruvasagar.com/2014/03/11/creating-custom-scratch-buffers-in-vim
+    " usage:
+    " :Sedit ft=php
+    " :Stabedit ft=javascript
+    function! ScratchEdit(cmd, options)
+        exe a:cmd tempname()
+        setl buftype=nofile bufhidden=wipe nobuflisted
+        if !empty(a:options) | exe 'setl' a:options | endif
+    endfunction
+
+    " filter quickfix list with
+    " :QFilter pattern " only show lines matching pattern
+    " :QFilter pattern " hide lines matching pattern
+    function! s:FilterQuickfixList(bang, pattern)
+      let cmp = a:bang ? '!~#' : '=~#'
+      call setqflist(filter(getqflist(), "bufname(v:val['bufnr']) " . cmp . " a:pattern"))
+    endfunction
+    command! -bang -nargs=1 -complete=file QFilter call s:FilterQuickfixList(<bang>0, <q-args>)
+
+    command! -bar -nargs=* Sedit call ScratchEdit('edit', <q-args>)
+    command! -bar -nargs=* Ssplit call ScratchEdit('split', <q-args>)
+    command! -bar -nargs=* Svsplit call ScratchEdit('vsplit', <q-args>)
+    command! -bar -nargs=* Stabedit call ScratchEdit('tabe', <q-args>)
+
     " select last paste in visual mode
     nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
@@ -232,6 +257,10 @@
 " Key Mapping {{{
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
+
+    " close preview window with ,pp because I remap <c-w>z to zoom the window.
+    " works like ,qq and ,ll except it can't re-open it of course
+    nnoremap <leader>pp :pclose<cr>
 
     " paragraph nav I can remember - like unimpaired
     nnoremap [{ {j
@@ -641,6 +670,12 @@
         " extra space in NERDCommenter comments
         let g:NERDSpaceDelims="1"
 
+        augroup NERDTreeCustomizations
+            " If I don't do this then signature overwrites my nerdtree menu map
+            autocmd!
+            autocmd FileType nerdtree nnoremap <buffer> <nowait> m :call nerdtree#ui_glue#invokeKeyMap("m")<CR>
+        augroup END
+
         " NERDTree expand dirs with one child
         " let NERDTreeCasadeOpenSingleChildDir=1
 
@@ -1035,55 +1070,9 @@
     set conceallevel=0
     " }}}
 
-    " vim-rhubarb {{{
-    let g:RHUBARB_TOKEN = '4b02d1a1f1cec89163f658c5c748881aed23ac72'
+    " {{{ vim-pasta
+    let g:pasta_disabled_filetypes = ['nerdtree', 'tagbar']
     " }}}
-
-    " {{{ vim-signify
-    " I only want signify to worry about git
-    let g:signify_vcs_list = [ 'git' ]
-    let g:signify_sign_add               = '+'
-    let g:signify_sign_change            = '!'
-    let g:signify_sign_delete            = '_'
-    let g:signify_sign_delete_first_line = '‾'
-    " }}}
-
-    " {{{ vim-signature
-    " avoid a conflict with NERDTree menu mapping
-    let g:SignatureMap = {
-      \ 'Leader' : "<leader>m",
-      \ }
-    " }}}
-
-    " vim-speeddating {{{
-    " use <c-b> instead
-    let g:speeddating_no_mappings = 1
-    nmap  <C-B>     <Plug>SpeedDatingUp
-    nmap  <C-X>     <Plug>SpeedDatingDown
-    xmap  <C-B>     <Plug>SpeedDatingUp
-    xmap  <C-X>     <Plug>SpeedDatingDown
-    nmap d<C-B>     <Plug>SpeedDatingNowUTC
-    nmap d<C-X>     <Plug>SpeedDatingNowLocal
-    " }}}
-
-    " {{{ vim-rooter
-    nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
-    " }}}
-
-    " {{{ vim-startify
-    let g:startify_session_dir = '~/.vim/sessions'
-    let g:startify_bookmarks = [ '~/.vimrc.local' ]
-    " let g:startify_change_to_vcs_root = 1
-
-    " make session autoload work in vim-startify
-    " let NERDTreeHijackNetrw = 0
-
-    " disable common but unimportant files
-    let g:startify_skiplist = [
-        \ 'COMMIT_EDITMSG',
-        \ '\.DS_Store'
-        \ ]
-    " }}}"
 
     " vim-php-cs-fixer {{{
     " don't align phpdoc params, this could cause merge conflicts
@@ -1118,6 +1107,56 @@
     " Clover code coverage XML file
     let g:phpqa_codecoverage_file = "build/logs/clover.xml"
     " }}}
+
+    " vim-rhubarb {{{
+    let g:RHUBARB_TOKEN = '4b02d1a1f1cec89163f658c5c748881aed23ac72'
+    " }}}
+
+    " {{{ vim-signify
+    " I only want signify to worry about git
+    let g:signify_vcs_list = [ 'git' ]
+    let g:signify_sign_add               = '+'
+    let g:signify_sign_change            = '!'
+    let g:signify_sign_delete            = '_'
+    let g:signify_sign_delete_first_line = '‾'
+    " }}}
+
+    " {{{ vim-signature
+    " avoid a conflict with NERDTree menu mapping
+    let g:SignatureMap = {
+      \ 'Leader' : "m",
+      \ }
+    " }}}
+
+    " vim-speeddating {{{
+    " use <c-b> instead
+    let g:speeddating_no_mappings = 1
+    nmap  <C-B>     <Plug>SpeedDatingUp
+    nmap  <C-X>     <Plug>SpeedDatingDown
+    xmap  <C-B>     <Plug>SpeedDatingUp
+    xmap  <C-X>     <Plug>SpeedDatingDown
+    nmap d<C-B>     <Plug>SpeedDatingNowUTC
+    nmap d<C-X>     <Plug>SpeedDatingNowLocal
+    " }}}
+
+    " {{{ vim-rooter
+    nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
+    " }}}
+
+    " {{{ vim-startify
+    let g:startify_session_dir = '~/.vim/sessions'
+    let g:startify_bookmarks = [ '~/.vimrc.local' ]
+    " let g:startify_change_to_vcs_root = 1
+
+    " make session autoload work in vim-startify
+    " let NERDTreeHijackNetrw = 0
+
+    " disable common but unimportant files
+    let g:startify_skiplist = [
+        \ 'COMMIT_EDITMSG',
+        \ '\.DS_Store'
+        \ ]
+    " }}}"
 
     " {{{ vim-tags
     " doesn't want to auto-generate for some reason
@@ -1154,7 +1193,7 @@
     " {{{ vimux-phpunit
     nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
     nnoremap <leader>pu :call VimuxRunCommand("phpunitnotify")<cr>
-    nnoremap <leader>pp :VimuxRunLastCommand<cr>
+    nnoremap <leader>pl :VimuxRunLastCommand<cr>
     " }}}
 
     " {{{ youcompleteme

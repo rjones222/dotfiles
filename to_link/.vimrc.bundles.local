@@ -132,7 +132,7 @@
     Plugin 'wellle/targets.vim'
 
     " swap blocks of code with cx (c then x) example: cxiw to mark a word,
-    " then go to another word and cxiw. The words will swap.
+    " then go to another word and cxiw. The words will swap. Very exciting.
     Plugin 'tommcdo/vim-exchange'
 
     " Look up a github issue with :Gissues . You can also autocomplete issues
@@ -233,8 +233,8 @@
     Plugin 'tyru/undoclosewin.vim'
 
     " a github dashboard in vim? Let's see how I like it...
-    " answer: why? web is better.
     " :GHD to see dashboard
+    " answer: why? web is better.
     " Plugin 'junegunn/vim-github-dashboard'
 
     " vim-autoclose causes problems with youcompleteme, it says use this instead
@@ -244,7 +244,8 @@
 
     " Similar to emmett but also can autoclose
     " <c-x>/ close latest html tag
-    Plugin 'tpope/vim-ragtag'
+    " Not really that useful for php
+    " Plugin 'tpope/vim-ragtag'
 
     " Set background to light or dark automatically at sunrise/sunset
     " Plugin 'amdt/sunset'
@@ -308,7 +309,8 @@
 
     " php getters and setters
     " map <buffer> <leader>sg <Plug>PhpgetsetInsertGetterSetter
-    " I use ultisnips instead
+    " I use ultisnips instead -- more customizable and no need for yet another
+    " plugin
     " Plugin 'docteurklein/php-getter-setter.vim'
 
     " better vim start screen
@@ -589,12 +591,14 @@
     " open url
     " nnoremap <leader>gu <Plug>(openbrowser-open)
     " Plugin 'tyru/open-browser.vim'
-    Plugin 'vim-scripts/open-browser.vim'
+    " I don't need this, I have a one-line mapping that works great on mac.
+    " Plugin 'vim-scripts/open-browser.vim'
 
     " just for testing some of the top color schemes
     " Plugin 'vim-scripts/Colour-Sampler-Pack'
     "
     " Color schemes that don't look good in xterm-256-colors
+    " --------------
     " Plugin '29decibel/codeschool-vim-theme'
     " Plugin 'tpope/vim-vividchalk'
     " Plugin 'morhetz/gruvbox'
@@ -662,7 +666,7 @@
     " I don't use this, Marks in the sidebar is fine
     " Plugin 'vim-scripts/Marks-Browser'
 
-    " vim search and replace
+    " vim search and replace in directory
     " Plugin 'vim-scripts/Greplace.vim'
 
     " Underline ctags. Sometimes works.
@@ -671,6 +675,10 @@
 
     " Highlight the current word throughout the doc
     " I use a autocmd for this that works better instead in my .vimrc.local
+    "
+    " Occasionally I use that autocmd but I usually get annoyed by it after
+    " a while. It clobbers all other highlights like syntax highlighting and
+    " search highlights, which is a bummer.
     " Plugin 'OrelSokolov/HiCursorWords'
 
     " Just for code coverage highlighting
@@ -701,7 +709,8 @@
     " I don't use this
     " Plugin 'duff/vim-scratch'
 
-    " pulse the background on search to find the currently found item.
+    " pulse the background on search to find the currently found item. Really
+    " helpful pretty UI addition.
     Plugin 'inside/vim-search-pulse'
 
     " highlights in bright red any trailing whitespace
@@ -781,6 +790,7 @@
     " In addition to any navigation commands provided by your projections (which
     " take the form :Efoo, :Sfoo, :Vfoo, :Tfoo, and :Dfoo), the following commands
     " are available.
+    " Most awesome thing ever for TDD!!!
     " :A                      Edit the alternate file for the current buffer, as
                             " defined by the alternate key.
     " :AS [file]              Like :A, but open in a split.
