@@ -4,3 +4,4 @@ set show-all-if-ambiguous on
 set completion-ignore-case on
 control-b: backward-word
 control-f: forward-word
+set editing-mode vi

@@ -20,7 +20,8 @@
     "phpdocumentor/phpdocumentor": "2.6.0",
     "sebastian/phpdcd": "@dev",
     "dompdf/dompdf": "@dev",
-    "qafoolabs/php-refactoring-browser": "*"
+    "qafoolabs/php-refactoring-browser": "*",
+    "hot/phpunit-runner": "dev-master"
 
   },
   "process-timeout": 120

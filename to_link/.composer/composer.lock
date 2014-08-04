@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b2a40cf187990172f2fdaacc24d6c1c7",
+    "hash": "7770b34e9423fe3ad7c20036b39a2859",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -476,12 +476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "2a0af23f781869deb4568f9efeffda41a17df042"
+                "reference": "0e2801754124d6413b37a40f536f0422cad98b77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/2a0af23f781869deb4568f9efeffda41a17df042",
-                "reference": "2a0af23f781869deb4568f9efeffda41a17df042",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/0e2801754124d6413b37a40f536f0422cad98b77",
+                "reference": "0e2801754124d6413b37a40f536f0422cad98b77",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,56 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-07-25 12:54:24"
+            "time": "2014-08-02 05:48:15"
+        },
+        {
+            "name": "hot/phpunit-runner",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slavahatnuke/hot-phpunit-runner.git",
+                "reference": "dedfca6671137a87c5b53a7300c356e2e44a935e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slavahatnuke/hot-phpunit-runner/zipball/dedfca6671137a87c5b53a7300c356e2e44a935e",
+                "reference": "dedfca6671137a87c5b53a7300c356e2e44a935e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "bin": [
+                "bin/hot-phpunit-runner",
+                "bin/hot-notify"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hot": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The lib allows to watch phpunit tests",
+            "homepage": "https://github.com/slavahatnuke/hot-phpunit-runner",
+            "keywords": [
+                "ci",
+                "daemon",
+                "find",
+                "git",
+                "hot",
+                "observer",
+                "php",
+                "phpunit",
+                "realtime",
+                "test",
+                "tests",
+                "watcher"
+            ],
+            "time": "2014-01-20 13:13:03"
         },
         {
             "name": "jms/metadata",
@@ -931,20 +980,34 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "acfa381c5c92dbfd86694199000e57face0e80cf"
+                "reference": "0e65518dfcd2156fa5d96099933e887c14c642d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/acfa381c5c92dbfd86694199000e57face0e80cf",
-                "reference": "acfa381c5c92dbfd86694199000e57face0e80cf",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/0e65518dfcd2156fa5d96099933e887c14c642d3",
+                "reference": "0e65518dfcd2156fa5d96099933e887c14c642d3",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0"
             },
             "require-dev": {
+                "ext-pdo_sqlite": "*",
+                "lastcraft/simpletest": "@dev",
+                "pdepend/pdepend": "1.x",
+                "pear-pear.php.net/http_request2": "2.2.x",
+                "pear-pear.php.net/net_growl": "2.7.x",
+                "pear-pear.php.net/pear_packagefilemanager": "1.7.x",
+                "pear-pear.php.net/pear_packagefilemanager2": "1.0.x",
+                "pear-pear.php.net/xml_serializer": "0.20.x",
+                "pear/pear_exception": "@dev",
+                "pear/versioncontrol_git": "@dev",
+                "pear/versioncontrol_svn": "@dev",
                 "phpdocumentor/phpdocumentor": "2.x",
-                "phpunit/phpunit": ">=3.7"
+                "phploc/phploc": "2.x",
+                "phpunit/phpunit": ">=3.7",
+                "sebastian/phpcpd": "2.x",
+                "squizlabs/php_codesniffer": "1.5.x"
             },
             "suggest": {
                 "pdepend/pdepend": "PHP version of JDepend",
@@ -993,7 +1056,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-07-26 13:11:01"
+            "time": "2014-07-31 20:31:26"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2816,12 +2879,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "bac165a2d95c9bfb0bf3f76ffcf4aefeec24b817"
+                "reference": "a96ee4fc3ea3915d9352e55b6d6ab18a2c893726"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/bac165a2d95c9bfb0bf3f76ffcf4aefeec24b817",
-                "reference": "bac165a2d95c9bfb0bf3f76ffcf4aefeec24b817",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/a96ee4fc3ea3915d9352e55b6d6ab18a2c893726",
+                "reference": "a96ee4fc3ea3915d9352e55b6d6ab18a2c893726",
                 "shasum": ""
             },
             "require": {
@@ -2883,7 +2946,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-07-10 00:18:28"
+            "time": "2014-07-29 23:16:25"
         },
         {
             "name": "symfony/config",
@@ -4244,7 +4307,8 @@
         "squizlabs/php_codesniffer": 20,
         "tomphp/patch-builder": 20,
         "sebastian/phpdcd": 20,
-        "dompdf/dompdf": 20
+        "dompdf/dompdf": 20,
+        "hot/phpunit-runner": 20
     },
     "prefer-stable": false,
     "platform": [
