@@ -108,7 +108,8 @@
     " vim:fdm=marker
 
     " colorize css colors without causing $VIMRC reload problems
-    Plugin 'ap/vim-css-color'
+    " Plugin 'ap/vim-css-color'
+    Plugin 'chrisbra/Colorizer'
 
     " the only misc bundles I use
     " syntax highlighting for markdown and puppet
