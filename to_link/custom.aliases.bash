@@ -251,6 +251,10 @@ alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder 
 # phing
 alias ph="phing"
 
+# c-l to clear screen even in vim mode (doesn't work in vim mode still)
+# alias ="clear"
+bind -m vi-insert 'Control-l: clear-screen'
+
 # go to git root
 # already there! gr
 # alias gitroot="cd $(git rev-parse --show-toplevel)"
