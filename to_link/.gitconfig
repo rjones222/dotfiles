@@ -1,9 +1,12 @@
 [alias]
     ahead = git log --branches --not --remotes
+    # delete every branch that has been merged into develop except develop
+    bclean = "!f() { git branch --merged ${1-develop} | grep -v " ${1-develop}$" | xargs -r git branch -d; }; f"
     ci = commit
     cm = !git add -A && git commit -am
     br = branch
     co = checkout
+    cob = checkout -b
     df = diff
     dc = diff --cached
     dt = difftool
@@ -26,8 +29,11 @@
     st = status -sb
     standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mike.funk@internetbrands.com
     sync = "!f() { echo 'Syncing current branch with develop' && git checkout develop && git pull && git checkout - && git rebase develop; }; f"
+    undo = reset HEAD~1 --mixed
     unstage = reset HEAD
     wiff = diff --color-words
+    wip = !git add -u && git commit -m "WIP"
+    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 [color]
     branch = true
     diff = true

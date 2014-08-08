@@ -1177,6 +1177,10 @@ foreach ($1) {
 }
 endsnippet
 
-snippet as "assign variable to instance variable"
+snippet asn "assign variable to instance variable"
 $this->${1:listingModel} = \$$1;
+endsnippet
+
+snippet exp "$expected common line in unit tests"
+$expected = '$1';
 endsnippet

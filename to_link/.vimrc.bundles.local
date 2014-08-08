@@ -20,6 +20,9 @@
     " I use a different fork that fixes some stuff
     UnBundle 'altercation/vim-colors-solarized'
 
+    " I use a different fork that accepts pull requests!
+    UnBundle 'kien/ctrlp.vim'
+
     " I prefer the default tab implementation
     UnBundle 'bling/vim-bufferline'
 
@@ -119,6 +122,9 @@
     " different fork of solarized that fixes stuff
     " Plugin 'blueyed/vim-colors-solarized'
     Plugin 'https://github.com/jwhitley/vim-colors-solarized.git', {'name': 'vim-colors-solarized-fork'}
+
+    " different fork of ctrlp that accepts pull requests
+    Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git', {'name': 'vim-ctrlp-fork'}
 
     " easy way to scroll through color schemes
     " Turned off until I need it
@@ -522,7 +528,7 @@
 
     " share registers across vim installations
     " sets the updatetime to 200ms. bad.
-    " Plugin 'ardagnir/united-front'
+    Plugin 'ardagnir/united-front'
 
     " create files and parent dirs at the same time
     " :e my/non-existent/dir/file.php
