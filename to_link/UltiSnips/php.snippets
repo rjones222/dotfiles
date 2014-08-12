@@ -1182,5 +1182,9 @@ $this->${1:listingModel} = \$$1;
 endsnippet
 
 snippet exp "$expected common line in unit tests"
-$expected = '$1';
+$expected = '${1:random string}';
+
+// call and verify
+$actual = $this->${2:listingRepository}->${3:myMethod()};
+$this->assertEquals($expected, $actual);
 endsnippet

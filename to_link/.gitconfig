@@ -108,3 +108,5 @@
     browser = open
 [instaweb]
     httpd = webrick
+[fetch]
+	prune = true

@@ -47,6 +47,15 @@
         if !empty(a:options) | exe 'setl' a:options | endif
     endfunction
 
+    " this is actually a plugin but they guy doesn't maintain or add to it so
+    " there is no benefit to keeping it as a plugin. It's so small I'll just
+    " put it here.
+    command! VimuxPHPUnitRunCurrentFile :call s:VimuxPHPUnitRunCurrentFile()
+
+    function! s:VimuxPHPUnitRunCurrentFile()
+        call VimuxRunCommand('phpunit ' . expand('%:p'))
+    endfunction
+
     " filter quickfix list with
     " :QFilter pattern " only show lines matching pattern
     " :QFilter pattern " hide lines matching pattern
@@ -665,7 +674,8 @@
     " matchit {{{
     augroup blade_html_features
         " autocmd!
-        au FileType blade set ft=html | set syntax=blade
+        " get the best of all worlds
+        au FileType blade set ft=html | set syntax=blade | let b:match_debug=1
     augroup END
     " }}}
 
@@ -741,8 +751,13 @@
     let g:phpcomplete_cache_taglists = 1
     let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
     let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
-    " this tries to improve <C-]>. I have a ctrl-p plugin that remaps that.
-    let g:phpcomplete_enhance_jump_to_definition = 0
+    " let g:phpcomplete_enhance_jump_to_definition = 0
+    " if !hasmapto('<Plug>PHPJump')
+        " nmap <silent> <buffer> <unique> <nowait> <C-]> <Plug>PHPJump<CR>
+        " nmap <silent> <buffer> <unique> <nowait> <C-W><C-]> <Plug>PHPJumpW<CR>
+    " endif
+    " nnoremap <silent> <buffer> <Plug>PHPJump :<C-u>call phpcomplete#JumpToDefinition('normal')
+    " nnoremap <silent> <buffer> <Plug>PHPJumpW :<C-u>call phpcomplete#JumpToDefinition('split')
     " }}}"
 
     " {{{ phpctags
@@ -1002,9 +1017,9 @@
     " }}}
 
     " {{{ vim-ctrlp-tjump
-    nnoremap <c-]> :CtrlPtjump<cr>
-    let g:ctrlp_tjump_only_silent = 1
-    vnoremap <c-]> :CtrlPtjumpVisual<cr>
+    " nnoremap <c-]> :CtrlPtjump<cr>
+    " let g:ctrlp_tjump_only_silent = 1
+    " vnoremap <c-]> :CtrlPtjumpVisual<cr>
     " }}}"
 
     " vim-easyclip {{{
@@ -1072,6 +1087,11 @@
     " vim-json {{{
     " turn off stupid no quotes in JSON except for current line
     set conceallevel=0
+    " }}}
+    "
+    " vim-merginal {{{
+    " open the branch list
+    nnoremap ,bl :MerginalToggle<cr>
     " }}}
 
     " {{{ vim-pasta

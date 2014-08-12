@@ -146,6 +146,20 @@
     " in fugitive window by typing #[issue number]<c-space>.
     " I don't use it at the moment
     " Plugin 'jaxbot/github-issues.vim'
+    "
+    " Fugitive extension to show branch list and stuff.
+    " R Refresh the buffer list.
+    " C/cc Checkout the branch under the cursor.
+    " A/aa Create a new branch from the currently checked out branch. You'll be prompted to enter a name for the new branch.
+    " D/dd Delete the branch under the cursor.
+    " M/mm Merge the branch under the cursor into the currently checked out branch. If there are merge conflicts, the merge conflicts buffer will open in place of the branch list buffer.
+    " mf Merge the branch under the cursor into the currently checked out branch using Fugitive's :Gmerge command.
+    " rb Rebase the currently checked out branch against the branch under the cursor. If there are rebase conflicts, the rebase conflicts buffer will open in place of the branch list buffer.
+    " ps Prompt to choose a remote to push the branch under the cursor.
+    " pl Prompt to choose a remote to pull the branch under the cursor.
+    " pf Prompt to choose a remote to fetch the branch under the cursor.
+    " gd Diff against the branch under the cursor.
+    Plugin 'idanarye/vim-merginal'
 
     " Laravel Blade Syntax Highlighting
     Plugin 'xsbeats/vim-blade'
@@ -376,6 +390,7 @@
     " Plugin 'jonyamo/phpunit.vim'
 
     " No more caps lock troubles in normal mode!
+    " Not supported on OSX yet
     " Plugin 'suxpert/vimcaps'
 
     " wget menu item in NERDTree!
@@ -393,7 +408,8 @@
     " set the window size, adjust size and it will stick, run arbitrary
     " commands and filters from vim, etc.
     " see above for commands
-    Plugin 'thiagoalessio/vimux-phpunit'
+    " I just pasted this into my .vimrc.local - it was only like 5 lines.
+    " Plugin 'thiagoalessio/vimux-phpunit'
 
     " Zoom toggle current window like tmux pane zooming
     " Plugin 'vim-scripts/ZoomWin'
@@ -497,10 +513,10 @@
 
     " better tag selector with ctrlp
     " <c-]> will open ctrl-p with possible links if more than one is available
-    Plugin 'ivalkeen/vim-ctrlp-tjump'
+    " Plugin 'ivalkeen/vim-ctrlp-tjump'
 
     " faster ctrlp matcher
-    Plugin 'FelikZ/ctrlp-py-matcher'
+    " Plugin 'FelikZ/ctrlp-py-matcher'
 
     " better than Ack
     " :Ag! 'my search' [options]
@@ -647,6 +663,7 @@
     " Plugin 'vim-scripts/summerfruit256.vim'
     " Plugin 'trapd00r/neverland-vim-theme'
     " Plugin 'vim-scripts/robokai'
+    " Plugin 'zaiste/Atom'
 
     " Schemes that look good in 256 colors:
     Plugin 'nanotech/jellybeans.vim'
@@ -727,7 +744,7 @@
     " switch to the second window and do <leader>ww again. The windows will
     " swap. Simple!
     " cool but I usually don't have more than 2 splits
-    " Plugin 'wesQ3/vim-windowswap'
+    Plugin 'wesQ3/vim-windowswap'
 
     " no more pastetoggle!
     Plugin 'ConradIrwin/vim-bracketed-paste'
