@@ -516,7 +516,7 @@
     " Plugin 'ivalkeen/vim-ctrlp-tjump'
 
     " faster ctrlp matcher
-    " Plugin 'FelikZ/ctrlp-py-matcher'
+    Plugin 'FelikZ/ctrlp-py-matcher'
 
     " better than Ack
     " :Ag! 'my search' [options]

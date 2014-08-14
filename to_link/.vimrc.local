@@ -572,6 +572,11 @@
     let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
     nnoremap <leader>pb :CtrlPBuffer<CR>
     nnoremap <leader>pm :CtrlPMRUFiles<CR>
+
+    " ignore some dirs
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  'build',
+      \ }
     " }}}"
 
     " {{{ dispatch
@@ -751,13 +756,13 @@
     let g:phpcomplete_cache_taglists = 1
     let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
     let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
-    " let g:phpcomplete_enhance_jump_to_definition = 0
-    " if !hasmapto('<Plug>PHPJump')
-        " nmap <silent> <buffer> <unique> <nowait> <C-]> <Plug>PHPJump<CR>
-        " nmap <silent> <buffer> <unique> <nowait> <C-W><C-]> <Plug>PHPJumpW<CR>
-    " endif
-    " nnoremap <silent> <buffer> <Plug>PHPJump :<C-u>call phpcomplete#JumpToDefinition('normal')
-    " nnoremap <silent> <buffer> <Plug>PHPJumpW :<C-u>call phpcomplete#JumpToDefinition('split')
+
+    " this avoids an error in php-cs-fixer.vim
+    let g:phpcomplete_enhance_jump_to_definition = 0
+    silent! nunmap <buffer> <unique> <C-]>
+    silent! nunmap <buffer> <unique> <C-W><C-]>
+    nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
+    nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
     " }}}"
 
     " {{{ phpctags
@@ -880,7 +885,7 @@
         \ 'a'    : ['❏ #S'],
         \ 'b'    : ['#H'],
         \ 'win'  : ['#I', '#W'],
-        \ 'cwin' : ['#I', '#W'],
+        \ 'cwin' : ['#I', '#W#F'],
         \ 'x'    : ['#(battery -t)'],
         \ 'z'    : ['%a', '%b %d', '%I:%M %p'],
     \}
