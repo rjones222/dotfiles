@@ -6,6 +6,10 @@
     # list branches sorted by last modified
     bm = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
     ci = commit
+    # This alias will remove remote branch references that no longer exist,
+    # cleanup unnecessary git files, remove untracked files from the working
+    # tree and clear out your stash
+    cleanup = !git remote prune origin && git gc && git clean -dfx && git stash clear
     cm = !git add -A && git commit -am
     co = checkout
     cob = checkout -b
@@ -20,6 +24,16 @@
     # show diffs one-by-one of each file that has changed. Takes a branch or hash or HEAD~1 or something.
     # e.g. g dt HEAD~1
     dt = difftool
+    # git flow feature shortcuts
+    ffc = flow feature checkout
+    ffd = flow feature diff
+    fff = flow feature finish
+    ffl = flow feature list
+    ffp = flow feature publish
+    ffpl = flow feature pull
+    ffr = flow feature rebase
+    ffs = flow feature start
+    fft = flow feature track
     # show change for one file
     filelog = log -u
     fl = log -u
@@ -57,6 +71,8 @@
     # uncommit the last commit
     undo = reset HEAD~1 --mixed
     unstage = reset HEAD
+    # who has contributed to a project
+    who = shortlog -n -s --no-merges
     wiff = diff --color-words
     # work in progress commit
     wip = !git add -u && git commit -m "WIP"
