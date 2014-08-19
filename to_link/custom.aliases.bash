@@ -63,7 +63,7 @@ alias viminstall='vim +BundleClean! +qall && vim +BundleInstall +qall'
 alias phpserver='php -S localhost:8000'
 
 # php-cs-fixer
-# alias pcf='php-cs-fixer'
+alias pcf='php-cs-fixer fix'
 
  # additional details
 alias lsd="ls -GpFha"
@@ -102,7 +102,7 @@ alias coverage="phpunit --debug && open build/coverage/index.html"
 alias test="php artisan test "
 alias pf="phpunit --debug --filter "
 alias pu="phpunit"
-alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=netbeans-xdebug ~/.composer/vendor/bin/phpunit"
+# alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=netbeans-xdebug ~/.composer/vendor/bin/phpunit"
 alias puf="phpunit --filter "
 alias cda="composer dump-autoload"
 alias cu="composer update"

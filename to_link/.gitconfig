@@ -2,37 +2,59 @@
     ahead = git log --branches --not --remotes
     # delete every branch that has been merged into develop except develop
     bclean = "!f() { git branch --merged ${1-develop} | grep -v " ${1-develop}$" | xargs -r git branch -d; }; f"
+    br = branch
     ci = commit
     cm = !git add -A && git commit -am
-    br = branch
     co = checkout
     cob = checkout -b
-    df = diff
     dc = diff --cached
+    df = diff
+    # show modified files in the last commit
+    dl = "!git ll -1"
+    # show a diff of the last commit
+    dlc = diff --cached HEAD^
+    # show diffs one-by-one of each file that has changed. Takes a branch or hash or HEAD~1 or something.
+    # e.g. g dt HEAD~1
     dt = difftool
+    # show change for one file
+    filelog = log -u
+    fl = log -u
+    # Show files ignored by git
     ign = ls-files -o -i --exclude-standard
     iw = instaweb --httpd webrick
+    # not sure what this does... maybe show my my latest commits by date?
     latest = for-each-ref --sort=-committerdate refs/heads --format='%(committerdate:relative) %(refname:short)'
+    # my go-to log format
     lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    # graphy log format with the visual branching on the left
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    # show all files tracked by git in this branch
     ls = ls-files
+    # another graphy log format
     olg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    purr = pull --rebase
-    pu = push
-    pl = pull
-    pp = !git pull && git push
-    pup = !git pull --recurse-submodules && git submodule update
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+    pl = pull
+    pnp = !git pull && git push
+    pp = !git pull && git push
+    pu = push
+    # pull and update submodules... i hate submodules...
+    pup = !git pull --recurse-submodules && git submodule update
+    purr = pull --rebase
+    # rebase interactively off of the branch you branched off of
     ready = rebase -i @{u}
     rh = reset --hard
     st = status -sb
+    # show all of my commits since yesterday
     standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mike.funk@internetbrands.com
     sync = "!f() { echo 'Syncing current branch with develop' && git checkout develop && git pull && git checkout - && git rebase develop; }; f"
+    # uncommit the last commit
     undo = reset HEAD~1 --mixed
     unstage = reset HEAD
     wiff = diff --color-words
+    # work in progress commit
     wip = !git add -u && git commit -m "WIP"
+    # uncommit the last commit... but make a backup ref first just in case
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 [color]
     branch = true

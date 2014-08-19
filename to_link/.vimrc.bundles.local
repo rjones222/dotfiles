@@ -457,6 +457,7 @@
     " inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     " noremap <Leader><Leader>u :call PhpInsertUse()<CR>
     Plugin 'arnaud-lb/vim-php-namespace'
+    " Plugin 'mikedfunk/vim-php-namespace'
 
     " enable . repeat in certain plugins
     " Plugin 'tpope/vim-repeat'
@@ -664,6 +665,7 @@
     " Plugin 'trapd00r/neverland-vim-theme'
     " Plugin 'vim-scripts/robokai'
     " Plugin 'zaiste/Atom'
+    " only problem is that the background is transparent
 
     " Schemes that look good in 256 colors:
     Plugin 'nanotech/jellybeans.vim'
@@ -676,9 +678,11 @@
     Plugin 'w0ng/vim-hybrid'
     Plugin 'nielsmadan/harlequin'
     Plugin 'hickop/vim-hickop-colors'
+    Plugin 'sjl/badwolf'
     " lucius fork to include fugitive colors
     " Plugin 'jonathanfilip/vim-lucius'
     Plugin 'MarioRicalde/vim-lucius'
+    " Plugin 'noah/vim256-color'
 
     " unicode character metadata with ga
     " I don't really need this
@@ -821,6 +825,9 @@
     " :AV [file]              Like :A, but open in a vertical split.
     " :AT [file]              Like :A, but open in a tab.
     Plugin 'tpope/vim-projectionist'
+
+    " Make links, folds, emails, files clickable
+    Plugin 'Rykka/clickable.vim'
 
     " toggle most recent yanks backward and forward in history
     " By default, the keys to toggle the paste are mapped to <c-n> and <c-p>

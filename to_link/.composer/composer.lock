@@ -477,12 +477,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "1b94f8c3a2098c391477e23862897c49ba8c97c8"
+                "reference": "c112ba3db58e180a6a305622f89aee7f5e6b0746"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/1b94f8c3a2098c391477e23862897c49ba8c97c8",
-                "reference": "1b94f8c3a2098c391477e23862897c49ba8c97c8",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/c112ba3db58e180a6a305622f89aee7f5e6b0746",
+                "reference": "c112ba3db58e180a6a305622f89aee7f5e6b0746",
                 "shasum": ""
             },
             "require": {
@@ -490,7 +490,8 @@
                 "sebastian/diff": "1.1.*",
                 "symfony/console": "~2.1",
                 "symfony/filesystem": "~2.1",
-                "symfony/finder": "~2.1"
+                "symfony/finder": "~2.1",
+                "symfony/stopwatch": "~2.5"
             },
             "bin": [
                 "php-cs-fixer"
@@ -517,7 +518,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-08-14 19:56:00"
+            "time": "2014-08-16 21:53:24"
         },
         {
             "name": "hot/phpunit-runner",
@@ -1094,12 +1095,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "239943d5f48c29a8cd52e8376c32005d7f105762"
+                "reference": "47df324c97e34e93e4abbfc08455890313d5ec93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/239943d5f48c29a8cd52e8376c32005d7f105762",
-                "reference": "239943d5f48c29a8cd52e8376c32005d7f105762",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/47df324c97e34e93e4abbfc08455890313d5ec93",
+                "reference": "47df324c97e34e93e4abbfc08455890313d5ec93",
                 "shasum": ""
             },
             "require": {
@@ -1170,7 +1171,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-08-14 19:51:35"
+            "time": "2014-08-14 21:18:20"
         },
         {
             "name": "phpcollection/phpcollection",

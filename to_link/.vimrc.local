@@ -476,6 +476,7 @@
     " {{{ colorscheme
     if !exists('g:colorscheme_set')
         colorscheme lucius
+        " colorscheme badwolf
     endif
     let g:colorscheme_set = 1
     " let g:lucius_no_term_bg=1
@@ -1058,7 +1059,7 @@
                 " hi IndentGuidesOdd ctermbg=235
                 hi IndentGuidesEven ctermbg=237
             endif
-        elseif g:colors_name == 'solarized' || g:colors_name == 'zenburn'
+        elseif g:colors_name == 'solarized' || g:colors_name == 'zenburn' || g:colors_name == 'badwolf'
             hi IndentGuidesOdd ctermbg=235
             hi IndentGuidesEven ctermbg=236
         elseif g:colors_name == 'iceberg' || g:colors_name == 'hybrid' || g:colors_name == 'jellybeans'
