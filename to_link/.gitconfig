@@ -3,6 +3,8 @@
     # delete every branch that has been merged into develop except develop
     bclean = "!f() { git branch --merged ${1-develop} | grep -v " ${1-develop}$" | xargs -r git branch -d; }; f"
     br = branch
+    # list branches sorted by last modified
+    bm = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
     ci = commit
     cm = !git add -A && git commit -am
     co = checkout
@@ -13,6 +15,8 @@
     dl = "!git ll -1"
     # show a diff of the last commit
     dlc = diff --cached HEAD^
+    # show files changed
+    ds = diff --stat
     # show diffs one-by-one of each file that has changed. Takes a branch or hash or HEAD~1 or something.
     # e.g. g dt HEAD~1
     dt = difftool
@@ -22,6 +26,8 @@
     # Show files ignored by git
     ign = ls-files -o -i --exclude-standard
     iw = instaweb --httpd webrick
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
     # not sure what this does... maybe show my my latest commits by date?
     latest = for-each-ref --sort=-committerdate refs/heads --format='%(committerdate:relative) %(refname:short)'
     # my go-to log format
