@@ -28,7 +28,8 @@ let g:spf13_no_neosnippet_expand=1
 let g:global_powerline_switch = 1
 
 " lucius color theme
-let g:airline_theme='lucius'
+" let g:airline_theme='lucius'
+let g:airline_theme='solarized'
 
 " set airline powerline fonts
 if g:global_powerline_switch == 1

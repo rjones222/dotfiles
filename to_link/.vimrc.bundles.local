@@ -829,6 +829,9 @@
     " Make links, folds, emails, files clickable
     Plugin 'Rykka/clickable.vim'
 
+    " focus on only the selected text with :NR<cr>
+    Plugin 'chrisbra/NrrwRgn'
+
     " toggle most recent yanks backward and forward in history
     " By default, the keys to toggle the paste are mapped to <c-n> and <c-p>
     " (similar to yankring). For example, executing p<c-p> will paste, then

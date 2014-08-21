@@ -475,7 +475,8 @@
 
     " {{{ colorscheme
     if !exists('g:colorscheme_set')
-        colorscheme lucius
+        " colorscheme lucius
+        colorscheme solarized
         " colorscheme badwolf
     endif
     let g:colorscheme_set = 1
@@ -785,7 +786,9 @@
     " use airline extensions for promptline
     let g:airline#extensions#promptline#enabled = 1
     let g:airline#extensions#promptline#snapshot_file = "~/.dotfiles/to_link/promptline.theme.bash"
-    let airline#extensions#promptline#color_template = 'visual'
+    " let airline#extensions#promptline#color_template = 'insert'
+    " let airline#extensions#promptline#color_template = 'visual'
+    let airline#extensions#promptline#color_template = 'replace'
 
     " easily save a snapshot of my current setup to my promptline file
     command! MyPromptline :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
@@ -798,7 +801,9 @@
     command! MyConfFiles :call MyConfigs()
 
     " let g:promptline_theme = 'powerlineclone'
-    let g:promptline_theme = 'airline_visual'
+    " let g:promptline_theme = 'airline'
+    let g:promptline_theme = 'airline_insert'
+    " let g:promptline_theme = 'airline_visual'
     let g:promptline_preset = 'clear'
     " }}}"
 
@@ -870,12 +875,15 @@
     command! MyTmuxline :Tmuxline | TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
 
     " use airline theme stuff when calling tmuxline
-    let g:airline#extensions#tmuxline#enabled = 1
-    let airline#extensions#tmuxline#color_template = 'insert'
+    " let g:airline#extensions#tmuxline#enabled = 1
+    let g:airline#extensions#tmuxline#enabled = 0
+    " let airline#extensions#tmuxline#color_template = 'insert'
+    " let airline#extensions#tmuxline#color_template = 'visual'
+    let airline#extensions#tmuxline#color_template = 'replace'
 
     " let g:tmuxline_theme = 'airline'
-    let g:tmuxline_theme = 'airline_insert'
-    " let g:tmuxline_theme = 'airline_visual'
+    " let g:tmuxline_theme = 'airline_insert'
+    let g:tmuxline_theme = 'airline_visual'
     " let g:tmuxline_theme = 'powerline'
     " let g:tmuxline_theme = 'jellybeans'
     " let g:tmuxline_theme = 'zenburn'
@@ -925,6 +933,7 @@
     " {{{ vdebug xdebug plugin
     let g:vdebug_options = {}
     let g:vdebug_options["continuous_mode"] = 1
+    let g:vdebug_options["timeout"] = 30
     let g:vdebug_options['server'] = '192.168.56.1'
     let g:vdebug_options['port'] = '9000'
     let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
@@ -1059,13 +1068,20 @@
                 " hi IndentGuidesOdd ctermbg=235
                 hi IndentGuidesEven ctermbg=237
             endif
-        elseif g:colors_name == 'solarized' || g:colors_name == 'zenburn' || g:colors_name == 'badwolf'
+        elseif g:colors_name == 'solarized'
+            let g:indent_guides_auto_colors = 0
+            hi IndentGuidesOdd ctermbg=black
+            hi IndentGuidesEven ctermbg=black
+        elseif g:colors_name == 'zenburn' || g:colors_name == 'badwolf'
+            let g:indent_guides_auto_colors = 0
             hi IndentGuidesOdd ctermbg=235
             hi IndentGuidesEven ctermbg=236
         elseif g:colors_name == 'iceberg' || g:colors_name == 'hybrid' || g:colors_name == 'jellybeans'
+            let g:indent_guides_auto_colors = 0
             hi IndentGuidesOdd ctermbg=236
             hi IndentGuidesEven ctermbg=237
         elseif g:colors_name == 'hickop'
+            let g:indent_guides_auto_colors = 0
             hi IndentGuidesOdd ctermbg=black
             hi IndentGuidesEven ctermbg=237
         else
