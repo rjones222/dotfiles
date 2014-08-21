@@ -166,6 +166,7 @@ function osx_tasks_run() {
         log_info
         if [[ ! -f /usr/local/etc/bash_completion.d/phing ]]; then
             log_info "Installing phing bash completion"
+            cd
             wget https://gist.githubusercontent.com/krymen/4124392/raw/37c8436ac44cdd21620e3a355fc96cf6b7bf61a3/phing
             sudo mv phing /usr/local/etc/bash_completion.d/
         fi
