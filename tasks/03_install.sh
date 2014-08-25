@@ -91,20 +91,20 @@ function install_run() {
     fi
 
     # install bldr
-    if [[ ! "$(type -P bldr)" ]]; then
-        log_info "Installing bldr"
-        cd
-        curl -sS http://bldr.io/installer | php
-        sudo mv bldr.phar /usr/local/bin/bldr
-        sudo chmod +x bldr
-        cd -
-    fi
+    # if [[ ! "$(type -P bldr)" ]]; then
+    #     log_info "Installing bldr"
+    #     cd
+    #     curl -sS http://bldr.io/installer | php
+    #     sudo mv bldr.phar /usr/local/bin/bldr
+    #     sudo chmod +x bldr
+    #     cd -
+    # fi
 
     # install bowery
-    if [[ ! "$(type -P bowery)" ]]; then
-        log_info "installing bowery"
-        curl -O download.bowery.io/downloads/bowery_2.2.0_darwin_amd64.zip && sudo unzip bowery_2.2.0_darwin_amd64.zip -d /usr/local/bin
-    fi
+    # if [[ ! "$(type -P bowery)" ]]; then
+    #     log_info "installing bowery"
+    #     curl -O download.bowery.io/downloads/bowery_2.2.0_darwin_amd64.zip && sudo unzip bowery_2.2.0_darwin_amd64.zip -d /usr/local/bin
+    # fi
 
     # install pyrus
     if [[ ! "$(type -P pyrus)" ]]; then
@@ -116,32 +116,26 @@ function install_run() {
         cd -
     fi
 
-    # install global composer.json
-    # if [[ ! -d ~/.composer ]]; then
-        # log_info "creating global composer directory"
-        # mkdir ~/.composer
+    # install laravel installer
+    # if [[ ! "$(type -P laravel)" ]]; then
+    #     log_info "Installing Laravel Installer"
+    #     sudo curl http://laravel.com/laravel.phar -o /usr/local/bin/laravel
+    #     sudo chmod +x /usr/local/bin/laravel
     # fi
 
-    # install laravel installer
-    if [[ ! "$(type -P laravel)" ]]; then
-        log_info "Installing Laravel Installer"
-        sudo curl http://laravel.com/laravel.phar -o /usr/local/bin/laravel
-        sudo chmod +x /usr/local/bin/laravel
-    fi
-
     # install laravel envoy
-    if [[ ! "$(type -P envoy)" ]]; then
-        log_info "Installing Laravel Envoy"
-        sudo curl https://github.com/laravel/envoy/raw/master/envoy.phar -o /usr/local/bin/envoy
-        sudo chmod +x /usr/local/bin/envoy
-    fi
+    # if [[ ! "$(type -P envoy)" ]]; then
+    #     log_info "Installing Laravel Envoy"
+    #     sudo curl https://github.com/laravel/envoy/raw/master/envoy.phar -o /usr/local/bin/envoy
+    #     sudo chmod +x /usr/local/bin/envoy
+    # fi
 
     # install php-cs-fixer
-    if [[ ! "$(type -P php-cs-fixer)" ]]; then
-        log_info "Installing php-cs-fixer"
-        sudo curl http://cs.sensiolabs.org/get/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
-        sudo chmod a+x /usr/local/bin/php-cs-fixer
-    fi
+    # if [[ ! "$(type -P php-cs-fixer)" ]]; then
+    #     log_info "Installing php-cs-fixer"
+    #     sudo curl http://cs.sensiolabs.org/get/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
+    #     sudo chmod a+x /usr/local/bin/php-cs-fixer
+    # fi
 
     # install gems
     if [[ ! "$(type -P gem)" ]]; then
@@ -179,6 +173,9 @@ function install_run() {
         }
     done
 
+    # install pip
+    sudo easy_install pip
+    
     # install python packages
     if [[ ! "$(type -P pip)" ]]; then
         log_error "pip not installed"
