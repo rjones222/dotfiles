@@ -4,7 +4,9 @@ My Bash, Vim, Git, and other dotfiles. My Vim config starts with [spf13](https:/
 
 # Directions
 
-First install git, then: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r```
+1. [install XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+2. Ensure git is installed with `which git`
+3. ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r```
 
 Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -t bashit```
 
