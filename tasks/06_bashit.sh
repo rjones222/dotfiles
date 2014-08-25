@@ -13,6 +13,7 @@ function bashit_run() {
         git clone https://github.com/revans/bash-it.git ~/.bash_it
     fi
 
+    # link files that go into ~/.bash_it/
     link_this "$HOME/.dotfiles/to_link/custom.aliases.bash" "$HOME/.bash_it/aliases/custom.aliases.bash"
     link_this "$HOME/.dotfiles/to_link/custom.plugins.bash" "$HOME/.bash_it/custom/custom.plugins.bash"
     # link_this "$HOME/.dotfiles/to_link/custom.theme.bash" "$HOME/.bash_it/custom/custom.theme.bash"
