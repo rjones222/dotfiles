@@ -29,11 +29,13 @@ function osx_tasks_run() {
         fi
 
         if [[ "$(type -P brew)" ]]; then
+            # update homebrew
             log_info "Updating Homebrew"
             brew doctor
             brew update
             # brew tap phinze/homebrew-cask
 
+            # install homebrew recipes
             log_info "Installing Homebrew Recipes"
             packages=(
             autossh
@@ -74,7 +76,7 @@ function osx_tasks_run() {
             tofrodos
             trash
             tree
-            virtualhost.sh
+            # virtualhost.sh
             watch
             wget
             )
@@ -91,10 +93,15 @@ function osx_tasks_run() {
                 sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
             fi
 
+            # tool to mass rename files
             if [[ ! "$(type -P massren)" ]]; then
                 log_info "installing massren"
                 brew tap laurent22/massren
                 brew install massren
+            fi
+            if [[ "$(type -P massren)" ]]; then
+                log_info "configuring massren"
+                massren --config editor vim
             fi
 
             if [[ ! "$(type -P libxml2)" ]]; then
@@ -104,26 +111,26 @@ function osx_tasks_run() {
                 echo '/usr/local/opt/libxml2/lib/python2.7/site-packages' > ~/Library/Python/2.7/lib/python/site-packages/homebrew.pth
             fi
 
-            if [[ ! "$(type -P openssl-osx-ca)" ]]; then
-                log_info "installing openssl-osx-ca to sync certificates"
-                brew tap raggi/ale
-                brew install openssl-osx-ca
-                openssl-osx-ca
-            fi
+            # if [[ ! "$(type -P openssl-osx-ca)" ]]; then
+            #     log_info "installing openssl-osx-ca to sync certificates"
+            #     brew tap raggi/ale
+            #     brew install openssl-osx-ca
+            #     openssl-osx-ca
+            # fi
 
             if [[ ! "$(type -P battery)" ]]; then
-                log_info "installing battery script"
+                log_info "installing battery script for tmux statusline"
                 brew tap Goles/battery
                 brew install battery
             fi
 
-            if [[ ! "$(type -P tmate)" ]]; then
-                log_info "installing tmate"
-                brew tap nviennot/tmate
-                brew install tmate
-            fi
+            # if [[ ! "$(type -P tmate)" ]]; then
+            #     log_info "installing tmate for sharing ssh sessions"
+            #     brew tap nviennot/tmate
+            #     brew install tmate
+            # fi
 
-            # install packages without the same cli name
+            # install homebrew packages without the same cli name
             packages=(
             bash-completion
             selenium-server-standalone
@@ -138,29 +145,23 @@ function osx_tasks_run() {
         fi
 
         # install ngrok
-        if [[ ! "$(type -P ngrok)" ]]; then
-            log_info "Installing ngrok"
-            cd
-            wget https://dl.ngrok.com/darwin_amd64/ngrok.zip
-            unzip ngrok.zip
-            sudo mv ngrok /usr/local/bin/ngrok
-            sudo chmod +x /usr/local/bin/ngrok
-            sudo rm ngrok.zip
-        fi
+        # if [[ ! "$(type -P ngrok)" ]]; then
+        #     log_info "Installing ngrok"
+        #     cd
+        #     wget https://dl.ngrok.com/darwin_amd64/ngrok.zip
+        #     unzip ngrok.zip
+        #     sudo mv ngrok /usr/local/bin/ngrok
+        #     sudo chmod +x /usr/local/bin/ngrok
+        #     sudo rm ngrok.zip
+        # fi
 
         # install ctags patched
         # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
-        if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
-            log_info "Installing Ctags Patched"
-            cd /usr/local/Library/Formula/
-            curl https://gist.githubusercontent.com/complex857/9570127/raw/dec0f388be51d9ab6888db6d0ee3e82dfc37837c/ctags-better-php.rb > /usr/local/Library/Formula/ctags-better-php.rb
-            brew install ctags-better-php
-            brew link --overwrite ctags-better-php
-            sudo touch /usr/local/etc/.ctags_patched_installed
-        fi
-
-        # install pip
-        sudo easy_install pip
+        log_info "Installing Ctags Patched"
+        cd /usr/local/Library/Formula/
+        curl https://gist.githubusercontent.com/complex857/9570127/raw/dec0f388be51d9ab6888db6d0ee3e82dfc37837c/ctags-better-php.rb > /usr/local/Library/Formula/ctags-better-php.rb
+        brew install ctags-better-php
+        brew link --overwrite ctags-better-php
 
         # install phing bash completion
         log_info
