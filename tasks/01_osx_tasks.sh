@@ -87,6 +87,10 @@ function osx_tasks_run() {
                     brew install $package
                 }
             done
+            
+            log_info "setting up homebrew mysql to launch now and on startup"
+            ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+            launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
             if [[ $(grep "/usr/local/bin/bash" /etc/shells -c) == 0 ]]; then
                 log_info "installing bash to /etc/paths"
