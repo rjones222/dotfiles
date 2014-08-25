@@ -4,9 +4,9 @@ My Bash, Vim, Git, and other dotfiles. My Vim config starts with [spf13](https:/
 
 # Directions
 
-First install git, then: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install.sh -r```
+First install git, then: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r```
 
-Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.install.sh -t bashit```
+Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -t bashit```
 
 # Other stuff to install:
 
@@ -19,4 +19,3 @@ Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfun
 * [IE VMs](https://github.com/xdissent/ievms)
 * [Sequel Pro](http://www.sequelpro.com/) for Mac or [MySQL Workbench](http://dev.mysql.com/downloads/tools/workbench/) for Windows/Linux
 * [TinyGrab](http://tinygrab.com/download.php)
-* [ScreenHero](http://screenhero.com/) for pair programming
