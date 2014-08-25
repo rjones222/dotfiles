@@ -166,6 +166,9 @@ function osx_tasks_run() {
         curl https://gist.githubusercontent.com/complex857/9570127/raw/dec0f388be51d9ab6888db6d0ee3e82dfc37837c/ctags-better-php.rb > /usr/local/Library/Formula/ctags-better-php.rb
         brew install ctags-better-php
         brew link --overwrite ctags-better-php
+        
+        # link brew apps
+        brew linkapps
 
         # install phing bash completion
         log_info
