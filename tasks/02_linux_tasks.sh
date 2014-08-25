@@ -33,7 +33,7 @@ function linux_tasks_run() {
         # latest git
         sudo add-apt-repository -y ppa:git-core/ppa
 
-        sudo apt-get update
+        sudo apt-get update -y
 
         # python 2.7
         sudo apt-get install -y python-dev
@@ -107,14 +107,14 @@ function linux_tasks_run() {
             }
         done
 
-        # install massren
+        # install massren - tool to mass rename files
         if [[ ! "$(type -P massren)" ]]; then
             log_info "installing massren"
             curl -O https://raw.github.com/laurent22/massren/master/install/install.linux-amd64.sh
             sudo bash install.linux-amd64.sh
         fi
 
-        # install battery script
+        # install battery script (used on tmux statusline)
         if [[ ! "$(type -P battery)" ]]; then
             log_info "installing battery script"
             cd
@@ -140,13 +140,13 @@ function linux_tasks_run() {
             sudo service apache2 restart
         fi
 
-        if [[ ! "$(type -P tmate)" ]]; then
-            log_info "installing tmate"
-            sudo apt-get install python-software-properties && \
-            sudo add-apt-repository -y ppa:nviennot/tmate   && \
-            sudo apt-get update                             && \
-            sudo apt-get install -y tmate
-        fi
+        # if [[ ! "$(type -P tmate)" ]]; then
+        #     log_info "installing tmate"
+        #     sudo apt-get install python-software-properties && \
+        #     sudo add-apt-repository -y ppa:nviennot/tmate   && \
+        #     sudo apt-get update                             && \
+        #     sudo apt-get install -y tmate
+        # fi
 
         # install fasd
         # if [[ ! "$(type -P fasd)" ]]; then
@@ -192,19 +192,19 @@ function linux_tasks_run() {
         if [[ ! -f /usr/local/etc/.ctags_patched_installed ]]; then
             log_info "Installing Ctags Patched"
             cd
-            wget "https://github.com/shawncplus/phpcomplete.vim/blob/master/misc/ctags-better-php-parser.tar.bz2?raw=true" -O ctags-better-php-parser.tar.bz2
-            tar xvjf ctags-better-php-parser.tar.bz2
-            cd ctags
+            wget "https://github.com/shawncplus/phpcomplete.vim/raw/master/misc/ctags-5.8_better_php_parser.tar.gz" -O ctags-5.8_better_php_parser.tar.gz
+            tar xvf ctags-5.8_better_php_parser.tar.gz
+            cd ctags-5.8_better_php_parser
             ./configure
             make
             sudo make install
             sudo touch /usr/local/etc/.ctags_patched_installed
             cd ..
-            sudo rm ctags-better-php-parser.tar.bz2
-            sudo rm -rf ctags
+            sudo rm ctags-5.8_better_php_parser.tar.gz
+            sudo rm -rf ctags-5.8_better_php_parser
         fi
 
-        # install ngrok
+        # install ngrok - local tunnels to the internet to expose a local site to the web
         if [[ ! "$(type -P ngrok)" ]]; then
             log_info "Installing ngrok"
             cd
