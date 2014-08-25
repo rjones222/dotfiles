@@ -188,6 +188,7 @@ function install_run() {
     gmusicapi
     robotframework
     robotframework-selenium2screenshots
+    stellar
     supervisor
     )
     for package in "${packages[@]}"
