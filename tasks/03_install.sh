@@ -186,6 +186,7 @@ function install_run() {
     packages=(
     distribute
     # gmusicapi
+    argcomplete
     robotframework
     robotframework-selenium2screenshots
     stellar
@@ -198,6 +199,9 @@ function install_run() {
             sudo pip install $package
         }
     done
+    
+    log_info "activating argcomplete"
+    activate-global-python-argcomplete
 
     # install tmux plugin manager
     if [[ ! -f "$HOME/.tmux/plugins/tpm" ]]; then
