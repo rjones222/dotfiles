@@ -13,6 +13,8 @@ Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfun
 # Other stuff to install:
 
 * [XCode Command Line Tools](https://developer.apple.com/downloads/index.action) for Mac
+* [iTerm 2](https://iterm2.com/downloads.html)
+* [Google Chrome](https://www.google.com/intl/en/chrome/browser/#brand=CHMB&utm_campaign=en&utm_source=en-ha-na-us-sk&utm_medium=ha)
 * [Google Drive](https://tools.google.com/dlpage/drive)
 * [Google Music](https://support.google.com/googleplay/answer/1229970?hl=en)
 * [Spectacle](http://spectacleapp.com/)
