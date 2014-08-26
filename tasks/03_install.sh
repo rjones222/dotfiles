@@ -110,7 +110,7 @@ function install_run() {
     if [[ ! "$(type -P pyrus)" ]]; then
         log_info "Installing pyrus"
         cd
-        wget http://pear2.php.net/pyrus.phar && php pyrus.phar
+        wget http://pear2.php.net/pyrus.phar
         sudo mv pyrus.phar /usr/local/bin/pyrus
         sudo chmod +x /usr/local/bin/pyrus
         cd -
