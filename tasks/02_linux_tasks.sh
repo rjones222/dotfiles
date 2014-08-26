@@ -139,6 +139,12 @@ function linux_tasks_run() {
             sudo php5enmod mcrypt
             sudo service apache2 restart
         fi
+        
+        # install rbenv
+        if [[ ! "$(type -P rbenv)" ]]; then
+            log_info "installing rbenv"
+            git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+        fi
 
         # if [[ ! "$(type -P tmate)" ]]; then
         #     log_info "installing tmate"
