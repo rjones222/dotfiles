@@ -185,7 +185,7 @@ function install_run() {
 
     packages=(
     distribute
-    gmusicapi
+    # gmusicapi
     robotframework
     robotframework-selenium2screenshots
     stellar
