@@ -1,79 +1,77 @@
-session:
-  name: "Work"
-  windows:
-    - name: "cfg"
-      root: "~/.dotfiles"
-      layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
-      clear: true
-      panes:
-        - cmd: "vim -S ~/.vim/sessions/config"
-          focus: true
-        - cmd: "git status"
-    - name: "hrh"
-      root: "~/Sites/acp-hotrodhotline"
-      layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
-      filters:
-        before: "cd ~/Sites/acp-hotrodhotline; vagrant up"
-      clear: true
-      panes:
-        - cmd: "vim -S ~/.vim/sessions/hrh"
-          focus: true
-        - cmd: ""
-        - cmd: "gulp"
-    - name: "acp"
-      root: "~/Sites/acp-core"
-      layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
-      clear: true
-      panes:
-        - cmd: "vim -S ~/.vim/sessions/acp"
-          focus: true
-        - cmd: ""
-    - name: "vm"
-      root: "~/Sites/acp-hotrodhotline"
-      layout: "main-horizontal"
-      filters:
-        before: "cd ~/Sites/acp-hotrodhotline; vagrant up"
-      clear: true
-      panes:
-        - cmd: "vagrant ssh"
-    # - name: "bustersphp"
-      # root: "~/Sites/bustersphp"
-      # layout: "main-horizontal"
-      # clear: true
-      # panes:
-        # - cmd: "vim -S ~/.vim/sessions/busters"
-          # focus: true
-    # - name: "gitolite"
-      # root: "~/Sites/gitolite-admin"
-      # layout: "main-horizontal"
-      # clear: true
-      # panes:
-        # - cmd: "vim -S ~/.vim/sessions/gitolite"
-          # focus: true
-        # - cmd: "cd keydir"
-    # - name: "rj"
-      # root: "~/Sites/racingjunk"
-      # clear: true
-      # layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
-      # panes:
-        # - cmd: "vim -S ~/.vim/sessions/rj"
-          # focus: true
-        # - cmd: "git status"
-    # - name: "rj-vm"
-      # root: "~/vms/mikes_vagrant_box"
-      # layout: "main-horizontal"
-      # filters:
-          # before: "cd ~/vms/rjvagrant; vagrant up"
-      # clear: true
-      # panes:
-        # - cmd: "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
-        # - cmd: "vim files/rm.sql"
-        # - cmd: "vagrant ssh"
-    # - name: "vpn"
-      # root: "~"
-      # panes:
-        # - cmd: "vpn"
-    # - name: "jenkins"
-      # root: "~"
-      # panes:
-        # - cmd: "ssh -t jenkins 'cd /var/lib/jenkins; bash'"
+windows:
+  - name: "cfg"
+    root: "~/.dotfiles"
+    focus: true
+    layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    panes:
+      - vim -S ~/.vim/sessions/config
+      - git status
+  - name: "hrh"
+    root: "~/Sites/acp-hotrodhotline"
+    layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
+    first: "cd ~/Sites/acp-hotrodhotline; vagrant up"
+    panes:
+      - vim -S ~/.vim/sessions/hrh
+      - pwd
+      - gulp
+  - name: "acp"
+    root: "~/Sites/acp-core"
+    layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    panes:
+      - vim -S ~/.vim/sessions/acp
+      - pwd
+  - name: "vm"
+    root: "~/Sites/acp-hotrodhotline"
+    layout: "main-horizontal"
+    first: "cd ~/Sites/acp-hotrodhotline; vagrant up"
+    panes:
+      - vagrant ssh
+      - commands:
+        - tmux rename-session Work
+        - exit
+  # - name: "bustersphp"
+    # root: "~/Sites/bustersphp"
+    # layout: "main-horizontal"
+    # panes:
+      # - commands: 
+      # - "vim -S ~/.vim/sessions/busters"
+        # focus: true
+  # - name: "gitolite"
+    # root: "~/Sites/gitolite-admin"
+    # layout: "main-horizontal"
+    # panes:
+      # - commands: 
+      # - "vim -S ~/.vim/sessions/gitolite"
+        # focus: true
+      # - commands: 
+      # - "cd keydir"
+  # - name: "rj"
+    # root: "~/Sites/racingjunk"
+    # layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    # panes:
+      # - commands: 
+      # - "vim -S ~/.vim/sessions/rj"
+        # focus: true
+      # - commands: 
+      # - "git status"
+  # - name: "rj-vm"
+    # root: "~/vms/mikes_vagrant_box"
+    # layout: "main-horizontal"
+      # first: "cd ~/vms/rjvagrant; vagrant up"
+    # panes:
+      # - commands: 
+      # - "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
+      # - commands: 
+      # - "vim files/rm.sql"
+      # - commands: 
+      # - "vagrant ssh"
+  # - name: "vpn"
+    # root: "~"
+    # panes:
+      # - commands: 
+      # - "vpn"
+  # - name: "jenkins"
+    # root: "~"
+    # panes:
+      # - commands: 
+      # - "ssh -t jenkins 'cd /var/lib/jenkins; bash'"
