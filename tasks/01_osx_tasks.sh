@@ -171,8 +171,7 @@ function osx_tasks_run() {
         brew linkapps
         
         # install php 5.5 via liip
-        
-        if [[ "$(which php)" != "/usr/local/bin" ]]; then
+        if [[ "$(which php)" != "/usr/local/php5/bin/php" ]]; then
             log_info "installing php 5.5 from liip"
             curl -s http://php-osx.liip.ch/install.sh | bash -s 5.5
             echo "export PATH=/usr/local/php5/bin:$PATH" >> ~/.bashrc
