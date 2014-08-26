@@ -15,7 +15,7 @@ if [ -d /Applications/VirtualBox.app/Contents/MacOS/ ]; then
     export PATH="/Applications/VirtualBox.app/Contents/MacOS:$PATH"
 fi
 
-if [ -d =/usr/local/php5/bin ]; then
+if [ -d /usr/local/php5/bin ]; then
     export PATH="/usr/local/php5/bin:$PATH"
 fi
 
