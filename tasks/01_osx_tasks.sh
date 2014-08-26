@@ -64,7 +64,9 @@ function osx_tasks_run() {
             pandoc
             # postgresql
             ranger
+            rbenv
             reattach-to-user-namespace
+            ruby-build
             ssh-copy-id
             sshfs
             sshuttle
