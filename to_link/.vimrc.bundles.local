@@ -115,9 +115,10 @@
     Plugin 'chrisbra/Colorizer'
 
     " the only misc bundles I use
+    " (spf13-vim puts these in there anyway)
     " syntax highlighting for markdown and puppet
-    Plugin 'tpope/vim-markdown'
-    Plugin 'Puppet-Syntax-Highlighting'
+    " Plugin 'tpope/vim-markdown'
+    " Plugin 'Puppet-Syntax-Highlighting'
 
     " different fork of solarized that fixes stuff
     " Plugin 'blueyed/vim-colors-solarized'
@@ -456,7 +457,7 @@
     " php namespace and use block autocomplete
     " inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     " noremap <Leader><Leader>u :call PhpInsertUse()<CR>
-    Plugin 'arnaud-lb/vim-php-namespace'
+    " Plugin 'arnaud-lb/vim-php-namespace'
     " Plugin 'mikedfunk/vim-php-namespace'
 
     " enable . repeat in certain plugins
