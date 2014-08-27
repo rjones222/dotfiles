@@ -457,7 +457,7 @@
     " php namespace and use block autocomplete
     " inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     " noremap <Leader><Leader>u :call PhpInsertUse()<CR>
-    " Plugin 'arnaud-lb/vim-php-namespace'
+    Plugin 'arnaud-lb/vim-php-namespace'
     " Plugin 'mikedfunk/vim-php-namespace'
 
     " enable . repeat in certain plugins
@@ -466,7 +466,7 @@
     " better php ctags in tagbar
     " <leader>tt to toggle tagbar. This makes it look prettier
     " Plugin 'techlivezheng/vim-plugin-tagbar-phpctags'
-    " Plugin 'vim-php/tagbar-phpctags.vim'
+    Plugin 'vim-php/tagbar-phpctags.vim'
 
     " paste with context-sensitive indenting
     Plugin 'sickill/vim-pasta'

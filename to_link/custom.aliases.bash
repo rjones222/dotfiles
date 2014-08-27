@@ -263,3 +263,6 @@ alias ph="phing"
 # just type reload<tab>
 
 # pushd and popd are useful for saving bookmarks in cd! random reminder.
+
+# use netextender to connect to vpn
+alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d $VPNDOMAIN $VPNURL"

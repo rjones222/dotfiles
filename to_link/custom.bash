@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# private env vars
+if [ -f ~/.private_vars.sh ]; then
+    source ~/.private_vars.sh
+fi
+
 # environment vars
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export CLICOLOR=1
