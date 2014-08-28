@@ -41,7 +41,7 @@ function vim_run() {
     # build vim plugin buildables
     if [[ ! "$(type -P phpctags)" ]]; then
         log_info "Building phpctags"
-        cd ~/.vim/bundle/vim-plugin-tagbar-phpctags/
+        cd ~/.vim/bundle/tagbar-phpctags.vim/
         make
     fi
 

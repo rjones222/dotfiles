@@ -78,6 +78,8 @@ function install_run() {
         log_info "building phpctags"
         cd $HOME/.composer/vendor/techlivezheng/phpctags
         make
+        cp build/phpctags.phar $HOME/.composer/vendor/bin/phpctags
+        sudo chmod +x $HOME/.composer/vendor/bin/phpctags
         cd -
     fi
 

@@ -849,6 +849,7 @@
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
+    let g:tagbar_autopreview = 1
 
     " enable css ctags
     let g:tagbar_type_css = {
