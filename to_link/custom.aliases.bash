@@ -104,6 +104,8 @@ alias pf="phpunit --debug --filter "
 alias pu="phpunit"
 # alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=netbeans-xdebug ~/.composer/vendor/bin/phpunit"
 alias puf="phpunit --filter "
+# composer with hhvm makes it way faster
+alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer"
 alias cda="composer dump-autoload"
 alias cu="composer update"
 alias ci="composer install --prefer-dist"

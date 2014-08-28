@@ -90,6 +90,12 @@ function osx_tasks_run() {
                 }
             done
 
+            # link macvim's console vim into /usr/local/bin
+            if [-f /usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim ]; then
+                log_info "linking macvim to console vim"
+                ln -sf /usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim /usr/local/bin/vim
+            fi
+
             log_info "setting up homebrew mysql to launch now and on startup"
             ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
             launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
