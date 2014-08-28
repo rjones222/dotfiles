@@ -8,7 +8,7 @@ phpunitnotify () {
     about 'runs phpunit and uses terminal-notifier to show the results'
     group 'custom'
 
-    /usr/local/php5/bin/phpunit "${@}"
+    phpunit "${@}"
     if [[ $? == 0 ]]; then
         terminal-notifier -message "PHPUnit tests passed" -title "Passed" -activate "com.apple.Terminal";
     else

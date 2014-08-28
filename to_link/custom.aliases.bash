@@ -98,14 +98,17 @@ fi
 alias g="git"
 # do git completion with g
 __git_complete g __git_main
+# alias phpunit="phpunitnotify"
 alias coverage="phpunit --debug && open build/coverage/index.html"
 alias test="php artisan test "
 alias pf="phpunit --debug --filter "
-alias pu="phpunit"
-# alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=netbeans-xdebug ~/.composer/vendor/bin/phpunit"
+alias pu="phpunitnotify"
+alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=netbeans-xdebug phpunit"
 alias puf="phpunit --filter "
 # composer with hhvm makes it way faster
-alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer"
+if [[ "$(type -P hhvm)" ]]; then
+    alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer"
+fi
 alias cda="composer dump-autoload"
 alias cu="composer update"
 alias ci="composer install --prefer-dist"
