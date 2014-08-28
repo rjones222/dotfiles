@@ -107,9 +107,20 @@ function linux_tasks_run() {
             }
         done
 
+        # hhvm
+        if [[ ! "$(type -P hhvm)" ]]; then
+            log_info "installing hhvm"
+            cd
+            wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | sudo apt-key add -
+            echo deb http://dl.hhvm.com/ubuntu saucy main | sudo tee /etc/apt/sources.list.d/hhvm.list
+            sudo apt-get install hhvm -y
+        fi
+
+
         # install massren - tool to mass rename files
         if [[ ! "$(type -P massren)" ]]; then
             log_info "installing massren"
+            cd
             curl -O https://raw.github.com/laurent22/massren/master/install/install.linux-amd64.sh
             sudo bash install.linux-amd64.sh
         fi
@@ -139,7 +150,7 @@ function linux_tasks_run() {
             sudo php5enmod mcrypt
             sudo service apache2 restart
         fi
-        
+
         # install rbenv
         if [[ ! "$(type -P rbenv)" ]]; then
             log_info "installing rbenv"

@@ -89,7 +89,7 @@ function osx_tasks_run() {
                     brew install $package
                 }
             done
-            
+
             log_info "setting up homebrew mysql to launch now and on startup"
             ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
             launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
@@ -97,6 +97,15 @@ function osx_tasks_run() {
             if [[ $(grep "/usr/local/bin/bash" /etc/shells -c) == 0 ]]; then
                 log_info "installing bash to /etc/paths"
                 sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
+            fi
+
+            # hhvm
+            if [[ ! "$(type -P hhvm)" ]]; then
+                log_info "installing hhvm"
+                brew tap homebrew/dupes
+                brew tap homebrew/versions
+                brew tap mcuadros/homebrew-hhvm
+                brew install hhvm
             fi
 
             # tool to mass rename files
@@ -168,10 +177,10 @@ function osx_tasks_run() {
         curl https://gist.githubusercontent.com/complex857/9570127/raw/dec0f388be51d9ab6888db6d0ee3e82dfc37837c/ctags-better-php.rb > /usr/local/Library/Formula/ctags-better-php.rb
         brew install ctags-better-php
         brew link --overwrite ctags-better-php
-        
+
         # link brew apps
         brew linkapps
-        
+
         # install php 5.5 via liip
         if [[ "$(which php)" != "/usr/local/php5/bin/php" ]]; then
             log_info "installing php 5.5 from liip"

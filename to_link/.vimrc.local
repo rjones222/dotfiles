@@ -1172,6 +1172,7 @@
     let g:SignatureMap = {
       \ 'Leader' : "m",
       \ }
+    " let g:SignatureMarkTextHL = 'ErrorMsg'
     " }}}
 
     " vim-speeddating {{{
