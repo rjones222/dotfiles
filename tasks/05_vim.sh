@@ -21,6 +21,13 @@ function make_youcompleteme() {
     cd -
 }
 
+function make_tagbarphpctags() {
+    log_info "Attempting to build phpctags"
+    cd ~/.vim/bundle/tagbar-phpctags.vim/
+    make
+    cd -
+}
+
 function vim_run() {
 
     # install spf13
@@ -34,16 +41,12 @@ function vim_run() {
     else
         log_info "Updating vim bundles"
         vim +BundleUpdate +qall!
-        make_vimproc
-        make_youcompleteme
     fi
 
     # build vim plugin buildables
-    if [[ ! "$(type -P phpctags)" ]]; then
-        log_info "Building phpctags"
-        cd ~/.vim/bundle/tagbar-phpctags.vim/
-        make
-    fi
+    make_vimproc
+    make_youcompleteme
+    make_tagbarphpctags
 
     # this needs to be after the .vim folder is created
     log_info "linking UltiSnips custom snippets dir"
