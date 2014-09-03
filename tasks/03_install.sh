@@ -102,6 +102,16 @@ function install_run() {
     #     cd -
     # fi
 
+    # install blacksmith
+    if [[ ! "$(type -P blacksmith)" ]]; then
+        log_info "installing blacksmith"
+        cd
+        wget https://github.com/indatus/blacksmith/raw/master/blacksmith.phar
+        mv blacksmith.phar /usr/local/bin/blacksmith
+        sudo chmod +x /usr/local/bin/blacksmith
+        cd -
+    fi
+
     # install bowery
     # if [[ ! "$(type -P bowery)" ]]; then
     #     log_info "installing bowery"
