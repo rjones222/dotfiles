@@ -792,7 +792,9 @@
 
     " crosshairs on parens and such. Much easier to find where you're
     " currently at!
-    Plugin 'chreekat/vim-paren-crosshairs'
+    " removed because on my crappy loaner mac it seems to be slowing things
+    " down
+    " Plugin 'chreekat/vim-paren-crosshairs'
 
     " higlight an interesting word in the doc, in a unique color
     " <leader>1 higlight in first color

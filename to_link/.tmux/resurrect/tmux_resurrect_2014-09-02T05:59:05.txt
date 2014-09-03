@@ -1,0 +1,21 @@
+pane	Work	1	:cfg	1	:*	0	:/Users/mfunk/.dotfiles	1	Vim	:-bash
+pane	Work	1	:cfg	1	:*	1	:/Users/mfunk/.spf13-vim-3/.vim/bundle	0	bash	:-bash
+pane	Work	2	:hrh	0	: 	0	:/Users/mfunk/Sites/acp-hotrodhotline	0	Vim	:-bash
+pane	Work	2	:hrh	0	: 	1	:/Users/mfunk/Sites/acp-hotrodhotline	1	bash	:-bash
+pane	Work	2	:hrh	0	: 	2	:/Users/mfunk/Sites/acp-hotrodhotline	0	node	:-bash
+pane	Work	3	:acp	0	: 	0	:/Users/mfunk/Sites/acp-core	0	Vim	:-bash
+pane	Work	3	:acp	0	: 	1	:/Users/mfunk/Sites/acp-core	1	bash	:-bash
+pane	Work	4	:vm	0	: 	0	:/Users/mfunk/Sites/acp-hotrodhotline	1	bash	:-bash
+pane	Work	5	:vpn	0	: 	0	:/private/etc/ppp	1	bash	:-bash
+pane	Work	6	:int	0	: 	0	:/Users/mfunk/.dotfiles/to_link/.teamocil	1	autossh	:-bash
+pane	Work	7	:solr	0	:-	0	:/Users/mfunk/.dotfiles/to_link/.teamocil	1	autossh	:-bash
+pane	Work	8	:Vim	0	: 	0	:/Users/mfunk/Desktop	1	Vim	:-bash
+window	Work	1	1	:*	04d0,181x43,0,0[181x40,0,0,0,181x2,0,41,1]
+window	Work	2	0	: 	b1bc,181x43,0,0[181x32,0,0,2,181x10,0,33{93x10,0,33,3,87x10,94,33,4}]
+window	Work	3	0	: 	4d64,181x43,0,0[181x32,0,0,5,181x10,0,33,32]
+window	Work	4	0	: 	dcb1,181x43,0,0,22
+window	Work	5	0	: 	5cb0,181x43,0,0,11
+window	Work	6	0	: 	5cb7,181x43,0,0,37
+window	Work	7	0	:-	dcb0,181x43,0,0,40
+window	Work	8	0	: 	dcb1,181x43,0,0,41
+state	Work	

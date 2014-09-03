@@ -21,6 +21,7 @@ alias phpx="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug
 # xdebug and phpunit sitting in a tree
 alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug `which phpunit` -c ./phpunit.xml"
 alias puxf="pux --filter "
+alias pud="phpunit --debug"
 
 # A function I have defined... I keep forgetting - upgrades or updates?
 alias updates="upgrades"

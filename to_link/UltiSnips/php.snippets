@@ -105,14 +105,20 @@ public function __construct(${1/\w+\s*/\u$0/}Interface $$1)
 }
 endsnippet
 
-snippet datapro "PHPUnit Data Provider function"
+snippet dp "PHPUnit Data Provider function"
+
+/**
+ * $1DataProvider
+ *
+ * @return array
+ */
 public function $1DataProvider()
 {
-    return array(
-        array(
+    return [
+        [
             $2
-        ),
-    );
+        ],
+    ];
 }
 endsnippet
 
