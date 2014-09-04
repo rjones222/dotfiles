@@ -191,7 +191,7 @@ function install_run() {
 
     # install pip
     sudo easy_install pip
-    
+
     # install python packages
     if [[ ! "$(type -P pip)" ]]; then
         log_error "pip not installed"
@@ -215,7 +215,7 @@ function install_run() {
             sudo pip install $package
         }
     done
-    
+
     log_info "activating argcomplete"
     activate-global-python-argcomplete
 
