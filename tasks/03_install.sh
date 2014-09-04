@@ -28,7 +28,9 @@ function install_run() {
     localtunnel
     log.io
     phantomjs
+    phpunit-watchr
     tldr
+    watchy
     yo
     )
     for package in "${packages[@]}"

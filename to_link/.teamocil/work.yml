@@ -34,45 +34,45 @@ windows:
     # root: "~/Sites/bustersphp"
     # layout: "main-horizontal"
     # panes:
-      # - commands: 
+      # - commands:
       # - "vim -S ~/.vim/sessions/busters"
         # focus: true
   # - name: "gitolite"
     # root: "~/Sites/gitolite-admin"
     # layout: "main-horizontal"
     # panes:
-      # - commands: 
+      # - commands:
       # - "vim -S ~/.vim/sessions/gitolite"
         # focus: true
-      # - commands: 
+      # - commands:
       # - "cd keydir"
   # - name: "rj"
     # root: "~/Sites/racingjunk"
     # layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
     # panes:
-      # - commands: 
+      # - commands:
       # - "vim -S ~/.vim/sessions/rj"
         # focus: true
-      # - commands: 
+      # - commands:
       # - "git status"
   # - name: "rj-vm"
     # root: "~/vms/mikes_vagrant_box"
     # layout: "main-horizontal"
       # first: "cd ~/vms/rjvagrant; vagrant up"
     # panes:
-      # - commands: 
+      # - commands:
       # - "vagrant ssh -c 'tail -f /var/log/apache2/*log /var/log/mysql/*log /var/log/mysql.err /var/log/mysql.log'"
-      # - commands: 
+      # - commands:
       # - "vim files/rm.sql"
-      # - commands: 
+      # - commands:
       # - "vagrant ssh"
   # - name: "vpn"
     # root: "~"
     # panes:
-      # - commands: 
+      # - commands:
       # - "vpn"
   # - name: "jenkins"
     # root: "~"
     # panes:
-      # - commands: 
+      # - commands:
       # - "ssh -t jenkins 'cd /var/lib/jenkins; bash'"
