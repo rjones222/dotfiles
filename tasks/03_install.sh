@@ -167,6 +167,7 @@ function install_run() {
     kramdown
     mailcatcher
     mysql2xxxx
+    observr
     pre-commit
     puppet
     pygmentize
@@ -174,6 +175,7 @@ function install_run() {
     redcarpet
     rdiscount
     rhc
+    ruby-fsevent
     teamocil
     watch
     )

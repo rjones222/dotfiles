@@ -22,6 +22,8 @@ alias phpx="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug
 alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug `which phpunit` -c ./phpunit.xml"
 alias puxf="pux --filter "
 alias pud="phpunit --debug"
+# phpunit watch
+alias puw="observr ~/.dotfiles/support/observr/phpunit_observr.rb"
 
 # A function I have defined... I keep forgetting - upgrades or updates?
 alias updates="upgrades"

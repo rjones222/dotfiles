@@ -57,7 +57,7 @@ function osx_tasks_run() {
             hub
             imagemagick
             irssi
-            macvim
+            # macvim
             multitail
             mysql
             nodejs
@@ -91,9 +91,14 @@ function osx_tasks_run() {
             done
 
             # link macvim's console vim into /usr/local/bin
-            if [-f /usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim ]; then
-                log_info "linking macvim to console vim"
-                ln -sf /usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim /usr/local/bin/vim
+            # if [-f /usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim ]; then
+                # log_info "linking macvim to console vim"
+                # ln -sf /usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim /usr/local/bin/vim
+            # fi
+
+            if [[ ! "$(type -P mvim)" ]]; then
+                log_info "installing macvim"
+                brew install macvim --with-lua --with-cscope --override-system-vim
             fi
 
             log_info "setting up homebrew mysql to launch now and on startup"

@@ -16,10 +16,11 @@ windows:
       - gulp
   - name: "acp"
     root: "~/Sites/acp-core"
-    layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
     panes:
       - vim -S ~/.vim/sessions/acp
       - pwd
+      - puw
   - name: "vm"
     root: "~/Sites/acp-hotrodhotline"
     layout: "main-horizontal"
