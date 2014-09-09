@@ -480,6 +480,8 @@
         " colorscheme badwolf
     endif
     let g:colorscheme_set = 1
+    set background=light
+    let g:solarized_contrast="normal"
     " let g:lucius_no_term_bg=1
     " solarized stuff I use
     " let g:solarized_termtrans=0
@@ -784,7 +786,8 @@
     " {{{ promptline
 
     " use airline extensions for promptline
-    let g:airline#extensions#promptline#enabled = 1
+    " let g:airline#extensions#promptline#enabled = 1
+    let g:airline#extensions#promptline#enabled = 0
     let g:airline#extensions#promptline#snapshot_file = "~/.dotfiles/to_link/promptline.theme.bash"
     " let airline#extensions#promptline#color_template = 'insert'
     " let airline#extensions#promptline#color_template = 'visual'
@@ -849,7 +852,7 @@
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
-    let g:tagbar_autopreview = 1
+    " let g:tagbar_autopreview = 1
 
     " enable css ctags
     let g:tagbar_type_css = {
@@ -1071,8 +1074,20 @@
             endif
         elseif g:colors_name == 'solarized'
             let g:indent_guides_auto_colors = 0
-            hi IndentGuidesOdd ctermbg=black
-            hi IndentGuidesEven ctermbg=black
+            if &background == 'light'
+                " let g:vim_search_pulse_color_list = [220, 214, 208, 202, 196]
+                " let g:vim_search_pulse_color_list = [214, 214, 214, 214, 214]
+                " let g:vim_search_pulse_color_list = [40, 34, 28, 22, 16]
+                let g:vim_search_pulse_color_list = [220, 214, 214, 214, 214]
+                call search_pulse#initialize()
+                hi IndentGuidesOdd ctermbg=7
+                hi IndentGuidesEven ctermbg=7
+            else
+                let g:vim_search_pulse_color_list = [237, 238, 239, 240, 241]
+                call search_pulse#initialize()
+                hi IndentGuidesOdd ctermbg=black
+                hi IndentGuidesEven ctermbg=black
+            endif
         elseif g:colors_name == 'zenburn' || g:colors_name == 'badwolf'
             let g:indent_guides_auto_colors = 0
             hi IndentGuidesOdd ctermbg=235

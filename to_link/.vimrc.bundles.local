@@ -742,6 +742,10 @@
     " helpful pretty UI addition.
     Plugin 'inside/vim-search-pulse'
 
+    " show all 256 colors and their numbers. useful for assigning colors in
+    " different color schemes.
+    Plugin 'guns/xterm-color-table.vim'
+
     " highlights in bright red any trailing whitespace
     Plugin 'ntpeters/vim-better-whitespace'
 
