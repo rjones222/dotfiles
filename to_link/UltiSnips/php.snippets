@@ -837,7 +837,7 @@ endsnippet
 snippet inte
 <?php
 /**
- * ${1:Description}
+ * $4
  *
  * @package AutoClassifiedsPlatform
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
@@ -1203,4 +1203,169 @@ $expected = '${1:random string}';
 // call and verify
 $actual = $this->${2:listingRepository}->${3:myMethod()};
 $this->assertEquals($expected, $actual);
+endsnippet
+
+snippet cmd "ACP laravel artisan command"
+<?php
+/**
+ * $1
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */`!p snip.rv = namespace(snip, path)`
+use Illuminate\Console\Command;
+use InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Interfaces\\$1Interface;
+
+/**
+ * $1
+ *
+ * @author `!v g:snips_author`
+ */
+class ${1:`!v expand("%:t:r")`} extends Command implements $1Interface
+{
+
+    /**
+     * fire the artisan command
+     *
+     * @return int the exit code
+     */
+    public function fire()
+    {
+        $3
+    }
+
+    /**
+     * Get the console command arguments.
+     * e.g. php artisan mycommand myargument
+     *
+     * @return array
+     */
+    protected function getArguments()
+    {
+        return [
+        ];
+    }
+
+    /**
+     * Get the console command options.
+     * e.g. php artisan mycommand --myargument=999 -n=value
+     *
+     * @return array
+     */
+    protected function getOptions()
+    {
+        return [
+        ];
+    }
+}
+endsnippet
+
+snippet cmdi
+<?php
+/**
+ * $4
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */`!p snip.rv = namespace(snip, path)`
+/**
+ * ${4:`!v expand("%:t:r")`}
+ *
+ * @author `!v g:snips_author`
+ */
+interface $4 $5
+{
+
+    /**
+     * fire the artisan command
+     *
+     * @return int the exit code
+     */
+    public function fire();
+}
+endsnippet
+
+snippet cmdt "ACP laravel command test"
+<?php
+/**
+ * ${1:CommandName} command
+ *
+ * @package AutoClassifiedsPlatform
+ * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ */
+namespace InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Tests;
+
+use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseTest;
+use InternetBrands\AutoClassifiedsPlatform\\$2\Commands\\$1Command;
+use Mockery;
+
+/**
+ * ${8:`!v expand("%:t:r")`}
+ *
+ * @author `!v g:snips_author`
+ */
+class $8 extends BaseRepositoryTest
+{
+
+    /**
+     * fake input
+     *
+     * @var \Symfony\Component\Console\Input\InputInterface
+     */
+    protected $input;
+
+    /**
+     * fake output
+     *
+     * @var \Symfony\Component\Console\Output\OutputInterface
+     */
+    protected $output;
+
+    /**
+     * $1 command instance
+     *
+     * @var $1CommandInterface
+     */
+    protected \$${1/\w+/\l$0/}Command;
+
+    /**
+     * phpunit setup
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+
+        // mock symfony input
+        $ns = 'Symfony\Component\Console\Input\InputInterface';
+        $this->input = Mockery::mock($ns);
+        $this->input->shouldReceive('bind')
+            ->shouldReceive('isInteractive')
+            ->shouldReceive('validate');
+
+        // mock symfony output
+        $ns = 'Symfony\Component\Console\Output\OutputInterface';
+        $this->output = Mockery::mock($ns);
+        $this->output->shouldReceive('writeln');
+
+        // voltron assemble!
+        $this->${1/\w+/\l$0/}Command = new $1Command();
+    }
+
+    /**
+     * test$1Command
+     *
+     * @return void
+     */
+    public function test$1Command()
+    {
+        $5
+        $expected = '${3:random string}';
+
+        // call and verify
+        $actual = $this->$1Command->run($this->input, $this->output);
+        $this->assertEquals($expected, $actual);
+    }
+}
 endsnippet

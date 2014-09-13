@@ -61,7 +61,8 @@
     # pull and update submodules... i hate submodules...
     pup = !git pull --recurse-submodules && git submodule update
     purr = pull --rebase
-    # rebase interactively off of the branch you branched off of
+    rbi = rebase -i
+    # rebase interactively on to the upstream to this branch
     ready = rebase -i @{u}
     rh = reset --hard
     st = status -sb
@@ -154,3 +155,6 @@
     httpd = webrick
 [fetch]
 	prune = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

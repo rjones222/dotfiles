@@ -16,11 +16,20 @@ windows:
       - gulp
   - name: "acp"
     root: "~/Sites/acp-core"
-    layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
+    # layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
+    layout: "main-horizontal"
     panes:
       - vim -S ~/.vim/sessions/acp
       - pwd
-      - puw
+      # - puw
+    - name: "admin"
+      root: "~/Sites/acp-admin"
+      # layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
+      layout: "main-horizontal"
+      panes:
+        - vim -S ~/.vim/sessions/acp-admin
+        - pwd
+        # - puw
   - name: "vm"
     root: "~/Sites/acp-hotrodhotline"
     layout: "main-horizontal"
@@ -30,6 +39,12 @@ windows:
       - commands:
         - tmux rename-session Work
         - exit
+  - name: "standup"
+    root: ~/Documents/standup
+    layout: "main"
+    panes:
+      - vim `date +%F`.markdown
+
   # - name: "bustersphp"
     # root: "~/Sites/bustersphp"
     # layout: "main-horizontal"

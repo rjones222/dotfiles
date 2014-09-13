@@ -29,6 +29,9 @@
         " silent execute WatchForChanges("*",autoreadargs)
     " endif
 
+    " .md is markdown, not modula2
+    au BufNewFile,BufRead *.md  setf markdown
+
     " supposed to speed syntax highlighting
     " set re=1
 
