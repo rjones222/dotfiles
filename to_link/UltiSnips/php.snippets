@@ -1214,14 +1214,15 @@ snippet cmd "ACP laravel artisan command"
  * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Illuminate\Console\Command;
-use InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Interfaces\\$1Interface;
+use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\ArtisanCommandInterface;
 
 /**
  * $1
  *
  * @author `!v g:snips_author`
  */
-class ${1:`!v expand("%:t:r")`} extends Command implements $1Interface
+class ${1:`!v expand("%:t:r")`} extends Command implements
+    ArtisanCommandInterface
 {
 
     /**
@@ -1229,14 +1230,14 @@ class ${1:`!v expand("%:t:r")`} extends Command implements $1Interface
      *
      * @var string
      */
-    protected $name = '$2';
+    protected $name = '$4';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '$3';
+    protected $description = '$5';
 
     /**
      * fire the artisan command
@@ -1245,7 +1246,7 @@ class ${1:`!v expand("%:t:r")`} extends Command implements $1Interface
      */
     public function fire()
     {
-        $4
+        $6
     }
 
     /**
@@ -1271,31 +1272,6 @@ class ${1:`!v expand("%:t:r")`} extends Command implements $1Interface
         return [
         ];
     }
-}
-endsnippet
-
-snippet cmdi
-<?php
-/**
- * $4
- *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
- */`!p snip.rv = namespace(snip, path)`
-/**
- * ${4:`!v expand("%:t:r")`}
- *
- * @author `!v g:snips_author`
- */
-interface $4 $5
-{
-
-    /**
-     * fire the artisan command
-     *
-     * @return int the exit code
-     */
-    public function fire();
 }
 endsnippet
 
@@ -1338,7 +1314,7 @@ class $8 extends BaseRepositoryTest
     /**
      * $1 command instance
      *
-     * @var $1CommandInterface
+     * @var \InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\ArtisanCommandInterface
      */
     protected \$${1/\w+/\l$0/}Command;
 
