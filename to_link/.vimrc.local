@@ -210,7 +210,7 @@
     " disable auto folding
     set nofoldenable
     " and in PIV
-    let g:DisableAutoPHPFolding = 1
+    " let g:DisableAutoPHPFolding = 1
 
     " underline matching words automatically
     " hi WordMatch cterm=underline
@@ -619,6 +619,10 @@
     " out why.
     " highlight phpFunctionsTag cterm=underline gui=underline term=underline
     " highlight phpClassesTag cterm=underline gui=underline term=underline
+    " }}}
+
+    " {{{ vim-fold-expr
+    " let b:phpfold_doc_with_funcs = 0
     " }}}
 
     " {{{ fugitive
@@ -1118,6 +1122,11 @@
     " {{{ vim-instant-markdown
     " turns off auto preview and enables the :InstantMarkdownPreview command
     let g:instant_markdown_autostart = 0
+    " }}}
+
+    " {{{ vim-jira-complete
+    let g:jiracomplete_url = 'http://10.17.37.213/'
+    let g:jiracomplete_username = 'mfunk'
     " }}}
 
     " {{{ vim-jira-open

@@ -365,6 +365,9 @@
     " <leader>jo
     Plugin 'markabe/vim-jira-open'
 
+    " autocomplete jira task numbers
+    Plugin 'mnpk/vim-jira-complete'
+
     " smart search, replace, abbreviation fixer
     " :%S/mixed_case_thing/other_thing/g replaces MixedCaseThing in context as
     " well. Also camel-case, etc.
@@ -543,6 +546,9 @@
     " <leader>f[number] set the fold level to this number
     " zR open all folds
     " Plugin 'rayburgemeestre/phpfolding.vim'
+
+    " customizable php folding
+    Plugin 'swekaj/php-foldexpr.vim'
 
     " share registers across vim installations
     " sets the updatetime to 200ms. bad.

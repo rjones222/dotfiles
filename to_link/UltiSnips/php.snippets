@@ -791,11 +791,11 @@ snippet meth "php method"
 /**
  * ${1:Description}
  *
- * @return ${4:void}
+ * @return ${2:void}
  */
-public function ${2:functionname}(${3})
+${3:public} function ${4:functionname}(${5})
 {
-    $5
+    $6
 }
 endsnippet
 
@@ -1225,13 +1225,27 @@ class ${1:`!v expand("%:t:r")`} extends Command implements $1Interface
 {
 
     /**
+     * The console command name.
+     *
+     * @var string
+     */
+    protected $name = '$2';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = '$3';
+
+    /**
      * fire the artisan command
      *
      * @return int the exit code
      */
     public function fire()
     {
-        $3
+        $4
     }
 
     /**
