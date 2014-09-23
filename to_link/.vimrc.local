@@ -82,6 +82,7 @@
 
     " ag.vim equivalent with :grep searchterm
     set grepprg=ag\ --nocolor\ --nogroup\ --silent.
+    " set grepprg=grep -nH
 
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
