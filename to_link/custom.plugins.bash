@@ -93,15 +93,19 @@ upgrades() {
     group 'custom'
 
     echo "Upgrading everything!"
-    sudo echo ""
-    brew update
-    brew upgrade
-    composer global update
     sudo pear upgrade
     sudo gem update
     sudo npm update -g
+    brew update
+    brew upgrade
+    composer global update
     composer self-update
     php-cs-fixer self-update
+    cd ~/.bash_it
+    git pull
+    cd ~/.spf13-vim-3
+    git pull
+    cd ~
 }
 
 whitespace() {
