@@ -1068,48 +1068,51 @@
     " define a function to change the indent guide color highlights based
     " on background color
     function! SetIndentGuideColors()
-        if g:colors_name == 'lucius'
-            let g:indent_guides_auto_colors = 0
-            if &background == 'light'
-                hi IndentGuidesOdd ctermbg=7
-                hi IndentGuidesEven ctermbg=7
-            else
-                " lighter than even
-                hi IndentGuidesOdd ctermbg=238
-                " slightly darker than bg variant
-                " hi IndentGuidesOdd ctermbg=235
+        " none of this stuff works if gui is running
+        if !has('gui_running')
+            if g:colors_name == 'lucius'
+                let g:indent_guides_auto_colors = 0
+                if &background == 'light'
+                    hi IndentGuidesOdd ctermbg=7
+                    hi IndentGuidesEven ctermbg=7
+                else
+                    " lighter than even
+                    hi IndentGuidesOdd ctermbg=238
+                    " slightly darker than bg variant
+                    " hi IndentGuidesOdd ctermbg=235
+                    hi IndentGuidesEven ctermbg=237
+                endif
+            elseif g:colors_name == 'solarized'
+                let g:indent_guides_auto_colors = 0
+                if &background == 'light'
+                    " let g:vim_search_pulse_color_list = [220, 214, 208, 202, 196]
+                    " let g:vim_search_pulse_color_list = [214, 214, 214, 214, 214]
+                    " let g:vim_search_pulse_color_list = [40, 34, 28, 22, 16]
+                    let g:vim_search_pulse_color_list = [220, 214, 214, 214, 214]
+                    call search_pulse#initialize()
+                    hi IndentGuidesOdd ctermbg=7
+                    hi IndentGuidesEven ctermbg=7
+                else
+                    let g:vim_search_pulse_color_list = [237, 238, 239, 240, 241]
+                    call search_pulse#initialize()
+                    hi IndentGuidesOdd ctermbg=black
+                    hi IndentGuidesEven ctermbg=black
+                endif
+            elseif g:colors_name == 'zenburn' || g:colors_name == 'badwolf'
+                let g:indent_guides_auto_colors = 0
+                hi IndentGuidesOdd ctermbg=235
+                hi IndentGuidesEven ctermbg=236
+            elseif g:colors_name == 'iceberg' || g:colors_name == 'hybrid' || g:colors_name == 'jellybeans'
+                let g:indent_guides_auto_colors = 0
+                hi IndentGuidesOdd ctermbg=236
                 hi IndentGuidesEven ctermbg=237
-            endif
-        elseif g:colors_name == 'solarized'
-            let g:indent_guides_auto_colors = 0
-            if &background == 'light'
-                " let g:vim_search_pulse_color_list = [220, 214, 208, 202, 196]
-                " let g:vim_search_pulse_color_list = [214, 214, 214, 214, 214]
-                " let g:vim_search_pulse_color_list = [40, 34, 28, 22, 16]
-                let g:vim_search_pulse_color_list = [220, 214, 214, 214, 214]
-                call search_pulse#initialize()
-                hi IndentGuidesOdd ctermbg=7
-                hi IndentGuidesEven ctermbg=7
-            else
-                let g:vim_search_pulse_color_list = [237, 238, 239, 240, 241]
-                call search_pulse#initialize()
+            elseif g:colors_name == 'hickop'
+                let g:indent_guides_auto_colors = 0
                 hi IndentGuidesOdd ctermbg=black
-                hi IndentGuidesEven ctermbg=black
+                hi IndentGuidesEven ctermbg=237
+            else
+                let g:indent_guides_auto_colors = 1
             endif
-        elseif g:colors_name == 'zenburn' || g:colors_name == 'badwolf'
-            let g:indent_guides_auto_colors = 0
-            hi IndentGuidesOdd ctermbg=235
-            hi IndentGuidesEven ctermbg=236
-        elseif g:colors_name == 'iceberg' || g:colors_name == 'hybrid' || g:colors_name == 'jellybeans'
-            let g:indent_guides_auto_colors = 0
-            hi IndentGuidesOdd ctermbg=236
-            hi IndentGuidesEven ctermbg=237
-        elseif g:colors_name == 'hickop'
-            let g:indent_guides_auto_colors = 0
-            hi IndentGuidesOdd ctermbg=black
-            hi IndentGuidesEven ctermbg=237
-        else
-            let g:indent_guides_auto_colors = 1
         endif
     endfunction
 
