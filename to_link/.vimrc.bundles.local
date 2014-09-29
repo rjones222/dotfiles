@@ -858,4 +858,7 @@
     " make changes in the quickfix window, save, and your changes are made in
     " the original files! Awesome when paired with :Ag!
     Plugin 'stefandtw/quickfix-reflector.vim'
+
+    " rogue in vim? sure why not
+    Plugin 'katono/rogue.vim'
 " }}}

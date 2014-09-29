@@ -15,7 +15,6 @@ function install_run() {
     log_info "Installing npm Packages"
     # yo includes grunt and bower
     packages=(
-    coffeelint
     coffee-script
     csslint
     git-guilt
@@ -30,7 +29,6 @@ function install_run() {
     phantomjs
     phpunit-watchr
     tldr
-    watchy
     yo
     )
     for package in "${packages[@]}"
@@ -70,6 +68,12 @@ function install_run() {
         sudo chmod +x composer
         cd -
     fi
+
+    # install latest adminer
+    log_info "Installing latest adminer"
+    mkdir -p "$HOME/sites/adminer"
+    cd "$HOME/sites/adminer"
+    wget -q -O index.php http://www.adminer.org/latest-mysql-en.php
 
     # composer global install
     link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"

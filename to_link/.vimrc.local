@@ -1278,7 +1278,8 @@
     " {{{ youcompleteme
     " open preview window while completing
     let g:ycm_add_preview_to_completeopt=1
-    " let g:ycm_auto_trigger=0
+    " disable youcompleteme
+    let g:ycm_auto_trigger=0
     " let g:ycm_allow_changing_updatetime=0
     let g:ycm_seed_identifiers_with_syntax = 1
     " doesn't work but up arrow does
