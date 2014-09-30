@@ -864,6 +864,26 @@ snippet va "var with docblock"
 protected ${3:$myvar};
 endsnippet
 
+snippet iva "var with docblock implementing an interface"
+
+/**
+ * ${1/\w+\s*/\u$0/} instance
+ *
+ * @var ${1/\w+\s*/\u$0/}Interface $${1:varName}
+ */
+protected $$1;
+endsnippet
+
+* dependency injection
+*
+* @param ${1/\w+\s*/\u$0/}Interface $$1
+* @return void
+*/
+public function __construct(${1/\w+\s*/\u$0/}Interface $$1)
+
+
+
+
 snippet cst "constant with docblock"
 
 /**
