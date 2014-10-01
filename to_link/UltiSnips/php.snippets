@@ -874,15 +874,13 @@ snippet iva "var with docblock implementing an interface"
 protected $$1;
 endsnippet
 
-* dependency injection
-*
-* @param ${1/\w+\s*/\u$0/}Interface $$1
-* @return void
-*/
-public function __construct(${1/\w+\s*/\u$0/}Interface $$1)
+snippet mva "assign mock to instance variable"
 
-
-
+// inject fake $3
+$ns = 'InternetBrands\AutoClassifiedsPlatform\\${1:Listing}\\${2:Repositories}'
+    . '\\${3:MyClassName}';
+$this->${3/\w+/\l$0/} = Mockery::mock($ns);
+endsnippet
 
 snippet cst "constant with docblock"
 
@@ -1306,6 +1304,7 @@ snippet cmdt "ACP laravel command test"
  */
 namespace InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Tests;
 
+use App;
 use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseTest;
 use InternetBrands\AutoClassifiedsPlatform\\$2\Commands\\$1Command;
 use Mockery;
@@ -1362,6 +1361,9 @@ class $8 extends BaseTest
 
         // voltron assemble!
         $this->${1/\w+/\l$0/}Command = new $1Command();
+        // $ns = 'InternetBrands\AutoClassifiedsPlatform\\$2'
+        // . '\Commands\\$1Command';
+        // $this->${1/\w+/\l$0/}Command = App::make($ns);
     }
 
     /**
