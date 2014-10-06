@@ -15,8 +15,10 @@ function install_run() {
     log_info "Installing npm Packages"
     # yo includes grunt and bower
     packages=(
+    coffeelint
     coffee-script
     csslint
+    fixmyjs
     git-guilt
     gulp
     gulp-watch
@@ -175,6 +177,7 @@ function install_run() {
     mysql2xxxx
     # observr
     pre-commit
+    # pre-commit-php
     puppet
     pygmentize
     pygments.rb

@@ -690,6 +690,8 @@
     " Plugin 'jonathanfilip/vim-lucius'
     Plugin 'MarioRicalde/vim-lucius'
     " Plugin 'noah/vim256-color'
+    " Plugin 'whatyouhide/vim-gotham'
+    Plugin 'scottchiefbaker/vim-gotham'
 
     " unicode character metadata with ga
     " I don't really need this
@@ -861,4 +863,7 @@
 
     " rogue in vim? sure why not
     Plugin 'katono/rogue.vim'
+
+    " syntax highlighting for twig templates
+    Plugin 'beyondwords/vim-twig'
 " }}}

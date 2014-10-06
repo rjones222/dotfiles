@@ -874,6 +874,13 @@ snippet iva "var with docblock implementing an interface"
 protected $$1;
 endsnippet
 
+snippet srs "shouldReceive something andReturnSelf"
+->shouldReceive('$1')
+->once()
+->with($2)
+->andReturnSelf()
+endsnippet
+
 snippet mva "assign mock to instance variable"
 
 // inject fake $3
@@ -1381,6 +1388,28 @@ class $8 extends BaseTest
         $this->assertEquals($expected, $actual);
     }
 }
+endsnippet
+
+snippet dpa "docblock part of param with matching interface"
+@param ${1:ImageRepository}Interface $${1/\w+/\l$0/}
+endsnippet
+
+snippet mpa "method parameter input for typehinted class with matching interface"
+${1:Whatever}Interface $${1/\w+/\l$0/},
+endsnippet
+
+snippet apa "assign parameter to class variable"
+$this->${1:whatever} = $$1;
+endsnippet
+
+snippet rcmd "Register an artisan command in the service provider"
+// register $1 command
+$this->app->bind(
+    '${1:listing.import}',
+    'InternetBrands\AutoClassifiedsPlatform\\${2:Listing}\Commands'
+    . '\\${3:ListingImport}Command'
+);
+$this->commands('$1');
 endsnippet
 
 snippet ibap "InternetBrands\AutoClassifiedsPlatform"
