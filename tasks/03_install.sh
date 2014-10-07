@@ -77,6 +77,14 @@ function install_run() {
     cd "$HOME/sites/adminer"
     wget -q -O index.php http://www.adminer.org/latest-mysql-en.php
 
+    # install latest dbninja only if it's not installed
+    if [[ ! -d $HOME/sites/dbninja ]]; then
+        log_info "Installing latest dbninja"
+        cd $HOME/sites
+        wget -q -O dbninja.tar.gz http://dbninja.com/download/dbninja.tar.gz
+        gtar -zxvf dbninja.tar.gz --overwrite
+    fi
+
     # composer global install
     link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
     composer global install
