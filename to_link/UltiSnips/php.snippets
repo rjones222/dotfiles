@@ -304,6 +304,13 @@ interface `!v expand("%:t:r")` extends EloquentRepositoryInterface
 }
 endsnippet
 
+snippet asp "Add service providers to orchestra testbench"
+$newProviders = [
+    'InternetBrands\AutoClassifiedsPlatform\\${1:PackageName}\\${2:Whatever}ServiceProvider',
+];
+$this->addServiceProviders($newProviders);
+endsnippet
+
 snippet rpst "ACP laravel repository test"
 <?php
 /**
@@ -617,6 +624,12 @@ class `!v expand("%:t:r")` extends BaseControllerTest
         );
     }
     $3
+}
+endsnippet
+
+snippet fe "php foreach as"
+foreach ($$1s as $${1:thing}) {
+    $2
 }
 endsnippet
 
@@ -1214,11 +1227,11 @@ if ($1) {
 }
 endsnippet
 
-snippet fe "php foreach"
-foreach ($1) {
-    $2
-}
-endsnippet
+# snippet fe "php foreach"
+# foreach ($1) {
+    # $2
+# }
+# endsnippet
 
 snippet asn "assign variable to instance variable"
 $this->${1:listingModel} = \$$1;
@@ -1386,7 +1399,7 @@ class $8 extends BaseTest
         $expected = '${3:random string}';
 
         // call and verify
-        $actual = $this->$1Command->run($this->input, $this->output);
+        $actual = $this->\$${1/\w+/\l$0/}Command->run($this->input, $this->output);
         $this->assertEquals($expected, $actual);
     }
 }

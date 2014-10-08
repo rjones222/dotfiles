@@ -866,4 +866,7 @@
 
     " syntax highlighting for twig templates
     Plugin 'beyondwords/vim-twig'
+
+    " sublime-style minimap. Not working yet.
+    " Plugin 'severin-lemaignan/vim-minimap'
 " }}}
