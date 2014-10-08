@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+log_info "Beginning symlinks install script"
 
 link_this "$HOME/.dotfiles/to_link/.gitconfig" "$HOME/.gitconfig"
 link_this "$HOME/.dotfiles/to_link/.gitignore" "$HOME/.gitignore"
@@ -23,13 +24,12 @@ link_this "$HOME/.dotfiles/to_link/vimrc/.vimrc" "$HOME/.vimrc"
 
 link_this "$HOME/.dotfiles/to_link/.teamocil" "$HOME/.teamocil"
 link_this "/var/www/sites" "$HOME/Sites"
+# this will only exist on mac
 link_this "/Library/WebServer/Documents" "$HOME/Sites"
-link_this "$HOME/.dotfiles/to_link/adminer" "$HOME/Sites/adminer"
 
-link_this "$HOME/.dotfiles/to_link/webgrind" "$HOME/Sites/webgrind"
 link_this "$HOME/.dotfiles/to_link/.jshintrc" "$HOME/.jshintrc"
-link_this "$HOME/.dotfiles/to_link/.ngrok" "$HOME/.ngrok"
 link_this "$HOME/.dotfiles/to_link/.virtualhost.sh.conf" "$HOME/.virtualhost.sh.conf"
+link_this "$HOME/.dotfiles/to_link/.tmux" "$HOME/.tmux"
 
 link_this "$HOME/.dotfiles/bin" "$HOME/.bin"
 sudo chmod a+x ~/.bin/*
@@ -37,11 +37,12 @@ link_this "$HOME/.dotfiles/to_link/.bashrc" "$HOME/.bashrc"
 link_this "$HOME/.dotfiles/to_link/.git_template" "$HOME/.git_template"
 sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
 
+# try to link my php.ini in the right place... anywhere else it might be?
 link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/etc/php5/apache2/conf.d/999-my-php.ini"
-link_this "$HOME/.dotfiles/to_link/999-my-httpd.conf" "/etc/apache2/other/999-my-httpd.conf"
-link_this "$HOME/.dotfiles/to_link/999-my-httpd.conf" "/etc/apache2/conf-available/999-my-httpd.conf"
-link_this "$HOME/.dotfiles/to_link/999-my-httpd.conf" "/etc/apache2/conf-enabled/999-my-httpd.conf"
 
-link_this "$HOME/.dotfiles/to_link/.tmux" "$HOME/.tmux"
+# try to add some more bash completions somewhere
 link_this "$HOME/.dotfiles/to_link/bash_completion/misc.bash" "/usr/local/etc/bash_completion.d/misc.bash"
+link_this "$HOME/.dotfiles/to_link/bash_completion.d/misc.bash" "/etc/bash_completion.d/misc.bash"
+
+log_info "End symlinks install script"

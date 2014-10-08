@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+log_info "Installing Mike Funk's dotfiles"
 
 # create this if it doesn't exist - we'll need it later.
 if [[ ! -d "/usr/local/bin" ]]; then
@@ -47,3 +48,5 @@ for f in ~/.dotfiles/install/support/*; do source $f; done
 
 # now source install scripts. These should run in alphanumeric order.
 for f in ~/.dotfiles/install/*; do source $f; done
+
+log_info "Installation complete!"

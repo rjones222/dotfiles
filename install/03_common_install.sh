@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+log_info "Beginning common install script"
 
 # install npm packages
 if [[ ! "$(type -P npm)" ]]; then
@@ -142,3 +143,5 @@ if [[ ! -f "$HOME/.tmux/plugins/tpm" ]]; then
     log_info "installing tmux plugin manager"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+log_info "End common install script"

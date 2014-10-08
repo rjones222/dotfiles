@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+log_info "Beginning linux install script"
 
 # Linux only
 if [[ "$(type -P apt-get)" ]]; then
@@ -182,3 +183,5 @@ if [[ "$(type -P apt-get)" ]]; then
 else
     log_error "This is not linux so not running linux tasks"
 fi
+
+log_info "End linux install script"

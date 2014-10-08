@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+log_info "Beginning mac install script"
 
 # OSX-only stuff. Abort if not OSX.
 if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -154,3 +155,5 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 else
     log_error "This is not OSX so not running osx tasks"
 fi
+
+log_info "End mac install script"
