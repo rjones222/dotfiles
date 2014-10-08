@@ -1,4 +1,0 @@
-# A screen based TERMINFO that adds the escape sequences for italic.
-screen-italic|screen with italic,
-  sitm=\E[3m, ritm=\E[23m,
-  use=screen,
