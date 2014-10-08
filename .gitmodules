@@ -16,3 +16,6 @@
 [submodule "support/osx-terminal.app-colors-solarized"]
 	path = support/osx-terminal.app-colors-solarized
 	url = https://github.com/tomislav/osx-terminal.app-colors-solarized.git
+[submodule "support/powerline-fonts"]
+	path = support/powerline-fonts
+	url = https://github.com/Lokaltog/powerline-fonts.git
