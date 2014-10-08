@@ -42,10 +42,8 @@ else
     git submodule update --init --recursive --quiet
 fi
 
-if [[ ! -f ~/.dotfiles/support/bash-installer-framework/install.sh ]]; then
-    echo 'ERROR: bash installer framework not installed!'
-    exit 1
-fi
+# source installer support files
+for f in ~/.dotfiles/install/support/*; do source $f; done
 
-# source bash-installer-framework installer
-~/.dotfiles/support/bif_install.sh
+# now source install scripts. These should run in alphanumeric order.
+for f in ~/.dotfiles/install/*; do source $f; done

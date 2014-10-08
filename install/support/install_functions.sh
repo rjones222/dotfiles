@@ -30,3 +30,24 @@ function link_this() {
     log_info "linking $1 to $2"
     sudo ln -s $1 $2
 }
+
+# display a success message
+function log_info() {
+    echo "$Green----------------------"
+    echo "$1"
+    echo "----------------------$Color_Off"
+}
+
+# display a error message
+function log_error() {
+    echo "$Red----------------------"
+    echo "$1"
+    echo "----------------------$Color_Off"
+}
+
+# display a yellow notice message
+function log_notice() {
+    echo "$Yellow----------------------"
+    echo "$1"
+    echo "----------------------$Color_Off"
+}
