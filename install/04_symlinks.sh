@@ -49,6 +49,11 @@ link_this "$HOME/.dotfiles/to_link/.tmux" "$HOME/.tmux"
 
 link_this "$HOME/.dotfiles/to_link/bash/.bashrc" "$HOME/.bashrc"
 link_this "$HOME/.dotfiles/to_link/bash/.bash_profile" "$HOME/.bash_profile"
+link_this "$HOME/.dotfiles/to_link/bash/.bash_aliases" "$HOME/.bash_aliases"
+link_this "$HOME/.dotfiles/to_link/bash/.bash_functions" "$HOME/.bash_functions"
+link_this "$HOME/.dotfiles/to_link/bash/.bash_paths" "$HOME/.bash_paths"
+link_this "$HOME/.dotfiles/to_link/bash/.bash_env" "$HOME/.bash_env"
+
 link_this "$HOME/.dotfiles/to_link/.git_template" "$HOME/.git_template"
 sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
 

@@ -1,0 +1,39 @@
+#!/usr/env/bin bash
+
+# Modeline and Notes {{{
+# vim: set sw=4 ts=4 sts=4 et tw=78 foldmethod=marker:
+#
+#  ___  ____ _         ______           _
+#  |  \/  (_) |        |  ___|         | |
+#  | .  . |_| | _____  | |_ _   _ _ __ | | __
+#  | |\/| | | |/ / _ \ |  _| | | | '_ \| |/ /
+#  | |  | | |   <  __/ | | | |_| | | | |   <
+#  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
+#
+# bash env vars
+# more info at http://mikefunk.com
+# }}}
+
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+export CLICOLOR=1
+
+if [[ "$(type -p mvim)" ]]; then
+    export EDITOR="$(which mvim) -vp"
+else
+    export EDITOR="$(which vim) -p"
+fi
+
+export HOMEBREW_GITHUB_API_TOKEN='14421939804382280abaad5535d4434da567fe15'
+
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
+
+# use lessfilter for less (colorize less with pygmentize)
+export LESS='-R'
+export LESSOPEN='|pygmentize -g %s'
+
+# stupid phpcomplete-extended  can't find this
+export DOMPDF_LIB_DIR="$HOME/.composer/vendor/dompdf/dompdf/lib"
+
+# for autossh
+export AUTOSSH_PORT=0

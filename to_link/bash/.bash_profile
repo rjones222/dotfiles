@@ -1,5 +1,21 @@
 #!/usr/env/bin bash
 
-source ~/.dotfiles/support/bashrc/.bash_paths
-source ~/.dotfiles/support/bashrc/.bash_aliases
-source ~/.dotfiles/support/bashrc/.bash_functions
+# Modeline and Notes {{{
+# vim: set sw=4 ts=4 sts=4 et tw=78 foldmethod=marker:
+#
+#  ___  ____ _         ______           _
+#  |  \/  (_) |        |  ___|         | |
+#  | .  . |_| | _____  | |_ _   _ _ __ | | __
+#  | |\/| | | |/ / _ \ |  _| | | | '_ \| |/ /
+#  | |  | | |   <  __/ | | | |_| | | | |   <
+#  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
+#
+# bash aliases
+# more info at http://mikefunk.com
+# }}}
+
+source ~/.bash_env
+source ~/.bash_paths
+source ~/.bash_aliases
+source ~/.bash_functions
+source ~/.promptlinetheme.bash
