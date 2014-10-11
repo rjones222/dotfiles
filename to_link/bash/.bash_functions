@@ -96,7 +96,6 @@ function git_revert() {
   git commit -m "Revert to ${1}"
   git reset --hard
 }
-}
 
 function git_rollback() {
   # about 'resets the current HEAD to this commit'

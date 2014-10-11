@@ -18,4 +18,7 @@ source ~/.bash_env
 source ~/.bash_paths
 source ~/.bash_aliases
 source ~/.bash_functions
-source ~/.promptlinetheme.bash
+source ~/.promptline.theme.bash
+
+# source bash completions
+for f in ~/.dotfiles/to_link/bash_completion.d/*; do source $f; done

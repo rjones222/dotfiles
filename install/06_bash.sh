@@ -11,7 +11,7 @@ link_this "$HOME/.dotfiles/to_link/bash/.bash_env" "$HOME/.bash_env"
 link_this "$HOME/.dotfiles/to_link/promptline.theme.bash" "$HOME/.promptline.theme.bash"
 
 # try to add some more bash completions somewhere
-link_this "$HOME/.dotfiles/to_link/bash_completion/misc.bash" "/usr/local/etc/bash_completion.d/misc.bash"
-link_this "$HOME/.dotfiles/to_link/bash_completion.d/misc.bash" "/etc/bash_completion.d/misc.bash"
+# link_this "$HOME/.dotfiles/to_link/bash_completion/misc.bash" "/usr/local/etc/bash_completion.d/misc.bash"
+# link_this "$HOME/.dotfiles/to_link/bash_completion.d/misc.bash" "/etc/bash_completion.d/misc.bash"
 
 log_info "End bash install script"

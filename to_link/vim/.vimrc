@@ -17,6 +17,7 @@
 " Environment {{{
 
     " Identify platform {{{
+        set nocompatible        " Must be first line
         silent function! OSX()
             return has('macunix')
         endfunction
@@ -29,7 +30,6 @@
     " }}}
 
     " Basics {{{
-        set nocompatible        " Must be first line
         if !WINDOWS()
             set shell=/bin/sh
         endif
@@ -46,7 +46,7 @@
 " }}}
 
 " Use plugins config {{{
-    if filereadable(expand("~/..vimrc.plugins"))
+    if filereadable(expand("~/.vimrc.plugins"))
         source ~/.vimrc.plugins
     endif
 " }}}
