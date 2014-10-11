@@ -1,0 +1,869 @@
+" Modeline and Notes {{{
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmethod=marker:
+"
+"  ___  ____ _         ______           _
+"  |  \/  (_) |        |  ___|         | |
+"  | .  . |_| | _____  | |_ _   _ _ __ | | __
+"  | |\/| | | |/ / _ \ |  _| | | | '_ \| |/ /
+"  | |  | | |   <  __/ | | | |_| | | | |   <
+"  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
+"
+" vim plugins, finally free of spf13-vim!
+" more info at http://mikefunk.com
+" }}}
+
+" Vim-plug setup {{{
+call plug#begin('~/.vim/plugged')
+" }}}
+
+" from spf13-vim {{{
+
+" General {{{
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'spf13/vim-autoclose'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/sessionman.vim'
+Plug 'matchit.zip'
+Plug 'bling/vim-airline'
+Plug 'bling/vim-bufferline'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'mbbill/undotree'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-scripts/restore_view.vim'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-abolish.git'
+Plug 'osyo-manga/vim-over'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'gcmt/wildfire.vim'
+" }}}
+
+" General Programming {{{
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'scrooloose/nerdcommenter'
+" Plug 'tpope/vim-commentary'
+Plug 'godlygeek/tabular'
+if executable('ctags')
+    Plug 'majutsushi/tagbar'
+endif
+" }}}
+
+" YouCompleteMe {{{
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+" }}}
+
+" Python {{{
+Plug 'klen/python-mode'
+Plug 'yssource/python.vim'
+Plug 'python_match.vim'
+Plug 'pythoncomplete'
+" }}}
+
+" JavaScript {{{
+Plug 'elzr/vim-json'
+Plug 'groenewege/vim-less'
+Plug 'pangloss/vim-javascript'
+Plug 'briancollins/vim-jst'
+Plug 'kchmck/vim-coffee-script'
+" }}}
+
+" HTML {{{
+Plug 'amirh/HTML-AutoCloseTag'
+Plug 'hail2u/vim-css3-syntax'
+" }}}
+
+" Ruby {{{
+Plug 'tpope/vim-rails'
+let g:rubycomplete_buffer_loading = 1
+" }}}
+
+" Puppet {{{
+Plug 'rodjek/vim-puppet'
+" }}}
+
+" Go {{{
+Plug 'fatih/vim-go'
+" }}}
+
+" Misc {{{
+Plug 'tpope/vim-markdown'
+" }}}
+
+" }}}
+
+" not from spf13-vim {{{
+
+" colorize css colors without causing $VIMRC reload problems
+" Plug 'ap/vim-css-color'
+Plug 'chrisbra/Colorizer'
+
+" the only misc bundles I use
+" (spf13-vim puts these in there anyway)
+" syntax highlighting for markdown and puppet
+" Plug 'tpope/vim-markdown'
+" Plug 'Puppet-Syntax-Highlighting'
+
+" different fork of solarized that fixes stuff
+" Plug 'blueyed/vim-colors-solarized'
+Plug 'https://github.com/jwhitley/vim-colors-solarized.git'
+
+" different fork of ctrlp that accepts pull requests
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+
+" easy way to scroll through color schemes
+" Turned off until I need it
+" Plug 'vim-scripts/ScrollColors'
+
+" Gitk clone in vim. ,gv and ,gV to view, <cr> to view commits in a
+" split or view diffs.
+" I might remove this... I don't use it
+Plug 'gregsexton/gitv'
+
+" adds more text objects such as in' and ip' (in next and in previous ' )
+Plug 'wellle/targets.vim'
+
+" swap blocks of code with cx (c then x) example: cxiw to mark a word,
+" then go to another word and cxiw. The words will swap. Very exciting.
+Plug 'tommcdo/vim-exchange'
+
+" Look up a github issue with :Gissues . You can also autocomplete issues
+" in fugitive window by typing #[issue number]<c-space>.
+" I don't use it at the moment
+" Plug 'jaxbot/github-issues.vim'
+"
+" Fugitive extension to show branch list and stuff.
+" R Refresh the buffer list.
+" C/cc Checkout the branch under the cursor.
+" A/aa Create a new branch from the currently checked out branch. You'll be prompted to enter a name for the new branch.
+" D/dd Delete the branch under the cursor.
+" M/mm Merge the branch under the cursor into the currently checked out branch. If there are merge conflicts, the merge conflicts buffer will open in place of the branch list buffer.
+" mf Merge the branch under the cursor into the currently checked out branch using Fugitive's :Gmerge command.
+" rb Rebase the currently checked out branch against the branch under the cursor. If there are rebase conflicts, the rebase conflicts buffer will open in place of the branch list buffer.
+" ps Prompt to choose a remote to push the branch under the cursor.
+" pl Prompt to choose a remote to pull the branch under the cursor.
+" pf Prompt to choose a remote to fetch the branch under the cursor.
+" gd Diff against the branch under the cursor.
+Plug 'idanarye/vim-merginal'
+
+" Laravel Blade Syntax Highlighting
+Plug 'xsbeats/vim-blade'
+
+" highlight matches for word, current line, etc.
+" doesn't work after switching to light mode or resourcing vimrc
+"<c-h><c-h> to sticy highlight a selection. <c-h><c-n> to remove all
+" highlights.
+" I just don't use this. It also doesn't do much in Lucius.
+" Plug 'vim-scripts/highlight.vim'
+
+" check what highlights are on the current line with :HLT! and :HLTm to
+" disable. Useful for debugging highlight groups
+" Plug 'kergoth/vim-hilinks'
+
+" adds extra intuitive keyboard shortcuts
+" *[a*     |:previous|
+" *]a*     |:next|
+" *[A*     |:first|
+" *]A*     |:last|
+" *[b*     |:bprevious|
+" *]b*     |:bnext|
+" *[B*     |:bfirst|
+" *]B*     |:blast|
+" *[l*     |:lprevious|
+" *]l*     |:lnext|
+" *[L*     |:lfirst|
+" *]L*     |:llast|
+" *[<C-L>* |:lpfile|
+" *]<C-L>* |:lnfile|
+" *[q*     |:cprevious|
+" *]q*     |:cnext|
+" *[Q*     |:cfirst|
+" *]Q*     |:clast|
+" *[<C-Q>* |:cpfile| (Note that <C-Q> only works in a terminal if you disable
+" *]<C-Q>* |:cnfile| flow control: stty -ixon)
+" *[t*     |:tprevious|
+" *]t*     |:tnext|
+" *[T*     |:tfirst|
+" *]T*     |:tlast|
+Plug 'tpope/vim-unimpaired'
+
+" xdebug integration
+" Run <F5>
+" Step over <F2>
+" Step in <F3>
+" Step out <F4>
+" Run to cursor <F9>
+" Detach <F7>
+" Stop/close <F6>
+" :VdebugEval <code>
+Plug 'joonty/vdebug'
+
+" :BD to load previous buffer in current window
+" :BB and :BF to move backwards and forwards in buffer history of current
+" window
+" :BUN to unload a buffer without closing window
+" :BW to wipe a buffer without closing window
+" I don't use it
+" Plug 'vim-scripts/bufkill.vim'
+
+" zen coding / emmett integration
+" div#page>div.logo+ul#navigation>li*5>a<c-y>, to get html
+" <c-y>n and <c-y>N to go to next and previous insert points
+Plug 'mattn/emmet-vim'
+
+" create tmux window with a command from vim
+" nnoremap <leader>vp :VimuxPromptCommand<cr>
+" nnoremap <leader>vc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+" nnoremap <leader>vl :VimuxRunLastCommand<cr>
+" nnoremap <leader>vr :VimuxRunLastCommand<cr>
+" nnoremap <leader>vi :VimuxInspectRunner<cr>
+" nnoremap <leader>vx :VimuxCloseRunner<cr>
+"
+" nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
+" nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
+" nnoremap <leader>pp :VimuxRunLastCommand<cr>
+Plug 'benmills/vimux'
+
+" much better than snipmate or neosnippet
+" :UltiSnipsEdit to edit the snippets file for the current file type
+" YouCompleteMe will autocomplete your snippets. <c-j> to complete.
+" spf13-vim already includes this with YouCompleteMe
+" Plug 'SirVer/ultisnips'
+
+" instant markdown preview
+" :InstantMarkdownPreview to enable as-you-type preview for markdown files
+Plug 'suan/vim-instant-markdown'
+
+" reopen closed window, mapping in .vimrc.local
+" nnoremap <leader>uc :UcwRestoreWindow<cr>
+Plug 'tyru/undoclosewin.vim'
+
+" a github dashboard in vim? Let's see how I like it...
+" :GHD to see dashboard
+" answer: why? web is better.
+" Plug 'junegunn/vim-github-dashboard'
+
+" vim-autoclose causes problems with youcompleteme, it says use this instead
+" automatically closes [], (), '', etc.
+" This breaks <s-tab> in youcompleteme
+" Plug 'Raimondi/delimitMate'
+
+" Similar to emmett but also can autoclose
+" <c-x>/ close latest html tag
+" Not really that useful for php
+" Plug 'tpope/vim-ragtag'
+
+" Set background to light or dark automatically at sunrise/sunset
+" Plug 'amdt/sunset'
+
+" use c-n and c-p to complete from your buffers in search or command mode
+Plug 'vim-scripts/CmdlineComplete'
+
+" Add some unix stuff like :Chmod, :Unlink, etc.
+" :Unlink[!]
+" :Remove[!]
+" :Move[!] {file}
+" :Rename[!] {file}
+" :Chmod {mode}
+" :Mkdir {dir}
+" :Mkdir! {dir}
+" :Mkdir[!]
+" :Find[!] {args}
+" :Locate[!] {args}
+" :SudoEdit [file]
+" :SudoWrite
+" :W
+" I don't use it. I tend to use NERDTree for moving, deleting, etc.
+" Plug 'tpope/vim-eunuch'
+
+" Toggle the location list and quickfix list windows
+" <leader>qq
+" <leader>ll
+Plug 'milkypostman/vim-togglelist'
+
+" improved php omnicompletion
+Plug 'shawncplus/phpcomplete.vim'
+
+" required for phpcomplete-extended
+" And perhaps other packages...
+Plug 'Shougo/vimproc'
+
+" php completion for composer projects
+" php-complete-extended breaks horribly with any php files with multiple
+" classes. I reported the bug and the author does not want to fix that. It
+" also asks 'composer project detected. Do you want to index?' every time
+" you open a composer project. And it takes longer to load the index when
+" it works. And it causes crazy problems sometimes with YouCompleteMe. And
+" it sometimes experiences PHP sytax errors, which it barfs into the vim
+" window in weird places. Combination of these means forget about it
+" for now.
+" Plug 'm2mdas/phpcomplete-extended'
+
+" laravel completion
+" See above
+" Plug 'm2mdas/phpcomplete-extended-laravel'
+
+" Match html/xml tags with %
+" Plug 'tmhedberg/matchit'
+
+" symfony completion
+" See above
+" Plug 'm2mdas/phpcomplete-extended-symfony'
+
+" only for added sources for phpcomplete_extended
+" Plug 'Shougo/unite.vim'
+
+" php getters and setters
+" map <buffer> <leader>sg <Plug>PhpgetsetInsertGetterSetter
+" I use ultisnips instead -- more customizable and no need for yet another
+" plugin
+" Plug 'docteurklein/php-getter-setter.vim'
+
+" better vim start screen
+Plug 'mhinz/vim-startify'
+
+" auto-update ctags on save
+" I just use a custom dispatch command for this now instead of a plugin.
+" nnoremap <silent> <Leader>ut
+" So much more reliable.
+" Plug 'szw/vim-tags'
+Plug 'tpope/vim-dispatch'
+
+" auto update ctags on pause
+" see above
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
+" until he makes tag indexing non-blocking (asynchronous)
+" Plug 'mikedfunk/vim-easytags'
+
+" coding standards fixer integration
+" nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+" nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+Plug 'stephpy/vim-php-cs-fixer'
+
+" increment/decrement dates
+" <c-b> on date. I remapped vim's default <c-a> to <c-b> because of tmux.
+Plug 'tpope/vim-speeddating'
+
+" open jira under cursor. MAC ONLY.
+" <leader>jo
+Plug 'markabe/vim-jira-open'
+
+" autocomplete jira task numbers
+Plug 'mnpk/vim-jira-complete'
+
+" smart search, replace, abbreviation fixer
+" :%S/mixed_case_thing/other_thing/g replaces MixedCaseThing in context as
+" well. Also camel-case, etc.
+"
+" coerce to a different case:
+" crs convert to snake_case
+" crm MixedCase
+" crc camelCase
+" cru UPPER_CASE
+" Plug 'tpope/vim-abolish'
+
+" smart jump to project root
+" nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
+" Plug 'dbakker/vim-projectroot'
+Plug 'airblade/vim-rooter'
+
+" phpunit integration
+" Plug 'joonty/vim-phpunitqf.git'
+" Works but kind of lame. Can't specify the window size.
+" I replaced this with my own Dispatch commands.
+" nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
+" nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
+" nnoremap <leader>pp :VimuxRunLastCommand<cr>
+" Plug 'jonyamo/phpunit.vim'
+
+" No more caps lock troubles in normal mode!
+" Not supported on OSX yet
+" Plug 'suxpert/vimcaps'
+
+" wget menu item in NERDTree!
+" m then w, then type url
+" I don't use this
+" Plug 'markgandolfo/nerdtree-wget.vim'
+
+" auto add comma or semicolon to end of line
+" <leader>;
+" I don't use it. A, is just as good it seems
+" Plug 'lfilho/cosco.vim'
+
+" more flexible phpunit integration with vimux. combine this with my own
+" phpunit command for all tests and I can rerun the latest vimux command,
+" set the window size, adjust size and it will stick, run arbitrary
+" commands and filters from vim, etc.
+" see above for commands
+" I just pasted this into my .vimrc.local - it was only like 5 lines.
+" Plug 'thiagoalessio/vimux-phpunit'
+
+" Zoom toggle current window like tmux pane zooming
+" Plug 'vim-scripts/ZoomWin'
+" Latest version someone hosted
+" <c-w>z to toggle zoom
+Plug 'regedarek/ZoomWin'
+
+" .tmux.conf syntax hilighting
+Plug 'vimez/vim-tmux'
+
+" DB tools in vim
+" A little too complex right now, I am good with SequelPro or
+" MySQLWorkbench
+" Plug 'vim-scripts/dbext.vim'
+
+" What it sounds like!
+" Plug 'atimholt/spiffy_foldtext'
+
+" whoa, cool. change variable names, extract code to a function, extract
+" local var to instance var.
+"
+" doesn't work very well. Can only extract a visual selection to a method.
+" Everything else says 'not enough parameters'. Maybe I can get it to work
+" someday.
+"
+" EXTRACT METHOD
+" Go into visual mode and select the code you want to extract to a new
+" method the press <Leader>rem You will be prompted for the name of the new
+" method.
+"
+" RENAME LOCAL VARIABLE
+" In normal mode move the cursor so it's inside the name of the variable
+" which you want to rename. Press <Leader>rlv
+"
+" LOCAL VARIABLE TO INSTANCE VARIABLE
+" In normal mode move the cursor so it's inside the name of the variable
+" which you want to rename. Press <Leader>rli
+"
+" OPTIMIZE USE
+" Simple press <Leader>rou to run the optimize use refactoring.
+Plug 'vim-php/vim-php-refactoring'
+" Plug 'beberlei/vim-php-refactor'
+
+" php namespace and use block autocomplete
+" inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
+" noremap <Leader><Leader>u :call PhpInsertUse()<CR>
+Plug 'arnaud-lb/vim-php-namespace'
+" Plug 'mikedfunk/vim-php-namespace'
+
+" enable . repeat in certain plugins
+" Plug 'tpope/vim-repeat'
+
+" better php ctags in tagbar
+" <leader>tt to toggle tagbar. This makes it look prettier
+" Plug 'techlivezheng/vim-plugin-tagbar-phpctags'
+Plug 'vim-php/tagbar-phpctags.vim'
+
+" paste with context-sensitive indenting
+Plug 'sickill/vim-pasta'
+
+" allow to close all buffers but the current one
+" :BufOnly
+Plug 'vim-scripts/BufOnly.vim'
+
+" improved phpdoc implementation
+" au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+" au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+" au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
+" Plug 'tobyS/pdv'
+Plug 'sumpygump/php-documentor-vim'
+
+" allow to star search from a visual selection
+" viw *
+Plug 'thinca/vim-visualstar'
+
+" smooth vertical scrolling
+" This is AWESOME. One of my favorite plugins. animates scrolling.
+Plug 'yonchu/accelerated-smooth-scroll'
+
+" vai and vii text indent objects - REALLY useful
+" Plug 'kana/vim-textobj-indent'
+" ^ this one gets used by default
+Plug 'michaeljsmith/vim-indent-object'
+
+" apparently better php indenting for PHP 5.4+
+Plug '2072/PHP-Indenting-for-VIm'
+
+" entire document
+" vae, vie
+Plug 'kana/vim-textobj-entire'
+
+" last search pattern:
+" va/, vi/, va?, vi?
+Plug 'kana/vim-textobj-lastpat'
+
+" al, il
+Plug 'kana/vim-textobj-line'
+
+" selection in/around underscore
+" a_, i_
+Plug 'kana/vim-textobj-underscore'
+
+" better tag selector with ctrlp
+" <c-]> will open ctrl-p with possible links if more than one is available
+" Plug 'ivalkeen/vim-ctrlp-tjump'
+
+" faster ctrlp matcher
+Plug 'FelikZ/ctrlp-py-matcher'
+
+" better than Ack
+" :Ag! 'my search' [options]
+Plug 'rking/ag.vim'
+
+" open directory in finder
+" <gof> opens the file manager at the directory of the file you are currently
+" editing in Vim.
+"
+" <got> opens the terminal at the directory of the file you are currently
+" editing in Vim. Works with tmux - makes a vertical split!
+" I generally don't need to do this
+" Plug 'justinmk/vim-gtfo'
+
+" jump to definition even if tags file doesn't exist
+" I use ctags so this is redundant and adds clutter to ctrlp
+" Plug 'tacahiroy/ctrlp-funky'
+
+" was used in PIV for php folding
+" <space> toggle fold
+" za toggle fold
+" <leader>f[number] set the fold level to this number
+" zR open all folds
+" Plug 'rayburgemeestre/phpfolding.vim'
+
+" customizable php folding
+Plug 'swekaj/php-foldexpr.vim'
+
+" share registers across vim installations
+" sets the updatetime to 200ms. bad.
+Plug 'ardagnir/united-front'
+
+" create files and parent dirs at the same time
+" :e my/non-existent/dir/file.php
+Plug 'dockyard/vim-easydir'
+
+" expand the visual selection with + and _
+" I'd rather be specific about my selection
+" Plug 'terryma/vim-expand-region'
+
+" tmux custom statusline in sync with airline
+" :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
+" Turn if off until I need to customize it
+Plug 'edkolev/tmuxline.vim'
+
+" custom bash prompt in sync with airline
+" :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
+" Turn if off until I need to customize it
+Plug 'edkolev/promptline.vim'
+
+" show @TODOs and stuff
+" I just made an alias for this now with Ag. Simpler and more capable.
+" Plug 'vim-scripts/TaskList.vim'
+" nnoremap <leader>td :TaskList<CR>
+" nnoremap <leader>tl :TaskList<CR>
+" Plug 'mikedfunk/TaskList.vim'
+
+" Align in columns
+" Too much crossover with tabularize
+" Plug 'junegunn/vim-easy-align'
+
+" show marks in the sign column and a lot more
+" m,           Place the next available mark
+" m.           If no mark on line, place the next available mark. Otherwise,
+             " remove (first) existing mark.
+" m-           Delete all marks from the current line
+" m<Space>     Delete all marks from the current buffer
+" ]`           Jump to next mark
+" [`           Jump to prev mark
+" ]'           Jump to start of next line containing a mark
+" ['           Jump to start of prev line containing a mark
+" `]           Jump by alphabetical order to next mark
+" `[           Jump by alphabetical order to prev mark
+" ']           Jump by alphabetical order to start of next line having a mark
+" '[           Jump by alphabetical order to start of prev line having a mark
+" '?           Open location list and display local marks
+
+" m[0-9]       Toggle the corresponding marker !@#$%^&*()
+" m<S-[0-9]>   Remove all markers of the same type
+" ]-           Jump to next line having a marker of the same type
+" [-           Jump to prev line having a marker of the same type
+" ]=           Jump to next line having a marker of any type
+" [=           Jump to prev line having a marker of any type
+" m<BS>        Remove all markers
+Plug 'kshenoy/vim-signature'
+
+" Deal with swap files better, automatically. Really helpful!
+Plug 'vim-scripts/autoswap.vim'
+
+" Turn vim options on and off - with tab complete
+" :onoff <tab> to get options
+" I don't use it.
+" Plug 'vitalk/vim-onoff'
+
+" query surrounding tmux splits to add to autocomplete
+Plug 'buztard/vim-nomad'
+
+" open url
+" nnoremap <leader>gu <Plug>(openbrowser-open)
+" Plug 'tyru/open-browser.vim'
+" I don't need this, I have a one-line mapping that works great on mac.
+" Plug 'vim-scripts/open-browser.vim'
+
+" just for testing some of the top color schemes
+" Plug 'vim-scripts/Colour-Sampler-Pack'
+"
+" Color schemes that don't look good in xterm-256-colors
+" --------------
+" Plug '29decibel/codeschool-vim-theme'
+" Plug 'tpope/vim-vividchalk'
+" Plug 'morhetz/gruvbox'
+" Plug 'chriskempson/base16-vim'
+" Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
+" Plug 'endel/vim-github-colorscheme'
+" Plug 'ricardovaleriano/vim-github-theme'
+" Plug '29decibel/codeschool-vim-theme'
+" grb256 color scheme
+" Plug 'garybernhardt/dotfiles', { 'rtp': '.vim/colors' }
+" Plug 'morhetz/gruvbox'
+" Plug 'vim-scripts/guardian'
+" Plug 'vim-scripts/herald.vim'
+" Plug 'vim-scripts/moria'
+" Plug 'matthewtodd/vim-twilight'
+" Plug 'tpope/vim-vividchalk'
+" Plug 'vim-scripts/Zenburn'
+" Plug 'reedes/vim-colors-pencil'
+" Plug 'modess/vim-phpcolors'
+" Plug 'noahfrederick/vim-hemisu'
+" Plug 'vim-scripts/desert256.vim'
+" Plug 'vim-scripts/xoria256.vim'
+" Plug 'noahfrederick/vim-noctu'
+" Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+" Plug 'Slava/vim-colors-tomorrow'
+" Plug 'vim-scripts/blackdust.vim'
+" Plug 'vim-scripts/peaksea'
+" Plug 'therubymug/vim-pyte'
+" Plug 'ercolanelli-leo/candyVirus'
+" Plug 'sandeepsinghmails/Dev_Delight'
+" Plug 'vim-scripts/forest'
+" Plug 'vim-scripts/ecostation'
+" Plug 'Marslo/marslo.vim'
+" Plug 'vim-scripts/sonoma.vim'
+" Plug 'vim-scripts/Gummybears'
+" Plug 'vim-scripts/Cleanroom'
+" Plug 'veloce/vim-aldmeris'
+" Plug 'rainux/vim-desert-warm-256'
+" Plug 'vim-scripts/summerfruit256.vim'
+" Plug 'trapd00r/neverland-vim-theme'
+" Plug 'vim-scripts/robokai'
+" Plug 'zaiste/Atom'
+" only problem is that the background is transparent
+
+" Schemes that look good in 256 colors:
+Plug 'nanotech/jellybeans.vim'
+Plug 'zeis/vim-kolor'
+Plug 'tomasr/molokai'
+Plug 'Lokaltog/vim-distinguished'
+Plug 'junegunn/seoul256.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'cocopon/iceberg.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'nielsmadan/harlequin'
+Plug 'hickop/vim-hickop-colors'
+Plug 'sjl/badwolf'
+" lucius fork to include fugitive colors
+" Plug 'jonathanfilip/vim-lucius'
+Plug 'MarioRicalde/vim-lucius'
+" Plug 'noah/vim256-color'
+" Plug 'whatyouhide/vim-gotham'
+Plug 'scottchiefbaker/vim-gotham'
+
+" unicode character metadata with ga
+" I don't really need this
+" Plug 'tpope/vim-characterize'
+
+" :MarksBrowser
+" <cr> to go to a mark
+" d to delete
+" I don't use this, Marks in the sidebar is fine
+" Plug 'vim-scripts/Marks-Browser'
+
+" vim search and replace in directory
+" Plug 'vim-scripts/Greplace.vim'
+
+" Underline ctags. Sometimes works.
+" Plug 't9md/vim-underlinetag'
+" Plug 'vim-scripts/TagHighlight'
+
+" Highlight the current word throughout the doc
+" I use a autocmd for this that works better instead in my .vimrc.local
+"
+" Occasionally I use that autocmd but I usually get annoyed by it after
+" a while. It clobbers all other highlights like syntax highlighting and
+" search highlights, which is a bummer.
+" Plug 'OrelSokolov/HiCursorWords'
+
+" Just for code coverage highlighting
+" :Phpcc - show code coverage (will ask for a clover XML file if not set)
+" <Leader>qc  " Show/hide code coverage markers
+Plug 'joonty/vim-phpqa'
+
+" put html tags from one line to multiline or the opposite
+" gS to split
+" gJ to join
+Plug 'AndrewRadev/splitjoin.vim'
+
+" Automatically detect indentation and set it
+" BUT it sets expandtab on php by default! Lame!
+" Plug 'tpope/vim-sleuth'
+"
+" Automatically logs file and git branch activity to ~/.vim/activity
+" Useful? We'll see if I ever use it...
+" I don't use it
+" Plug 'AD7six/vim-activity-log'
+
+" fix broken terminal keys when we use xterm-256-color in iterm prefs and
+" screen-256-color in tmux.conf prefs
+Plug 'nacitar/terminalkeys.vim'
+
+" open a scratch buffer with :Scratch that will not ask you to save and
+" will go away when closing vim
+" I don't use this
+" Plug 'duff/vim-scratch'
+
+" pulse the background on search to find the currently found item. Really
+" helpful pretty UI addition.
+Plug 'inside/vim-search-pulse'
+
+" show all 256 colors and their numbers. useful for assigning colors in
+" different color schemes.
+Plug 'guns/xterm-color-table.vim'
+
+" highlights in bright red any trailing whitespace
+Plug 'ntpeters/vim-better-whitespace'
+
+" Swap windows just like cxiw. Mark the first window with <leader>ww. Then
+" switch to the second window and do <leader>ww again. The windows will
+" swap. Simple!
+" cool but I usually don't have more than 2 splits
+Plug 'wesQ3/vim-windowswap'
+
+" no more pastetoggle!
+Plug 'ConradIrwin/vim-bracketed-paste'
+
+" replace search functions to do cool stuff. My favorite is removing the
+" highlight when moving the cursor!
+" errors out :(
+" Plug 'junegunn/vim-oblique'
+
+" search and replace across multiple files!
+" example:
+" :GitGrep foo.*bar (or :Ag! mysearchterm)
+" :Qdo %s/foo.*bar/baz/g | update
+Plug 'henrik/vim-qargs'
+
+" github and fugitive together from tim pope
+" I hardly use fugitive and I don't need any github-specific features.
+" Plug 'tpope/vim-rhubarb'
+
+" move between function arguments and stuff
+" Shifting arguments with <, and >,
+" Moving between argument boundaries with [, and ],
+" New text objects a, and i,
+" Cool idea but I don't need it. besides I already have a , object.
+" Plug 'PeterRincker/vim-argumentative'
+
+" alias commands to other commands, even in lowercase
+" :call CmdAlias('runtime', 'Runtime')
+" or simply,
+" :Alias runtime Runtime
+" I don't use this
+" Plug 'vim-scripts/cmdalias.vim'
+
+" repl for php, coffee, js, mysql, etc.
+" I don't use this
+" Plug 'zweifisch/pipe2eval'
+
+" syntastic plugin for vimrc
+Plug 'dbakker/vim-lint'
+
+" crosshairs on parens and such. Much easier to find where you're
+" currently at!
+" removed because on my crappy loaner mac it seems to be slowing things
+" down
+" Plug 'chreekat/vim-paren-crosshairs'
+
+" higlight an interesting word in the doc, in a unique color
+" <leader>1 higlight in first color
+" <leader>2 higlight in second color (etc...)
+" <leader>0 clear all highlights
+Plug 'pydave/vim-hiinterestingword'
+
+" facebook hhvm hack highlight support
+Plug 'hhvm/vim-hack'
+
+" TagBar support for coffeescript? Yes please!
+" @note requires CoffeeScript ruby gem
+Plug 'lukaszkorecki/CoffeeTags'
+
+" temporary caps lock in insert mode with <c-g>c. Good if you remap
+" capslock.
+Plug 'tpope/vim-capslock'
+
+" new repo name for vundle
+Plug 'gmarik/Vundle.vim'
+
+" set up automated test running per project via vim-dispatch, jumping to
+" tests from classes and vice-versa, etc.
+" In addition to any navigation commands provided by your projections (which
+" take the form :Efoo, :Sfoo, :Vfoo, :Tfoo, and :Dfoo), the following commands
+" are available.
+" Most awesome thing ever for TDD!!!
+" :A                      Edit the alternate file for the current buffer, as
+                        " defined by the alternate key.
+" :AS [file]              Like :A, but open in a split.
+" :AV [file]              Like :A, but open in a vertical split.
+" :AT [file]              Like :A, but open in a tab.
+Plug 'tpope/vim-projectionist'
+
+" Make links, folds, emails, files clickable
+Plug 'Rykka/clickable.vim'
+
+" focus on only the selected text with :NR<cr>
+Plug 'chrisbra/NrrwRgn'
+
+" toggle most recent yanks backward and forward in history
+" By default, the keys to toggle the paste are mapped to <c-n> and <c-p>
+" (similar to yankring). For example, executing p<c-p> will paste, then
+" toggle it to the most recent yank before that.
+"
+" dangit, just too complicated right now. I like the idea. I'll try it
+" some other time. p<c-p> doesn't work, haven't figured out why yet.
+" Another plugin interfering maybe?
+" Plug 'svermeulen/vim-easyclip'
+
+" make changes in the quickfix window, save, and your changes are made in
+" the original files! Awesome when paired with :Ag!
+Plug 'stefandtw/quickfix-reflector.vim'
+
+" rogue in vim? sure why not
+Plug 'katono/rogue.vim'
+
+" syntax highlighting for twig templates
+Plug 'beyondwords/vim-twig'
+
+" sublime-style minimap. Not working yet.
+" Plug 'severin-lemaignan/vim-minimap'
+
+" }}}
+
+" Vim-plug close {{{
+call plug#end()
+" }}}

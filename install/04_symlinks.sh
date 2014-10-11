@@ -21,6 +21,7 @@ link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
 link_this "$HOME/.dotfiles/to_link/.inputrc" "$HOME/.inputrc"
 link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/.rainbarf.conf"
 link_this "$HOME/.dotfiles/to_link/vimrc/.vimrc" "$HOME/.vimrc"
+link_this "$HOME/.dotfiles/to_link/vimrc/.vimrc.plugins" "$HOME/.vimrc.plugins"
 
 link_this "$HOME/.dotfiles/to_link/.teamocil" "$HOME/.teamocil"
 link_this "/var/www/sites" "$HOME/Sites"

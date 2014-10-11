@@ -1,5 +1,5 @@
-" Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+" Modeline and Notes {{{
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmethod=marker:
 "
 "  ___  ____ _         ______           _
 "  |  \/  (_) |        |  ___|         | |
@@ -10,11 +10,11 @@
 "
 " vimrc, finally free of spf13-vim!
 " more info at http://mikefunk.com
-" }
+" }}}
 
-" Environment {
+" Environment {{{
 
-    " Identify platform {
+    " Identify platform {{{
         silent function! OSX()
             return has('macunix')
         endfunction
@@ -24,32 +24,32 @@
         silent function! WINDOWS()
             return  (has('win16') || has('win32') || has('win64'))
         endfunction
-    " }
+    " }}}
 
-    " Basics {
+    " Basics {{{
         set nocompatible        " Must be first line
         if !WINDOWS()
             set shell=/bin/sh
         endif
-    " }
+    " }}}
 
-    " Windows Compatible {
+    " Windows Compatible {{{
         " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
         " across (heterogeneous) systems easier.
         if WINDOWS()
           set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
         endif
-    " }
+    " }}}
 
-" }
+" }}}
 
-" Use plugins config {
-    if filereadable(expand("~/.dotfiles/vimrc/.vimrc.plugins"))
-        source ~/.dotfiles/vimrc/.vimrc.plugins
+" Use plugins config {{{
+    if filereadable(expand("~/..vimrc.plugins"))
+        source ~/.vimrc.plugins
     endif
-" }
+" }}}
 
-" General {
+" General {{{
 
     set background=dark         " Assume a dark background
     " if !has('gui')
@@ -99,7 +99,7 @@
         autocmd BufWinEnter * call ResCur()
     augroup END
 
-    " Setting up the directories {
+    " Setting up the directories {{{
         set backup                  " Backups are nice ...
         if has('persistent_undo')
             set undofile                " So is persistent undo ...
@@ -112,11 +112,11 @@
         let g:skipview_files = [
             \ '\[example pattern\]'
             \ ]
-    " }
+    " }}}
 
-" }
+" }}}
 
-" Vim UI {
+" Vim UI {{{
 
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
@@ -164,9 +164,9 @@
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
-" }
+" }}}
 
-" Formatting {
+" Formatting {{{
 
     set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
@@ -194,9 +194,9 @@
     " Workaround broken colour highlighting in Haskell
     autocmd FileType haskell,rust setlocal nospell
 
-" }
+" }}}
 
-" Key (re)Mappings {
+" Key (re)Mappings {{{
 
     " The default leader is '\', but many people prefer ',' as it's in a standard
     " location.
@@ -318,20 +318,20 @@
     " Easier formatting
     nnoremap <silent> <leader>q gwip
 
-" }
+" }}}
 
-" Plugins {
+" Plugins {{{
 
-    " Misc {
+    " Misc {{{
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             let g:NERDShutUp=1
         endif
         if isdirectory(expand("~/.vim/bundle/matchit.zip"))
             let b:match_ignorecase = 1
         endif
-    " }
+    " }}}
 
-    " OmniComplete {
+    " OmniComplete {{{
         if has("autocmd") && exists("+omnifunc")
             autocmd Filetype *
                 \if &omnifunc == "" |
@@ -356,9 +356,9 @@
         " Automatically open and close the popup menu / preview window
         au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
         set completeopt=menu,preview,longest
-    " }
+    " }}}
 
-    " Ctags {
+    " Ctags {{{
         set tags=./tags;/,~/.vimtags
 
         " Make tags placed in .git/tags file available in all levels of a repository
@@ -366,20 +366,20 @@
         if gitroot != ''
             let &tags = &tags . ',' . gitroot . '/.git/tags'
         endif
-    " }
+    " }}}
 
-    " AutoCloseTag {
+    " AutoCloseTag {{{
         " Make it so AutoCloseTag works for xml and xhtml files as well
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
-    " }
+    " }}}
 
-    " SnipMate {
+    " SnipMate {{{
         " Setting the author var
         let g:snips_author = 'Michael Funk <mike.funk@internetbrands.com>'
-    " }
+    " }}}
 
-    " NerdTree {
+    " NerdTree {{{
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
             map <leader>e :NERDTreeFind<CR>
@@ -394,9 +394,9 @@
             let NERDTreeKeepTreeInNewTab=1
             let g:nerdtree_tabs_open_on_gui_startup=0
         endif
-    " }
+    " }}}
 
-    " Tabularize {
+    " Tabularize {{{
         if isdirectory(expand("~/.vim/bundle/tabular"))
             nmap <Leader>a& :Tabularize /&<CR>
             vmap <Leader>a& :Tabularize /&<CR>
@@ -415,23 +415,23 @@
             nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
             vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         endif
-    " }
+    " }}}
 
-    " Session List {
+    " Session List {{{
         set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
         if isdirectory(expand("~/.vim/bundle/sessionman.vim/"))
             nmap <leader>sl :SessionList<CR>
             nmap <leader>ss :SessionSave<CR>
             nmap <leader>sc :SessionClose<CR>
         endif
-    " }
+    " }}}
 
-    " JSON {
+    " JSON {{{
         nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
         let g:vim_json_syntax_conceal = 0
-    " }
+    " }}}
 
-    " PyMode {
+    " PyMode {{{
         " Disable if python support not present
         if !has('python')
             let g:pymode = 0
@@ -443,9 +443,9 @@
             let g:pymode_options = 0
             let g:pymode_rope = 0
         endif
-    " }
+    " }}}
 
-    " ctrlp {
+    " ctrlp {{{
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
             nnoremap <silent> <D-t> :CtrlP<CR>
@@ -482,9 +482,9 @@
                 nnoremap <Leader>fu :CtrlPFunky<Cr>
             endif
         endif
-    "}
+    "}}}
 
-    " TagBar {
+    " TagBar {{{
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
             nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
@@ -503,10 +503,10 @@
                 \ 'ctagsargs' : '-sort -silent'
                 \ }
         endif
-    "}
+    "}}}
 
 
-    " Fugitive {
+    " Fugitive {{{
         if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
             nnoremap <silent> <leader>gs :Gstatus<CR>
             nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -521,9 +521,9 @@
             nnoremap <silent> <leader>gi :Git add -p %<CR>
             nnoremap <silent> <leader>gg :SignifyToggle<CR>
         endif
-    "}
+    "}}}
 
-    " YouCompleteMe {
+    " YouCompleteMe {{{
         let g:acp_enableAtStartup = 0
 
         " enable completion from tags
@@ -551,9 +551,9 @@
         " When enabled, there can be too much visual noise
         " especially when splits are used.
         set completeopt-=preview
-    " }
+    " }}}
 
-    " Normal Vim omni-completion {
+    " Normal Vim omni-completion {{{
     " To disable omni complete, add the following to your .vimrc.before.local file:
         " Enable omni-completion.
         autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -562,32 +562,32 @@
         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
         autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
         autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-    " }
+    " }}}
 
-    " UndoTree {
+    " UndoTree {{{
         if isdirectory(expand("~/.vim/bundle/undotree/"))
             nnoremap <Leader>uu :UndotreeToggle<CR>
             " If undotree is opened, it is likely one wants to interact with it.
             let g:undotree_SetFocusWhenToggle=1
         endif
-    " }
+    " }}}
 
-    " indent_guides {
+    " indent_guides {{{
         if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
             let g:indent_guides_guide_size = 1
             let g:indent_guides_enable_on_vim_startup = 1
         endif
-    " }
+    " }}}
 
-    " Wildfire {
+    " Wildfire {{{
     let g:wildfire_objects = {
                 \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
                 \ "html,xml" : ["at"],
                 \ }
-    " }
+    " }}}
 
-    " vim-airline {
+    " vim-airline {{{
         " Set configuration options for the statusline plugin vim-airline.
         " Use the powerline theme and optionally enable powerline symbols.
         " To use the symbols , , , , , , and .in the statusline
@@ -608,11 +608,11 @@
                 let g:airline_right_sep='‹' " Slightly fancier than '<'
             endif
         endif
-    " }
+    " }}}
 
-" }
+" }}}
 
-" GUI Settings {
+" GUI Settings {{{
 
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
@@ -634,11 +634,11 @@
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
 
-" }
+" }}}
 
-" Functions {
+" Functions {{{
 
-    " Initialize directories {
+    " Initialize directories {{{
     function! InitializeDirectories()
         let parent = $HOME
         let prefix = 'vim'
@@ -679,9 +679,9 @@
         endfor
     endfunction
     call InitializeDirectories()
-    " }
+    " }}}
 
-    " Initialize NERDTree as needed {
+    " Initialize NERDTree as needed {{{
     function! NERDTreeInitAsNeeded()
         redir => bufoutput
         buffers!
@@ -693,9 +693,9 @@
             wincmd l
         endif
     endfunction
-    " }
+    " }}}
 
-    " Strip whitespace {
+    " Strip whitespace {{{
     function! StripTrailingWhitespace()
         " Preparation: save last search, and cursor position.
         let _s=@/
@@ -707,9 +707,9 @@
         let @/=_s
         call cursor(l, c)
     endfunction
-    " }
+    " }}}
 
-    " Shell command {
+    " Shell command {{{
     function! s:RunShellCommand(cmdline)
         botright new
 
@@ -730,6 +730,6 @@
 
     command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
     " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
-    " }
+    " }}}
 
-" }
+" }}}
