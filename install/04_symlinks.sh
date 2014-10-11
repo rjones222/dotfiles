@@ -20,8 +20,8 @@ link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
 
 link_this "$HOME/.dotfiles/to_link/.inputrc" "$HOME/.inputrc"
 link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/.rainbarf.conf"
-link_this "$HOME/.dotfiles/to_link/vimrc/.vimrc" "$HOME/.vimrc"
-link_this "$HOME/.dotfiles/to_link/vimrc/.vimrc.plugins" "$HOME/.vimrc.plugins"
+link_this "$HOME/.dotfiles/to_link/vim/.vimrc" "$HOME/.vimrc"
+link_this "$HOME/.dotfiles/to_link/vim/.vimrc.plugins" "$HOME/.vimrc.plugins"
 
 link_this "$HOME/.dotfiles/to_link/.teamocil" "$HOME/.teamocil"
 link_this "/var/www/sites" "$HOME/Sites"
@@ -32,9 +32,8 @@ link_this "$HOME/.dotfiles/to_link/.jshintrc" "$HOME/.jshintrc"
 link_this "$HOME/.dotfiles/to_link/.virtualhost.sh.conf" "$HOME/.virtualhost.sh.conf"
 link_this "$HOME/.dotfiles/to_link/.tmux" "$HOME/.tmux"
 
-link_this "$HOME/.dotfiles/bin" "$HOME/.bin"
-sudo chmod a+x ~/.bin/*
-link_this "$HOME/.dotfiles/to_link/.bashrc" "$HOME/.bashrc"
+link_this "$HOME/.dotfiles/to_link/bash/.bashrc" "$HOME/.bashrc"
+link_this "$HOME/.dotfiles/to_link/bash/.bash_profile" "$HOME/.bash_profile"
 link_this "$HOME/.dotfiles/to_link/.git_template" "$HOME/.git_template"
 sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
 

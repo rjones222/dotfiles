@@ -969,5 +969,6 @@ Plug 'kshenoy/vim-signature'
 " }}}
 
 " Vim-plug close {{{
+filetype plugin indent on                   " required!
 call plug#end()
 " }}}
