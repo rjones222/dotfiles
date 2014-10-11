@@ -1852,7 +1852,8 @@
     " call this function when the right stuff happens
     augroup indent_guides_augroup
         " autocmd!
-        autocmd VimEnter,Colorscheme * call SetIndentGuideColors()
+        " commented out because i'm tired of dealing with this bullshit
+        " autocmd VimEnter,Colorscheme * call SetIndentGuideColors()
     augroup END
     " }}}
 

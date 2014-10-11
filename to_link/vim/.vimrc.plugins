@@ -42,7 +42,8 @@ Plug 'bling/vim-airline'
 " Plug 'bling/vim-bufferline'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-abolish', { 'on': 'Abolish' }
@@ -451,7 +452,22 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 "
 " OPTIMIZE USE
 " Simple press <Leader>rou to run the optimize use refactoring.
-Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+" Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+
+" php refactor tools
+" nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
+" nnoremap <unique> <Leader>rcv :call PhpRenameClassVariable()<CR>
+" nnoremap <unique> <Leader>rm :call PhpRenameMethod()<CR>
+" nnoremap <unique> <Leader>eu :call PhpExtractUse()<CR>
+" vnoremap <unique> <Leader>ec :call PhpExtractConst()<CR>
+" nnoremap <unique> <Leader>ep :call PhpExtractClassProperty()<CR>
+" vnoremap <unique> <Leader>em :call PhpExtractMethod()<CR>
+" nnoremap <unique> <Leader>np :call PhpCreateProperty()<CR>
+" nnoremap <unique> <Leader>du :call PhpDetectUnusedUseStatements()<CR>
+" vnoremap <unique> <Leader>== :call PhpAlignAssigns()<CR>
+" nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
+" nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
+Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 " Plug 'beberlei/vim-php-refactor'
 
 " }}}
@@ -479,7 +495,7 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 
 " pulse the background on search to find the currently found item. Really
 " helpful pretty UI addition.
-Plug 'inside/vim-search-pulse'
+" Plug 'inside/vim-search-pulse'
 
 " Highlight the current word throughout the doc
 " I use a autocmd for this that works better instead in my .vimrc.local
@@ -551,8 +567,8 @@ Plug 'sjl/badwolf'
 " Plug 'jonathanfilip/vim-lucius'
 Plug 'MarioRicalde/vim-lucius'
 " Plug 'noah/vim256-color'
-" Plug 'whatyouhide/vim-gotham'
-Plug 'scottchiefbaker/vim-gotham'
+Plug 'whatyouhide/vim-gotham'
+" Plug 'scottchiefbaker/vim-gotham'
 
 " just for testing some of the top color schemes
 " Plug 'vim-scripts/Colour-Sampler-Pack'
