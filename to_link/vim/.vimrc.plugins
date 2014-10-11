@@ -34,7 +34,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'spf13/vim-autoclose'
-Plug 'tacahiroy/ctrlp-funky', { 'on': 'CtrlP' }
+" Plug 'tacahiroy/ctrlp-funky'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/sessionman.vim', { 'on': ['SessionList', 'SessionSave', 'SessionClose'] }
 Plug 'matchit.zip'
@@ -467,7 +467,10 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " vnoremap <unique> <Leader>== :call PhpAlignAssigns()<CR>
 " nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
 " nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
-Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
+" Plug 'adoy/vim-php-refactoring-toolbox', { 'rtp': 'plugins', 'for': 'php' }
+" i could not load the plugin even with the rtp set above, so I forked
+" it and changed the plugins dir to plugin.
+Plug 'mikedfunk/vim-php-refactoring-toolbox', { 'for': 'php' }
 " Plug 'beberlei/vim-php-refactor'
 
 " }}}
@@ -739,14 +742,16 @@ Plug 'rking/ag.vim', { 'on': ['Ag'] }
 Plug 'thinca/vim-visualstar', { 'on': ['<Plug>visualstar-*', '<Plug>visualstar-#', '<Plug>visualstar-g*', '<Plug>visualstar-g#'] }
 
 " faster ctrlp matcher
-Plug 'FelikZ/ctrlp-py-matcher', { 'on': 'CtrlP' }
+if has('python')
+    Plug 'FelikZ/ctrlp-py-matcher'
+endif
 
 " better tag selector with ctrlp
 " <c-]> will open ctrl-p with possible links if more than one is available
 " Plug 'ivalkeen/vim-ctrlp-tjump'
 
 " different fork of ctrlp that accepts pull requests
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git', { 'on': 'CtrlP' }
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 
 " only for added sources for phpcomplete_extended
 " Plug 'Shougo/unite.vim'
@@ -976,7 +981,7 @@ endif
 " ]=           Jump to next line having a marker of any type
 " [=           Jump to prev line having a marker of any type
 " m<BS>        Remove all markers
-Plug 'kshenoy/vim-signature'
+" Plug 'kshenoy/vim-signature'
 
 " :MarksBrowser
 " <cr> to go to a mark
