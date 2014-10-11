@@ -1187,7 +1187,7 @@
     let g:rehash256 = 1
 
     " {{{ global powerline fonts switch is defined in .vimrc.before.local
-        " let g:global_powerline_switch = 0
+        let g:global_powerline_switch = 1
 
         if g:global_powerline_switch == 1
             let g:promptline_powerline_symbols = 1

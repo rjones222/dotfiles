@@ -35,24 +35,15 @@ link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
 
 link_this "$HOME/.dotfiles/to_link/.inputrc" "$HOME/.inputrc"
 link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/.rainbarf.conf"
-link_this "$HOME/.dotfiles/to_link/vim/.vimrc" "$HOME/.vimrc"
-link_this "$HOME/.dotfiles/to_link/vim/.vimrc.plugins" "$HOME/.vimrc.plugins"
 
 link_this "$HOME/.dotfiles/to_link/.teamocil" "$HOME/.teamocil"
 link_this "/var/www/sites" "$HOME/Sites"
-# this will only exist on mac
+# default location for mac
 link_this "/Library/WebServer/Documents" "$HOME/Sites"
 
 link_this "$HOME/.dotfiles/to_link/.jshintrc" "$HOME/.jshintrc"
-link_this "$HOME/.dotfiles/to_link/.virtualhost.sh.conf" "$HOME/.virtualhost.sh.conf"
+# link_this "$HOME/.dotfiles/to_link/.virtualhost.sh.conf" "$HOME/.virtualhost.sh.conf"
 link_this "$HOME/.dotfiles/to_link/.tmux" "$HOME/.tmux"
-
-link_this "$HOME/.dotfiles/to_link/bash/.bashrc" "$HOME/.bashrc"
-link_this "$HOME/.dotfiles/to_link/bash/.bash_profile" "$HOME/.bash_profile"
-link_this "$HOME/.dotfiles/to_link/bash/.bash_aliases" "$HOME/.bash_aliases"
-link_this "$HOME/.dotfiles/to_link/bash/.bash_functions" "$HOME/.bash_functions"
-link_this "$HOME/.dotfiles/to_link/bash/.bash_paths" "$HOME/.bash_paths"
-link_this "$HOME/.dotfiles/to_link/bash/.bash_env" "$HOME/.bash_env"
 
 link_this "$HOME/.dotfiles/to_link/.git_template" "$HOME/.git_template"
 sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
@@ -60,9 +51,5 @@ sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
 # try to link my php.ini in the right place... anywhere else it might be?
 link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/etc/php5/apache2/conf.d/999-my-php.ini"
-
-# try to add some more bash completions somewhere
-link_this "$HOME/.dotfiles/to_link/bash_completion/misc.bash" "/usr/local/etc/bash_completion.d/misc.bash"
-link_this "$HOME/.dotfiles/to_link/bash_completion.d/misc.bash" "/etc/bash_completion.d/misc.bash"
 
 log_info "End symlinks install script"

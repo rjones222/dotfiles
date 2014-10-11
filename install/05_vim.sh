@@ -1,33 +1,12 @@
 #!/usr/bin/env bash
 log_info "Beginning vim install script"
 
-function make_vimproc() {
-    log_info "Attempting to build vimproc"
-    cd ~/.vim/bundle/vimproc
-    make
-    cd -
-}
+link_this "$HOME/.dotfiles/to_link/vim/.vimrc" "$HOME/.vimrc"
+link_this "$HOME/.dotfiles/to_link/vim/.vimrc.plugins" "$HOME/.vimrc.plugins"
 
-function make_youcompleteme() {
-    log_info "Attempting to build youcompleteme"
-    cd ~/.vim/bundle/YouCompleteMe
-    ./install.sh
-    cd -
-}
-
-function make_tagbarphpctags() {
-    log_info "Attempting to build phpctags"
-    cd ~/.vim/bundle/tagbar-phpctags.vim/
-    make
-    cd -
-}
-
-# @TODO install vim plugins
-
-# build vim plugin buildables
-make_vimproc
-make_youcompleteme
-make_tagbarphpctags
+# create ~/.vim if it doesn't exist
+log_info "creating the ~/.vim directory"
+[[ ! -d $HOME/.vim ]] && mkdir $HOME/.vim
 
 # this needs to be after the .vim folder is created
 log_info "linking UltiSnips custom snippets dir"
