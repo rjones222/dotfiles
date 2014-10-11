@@ -11,6 +11,12 @@
 " vim plugins, finally free of spf13-vim!
 " more info at http://mikefunk.com
 " }}}
+"
+" Install Vim-plug on new systems {{{
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+" }}}
 
 " Vim-plug setup {{{
 call plug#begin('~/.vim/plugged')
@@ -19,23 +25,23 @@ call plug#begin('~/.vim/plugged')
 " from spf13-vim {{{
 
 " General {{{
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'spf13/vim-autoclose'
-Plug 'tacahiroy/ctrlp-funky'
+Plug 'tacahiroy/ctrlp-funky' { 'on': 'CtrlP' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/sessionman.vim'
 Plug 'matchit.zip'
 Plug 'bling/vim-airline'
 Plug 'bling/vim-bufferline'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'mbbill/undotree'
+" Plug 'jistr/vim-nerdtree-tabs'
+Plug 'mbbill/undotree' { 'on': 'UndoTreeToggle' }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-abolish.git'
+Plug 'tpope/vim-abolish.git' { 'on': 'Abolish' }
 Plug 'osyo-manga/vim-over'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
@@ -219,19 +225,6 @@ Plug 'joonty/vdebug'
 " <c-y>n and <c-y>N to go to next and previous insert points
 Plug 'mattn/emmet-vim'
 
-" create tmux window with a command from vim
-" nnoremap <leader>vp :VimuxPromptCommand<cr>
-" nnoremap <leader>vc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
-" nnoremap <leader>vl :VimuxRunLastCommand<cr>
-" nnoremap <leader>vr :VimuxRunLastCommand<cr>
-" nnoremap <leader>vi :VimuxInspectRunner<cr>
-" nnoremap <leader>vx :VimuxCloseRunner<cr>
-"
-" nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
-" nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
-" nnoremap <leader>pp :VimuxRunLastCommand<cr>
-Plug 'benmills/vimux'
-
 " much better than snipmate or neosnippet
 " :UltiSnipsEdit to edit the snippets file for the current file type
 " YouCompleteMe will autocomplete your snippets. <c-j> to complete.
@@ -414,7 +407,7 @@ Plug 'airblade/vim-rooter'
 Plug 'regedarek/ZoomWin'
 
 " .tmux.conf syntax hilighting
-Plug 'vimez/vim-tmux'
+Plug 'vimez/vim-tmux' { 'for': 'conf' }
 
 " DB tools in vim
 " A little too complex right now, I am good with SequelPro or
@@ -446,13 +439,13 @@ Plug 'vimez/vim-tmux'
 "
 " OPTIMIZE USE
 " Simple press <Leader>rou to run the optimize use refactoring.
-Plug 'vim-php/vim-php-refactoring'
+Plug 'vim-php/vim-php-refactoring' { 'for': 'php' }
 " Plug 'beberlei/vim-php-refactor'
 
 " php namespace and use block autocomplete
 " inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
 " noremap <Leader><Leader>u :call PhpInsertUse()<CR>
-Plug 'arnaud-lb/vim-php-namespace'
+Plug 'arnaud-lb/vim-php-namespace' { 'for': 'php' }
 " Plug 'mikedfunk/vim-php-namespace'
 
 " enable . repeat in certain plugins
@@ -461,25 +454,25 @@ Plug 'arnaud-lb/vim-php-namespace'
 " better php ctags in tagbar
 " <leader>tt to toggle tagbar. This makes it look prettier
 " Plug 'techlivezheng/vim-plugin-tagbar-phpctags'
-Plug 'vim-php/tagbar-phpctags.vim'
+Plug 'vim-php/tagbar-phpctags.vim' { 'for': 'php' }
 
 " paste with context-sensitive indenting
 Plug 'sickill/vim-pasta'
 
 " allow to close all buffers but the current one
 " :BufOnly
-Plug 'vim-scripts/BufOnly.vim'
+Plug 'vim-scripts/BufOnly.vim' { 'on': ['BufOnly', 'Bufonly'] }
 
 " improved phpdoc implementation
 " au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
 " Plug 'tobyS/pdv'
-Plug 'sumpygump/php-documentor-vim'
+Plug 'sumpygump/php-documentor-vim' { 'for': 'php' }
 
 " allow to star search from a visual selection
 " viw *
-Plug 'thinca/vim-visualstar'
+Plug 'thinca/vim-visualstar' { 'on': ['<Plug>visualstar-*', '<Plug>visualstar-#', '<Plug>visualstar-g*', '<Plug>visualstar-g#'] }
 
 " smooth vertical scrolling
 " This is AWESOME. One of my favorite plugins. animates scrolling.
@@ -491,7 +484,7 @@ Plug 'yonchu/accelerated-smooth-scroll'
 Plug 'michaeljsmith/vim-indent-object'
 
 " apparently better php indenting for PHP 5.4+
-Plug '2072/PHP-Indenting-for-VIm'
+Plug '2072/PHP-Indenting-for-VIm' { 'for': 'php' }
 
 " entire document
 " vae, vie
@@ -513,11 +506,11 @@ Plug 'kana/vim-textobj-underscore'
 " Plug 'ivalkeen/vim-ctrlp-tjump'
 
 " faster ctrlp matcher
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'FelikZ/ctrlp-py-matcher' { 'on': 'CtrlP' }
 
 " better than Ack
 " :Ag! 'my search' [options]
-Plug 'rking/ag.vim'
+Plug 'rking/ag.vim' { 'on': ['Ag', 'Ag!'] }
 
 " open directory in finder
 " <gof> opens the file manager at the directory of the file you are currently
@@ -540,7 +533,7 @@ Plug 'rking/ag.vim'
 " Plug 'rayburgemeestre/phpfolding.vim'
 
 " customizable php folding
-Plug 'swekaj/php-foldexpr.vim'
+Plug 'swekaj/php-foldexpr.vim' { 'for': 'php' }
 
 " share registers across vim installations
 " sets the updatetime to 200ms. bad.
@@ -554,15 +547,54 @@ Plug 'dockyard/vim-easydir'
 " I'd rather be specific about my selection
 " Plug 'terryma/vim-expand-region'
 
-" tmux custom statusline in sync with airline
-" :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
-" Turn if off until I need to customize it
-Plug 'edkolev/tmuxline.vim'
+" Tmux {{{
+if executable("tmux")
+
+    " :Tmux (command) with tab complete
+    " :Tyank
+    " :Tput
+    " :Twrite to another window or tab
+    " :Tattach to a session
+    Plug 'tpope/vim-tbone'
+
+    " tmux custom statusline in sync with airline
+    " :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
+    " Turn if off until I need to customize it
+    Plug 'edkolev/tmuxline.vim'
+
+    " query surrounding tmux splits to add to autocomplete
+    Plug 'buztard/vim-nomad'
+
+    " fix broken terminal keys when we use xterm-256-color in iterm prefs and
+    " screen-256-color in tmux.conf prefs
+    Plug 'nacitar/terminalkeys.vim'
+
+    " create tmux window with a command from vim
+    " nnoremap <leader>vp :VimuxPromptCommand<cr>
+    " nnoremap <leader>vc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+    " nnoremap <leader>vl :VimuxRunLastCommand<cr>
+    " nnoremap <leader>vr :VimuxRunLastCommand<cr>
+    " nnoremap <leader>vi :VimuxInspectRunner<cr>
+    " nnoremap <leader>vx :VimuxCloseRunner<cr>
+    "
+    " nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
+    " nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
+    " nnoremap <leader>pp :VimuxRunLastCommand<cr>
+    Plug 'benmills/vimux'
+
+endif
+" }}}
+
+" this makes blank line with spaces only the end of a paragraph
+Plug 'justinmk/vim-ipmotion'
+
+" Move vertically without changing the cursor column in block edit mode
+Plug 'bruno-/vim-vertical-move'
 
 " custom bash prompt in sync with airline
 " :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
 " Turn if off until I need to customize it
-Plug 'edkolev/promptline.vim'
+Plug 'edkolev/promptline.vim' { 'on': ['Promptline', 'PromptlineSnapshot', 'PromptlineSnapshot!'] }
 
 " show @TODOs and stuff
 " I just made an alias for this now with Ag. Simpler and more capable.
@@ -607,9 +639,6 @@ Plug 'vim-scripts/autoswap.vim'
 " :onoff <tab> to get options
 " I don't use it.
 " Plug 'vitalk/vim-onoff'
-
-" query surrounding tmux splits to add to autocomplete
-Plug 'buztard/vim-nomad'
 
 " open url
 " nnoremap <leader>gu <Plug>(openbrowser-open)
@@ -713,9 +742,11 @@ Plug 'scottchiefbaker/vim-gotham'
 " Just for code coverage highlighting
 " :Phpcc - show code coverage (will ask for a clover XML file if not set)
 " <Leader>qc  " Show/hide code coverage markers
-Plug 'joonty/vim-phpqa'
+Plug 'joonty/vim-phpqa' { 'for': 'php' }
 
 " put html tags from one line to multiline or the opposite
+" works for practically any language. just wish it worked in function
+" definitions!
 " gS to split
 " gJ to join
 Plug 'AndrewRadev/splitjoin.vim'
@@ -729,10 +760,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 " I don't use it
 " Plug 'AD7six/vim-activity-log'
 
-" fix broken terminal keys when we use xterm-256-color in iterm prefs and
-" screen-256-color in tmux.conf prefs
-Plug 'nacitar/terminalkeys.vim'
-
 " open a scratch buffer with :Scratch that will not ask you to save and
 " will go away when closing vim
 " I don't use this
@@ -744,7 +771,7 @@ Plug 'inside/vim-search-pulse'
 
 " show all 256 colors and their numbers. useful for assigning colors in
 " different color schemes.
-Plug 'guns/xterm-color-table.vim'
+Plug 'guns/xterm-color-table.vim' { 'on': 'XtermColorTable' }
 
 " highlights in bright red any trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -767,7 +794,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 " example:
 " :GitGrep foo.*bar (or :Ag! mysearchterm)
 " :Qdo %s/foo.*bar/baz/g | update
-Plug 'henrik/vim-qargs'
+Plug 'henrik/vim-qargs' { 'on': ['GitGrep', 'Qdo'] }
 
 " github and fugitive together from tim pope
 " I hardly use fugitive and I don't need any github-specific features.
@@ -792,7 +819,7 @@ Plug 'henrik/vim-qargs'
 " Plug 'zweifisch/pipe2eval'
 
 " syntastic plugin for vimrc
-Plug 'dbakker/vim-lint'
+Plug 'dbakker/vim-lint' { 'for': 'vim' }
 
 " crosshairs on parens and such. Much easier to find where you're
 " currently at!
@@ -811,14 +838,11 @@ Plug 'hhvm/vim-hack'
 
 " TagBar support for coffeescript? Yes please!
 " @note requires CoffeeScript ruby gem
-Plug 'lukaszkorecki/CoffeeTags'
+Plug 'lukaszkorecki/CoffeeTags' { 'for': 'coffee' }
 
 " temporary caps lock in insert mode with <c-g>c. Good if you remap
 " capslock.
-Plug 'tpope/vim-capslock'
-
-" new repo name for vundle
-Plug 'gmarik/Vundle.vim'
+" Plug 'tpope/vim-capslock'
 
 " set up automated test running per project via vim-dispatch, jumping to
 " tests from classes and vice-versa, etc.
@@ -834,10 +858,12 @@ Plug 'gmarik/Vundle.vim'
 Plug 'tpope/vim-projectionist'
 
 " Make links, folds, emails, files clickable
-Plug 'Rykka/clickable.vim'
+" Not working yet - still experimental
+" Plug 'Rykka/clickable.vim'
 
 " focus on only the selected text with :NR<cr>
-Plug 'chrisbra/NrrwRgn'
+" I don't use this. It doesn't set the file type right!
+Plug 'chrisbra/NrrwRgn' { 'on': 'NR' }
 
 " toggle most recent yanks backward and forward in history
 " By default, the keys to toggle the paste are mapped to <c-n> and <c-p>
@@ -854,7 +880,7 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'stefandtw/quickfix-reflector.vim'
 
 " rogue in vim? sure why not
-Plug 'katono/rogue.vim'
+" Plug 'katono/rogue.vim'
 
 " syntax highlighting for twig templates
 Plug 'beyondwords/vim-twig'

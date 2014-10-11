@@ -163,7 +163,6 @@
     set foldenable                  " Auto fold code
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
-
 " }}}
 
 " Formatting {{{
@@ -588,6 +587,13 @@
     " }}}
 
     " vim-airline {{{
+
+        " whether to user powerline fonts in vim-airline
+        let g:airline_powerline_fonts=1
+
+        " which airline theme to use
+        let g:airline_theme='solarized'
+
         " Set configuration options for the statusline plugin vim-airline.
         " Use the powerline theme and optionally enable powerline symbols.
         " To use the symbols , , , , , , and .in the statusline
