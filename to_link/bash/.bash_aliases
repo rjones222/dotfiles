@@ -272,3 +272,4 @@ fi
 
 
 alias layout="teamocil work --here"
+alias vpn='yes | netExtender -u mfunk -p $VPNPASSWORD -d CARSDIRECT ibhq1vpn.internetbrands.com'
