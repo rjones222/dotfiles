@@ -271,3 +271,4 @@ fi
 # }}}
 
 
+alias layout="teamocil work --here"
