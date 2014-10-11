@@ -26,23 +26,26 @@ call plug#begin('~/.vim/plugged')
 " from spf13-vim {{{
 
 " General {{{
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeMirrorToggle'] }
-Plug 'tpope/vim-surround', { 'on': 'S' }
+" Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'scrooloose/nerdtree'
+" I had trouble getting this to work for some reason
+" Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeMirrorToggle', 'NERDTreeTabsToggle', 'NERDTreeTabs'] }
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'spf13/vim-autoclose'
-" Plug 'tacahiroy/ctrlp-funky', { 'on': 'CtrlP' }
+Plug 'tacahiroy/ctrlp-funky', { 'on': 'CtrlP' }
 Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-scripts/sessionman.vim', { 'on': 'SessionList' }
+Plug 'vim-scripts/sessionman.vim', { 'on': ['SessionList', 'SessionSave', 'SessionClose'] }
 Plug 'matchit.zip'
 Plug 'bling/vim-airline'
 " Plug 'bling/vim-bufferline'
 Plug 'Lokaltog/vim-easymotion'
-" Plug 'jistr/vim-nerdtree-tabs'
-Plug 'mbbill/undotree', { 'on': 'UndoTreeToggle' }
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-abolish.git', { 'on': 'Abolish' }
+Plug 'tpope/vim-abolish', { 'on': 'Abolish' }
 Plug 'osyo-manga/vim-over'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'

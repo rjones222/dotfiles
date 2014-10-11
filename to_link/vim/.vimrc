@@ -324,10 +324,10 @@
 " Plugins {{{
 
     " Misc {{{
-        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+        if isdirectory(expand("~/.vim/plugged/nerdtree"))
             let g:NERDShutUp=1
         endif
-        if isdirectory(expand("~/.vim/bundle/matchit.zip"))
+        if isdirectory(expand("~/.vim/plugged/matchit.zip"))
             let b:match_ignorecase = 1
         endif
     " }}}
@@ -381,10 +381,10 @@
     " }}}
 
     " NerdTree {{{
-        if isdirectory(expand("~/.vim/bundle/nerdtree"))
-            map <C-e> <plug>NERDTreeTabsToggle<CR>
-            map <leader>e :NERDTreeFind<CR>
-            nmap <leader>nt :NERDTreeFind<CR>
+        if isdirectory(expand("~/.vim/plugged/nerdtree"))
+            " map <C-e> <plug>NERDTreeTabsToggle<CR>
+            map <Leader>e :NERDTreeFind<CR>
+            nmap <Leader>nt :NERDTreeFind<CR>
 
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
@@ -398,7 +398,7 @@
     " }}}
 
     " Tabularize {{{
-        if isdirectory(expand("~/.vim/bundle/tabular"))
+        if isdirectory(expand("~/.vim/plugged/tabular"))
             nmap <Leader>a& :Tabularize /&<CR>
             vmap <Leader>a& :Tabularize /&<CR>
             nmap <Leader>a= :Tabularize /=<CR>
@@ -420,15 +420,15 @@
 
     " Session List {{{
         set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-        if isdirectory(expand("~/.vim/bundle/sessionman.vim/"))
-            nmap <leader>sl :SessionList<CR>
-            nmap <leader>ss :SessionSave<CR>
-            nmap <leader>sc :SessionClose<CR>
+        if isdirectory(expand("~/.vim/plugged/sessionman.vim/"))
+            nnoremap <Leader>sl :SessionList<CR>
+            nnoremap <Leader>ss :SessionSave<CR>
+            nnoremap <Leader>sc :SessionClose<CR>
         endif
     " }}}
 
     " JSON {{{
-        nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+        nmap <Leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
         let g:vim_json_syntax_conceal = 0
     " }}}
 
@@ -438,7 +438,7 @@
             let g:pymode = 0
         endif
 
-        if isdirectory(expand("~/.vim/bundle/python-mode"))
+        if isdirectory(expand("~/.vim/plugged/python-mode"))
             let g:pymode_lint_checkers = ['pyflakes']
             let g:pymode_trim_whitespaces = 0
             let g:pymode_options = 0
@@ -447,7 +447,7 @@
     " }}}
 
     " ctrlp {{{
-        if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
+        if isdirectory(expand("~/.vim/plugged/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
             nnoremap <silent> <D-t> :CtrlP<CR>
             nnoremap <silent> <D-r> :CtrlPMRU<CR>
@@ -475,7 +475,7 @@
                 \ 'fallback': s:ctrlp_fallback
             \ }
 
-            if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
+            if isdirectory(expand("~/.vim/plugged/ctrlp-funky/"))
                 " CtrlP extensions
                 let g:ctrlp_extensions = ['funky']
 
@@ -486,7 +486,7 @@
     "}}}
 
     " TagBar {{{
-        if isdirectory(expand("~/.vim/bundle/tagbar/"))
+        if isdirectory(expand("~/.vim/plugged/tagbar/"))
             nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
             " If using go please install the gotags program using the following
@@ -508,7 +508,7 @@
 
 
     " Fugitive {{{
-        if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+        if isdirectory(expand("~/.vim/plugged/vim-fugitive/"))
             nnoremap <silent> <leader>gs :Gstatus<CR>
             nnoremap <silent> <leader>gd :Gdiff<CR>
             nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -566,7 +566,7 @@
     " }}}
 
     " UndoTree {{{
-        if isdirectory(expand("~/.vim/bundle/undotree/"))
+        if isdirectory(expand("~/.vim/plugged/undotree/"))
             nnoremap <Leader>uu :UndotreeToggle<CR>
             " If undotree is opened, it is likely one wants to interact with it.
             let g:undotree_SetFocusWhenToggle=1
@@ -574,7 +574,7 @@
     " }}}
 
     " indent_guides {{{
-        if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
+        if isdirectory(expand("~/.vim/plugged/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
             let g:indent_guides_guide_size = 1
             let g:indent_guides_enable_on_vim_startup = 1
@@ -606,7 +606,7 @@
 
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
-        if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+        if isdirectory(expand("~/.vim/plugged/vim-airline/"))
             if !exists('g:airline_theme')
                 let g:airline_theme = 'solarized'
             endif
@@ -1050,9 +1050,9 @@
     nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
 
     " Vundle actions
-    nnoremap <leader>bi :so $MYVIMRC<cr> :BundleInstall<cr>
-    nnoremap <leader>bc :so $MYVIMRC<cr> :BundleClean!<cr>
-    nnoremap <leader>bu :so $MYVIMRC<cr> :BundleUpdate<cr>
+    " nnoremap <leader>bi :so $MYVIMRC<cr> :BundleInstall<cr>
+    " nnoremap <leader>bc :so $MYVIMRC<cr> :BundleClean!<cr>
+    " nnoremap <leader>bu :so $MYVIMRC<cr> :BundleUpdate<cr>
 
     " Clear all marks for the current buffer
     " nnoremap <leader>mc :delm! | delm A-Z0-9
@@ -2012,7 +2012,7 @@
     " supposed to speed up ycm
     let g:ycm_register_as_syntastic_checker = 0
     " open preview window while completing
-    " let g:ycm_add_preview_to_completeopt=1
+    let g:ycm_add_preview_to_completeopt=1
     " disable youcompleteme
     " let g:ycm_auto_trigger=0
     " let g:ycm_allow_changing_updatetime=0
