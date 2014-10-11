@@ -135,6 +135,12 @@ do
     }
 done
 
+# install when-changed
+if [[ ! "$(type -P when-changed)" ]]; then
+    log_info "installing when-changed"
+    sudo pip install https://github.com/joh/when-changed/archive/master.zip
+fi
+
 log_info "activating argcomplete"
 activate-global-python-argcomplete
 
