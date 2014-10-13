@@ -992,6 +992,9 @@ endif
 " I don't use this, Marks in the sidebar is fine
 " Plug 'vim-scripts/Marks-Browser'
 
+" auto ls after :cd
+Plug 'b4b4r07/vim-autocdls'
+
 " }}}
 
 " }}}
