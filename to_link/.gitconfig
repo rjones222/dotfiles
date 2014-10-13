@@ -104,7 +104,7 @@
     editor = vim
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     trustctime = false
-    excludesfile = ~/.gitignore
+	excludesfile = .exrc
     ; autocrlf = input
     ; autocrlf = true
     autocrlf = false

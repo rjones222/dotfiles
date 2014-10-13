@@ -120,6 +120,9 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 " General {{{
 
+" allow .exrc files
+set exrc
+
 " rename a file with :Rename mynewname
 Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
 

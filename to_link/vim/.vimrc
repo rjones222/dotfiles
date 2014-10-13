@@ -594,7 +594,8 @@
         let g:airline_powerline_fonts=1
 
         " which airline theme to use
-        let g:airline_theme='solarized'
+        " if you turn this off it should follow the current theme
+        " let g:airline_theme='solarized'
 
         " Set configuration options for the statusline plugin vim-airline.
         " Use the powerline theme and optionally enable powerline symbols.
@@ -606,16 +607,16 @@
 
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
-        if isdirectory(expand("~/.vim/plugged/vim-airline/"))
-            if !exists('g:airline_theme')
-                let g:airline_theme = 'solarized'
-            endif
-            if !exists('g:airline_powerline_fonts')
-                " Use the default set of separators with a few customizations
-                let g:airline_left_sep='›'  " Slightly fancier than '>'
-                let g:airline_right_sep='‹' " Slightly fancier than '<'
-            endif
-        endif
+        " if isdirectory(expand("~/.vim/plugged/vim-airline/"))
+            " if !exists('g:airline_theme')
+                " let g:airline_theme = 'solarized'
+            " endif
+            " if !exists('g:airline_powerline_fonts')
+                " " Use the default set of separators with a few customizations
+                " let g:airline_left_sep='›'  " Slightly fancier than '>'
+                " let g:airline_right_sep='‹' " Slightly fancier than '<'
+            " endif
+        " endif
     " }}}
 
 " }}}
@@ -747,6 +748,10 @@
 " My settings {{{
 
 " General {{{
+    " allow setting .exrc in root project folders
+    set exrc
+    set secure
+
     let g:snips_author = 'Michael Funk <mike.funk@internetbrands.com>'
 
     " this allows you to run :checktime to update all open buffers
@@ -1187,6 +1192,8 @@
     let g:rehash256 = 1
 
     " {{{ global powerline fonts switch is defined in .vimrc.before.local
+        " this will turn off powerline fonts for tmuxline, vim-powerline,
+        " promptline, etc.
         let g:global_powerline_switch = 1
 
         if g:global_powerline_switch == 1
@@ -1726,6 +1733,7 @@
     " warning this is really slow. So I only enabled it for php files.
     augroup php_tagbar
         autocmd FileType php let g:airline#extensions#tagbar#enabled = 1
+        autocmd FileType coffee let g:airline#extensions#tagbar#enabled = 1
     augroup END
     " moved to global powerline switch above
     " let g:airline_left_sep = ''
