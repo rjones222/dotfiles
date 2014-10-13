@@ -1,14 +1,14 @@
 # dotfiles
 
-My Bash, Vim, Git, and other dotfiles. My Vim config starts with [spf13](https://github.com/spf13/spf13-vim) and adds/removes a bunch of stuff. I use the Solarized theme in iTerm, Vim, and vim-airline. I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the tasks directory to see what each install task does.
+My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-installer-framework, spf13-vim. Much faster now! I use the Solarized color scheme in iTerm, Vim, promptline, tmuxline, and vim-airline. I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the tasks directory to see what each install task does.
 
 # Directions
 
 1. [install XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and ensure you run it at least once
 2. Ensure git is installed with `which git`
-3. ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r```
+3. Install dotfiles: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r```
 
-Or just bash-it, plugins, aliases, etc: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -t bashit```
+Or pick an install script in the `install` directory and run them one at a time.
 
 # Other stuff to install:
 
