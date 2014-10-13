@@ -14,6 +14,10 @@
 # more info at http://mikefunk.com
 # }}}
 
+# source installer support files {{{
+for f in ~/.dotfiles/install/support/*; do source $f; done
+# }}}
+
 log_info "Beginning symlinks install script"
 
 link_this "$HOME/.dotfiles/to_link/.gitconfig" "$HOME/.gitconfig"

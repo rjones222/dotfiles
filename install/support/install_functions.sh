@@ -33,21 +33,15 @@ function link_this() {
 
 # display a success message
 function log_info() {
-    echo "$Green----------------------"
-    echo "$1"
-    echo "----------------------$Color_Off"
+echo -e "$(tput setaf 2)$(tput rev)$(tput bold) \xE2\x9C\x93 $1 $(tput sgr0)"
 }
 
 # display a error message
 function log_error() {
-    echo "$Red----------------------"
-    echo "$1"
-    echo "----------------------$Color_Off"
+echo -e "$(tput setaf 1)$(tput rev)$(tput bold) \xE2\x9C\x97 $1 $(tput sgr0)"
 }
 
 # display a yellow notice message
 function log_notice() {
-    echo "$Yellow----------------------"
-    echo "$1"
-    echo "----------------------$Color_Off"
+echo -e "$(tput setaf 3)$(tput rev)$(tput bold) \xE2\x9A\xa0 $1 $(tput sgr0)"
 }

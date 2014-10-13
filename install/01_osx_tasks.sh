@@ -1,4 +1,23 @@
 #!/usr/bin/env bash
+
+# Modeline and Notes {{{
+# vim: set sw=4 ts=4 sts=4 et tw=78 foldmethod=marker:
+#
+#  ___  ____ _         ______           _
+#  |  \/  (_) |        |  ___|         | |
+#  | .  . |_| | _____  | |_ _   _ _ __ | | __
+#  | |\/| | | |/ / _ \ |  _| | | | '_ \| |/ /
+#  | |  | | |   <  __/ | | | |_| | | | |   <
+#  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
+#
+# link my dotfiles to their expected locations
+# more info at http://mikefunk.com
+# }}}
+
+# source installer support files {{{
+for f in ~/.dotfiles/install/support/*; do source $f; done
+# }}}
+
 log_info "Beginning mac install script"
 
 # OSX-only stuff. Abort if not OSX.
@@ -153,7 +172,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     fi
 
 else
-    log_error "This is not OSX so not running osx tasks"
+    log_notice "This is not OSX so not running osx tasks"
 fi
 
 log_info "End mac install script"

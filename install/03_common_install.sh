@@ -1,4 +1,23 @@
 #!/usr/bin/env bash
+
+# Modeline and Notes {{{
+# vim: set sw=4 ts=4 sts=4 et tw=78 foldmethod=marker:
+#
+#  ___  ____ _         ______           _
+#  |  \/  (_) |        |  ___|         | |
+#  | .  . |_| | _____  | |_ _   _ _ __ | | __
+#  | |\/| | | |/ / _ \ |  _| | | | '_ \| |/ /
+#  | |  | | |   <  __/ | | | |_| | | | |   <
+#  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
+#
+# link my dotfiles to their expected locations
+# more info at http://mikefunk.com
+# }}}
+
+# source installer support files {{{
+for f in ~/.dotfiles/install/support/*; do source $f; done
+# }}}
+
 log_info "Beginning common install script"
 
 # install npm packages
@@ -22,7 +41,7 @@ jshint
 jsonlint
 less
 localtunnel
-log.io
+# log.io
 phantomjs
 phpunit-watchr
 tldr
@@ -136,6 +155,7 @@ do
 done
 
 # install when-changed
+# @note: I had a problem installing this on 10.9 mac intel
 if [[ ! "$(type -P when-changed)" ]]; then
     log_info "installing when-changed"
     sudo pip install https://github.com/joh/when-changed/archive/master.zip

@@ -14,6 +14,7 @@
 # more info at http://mikefunk.com
 # }}}
 
+export LANG=en_US.UTF-8
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export CLICOLOR=1
 

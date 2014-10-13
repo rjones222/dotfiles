@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-log_info "Installing Mike Funk's dotfiles"
+echo "Installing Mike Funk's dotfiles"
 
 # create this if it doesn't exist - we'll need it later.
 if [[ ! -d "/usr/local/bin" ]]; then
@@ -44,9 +44,19 @@ else
 fi
 
 # source installer support files
-for f in ~/.dotfiles/install/support/*; do source $f; done
+for f in ~/.dotfiles/install/support/*; do
+    # only source files
+    if [[ -f $f ]]; then
+        source $f
+    fi
+done
 
 # now source install scripts. These should run in alphanumeric order.
-for f in ~/.dotfiles/install/*; do source $f; done
+for f in ~/.dotfiles/install/*; do
+    # only source files
+    if [[ -f $f ]]; then
+        source $f
+    fi
+done
 
 log_info "Installation complete!"
