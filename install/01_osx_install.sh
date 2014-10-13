@@ -157,10 +157,22 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     brew linkapps
 
     # install php 5.5 via homebrew
+    log_info "Installing homebrew php"
     brew tap homebrew/dupes
     brew tap homebrew/versions
     brew tap homebrew/homebrew-php
-    brew install php56
+    brew install php56 --with-homebrew-curl --with-libmysql --with-debug --withapache --with-imap --with-libxml
+    brew install php56-xdebug php56-mcrypt
+    # have launchd start php56 at login
+    ln -sfv /usr/local/opt/php56/*.plist ~/Library/LaunchAgents
+    # load php56 now
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist
+    # if extension not in httpd.conf, add it
+    LoadPhp = "LoadModule php5_module /usr/local/opt/php56/libexec/apache2/libphp5.so";
+    if ! grep -Fxq $LoadPhp; then
+        log_info "adding php5 module to apache2 httpd.conf"
+        sudo echo $LoadPhp >> /etc/apache2/httpd.conf
+    fi
 
     # install phing bash completion
     log_info "installing bash completion for phing"

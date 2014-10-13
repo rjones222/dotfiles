@@ -19,8 +19,14 @@ if [ -d /Applications/VirtualBox.app/Contents/MacOS/ ]; then
     export PATH="/Applications/VirtualBox.app/Contents/MacOS:$PATH"
 fi
 
+# liip php
 if [ -d /usr/local/php5/bin ]; then
     export PATH="/usr/local/php5/bin:$PATH"
+fi
+
+# homebrew php
+if [[ -d "$(brew --prefix php56)/bin:$PATH" ]]; then
+    export PATH="$(brew --prefix php56)/bin:$PATH"
 fi
 
 # local bin

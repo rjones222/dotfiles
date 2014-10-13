@@ -16,7 +16,6 @@ Or pick an install script in the `install` directory and run them one at a time.
 * [iTerm 2](https://iterm2.com/downloads.html)
 * [Google Chrome](https://www.google.com/intl/en/chrome/browser/#brand=CHMB&utm_campaign=en&utm_source=en-ha-na-us-sk&utm_medium=ha)
 * [Google Drive](https://tools.google.com/dlpage/drive)
-* [Google Music](https://support.google.com/googleplay/answer/1229970?hl=en)
 * [Spectacle](http://spectacleapp.com/)
 * [VirtualBox](http://virtualbox.org)
 * [Vagrant](http://www.vagrantup.com/downloads)
