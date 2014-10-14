@@ -1059,6 +1059,10 @@
     " nnoremap <leader>bi :so $MYVIMRC<cr> :BundleInstall<cr>
     " nnoremap <leader>bc :so $MYVIMRC<cr> :BundleClean!<cr>
     " nnoremap <leader>bu :so $MYVIMRC<cr> :BundleUpdate<cr>
+    " vim-plug actions instead
+    nnoremap <leader>bi :so $MYVIMRC<cr> :PlugInstall<cr>
+    nnoremap <leader>bc :so $MYVIMRC<cr> :PlugClean!<cr>
+    nnoremap <leader>bu :so $MYVIMRC<cr> :PlugUpdate<cr>
 
     " Clear all marks for the current buffer
     " nnoremap <leader>mc :delm! | delm A-Z0-9

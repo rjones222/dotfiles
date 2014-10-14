@@ -1,1 +1,1 @@
-colo gotham256
+colo TomorrowNight-Bright

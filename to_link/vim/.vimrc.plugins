@@ -495,10 +495,6 @@ Plug 'pydave/vim-hiinterestingword'
 " highlights in bright red any trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
-" show all 256 colors and their numbers. useful for assigning colors in
-" different color schemes.
-" Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
-
 " pulse the background on search to find the currently found item. Really
 " helpful pretty UI addition.
 " Plug 'inside/vim-search-pulse'
@@ -511,18 +507,26 @@ Plug 'ntpeters/vim-better-whitespace'
 " search highlights, which is a bummer.
 " Plug 'OrelSokolov/HiCursorWords'
 
+" show all 256 colors and their numbers. useful for assigning colors in
+" different color schemes.
+" Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
+
+" a bunch of color schemes to try. Most don't work in 256.
+" Plug 'flazz/vim-colorschemes'
+
 " Color schemes that don't look good in xterm-256-colors
 " --------------
 " Plug '29decibel/codeschool-vim-theme'
 " Plug 'tpope/vim-vividchalk'
 " Plug 'morhetz/gruvbox'
+" this needs the following iterm2 themes: chriskempson/base16-iterm2
 " Plug 'chriskempson/base16-vim'
 " Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 " Plug 'endel/vim-github-colorscheme'
 " Plug 'ricardovaleriano/vim-github-theme'
 " Plug '29decibel/codeschool-vim-theme'
 " grb256 color scheme
-" Plug 'garybernhardt/dotfiles', { 'rtp': '.vim/colors' }
+" Plug 'garybernhardt/dotfiles', { 'rtp': '.vim/' }
 " Plug 'morhetz/gruvbox'
 " Plug 'vim-scripts/guardian'
 " Plug 'vim-scripts/herald.vim'
@@ -576,6 +580,9 @@ Plug 'MarioRicalde/vim-lucius'
 " Plug 'noah/vim256-color'
 Plug 'whatyouhide/vim-gotham'
 " Plug 'scottchiefbaker/vim-gotham'
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
+Plug 'Smyck-Color-Scheme'
+Plug 'michalbachowski/vim-wombat256mod'
 
 " just for testing some of the top color schemes
 " Plug 'vim-scripts/Colour-Sampler-Pack'

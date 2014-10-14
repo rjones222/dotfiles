@@ -105,7 +105,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
         if [[ ! "$(type -P mvim)" ]]; then
             log_info "installing macvim"
-            brew install macvim --with-lua --with-cscope --override-system-vim
+            brew install macvim --with-lua --override-system-vim
         fi
 
         log_info "setting up homebrew mysql to launch now and on startup"
