@@ -1023,9 +1023,10 @@
 
     " dotfile updates
     command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
+    command! PrivateUpdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
 
     " spf13-vim updates
-    command! Spfupdate :Dispatch cd ~/.spf13-vim-3 && git pull && cd -
+    " command! Spfupdate :Dispatch cd ~/.spf13-vim-3 && git pull && cd -
 
     " working commit
     command! Working :Dispatch cd $(git rev-parse --show-toplevel) && git add --all .; git commit -am "fixup!" && cd -

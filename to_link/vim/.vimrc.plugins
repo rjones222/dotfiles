@@ -182,7 +182,7 @@ Plug 'ardagnir/united-front'
 " nnoremap <silent> <Leader>ut
 " So much more reliable.
 " Plug 'szw/vim-tags'
-Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 
 " }}}
 
@@ -363,7 +363,7 @@ Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " <leader>tt to toggle tagbar. This makes it look prettier
 " Plug 'techlivezheng/vim-plugin-tagbar-phpctags'
 if executable('ctags')
-Plug 'vim-php/tagbar-phpctags.vim', { 'for': 'php' }
+    Plug 'vim-php/tagbar-phpctags.vim', { 'for': 'php' }
 endif
 
 " php namespace and use block autocomplete
@@ -384,7 +384,7 @@ Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
 Plug 'joonty/vdebug', { 'for': 'php' }
 
 " improved php omnicompletion
-Plug 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim', { 'for': 'php'}
 
 " required for phpcomplete-extended
 " And perhaps other packages...
@@ -497,7 +497,7 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " show all 256 colors and their numbers. useful for assigning colors in
 " different color schemes.
-Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
+" Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 
 " pulse the background on search to find the currently found item. Really
 " helpful pretty UI addition.
@@ -781,7 +781,7 @@ Plug 'airblade/vim-rooter'
 " switch to the second window and do <leader>ww again. The windows will
 " swap. Simple!
 " cool but I usually don't have more than 2 splits
-Plug 'wesQ3/vim-windowswap'
+" Plug 'wesQ3/vim-windowswap'
 
 " :BD to load previous buffer in current window
 " :BB and :BF to move backwards and forwards in buffer history of current
@@ -816,7 +816,7 @@ Plug 'vim-scripts/BufOnly.vim', { 'on': ['BufOnly', 'Bufonly'] }
 " Gitk clone in vim. ,gv and ,gV to view, <cr> to view commits in a
 " split or view diffs.
 " I might remove this... I don't use it
-Plug 'gregsexton/gitv'
+" Plug 'gregsexton/gitv'
 
 " Look up a github issue with :Gissues . You can also autocomplete issues
 " in fugitive window by typing #[issue number]<c-space>.
