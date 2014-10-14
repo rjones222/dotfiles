@@ -556,6 +556,7 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 " Plug 'vim-scripts/robokai'
 " Plug 'zaiste/Atom'
 " only problem is that the background is transparent
+" Plug 'freeo/vim-kalisi'
 
 " Schemes that look good in 256 colors:
 Plug 'nanotech/jellybeans.vim'
