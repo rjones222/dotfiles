@@ -121,6 +121,7 @@
     wip = !git add -u && git commit -m "WIP"
     # uncommit the last commit... but make a backup ref first just in case
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+    rbd = rebase -i develop
 # }}}
 
 # Color and visual settings {{{
@@ -157,7 +158,7 @@
     editor = vim
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     trustctime = false
-    excludesfile = .exrc
+	excludesfile = /Users/mfunk/.gitignore
     ; autocrlf = input
     ; autocrlf = true
     autocrlf = false
