@@ -320,7 +320,7 @@ Plug 'xsbeats/vim-blade', { 'for': 'blade' }
 " Plug 'Puppet-Syntax-Highlighting'
 
 " .tmux.conf syntax hilighting
-Plug 'vimez/vim-tmux', { 'for': 'conf' }
+Plug 'vimez/vim-tmux', { 'for': 'tmux' }
 
 " }}}
 
