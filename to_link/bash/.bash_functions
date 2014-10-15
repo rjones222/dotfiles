@@ -320,7 +320,8 @@ togglexdebug() {
     # about 'toggle local xdebug on or off'
     # group 'custom'
 
-    XDEBUGPATH="/usr/local/php5/php.d/50-extension-xdebug.ini"
+    # XDEBUGPATH="/usr/local/php5/php.d/50-extension-xdebug.ini"
+    XDEBUGPATH="/usr/local/etc/php/5.6/conf.d/ext-xdebug.ini"
     XDEBUGDIS="${XDEBUGPATH}.disabled"
     if [[ -f $XDEBUGPATH ]]; then
         echo "Disabling Xdebug"

@@ -800,7 +800,9 @@ Plug 'airblade/vim-rooter'
 
 " reopen closed window, mapping in .vimrc.local
 " nnoremap <leader>uc :UcwRestoreWindow<cr>
-Plug 'tyru/undoclosewin.vim', { 'on': 'UcwRestoreWindow' }
+Plug 'tyru/undoclosewin.vim'
+" doesn't want to lazy load
+" Plug 'tyru/undoclosewin.vim', { 'on': 'UcwRestoreWindow' }
 
 " Zoom toggle current window like tmux pane zooming
 " Plug 'vim-scripts/ZoomWin'

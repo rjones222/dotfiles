@@ -158,7 +158,8 @@
     editor = vim
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     trustctime = false
-	excludesfile = /Users/mfunk/.gitignore
+    ; if you want to specify a custom global gitignore location
+    excludesfile = /Users/mfunk/.gitignore
     ; autocrlf = input
     ; autocrlf = true
     autocrlf = false

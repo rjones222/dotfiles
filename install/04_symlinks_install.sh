@@ -55,5 +55,6 @@ sudo chmod a+x ~/.dotfiles/to_link/.git_template/hooks/*
 # try to link my php.ini in the right place... anywhere else it might be?
 link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/usr/local/php5/php.d/999-my-php.ini"
 link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/etc/php5/apache2/conf.d/999-my-php.ini"
+link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/usr/local/etc/php/5.6/conf.d/999-my-php.ini"
 
 log_info "End symlinks install script"

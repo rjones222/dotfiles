@@ -545,8 +545,8 @@ alias ph="phing"
 # pushd and popd are useful for saving bookmarks in cd! random reminder.
 
 # use netextender to connect to vpn
-# alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d $VPNDOMAIN $VPNURL"
-alias vpn="netExtender --auto-reconnect -u $VPNUSERNAME -d $VPNDOMAIN $VPNURL"
+alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d $VPNDOMAIN $VPNURL"
+# alias vpn="netExtender --auto-reconnect -u $VPNUSERNAME -d $VPNDOMAIN $VPNURL"
 
 # daily standup notes named by date
 alias standupnotes="vim ~/Documents/standup/`date +%F`.markdown"
