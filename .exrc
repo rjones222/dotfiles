@@ -1,1 +1,1 @@
-colo TomorrowNight-Bright
+colo Tomorrow-Night-Eighties

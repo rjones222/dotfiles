@@ -561,6 +561,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " Plug 'zaiste/Atom'
 " only problem is that the background is transparent
 " Plug 'freeo/vim-kalisi'
+" Plug 'joschka/Smyck-Color-Scheme'
 
 " Schemes that look good in 256 colors:
 Plug 'nanotech/jellybeans.vim'
@@ -577,11 +578,9 @@ Plug 'sjl/badwolf'
 " lucius fork to include fugitive colors
 " Plug 'jonathanfilip/vim-lucius'
 Plug 'MarioRicalde/vim-lucius'
-" Plug 'noah/vim256-color'
+Plug 'noah/vim256-color'
 Plug 'whatyouhide/vim-gotham'
-" Plug 'scottchiefbaker/vim-gotham'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
-Plug 'Smyck-Color-Scheme'
 Plug 'michalbachowski/vim-wombat256mod'
 
 " just for testing some of the top color schemes
