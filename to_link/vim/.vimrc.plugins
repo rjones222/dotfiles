@@ -87,7 +87,9 @@ Plug 'pythoncomplete', { 'for': 'python' }
 " JavaScript {{{
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
+" this one makes weird artifacts show up while I type
 " Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" this one works better
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }

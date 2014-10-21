@@ -58,6 +58,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         ctags
         # curl-ca-bundle
         # fasd
+        dos2unix
         git
         git-extras
         git-flow

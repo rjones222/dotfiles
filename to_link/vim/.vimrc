@@ -1098,10 +1098,6 @@
     " nnoremap <leader>bi :so $MYVIMRC<cr> :BundleInstall<cr>
     " nnoremap <leader>bc :so $MYVIMRC<cr> :BundleClean!<cr>
     " nnoremap <leader>bu :so $MYVIMRC<cr> :BundleUpdate<cr>
-    " vim-plug actions instead
-    nnoremap <leader>bi :so $MYVIMRC<cr> :PlugInstall<cr>
-    nnoremap <leader>bc :so $MYVIMRC<cr> :PlugClean!<cr>
-    nnoremap <leader>bu :so $MYVIMRC<cr> :PlugUpdate<cr>
 
     " Clear all marks for the current buffer
     " nnoremap <leader>mc :delm! | delm A-Z0-9
@@ -1415,10 +1411,6 @@
     " highlight phpClassesTag cterm=underline gui=underline term=underline
     " }}}
 
-    " {{{ vim-fold-expr
-    " let b:phpfold_doc_with_funcs = 0
-    " }}}
-
     " {{{ fugitive
     let g:fugitive_github_domains = ['https://gitlab.git.internetbrands.com', 'https://git.github.com']
     " filename
@@ -1480,7 +1472,7 @@
     " nnoremap <silent> <leader>gn :<C-U>call <SID>JumpToCommit(0)<cr>
     " nnoremap <silent> <leader>gp :<C-U>call <SID>JumpToCommit(1)<cr>
     " }}}
-    "
+
     " matchit {{{
     augroup blade_html_features
         " autocmd!
@@ -1848,6 +1840,10 @@
     let g:EasyClipAlwaysMoveCursorToEndOfPaste = 1
     " }}}
 
+    " {{{ vim-fold-expr
+    " let b:phpfold_doc_with_funcs = 0
+    " }}}
+
     " {{{ vim-github-dashboard
     let g:github_dashboard = { 'username': 'mikedfunk' }
     " }}}
@@ -1979,6 +1975,16 @@
 
     " Clover code coverage XML file
     let g:phpqa_codecoverage_file = "build/logs/clover.xml"
+    " }}}
+
+    " vim-plug {{{
+    nnoremap <leader>bi :so $MYVIMRC<cr> :PlugInstall<cr>
+    nnoremap <leader>bc :so $MYVIMRC<cr> :PlugClean!<cr>
+    nnoremap <leader>bu :so $MYVIMRC<cr> :PlugUpdate<cr>
+
+    " how many threads to use at once when updating, installing, etc. default
+    " is 16
+    " let g:plug_threads=32
     " }}}
 
     " vim-rhubarb {{{

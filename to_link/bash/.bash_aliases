@@ -451,7 +451,8 @@ fi
 
 # HEMING!!!!!!!!!!
 alias freakingwindows='find . -not -type d -exec file "{}" ";" | grep CRLF'
-alias dos2unix='grep -URl  . | xargs fromdos'
+# use homebrew package instead
+# alias dos2unix='grep -URl  . | xargs fromdos'
 
 # delete .orig files
 alias orig="find . -name '*.orig' -delete"
