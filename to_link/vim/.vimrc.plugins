@@ -493,7 +493,8 @@ Plug 'pydave/vim-hiinterestingword'
 " Plug 'chreekat/vim-paren-crosshairs'
 
 " highlights in bright red any trailing whitespace
-Plug 'ntpeters/vim-better-whitespace'
+" I disabled this pretty much just so I could get ascii art on startify :P
+Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 'css', 'less', 'coffee', 'xml', 'json'] }
 
 " pulse the background on search to find the currently found item. Really
 " helpful pretty UI addition.
