@@ -100,12 +100,17 @@ function __promptline_wrapper {
   [[ -n "$1" ]] || return 1
   printf "%s" "${2}${1}${3}"
 }
+function __promptline_right_prompt {
+  return
+}
 function __promptline {
-  local last_exit_code="$?"
+  local last_exit_code="${PROMPTLINE_LAST_EXIT_CODE:-$?}"
 
   local esc=$'[' end_esc=m
   if [[ -n ${ZSH_VERSION-} ]]; then
     local noprint='%{' end_noprint='%}'
+  elif [[ -n ${FISH_VERSION-} ]]; then
+    local noprint='' end_noprint=''
   else
     local noprint='\[' end_noprint='\]'
   fi
@@ -117,18 +122,24 @@ function __promptline {
   local alt_rsep=""
   local reset="${wrap}0${end_wrap}"
   local reset_bg="${wrap}49${end_wrap}"
-  local a_fg="${wrap}38;5;7${end_wrap}"
-  local a_bg="${wrap}48;5;3${end_wrap}"
-  local a_sep_fg="${wrap}38;5;3${end_wrap}"
-  local b_fg="${wrap}38;5;7${end_wrap}"
-  local b_bg="${wrap}48;5;14${end_wrap}"
-  local b_sep_fg="${wrap}38;5;14${end_wrap}"
-  local c_fg="${wrap}38;5;14${end_wrap}"
-  local c_bg="${wrap}48;5;7${end_wrap}"
-  local c_sep_fg="${wrap}38;5;7${end_wrap}"
+  local a_fg="${wrap}38;5;188${end_wrap}"
+  local a_bg="${wrap}48;5;65${end_wrap}"
+  local a_sep_fg="${wrap}38;5;65${end_wrap}"
+  local b_fg="${wrap}38;5;250${end_wrap}"
+  local b_bg="${wrap}48;5;239${end_wrap}"
+  local b_sep_fg="${wrap}38;5;239${end_wrap}"
+  local c_fg="${wrap}38;5;188${end_wrap}"
+  local c_bg="${wrap}48;5;238${end_wrap}"
+  local c_sep_fg="${wrap}38;5;238${end_wrap}"
   if [[ -n ${ZSH_VERSION-} ]]; then
     PROMPT="$(__promptline_left_prompt)"
-    RPROMPT=""
+    RPROMPT="$(__promptline_right_prompt)"
+  elif [[ -n ${FISH_VERSION-} ]]; then
+    if [[ -n "$1" ]]; then
+      [[ "$1" = "left" ]] && __promptline_left_prompt || __promptline_right_prompt
+    else
+      __promptline_ps1
+    fi
   else
     PS1="$(__promptline_ps1)"
   fi
@@ -138,6 +149,8 @@ if [[ -n ${ZSH_VERSION-} ]]; then
   if [[ ! ${precmd_functions[(r)__promptline]} == __promptline ]]; then
     precmd_functions+=(__promptline)
   fi
+elif [[ -n ${FISH_VERSION-} ]]; then
+  __promptline "$1"
 else
   if [[ ! "$PROMPT_COMMAND" == *__promptline* ]]; then
     PROMPT_COMMAND='__promptline;'$'\n'"$PROMPT_COMMAND"

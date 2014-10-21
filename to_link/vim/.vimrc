@@ -1224,12 +1224,13 @@
 
     " {{{ colorscheme
     if !exists('g:colorscheme_set')
-        " colorscheme lucius
-        colorscheme solarized
+        colorscheme lucius
+        " colorscheme solarized
         " colorscheme badwolf
     endif
     let g:colorscheme_set = 1
-    set background=light
+    " set background=light
+    set background=dark
     let g:solarized_contrast="normal"
     " let g:lucius_no_term_bg=1
     " solarized stuff I use

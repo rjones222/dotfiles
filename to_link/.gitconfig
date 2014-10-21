@@ -76,6 +76,16 @@
     ffr = flow feature rebase
     ffs = flow feature start
     fft = flow feature track
+    # git flow hotfix shortcuts
+    fhc = flow hotfix checkout
+    fhd = flow hotfix diff
+    fhf = flow hotfix finish
+    fhl = flow hotfix list
+    fhp = flow hotfix publish
+    fhpl = flow hotfix pull
+    fhr = flow hotfix rebase
+    fhs = flow hotfix start
+    fht = flow hotfix track
     # show change for one file
     filelog = log -u
     fl = log -u
