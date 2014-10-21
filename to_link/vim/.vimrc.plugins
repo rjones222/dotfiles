@@ -821,6 +821,9 @@ Plug 'vim-scripts/BufOnly.vim', { 'on': ['BufOnly', 'Bufonly'] }
 
 " Git {{{
 
+" u save lot but no commit. Y u no commit??
+Plug 'esneider/YUNOcommit.vim'
+
 " github and fugitive together from tim pope
 " I hardly use fugitive and I don't need any github-specific features.
 " Plug 'tpope/vim-rhubarb'

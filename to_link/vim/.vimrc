@@ -835,6 +835,35 @@
         \ ]
     \ }
 
+    " markdown ctags with tagbar?!
+    let g:tagbar_type_markdown = {
+        \ 'ctagstype' : 'markdown',
+        \ 'kinds' : [
+            \ 'h:Heading_L1',
+            \ 'i:Heading_L2',
+            \ 'k:Heading_L3'
+        \ ]
+    \ }
+
+    " puppet tagbar
+    let g:tagbar_type_puppet = {
+        \ 'ctagstype': 'puppet',
+        \ 'kinds': [
+            \'c:class',
+            \'s:site',
+            \'n:node',
+            \'d:definition'
+        \]
+    \}
+
+    " ultisnips tagbar
+    let g:tagbar_type_snippets = {
+        \ 'ctagstype' : 'snippets',
+        \ 'kinds' : [
+            \ 's:snippets',
+        \ ]
+    \ }
+
     " {{{ fix split dragging in tmux
     set mouse+=a
     if &term =~ '^screen'
