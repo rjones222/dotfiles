@@ -87,7 +87,8 @@ Plug 'pythoncomplete', { 'for': 'python' }
 " JavaScript {{{
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'sudo npm install' }
@@ -182,9 +183,10 @@ Plug 'ardagnir/united-front'
 " I just use a custom dispatch command for this now instead of a plugin.
 " nnoremap <silent> <Leader>ut
 " So much more reliable.
-" Plug 'szw/vim-tags'
 Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 
+" auto generate ctags on save
+" Plug 'szw/vim-tags'
 " }}}
 
 " Copy and paste {{{

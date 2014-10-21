@@ -1387,6 +1387,14 @@
     " highlighting won't use my custom highlight. Fuck it, we'll do it live!
     nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
 
+    " I would love to get this working some day
+    " command UpdateCtags silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
+    " nnoremap <silent> <Leader>ut :UpdateCtags<cr>
+
+    " augroup phpctags
+        " autocmd BufWritePost *.php UpdateCtags
+    " augroup END
+
     " Easytags blocks the UI on pause, which sucks! It also apparently
     " slows down the UI with it's highlighting, which I can't seem to switch
     " to underlining anyway. What is a better solution? In the mean time I
@@ -2045,7 +2053,7 @@
         " autocmd BufWritePost *.php :TagsGenerate
     " augroup END
     " let g:vim_tags_project_tags_command='ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes {OPTIONS} {DIRECTORY} 2>/dev/null'
-    " let g:vim_tags_use_vim_dispatch=1
+    let g:vim_tags_use_vim_dispatch=1
     " }}}
 
     " {{{ vim-togglelist
