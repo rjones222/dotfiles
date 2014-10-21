@@ -55,6 +55,12 @@ do
     }
 done
 
+# jsctags
+if [[ ! "$(type -P jsctags)" ]]; then
+    log_info "Installing jsctags"
+    sudo npm install -g git://github.com/ramitos/jsctags.git
+fi
+
 # install composer
 if [[ ! "$(type -P composer)" ]]; then
     log_info "Installing Composer"

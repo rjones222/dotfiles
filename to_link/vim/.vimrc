@@ -825,6 +825,16 @@
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
 
+    " css tags with tagbar
+    let g:tagbar_type_css = {
+    \ 'ctagstype' : 'Css',
+        \ 'kinds'     : [
+            \ 'c:classes',
+            \ 's:selectors',
+            \ 'i:identities'
+        \ ]
+    \ }
+
     " {{{ fix split dragging in tmux
     set mouse+=a
     if &term =~ '^screen'
