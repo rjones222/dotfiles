@@ -2,7 +2,7 @@
 
 My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-installer-framework, spf13-vim. Much faster now! I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the install directory to see what each install task does.
 
-![Screenshot](https://raw.githubusercontent.com/mikedfunk/dotfiles/support/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/mikedfunk/dotfiles/master/support/screenshot.png)
 
 # Directions
 
