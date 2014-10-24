@@ -27,8 +27,8 @@ if [[ ! "$(type -P npm)" ]]; then
 fi
 
 log_info "Installing npm Packages"
-# yo includes grunt and bower
 packages=(
+bower
 coffeelint
 coffee-script
 csslint
@@ -36,6 +36,7 @@ fixmyjs
 git-guilt
 gulp
 gulp-watch
+grunt
 instant-markdown-d
 jshint
 jsonlint
