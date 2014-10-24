@@ -38,7 +38,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     # Install Homebrew.
     if [[ ! "$(type -P brew)" ]]; then
         log_info "Installing Homebrew"
-        true | ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
     fi
 
     if [[ "$(type -P brew)" ]]; then
@@ -53,6 +53,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         packages=(
         autossh
         bash
+        bash-completion
         # ack
         cloc
         ctags
