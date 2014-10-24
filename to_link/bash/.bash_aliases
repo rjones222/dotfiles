@@ -550,7 +550,7 @@ alias ph="phing"
 alias vpn="netExtender --auto-reconnect -u $VPNUSERNAME -d $VPNDOMAIN $VPNURL"
 
 # daily standup notes named by date
-alias standupnotes="vim ~/Google\ Drive/standup/`date +%F`.markdown"
+alias standupnotes="tmux rename-window 'standup' && vim ~/Google\ Drive/standup/`date +%F`.markdown"
 
 alias acpcore="cd ~/Sites/acp-core"
 alias acphrh="cd ~/Sites/acp-hotrodhotline"
