@@ -8,7 +8,14 @@ My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-
 
 1. If on mac, install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and ensure you run it at least once. You need the full XCode, not just the command line tools for [MacVim](https://github.com/b4winckler/macvim) and [Terminal Notifier](https://github.com/alloy/terminal-notifier).
 2. Ensure git is installed with `which git`. On Mac just do `git status` somewhere and it will offer to install the XCode Command Line Tools.
-3. Install dotfiles: `git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r`
+3. *Install dotfiles*: `git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r`
+4. If you are using iTerm
+ 1. install [powerline fonts](https://github.com/Lokaltog/powerline-fonts) from the [support directory](https://github.com/mikedfunk/dotfiles/tree/master/support). 
+ 2. Go to iTerm preferences -> Profiles -> Default -> Text -> set *Regular Font* and *Non-ASCII Font* to 12 pt `Meslo LG M DZ Regular for Powerline`.
+ 3. Go to iTerm preferences -> Appearance -> Window -> check `Hide Scrollbar and Resize Control`.
+ 4. Install some [iterm2 color schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) from the [support directory](https://github.com/mikedfunk/dotfiles/tree/master/support).
+ 5. Load one from Preferences -> Profiles -> Default -> Colors -> Load Presets...
+5. To get Vim plugins installed, run `vim` from the command line, then type `:PlugInstall`.
 
 Or pick an install script in the `install` directory and run them one at a time.
 
