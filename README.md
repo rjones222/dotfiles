@@ -1,12 +1,14 @@
 # dotfiles
 
-My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-installer-framework, spf13-vim. Much faster now! I use the Solarized color scheme in iTerm, Vim, promptline, tmuxline, and vim-airline. I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the tasks directory to see what each install task does.
+My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-installer-framework, spf13-vim. Much faster now! I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the install directory to see what each install task does.
+
+![Screenshot](https://raw.githubusercontent.com/mikedfunk/dotfiles/support/screenshot.png)
 
 # Directions
 
-1. [install XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and ensure you run it at least once
-2. Ensure git is installed with `which git`
-3. Install dotfiles: ```git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r```
+1. If on mac, install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and ensure you run it at least once. You need the full XCode, not just the command line tools for [MacVim](https://github.com/b4winckler/macvim) and [Terminal Notifier](https://github.com/alloy/terminal-notifier).
+2. Ensure git is installed with `which git`. On Mac just do `git status` somewhere and it will offer to install the XCode Command Line Tools.
+3. Install dotfiles: `git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r`
 
 Or pick an install script in the `install` directory and run them one at a time.
 
@@ -22,4 +24,4 @@ Or pick an install script in the `install` directory and run them one at a time.
 * [Vagrant vbguest plugin](https://github.com/dotless-de/vagrant-vbguest)
 * [IE VMs](https://github.com/xdissent/ievms)
 * [Sequel Pro](http://www.sequelpro.com/) for Mac or [MySQL Workbench](http://dev.mysql.com/downloads/tools/workbench/) for Windows/Linux
-* [TinyGrab](http://tinygrab.com/download.php)
+* NetExtender or [SonicWall Mobile Connect](https://itunes.apple.com/us/app/sonicwall-mobile-connect/id466931806/?mt=8) for vpn access
