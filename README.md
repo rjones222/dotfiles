@@ -19,6 +19,7 @@ Or pick an install script in the `install` directory and run them one at a time.
 * [Spectacle](http://spectacleapp.com/)
 * [VirtualBox](http://virtualbox.org)
 * [Vagrant](http://www.vagrantup.com/downloads)
+* [Vagrant vbguest plugin](https://github.com/dotless-de/vagrant-vbguest)
 * [IE VMs](https://github.com/xdissent/ievms)
 * [Sequel Pro](http://www.sequelpro.com/) for Mac or [MySQL Workbench](http://dev.mysql.com/downloads/tools/workbench/) for Windows/Linux
 * [TinyGrab](http://tinygrab.com/download.php)
