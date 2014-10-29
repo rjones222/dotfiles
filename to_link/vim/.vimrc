@@ -1042,6 +1042,21 @@
         setlocal softtabstop=2
         setlocal expandtab
     endfunction
+
+    " change indentation size with :Indent
+    command! Indent :call Indent()
+    function! Indent()
+        let s:size_of_indentation = input("New indentation (".&ts.",".&sts.",".&sw.") => ")
+        if(s:size_of_indentation != '')
+            execute "setlocal ts=".s:size_of_indentation.""
+            execute "setlocal sts=".s:size_of_indentation.""
+            execute "setlocal sw=".s:size_of_indentation.""
+        endif
+    endfunction
+
+    " convert quickly between tabs and spaces with :TabToSpace and :SpaceToTab
+    command! TabToSpace :setlocal expandtab | %retab!
+    command! SpaceToTab :setlocal noexpandtab | %retab!
 " }}}
 
 " Key Mapping {{{
