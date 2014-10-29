@@ -75,7 +75,7 @@ alias	rd='rmdir'
 
 # Vim {{{
 
-alias v='mvim --remote-tab'
+alias v='mvim --remote-tab --servername mikedfunkvim'
 
 # }}}
 

@@ -49,17 +49,19 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-abolish', { 'on': 'Abolish' }
 Plug 'osyo-manga/vim-over'
 Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
+" Plug 'kana/vim-textobj-indent'
 " Plug 'gcmt/wildfire.vim'
 " }}}
 
 " General Programming {{{
-Plug 'scrooloose/syntastic', { 'for': ['php', 'python', 'javascript', 'css'] }
-Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic', { 'for': ['vim', 'php', 'python', 'javascript', 'css'] }
+if has('git')
+    Plug 'tpope/vim-fugitive'
+endif
 if executable("curl")
     Plug 'mattn/webapi-vim'
+    Plug 'mattn/gist-vim', { 'on': 'Gist' }
 endif
-Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'scrooloose/nerdcommenter'
 " Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
@@ -70,8 +72,8 @@ endif
 " }}}
 
 " YouCompleteMe {{{
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 if has('python')
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'SirVer/ultisnips'
 endif
 Plug 'honza/vim-snippets'
@@ -123,9 +125,6 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " not from spf13-vim {{{
 
 " General {{{
-
-" allow .exrc files
-set exrc
 
 " rename a file with :Rename mynewname
 Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
@@ -753,7 +752,9 @@ Plug 'henrik/vim-qargs', { 'on': ['GitGrep', 'Qdo'] }
 
 " better than Ack
 " :Ag! 'my search' [options]
-Plug 'rking/ag.vim', { 'on': ['Ag'] }
+if has('ag')
+    Plug 'rking/ag.vim', { 'on': ['Ag'] }
+endif
 
 " allow to star search from a visual selection
 " viw *
@@ -826,7 +827,9 @@ Plug 'vim-scripts/BufOnly.vim', { 'on': ['BufOnly', 'Bufonly'] }
 " Git {{{
 
 " u save lot but no commit. Y u no commit??
-Plug 'esneider/YUNOcommit.vim'
+if has('git')
+    Plug 'esneider/YUNOcommit.vim'
+endif
 
 " github and fugitive together from tim pope
 " I hardly use fugitive and I don't need any github-specific features.
@@ -895,7 +898,9 @@ Plug 'wellle/targets.vim'
 
 " instant markdown preview
 " :InstantMarkdownPreview to enable as-you-type preview for markdown files
-Plug 'suan/vim-instant-markdown', { 'on': 'InstantMarkdownPreview' }
+if has('redcarpet') && has('instant-markdown-d') && has('pygmentize')
+    Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+endif
 
 " }}}
 
@@ -959,10 +964,6 @@ if executable("tmux")
     " query surrounding tmux splits to add to autocomplete
     Plug 'buztard/vim-nomad'
 
-    " fix broken terminal keys when we use xterm-256-color in iterm prefs and
-    " screen-256-color in tmux.conf prefs
-    Plug 'nacitar/terminalkeys.vim'
-
     " create tmux window with a command from vim
     " nnoremap <leader>vp :VimuxPromptCommand<cr>
     " nnoremap <leader>vc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
@@ -977,6 +978,11 @@ if executable("tmux")
     Plug 'benmills/vimux'
 
 endif
+
+" fix broken terminal keys when we use xterm-256-color in iterm prefs and
+" screen-256-color in tmux.conf prefs
+Plug 'nacitar/terminalkeys.vim'
+
 " }}}
 
 " Marks {{{
