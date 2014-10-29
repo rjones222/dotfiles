@@ -55,7 +55,7 @@ Plug 'kana/vim-textobj-user'
 
 " General Programming {{{
 Plug 'scrooloose/syntastic', { 'for': ['vim', 'php', 'python', 'javascript', 'css'] }
-if has('git')
+if executable('git')
     Plug 'tpope/vim-fugitive'
 endif
 if executable("curl")
@@ -752,7 +752,7 @@ Plug 'henrik/vim-qargs', { 'on': ['GitGrep', 'Qdo'] }
 
 " better than Ack
 " :Ag! 'my search' [options]
-if has('ag')
+if executable('ag')
     Plug 'rking/ag.vim', { 'on': ['Ag'] }
 endif
 
@@ -827,7 +827,7 @@ Plug 'vim-scripts/BufOnly.vim', { 'on': ['BufOnly', 'Bufonly'] }
 " Git {{{
 
 " u save lot but no commit. Y u no commit??
-if has('git')
+if executable('git')
     Plug 'esneider/YUNOcommit.vim'
 endif
 
@@ -898,7 +898,7 @@ Plug 'wellle/targets.vim'
 
 " instant markdown preview
 " :InstantMarkdownPreview to enable as-you-type preview for markdown files
-if has('redcarpet') && has('instant-markdown-d') && has('pygmentize')
+if executable('redcarpet') && executable('instant-markdown-d') && executable('pygmentize')
     Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 endif
 
