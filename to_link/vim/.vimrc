@@ -375,11 +375,6 @@
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
     " }}}
 
-    " SnipMate {{{
-        " Setting the author var
-        let g:snips_author = 'Michael Funk <mike.funk@internetbrands.com>'
-    " }}}
-
     " NerdTree {{{
         if isdirectory(expand("~/.vim/plugged/nerdtree"))
             " map <C-e> <plug>NERDTreeTabsToggle<CR>
@@ -525,6 +520,7 @@
     "}}}
 
     " YouCompleteMe {{{
+    if isdirectory(expand("~/.vim/plugged/YouCompleteMe/"))
         let g:acp_enableAtStartup = 0
 
         " enable completion from tags
@@ -552,6 +548,7 @@
         " When enabled, there can be too much visual noise
         " especially when splits are used.
         set completeopt-=preview
+    endif
     " }}}
 
     " Normal Vim omni-completion {{{
@@ -582,13 +579,16 @@
     " }}}
 
     " Wildfire {{{
-    let g:wildfire_objects = {
-                \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
-                \ "html,xml" : ["at"],
-                \ }
+    if isdirectory(expand("~/.vim/plugged/wildfire.vim/"))
+        let g:wildfire_objects = {
+                    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+                    \ "html,xml" : ["at"],
+                    \ }
+    endif
     " }}}
 
     " vim-airline {{{
+    if isdirectory(expand("~/.vim/plugged/vim-airline/"))
 
         " whether to user powerline fonts in vim-airline
         let g:airline_powerline_fonts=1
@@ -617,6 +617,7 @@
                 " let g:airline_right_sep='‹' " Slightly fancier than '<'
             " endif
         " endif
+        endif
     " }}}
 
 " }}}
@@ -791,11 +792,13 @@
     " this is actually a plugin but they guy doesn't maintain or add to it so
     " there is no benefit to keeping it as a plugin. It's so small I'll just
     " put it here.
-    command! VimuxPHPUnitRunCurrentFile :call s:VimuxPHPUnitRunCurrentFile()
+    if executable('phpunit') && executable('tmux')
+        command! VimuxPHPUnitRunCurrentFile :call s:VimuxPHPUnitRunCurrentFile()
 
-    function! s:VimuxPHPUnitRunCurrentFile()
-        call VimuxRunCommand('phpunit ' . expand('%:p'))
-    endfunction
+        function! s:VimuxPHPUnitRunCurrentFile()
+            call VimuxRunCommand('phpunit ' . expand('%:p'))
+        endfunction
+    endif
 
     " filter quickfix list with
     " :QFilter pattern " only show lines matching pattern
@@ -819,50 +822,56 @@
     set suffixesadd+=.php,.sh,.js,.less,.css,.coffee,.json
 
     " ag.vim equivalent with :grep searchterm
-    set grepprg=ag\ --nocolor\ --nogroup\ --silent.
+    if executable('ag')
+        set grepprg=ag\ --nocolor\ --nogroup\ --silent.
+    endif
     " set grepprg=grep -nH
 
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
 
     " css tags with tagbar
-    let g:tagbar_type_css = {
-    \ 'ctagstype' : 'Css',
-        \ 'kinds'     : [
-            \ 'c:classes',
-            \ 's:selectors',
-            \ 'i:identities'
-        \ ]
-    \ }
+    " only works with a specific fork of ctags... but i'm already on a fork
+    " of ctags
+    if filereadable(expand("~/.vim/plugged/tagbar"))
+        let g:tagbar_type_css = {
+        \ 'ctagstype' : 'Css',
+            \ 'kinds'     : [
+                \ 'c:classes',
+                \ 's:selectors',
+                \ 'i:identities'
+            \ ]
+        \ }
 
-    " markdown ctags with tagbar?!
-    let g:tagbar_type_markdown = {
-        \ 'ctagstype' : 'markdown',
-        \ 'kinds' : [
-            \ 'h:Heading_L1',
-            \ 'i:Heading_L2',
-            \ 'k:Heading_L3'
-        \ ]
-    \ }
+        " markdown ctags with tagbar?! awesome!
+        let g:tagbar_type_markdown = {
+            \ 'ctagstype' : 'markdown',
+            \ 'kinds' : [
+                \ 'h:Heading_L1',
+                \ 'i:Heading_L2',
+                \ 'k:Heading_L3'
+            \ ]
+        \ }
 
-    " puppet tagbar
-    let g:tagbar_type_puppet = {
-        \ 'ctagstype': 'puppet',
-        \ 'kinds': [
-            \'c:class',
-            \'s:site',
-            \'n:node',
-            \'d:definition'
-        \]
-    \}
+        " puppet tagbar
+        let g:tagbar_type_puppet = {
+            \ 'ctagstype': 'puppet',
+            \ 'kinds': [
+                \'c:class',
+                \'s:site',
+                \'n:node',
+                \'d:definition'
+            \]
+        \}
 
-    " ultisnips tagbar
-    let g:tagbar_type_snippets = {
-        \ 'ctagstype' : 'snippets',
-        \ 'kinds' : [
-            \ 's:snippets',
-        \ ]
-    \ }
+        " ultisnips tagbar - ok this is getting crazy
+        let g:tagbar_type_snippets = {
+            \ 'ctagstype' : 'snippets',
+            \ 'kinds' : [
+                \ 's:snippets',
+            \ ]
+        \ }
+    endif
 
     " {{{ fix split dragging in tmux
     set mouse+=a
@@ -876,7 +885,10 @@
     " }}}
 
     " {{{ format json
-    nnoremap <leader>fj :%!python -m json.tool<cr>
+    " nnoremap <leader>fj :%!python -m json.tool<cr>
+    if executable('json')
+        nnoremap <leader>fj :%!json<cr>
+    endif
     " }}}
     "
     " {{{ delete inactive buffers (the ones not in tabs or windows)
@@ -965,10 +977,13 @@
 
     " use php documentation with <shift>K from pear package pman"
     augroup phpman_autogroup
-        autocmd FileType php set keywordprg=/Users/mfunk/pear/bin/pman\ -P\ less
-        " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
-        " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
-        " autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
+        if executable('pman')
+            autocmd FileType php set keywordprg=pman
+            " autocmd FileType php set keywordprg=/Users/mfunk/.composer/vendor/bin/pman\ -P\ less
+            " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
+            " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
+            " autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
+        endif
     augroup END
 
     " enable matching of xml tags with %
@@ -1017,10 +1032,14 @@
     set nospell
 
     " Abbreviations
-    abbrev pft PHPUnit_Framework_TestCase
-    abbrev gm !php artisan generate:model
-    abbrev gc !php artisan generate:controller
-    abbrev gmig !php artisan generate:migration
+    if executable('phpunit')
+        abbrev pft PHPUnit_Framework_TestCase
+    endif
+    if executable('php')
+        abbrev gm !php artisan generate:model
+        abbrev gc !php artisan generate:controller
+        abbrev gmig !php artisan generate:migration
+    endif
 
     " if the last window is a quickfix, close it
     augroup qfclose_augroup
@@ -1041,6 +1060,7 @@
         setlocal tabstop=2
         setlocal softtabstop=2
         setlocal expandtab
+        :%retab!
     endfunction
 
     " change indentation size with :Indent
@@ -1075,15 +1095,15 @@
     command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:nohlsearch<cr>"
     nnoremap <leader>su :SortUse<cr>
 
-    " dotfile updates
-    command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
-    command! PrivateUpdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
+    if filereadable(expand("~/.vim/plugged/vim-dispatch"))
+        " dotfile updates
+        command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
+        command! PrivateUpdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
 
-    " spf13-vim updates
-    " command! Spfupdate :Dispatch cd ~/.spf13-vim-3 && git pull && cd -
-
-    " working commit
-    command! Working :Dispatch cd $(git rev-parse --show-toplevel) && git add --all .; git commit -am "fixup!" && cd -
+    if filereadable(expand("~/.vim/plugged/vim-dispatch"))
+        " working commit
+        command! Working :Dispatch cd $(git rev-parse --show-toplevel) && git add --all .; git commit -am "rebase me!!" && cd -
+    endif
 
     " source vimrc
     command! Source :so $MYVIMRC

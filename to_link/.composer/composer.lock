@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7770b34e9423fe3ad7c20036b39a2859",
+    "hash": "fc4e28873623c01d3655f2dff3cdbdd0",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -515,6 +515,36 @@
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
             "time": "2014-09-26 16:05:58"
+        },
+        {
+            "name": "gonzaloserrano/pman-php-manual",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gonzaloserrano/pman-php-manual.git",
+                "reference": "c90fad0f8efcad91e72cba2260ae296eb9f6c2e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gonzaloserrano/pman-php-manual/zipball/c90fad0f8efcad91e72cba2260ae296eb9f6c2e5",
+                "reference": "c90fad0f8efcad91e72cba2260ae296eb9f6c2e5",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/pman"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "PHP documentation manual pages from the PEAR package",
+            "homepage": "http://doc.php.net/",
+            "keywords": [
+                "man",
+                "manual",
+                "pages",
+                "php",
+                "pman"
+            ],
+            "time": "2014-10-28 10:18:20"
         },
         {
             "name": "hot/phpunit-runner",
@@ -4380,12 +4410,8 @@
             "time": "2013-12-19 11:40:00"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "pdepend/pdepend": 20,
@@ -4396,13 +4422,10 @@
         "tomphp/patch-builder": 20,
         "sebastian/phpdcd": 20,
         "dompdf/dompdf": 20,
-        "hot/phpunit-runner": 20
+        "hot/phpunit-runner": 20,
+        "gonzaloserrano/pman-php-manual": 20
     },
     "prefer-stable": false,
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "platform": [],
+    "platform-dev": []
 }

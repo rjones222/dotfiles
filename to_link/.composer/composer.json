@@ -21,7 +21,8 @@
     "sebastian/phpdcd": "@dev",
     "dompdf/dompdf": "@dev",
     "qafoolabs/php-refactoring-browser": "*",
-    "hot/phpunit-runner": "dev-master"
+    "hot/phpunit-runner": "dev-master",
+    "gonzaloserrano/pman-php-manual": "dev-master"
 
   },
   "process-timeout": 120
