@@ -833,45 +833,6 @@
     " css tags with tagbar
     " only works with a specific fork of ctags... but i'm already on a fork
     " of ctags
-    if filereadable(expand("~/.vim/plugged/tagbar"))
-        let g:tagbar_type_css = {
-        \ 'ctagstype' : 'Css',
-            \ 'kinds'     : [
-                \ 'c:classes',
-                \ 's:selectors',
-                \ 'i:identities'
-            \ ]
-        \ }
-
-        " markdown ctags with tagbar?! awesome!
-        let g:tagbar_type_markdown = {
-            \ 'ctagstype' : 'markdown',
-            \ 'kinds' : [
-                \ 'h:Heading_L1',
-                \ 'i:Heading_L2',
-                \ 'k:Heading_L3'
-            \ ]
-        \ }
-
-        " puppet tagbar
-        let g:tagbar_type_puppet = {
-            \ 'ctagstype': 'puppet',
-            \ 'kinds': [
-                \'c:class',
-                \'s:site',
-                \'n:node',
-                \'d:definition'
-            \]
-        \}
-
-        " ultisnips tagbar - ok this is getting crazy
-        let g:tagbar_type_snippets = {
-            \ 'ctagstype' : 'snippets',
-            \ 'kinds' : [
-                \ 's:snippets',
-            \ ]
-        \ }
-    endif
 
     " {{{ fix split dragging in tmux
     set mouse+=a
@@ -1202,8 +1163,6 @@
     nnoremap gh gT
     nnoremap gl gt
     nnoremap gn :tabnew<cr>
-    2011
-    2011
 
     " open tag in tab
     nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -1226,28 +1185,10 @@
     nnoremap <C-L> <C-W>l<C-W><bar>
     nnoremap <C-H> <C-W>h<C-W><bar>
 
-    " open all buffers in new tabs
-    " map <leader>bt :tab sball<CR>
-    " map <leader>bt :bufdo tab split<CR>
-    " let g:NERDTreeCustomReuseWindows = '1'
-    " function! NERDTreeOpenAllInCurrentDirectory()
-        " cd :BufOnly<CR>:args ./*.*<CR>:tab sball<CR>
-    " endfunction
-    " call NERDTreeAddKeyMap({
-        " \ 'key': 'X',
-        " \ 'scope': 'all',
-        " \ 'callback': 'NERDTreeOpenAllInCurrentDirectory',
-        " \ 'quickhelpText': 'Open all tags in current cd directory' })
-    " doesn't work in NERDTree but that's where I want to use it
-    " nnoremap <leader>bt cd :BufOnly<CR>:args ./*.*<CR>:tab sball<CR>
     nnoremap <leader>bo :BufOnly<cr>
 
     " open existing buffer in a newtab
     nnoremap <leader>te :ls<cr>:tabedit #
-
-    " omnicompletion like Visual Studio or NetBeans
-    " inoremap <C-Space> <C-x><C-o>
-    " imap <C-@> <C-Space>
 
     " open link under cursor in browser
     nnoremap <leader>ou yiW:!open <c-r>" &<cr><cr>
@@ -1348,8 +1289,10 @@
     " }}}
 
     " {{{ change the default EasyMotion shading to something more readable with Solarized
-    hi link EasyMotionTarget ErrorMsg
-    hi link EasyMotionShade  Comment
+    if filereadable(expand("~/.vim/plugged/vim-easymotion"))
+        hi link EasyMotionTarget ErrorMsg
+        hi link EasyMotionShade  Comment
+    endif
     " }}}
 
     " {{{ vim-gitgutter better background
@@ -1371,152 +1314,171 @@
     " accelerated-smooth-scroll {{{
     " only enable c-d and c-u. I don't use c-f and c-b and I want to use c-b
     " for incrementing values.
-    let g:ac_smooth_scroll_no_default_key_mappings = 1
-    nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
-    nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
-    xmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d_v)
-    xmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u_v)
+    if filereadable(expand("~/.vim/plugged/accelerated-smooth-scroll"))
+        let g:ac_smooth_scroll_no_default_key_mappings = 1
+        nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
+        nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
+        xmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d_v)
+        xmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u_v)
+    endif
     " }}}
 
     " {{{ Colorizer
-    let g:colorizer_auto_filetype='css,scss,less,sass'
+    if filereadable(expand("~/.vim/plugged/Colorizer"))
+        let g:colorizer_auto_filetype='css,scss,less,sass'
+    endif
     " }}}
 
     " cosco.vim {{{
-    augroup cosco_vim_augroup
-        autocmd FileType javascript,css,php nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
-        autocmd FileType javascript,css,php inoremap <silent> <leader>; <ESC>:call cosco#commaOrSemiColon()"<CR>a
-    augroup END
+    if filereadable(expand("~/.vim/plugged/cosco.vim"))
+        augroup cosco_vim_augroup
+            autocmd FileType javascript,css,php nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
+            autocmd FileType javascript,css,php inoremap <silent> <leader>; <ESC>:call cosco#commaOrSemiColon()"<CR>a
+        augroup END
+    endif
     " }}}
 
     " {{{ ctrlp
-    " ctrlp extensions
-    let g:ctrlp_extensions = ['tag']
-    " alternate python matcher. 22x faster.
-    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-    nnoremap <leader>pb :CtrlPBuffer<CR>
-    nnoremap <leader>pm :CtrlPMRUFiles<CR>
+    if filereadable(expand("~/.vim/plugged/ctrlp.vim"))
+        " ctrlp extensions
+        let g:ctrlp_extensions = ['tag']
+        " alternate python matcher. 22x faster.
+        let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+        nnoremap <leader>pb :CtrlPBuffer<CR>
+        nnoremap <leader>pm :CtrlPMRUFiles<CR>
 
-    " ignore some dirs
-    let g:ctrlp_custom_ignore = {
-      \ 'dir':  'build',
-      \ }
+        " ignore some dirs
+        let g:ctrlp_custom_ignore = {
+          \ 'dir':  'build',
+          \ }
+    endif
     " }}}"
 
     " {{{ dispatch
-    nnoremap <silent> <Leader>di :call CallDispatchWithCommand() <CR>
+    if filereadable(expand("~/.vim/plugged/vim-dispatch"))
+        nnoremap <silent> <Leader>di :call CallDispatchWithCommand() <CR>
 
-    function! CallDispatchWithCommand()
-      let dispatch_command = input('> ')
-      execute ':Dispatch ' . dispatch_command
-    endfunction
+        function! CallDispatchWithCommand()
+          let dispatch_command = input('> ')
+          execute ':Dispatch ' . dispatch_command
+        endfunction
+    endif
     " }}}
 
     " {{{ easytags
-    " easytags just doesn't work well. it blocks the ui when updating (doesn't
-    " use dispatch), it doesn't use my custom easy_tags_cmd, and the
-    " highlighting won't use my custom highlight. Fuck it, we'll do it live!
-    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
+    if filereadable(expand("~/.vim/plugged/vim-easytags"))
+        " easytags just doesn't work well. it blocks the ui when updating (doesn't
+        " use dispatch), it doesn't use my custom easy_tags_cmd, and the
+        " highlighting won't use my custom highlight. Fuck it, we'll do it live!
+        nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
 
-    " I would love to get this working some day
-    " command UpdateCtags silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
-    " nnoremap <silent> <Leader>ut :UpdateCtags<cr>
+        " I would love to get this working some day
+        " command UpdateCtags silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
+        " nnoremap <silent> <Leader>ut :UpdateCtags<cr>
 
-    " augroup phpctags
-        " autocmd BufWritePost *.php UpdateCtags
-    " augroup END
+        " augroup phpctags
+            " autocmd BufWritePost *.php UpdateCtags
+        " augroup END
 
-    " Easytags blocks the UI on pause, which sucks! It also apparently
-    " slows down the UI with it's highlighting, which I can't seem to switch
-    " to underlining anyway. What is a better solution? In the mean time I
-    " map to update manually with ,ct.
-    " let g:easytags_auto_update = 0
-    " let g:easytags_dynamic_files=1
-    " let g:easytags_updatetime_warn=0
-    " let g:easytags_python_enabled=1
-    " let b:easytags_auto_highlight=0
-    " nnoremap <Leader>ut :UpdateTags<CR>
+        " Easytags blocks the UI on pause, which sucks! It also apparently
+        " slows down the UI with it's highlighting, which I can't seem to switch
+        " to underlining anyway. What is a better solution? In the mean time I
+        " map to update manually with ,ct.
+        " let g:easytags_auto_update = 0
+        " let g:easytags_dynamic_files=1
+        " let g:easytags_updatetime_warn=0
+        " let g:easytags_python_enabled=1
+        " let b:easytags_auto_highlight=0
+        " nnoremap <Leader>ut :UpdateTags<CR>
 
-    " this doesn't work. Apparently it's only for the path to ctags, not args.
-    " let g:easytags_cmd="ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes 2>/dev/null"
+        " this doesn't work. Apparently it's only for the path to ctags, not args.
+        " let g:easytags_cmd="ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes 2>/dev/null"
 
-    " this doesn't seem to work, it just disables highlighting. I can't figure
-    " out why.
-    " highlight phpFunctionsTag cterm=underline gui=underline term=underline
-    " highlight phpClassesTag cterm=underline gui=underline term=underline
+        " this doesn't seem to work, it just disables highlighting. I can't figure
+        " out why.
+        " highlight phpFunctionsTag cterm=underline gui=underline term=underline
+        " highlight phpClassesTag cterm=underline gui=underline term=underline
+    endif
     " }}}
 
     " {{{ fugitive
-    let g:fugitive_github_domains = ['https://gitlab.git.internetbrands.com', 'https://git.github.com']
-    " filename
-    hi default link User1 Identifier"blue
-    " flags
-    hi default link User2 Statement"green
-    " errors
-    hi default link User3 Error"orange
-    " fugitive
-    hi default link User4 Special
+    if filereadable(expand("~/.vim/plugged/vim-fugitive"))
+        let g:fugitive_github_domains = ['https://gitlab.git.internetbrands.com', 'https://git.github.com']
+        " filename
+        hi default link User1 Identifier"blue
+        " flags
+        hi default link User2 Statement"green
+        " errors
+        hi default link User3 Error"orange
+        " fugitive
+        hi default link User4 Special
 
-    augroup fugitive_augroup
-        " autocmd!
-        " reset file to HEAD in fugitive commit window
-        autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
-        " open quickfix window on git grep
-        autocmd QuickFixCmdPost *grep* cwindow
-    augroup END
+        augroup fugitive_augroup
+            " autocmd!
+            " reset file to HEAD in fugitive commit window
+            autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+            " open quickfix window on git grep
+            autocmd QuickFixCmdPost *grep* cwindow
+        augroup END
 
-    " Fugitive Commands
-    command! -bar -nargs=* Gpull execute 'Git pull' <q-args> 'origin' fugitive#head()
-    command! -bar -nargs=* Gpush execute 'Git push' <q-args> 'origin' fugitive#head()
-    command! -bar -nargs=* Gpurr execute 'Git pull --rebase' <q-args> 'origin' fugitive#head()
-    command! Gpnp silent Gpull | Gpush
-    command! Gprp silent Gpurr | Gpush
-    command! Gsync :Dispatch git checkout develop && git pull && git checkout - && git merge develop
-    command! Gnuke silent execute 'Git reset --hard'
+        " Fugitive Commands
+        command! -bar -nargs=* Gpull execute 'Git pull' <q-args> 'origin' fugitive#head()
+        command! -bar -nargs=* Gpush execute 'Git push' <q-args> 'origin' fugitive#head()
+        command! -bar -nargs=* Gpurr execute 'Git pull --rebase' <q-args> 'origin' fugitive#head()
+        command! Gpnp silent Gpull | Gpush
+        command! Gprp silent Gpurr | Gpush
+        command! Gsync :Dispatch git checkout develop && git pull && git checkout - && git merge develop
+        command! Gnuke silent execute 'Git reset --hard'
 
-    silent! unmap <leader>gp
-    " nnoremap <silent> <leader>gpu :Gpuspacesh<CR>
-    " nnoremap <silent> <leader>gpl :Gpull<CR>:e<CR>
-    nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
-    nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
-    nnoremap <leader>gn :Gnuke<cr>
-    nnoremap <leader>gps :Dispatch! git push<CR>
-    nnoremap <leader>gpu :Dispatch! git push<CR>
-    nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
+        silent! unmap <leader>gp
+        " nnoremap <silent> <leader>gpu :Gpuspacesh<CR>
+        " nnoremap <silent> <leader>gpl :Gpull<CR>:e<CR>
+        nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
+        nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
+        nnoremap <leader>gn :Gnuke<cr>
+        nnoremap <leader>gps :Dispatch! git push<CR>
+        nnoremap <leader>gpu :Dispatch! git push<CR>
+        nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
+    endif
     " }}}"
 
     " {{{ gitv
-    " browser mode
-    nnoremap <Leader>gv :Gitv --all<CR>
+    if filereadable(expand("~/.vim/plugged/gitv.vim"))
+        " browser mode
+        nnoremap <Leader>gv :Gitv --all<CR>
 
-    " file mode
-    nnoremap <Leader>gV :Gitv! --all<CR>
-    vnoremap <leader>gV :Gitv! --all<cr>
+        " file mode
+        nnoremap <Leader>gV :Gitv! --all<CR>
+        vnoremap <leader>gV :Gitv! --all<cr>
 
-    " easily perform arbitrary git commands
-    cabbrev git Git
+        " easily perform arbitrary git commands
+        cabbrev git Git
 
-    " automatically split in whatever direction fits best
-    let g:Gitv_OpenHorizontal = 'auto'
+        " automatically split in whatever direction fits best
+        let g:Gitv_OpenHorizontal = 'auto'
 
-    " breaks ctrl-p and multiple cursors
-    let g:Gitv_DoNotMapCtrlKey = 1
+        " breaks ctrl-p and multiple cursors
+        let g:Gitv_DoNotMapCtrlKey = 1
 
-    " up/down commit nav
-    " doesn't work
-    " nnoremap <silent> <leader>gn :<C-U>call <SID>JumpToCommit(0)<cr>
-    " nnoremap <silent> <leader>gp :<C-U>call <SID>JumpToCommit(1)<cr>
+        " up/down commit nav
+        " doesn't work
+        " nnoremap <silent> <leader>gn :<C-U>call <SID>JumpToCommit(0)<cr>
+        " nnoremap <silent> <leader>gp :<C-U>call <SID>JumpToCommit(1)<cr>
+    endif
     " }}}
 
     " matchit {{{
-    augroup blade_html_features
-        " autocmd!
-        " get the best of all worlds
-        au FileType blade set ft=html | set syntax=blade | let b:match_debug=1
-    augroup END
+    if filereadable(expand("~/.vim/plugged/matchit.vim"))
+        augroup blade_html_features
+            " autocmd!
+            " get the best of all worlds
+            au FileType blade set ft=html | set syntax=blade | let b:match_debug=1
+        augroup END
+    endif
     " }}}
 
     " NERDTree {{{
+    if filereadable(expand("~/.vim/plugged/nerdtree"))
         let NERDTreeIgnore=['\.DS_Store$', '\.vim$']
         " extra space in NERDCommenter comments
         let g:NERDSpaceDelims="1"
@@ -1541,156 +1503,194 @@
             " autocmd!
             autocmd FileType startify setlocal buftype=
         augroup END
+    endif
     " }}}
 
-    " {{{ neocomplcache
-
-    " neocomplcache disable auto popup
-    " let g:neocomplcache_disable_auto_complete = 1
-
-    " c-j and c-k go down and up in the list for neocomplcache
-    " inoremap <expr> <C-j> pumvisible() ? '\<C-n>' : '\<C-j>'
-    " inoremap <expr> <C-k> pumvisible() ? '\<C-p>' : '\<C-k>'
-    " }}}"
-
     " {{{ openbrowser.vim
-    " Open URI under cursor.
-    nmap <leader>gu <Plug>(openbrowser-open)
+    if filereadable(expand("~/.vim/plugged/openbrowser.vim"))
+        " Open URI under cursor.
+        nmap <leader>gu <Plug>(openbrowser-open)
 
-    " Open selected URI.
-    vmap <leader>gu <Plug>(openbrowser-open)
+        " Open selected URI.
+        vmap <leader>gu <Plug>(openbrowser-open)
+    endif
     " }}}
 
     " {{{ PDV
-    " PDV comment parameters
-    let g:pdv_cfg_Package   = "Example"
-    let g:pdv_cfg_Author    = "Michael Funk <mike.funk@internetbrands.com>"
-    let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
-    let g:pdv_cfg_License   = ""
-    let g:pdv_cfg_Version   = ""
-    let g:pdv_cfg_ClassTags = ["author"]
+    if filereadable(expand("~/.vim/plugged/php-documentor-vim"))
+        " PDV comment parameters
+        let g:pdv_cfg_Package   = "Example"
+        let g:pdv_cfg_Author    = "Michael Funk <mike.funk@internetbrands.com>"
+        let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
+        let g:pdv_cfg_License   = ""
+        let g:pdv_cfg_Version   = ""
+        let g:pdv_cfg_ClassTags = ["author"]
+    endif
     " }}}"
 
     " {{{ phpcomplete
-    " phpcomplete omni complete for neocomplcache
-    augroup phpcomplete_augroup
-        " autocmd!
-        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
-        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
-        " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
-        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-    augroup END
+    if filereadable(expand("~/.vim/plugged/phpcomplete.vim"))
+        " phpcomplete omni complete for neocomplcache
+        augroup phpcomplete_augroup
+            " autocmd!
+            " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
+            " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
+            " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+            autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+        augroup END
 
-    " composer install command for phpcomplete
-    let g:phpcomplete_relax_static_constraint = 1
-    let g:phpcomplete_index_composer_command = "composer"
-    let g:phpcomplete_parse_docblock_comments = 1
-    let g:phpcomplete_cache_taglists = 1
-    let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
-    let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
+        " composer install command for phpcomplete
+        let g:phpcomplete_relax_static_constraint = 1
+        let g:phpcomplete_index_composer_command = "composer"
+        let g:phpcomplete_parse_docblock_comments = 1
+        let g:phpcomplete_cache_taglists = 1
+        let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
+        let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
 
-    " this avoids an error in php-cs-fixer.vim
-    let g:phpcomplete_enhance_jump_to_definition = 0
-    silent! nunmap <buffer> <unique> <C-]>
-    silent! nunmap <buffer> <unique> <C-W><C-]>
-    nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
-    nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
+        " this avoids an error in php-cs-fixer.vim
+        let g:phpcomplete_enhance_jump_to_definition = 0
+        silent! nunmap <buffer> <unique> <C-]>
+        silent! nunmap <buffer> <unique> <C-W><C-]>
+        nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
+        nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
+    endif
     " }}}"
 
     " {{{ phpctags
-    " phpctags
-    let g:tagbar_phpctags_memory_limit = '512M'
+    if filereadable(expand("~/.vim/plugged/tagbar-phpctags.vim"))
+        " phpctags
+        let g:tagbar_phpctags_memory_limit = '512M'
+    endif
     " }}}"
 
     " {{{ phpdoc
-    augroup phpdoc_augroup
-        autocmd!
-        au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
-        au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
-        au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
-    augroup END
+    if filereadable(expand("~/.vim/plugged/php-documentor-vim"))
+        augroup phpdoc_augroup
+            autocmd!
+            au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+            au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+            au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
+        augroup END
+    endif
     " }}}"
 
     " {{{ promptline
+    if filereadable(expand("~/.vim/plugged/promptline.vim"))
+        " use airline extensions for promptline
+        " let g:airline#extensions#promptline#enabled = 1
+        let g:airline#extensions#promptline#enabled = 0
+        let g:airline#extensions#promptline#snapshot_file = "~/.dotfiles/to_link/promptline.theme.bash"
+        " let airline#extensions#promptline#color_template = 'insert'
+        " let airline#extensions#promptline#color_template = 'visual'
+        let airline#extensions#promptline#color_template = 'replace'
 
-    " use airline extensions for promptline
-    " let g:airline#extensions#promptline#enabled = 1
-    let g:airline#extensions#promptline#enabled = 0
-    let g:airline#extensions#promptline#snapshot_file = "~/.dotfiles/to_link/promptline.theme.bash"
-    " let airline#extensions#promptline#color_template = 'insert'
-    " let airline#extensions#promptline#color_template = 'visual'
-    let airline#extensions#promptline#color_template = 'replace'
+        " easily save a snapshot of my current setup to my promptline file
+        command! mypromptline :promptlinesnapshot! ~/.dotfiles/to_link/promptline.theme.bash
 
-    " easily save a snapshot of my current setup to my promptline file
-    command! MyPromptline :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
+        " snapshot promptline and tmuxline configs in one command
+        function! MyConfigs()
+            :MyPromptline
+            :MyTmuxline
+        endfunction
+        command! MyConfFiles :call MyConfigs()
 
-    " snapshot promptline and tmuxline configs in one command
-    function! MyConfigs()
-        :MyPromptline
-        :MyTmuxline
-    endfunction
-    command! MyConfFiles :call MyConfigs()
-
-    " let g:promptline_theme = 'powerlineclone'
-    " let g:promptline_theme = 'airline'
-    let g:promptline_theme = 'airline_insert'
-    " let g:promptline_theme = 'airline_visual'
-    let g:promptline_preset = 'clear'
+        " let g:promptline_theme = 'powerlineclone'
+        " let g:promptline_theme = 'airline'
+        let g:promptline_theme = 'airline_insert'
+        " let g:promptline_theme = 'airline_visual'
+        let g:promptline_preset = 'clear'
+    endif
     " }}}"
 
     " sunset {{{
-    let g:sunset_utc_offset = -8
-    let g:sunset_latitude = 33.930324
-    let g:sunset_longitude = -118.395538
+    if filereadable(expand("~/.vim/plugged/sunset"))
+        let g:sunset_utc_offset = -8
+        let g:sunset_latitude = 33.930324
+        let g:sunset_longitude = -118.395538
+    endif
     " }}}
 
     " Syntastic {{{
-    " let g:syntastic_check_on_open=1
-    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
+    if filereadable(expand("~/.vim/plugged/syntastic"))
+        " let g:syntastic_check_on_open=1
+        let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
 
-    " underlining errors slows it down, it's in the sidebar already
-    " let g:syntastic_enable_highlighting = 0
-    let g:syntastic_php_phpmd_post_args = '~/.dotfiles/support/phpmd_ruleset.xml'
-    let g:syntastic_php_phpcs_args='--report=csv --standard=psr2'
-    " let g:syntastic_enable_signs = 1
+        " underlining errors slows it down, it's in the sidebar already
+        " let g:syntastic_enable_highlighting = 0
+        let g:syntastic_php_phpmd_post_args = '~/.dotfiles/support/phpmd_ruleset.xml'
+        let g:syntastic_php_phpcs_args='--report=csv --standard=psr2'
+        " let g:syntastic_enable_signs = 1
 
-    " auto open loc list and jump to error when there's a php error
-    let g:syntastic_auto_loc_list = 1
-    " let g:syntastic_always_populate_loc_list = 1
-    " let g:syntastic_debug = 17
-    " let g:syntastic_debug = 3
-    " let g:syntastic_auto_jump = 2
-    " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-    " phpmd is kind of useless to me right now
-    let g:syntastic_php_checkers = ['php', 'phpcs']
+        " auto open loc list and jump to error when there's a php error
+        let g:syntastic_auto_loc_list = 1
+        " let g:syntastic_always_populate_loc_list = 1
+        " let g:syntastic_debug = 17
+        " let g:syntastic_debug = 3
+        " let g:syntastic_auto_jump = 2
+        " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+        " phpmd is kind of useless to me right now
+        let g:syntastic_php_checkers = ['php', 'phpcs']
 
-    " spiffy error columns
-    let g:syntastic_error_symbol='✗'
-    let g:syntastic_warning_symbol='⚠'
-    let g:syntastic_style_error_symbol='✗'
-    let g:syntastic_style_warning_symbol='⚠'
+        " spiffy error columns
+        let g:syntastic_error_symbol='✗'
+        let g:syntastic_warning_symbol='⚠'
+        let g:syntastic_style_error_symbol='✗'
+        let g:syntastic_style_warning_symbol='⚠'
+    endif
     " }}}
 
     " {{{ tabular
-    nmap <leader>a> :Tabularize /=><cr>
-    vmap <leader>a> :Tabularize /=><cr>
+    if filereadable(expand("~/.vim/plugged/tabular"))
+        nmap <leader>a> :Tabularize /=><cr>
+        vmap <leader>a> :Tabularize /=><cr>
+    endif
     " }}}"
 
     " {{{ tagbar
-    " tagbar autofocus is the whole point of tagbar
-    let g:tagbar_autofocus = 1
-    let g:tagbar_autoclose = 1
-    " let g:tagbar_autopreview = 1
+    if filereadable(expand("~/.vim/plugged/tagbar"))
+        " tagbar autofocus is the whole point of tagbar
+        let g:tagbar_autofocus = 1
+        let g:tagbar_autoclose = 1
+        " let g:tagbar_autopreview = 1
 
-    " enable css ctags
-    let g:tagbar_type_css = {
-    \ 'ctagstype' : 'Css',
-        \ 'kinds'     : [
-            \ 'c:classes',
-            \ 's:selectors',
-            \ 'i:identities'
-        \ ]
-    \ }
+        let g:tagbar_type_css = {
+            \ 'ctagstype' : 'Css',
+            \ 'kinds'     : [
+                \ 'c:classes',
+                \ 's:selectors',
+                \ 'i:identities'
+            \ ]
+        \ }
+
+        " markdown ctags with tagbar?! awesome!
+        let g:tagbar_type_markdown = {
+            \ 'ctagstype' : 'markdown',
+            \ 'kinds' : [
+                \ 'h:Heading_L1',
+                \ 'i:Heading_L2',
+                \ 'k:Heading_L3'
+            \ ]
+        \ }
+
+        " puppet tagbar
+        let g:tagbar_type_puppet = {
+            \ 'ctagstype': 'puppet',
+            \ 'kinds': [
+                \'c:class',
+                \'s:site',
+                \'n:node',
+                \'d:definition'
+            \]
+        \}
+
+        " ultisnips tagbar - ok this is getting crazy
+        let g:tagbar_type_snippets = {
+            \ 'ctagstype' : 'snippets',
+            \ 'kinds' : [
+                \ 's:snippets',
+            \ ]
+        \ }
+    endif
     " }}}"
 
     " {{{ tasklist
@@ -1704,312 +1704,235 @@
     " }}}"
 
     " {{{ tmuxline
-    command! MyTmuxline :Tmuxline | TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
+    if executable('tmux') && filereadable(expand("~/.vim/plugged/tmuxline.vim"))
+        command! MyTmuxline :Tmuxline | TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
 
-    " use airline theme stuff when calling tmuxline
-    " let g:airline#extensions#tmuxline#enabled = 1
-    let g:airline#extensions#tmuxline#enabled = 0
-    " let airline#extensions#tmuxline#color_template = 'insert'
-    " let airline#extensions#tmuxline#color_template = 'visual'
-    let airline#extensions#tmuxline#color_template = 'replace'
+        " use airline theme stuff when calling tmuxline
+        " let g:airline#extensions#tmuxline#enabled = 1
+        let g:airline#extensions#tmuxline#enabled = 0
+        " let airline#extensions#tmuxline#color_template = 'insert'
+        " let airline#extensions#tmuxline#color_template = 'visual'
+        let airline#extensions#tmuxline#color_template = 'replace'
 
-    " let g:tmuxline_theme = 'airline'
-    " let g:tmuxline_theme = 'airline_insert'
-    let g:tmuxline_theme = 'airline_visual'
-    " let g:tmuxline_theme = 'powerline'
-    " let g:tmuxline_theme = 'jellybeans'
-    " let g:tmuxline_theme = 'zenburn'
+        " let g:tmuxline_theme = 'airline'
+        " let g:tmuxline_theme = 'airline_insert'
+        let g:tmuxline_theme = 'airline_visual'
+        " let g:tmuxline_theme = 'powerline'
+        " let g:tmuxline_theme = 'jellybeans'
+        " let g:tmuxline_theme = 'zenburn'
 
-    " let g:tmuxline_preset = 'full'
-    " let g:tmuxline_preset = 'powerline'
-    let g:tmuxline_preset = {
-        \ 'a'    : ['❏ #S'],
-        \ 'b'    : ['#H'],
-        \ 'win'  : ['#I', '#W'],
-        \ 'cwin' : ['#I', '#W#F'],
-        \ 'x'    : ['#(battery -t)'],
-        \ 'z'    : ['%a', '%b %d', '%I:%M %p'],
-    \}
-    let g:airline#extensions#tmuxline#snapshot_file = "~/.dotfiles/support/tmuxline.conf"
+        " let g:tmuxline_preset = 'full'
+        " let g:tmuxline_preset = 'powerline'
+        let g:tmuxline_preset = {
+            \ 'a'    : ['❏ #S'],
+            \ 'b'    : ['#H'],
+            \ 'win'  : ['#I', '#W'],
+            \ 'cwin' : ['#I', '#W#F'],
+            \ 'x'    : ['#(battery -t)'],
+            \ 'z'    : ['%a', '%b %d', '%I:%M %p'],
+        \}
+        let g:airline#extensions#tmuxline#snapshot_file = "~/.dotfiles/support/tmuxline.conf"
+    endif
     " }}}
 
     " {{{ ultisnips
-    " ultisnips start with my ultisnips
-    " let g:UltiSnipsSnippetDirectories=['UltiSnips', 'ultisnips_snippets']
-    let g:UltiSnipsDontReverseSearchPath="1"
-    let g:UltiSnipsEditSplit="vertical"
-    let g:UltiSnipsListSnippets='<c-l>'
-    " let g:UltiSnipsExpandTrigger='<a-;>'
-    " let g:UltiSnipsJumpForwardTrigger='<c-l>'
-    " let g:UltiSnipsJumpBackwardTrigger='<c-h>'
-    " let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
+    if filereadable(expand("~/.vim/plugged/ultisnips"))
+        " ultisnips start with my ultisnips
+        " let g:UltiSnipsSnippetDirectories=['UltiSnips', 'ultisnips_snippets']
+        let g:UltiSnipsDontReverseSearchPath="1"
+        let g:UltiSnipsEditSplit="vertical"
+        let g:UltiSnipsListSnippets='<c-l>'
+        " let g:UltiSnipsExpandTrigger='<a-;>'
+        " let g:UltiSnipsJumpForwardTrigger='<c-l>'
+        " let g:UltiSnipsJumpBackwardTrigger='<c-h>'
+        " let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
+    endif
     " }}}"
 
-    " {{{ underline tags
-    " augroup UnderlineTag
-      " autocmd!
-      " autocmd BufEnter *.php UnderlineTagOn
-    " augroup END
-    " }}}
-
     " {{{ undoclosewin
-    " really it's undo close tab
-    nnoremap <leader>uc :UcwRestoreWindow<cr>
+    if filereadable(expand("~/.vim/plugged/undoclosewin.vim"))
+        " really it's undo close tab
+        nnoremap <leader>uc :UcwRestoreWindow<cr>
+    endif
     " }}}
 
     " {{{ undotree
-    silent! unmap <leader>u
-    nnoremap <leader>uu :UndotreeToggle<CR>
+    if filereadable(expand("~/.vim/plugged/undotree"))
+        silent! unmap <leader>u
+        nnoremap <leader>uu :UndotreeToggle<CR>
+    endif
     " }}}
 
     " {{{ vdebug xdebug plugin
-    let g:vdebug_options = {}
-    let g:vdebug_options["continuous_mode"] = 1
-    let g:vdebug_options["timeout"] = 30
-    let g:vdebug_options['server'] = '192.168.56.1'
-    let g:vdebug_options['port'] = '9000'
-    let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
-    let g:vdebug_options['path_maps'] = {'/var/www': '/Users/mfunk/Sites'}
-    " stop on first line of execution
-    let g:vdebug_options["break_on_open"] = 0
-    let g:vdebug_options["watch_window_style"] = 'compact'
-    " move run_to_cursor from F1 to F9
-    let g:vdebug_keymap = {
-    \    "step_over" : "<F2>",
-    \    "step_into" : "<F3>",
-    \    "step_out" : "<F4>",
-    \    "run" : "<F5>",
-    \    "close" : "<F6>",
-    \    "detach" : "<F7>",
-    \    "run_to_cursor" : "<F9>",
-    \    "set_breakpoint" : "<F10>",
-    \    "get_context" : "<F11>",
-    \    "eval_under_cursor" : "<F12>",
-    \    "eval_visual" : "<Leader>ev",
-    \}
+    if filereadable(expand("~/.vim/plugged/vdebug"))
+        let g:vdebug_options = {}
+        let g:vdebug_options["continuous_mode"] = 1
+        let g:vdebug_options["timeout"] = 30
+        let g:vdebug_options['server'] = '192.168.56.1'
+        let g:vdebug_options['port'] = '9000'
+        let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
+        let g:vdebug_options['path_maps'] = {'/var/www': '/Users/mfunk/Sites'}
+        " stop on first line of execution
+        let g:vdebug_options["break_on_open"] = 0
+        let g:vdebug_options["watch_window_style"] = 'compact'
+        " move run_to_cursor from F1 to F9
+        let g:vdebug_keymap = {
+        \    "step_over" : "<F2>",
+        \    "step_into" : "<F3>",
+        \    "step_out" : "<F4>",
+        \    "run" : "<F5>",
+        \    "close" : "<F6>",
+        \    "detach" : "<F7>",
+        \    "run_to_cursor" : "<F9>",
+        \    "set_breakpoint" : "<F10>",
+        \    "get_context" : "<F11>",
+        \    "eval_under_cursor" : "<F12>",
+        \    "eval_visual" : "<Leader>ev",
+        \}
+    endif
     " }}}"
-
-    " {{{ vim-activity-log
-    let g:activity_log_location = '~/.vim/activity/%Y/%m/%d.log'
-    " }}}
 
     " {{{ vim-airline
-    " use short form mode indicators
-    " let g:airline_mode_map = {
-        " \ '__' : '-',
-        " \ 'n'  : 'N',
-        " \ 'i'  : 'I',
-        " \ 'R'  : 'R',
-        " \ 'c'  : 'C',
-        " \ 'v'  : 'V',
-        " \ 'V'  : 'V',
-        " \ '' : 'V',
-        " \ 's'  : 'S',
-        " \ 'S'  : 'S',
-        " \ '' : 'S',
-        " \ }
+    if filereadable(expand("~/.vim/plugged/vim-airline"))
+        " use short form mode indicators
+        " let g:airline_mode_map = {
+            " \ '__' : '-',
+            " \ 'n'  : 'N',
+            " \ 'i'  : 'I',
+            " \ 'R'  : 'R',
+            " \ 'c'  : 'C',
+            " \ 'v'  : 'V',
+            " \ 'V'  : 'V',
+            " \ '' : 'V',
+            " \ 's'  : 'S',
+            " \ 'S'  : 'S',
+            " \ '' : 'S',
+            " \ }
 
-    " let g:airline_theme = 'solarized'
-    " warning this is really slow. So I only enabled it for php files.
-    augroup php_tagbar
-        autocmd FileType php let g:airline#extensions#tagbar#enabled = 1
-        autocmd FileType coffee let g:airline#extensions#tagbar#enabled = 1
-    augroup END
-    " moved to global powerline switch above
-    " let g:airline_left_sep = ''
-    " let g:airline_left_alt_sep = ''
-    " let g:airline_right_sep = ''
-    " let g:airline_right_alt_sep = ''
+        " let g:airline_theme = 'solarized'
+        " warning this is really slow. So I only enabled it for php files.
+        augroup php_tagbar
+            autocmd FileType php let g:airline#extensions#tagbar#enabled = 1
+            autocmd FileType coffee let g:airline#extensions#tagbar#enabled = 1
+        augroup END
+        " moved to global powerline switch above
+        " let g:airline_left_sep = ''
+        " let g:airline_left_alt_sep = ''
+        " let g:airline_right_sep = ''
+        " let g:airline_right_alt_sep = ''
 
-    " unicode symbols
-    " let g:airline_left_sep = '»'
-    " let g:airline_left_sep = '▶'
-    " let g:airline_right_sep = '«'
-    " let g:airline_right_sep = '◀'
-    " let g:airline_symbols.linenr = '␊'
-    " let g:airline_symbols.linenr = '␤'
-    " let g:airline_symbols.linenr = '¶'
-    " let g:airline_symbols.branch = '⎇'
-    " let g:airline_symbols.paste = 'ρ'
-    " let g:airline_symbols.paste = 'Þ'
-    " let g:airline_symbols.paste = '∥'
-    " let g:airline_symbols.whitespace = 'Ξ'
-    " let g:airline_powerline_fonts = 1
-    " moved to global powerline switch above
-    " let g:airline_powerline_fonts=0
-    " let g:airline#extensions#hunks#non_zero_only = 1
-    let g:airline#extensions#bufferline#enabled = 0
-    " vim-bufferline prevent from showing in command bar *and* statusline
-    let g:bufferline_echo = 0
+        " unicode symbols
+        " let g:airline_left_sep = '»'
+        " let g:airline_left_sep = '▶'
+        " let g:airline_right_sep = '«'
+        " let g:airline_right_sep = '◀'
+        " let g:airline_symbols.linenr = '␊'
+        " let g:airline_symbols.linenr = '␤'
+        " let g:airline_symbols.linenr = '¶'
+        " let g:airline_symbols.branch = '⎇'
+        " let g:airline_symbols.paste = 'ρ'
+        " let g:airline_symbols.paste = 'Þ'
+        " let g:airline_symbols.paste = '∥'
+        " let g:airline_symbols.whitespace = 'Ξ'
+        " let g:airline_powerline_fonts = 1
+        " moved to global powerline switch above
+        " let g:airline_powerline_fonts=0
+        " let g:airline#extensions#hunks#non_zero_only = 1
+        let g:airline#extensions#bufferline#enabled = 0
+        " vim-bufferline prevent from showing in command bar *and* statusline
+        let g:bufferline_echo = 0
 
-    " unicode symbols
-    " let g:airline_left_sep = '»'
-    " let g:airline_left_sep = '▶'
-    " let g:airline_right_sep = '«'
-    " let g:airline_right_sep = '◀'
-    " let g:airline_symbols.linenr = '␊'
-    " let g:airline_symbols.linenr = '␤'
-    " let g:airline_symbols.linenr = '¶'
-    " let g:airline_symbols.branch = '⎇'
-    " let g:airline_symbols.paste = 'ρ'
-    " let g:airline_symbols.paste = 'Þ'
-    " let g:airline_symbols.paste = '∥'
-    " let g:airline_symbols.whitespace = 'Ξ'
+        " unicode symbols
+        " let g:airline_left_sep = '»'
+        " let g:airline_left_sep = '▶'
+        " let g:airline_right_sep = '«'
+        " let g:airline_right_sep = '◀'
+        " let g:airline_symbols.linenr = '␊'
+        " let g:airline_symbols.linenr = '␤'
+        " let g:airline_symbols.linenr = '¶'
+        " let g:airline_symbols.branch = '⎇'
+        " let g:airline_symbols.paste = 'ρ'
+        " let g:airline_symbols.paste = 'Þ'
+        " let g:airline_symbols.paste = '∥'
+        " let g:airline_symbols.whitespace = 'Ξ'
 
-    " advanced tabline vertical separators
-    let g:airline#extensions#tabline#enabled = 1
-    " let g:airline#extensions#tabline#left_sep = ' '
-    " let g:airline#extensions#tabline#left_alt_sep = '|'
-    " let g:airline#extensions#tabline#left_alt_sep = ' '
+        " advanced tabline vertical separators
+        let g:airline#extensions#tabline#enabled = 1
+        " let g:airline#extensions#tabline#left_sep = ' '
+        " let g:airline#extensions#tabline#left_alt_sep = '|'
+        " let g:airline#extensions#tabline#left_alt_sep = ' '
+    endif
 
-    " }}}
-
-    " {{{ vim-ctrlp-tjump
-    " nnoremap <c-]> :CtrlPtjump<cr>
-    " let g:ctrlp_tjump_only_silent = 1
-    " vnoremap <c-]> :CtrlPtjumpVisual<cr>
-    " }}}"
-
-    " vim-easyclip {{{
-    let g:EasyClipAutoFormat = 1
-    let g:EasyClipAlwaysMoveCursorToEndOfPaste = 1
-    " }}}
-
-    " {{{ vim-fold-expr
-    " let b:phpfold_doc_with_funcs = 0
-    " }}}
-
-    " {{{ vim-github-dashboard
-    let g:github_dashboard = { 'username': 'mikedfunk' }
-    " }}}
-
-    " {{{ vim-indent-guides
-    " let g:indent_guides_guide_size=4
-
-    " plugin does a crappy job of defining low-contrast indent guide colors
-    " for terminal vim. this is really annoying but at least I only have to
-    " find the best colors once per color scheme.
-
-    " define a function to change the indent guide color highlights based
-    " on background color
-    function! SetIndentGuideColors()
-        " none of this stuff works if gui is running
-        if !has('gui_running')
-            if g:colors_name == 'lucius'
-                let g:indent_guides_auto_colors = 0
-                if &background == 'light'
-                    hi IndentGuidesOdd ctermbg=7
-                    hi IndentGuidesEven ctermbg=7
-                else
-                    " lighter than even
-                    hi IndentGuidesOdd ctermbg=238
-                    " slightly darker than bg variant
-                    " hi IndentGuidesOdd ctermbg=235
-                    hi IndentGuidesEven ctermbg=237
-                endif
-            elseif g:colors_name == 'solarized'
-                let g:indent_guides_auto_colors = 0
-                if &background == 'light'
-                    " let g:vim_search_pulse_color_list = [220, 214, 208, 202, 196]
-                    " let g:vim_search_pulse_color_list = [214, 214, 214, 214, 214]
-                    " let g:vim_search_pulse_color_list = [40, 34, 28, 22, 16]
-                    let g:vim_search_pulse_color_list = [220, 214, 214, 214, 214]
-                    call search_pulse#initialize()
-                    hi IndentGuidesOdd ctermbg=7
-                    hi IndentGuidesEven ctermbg=7
-                else
-                    let g:vim_search_pulse_color_list = [237, 238, 239, 240, 241]
-                    call search_pulse#initialize()
-                    hi IndentGuidesOdd ctermbg=black
-                    hi IndentGuidesEven ctermbg=black
-                endif
-            elseif g:colors_name == 'zenburn' || g:colors_name == 'badwolf'
-                let g:indent_guides_auto_colors = 0
-                hi IndentGuidesOdd ctermbg=235
-                hi IndentGuidesEven ctermbg=236
-            elseif g:colors_name == 'iceberg' || g:colors_name == 'hybrid' || g:colors_name == 'jellybeans'
-                let g:indent_guides_auto_colors = 0
-                hi IndentGuidesOdd ctermbg=236
-                hi IndentGuidesEven ctermbg=237
-            elseif g:colors_name == 'hickop'
-                let g:indent_guides_auto_colors = 0
-                hi IndentGuidesOdd ctermbg=black
-                hi IndentGuidesEven ctermbg=237
-            else
-                let g:indent_guides_auto_colors = 1
-            endif
-        endif
-    endfunction
-
-    " call this function when the right stuff happens
-    augroup indent_guides_augroup
-        " autocmd!
-        " commented out because i'm tired of dealing with this bullshit
-        " autocmd VimEnter,Colorscheme * call SetIndentGuideColors()
-    augroup END
     " }}}
 
     " {{{ vim-instant-markdown
-    " turns off auto preview and enables the :InstantMarkdownPreview command
-    let g:instant_markdown_autostart = 0
+    if filereadable(expand("~/.vim/plugged/vim-instant-markdown"))
+        " turns off auto preview and enables the :InstantMarkdownPreview command
+        let g:instant_markdown_autostart = 0
+    endif
     " }}}
 
     " {{{ vim-jira-complete
-    let g:jiracomplete_url = 'http://10.17.37.213/'
-    let g:jiracomplete_username = 'mfunk'
+    if filereadable(expand("~/.vim/plugged/vim-jira-complete"))
+        let g:jiracomplete_url = 'http://10.17.37.213/'
+        let g:jiracomplete_username = 'mfunk'
+    endif
     " }}}
 
     " {{{ vim-jira-open
-    " default is <leader>jo
-    let g:jira_browse_url = 'http://10.17.37.213/browse/'
+    if filereadable(expand("~/.vim/plugged/vim-jira-open"))
+        " default is <leader>jo
+        let g:jira_browse_url = 'http://10.17.37.213/browse/'
+    endif
     " }}}
 
     " vim-json {{{
-    " turn off stupid no quotes in JSON except for current line
-    set conceallevel=0
-    " }}}
-
-    " vim-merginal {{{
-    " open the branch list
-    nnoremap ,bl :MerginalToggle<cr>
+    if filereadable(expand("~/.vim/plugged/vim-json"))
+        " turn off stupid no quotes in JSON except for current line
+        set conceallevel=0
+    endif
     " }}}
 
     " {{{ vim-pasta
-    let g:pasta_disabled_filetypes = ['nerdtree', 'tagbar']
+    if filereadable(expand("~/.vim/plugged/vim-pasta"))
+        let g:pasta_disabled_filetypes = ['nerdtree', 'tagbar']
+    endif
     " }}}
 
     " vim-php-cs-fixer {{{
-    " don't align phpdoc params, this could cause merge conflicts
-    let g:php_cs_fixer_fixers_list = '-phpdoc_params'
+    if filereadable(expand("~/.vim/plugged/vim-php-cs-fixer"))
+        " don't align phpdoc params, this could cause merge conflicts
+        let g:php_cs_fixer_fixers_list = '-phpdoc_params'
+    endif
     " }}}
 
     " {{{ vim-php-namespace
-    " php add use statement for current class
-    inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
-    noremap <Leader><Leader>u :call PhpInsertUse()<CR>
+    if filereadable(expand("~/.vim/plugged/vim-php-namespace"))
+        " php add use statement for current class
+        inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
+        noremap <Leader><Leader>u :call PhpInsertUse()<CR>
+    endif
     " }}}"
 
-    " {{{ vim-php-refactoring
-    let g:php_refactor_command='~/.composer/vendor/bin/refactor'
-    " }}}
-
     " vim-phpqa {{{
-    " Don't use phpqa for php linting. let syntastic do that.
-    let g:phpqa_php_cmd = ''
+    if filereadable(expand("~/.vim/plugged/vim-phpqa"))
+        " Don't use phpqa for php linting. let syntastic do that.
+        let g:phpqa_php_cmd = ''
 
-    " Don't run messdetector on save (default = 1)
-    let g:phpqa_messdetector_autorun = 0
+        " Don't run messdetector on save (default = 1)
+        let g:phpqa_messdetector_autorun = 0
 
-    " Don't run codesniffer on save (default = 1)
-    let g:phpqa_codesniffer_autorun = 0
+        " Don't run codesniffer on save (default = 1)
+        let g:phpqa_codesniffer_autorun = 0
 
-    " Show code coverage on load (default = 0)
-    " :Phpcc - show code coverage (will ask for a clover XML file if not set)
-    " <Leader>qc  " Show/hide code coverage markers
-    " let g:phpqa_codecoverage_autorun = 1
+        " Show code coverage on load (default = 0)
+        " :Phpcc - show code coverage (will ask for a clover XML file if not set)
+        " <Leader>qc  " Show/hide code coverage markers
+        " let g:phpqa_codecoverage_autorun = 1
 
-    " Clover code coverage XML file
-    let g:phpqa_codecoverage_file = "build/logs/clover.xml"
+        " Clover code coverage XML file
+        let g:phpqa_codecoverage_file = "build/logs/clover.xml"
+    endif
     " }}}
 
     " vim-plug {{{
@@ -2022,17 +1945,15 @@
     " let g:plug_threads=32
     " }}}
 
-    " vim-rhubarb {{{
-    let g:RHUBARB_TOKEN = '4b02d1a1f1cec89163f658c5c748881aed23ac72'
-    " }}}
-
     " {{{ vim-signify
-    " I only want signify to worry about git
-    let g:signify_vcs_list = [ 'git' ]
-    let g:signify_sign_add               = '+'
-    let g:signify_sign_change            = '!'
-    let g:signify_sign_delete            = '_'
-    let g:signify_sign_delete_first_line = '‾'
+    if filereadable(expand("~/.vim/plugged/vim-signify"))
+        " I only want signify to worry about git
+        let g:signify_vcs_list = [ 'git' ]
+        let g:signify_sign_add               = '+'
+        let g:signify_sign_change            = '!'
+        let g:signify_sign_delete            = '_'
+        let g:signify_sign_delete_first_line = '‾'
+    endif
     " }}}
 
     " {{{ vim-signature
