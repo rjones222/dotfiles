@@ -792,12 +792,14 @@
     " this is actually a plugin but they guy doesn't maintain or add to it so
     " there is no benefit to keeping it as a plugin. It's so small I'll just
     " put it here.
-    if executable('phpunit') && executable('tmux')
-        command! VimuxPHPUnitRunCurrentFile :call s:VimuxPHPUnitRunCurrentFile()
+    if executable('phpunit')
+        if executable('tmux')
+            command! VimuxPHPUnitRunCurrentFile :call s:VimuxPHPUnitRunCurrentFile()
 
-        function! s:VimuxPHPUnitRunCurrentFile()
-            call VimuxRunCommand('phpunit ' . expand('%:p'))
-        endfunction
+            function! s:VimuxPHPUnitRunCurrentFile()
+                call VimuxRunCommand('phpunit ' . expand('%:p'))
+            endfunction
+        endif
     endif
 
     " filter quickfix list with
@@ -1056,12 +1058,13 @@
     command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:nohlsearch<cr>"
     nnoremap <leader>su :SortUse<cr>
 
-    if filereadable(expand("~/.vim/plugged/vim-dispatch"))
+    if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
         " dotfile updates
         command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
         command! PrivateUpdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
+    endif
 
-    if filereadable(expand("~/.vim/plugged/vim-dispatch"))
+    if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
         " working commit
         command! Working :Dispatch cd $(git rev-parse --show-toplevel) && git add --all .; git commit -am "rebase me!!" && cd -
     endif
@@ -1289,7 +1292,7 @@
     " }}}
 
     " {{{ change the default EasyMotion shading to something more readable with Solarized
-    if filereadable(expand("~/.vim/plugged/vim-easymotion"))
+    if isdirectory(expand("~/.vim/plugged/vim-easymotion"))
         hi link EasyMotionTarget ErrorMsg
         hi link EasyMotionShade  Comment
     endif
@@ -1314,7 +1317,7 @@
     " accelerated-smooth-scroll {{{
     " only enable c-d and c-u. I don't use c-f and c-b and I want to use c-b
     " for incrementing values.
-    if filereadable(expand("~/.vim/plugged/accelerated-smooth-scroll"))
+    if isdirectory(expand("~/.vim/plugged/accelerated-smooth-scroll"))
         let g:ac_smooth_scroll_no_default_key_mappings = 1
         nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
         nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
@@ -1324,13 +1327,13 @@
     " }}}
 
     " {{{ Colorizer
-    if filereadable(expand("~/.vim/plugged/Colorizer"))
+    if isdirectory(expand("~/.vim/plugged/Colorizer"))
         let g:colorizer_auto_filetype='css,scss,less,sass'
     endif
     " }}}
 
     " cosco.vim {{{
-    if filereadable(expand("~/.vim/plugged/cosco.vim"))
+    if isdirectory(expand("~/.vim/plugged/cosco.vim"))
         augroup cosco_vim_augroup
             autocmd FileType javascript,css,php nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
             autocmd FileType javascript,css,php inoremap <silent> <leader>; <ESC>:call cosco#commaOrSemiColon()"<CR>a
@@ -1339,7 +1342,7 @@
     " }}}
 
     " {{{ ctrlp
-    if filereadable(expand("~/.vim/plugged/ctrlp.vim"))
+    if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
         " ctrlp extensions
         let g:ctrlp_extensions = ['tag']
         " alternate python matcher. 22x faster.
@@ -1355,7 +1358,7 @@
     " }}}"
 
     " {{{ dispatch
-    if filereadable(expand("~/.vim/plugged/vim-dispatch"))
+    if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
         nnoremap <silent> <Leader>di :call CallDispatchWithCommand() <CR>
 
         function! CallDispatchWithCommand()
@@ -1366,7 +1369,7 @@
     " }}}
 
     " {{{ easytags
-    if filereadable(expand("~/.vim/plugged/vim-easytags"))
+    if isdirectory(expand("~/.vim/plugged/vim-easytags"))
         " easytags just doesn't work well. it blocks the ui when updating (doesn't
         " use dispatch), it doesn't use my custom easy_tags_cmd, and the
         " highlighting won't use my custom highlight. Fuck it, we'll do it live!
@@ -1402,7 +1405,7 @@
     " }}}
 
     " {{{ fugitive
-    if filereadable(expand("~/.vim/plugged/vim-fugitive"))
+    if isdirectory(expand("~/.vim/plugged/vim-fugitive"))
         let g:fugitive_github_domains = ['https://gitlab.git.internetbrands.com', 'https://git.github.com']
         " filename
         hi default link User1 Identifier"blue
@@ -1443,7 +1446,7 @@
     " }}}"
 
     " {{{ gitv
-    if filereadable(expand("~/.vim/plugged/gitv.vim"))
+    if isdirectory(expand("~/.vim/plugged/gitv.vim"))
         " browser mode
         nnoremap <Leader>gv :Gitv --all<CR>
 
@@ -1468,7 +1471,7 @@
     " }}}
 
     " matchit {{{
-    if filereadable(expand("~/.vim/plugged/matchit.vim"))
+    if isdirectory(expand("~/.vim/plugged/matchit.vim"))
         augroup blade_html_features
             " autocmd!
             " get the best of all worlds
@@ -1478,7 +1481,7 @@
     " }}}
 
     " NERDTree {{{
-    if filereadable(expand("~/.vim/plugged/nerdtree"))
+    if isdirectory(expand("~/.vim/plugged/nerdtree"))
         let NERDTreeIgnore=['\.DS_Store$', '\.vim$']
         " extra space in NERDCommenter comments
         let g:NERDSpaceDelims="1"
@@ -1507,7 +1510,7 @@
     " }}}
 
     " {{{ openbrowser.vim
-    if filereadable(expand("~/.vim/plugged/openbrowser.vim"))
+    if isdirectory(expand("~/.vim/plugged/openbrowser.vim"))
         " Open URI under cursor.
         nmap <leader>gu <Plug>(openbrowser-open)
 
@@ -1517,7 +1520,7 @@
     " }}}
 
     " {{{ PDV
-    if filereadable(expand("~/.vim/plugged/php-documentor-vim"))
+    if isdirectory(expand("~/.vim/plugged/php-documentor-vim"))
         " PDV comment parameters
         let g:pdv_cfg_Package   = "Example"
         let g:pdv_cfg_Author    = "Michael Funk <mike.funk@internetbrands.com>"
@@ -1529,7 +1532,7 @@
     " }}}"
 
     " {{{ phpcomplete
-    if filereadable(expand("~/.vim/plugged/phpcomplete.vim"))
+    if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
         " phpcomplete omni complete for neocomplcache
         augroup phpcomplete_augroup
             " autocmd!
@@ -1557,14 +1560,14 @@
     " }}}"
 
     " {{{ phpctags
-    if filereadable(expand("~/.vim/plugged/tagbar-phpctags.vim"))
+    if isdirectory(expand("~/.vim/plugged/tagbar-phpctags.vim"))
         " phpctags
         let g:tagbar_phpctags_memory_limit = '512M'
     endif
     " }}}"
 
     " {{{ phpdoc
-    if filereadable(expand("~/.vim/plugged/php-documentor-vim"))
+    if isdirectory(expand("~/.vim/plugged/php-documentor-vim"))
         augroup phpdoc_augroup
             autocmd!
             au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
@@ -1575,7 +1578,7 @@
     " }}}"
 
     " {{{ promptline
-    if filereadable(expand("~/.vim/plugged/promptline.vim"))
+    if isdirectory(expand("~/.vim/plugged/promptline.vim"))
         " use airline extensions for promptline
         " let g:airline#extensions#promptline#enabled = 1
         let g:airline#extensions#promptline#enabled = 0
@@ -1585,7 +1588,7 @@
         let airline#extensions#promptline#color_template = 'replace'
 
         " easily save a snapshot of my current setup to my promptline file
-        command! mypromptline :promptlinesnapshot! ~/.dotfiles/to_link/promptline.theme.bash
+        command! MyPromptline :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
 
         " snapshot promptline and tmuxline configs in one command
         function! MyConfigs()
@@ -1603,7 +1606,7 @@
     " }}}"
 
     " sunset {{{
-    if filereadable(expand("~/.vim/plugged/sunset"))
+    if isdirectory(expand("~/.vim/plugged/sunset"))
         let g:sunset_utc_offset = -8
         let g:sunset_latitude = 33.930324
         let g:sunset_longitude = -118.395538
@@ -1611,7 +1614,7 @@
     " }}}
 
     " Syntastic {{{
-    if filereadable(expand("~/.vim/plugged/syntastic"))
+    if isdirectory(expand("~/.vim/plugged/syntastic"))
         " let g:syntastic_check_on_open=1
         let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
 
@@ -1640,14 +1643,14 @@
     " }}}
 
     " {{{ tabular
-    if filereadable(expand("~/.vim/plugged/tabular"))
+    if isdirectory(expand("~/.vim/plugged/tabular"))
         nmap <leader>a> :Tabularize /=><cr>
         vmap <leader>a> :Tabularize /=><cr>
     endif
     " }}}"
 
     " {{{ tagbar
-    if filereadable(expand("~/.vim/plugged/tagbar"))
+    if isdirectory(expand("~/.vim/plugged/tagbar"))
         " tagbar autofocus is the whole point of tagbar
         let g:tagbar_autofocus = 1
         let g:tagbar_autoclose = 1
@@ -1704,7 +1707,7 @@
     " }}}"
 
     " {{{ tmuxline
-    if executable('tmux') && filereadable(expand("~/.vim/plugged/tmuxline.vim"))
+    if executable('tmux') && isdirectory(expand("~/.vim/plugged/tmuxline.vim"))
         command! MyTmuxline :Tmuxline | TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
 
         " use airline theme stuff when calling tmuxline
@@ -1736,7 +1739,7 @@
     " }}}
 
     " {{{ ultisnips
-    if filereadable(expand("~/.vim/plugged/ultisnips"))
+    if isdirectory(expand("~/.vim/plugged/ultisnips"))
         " ultisnips start with my ultisnips
         " let g:UltiSnipsSnippetDirectories=['UltiSnips', 'ultisnips_snippets']
         let g:UltiSnipsDontReverseSearchPath="1"
@@ -1750,21 +1753,21 @@
     " }}}"
 
     " {{{ undoclosewin
-    if filereadable(expand("~/.vim/plugged/undoclosewin.vim"))
+    if isdirectory(expand("~/.vim/plugged/undoclosewin.vim"))
         " really it's undo close tab
         nnoremap <leader>uc :UcwRestoreWindow<cr>
     endif
     " }}}
 
     " {{{ undotree
-    if filereadable(expand("~/.vim/plugged/undotree"))
+    if isdirectory(expand("~/.vim/plugged/undotree"))
         silent! unmap <leader>u
         nnoremap <leader>uu :UndotreeToggle<CR>
     endif
     " }}}
 
     " {{{ vdebug xdebug plugin
-    if filereadable(expand("~/.vim/plugged/vdebug"))
+    if isdirectory(expand("~/.vim/plugged/vdebug"))
         let g:vdebug_options = {}
         let g:vdebug_options["continuous_mode"] = 1
         let g:vdebug_options["timeout"] = 30
@@ -1793,7 +1796,7 @@
     " }}}"
 
     " {{{ vim-airline
-    if filereadable(expand("~/.vim/plugged/vim-airline"))
+    if isdirectory(expand("~/.vim/plugged/vim-airline"))
         " use short form mode indicators
         " let g:airline_mode_map = {
             " \ '__' : '-',
@@ -1866,48 +1869,48 @@
     " }}}
 
     " {{{ vim-instant-markdown
-    if filereadable(expand("~/.vim/plugged/vim-instant-markdown"))
+    if isdirectory(expand("~/.vim/plugged/vim-instant-markdown"))
         " turns off auto preview and enables the :InstantMarkdownPreview command
         let g:instant_markdown_autostart = 0
     endif
     " }}}
 
     " {{{ vim-jira-complete
-    if filereadable(expand("~/.vim/plugged/vim-jira-complete"))
+    if isdirectory(expand("~/.vim/plugged/vim-jira-complete"))
         let g:jiracomplete_url = 'http://10.17.37.213/'
         let g:jiracomplete_username = 'mfunk'
     endif
     " }}}
 
     " {{{ vim-jira-open
-    if filereadable(expand("~/.vim/plugged/vim-jira-open"))
+    if isdirectory(expand("~/.vim/plugged/vim-jira-open"))
         " default is <leader>jo
         let g:jira_browse_url = 'http://10.17.37.213/browse/'
     endif
     " }}}
 
     " vim-json {{{
-    if filereadable(expand("~/.vim/plugged/vim-json"))
+    if isdirectory(expand("~/.vim/plugged/vim-json"))
         " turn off stupid no quotes in JSON except for current line
         set conceallevel=0
     endif
     " }}}
 
     " {{{ vim-pasta
-    if filereadable(expand("~/.vim/plugged/vim-pasta"))
+    if isdirectory(expand("~/.vim/plugged/vim-pasta"))
         let g:pasta_disabled_filetypes = ['nerdtree', 'tagbar']
     endif
     " }}}
 
     " vim-php-cs-fixer {{{
-    if filereadable(expand("~/.vim/plugged/vim-php-cs-fixer"))
+    if isdirectory(expand("~/.vim/plugged/vim-php-cs-fixer"))
         " don't align phpdoc params, this could cause merge conflicts
         let g:php_cs_fixer_fixers_list = '-phpdoc_params'
     endif
     " }}}
 
     " {{{ vim-php-namespace
-    if filereadable(expand("~/.vim/plugged/vim-php-namespace"))
+    if isdirectory(expand("~/.vim/plugged/vim-php-namespace"))
         " php add use statement for current class
         inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
         noremap <Leader><Leader>u :call PhpInsertUse()<CR>
@@ -1915,7 +1918,7 @@
     " }}}"
 
     " vim-phpqa {{{
-    if filereadable(expand("~/.vim/plugged/vim-phpqa"))
+    if isdirectory(expand("~/.vim/plugged/vim-phpqa"))
         " Don't use phpqa for php linting. let syntastic do that.
         let g:phpqa_php_cmd = ''
 
@@ -1946,7 +1949,7 @@
     " }}}
 
     " {{{ vim-signify
-    if filereadable(expand("~/.vim/plugged/vim-signify"))
+    if isdirectory(expand("~/.vim/plugged/vim-signify"))
         " I only want signify to worry about git
         let g:signify_vcs_list = [ 'git' ]
         let g:signify_sign_add               = '+'
@@ -1956,112 +1959,102 @@
     endif
     " }}}
 
-    " {{{ vim-signature
-    " avoid a conflict with NERDTree menu mapping
-    let g:SignatureMap = {
-      \ 'Leader' : "m",
-      \ }
-    " let g:SignatureMarkTextHL = 'ErrorMsg'
-    " }}}
-
     " vim-speeddating {{{
-    " use <c-b> instead
-    let g:speeddating_no_mappings = 1
-    nmap  <C-B>     <Plug>SpeedDatingUp
-    nmap  <C-X>     <Plug>SpeedDatingDown
-    xmap  <C-B>     <Plug>SpeedDatingUp
-    xmap  <C-X>     <Plug>SpeedDatingDown
-    nmap d<C-B>     <Plug>SpeedDatingNowUTC
-    nmap d<C-X>     <Plug>SpeedDatingNowLocal
+    if isdirectory(expand("~/.vim/plugged/vim-speeddating"))
+        " use <c-b> instead
+        let g:speeddating_no_mappings = 1
+        nmap  <C-B>     <Plug>SpeedDatingUp
+        nmap  <C-X>     <Plug>SpeedDatingDown
+        xmap  <C-B>     <Plug>SpeedDatingUp
+        xmap  <C-X>     <Plug>SpeedDatingDown
+        nmap d<C-B>     <Plug>SpeedDatingNowUTC
+        nmap d<C-X>     <Plug>SpeedDatingNowLocal
+    endif
     " }}}
 
     " {{{ vim-rooter
-    nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
+    if isdirectory(expand("~/.vim/plugged/vim-rooter"))
+        nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
+    endif
     " }}}
 
     " {{{ vim-startify
+    if isdirectory(expand("~/.vim/plugged/vim-startify"))
+        let g:startify_custom_header = [
+                \ '                                 ________  __ __        ',
+                \ '            __                  /\_____  \/\ \\ \       ',
+                \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
+                \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
+                \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+                \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
+                \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
+                \ '',
+                \ '',
+                \ ]
 
+        let g:startify_session_dir = '~/.vim/sessions'
+        let g:startify_bookmarks = [ '~/.vimrc.local' ]
+        " let g:startify_change_to_vcs_root = 1
 
-    let g:startify_custom_header = [
-            \ '                                 ________  __ __        ',
-            \ '            __                  /\_____  \/\ \\ \       ',
-            \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
-            \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
-            \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
-            \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
-            \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
-            \ '',
-            \ '',
+        " make session autoload work in vim-startify
+        " let NERDTreeHijackNetrw = 0
+
+        " disable common but unimportant files
+        let g:startify_skiplist = [
+            \ 'COMMIT_EDITMSG',
+            \ '\.DS_Store'
             \ ]
-
-    let g:startify_session_dir = '~/.vim/sessions'
-    let g:startify_bookmarks = [ '~/.vimrc.local' ]
-    " let g:startify_change_to_vcs_root = 1
-
-    " make session autoload work in vim-startify
-    " let NERDTreeHijackNetrw = 0
-
-    " disable common but unimportant files
-    let g:startify_skiplist = [
-        \ 'COMMIT_EDITMSG',
-        \ '\.DS_Store'
-        \ ]
+    endif
     " }}}"
 
-    " {{{ vim-tags
-    " doesn't want to auto-generate for some reason
-    " augroup PhpVimTag
-        " " autocmd!
-        " autocmd BufWritePost *.php :TagsGenerate
-    " augroup END
-    " let g:vim_tags_project_tags_command='ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes {OPTIONS} {DIRECTORY} 2>/dev/null'
-    let g:vim_tags_use_vim_dispatch=1
-    " }}}
-
     " {{{ vim-togglelist
-    nnoremap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
-    nnoremap <script> <silent> <leader>qq :call ToggleQuickfixList()<CR>
+    if isdirectory(expand("~/.vim/plugged/vim-togglelist"))
+        nnoremap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
+        nnoremap <script> <silent> <leader>qq :call ToggleQuickfixList()<CR>
+    endif
     " }}}
 
     " {{{ vim-autoclose
-    " don't put closing "s in vimscript files
-    let g:autoclose_vim_commentmode = 1
+    if isdirectory(expand("~/.vim/plugged/vim-autoclose"))
+        " don't put closing "s in vimscript files
+        let g:autoclose_vim_commentmode = 1
+    endif
     " }}}
 
     " {{{ vimux
-    let g:VimuxHeight = "40"
-    nnoremap <leader>vp :VimuxPromptCommand<cr>
-    nnoremap <leader>vc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
-    nnoremap <leader>vl :VimuxRunLastCommand<cr>
-    nnoremap <leader>vv :VimuxRunLastCommand<cr>
-    nnoremap <leader>vr :VimuxRunLastCommand<cr>
-    nnoremap <leader>vi :VimuxInspectRunner<cr>
-    nnoremap <leader>vx :VimuxCloseRunner<cr>
-    nnoremap <leader>vz :VimuxZoomRunner<cr>
-    " }}}
-
-    " {{{ vimux-phpunit
-    nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
-    nnoremap <leader>pu :call VimuxRunCommand("phpunitnotify")<cr>
-    nnoremap <leader>pl :VimuxRunLastCommand<cr>
+    if isdirectory(expand("~/.vim/plugged/vimux")) && executable('tmux')
+        let g:VimuxHeight = "40"
+        nnoremap <leader>vp :VimuxPromptCommand<cr>
+        nnoremap <leader>vc :VimuxPromptCommand<cr>cd $PWD<cr>:VimuxInspectRunner<cr>
+        nnoremap <leader>vl :VimuxRunLastCommand<cr>
+        nnoremap <leader>vv :VimuxRunLastCommand<cr>
+        nnoremap <leader>vr :VimuxRunLastCommand<cr>
+        nnoremap <leader>vi :VimuxInspectRunner<cr>
+        nnoremap <leader>vx :VimuxCloseRunner<cr>
+        nnoremap <leader>vz :VimuxZoomRunner<cr>
+    endif
     " }}}
 
     " {{{ youcompleteme
-    " supposed to speed up ycm
-    let g:ycm_register_as_syntastic_checker = 0
-    " open preview window while completing
-    let g:ycm_add_preview_to_completeopt=1
-    " disable youcompleteme
-    " let g:ycm_auto_trigger=0
-    " let g:ycm_allow_changing_updatetime=0
-    let g:ycm_seed_identifiers_with_syntax = 1
-    " doesn't work but up arrow does
-    " let g:ycm_key_list_previous_completion=['<S-Tab>']
+    if isdirectory(expand("~/.vim/plugged/YouCompleteMe"))
+        " supposed to speed up ycm
+        let g:ycm_register_as_syntastic_checker = 0
+        " open preview window while completing
+        let g:ycm_add_preview_to_completeopt=1
+        " disable youcompleteme
+        " let g:ycm_auto_trigger=0
+        " let g:ycm_allow_changing_updatetime=0
+        let g:ycm_seed_identifiers_with_syntax = 1
+        " doesn't work but up arrow does
+        " let g:ycm_key_list_previous_completion=['<S-Tab>']
+    endif
     " }}}
 
     " {{{ ZoomWin
-    " mapping just like <c-a>z for tmux
-    nnoremap <c-w>z :ZoomWin<cr>
+    if isdirectory(expand("~/.vim/plugged/ZoomWin"))
+        " mapping just like <c-a>z for tmux
+        nnoremap <c-w>z :ZoomWin<cr>
+    endif
     " }}}
 
 " }}}
