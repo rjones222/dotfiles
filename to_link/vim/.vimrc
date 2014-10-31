@@ -1583,9 +1583,10 @@
         " let g:airline#extensions#promptline#enabled = 1
         let g:airline#extensions#promptline#enabled = 0
         let g:airline#extensions#promptline#snapshot_file = "~/.dotfiles/to_link/promptline.theme.bash"
+        " let airline#extensions#promptline#color_template = 'normal'
         " let airline#extensions#promptline#color_template = 'insert'
         " let airline#extensions#promptline#color_template = 'visual'
-        let airline#extensions#promptline#color_template = 'replace'
+        " let airline#extensions#promptline#color_template = 'replace'
 
         " easily save a snapshot of my current setup to my promptline file
         command! MyPromptline :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
@@ -1714,12 +1715,12 @@
         " let g:airline#extensions#tmuxline#enabled = 1
         let g:airline#extensions#tmuxline#enabled = 0
         " let airline#extensions#tmuxline#color_template = 'insert'
-        " let airline#extensions#tmuxline#color_template = 'visual'
-        let airline#extensions#tmuxline#color_template = 'replace'
+        let airline#extensions#tmuxline#color_template = 'visual'
+        " let airline#extensions#tmuxline#color_template = 'replace'
 
-        " let g:tmuxline_theme = 'airline'
+        let g:tmuxline_theme = 'airline'
         " let g:tmuxline_theme = 'airline_insert'
-        let g:tmuxline_theme = 'airline_visual'
+        " let g:tmuxline_theme = 'airline_visual'
         " let g:tmuxline_theme = 'powerline'
         " let g:tmuxline_theme = 'jellybeans'
         " let g:tmuxline_theme = 'zenburn'
