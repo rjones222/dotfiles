@@ -690,6 +690,9 @@ Plug 'tpope/vim-speeddating'
 
 " Navigation and Search {{{
 
+" highlight f and t searches, use same motion to ; or \
+Plug 'rhysd/clever-f.vim'
+
 " sublime-style minimap. Not working yet.
 " Plug 'severin-lemaignan/vim-minimap'
 
@@ -1013,6 +1016,9 @@ Plug 'nacitar/terminalkeys.vim'
 " [=           Jump to prev line having a marker of any type
 " m<BS>        Remove all markers
 " Plug 'kshenoy/vim-signature'
+
+" mark quickfix locations and marks in the sign column
+Plug 'tomtom/quickfixsigns_vim'
 
 " :MarksBrowser
 " <cr> to go to a mark
