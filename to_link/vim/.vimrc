@@ -179,7 +179,7 @@
     set splitright                  " Puts new vsplit windows to the right of the current
     set splitbelow                  " Puts new split windows to the bottom of the current
     "set matchpairs+=<:>             " Match, to be used with %
-    set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+    " set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
     "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
     " Remove trailing whitespaces and ^M chars
     autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
@@ -1239,8 +1239,8 @@
     " {{{ colorscheme
     if !exists('g:colorscheme_set')
         colorscheme lucius
-        let g:colorscheme_set=1
         set background=dark
+        let g:colorscheme_set=1
         " let g:lucius_no_term_bg=1
         " colorscheme solarized
         " colorscheme badwolf
@@ -1775,9 +1775,9 @@
         let g:vdebug_options['server'] = '192.168.56.1'
         let g:vdebug_options['port'] = '9000'
         let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
-        let g:vdebug_options['path_maps'] = {'/var/www': '/Users/mfunk/Sites'}
+        let g:vdebug_options['path_maps'] = {'/var/www/sites': '/Library/WebServer/Documents'}
         " stop on first line of execution
-        let g:vdebug_options["break_on_open"] = 0
+        " let g:vdebug_options["break_on_open"] = 0
         let g:vdebug_options["watch_window_style"] = 'compact'
         " move run_to_cursor from F1 to F9
         let g:vdebug_keymap = {

@@ -46,7 +46,8 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-abolish', { 'on': 'Abolish' }
+" Plug 'tpope/vim-abolish', { 'on': 'Abolish' }
+Plug 'tpope/vim-abolish'
 Plug 'osyo-manga/vim-over'
 Plug 'kana/vim-textobj-user'
 " Plug 'kana/vim-textobj-indent'
@@ -334,6 +335,26 @@ Plug 'vimez/vim-tmux', { 'for': 'tmux' }
 " Plug 'ap/vim-css-color'
 Plug 'chrisbra/Colorizer', { 'for': ['css', 'scss', 'sass', 'less'] }
 
+" color designer tool
+" View colors
+" :ColorV (<leader>cv): show ColorV window
+" :ColorVView (<leader>cw): show ColorV window with color text under cursor.
+" :ColorVPreview (<leader>cpp): Preview colors in current buffer
+" Edit colors
+" :ColorVEdit (<leader>ce): Edit color text under cursor
+" :ColorVEditAll (<leader>cE): Edit color text under cursor and change all in current buffer.
+" :ColorVInsert (<leader>cii): Insert color with ColorV window.
+" Design Colors
+" :ColorVName (<leader>cn): show color name list window.
+" :ColorVList Hue (<leader>cgh) generate Hue list with color text under cursor.
+" :ColorVTurn2 {hex1} {hex2} (<leader>cgg) generate Hue list from hex1 to hex2.
+" :ColorVPicker (<leader>cd): show a GUI color picker.
+" Design Schemes
+" :ColorVScheme (<leader>css) Fetch scheme from Kuler or ColourLover
+" :ColorVSchemeFav (<leader>csf) Show Faved schemes
+" :ColorVSchemeNew (<leader>csn) Create a new scheme
+Plug 'Rykka/colorv.vim'
+
 " }}}
 
 " Php {{{
@@ -502,6 +523,7 @@ Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 
 
 " pulse the background on search to find the currently found item. Really
 " helpful pretty UI addition.
+" works great... in some color schemes. In others it's just annoying.
 " Plug 'inside/vim-search-pulse'
 
 " Highlight the current word throughout the doc
@@ -564,10 +586,6 @@ Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 
 " Plug 'trapd00r/neverland-vim-theme'
 " Plug 'vim-scripts/robokai'
 " Plug 'zaiste/Atom'
-" only problem is that the background is transparent
-Plug 'freeo/vim-kalisi'
-let &t_AB="\e[48;5;%dm"
-let &t_AF="\e[38;5;%dm"
 " Plug 'joschka/Smyck-Color-Scheme'
 " Plug 'michalbachowski/vim-wombat256mod'
 
@@ -591,6 +609,16 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
 Plug 'jonathanpatt/vim-koala'
 Plug 'baskerville/bubblegum'
+" the light version looks good except for the colorcolumn
+" dark version has an ugly pink colorcolumn
+Plug 'freeo/vim-kalisi'
+" from vim-kalisi readme:
+" in case t_Co alone doesn't work, add this as well:
+" let &t_AB="\e[48;5;%dm"
+" let &t_AF="\e[38;5;%dm"
+
+" Can I please have some trouble
+" Plug 'godlygeek/csapprox'
 
 " just for testing some of the top color schemes
 " Plug 'vim-scripts/Colour-Sampler-Pack'
@@ -609,6 +637,7 @@ Plug 'yonchu/accelerated-smooth-scroll'
 Plug 'https://github.com/jwhitley/vim-colors-solarized.git'
 
 " easy way to scroll through color schemes
+" cycle, rotate
 " Turned off until I need it
 Plug 'vim-scripts/ScrollColors', { 'on': 'SCROLL' }
 
@@ -639,7 +668,7 @@ Plug 'stefandtw/quickfix-reflector.vim'
 
 " Automatically detect indentation and set it
 " BUT it sets expandtab on php by default! Lame!
-" Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 
 " put html tags from one line to multiline or the opposite
 " works for practically any language. just wish it worked in function
@@ -691,7 +720,8 @@ Plug 'tpope/vim-speeddating'
 " Navigation and Search {{{
 
 " highlight f and t searches, use same motion to ; or \
-Plug 'rhysd/clever-f.vim'
+" this just annoys me
+" Plug 'rhysd/clever-f.vim'
 
 " sublime-style minimap. Not working yet.
 " Plug 'severin-lemaignan/vim-minimap'
