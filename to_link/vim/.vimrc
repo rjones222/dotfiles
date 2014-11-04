@@ -640,6 +640,9 @@
     else
         if &term == 'xterm' || &term == 'screen'
             set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+            " in case t_Co alone doesn't work, add this as well:
+            let &t_AB="\e[48;5;%dm"
+            let &t_AF="\e[38;5;%dm"
         endif
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
@@ -1369,11 +1372,12 @@
     " }}}
 
     " {{{ easytags
+    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
+
     if isdirectory(expand("~/.vim/plugged/vim-easytags"))
         " easytags just doesn't work well. it blocks the ui when updating (doesn't
         " use dispatch), it doesn't use my custom easy_tags_cmd, and the
         " highlighting won't use my custom highlight. Fuck it, we'll do it live!
-        nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
 
         " I would love to get this working some day
         " command UpdateCtags silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
@@ -1772,12 +1776,17 @@
         let g:vdebug_options = {}
         let g:vdebug_options["continuous_mode"] = 1
         let g:vdebug_options["timeout"] = 30
+        " the local server ip
         let g:vdebug_options['server'] = '192.168.56.1'
         let g:vdebug_options['port'] = '9000'
         let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
-        let g:vdebug_options['path_maps'] = {'/var/www/sites': '/Library/WebServer/Documents'}
+        " can add multiple path maps to this array, just duplicate the line
+        " below and add another. remote is first, local is second.
+        let g:vdebug_options['path_maps'] = { 
+        \   '/var/www/sites': '/Library/WebServer/Documents'
+        \}
         " stop on first line of execution
-        " let g:vdebug_options["break_on_open"] = 0
+        let g:vdebug_options["break_on_open"] = 0
         let g:vdebug_options["watch_window_style"] = 'compact'
         " move run_to_cursor from F1 to F9
         let g:vdebug_keymap = {

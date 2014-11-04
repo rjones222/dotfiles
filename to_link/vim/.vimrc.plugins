@@ -612,10 +612,8 @@ Plug 'baskerville/bubblegum'
 " the light version looks good except for the colorcolumn
 " dark version has an ugly pink colorcolumn
 Plug 'freeo/vim-kalisi'
-" from vim-kalisi readme:
-" in case t_Co alone doesn't work, add this as well:
-" let &t_AB="\e[48;5;%dm"
-" let &t_AF="\e[38;5;%dm"
+Plug 'vim-scripts/The-Vim-Gardener'
+Plug 'ciaranm/inkpot'
 
 " Can I please have some trouble
 " Plug 'godlygeek/csapprox'
