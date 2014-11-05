@@ -122,7 +122,7 @@ if [[ "$(type -P apt-get)" ]]; then
      # install the silver searcher
     if [[ ! "$(type -P ag)" ]]; then
         log_info "installing the silver searcher"
-        sudo apt-get install software-properties-common # (if required)
+        sudo apt-get install -y software-properties-common # (if required)
         sudo apt-add-repository -y ppa:mizuno-as/silversearcher-ag
         sudo apt-get update
         sudo apt-get install -y silversearcher-ag
