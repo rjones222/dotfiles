@@ -835,6 +835,10 @@
     " since , replaces leader, use \ to go back in a [f]ind
     noremap \ ,
 
+    " get rid of annoying 'User defined completion (^U^N^P) Pattern not found'
+    " https://github.com/JazzCore/neocomplcache-ultisnips/issues/1#issuecomment-62128128
+    shortmess+=c
+
     " css tags with tagbar
     " only works with a specific fork of ctags... but i'm already on a fork
     " of ctags

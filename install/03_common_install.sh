@@ -43,6 +43,7 @@ jsonlint
 less
 localtunnel
 # log.io
+npm-check-updates
 phantomjs
 phpunit-watchr
 tldr

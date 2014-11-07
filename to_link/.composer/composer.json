@@ -1,29 +1,18 @@
 {
   "config": {
     "github-oauth": {
-      "github.com": "e580d1fa7753330d5257cc1dea21ae9b74503236"
+      "github.com": "0534bf1b94602ebf2dbda687d237e6184260cc4c"
     }
   },
   "require": {
-    "covex-nn/phpcb": "*",
-    "sebastian/phpcpd": "*",
-    "pdepend/pdepend": "@dev",
-    "phing/phing": "dev-master",
-    "phploc/phploc": "*",
-    "phpmd/phpmd": "@dev",
-    "fabpot/php-cs-fixer": "@dev",
-    "phpunit/phpunit": "*",
-    "squizlabs/php_codesniffer": "@dev",
-    "tomphp/patch-builder": "dev-master",
-    "techlivezheng/phpctags": "*",
-    "qafoolabs/php-refactoring-browser": "dev-master@dev",
-    "phpdocumentor/phpdocumentor": "2.6.0",
-    "sebastian/phpdcd": "@dev",
-    "dompdf/dompdf": "@dev",
-    "qafoolabs/php-refactoring-browser": "*",
-    "hot/phpunit-runner": "dev-master",
-    "gonzaloserrano/pman-php-manual": "dev-master"
-
-  },
-  "process-timeout": 120
+    "covex-nn/phpcb": "1.0.*",
+    "sebastian/phpcpd": "2.0.*",
+    "pdepend/pdepend": "2.0.*",
+    "phing/phing": "2.8.*",
+    "phploc/phploc": "2.0.*",
+    "phpmd/phpmd": "2.0.*",
+    "phpunit/phpunit": "4.1.*",
+    "squizlabs/php_codesniffer": "@stable",
+    "phpdocumentor/phpdocumentor": "2.6.0"
+  }
 }

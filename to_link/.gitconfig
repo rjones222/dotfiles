@@ -114,6 +114,7 @@
     pup = !git pull --recurse-submodules && git submodule update
     purr = pull --rebase
     rbi = rebase -i
+    rbd = rebase -i develop
     # rebase interactively on to the upstream to this branch
     ready = rebase -i @{u}
     rh = reset --hard
