@@ -10,7 +10,7 @@
 #  | |  | | |   <  __/ | | | |_| | | | |   <
 #  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
 #
-# link my dotfiles to their expected locations
+# symlink vim config files and install vim plugins
 # more info at http://mikefunk.com
 # }}}
 
