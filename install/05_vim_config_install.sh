@@ -27,10 +27,12 @@ link_this "$HOME/.dotfiles/to_link/vim/.vimrc.plugins" "$HOME/.vimrc.plugins"
 [[ ! -d $HOME/.vim ]] && log_info "creating the ~/.vim directory" && mkdir $HOME/.vim
 [[ ! -d $HOME/.vim ]] && log_info "creating the ~/.vim/autoload directory" && mkdir $HOME/.vim/autoload
 
-
-
 # this needs to be after the .vim folder is created
 log_info "linking UltiSnips custom snippets dir"
 link_this "$HOME/.dotfiles/to_link/UltiSnips" "$HOME/.vim/UltiSnips"
+
+# install vim-plug plugins
+log_info "installing vim plugins"
+vim +PlugInstall +qall
 
 log_info "End vim install script"
