@@ -821,6 +821,9 @@ Plug 'airblade/vim-rooter'
 " I don't use this
 " Plug 'markgandolfo/nerdtree-wget.vim'
 
+" makes folds only recalculate on save, making completion faster (right?)
+Plug 'Konfekt/FastFold'
+
 " }}}
 
 " Windows and Tabs {{{

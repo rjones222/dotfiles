@@ -146,13 +146,12 @@ fi
 log_info "Installing Python packages"
 
 packages=(
-distribute
 # gmusicapi
 argcomplete
 robotframework
 robotframework-selenium2screenshots
-stellar
-supervisor
+# stellar
+# supervisor
 )
 for package in "${packages[@]}"
 do
@@ -161,13 +160,6 @@ do
         sudo pip install $package
     }
 done
-
-# install when-changed
-# @note: I had a problem installing this on 10.9 mac intel
-if [[ ! "$(type -P when-changed)" ]]; then
-    log_info "installing when-changed"
-    sudo pip install https://github.com/joh/when-changed/archive/master.zip
-fi
 
 log_info "activating argcomplete"
 activate-global-python-argcomplete
