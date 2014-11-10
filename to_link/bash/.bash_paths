@@ -25,8 +25,8 @@ if [ -d /usr/local/php5/bin ]; then
 fi
 
 # homebrew php
-if [[ -d "$(brew --prefix php56)/bin:$PATH" ]]; then
-    export PATH="$(brew --prefix php56)/bin:$PATH"
+if [[ -d "/usr/local/opt/php56/bin:$PATH" ]]; then
+    export PATH="/usr/local/opt/php56/bin:$PATH"
 fi
 
 # local bin
