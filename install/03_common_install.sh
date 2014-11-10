@@ -32,22 +32,22 @@ bower
 coffeelint
 coffee-script
 csslint
-fixmyjs
+# fixmyjs
 git-guilt
 gulp
-gulp-watch
-grunt
+# gulp-watch
+# grunt
 instant-markdown-d
 jshint
 jsonlint
 less
-localtunnel
+# localtunnel
 # log.io
 npm-check-updates
 phantomjs
-phpunit-watchr
-tldr
-yo
+# phpunit-watchr
+# tldr # community-driven man pages
+yo # yeoman
 )
 for package in "${packages[@]}"
 do
@@ -104,16 +104,16 @@ fi
 
 log_info "Installing Gems"
 packages=(
-bluecloth
+# bluecloth
 bundler
 CoffeeTags
-execjs
-haste
+# execjs
+# haste
 jekyll
-json_pure
-kramdown
+# json_pure
+# kramdown
 mailcatcher
-mysql2xxxx
+# mysql2xxxx
 # observr
 pre-commit
 # pre-commit-php
@@ -121,11 +121,10 @@ puppet
 pygmentize
 pygments.rb
 redcarpet
-rdiscount
-rhc
+# rdiscount
 # ruby-fsevent
 teamocil
-watch
+# watch
 )
 for package in "${packages[@]}"
 do
