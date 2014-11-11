@@ -55,7 +55,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         bash
         bash-completion
         # ack
-        cloc
+        # cloc #count lines of code
         ctags
         # curl-ca-bundle
         # fasd
@@ -64,19 +64,19 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         git-extras
         git-flow
         # googlecl
-        graphviz
-        grc
+        # graphviz # useful for xdebug profiler class maps
+        grc # generic colorizer
         # hg
         highlight
         htop
         hub
-        imagemagick
+        # imagemagick
         irssi
         # macvim
-        multitail
+        # multitail
         mysql
         nodejs
-        pandoc
+        pandoc # used for inline vim php documentation
         # postgresql
         ranger
         rbenv
@@ -86,11 +86,11 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         sshfs
         sshuttle
         # solr
-        spark
-        terminal-notifier
-        tig
+        # spark # used for rainbarf to show spiffy cli graphs
+        terminal-notifier # send macos notifications from terminal
+        tig # git? tig!
         tmux
-        tofrodos
+        tofrodos # line endings
         # trash
         tree
         # virtualhost.sh
