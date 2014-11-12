@@ -77,6 +77,12 @@ fi
 link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
 composer global install
 
+# had some problems with php-cs-fixer via composer so here's the wget version
+if [[ ! "$(type -P php-cs-fixer)" ]]; then
+    log_info "Installing php-cs-fixer"
+    sudo wget http://get.sensiolabs.org/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
+fi
+
 # build phpctags
 if [[ ! "$(type -P phpctags)" ]]; then
     log_info "building phpctags"

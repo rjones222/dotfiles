@@ -1907,6 +1907,7 @@
     if isdirectory(expand("~/.vim/plugged/vim-json"))
         " turn off stupid no quotes in JSON except for current line
         set conceallevel=0
+        let g:vim_json_syntax_conceal = 0
     endif
     " }}}
 

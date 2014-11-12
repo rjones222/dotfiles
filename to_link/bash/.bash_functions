@@ -285,7 +285,7 @@ phpunitnotify () {
     # about 'runs phpunit and uses terminal-notifier to show the results'
     # group 'custom'
 
-    php -d memory_limit=1024M /Users/mfunk/.composer/vendor/bin/phpunit "${@}"
+    php -d memory_limit=2048M /Users/mfunk/.composer/vendor/bin/phpunit "${@}"
     if [[ $? == 0 ]]; then
         terminal-notifier -message "PHPUnit tests passed" -title "Passed" -activate "com.apple.Terminal";
     else

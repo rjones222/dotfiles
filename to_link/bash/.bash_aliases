@@ -194,7 +194,7 @@ alias bls='brew list'
 alias bsr='brew search'
 alias binf='brew info'
 alias bdr='brew doctor'
- 
+
 # }}}
 
 # Git {{{

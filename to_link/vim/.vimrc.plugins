@@ -100,7 +100,8 @@ Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'sudo npm install' }
 " }}}
 
 " HTML {{{
-Plug 'amirh/HTML-AutoCloseTag', { 'for': 'html' }
+" auto close tags by typing </
+Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'sass', 'scss'] }
 " }}}
 
