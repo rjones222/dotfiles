@@ -81,6 +81,7 @@ composer global install
 if [[ ! "$(type -P php-cs-fixer)" ]]; then
     log_info "Installing php-cs-fixer"
     sudo wget http://get.sensiolabs.org/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
+    sudo chmod +x /usr/local/bin/php-cs-fixer
 fi
 
 # build phpctags
