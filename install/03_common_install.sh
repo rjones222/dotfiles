@@ -29,6 +29,7 @@ fi
 log_info "Installing npm Packages"
 packages=(
 bower
+browser-sync # like livereload but easier
 coffeelint
 coffee-script
 csslint
