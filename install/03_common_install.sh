@@ -120,12 +120,12 @@ CoffeeTags
 jekyll
 # json_pure
 # kramdown
-mailcatcher
+# mailcatcher
 # mysql2xxxx
 # observr
 pre-commit
 # pre-commit-php
-puppet
+# puppet
 pygmentize
 pygments.rb
 redcarpet
