@@ -118,9 +118,15 @@
     # rebase interactively on to the upstream to this branch
     ready = rebase -i @{u}
     rh = reset --hard
+    # save a stash with "git stash save 'my stash name'"
+    # search for a stash by saved description e.g. "git sshow 'my stash name'"
+    sshow = "!f() { git stash show stash^{/$*} -p; }; f"
+    # apply a stash by saved description e.g. "git sapply 'my stash name'"
+    sapply = "!f() { git stash apply stash^{/$*}; }; f"
     st = status -sb
     # show all of my commits since yesterday
     standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mike.funk@internetbrands.com
+    stash-unapply = !git stash show -p | git apply -R
     sync = "!f() { echo 'Syncing current branch with develop' && git checkout develop && git pull && git checkout - && git rebase develop; }; f"
     # uncommit the last commit
     undo = reset HEAD~1 --mixed

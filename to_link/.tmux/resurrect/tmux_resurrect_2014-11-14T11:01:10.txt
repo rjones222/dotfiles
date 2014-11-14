@@ -1,0 +1,15 @@
+pane	Work	1	:cfg	0	: 	0	:/Users/mfunk/.dotfiles/to_link/.teamocil	1	Vim	:/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim -g -vp -S /Users/mfunk/.vim/sessions/config
+pane	Work	1	:cfg	0	: 	1	:/Users/mfunk/cool-retro-term	0	bash	:
+pane	Work	2	:hrh	0	:-	0	:/Library/WebServer/Documents/acp-hotrodhotline	1	Vim	:/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim -g -vp -S /Users/mfunk/.vim/sessions/hrh
+pane	Work	2	:hrh	0	:-	1	:/Library/WebServer/Documents/acp-hotrodhotline	0	bash	:
+pane	Work	2	:hrh	0	:-	2	:/Library/WebServer/Documents/acp-hotrodhotline	0	node	:gulp 
+pane	Work	3	:acp	1	:*	0	:/Library/WebServer/Documents/acp-core	1	Vim	:/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim -g -vp -S /Users/mfunk/.vim/sessions/acp
+pane	Work	3	:acp	1	:*	1	:/Library/WebServer/Documents/acp-admin	0	bash	:
+pane	Work	4	:vm	0	: 	0	:/Library/WebServer/Documents/acp-hotrodhotline_OLD	1	bash	:
+pane	Work	5	:standup	0	: 	0	:/Users/mfunk	1	Vim	:/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim -g -vp /Users/mfunk/Google Drive/standup/2014-11-14.markdown
+window	Work	1	0	: 	7f87,272x62,0,0[272x37,0,0,0,272x24,0,38,1]
+window	Work	2	0	:-	58e2,272x62,0,0[272x37,0,0,2,272x24,0,38{149x24,0,38,3,122x24,150,38,4}]
+window	Work	3	1	:*	ff93,272x62,0,0[272x37,0,0,5,272x24,0,38,6]
+window	Work	4	0	: 	b964,272x62,0,0,7
+window	Work	5	0	: 	dce3,272x62,0,0,81
+state	Work	

@@ -40,6 +40,7 @@ gulp
 # grunt
 instant-markdown-d
 jshint
+json # json formatter used for vim
 jsonlint
 less
 # localtunnel

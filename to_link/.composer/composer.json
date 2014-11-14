@@ -13,6 +13,8 @@
     "phpmd/phpmd": "2.0.*",
     "phpunit/phpunit": "4.1.*",
     "squizlabs/php_codesniffer": "@stable",
-    "phpdocumentor/phpdocumentor": "2.6.0"
+    "phpdocumentor/phpdocumentor": "2.6.0",
+    "behat/behat": "@stable",
+    "phpspec/phpspec": "@stable"
   }
 }
