@@ -1786,7 +1786,7 @@
         let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
         " can add multiple path maps to this array, just duplicate the line
         " below and add another. remote is first, local is second.
-        let g:vdebug_options['path_maps'] = { 
+        let g:vdebug_options['path_maps'] = {
         \   '/var/www/sites': '/Library/WebServer/Documents'
         \}
         " stop on first line of execution
@@ -1906,8 +1906,15 @@
     " vim-json {{{
     if isdirectory(expand("~/.vim/plugged/vim-json"))
         " turn off stupid no quotes in JSON except for current line
-        set conceallevel=0
+        " set conceallevel=0
         let g:vim_json_syntax_conceal = 0
+        " uh oh, it doesn't work well with indentLine plugin...
+        " https://github.com/elzr/vim-json/issues/23#issuecomment-40293049
+        let g:indentLine_noConcealCursor = ""
+        " WORK DAMN IT
+        " autocmd InsertEnter *.json setlocal conceallevel=2 concealcursor=
+        " autocmd InsertLeave *.json setlocal conceallevel=2 concealcursor=inc
+        autocmd BufEnter *.json setlocal conceallevel=2 concealcursor=
     endif
     " }}}
 
