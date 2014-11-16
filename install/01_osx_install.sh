@@ -58,8 +58,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # cloc #count lines of code
         ctags
         # curl-ca-bundle
-        # fasd
+        dnsmasq # easily set up dynamic dev domains such as myproject.dev
         dos2unix
+        # fasd
         git
         git-extras
         git-flow
@@ -133,6 +134,21 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             brew tap Goles/battery
             brew install battery
         fi
+
+        # set up dnsmasq
+        log_info "setting up dnsmasq"
+        link_this "$HOME/.dotfiles/to_link/dnsmasq.conf" "/usr/local/etc/dnsmasq.conf"
+        # launch dnsmasq on startup
+        sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+        # load dnsmasq now
+        sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+        # set up dns resolver dir if not already there
+        [[ -d "/etc/resolver" ]] || sudo mkdir -p /etc/resolver
+        # link the dns resolver file
+        link_this "$HOME/.dotfiles/to_link/dev_dns_resolver" "/etc/resolver/dev"
+        # restart dnsmasq
+        sudo launchctl stop homebrew.mxcl.dnsmasq
+        sudo launchctl start homebrew.mxcl.dnsmasq
 
         # install homebrew packages without the same cli name
         packages=(

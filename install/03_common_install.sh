@@ -178,4 +178,8 @@ if [[ ! -f "$HOME/.tmux/plugins/tpm" ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+if [[ "$(type -P vagrant)" ]]; then
+    log_info "adding laravel homestead vagrant box"
+fi
+
 log_info "End common install script"
