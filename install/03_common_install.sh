@@ -28,28 +28,28 @@ fi
 
 log_info "Installing npm Packages"
 packages=(
-bower
+bower # package management for css/js
+bower-installer # allows you to only install the files you need into a specific dir
 browser-sync # like livereload but easier
-coffeelint
-coffee-script
-csslint
-# fixmyjs
-git-guilt
-gulp
-# gulp-watch
-# grunt
-instant-markdown-d
-jshint
+coffeelint # verify coffeescript files
+coffee-script # javascript abstraction / augmentation
+csslint # verify css files
+# fixmyjs # like php-cs-fixer for javascript
+git-guilt # see the top few users for whom this commit has overwritten code
+gulp # task runner / watcher
+# grunt # older, more complex task runner / watcher
+instant-markdown-d # used by vim to instantly preview markdown files as you type
+jshint # like jslint but less punishing
 json # json formatter used for vim
-jsonlint
-less
+jsonlint # verify json
+less # add dynamic capabilities to less
 # localtunnel
 # log.io
-npm-check-updates
-phantomjs
-# phpunit-watchr
+npm-check-updates # check for updates to stuff defined in package.json
+phantomjs # headless browser used for BDD
+# phpunit-watchr # dinky tool to watch files for changes and run phpunit
 # tldr # community-driven man pages
-yo # yeoman
+yo # yeoman - boilerplate maker
 )
 for package in "${packages[@]}"
 do
@@ -114,25 +114,25 @@ fi
 log_info "Installing Gems"
 packages=(
 # bluecloth
-bundler
-CoffeeTags
+bundler # lets gems be package-specific. Used by jekyll.
+CoffeeTags # ctags with coffeescript
 # execjs
 # haste
-jekyll
+jekyll # blogging platform used by github
 # json_pure
 # kramdown
-# mailcatcher
-# mysql2xxxx
-# observr
-pre-commit
+# mailcatcher # catches outgoing mail and displays it from a local server to a web-based view
+# mysql2xxxx # export mysql to json, etc.
+# observr # watches the file system and does stuff when things change
+pre-commit # install pre-commit hooks to check for all kinds of things
 # pre-commit-php
-# puppet
-pygmentize
-pygments.rb
-redcarpet
+# puppet # virtual machine provisioning language
+pygmentize - used by jekyll
+pygments.rb # syntax highlighting - used by jekyll
+redcarpet # used by jekyll to convert markdown to html
 # rdiscount
 # ruby-fsevent
-teamocil
+teamocil # save tmux layouts and regenerate them with ease
 # watch
 )
 for package in "${packages[@]}"
@@ -154,10 +154,10 @@ fi
 log_info "Installing Python packages"
 
 packages=(
-# gmusicapi
-argcomplete
-robotframework
-robotframework-selenium2screenshots
+# gmusicapi # google music api
+argcomplete # tab completion of arguments for python scripts
+# robotframework # front-end testing framework
+# robotframework-selenium2screenshots
 # stellar
 # supervisor
 )

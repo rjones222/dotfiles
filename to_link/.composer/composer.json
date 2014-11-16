@@ -5,6 +5,7 @@
     }
   },
   "require": {
+    "codeception/codeception": "@stable",
     "covex-nn/phpcb": "1.0.*",
     "sebastian/phpcpd": "2.0.*",
     "pdepend/pdepend": "2.0.*",
