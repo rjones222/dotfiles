@@ -1245,12 +1245,18 @@
 
     " {{{ colorscheme
     if !exists('g:colorscheme_set')
-        colorscheme lucius
-        set background=dark
+        if has('gui')
+            " this looks awesome in macvim!
+            colorscheme gotham
+            set background=dark
+        else
+            colorscheme lucius
+            set background=dark
+            " let g:lucius_no_term_bg=1
+            " colorscheme solarized
+            " colorscheme badwolf
+        endif
         let g:colorscheme_set=1
-        " let g:lucius_no_term_bg=1
-        " colorscheme solarized
-        " colorscheme badwolf
     endif
     " set background=light
     " let g:solarized_contrast="normal"

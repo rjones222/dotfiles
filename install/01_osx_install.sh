@@ -51,7 +51,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # install homebrew recipes
         log_info "Installing Homebrew Recipes"
         packages=(
-        autossh
+        autossh # keeps ssh connections open for instant access
         bash
         bash-completion
         # ack
@@ -63,37 +63,38 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         git
         git-extras
         git-flow
-        # googlecl
+        # googlecl # google command line tool
         # graphviz # useful for xdebug profiler class maps
         grc # generic colorizer
-        # hg
+        gnu-sed # linux version of sed - saves as gsed
+        # hg # mercurial
         highlight
         htop
-        hub
+        hub # github tool is a superset of git
         # imagemagick
-        irssi
-        # macvim
-        # multitail
+        irssi # irc client
+        # macvim # mac gui vim client
+        # multitail # tail multiple files in splits with pretty colors
         mysql
         nodejs
         pandoc # used for inline vim php documentation
         # postgresql
-        ranger
-        rbenv
-        reattach-to-user-namespace
+        ranger # vim-like file system browser
+        rbenv # ruby environment switcher
+        reattach-to-user-namespace # used to fix mac issues with copy/paste in tmux
         ruby-build
-        ssh-copy-id
-        sshfs
+        ssh-copy-id # copies ssh keys to remote servers
+        sshfs # mounts ssh servers as file systems in the local fs
         sshuttle
-        # solr
+        # solr # search data server
         # spark # used for rainbarf to show spiffy cli graphs
         terminal-notifier # send macos notifications from terminal
         tig # git? tig!
-        tmux
+        tmux # terminal multiplexer similar to screen
         tofrodos # line endings
-        # trash
-        tree
-        # virtualhost.sh
+        # trash # a trash can for the terminal
+        tree # display file/folder hierarchies in a visual tree format
+        # virtualhost.sh # crappy virtualhost management script
         watch
         wget
         )

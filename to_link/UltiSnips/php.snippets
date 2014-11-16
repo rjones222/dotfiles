@@ -954,6 +954,16 @@ snippet vw "View::make"
 return View::make('$1');
 endsnippet
 
+snippet r:g "Laravel Route::get"
+Route::get(
+    '${1:route/path}',
+    [
+        'uses' => '${2:Namespace\To\Controller}',
+        'as' => '${3:route.name}'
+    ]
+);
+endsnippet
+
 snippet rdr "Redirect::route"
 return Redirect::route('$1');
 endsnippet
