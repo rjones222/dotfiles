@@ -540,9 +540,10 @@
         autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
         " For snippet_complete marker.
-        if has('conceal')
-            set conceallevel=2 concealcursor=i
-        endif
+        " I had to turn this off because it broke vim-json
+        " if has('conceal')
+            " set conceallevel=2 concealcursor=i
+        " endif
 
         " Disable the neosnippet preview candidate window
         " When enabled, there can be too much visual noise
@@ -591,7 +592,7 @@
     if isdirectory(expand("~/.vim/plugged/vim-airline/"))
 
         " whether to user powerline fonts in vim-airline
-        let g:airline_powerline_fonts=1
+        " let g:airline_powerline_fonts=1
 
         " which airline theme to use
         " if you turn this off it should follow the current theme
@@ -1221,8 +1222,10 @@
         " this will turn off powerline fonts for tmuxline, vim-powerline,
         " promptline, etc.
         let g:global_powerline_switch = 1
+        " let g:global_powerline_switch = 0
 
         if g:global_powerline_switch == 1
+            let g:airline_powerline_fonts=1
             let g:promptline_powerline_symbols = 1
             let g:tmuxline_powerline_separators = 1
             " let g:airline_powerline_fonts=1
@@ -1233,6 +1236,7 @@
                 " \ 'right_alt' : '',
                 " \ 'space' : ' '}
         else
+            let g:airline_powerline_fonts=0
             let g:promptline_powerline_symbols = 0
             let g:tmuxline_powerline_separators = 0
             " let g:airline_powerline_fonts=0
@@ -1920,7 +1924,7 @@
         " WORK DAMN IT
         " autocmd InsertEnter *.json setlocal conceallevel=2 concealcursor=
         " autocmd InsertLeave *.json setlocal conceallevel=2 concealcursor=inc
-        autocmd BufEnter *.json setlocal conceallevel=2 concealcursor=
+        " autocmd BufEnter *.json setlocal conceallevel=2 concealcursor=
     endif
     " }}}
 
