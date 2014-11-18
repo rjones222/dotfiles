@@ -1239,7 +1239,6 @@
             let g:airline_powerline_fonts=0
             let g:promptline_powerline_symbols = 0
             let g:tmuxline_powerline_separators = 0
-            " let g:airline_powerline_fonts=0
             let g:airline_left_sep = ''
             let g:airline_left_alt_sep = ''
             let g:airline_right_sep = ''
