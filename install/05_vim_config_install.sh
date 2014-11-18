@@ -22,6 +22,7 @@ log_info "Beginning vim install script"
 
 log_info "linking vim config files"
 link_this "$HOME/.dotfiles/to_link/vim/.vimrc" "$HOME/.vimrc"
+link_this "$HOME/.dotfiles/to_link/vim/.gvimrc" "$HOME/.gvimrc"
 link_this "$HOME/.dotfiles/to_link/vim/.vimrc.plugins" "$HOME/.vimrc.plugins"
 
 # create ~/.vim and ~/.vim/autoload if it doesn't exist

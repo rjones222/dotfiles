@@ -113,6 +113,7 @@
     # pull and update submodules... i hate submodules...
     pup = !git pull --recurse-submodules && git submodule update
     purr = pull --rebase
+    rbc = rebase --continue
     rbi = rebase -i
     rbd = rebase -i develop
     # rebase interactively on to the upstream to this branch
