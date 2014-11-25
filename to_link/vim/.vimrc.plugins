@@ -35,7 +35,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'spf13/vim-autoclose'
 " Plug 'tacahiroy/ctrlp-funky'
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
+" better supported fork
+Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'vim-scripts/sessionman.vim', { 'on': ['SessionList', 'SessionSave', 'SessionClose'] }
 Plug 'matchit.zip'
 Plug 'bling/vim-airline'
@@ -76,8 +78,8 @@ endif
 if has('python')
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 endif
-Plug 'honza/vim-snippets'
 " }}}
 
 " Python {{{
@@ -379,10 +381,16 @@ Plug 'swekaj/php-foldexpr.vim', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 
 " improved phpdoc implementation
+" Plug 'tobyS/pdv', { 'for': 'php' }
+" fork that works better with phpcomplete.vim to update @var variables
+" Plug 'FlickerBean/pdv', { 'for': 'php' }
+" required for pdv. Only needed for pdv.
+" Plug 'tobyS/vmustache', { 'for': 'php' }
+
+" I think this is entirely different but it actually works which is nice
 " au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
-" Plug 'tobyS/pdv'
 Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 
 " better php ctags in tagbar

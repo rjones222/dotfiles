@@ -117,7 +117,7 @@ packages=(
 bundler # lets gems be package-specific. Used by jekyll.
 CoffeeTags # ctags with coffeescript
 # execjs
-git-gitlab
+# git-gitlab # command line tool to create merge requests and stuff
 # haste
 jekyll # blogging platform used by github
 # json_pure

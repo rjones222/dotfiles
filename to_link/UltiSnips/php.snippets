@@ -107,6 +107,20 @@ public function __construct(${1/\w+\s*/\u$0/}Interface $$1)
 }
 endsnippet
 
+snippet cstest1 "construct snippet, still working on it"
+
+/**
+ * dependency injection
+ *
+ * @param ${1/, /\n     * @param /g}
+ * @return void
+ */
+public function __construct(${1:dependencies})
+{
+    ${1/\w*\s?\$(\w+)(, )*/\n        $this->$1 = $$1;/g}
+}
+endsnippet
+
 snippet dp "PHPUnit Data Provider function"
 
 /**
@@ -968,11 +982,11 @@ snippet rdr "Redirect::route"
 return Redirect::route('$1');
 endsnippet
 
-snippet if "php if" !b
-if (${1}) {
-    ${2}
-}
-endsnippet
+# snippet if "php if" !b
+# if (${1}) {
+    # ${2}
+# }
+# endsnippet
 
 snippet ife "php if/else" !b
 if (${1}) {

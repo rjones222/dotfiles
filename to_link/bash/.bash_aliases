@@ -307,7 +307,8 @@ alias rr="ranger"
 # alias json="python -mjson.tool"
 
 # jekyll build via bundle
-alias blogbuild="cd ~/Sites/mikedfunk.github.io/; bundle exec jekyll build; cd -"
+# serve, build, and watch for changes, all at once!
+alias blogbuild="bundle exec jekyll server"
 
 # I tend to forget the syntax for this
 alias apt-get-search="apt-cache search"
@@ -485,7 +486,12 @@ alias rmf='rm -rf'
 alias renewip="sudo ipconfig set en0 BOOTP && sudo ipconfig set en0 DHCP && echo 'ip renewed'"
 
 # mac flush dns
-alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && echo 'dns flushed'"
+# macos 10.6
+# alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && echo 'dns flushed'"
+# mountain lion or lion
+# alias flushdns="sudo killall -HUP mDNSResponder && echo 'dns flushed'"
+# yosemite
+alias flushdns="sudo discoveryutil mdnsflushcache && sudo discoveryutil udnsflushcaches && echo 'flushed'"
 
 # phing
 alias ph="phing"
@@ -501,5 +507,8 @@ alias standupnotes="tmux rename-window 'standup' && vim ~/Google\ Drive/standup/
 
 alias acpcore="cd ~/Sites/acp-core"
 alias acphrh="cd ~/Sites/acp-hotrodhotline"
+
+# shortcut to vhosts file
+alias vhosts="vim /etc/apache2/extra/httpd-vhosts.conf"
 
 # }}}

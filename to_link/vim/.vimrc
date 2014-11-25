@@ -1531,16 +1531,12 @@
     " }}}
 
     " {{{ PDV
-    if isdirectory(expand("~/.vim/plugged/php-documentor-vim"))
-        " PDV comment parameters
-        let g:pdv_cfg_Package   = "Example"
-        let g:pdv_cfg_Author    = "Michael Funk <mike.funk@internetbrands.com>"
-        let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
-        let g:pdv_cfg_License   = ""
-        let g:pdv_cfg_Version   = ""
-        let g:pdv_cfg_ClassTags = ["author"]
+    " (php documentor for vim)
+    if isdirectory(expand("~/.vim/plugged/pdv"))
+        let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
+        nnoremap <buffer> <leader>pd :call pdv#DocumentWithSnip()<CR>
     endif
-    " }}}"
+    " }}}
 
     " {{{ phpcomplete
     if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
@@ -1577,8 +1573,15 @@
     endif
     " }}}"
 
-    " {{{ phpdoc
+    " {{{ php-documentor-vim
     if isdirectory(expand("~/.vim/plugged/php-documentor-vim"))
+        " PDV comment parameters
+        let g:pdv_cfg_Package   = "Example"
+        let g:pdv_cfg_Author    = "Michael Funk <mike.funk@internetbrands.com>"
+        let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
+        let g:pdv_cfg_License   = ""
+        let g:pdv_cfg_Version   = ""
+        let g:pdv_cfg_ClassTags = ["author"]
         augroup phpdoc_augroup
             autocmd!
             au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
@@ -1754,6 +1757,9 @@
     if isdirectory(expand("~/.vim/plugged/ultisnips"))
         " ultisnips start with my ultisnips
         " let g:UltiSnipsSnippetDirectories=['UltiSnips', 'ultisnips_snippets']
+
+        " enable vim-snippets in ultisnips
+        set runtimepath+=~/.vim/plugged/vim-snippets
         let g:UltiSnipsDontReverseSearchPath="1"
         let g:UltiSnipsEditSplit="vertical"
         let g:UltiSnipsListSnippets='<c-l>'
