@@ -17,6 +17,7 @@
     "phpdocumentor/phpdocumentor": "2.6.0",
     "behat/behat": "@stable",
     "phpspec/phpspec": "@stable",
-    "gushphp/gush": "~1.13.0"
+    "gushphp/gush": "~1.13.0",
+    "techlivezheng/phpctags": "~0.5"
   }
 }

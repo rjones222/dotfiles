@@ -1,6 +1,7 @@
 --recurse=yes
 --tag-relative=yes
 --exclude=.git
+--exclude=*.min.js
 --fields=+aimS
 --languages=php
 --PHP-kinds=+cf
@@ -29,3 +30,22 @@
 --langdef=snippets
 --langmap=snippets:.snippets
 --regex-snippets=/^snippet (.*)/\1/s,snippet/
+
+--langdef=coffee
+--langmap=coffee:.coffee
+--regex-coffee=/(^|=[ \t])*class ([A-Za-z.]+)( extends [A-Za-z.]+)?$/\2/c,class/
+--regex-coffee=/^[ \t]*(module\.)?(exports\.)?@?([A-Za-z.]+):.*[-=]>.*$/\3/f,function/
+--regex-coffee=/^[ \t]*(module\.)?(exports\.)?([A-Za-z.]+)[ \t]+=.*[-=]>.*$/\3/f,function/
+--regex-coffee=/^[ \t]*([A-Za-z.]+)[ \t]+=[^->\n]*$/\1/v,variable/
+
+--langdef=css
+--langmap=css:.css
+--regex-css=/^[ \t]*([^\t {][^{]{1,100})(\t| )*{/\1/d,definition/
+
+--langdef=scss
+--langmap=scss:.scss
+--regex-scss=/^[ \t]*([^\t {][^{]{1,100})(\t| )*{/| \1/d,definition/
+
+--langdef=sass
+--langmap=sass:.scss
+--regex-sass=/@mixin[ ]*([^ ({]+)/\1/m,mixin/

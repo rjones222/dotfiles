@@ -74,12 +74,19 @@ if executable('ctags')
 endif
 " }}}
 
-" YouCompleteMe {{{
-if has('python')
+" Completion {{{
+" if has('python')
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-endif
+" endif
+
+" I saw some posts recently saying youcompleteme is faster for php. Well yes,
+" but it doesn't complete methods inside of object instances.
+" if has('lua')
+    " Plug 'Shougo/neocomplete.vim'
+    " Plug 'violetyk/neocomplete-php.vim'
+" endif
 " }}}
 
 " Python {{{
@@ -668,6 +675,11 @@ Plug 'vim-scripts/ScrollColors', { 'on': 'SCROLL' }
 " }}}
 
 " Text Manipulation and Selection {{{
+
+" take a bunch of zeroes and make them sequential. (rengbang is some japanese
+" word for doing this)
+" from visual mode: :`<, `>RengBang
+Plug 'deris/vim-rengbang'
 
 " make changes in the quickfix window, save, and your changes are made in
 " the original files! Awesome when paired with :Ag!

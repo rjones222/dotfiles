@@ -10,7 +10,7 @@ windows:
     root: "~/Sites/acp-hotrodhotline"
     layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
     panes:
-      - cd ~/Sites/acp-hotrodhotline && vagrant up && vim -S ~/.vim/sessions/hrh
+      - cd ~/Sites/acp-hotrodhotline && vim -S ~/.vim/sessions/hrh
       - pwd
       - gulp
   - name: "acp"

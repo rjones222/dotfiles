@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2afb792285614a846c000c753aac2fa0",
+    "hash": "0ec164dbcd943c948f7d3a75019c6980",
     "packages": [
         {
             "name": "alexkovalevych/jira-api",
@@ -5186,6 +5186,40 @@
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
             "time": "2014-10-01 05:50:18"
+        },
+        {
+            "name": "techlivezheng/phpctags",
+            "version": "v0.5.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:techlivezheng/phpctags.git",
+                "reference": "d316960144a9e2c33643cc7f11519ea7850a7842"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/techlivezheng/phpctags/zipball/d316960144a9e2c33643cc7f11519ea7850a7842",
+                "reference": "d316960144a9e2c33643cc7f11519ea7850a7842",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "*",
+                "php": ">=5.3"
+            },
+            "bin": [
+                "phpctags"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PHPCtags.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "An enhanced php ctags index generator.",
+            "keywords": [
+                "ctags"
+            ],
+            "time": "2013-06-24 13:41:54"
         },
         {
             "name": "theseer/fdomdocument",
