@@ -375,7 +375,8 @@ Plug 'Rykka/colorv.vim'
 Plug 'joonty/vim-phpqa', { 'for': 'php' }
 
 " customizable php folding
-Plug 'swekaj/php-foldexpr.vim', { 'for': 'php' }
+" I don't use folding
+" Plug 'swekaj/php-foldexpr.vim', { 'for': 'php' }
 
 " was used in PIV for php folding
 " <space> toggle fold
@@ -843,7 +844,8 @@ Plug 'airblade/vim-rooter'
 " Plug 'markgandolfo/nerdtree-wget.vim'
 
 " makes folds only recalculate on save, making completion faster (right?)
-Plug 'Konfekt/FastFold'
+" this is fine and all but I disable folding. This re-enables it.
+" Plug 'Konfekt/FastFold'
 
 " }}}
 

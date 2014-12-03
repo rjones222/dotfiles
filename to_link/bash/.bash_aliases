@@ -432,7 +432,7 @@ alias freakingwindows='find . -not -type d -exec file "{}" ";" | grep CRLF'
 # delete .orig files
 alias orig="find . -name '*.orig' -delete"
 
-alias tags="echo 'generating tags file...' && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase 2>/dev/null && echo 'tags file regenerated'"
+alias tags="echo 'generating tags file...' && ctags 2>/dev/null && echo 'tags file regenerated'"
 
 # grep for merge conflicts
 alias conflicts="grep -lir '<<<<<' *"
