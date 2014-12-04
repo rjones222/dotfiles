@@ -1380,7 +1380,7 @@
 
     " {{{ easytags
     " nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags<CR>
-    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
+    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
 
     if isdirectory(expand("~/.vim/plugged/vim-easytags"))
         " easytags just doesn't work well. it blocks the ui when updating (doesn't
