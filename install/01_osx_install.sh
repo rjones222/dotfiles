@@ -56,6 +56,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         bash-completion
         # ack
         # cloc #count lines of code
+        colortail
         ctags
         # curl-ca-bundle
         dnsmasq # easily set up dynamic dev domains such as myproject.dev

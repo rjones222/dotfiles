@@ -61,7 +61,7 @@ Plug 'scrooloose/syntastic', { 'for': ['vim', 'php', 'python', 'javascript', 'cs
 if executable('git')
     Plug 'tpope/vim-fugitive'
 endif
-if executable("curl")
+if executable('curl')
     Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim', { 'on': 'Gist' }
 endif
@@ -78,7 +78,11 @@ endif
 " if has('python')
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+    " These are cool but I'd rather define every one of my snippets so I know
+    " what they do. Also my 'next completion block' key is the same as my
+    " complete this key so i often end up accidentally completing when I mean
+    " to skip to the next block.
+    " Plug 'honza/vim-snippets'
 " endif
 
 " I saw some posts recently saying youcompleteme is faster for php. Well yes,
@@ -1006,7 +1010,7 @@ Plug 'mnpk/vim-jira-complete'
 " }}}
 
 " Tmux {{{
-if executable("tmux")
+if executable('tmux')
 
     " :Tmux (command) with tab complete
     " :Tyank

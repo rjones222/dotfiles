@@ -1379,7 +1379,8 @@
     " }}}
 
     " {{{ easytags
-    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags<CR>
+    " nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags<CR>
+    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
 
     if isdirectory(expand("~/.vim/plugged/vim-easytags"))
         " easytags just doesn't work well. it blocks the ui when updating (doesn't
@@ -1847,7 +1848,7 @@
         " let g:UltiSnipsSnippetDirectories=['UltiSnips', 'ultisnips_snippets']
 
         " enable vim-snippets in ultisnips
-        set runtimepath+=~/.vim/plugged/vim-snippets
+        " set runtimepath+=~/.vim/plugged/vim-snippets
         let g:UltiSnipsDontReverseSearchPath="1"
         let g:UltiSnipsEditSplit="vertical"
         let g:UltiSnipsListSnippets='<c-l>'
