@@ -116,6 +116,9 @@ Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'sudo npm install' }
 " auto close tags by typing </
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'sass', 'scss'] }
+
+" always inverse the current html tag
+Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml', 'blade', 'twig'] }
 " }}}
 
 " Ruby {{{
@@ -372,6 +375,9 @@ Plug 'Rykka/colorv.vim'
 " }}}
 
 " Php {{{
+
+" highlight all occurences of php variable under cursor
+Plug 'vim-scripts/vawa.vim', { 'for': 'php' }
 
 " Just for code coverage highlighting
 " :Phpcc - show code coverage (will ask for a clover XML file if not set)
@@ -971,7 +977,8 @@ endif
 
 " Underline ctags. Sometimes works.
 " Plug 't9md/vim-underlinetag'
-" Plug 'vim-scripts/TagHighlight'
+" this one makes them purple instead.
+Plug 'vim-scripts/TagHighlight'
 
 " auto update ctags on pause
 " see above
