@@ -998,6 +998,10 @@ endif
 
 " Project and Task Management {{{
 
+" scratch window that autohides when not being used. gs to open. gs in visual
+" mode will paste the contents of the selection into the scratch window.
+Plug 'mtth/scratch.vim'
+
 " show @TODOs and stuff
 " I just made an alias for this now with Ag. Simpler and more capable.
 " Plug 'vim-scripts/TaskList.vim'
