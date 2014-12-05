@@ -766,8 +766,10 @@ Plug 'tpope/vim-speeddating'
 " this just annoys me
 " Plug 'rhysd/clever-f.vim'
 
-" sublime-style minimap. Not working yet. Maybe it will someday?
-Plug 'severin-lemaignan/vim-minimap'
+" sublime-style minimap. 
+" Not working yet. Maybe it will someday?
+" It follows the cursor but it is buggy. And clicking breaks horribly.
+" Plug 'severin-lemaignan/vim-minimap'
 
 " Make links, folds, emails, files clickable
 " Not working yet - still experimental
