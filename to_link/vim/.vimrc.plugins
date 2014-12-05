@@ -633,9 +633,10 @@ Plug 'w0ng/vim-hybrid'
 Plug 'nielsmadan/harlequin'
 Plug 'hickop/vim-hickop-colors'
 Plug 'sjl/badwolf'
-" lucius fork to include fugitive colors
 " Plug 'jonathanfilip/vim-lucius'
+" lucius fork to include fugitive colors
 Plug 'MarioRicalde/vim-lucius'
+" a ton of 256 color schemes that mostly look like crap on my setup
 " Plug 'noah/vim256-color'
 Plug 'whatyouhide/vim-gotham'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
@@ -650,7 +651,7 @@ Plug 'ciaranm/inkpot'
 " Can I please have some trouble
 " Plug 'godlygeek/csapprox'
 
-" just for testing some of the top color schemes
+" just for testing some of the top color schemes - lots of gui-only here
 " Plug 'vim-scripts/Colour-Sampler-Pack'
 
 " custom bash prompt in sync with airline
@@ -673,19 +674,22 @@ Plug 'vim-scripts/ScrollColors', { 'on': 'SCROLL' }
 
 " highlight matches for word, current line, etc.
 " doesn't work after switching to light mode or resourcing vimrc
-"<c-h><c-h> to sticy highlight a selection. <c-h><c-n> to remove all
+"<c-h><c-h> to sticky highlight a selection. <c-h><c-n> to remove all
 " highlights.
 " I just don't use this. It also doesn't do much in Lucius.
 " Plug 'vim-scripts/highlight.vim'
 
 " check what highlights are on the current line with :HLT! and :HLTm to
-" disable. Useful for debugging highlight groups
+" disable until needed. Useful for debugging highlight groups
 " Plug 'kergoth/vim-hilinks'
+Plug 'kergoth/vim-hilinks', { 'on': ['HLT', 'HLTm'] }
 
 " Set background to light or dark automatically at sunrise/sunset
+" does what it says but I like to set bg to whatever i want whenever i want
 " Plug 'amdt/sunset'
 
 " What it sounds like!
+" slows things down a bit
 " Plug 'atimholt/spiffy_foldtext'
 
 " }}}
@@ -707,7 +711,8 @@ Plug 'tpope/vim-sleuth'
 
 " put html tags from one line to multiline or the opposite
 " works for practically any language. just wish it worked in function
-" definitions!
+" definitions! I would use the shit out of that to make function params
+" multiline or back to single line.
 " gS to split
 " gJ to join
 Plug 'AndrewRadev/splitjoin.vim'
@@ -723,7 +728,8 @@ Plug 'bruno-/vim-vertical-move'
 Plug 'justinmk/vim-ipmotion'
 
 " expand the visual selection with + and _
-" I'd rather be specific about my selection
+" I'd rather be specific about my selection. this is about the same as
+" wildfire.vim
 " Plug 'terryma/vim-expand-region'
 
 " swap blocks of code with cx (c then x) example: cxiw to mark a word,
@@ -731,6 +737,7 @@ Plug 'justinmk/vim-ipmotion'
 Plug 'tommcdo/vim-exchange'
 
 " increment/decrement dates
+" I like long runs on the beach and holding hands in the movie theatre
 " <c-b> on date. I remapped vim's default <c-a> to <c-b> because of tmux.
 Plug 'tpope/vim-speeddating'
 
@@ -743,11 +750,12 @@ Plug 'tpope/vim-speeddating'
 " crm MixedCase
 " crc camelCase
 " cru UPPER_CASE
+" I already have this in spf13-vim plugin definitions
 " Plug 'tpope/vim-abolish'
 
 " auto add comma or semicolon to end of line
 " <leader>;
-" I don't use it. A, is just as good it seems
+" I don't use it. typing 'A,' is just as good it seems
 " Plug 'lfilho/cosco.vim'
 
 " }}}
@@ -758,8 +766,8 @@ Plug 'tpope/vim-speeddating'
 " this just annoys me
 " Plug 'rhysd/clever-f.vim'
 
-" sublime-style minimap. Not working yet.
-" Plug 'severin-lemaignan/vim-minimap'
+" sublime-style minimap. Not working yet. Maybe it will someday?
+Plug 'severin-lemaignan/vim-minimap'
 
 " Make links, folds, emails, files clickable
 " Not working yet - still experimental
