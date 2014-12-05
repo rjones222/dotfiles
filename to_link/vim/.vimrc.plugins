@@ -376,8 +376,11 @@ Plug 'Rykka/colorv.vim'
 
 " Php {{{
 
+" php manual in vim - get def of word under cursor with shift-K
+" Plug 'alvan/vim-php-manual', { 'for': 'php' }
+
 " highlight all occurences of php variable under cursor
-Plug 'vim-scripts/vawa.vim', { 'for': 'php' }
+" Plug 'vim-scripts/vawa.vim', { 'for': 'php' }
 
 " Just for code coverage highlighting
 " :Phpcc - show code coverage (will ask for a clover XML file if not set)
@@ -404,12 +407,14 @@ Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " Plug 'FlickerBean/pdv', { 'for': 'php' }
 " required for pdv. Only needed for pdv.
 " Plug 'tobyS/vmustache', { 'for': 'php' }
+" fork that supposedly works better...
+Plug 'Rican7/php-doc-modded', { 'for': 'php' }
 
 " I think this is entirely different but it actually works which is nice
 " au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
-Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
+" Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 
 " better php ctags in tagbar
 " <leader>tt to toggle tagbar. This makes it look prettier
@@ -977,11 +982,13 @@ endif
 
 " Underline ctags. Sometimes works.
 " Plug 't9md/vim-underlinetag'
-" this one makes them purple instead.
-Plug 'vim-scripts/TagHighlight'
+" this one makes them purple instead... except it takes WAY too much config to
+" work.
+" Plug 'vim-scripts/TagHighlight'
 
 " auto update ctags on pause
 " see above
+" EXTREMELY SLOW FUCK THIS
 " Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-easytags'
 " until he makes tag indexing non-blocking (asynchronous)

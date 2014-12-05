@@ -1214,6 +1214,11 @@
 
 " Theme {{{
 
+    " hello... this is an apache config file
+    augroup cosco_vim_augroup
+        autocmd FileType conf set ft=apache
+    augroup END
+
     set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
     " supposed to help colorschemes work better in 256 colors
     let g:rehash256 = 1
@@ -1387,10 +1392,6 @@
         " use dispatch), it doesn't use my custom easy_tags_cmd, and the
         " highlighting won't use my custom highlight. Fuck it, we'll do it live!
 
-        " I would love to get this working some day
-        " command UpdateCtags silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimSl --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
-        " nnoremap <silent> <Leader>ut :UpdateCtags<cr>
-
         " augroup phpctags
             " autocmd BufWritePost *.php UpdateCtags
         " augroup END
@@ -1404,15 +1405,15 @@
         " let g:easytags_updatetime_warn=0
         " let g:easytags_python_enabled=1
         " let b:easytags_auto_highlight=0
-        " nnoremap <Leader>ut :UpdateTags<CR>
-
-        " this doesn't work. Apparently it's only for the path to ctags, not args.
-        " let g:easytags_cmd="ctags -R --exclude=.git --exclude=*.log --exclude=*.js --fields=+aimS --languages=php --PHP-kinds=+cf --recurse=yes --tag-relative=yes 2>/dev/null"
 
         " this doesn't seem to work, it just disables highlighting. I can't figure
         " out why.
         " highlight phpFunctionsTag cterm=underline gui=underline term=underline
         " highlight phpClassesTag cterm=underline gui=underline term=underline
+
+        " asynchronous tag gen
+        let g:easytags_async = 1
+        let g:easytags_opts = ['-R', '--exclude=.git', '--exclude="*.log"', '--fields=+aimS', '--languages=php', '--PHP-kinds=+cf' , '--sort=foldcase']
     endif
     " }}}
 
@@ -1663,7 +1664,7 @@
     " }}}"
 
     " {{{ php-documentor-vim
-    if isdirectory(expand("~/.vim/plugged/php-documentor-vim"))
+    if isdirectory(expand("~/.vim/plugged/php-doc-modded")) || isdirectory(expand("~/.vim/plugged/php-documentor-vim"))
         " PDV comment parameters
         let g:pdv_cfg_Package   = "Example"
         let g:pdv_cfg_Author    = "Michael Funk <mike.funk@internetbrands.com>"
@@ -1671,6 +1672,13 @@
         let g:pdv_cfg_License   = ""
         let g:pdv_cfg_Version   = ""
         let g:pdv_cfg_ClassTags = ["author"]
+
+        " skip those stupid closing comments for functions and classes
+        let g:pdv_cfg_autoEndFunction = 0
+        let g:pdv_cfg_autoEndClass = 0
+
+        let g:pdv_cfg_php4always = 0
+
         augroup phpdoc_augroup
             autocmd!
             au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
@@ -1799,6 +1807,24 @@
         \ }
     endif
     " }}}"
+    "
+    " TagHighlight {{{
+    " this plugin takes way too much configuration to work.
+    if executable('python') && isdirectory(expand("~/.vim/plugged/TagHighlight"))
+        hi Class guifg=Purple cterm=underline
+        hi DefinedName guifg=Purple cterm=underline
+        hi Enumerator guifg=Purple cterm=underline
+        hi Function guifg=Purple cterm=underline
+        hi EnumerationName guifg=Purple cterm=underline
+        hi Member guifg=Purple cterm=underline
+        hi Structure guifg=Purple cterm=underline
+        hi Type guifg=Purple cterm=underline
+        hi Union guifg=Purple cterm=underline
+        hi GlobalConstant guifg=Purple cterm=underline
+        hi GlobalVariable guifg=Purple cterm=underline
+        hi LocalVariable guifg=Purple cterm=underline
+    endif
+    " }}}
 
     " {{{ tasklist
     " tasklist plugin
@@ -2029,6 +2055,11 @@
     endif
     " }}}
 
+    " vim-php-manual {{{
+    vnoremap <silent> <buffer> <S-K> y:call phpmanual#online#open(@@)<CR>
+    nnoremap <silent> <buffer> <S-K> :call phpmanual#online#open()<CR>
+    " }}}
+    "
     " {{{ vim-php-namespace
     if isdirectory(expand("~/.vim/plugged/vim-php-namespace"))
         " php add use statement for current class

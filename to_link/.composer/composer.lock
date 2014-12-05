@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ec164dbcd943c948f7d3a75019c6980",
+    "hash": "8e45fa26ba8f449319c727309b526bbd",
     "packages": [
         {
             "name": "alexkovalevych/jira-api",
@@ -881,6 +881,36 @@
                 "bitbucket"
             ],
             "time": "2014-10-21 10:05:35"
+        },
+        {
+            "name": "gonzaloserrano/pman-php-manual",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gonzaloserrano/pman-php-manual.git",
+                "reference": "c90fad0f8efcad91e72cba2260ae296eb9f6c2e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gonzaloserrano/pman-php-manual/zipball/c90fad0f8efcad91e72cba2260ae296eb9f6c2e5",
+                "reference": "c90fad0f8efcad91e72cba2260ae296eb9f6c2e5",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/pman"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "PHP documentation manual pages from the PEAR package",
+            "homepage": "http://doc.php.net/",
+            "keywords": [
+                "man",
+                "manual",
+                "pages",
+                "php",
+                "pman"
+            ],
+            "time": "2014-10-28 10:18:20"
         },
         {
             "name": "gushphp/gush",
@@ -5907,7 +5937,8 @@
         "codeception/codeception": 0,
         "squizlabs/php_codesniffer": 0,
         "behat/behat": 0,
-        "phpspec/phpspec": 0
+        "phpspec/phpspec": 0,
+        "gonzaloserrano/pman-php-manual": 20
     },
     "prefer-stable": false,
     "platform": [],

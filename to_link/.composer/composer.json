@@ -18,6 +18,7 @@
     "behat/behat": "@stable",
     "phpspec/phpspec": "@stable",
     "gushphp/gush": "~1.13.0",
-    "techlivezheng/phpctags": "~0.5"
+    "techlivezheng/phpctags": "~0.5",
+    "gonzaloserrano/pman-php-manual": "dev-master"
   }
 }

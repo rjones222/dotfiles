@@ -10,3 +10,4 @@ build
 _ide_helper.php
 autocomplete
 .exrc
+types_php.taghl
