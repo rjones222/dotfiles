@@ -52,6 +52,11 @@ if [ -d ~/.composer/vendor/bin ]; then
     export PATH="$HOME/.composer/vendor/bin:$PATH"
 fi
 
+# composer relative bin
+if [ -d ./vendor/bin ]; then
+    export PATH="./vendor/bin:$PATH"
+fi
+
 # rbenv
 export RBENV_ROOT="${HOME}/.rbenv"
 if [ -d "${RBENV_ROOT}" ]; then

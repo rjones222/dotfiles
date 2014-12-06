@@ -392,7 +392,7 @@
         endif
     " }}}
 
-    " Tabularize {{{
+    " Tabular {{{
         if isdirectory(expand("~/.vim/plugged/tabular"))
             nmap <Leader>a& :Tabularize /&<CR>
             vmap <Leader>a& :Tabularize /&<CR>
@@ -525,11 +525,6 @@
 
         " enable completion from tags
         let g:ycm_collect_identifiers_from_tags_files = 1
-
-        " remap Ultisnips for compatibility for YCM
-        let g:UltiSnipsExpandTrigger = '<C-j>'
-        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
         " Enable omni completion.
         autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -1021,7 +1016,7 @@
     " 2 space indent in front-end
     augroup highlight_augroup
         " autocmd!
-        autocmd FileType smarty,blade,html,javascript,css,coffee :call Tab2()
+        autocmd FileType smarty,blade,html,javascript,json,css,coffee :call Tab2()
     augroup END
 
     " sets everything to 2 spaces. For some reason just calling all this in
@@ -1882,6 +1877,13 @@
         " let g:UltiSnipsJumpForwardTrigger='<c-l>'
         " let g:UltiSnipsJumpBackwardTrigger='<c-h>'
         " let g:UltiSnips#ExpandSnippetOrJump='<a-;>'
+
+        " remap Ultisnips for compatibility for YCM
+        let g:UltiSnipsExpandTrigger = '<C-j>'
+        " let g:UltiSnipsExpandTrigger = '<cr>'
+        " let g:UltiSnipsExpandTrigger = '<C-l>'
+        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
     endif
     " }}}"
 

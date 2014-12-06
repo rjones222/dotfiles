@@ -271,6 +271,7 @@ fi
 # web root
 alias wr='cd ~/Sites'
 
+# git {{{
 # commit and sync
 alias gitupdates='git add --all .; git commit -am "updates"; git pull && git push'
 alias dotupdates='cd ~/.dotfiles; gitupdates; cd -'
@@ -278,10 +279,12 @@ alias blogupdates='cd ~/Sites/mikedfunk.github.io; gitupdates; cd -'
 alias working='git add --all .; git commit -am "rebase me!!"'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias gr='git-root'
+# }}}
 
 # use xdebug on the command line
 alias phpx="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug"
 
+# phpunit {{{
 # xdebug and phpunit sitting in a tree
 alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug `which phpunit` -c ./phpunit.xml"
 alias puxf="pux --filter "
@@ -290,6 +293,12 @@ alias pud="phpunit --debug"
 # alias puw="echo 'listening for file changes to run phpunit...' && observr ~/.dotfiles/support/observr/phpunit_observr.rb"
 # alias puw="watchy -w packages -- 'clear && ~/.dotfiles/support/observr/phpunit_notify.sh'"
 alias puw="phpunit-watchr"
+# }}}
+
+# phpspec {{{
+alias psr="phpspec run"
+alias psd="phpspec describe"
+# }}}
 
 # A function I have defined... I keep forgetting - upgrades or updates?
 alias updates="upgrades"
@@ -381,6 +390,8 @@ alias cinst="composer install --prefer-dist"
 alias cgu="composer global update"
 alias cgi="composer global install"
 alias cs="php app/console"
+alias cr="composer require"
+alias crd="composer require --dev"
 # alias cpt="codecept"
 # alias cept="codecept"
 # alias cr="codecept run"

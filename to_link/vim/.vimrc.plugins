@@ -75,7 +75,7 @@ endif
 " }}}
 
 " Completion {{{
-" if has('python')
+if has("python")
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'SirVer/ultisnips'
     " These are cool but I'd rather define every one of my snippets so I know
@@ -83,10 +83,9 @@ endif
     " complete this key so i often end up accidentally completing when I mean
     " to skip to the next block.
     " Plug 'honza/vim-snippets'
-" endif
+endif
 
-" I saw some posts recently saying youcompleteme is faster for php. Well yes,
-" but it doesn't complete methods inside of object instances.
+" give neocomplete a try...
 " if has('lua')
     " Plug 'Shougo/neocomplete.vim'
     " Plug 'violetyk/neocomplete-php.vim'
@@ -408,13 +407,13 @@ Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " required for pdv. Only needed for pdv.
 " Plug 'tobyS/vmustache', { 'for': 'php' }
 " fork that supposedly works better...
-Plug 'Rican7/php-doc-modded', { 'for': 'php' }
+" Plug 'Rican7/php-doc-modded', { 'for': 'php' }
 
 " I think this is entirely different but it actually works which is nice
 " au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
-" Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
+Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 
 " better php ctags in tagbar
 " <leader>tt to toggle tagbar. This makes it look prettier
