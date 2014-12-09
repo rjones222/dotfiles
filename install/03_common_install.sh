@@ -114,6 +114,7 @@ fi
 log_info "Installing Gems"
 packages=(
 # bluecloth
+bropages # a highly readable supplement to man pages
 bundler # lets gems be package-specific. Used by jekyll.
 CoffeeTags # ctags with coffeescript
 # execjs
