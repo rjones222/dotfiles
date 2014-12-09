@@ -2197,6 +2197,10 @@
         nnoremap <leader>vi :VimuxInspectRunner<cr>
         nnoremap <leader>vx :VimuxCloseRunner<cr>
         nnoremap <leader>vz :VimuxZoomRunner<cr>
+
+        nnoremap <leader>pf :VimuxPHPUnitRunCurrentFile<cr>
+        nnoremap <leader>pu :call VimuxRunCommand("phpunit")<cr>
+        nnoremap <leader>pp :VimuxRunLastCommand<cr>
     endif
     " }}}
 
