@@ -909,12 +909,14 @@ snippet srs "shouldReceive something andReturnSelf"
 ->andReturnSelf()
 endsnippet
 
-snippet mva "assign mock to instance variable"
+snippet sro "should receive once with no args"
+${1:\$file}->shouldReceive('$2')->once()->withNoArgs()->andReturn($3);
+endsnippet
 
-// inject fake $3
-$ns = 'InternetBrands\AutoClassifiedsPlatform\\${1:Listing}\\${2:Repositories}'
-    . '\\${3:MyClassName}';
-$this->${3/\w+/\l$0/} = Mockery::mock($ns);
+snippet mva "assign mock to instance variable"
+$ns = 'InternetBrands\AutoClassifiedsPlatform\\${1:Listing}\\${2:Interfaces}'
+    . '\\${3:MyClassName}${4:Interface}';
+${5:$myvar} = Mockery::mock($ns);
 endsnippet
 
 snippet cst "constant with docblock"

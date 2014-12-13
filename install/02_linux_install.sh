@@ -47,27 +47,29 @@ if [[ "$(type -P apt-get)" ]]; then
     apache2
     autossh
     bison
-    build-essential
-    cloc
+    build-essential # common stuff for ubuntu
+    cloc # count lines of code
     cmake
     cronolog
-    ctags
-    imagemagick
+    ctags # use with vim to jump to definitions
+    imagemagick # image transformer
     # g++
     git
-    git-extras
-    # git-flow
-    googlecl
-    grc
+    git-extras # cool git addons
+    git-flow
+    # googlecl # google console
+    gpg # used by s3cmd
+    grc # generic colorizer for the command line
     # hg
     highlight
-    htop
-    irssi
+    htop # better list of top processes
+    irssi # irc client
+    # jsawk # parse json in bash
     libapache2-mod-php5
     libsqlite3-dev
     # libxml2
     make
-    multitail
+    multitail # prettier tail multiple files
     # openjdk-7-jre
     # openssh-client
     # openssh-server
@@ -88,19 +90,20 @@ if [[ "$(type -P apt-get)" ]]; then
     # postgresql-contrib
     # python-software-properties
     # python-dev
-    python-pip
+    python-pip # python package manager
     rake
-    ranger
+    ranger # 3-column file browser
     # ruby1.9.1-dev
+    s3cmd # amazon s3 uploader
     sshuttle
     # solr-tomcat
     # spidermonkey-bin
-    tig
-    tmux
-    tofrodos
-    tree
-    vim
-    watch
+    tig # git viewer
+    tmux # terminal multiplexer
+    tofrodos # convert line endings to and from dos
+    tree # display files in a tree view
+    vim # the text editor
+    watch # watch directories for changes and do stuff
     )
     for package in "${packages[@]}"
     do

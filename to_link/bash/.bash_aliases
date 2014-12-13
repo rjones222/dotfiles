@@ -282,12 +282,15 @@ alias gr='git-root'
 # }}}
 
 # use xdebug on the command line
-alias phpx="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug"
+PHPX="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=netbeans-xdebug"
+alias phpx="$PHPX"
 
 # phpunit {{{
 # xdebug and phpunit sitting in a tree
-alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=vdebug `which phpunit` -c ./phpunit.xml"
-alias puxf="pux --filter "
+# alias pux="phpx `which phpunit`"
+PHPUNIT="$(which phpunit)"
+alias pux="$PHPX $PHPUNIT"
+alias puxf="$PHPX $PHPUNIT --filter "
 alias pud="phpunit --debug"
 # phpunit watch
 # alias puw="echo 'listening for file changes to run phpunit...' && observr ~/.dotfiles/support/observr/phpunit_observr.rb"

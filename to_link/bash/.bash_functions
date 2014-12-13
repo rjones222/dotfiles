@@ -384,3 +384,58 @@ whitespace() {
     echo "proceeding..."
     export LANG=C; find . -not \( -name .svn -prune -o -name .git -prune \) -type f -print0 | xargs -0 sed -i '' -E "s/[[:space:]]\+$//"
 }
+
+mergerequest() {
+    # set the project based on the current dir
+    if pwd | grep -q 'acp-hotrodhotline'; then
+        PROJECT="acp-hotrodhotline"
+        PROJECT_ID="91"
+    elif pwd | grep -q 'acp-core'; then
+        PROJECT="acp-core"
+        PROJECT_ID="90"
+    elif pwd | grep -q 'acp-hrh-env'; then
+        PROJECT="acp-hrh-env"
+        PROJECT_ID="178"
+    else
+        echo 'error: project id not found!'
+        return
+    fi
+
+    # set the assignee id based on the name
+    USERNAME=$2
+    if [[ $USERNAME == 'ethan' ]]; then
+        USER_ID=38
+    elif [[ $USERNAME == 'aaron' ]]; then
+        USER_ID=37
+    elif [[ $USERNAME == 'chris' ]]; then
+        USER_ID=36
+    elif [[ $USERNAME == 'carl' ]]; then
+        USER_ID=35
+    elif [[ $USERNAME == 'miguel' ]]; then
+        USER_ID=85
+    elif [[ $USERNAME == 'mike' ]]; then
+        USER_ID=32
+    else
+        # ethan is default
+        USER_ID="38"
+        USERNAME="ebrigham"
+    fi
+
+    # set the message and the current branch
+    MESSAGE=$1
+    CURRENT_BRANCH="$(git symbolic-ref --short HEAD)"
+
+    # this works to test the api
+    # curl --header "PRIVATE-TOKEN: $GITLAB_API_PRIVATE_TOKEN" $GITLAB_API_ENDPOINT$URL
+
+    # call the command
+    # there is no error checking here so if things fail it won't figure it out.
+    # for instance if you already have an open merge request for this branch
+    # it will 404.
+    URL="projects/$PROJECT_ID/merge_requests"
+    CURL_RESPONSE=$(curl --silent --header "PRIVATE-TOKEN: $GITLAB_API_PRIVATE_TOKEN" $GITLAB_API_ENDPOINT$URL --data "id=$PROJECT_ID&source_branch=$CURRENT_BRANCH&target_branch=develop&title=$MESSAGE&assignee_id=$USER_ID")
+    # parse the json, get the "iid" key which is the merge request id
+    MERGE_REQUEST_ID=$(echo $CURL_RESPONSE | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["iid"]')
+    echo "merge request created here:"
+    echo "https://gitlab.git.internetbrands.com/auto-classifieds/$PROJECT/merge_requests/$MERGE_REQUEST_ID"
+}

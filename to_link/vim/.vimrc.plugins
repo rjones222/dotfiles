@@ -540,7 +540,10 @@ Plug 'mikedfunk/vim-php-refactoring-toolbox', { 'for': 'php' }
 " <leader>1 higlight in first color
 " <leader>2 higlight in second color (etc...)
 " <leader>0 clear all highlights
-Plug 'pydave/vim-hiinterestingword'
+" Plug 'pydave/vim-hiinterestingword'
+" fork that is maintained... but it conflicts with a mapping i have and
+" doesn't work
+" Plug 'idbrii/vim-mark'
 
 " crosshairs on parens and such. Much easier to find where you're
 " currently at!
@@ -1104,7 +1107,9 @@ Plug 'nacitar/terminalkeys.vim'
 " Plug 'kshenoy/vim-signature'
 
 " mark quickfix locations and marks in the sign column
-Plug 'tomtom/quickfixsigns_vim'
+" works great but it clobbers everything else in the sign column like git
+" changes and syntastic errors
+" Plug 'tomtom/quickfixsigns_vim'
 
 " :MarksBrowser
 " <cr> to go to a mark

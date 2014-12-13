@@ -69,12 +69,14 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # graphviz # useful for xdebug profiler class maps
         grc # generic colorizer
         gnu-sed # linux version of sed - saves as gsed
+        gpg # used by s3cmd
         # hg # mercurial
         highlight
         htop
         hub # github tool is a superset of git
         # imagemagick
         irssi # irc client
+        # jsawk # parse json in bash
         # macvim # mac gui vim client
         # multitail # tail multiple files in splits with pretty colors
         mysql
@@ -85,6 +87,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         rbenv # ruby environment switcher
         reattach-to-user-namespace # used to fix mac issues with copy/paste in tmux
         ruby-build
+        s3cmd # amazon s3 uploader
         ssh-copy-id # copies ssh keys to remote servers
         sshfs # mounts ssh servers as file systems in the local fs
         sshuttle

@@ -444,31 +444,31 @@
     " ctrlp {{{
         if isdirectory(expand("~/.vim/plugged/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
-            nnoremap <silent> <D-t> :CtrlP<CR>
-            nnoremap <silent> <D-r> :CtrlPMRU<CR>
-            let g:ctrlp_custom_ignore = {
-                \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-                \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+            " nnoremap <silent> <D-t> :CtrlP<CR>
+            " nnoremap <silent> <D-r> :CtrlPMRU<CR>
+            " let g:ctrlp_custom_ignore = {
+                " \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+                " \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
-            " On Windows use "dir" as fallback command.
-            if WINDOWS()
-                let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
-            elseif executable('ag')
-                let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
-            elseif executable('ack-grep')
-                let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
-            elseif executable('ack')
-                let s:ctrlp_fallback = 'ack %s --nocolor -f'
-            else
-                let s:ctrlp_fallback = 'find %s -type f'
-            endif
-            let g:ctrlp_user_command = {
-                \ 'types': {
-                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-                \ },
-                \ 'fallback': s:ctrlp_fallback
-            \ }
+            " On Windows use 'dir' as fallback command.
+            " if WINDOWS()
+                " let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
+            " elseif executable('ag')
+                " let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
+            " elseif executable('ack-grep')
+                " let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+            " elseif executable('ack')
+                " let s:ctrlp_fallback = 'ack %s --nocolor -f'
+            " else
+                " let s:ctrlp_fallback = 'find %s -type f'
+            " endif
+            " let g:ctrlp_user_command = {
+                " \ 'types': {
+                    " \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+                    " \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+                " \ },
+                " \ 'fallback': s:ctrlp_fallback
+            " \ }
 
             if isdirectory(expand("~/.vim/plugged/ctrlp-funky/"))
                 " CtrlP extensions
@@ -760,15 +760,16 @@
 
     " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
     " @link http://www.reddit.com/r/vim/comments/2of45a/terminal_vim_changing_cursor_shape_on_linux/cmmu01h
-    if &term == 'xterm-256color' || &term == 'screen-256color'
-        let &t_SI = "\<Esc>[5 q"
-        let &t_EI = "\<Esc>[1 q"
-    endif
+    " disabled because it gets buggy with tmux.
+    " if &term == 'xterm-256color' || &term == 'screen-256color'
+        " let &t_SI = '\<Esc>[5 q'
+        " let &t_EI = '\<Esc>[1 q'
+    " endif
 
-    if exists('$TMUX')
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    endif
+    " if exists('$TMUX')
+        " let &t_EI = '\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\'
+        " let &t_SI = '\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\'
+    " endif
 
     " this actively watches for changes and automatically updates files
     " changed externally in terminal vim. Works but it seems to load files
@@ -1928,7 +1929,7 @@
         \   '/var/www/sites/acp-hotrodhotline': '/Library/WebServer/Documents/acp-hotrodhotline'
         \}
         " stop on first line of execution
-        " let g:vdebug_options["break_on_open"] = 0
+        let g:vdebug_options["break_on_open"] = 0
         let g:vdebug_options["watch_window_style"] = 'compact'
         " move run_to_cursor from F1 to F9
         let g:vdebug_keymap = {
@@ -2028,6 +2029,7 @@
     " }}}
 
     " {{{ vim-jira-complete
+    " this will not work without 'pip install requests'
     if isdirectory(expand("~/.vim/plugged/vim-jira-complete"))
         let g:jiracomplete_url = 'http://10.17.37.213/'
         let g:jiracomplete_username = 'mfunk'

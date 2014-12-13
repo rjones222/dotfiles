@@ -194,7 +194,7 @@
     ; tool = opendiff
     tool = vimdiff
 [mergetool]
-    keepBackup = false
+	keepBackup = false
 # }}}
 
 # rebasing, squashing, pushing, fetching {{{
