@@ -527,9 +527,11 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
 " nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
 " Plug 'adoy/vim-php-refactoring-toolbox', { 'rtp': 'plugins', 'for': 'php' }
+Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 " i could not load the plugin even with the rtp set above, so I forked
 " it and changed the plugins dir to plugin.
-Plug 'mikedfunk/vim-php-refactoring-toolbox', { 'for': 'php' }
+" this was merged into master so back to the original.
+" Plug 'mikedfunk/vim-php-refactoring-toolbox', { 'for': 'php' }
 " Plug 'beberlei/vim-php-refactor'
 
 " }}}
@@ -759,6 +761,9 @@ Plug 'tpope/vim-speeddating'
 " <leader>;
 " I don't use it. typing 'A,' is just as good it seems
 " Plug 'lfilho/cosco.vim'
+
+" expand things like {foo,bar} with :Expand in visual mode
+Plug 'Wolfy87/vim-expand'
 
 " }}}
 

@@ -758,6 +758,9 @@
     set autoread
     autocmd CursorHold * checktime
 
+    " Send the selected hunk to hastebin using the haste ruby gem
+    vmap <Leader>hb <esc>:'<,'>:w ! haste<CR>
+
     " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
     " @link http://www.reddit.com/r/vim/comments/2of45a/terminal_vim_changing_cursor_shape_on_linux/cmmu01h
     " disabled because it gets buggy with tmux.
