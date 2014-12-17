@@ -388,6 +388,9 @@ whitespace() {
 # create a gitlab merge request from the current branch into develop via
 # the curl api
 mergerequest() {
+    # first push the branch to remote so we have something to request merging
+    git push
+
     # set the project based on the current dir
     if pwd | grep -q 'acp-hotrodhotline'; then
         PROJECT="acp-hotrodhotline"

@@ -2,6 +2,7 @@
 /**
  * Specification unit test for %subject%
  *
+ * @package %namespace%
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
 namespace %namespace%;
