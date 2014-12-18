@@ -577,9 +577,9 @@
     " Wildfire {{{
     if isdirectory(expand("~/.vim/plugged/wildfire.vim/"))
         let g:wildfire_objects = {
-                    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
-                    \ "html,xml" : ["at"],
-                    \ }
+            \ "*": ['iw', 'iW', 'i"', "i'", 'i]', 'ib', 'iB', 'il', 'ip', 'ie'],
+            \ "html,xml": ["at", "it"],
+            \ }
     endif
     " }}}
 

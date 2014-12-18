@@ -38,4 +38,4 @@ My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-
 * [Vagrant vbguest plugin](https://github.com/dotless-de/vagrant-vbguest)
 * [IE VMs](https://github.com/xdissent/ievms)
 * [Sequel Pro](http://www.sequelpro.com/) for Mac or [MySQL Workbench](http://dev.mysql.com/downloads/tools/workbench/) for Windows/Linux
-* NetExtender or [SonicWall Mobile Connect](https://itunes.apple.com/us/app/sonicwall-mobile-connect/id466931806/?mt=8) for vpn access
+* [NetExtender](https://sslvpn.demo.sonicwall.com/cgi-bin/portal) or [SonicWall Mobile Connect](https://itunes.apple.com/us/app/sonicwall-mobile-connect/id466931806/?mt=8) for vpn access
