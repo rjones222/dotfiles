@@ -112,10 +112,13 @@
     pu = push
     # pull and update submodules... i hate submodules...
     pup = !git pull --recurse-submodules && git submodule update
+    puf = push --force
     purr = pull --rebase
     rbc = rebase --continue
     rbi = rebase -i
     rbd = rebase -i develop
+    rbs = rebase --skip
+    rba = rebase --abort
     # rebase interactively on to the upstream to this branch
     ready = rebase -i @{u}
     rh = reset --hard
