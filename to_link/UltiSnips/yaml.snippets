@@ -1,9 +1,9 @@
 snippet beh "behat yaml config"
 default:
-    autoload:
-        '': %paths.base%/${1:tests/acceptance}
-    extensions:
-        Behat\MinkExtension:
-            goutte: ~
-            base_url: ${2:http://localhost:8000}
+  extensions:
+    Behat\MinkExtension:
+      base_url: ${2:http://localhost:8000}
+      sessions:
+        default:
+          goutte: ~
 endsnippet

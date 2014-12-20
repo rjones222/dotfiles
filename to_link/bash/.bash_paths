@@ -47,14 +47,14 @@ if [ -d "$HOME/.bin" ] ; then
     export PATH="$HOME/.bin:$PATH"
 fi
 
-# composer global
-if [ -d ~/.composer/vendor/bin ]; then
-    export PATH="$HOME/.composer/vendor/bin:$PATH"
-fi
-
 # composer relative bin
 if [ -d ./vendor/bin ]; then
     export PATH="./vendor/bin:$PATH"
+fi
+
+# composer global
+if [ -d ~/.composer/vendor/bin ]; then
+    export PATH="$HOME/.composer/vendor/bin:$PATH"
 fi
 
 # rbenv

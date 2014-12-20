@@ -36,7 +36,7 @@ then
   alias shuf=gshuf
 fi
 
-alias c='clear'
+# alias c='clear'
 alias k='clear'
 alias cls='clear'
 
@@ -399,9 +399,15 @@ alias crd="composer require --dev"
 # alias cept="codecept"
 # alias cr="codecept run"
 alias com="composer"
+alias c="composer"
 # alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 # alias quickserver="python -m SimpleHTTPServer"
+
+# behat
+alias b="behat"
+alias bi="behat --init"
+alias bas="behat --append-snippets --dry-run"
 
 # local tunnel - make localhost viewable on the web
 alias localtunnel="lt --port 80"
