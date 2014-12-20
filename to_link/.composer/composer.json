@@ -24,6 +24,8 @@
     "gonzaloserrano/pman-php-manual": "dev-master"
   },
   "require-dev": {
-    "behat/mink-goutte-driver": "~1.1"
+    "behat/mink-goutte-driver": "~1.1",
+    "behat/mink-selenium-driver": "@dev",
+    "behat/mink-selenium2-driver": "~1.2"
   }
 }

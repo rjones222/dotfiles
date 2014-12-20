@@ -1455,3 +1455,34 @@ endsnippet
 snippet ibap "InternetBrands\AutoClassifiedsPlatform"
 InternetBrands\AutoClassifiedsPlatform\
 endsnippet
+
+snippet behatspin "Behat keep trying until it succeeds"
+
+/**
+ * keep trying until this succeeds with a timeout of 60 seconds
+ *
+ * @param function $lambda
+ */
+public function spin ($lambda, $wait = 60)
+{
+    for ($i = 0; $i < $wait; $i++)
+    {
+        try {
+            if ($lambda($this)) {
+                return true;
+            }
+        } catch (Exception $e) {
+            // do nothing
+        }
+
+        sleep(1);
+    }
+
+    $backtrace = debug_backtrace();
+
+    throw new Exception(
+        "Timeout thrown by " . $backtrace[1]['class'] . "::" . $backtrace[1]['function'] . "()\n" .
+        $backtrace[1]['file'] . ", line " . $backtrace[1]['line']
+    );
+}
+endsnippet

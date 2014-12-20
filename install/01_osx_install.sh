@@ -166,6 +166,10 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             log_info "attempting to install $package"
             brew install $package
         done
+
+        # make selenium server start on launch
+        ln -sfv /usr/local/opt/selenium-server-standalone/*.plist ~/Library/LaunchAgents
+        launchctl load ~/Library/LaunchAgents/homebrew.mxcl.selenium-server-standalone.plist
     fi
 
     # install ctags patched
