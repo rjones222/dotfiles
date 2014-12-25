@@ -38,7 +38,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     # Install Homebrew.
     if [[ ! "$(type -P brew)" ]]; then
         log_info "Installing Homebrew"
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
     if [[ "$(type -P brew)" ]]; then

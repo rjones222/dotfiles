@@ -411,6 +411,9 @@ alias b="behat"
 alias bi="behat --init"
 alias bas="behat --append-snippets --dry-run"
 
+# npm
+alias nid="npm install --save-dev"
+
 # local tunnel - make localhost viewable on the web
 alias localtunnel="lt --port 80"
 

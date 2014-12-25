@@ -12,3 +12,13 @@ snippet al "psr-4 autoload"
   }
 }
 endsnippet
+
+snippet rq "node-style require"
+var ${1:gulp} = require('$1');
+endsnippet
+
+snippet top "self-invoking function and use strict"
+(function () {
+  'use strict';
+  $1
+}());

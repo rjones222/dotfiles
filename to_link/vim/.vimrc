@@ -576,10 +576,7 @@
 
     " Wildfire {{{
     if isdirectory(expand("~/.vim/plugged/wildfire.vim/"))
-        let g:wildfire_objects = {
-            \ "*": ['iw', 'iW', 'i"', "i'", 'i]', 'ib', 'iB', 'il', 'ip', 'ie'],
-            \ "html,xml": ["at", "it"],
-            \ }
+        let g:wildfire_objects = ['iw', 'iW', 'i"', "i'", "i]", "i}", "il", "ip", "ie"]
     endif
     " }}}
 
@@ -1039,7 +1036,7 @@
     " 2 space indent in front-end
     augroup highlight_augroup
         " autocmd!
-        autocmd FileType smarty,blade,html,javascript,json,css,coffee :call Tab2()
+        autocmd FileType smarty,blade,html,javascript,json,css,coffee,yaml :call Tab2()
     augroup END
 
     " sets everything to 2 spaces. For some reason just calling all this in
@@ -1402,8 +1399,11 @@
     " }}}
 
     " {{{ easytags
-    " nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags<CR>
+    " this version is for ctags-better-php
     nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
+
+    " this version is for standard ctags-exuberant
+    " nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --PHP-kinds=+cf<CR>
 
     if isdirectory(expand("~/.vim/plugged/vim-easytags"))
         " easytags just doesn't work well. it blocks the ui when updating (doesn't
@@ -2029,6 +2029,21 @@
         " let g:airline#extensions#tabline#left_alt_sep = ' '
     endif
 
+    " }}}
+
+    " {{{ vim-brightest
+    if isdirectory(expand("~/.vim/plugged/vim-brightest"))
+        " whitelist for filetypes I often use
+        let g:brightest#enable_filetypes = {
+        \   "_" : 0,
+        \   "php" : 1,
+        \   "javascript" : 1,
+        \   "coffee" : 1,
+        \   "sql" : 1,
+        \   "twig" : 1,
+        \   "blade" : 1
+        \}
+    endif
     " }}}
 
     " {{{ vim-instant-markdown

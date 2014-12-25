@@ -47,14 +47,14 @@ if [ -d "$HOME/.bin" ] ; then
     export PATH="$HOME/.bin:$PATH"
 fi
 
-# composer relative bin
-if [ -d ./vendor/bin ]; then
-    export PATH="./vendor/bin:$PATH"
-fi
-
 # composer global
 if [ -d ~/.composer/vendor/bin ]; then
     export PATH="$HOME/.composer/vendor/bin:$PATH"
+fi
+
+# composer relative bin
+if [ -d ./vendor/bin ]; then
+    export PATH="./vendor/bin:$PATH"
 fi
 
 # rbenv
@@ -108,3 +108,6 @@ fi
 if [[ "$(type -P teamocil)" ]]; then
     complete -W "$(teamocil --list)" teamocil
 fi
+
+# zombie.js doesn't work without this
+export NODE_PATH="/usr/local/lib/node_modules"

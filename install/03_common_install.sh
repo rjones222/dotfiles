@@ -50,6 +50,7 @@ phantomjs # headless browser used for BDD
 # phpunit-watchr # dinky tool to watch files for changes and run phpunit
 # tldr # community-driven man pages
 yo # yeoman - boilerplate maker
+zombie # browser emulator for testing like phantomjs
 )
 for package in "${packages[@]}"
 do

@@ -389,7 +389,7 @@ Plug 'joonty/vim-phpqa', { 'for': 'php' }
 
 " customizable php folding
 " I don't use folding
-" Plug 'swekaj/php-foldexpr.vim', { 'for': 'php' }
+Plug 'swekaj/php-foldexpr.vim', { 'for': 'php' }
 
 " was used in PIV for php folding
 " <space> toggle fold
@@ -554,6 +554,10 @@ Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 " down
 " Plug 'chreekat/vim-paren-crosshairs'
 
+" highlight matching words all the time. Can be adjusted with highlight group
+" and with filetype whitelist/blacklist.
+Plug 'osyo-manga/vim-brightest'
+
 " highlights in bright red any trailing whitespace
 " I disabled this pretty much just so I could get ascii art on startify :P
 Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 'css', 'less', 'coffee', 'xml', 'json'] }
@@ -652,6 +656,7 @@ Plug 'baskerville/bubblegum'
 Plug 'freeo/vim-kalisi'
 Plug 'vim-scripts/The-Vim-Gardener'
 Plug 'ciaranm/inkpot'
+Plug 'fmoralesc/molokayo'
 
 " Can I please have some trouble
 " Plug 'godlygeek/csapprox'
@@ -1037,12 +1042,47 @@ Plug 'mnpk/vim-jira-complete'
 
 " }}}
 
-" Database {{{
+" Database and API {{{
 
 " DB tools in vim
 " A little too complex right now, I am good with SequelPro or
 " MySQLWorkbench
 " Plug 'vim-scripts/dbext.vim'
+
+" Like postman for vim
+" Key binds
+
+" from a normal/any buffer
+
+" QQ opens a new request window
+" QH opens the recent request history
+" QCO opens the collection list
+" QCC change current collection
+" QCN add a new collection
+" QG opens a new request window with URL under cursor as URL
+
+" from a REQUEST buffer
+
+" QQ executes the current request as defined in the buffer
+" QP adds the JSON pretty-printing option to the current request
+" QF adds the follow option to current request (follows HTTP redirects)
+" QAB adds basic authentication to the current request
+" QAO adds oAuth2 to the current request
+" from a RESPONSE buffer
+
+" QQ returns to the previous REQUEST buffer
+" q closes the buffer
+
+" from a HISTORY buffer
+
+" <CR> loads previous request into REQUEST buffer
+" q closes the buffer
+
+" from a COLLECTIONS buffer
+
+" <CR> open collection under cursor and set as current
+" q closes the buffer
+Plug 'nicwest/QQ.vim', { 'on': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG', 'QP', 'QF', 'QAB', 'QAO'] }
 
 " }}}
 
