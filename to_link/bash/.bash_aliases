@@ -533,7 +533,7 @@ alias standupnotes="tmux rename-window 'standup' && vim ~/Google\ Drive/standup/
 alias acpcore="cd ~/Sites/acp-core"
 alias acphrh="cd ~/Sites/acp-hotrodhotline"
 
-# shortcut to vhosts file
+# shortcut to vhosts file on mac
 alias vhosts="vim /etc/apache2/extra/httpd-vhosts.conf"
 
 # }}}

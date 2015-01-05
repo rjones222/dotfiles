@@ -98,8 +98,9 @@
 
     augroup resCur
         autocmd!
-        autocmd BufWinEnter * call ResCur()
     augroup END
+
+    autocmd resCur BufWinEnter * call ResCur()
 
     " Setting up the directories {{{
         set backup                  " Backups are nice ...
@@ -201,7 +202,7 @@
 
     " The default leader is '\', but many people prefer ',' as it's in a standard
     " location.
-    let mapleader = ','
+    let g:mapleader = ','
     let maplocalleader = '_'
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
@@ -758,12 +759,13 @@
     " Send the selected hunk to hastebin using the haste ruby gem
     vmap <Leader>hb <esc>:'<,'>:w ! haste<CR>
 
-    " select around a function in php
     augroup php_select_around_function
-        " autocmd!
-        autocmd FileType php nnoremap vaf ?func.*\n*\s*{<cr>ma/{<cr>%mb`av`b
-        autocmd FileType php vmap af o<esc>kvaf
+        autocmd!
     augroup END
+
+    " select around a function in php
+    autocmd php_select_around_function FileType php nnoremap vaf ?func.*\n*\s*{<cr>ma/{<cr>%mb`av`b
+    autocmd php_select_around_function FileType php vmap af o<esc>kvaf
 
     " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
     " @link http://www.reddit.com/r/vim/comments/2of45a/terminal_vim_changing_cursor_shape_on_linux/cmmu01h
@@ -902,11 +904,12 @@
     " }}}
 
     " {{{ quickfix window
-    " set quickfix window height min and max  automatically
     augroup quickfix_augroup
-        " autocmd!
-        autocmd FileType qf call AdjustWindowHeight(3, 5)
+        autocmd!
     augroup END
+
+    " set quickfix window height min and max  automatically
+    autocmd quickfix_augroup FileType qf call AdjustWindowHeight(3, 5)
 
     function! AdjustWindowHeight(minheight, maxheight)
         exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
@@ -961,16 +964,18 @@
         set mouse=a
     endif
 
-    " use php documentation with <shift>K from pear package pman"
     augroup phpman_autogroup
-        if executable('pman')
-            autocmd FileType php set keywordprg=pman
-            " autocmd FileType php set keywordprg=/Users/mfunk/.composer/vendor/bin/pman\ -P\ less
-            " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
-            " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
-            " autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
-        endif
+        autocmd!
     augroup END
+
+    " use php documentation with <shift>K from pear package pman"
+    if executable('pman')
+        autocmd phpman_autogroup FileType php set keywordprg=pman
+        " autocmd FileType php set keywordprg=/Users/mfunk/.composer/vendor/bin/pman\ -P\ less
+        " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
+        " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
+        " autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
+    endif
 
     " enable matching of xml tags with %
     " runtime macros/matchit.vim
@@ -994,9 +999,10 @@
     " underline matching words automatically
     " hi WordMatch cterm=underline
     augroup highlight_augroup
-        " autocmd!
-        " autocmd CursorMoved * exe printf('match Underlined /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+        autocmd!
     augroup END
+
+    " autocmd highlight_augroup CursorMoved * exe printf('match Underlined /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
     " enable the preview window for omnicompletion - doesn't work for some reason
     " set completeopt+=preview
@@ -1027,17 +1033,19 @@
         abbrev gmig !php artisan generate:migration
     endif
 
-    " if the last window is a quickfix, close it
     augroup qfclose_augroup
-        " autocmd!
-        autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+        autocmd!
+    augroup END
+
+    " if the last window is a quickfix, close it
+    autocmd qfclose_augroup WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+
+    augroup highlight_augroup
+        autocmd!
     augroup END
 
     " 2 space indent in front-end
-    augroup highlight_augroup
-        " autocmd!
-        autocmd FileType smarty,blade,html,javascript,json,css,coffee,yaml :call Tab2()
-    augroup END
+    autocmd highlight_augroup FileType smarty,blade,html,javascript,json,css,coffee,yaml :call Tab2()
 
     " sets everything to 2 spaces. For some reason just calling all this in
     " one line does not set shiftwidth, but sets the others fine.
@@ -1229,10 +1237,12 @@
 
 " Theme {{{
 
-    " hello... this is an apache config file
     augroup cosco_vim_augroup
-        autocmd FileType conf set ft=apache
+        autocmd!
     augroup END
+
+    " hello... this is an apache config file
+    autocmd cosco_vim_augroup FileType conf set ft=apache
 
     set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
     " supposed to help colorschemes work better in 256 colors
@@ -1335,9 +1345,10 @@
 
     " {{{ syntax highlighting for Vagrantfile
     augroup vagrant
-        au!
-        au BufRead,BufNewFile Vagrantfile set filetype=ruby
+        autocmd!
     augroup END
+
+    autocmd vagrant BufRead,BufNewFile Vagrantfile set filetype=ruby
     " }}}
 
 " }}}
@@ -1365,9 +1376,11 @@
     " cosco.vim {{{
     if isdirectory(expand("~/.vim/plugged/cosco.vim"))
         augroup cosco_vim_augroup
-            autocmd FileType javascript,css,php nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
-            autocmd FileType javascript,css,php inoremap <silent> <leader>; <ESC>:call cosco#commaOrSemiColon()"<CR>a
+            autocmd!
         augroup END
+
+        autocmd cosco_vim_augroup FileType javascript,css,php nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
+        autocmd cosco_vim_augroup FileType javascript,css,php inoremap <silent> <leader>; <ESC>:call cosco#commaOrSemiColon()"<CR>a
     endif
     " }}}
 
@@ -1448,12 +1461,13 @@
         hi default link User4 Special
 
         augroup fugitive_augroup
-            " autocmd!
-            " reset file to HEAD in fugitive commit window
-            autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
-            " open quickfix window on git grep
-            autocmd QuickFixCmdPost *grep* cwindow
+            autocmd!
         augroup END
+
+        " reset file to HEAD in fugitive commit window
+        autocmd fugitive_augroup FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+        " open quickfix window on git grep
+        autocmd fugitive_augroup QuickFixCmdPost *grep* cwindow
 
         " Fugitive Commands
         command! -bar -nargs=* Gpull execute 'Git pull' <q-args> 'origin' fugitive#head()
@@ -1504,10 +1518,11 @@
     " matchit {{{
     if isdirectory(expand("~/.vim/plugged/matchit.vim"))
         augroup blade_html_features
-            " autocmd!
-            " get the best of all worlds
-            au FileType blade set ft=html | set syntax=blade | let b:match_debug=1
+            autocmd!
         augroup END
+
+        " get the best of all worlds
+        au blade_html_features FileType blade set ft=html | set syntax=blade | let b:match_debug=1
     endif
     " }}}
 
@@ -1518,10 +1533,11 @@
         let g:NERDSpaceDelims="1"
 
         augroup NERDTreeCustomizations
-            " If I don't do this then signature overwrites my nerdtree menu map
             autocmd!
-            autocmd FileType nerdtree nnoremap <buffer> <nowait> m :call nerdtree#ui_glue#invokeKeyMap("m")<CR>
         augroup END
+
+        " If I don't do this then signature overwrites my nerdtree menu map
+        autocmd NERDTreeCustomizations FileType nerdtree nnoremap <buffer> <nowait> m :call nerdtree#ui_glue#invokeKeyMap("m")<CR>
 
         " NERDTree expand dirs with one child
         " let NERDTreeCasadeOpenSingleChildDir=1
@@ -1532,11 +1548,12 @@
         " map <C-e> :NERDTreeTabsToggle<CR>
         map <C-e> :NERDTreeMirrorToggle<CR>
 
-        " don't open a split for ctrlp or nerdtree
         augroup startify_augroup
-            " autocmd!
-            autocmd FileType startify setlocal buftype=
+            autocmd!
         augroup END
+
+        " don't open a split for ctrlp or nerdtree
+        autocmd startify_augroup FileType startify setlocal buftype=
     endif
     " }}}
 
@@ -1650,12 +1667,13 @@
     if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
         " phpcomplete omni complete for neocomplcache
         augroup phpcomplete_augroup
-            " autocmd!
-            " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
-            " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
-            " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
-            autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+            autocmd!
         augroup END
+
+        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
+        " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
+        " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+        autocmd phpcomplete_augroup FileType php set omnifunc=phpcomplete#CompletePHP
 
         " composer install command for phpcomplete
         let g:phpcomplete_relax_static_constraint = 1
@@ -1699,10 +1717,11 @@
 
         augroup phpdoc_augroup
             autocmd!
-            au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
-            au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
-            au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
         augroup END
+
+        au phpdoc_augroup BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+        au phpdoc_augroup BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
+        au phpdoc_augroup BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
     endif
     " }}}"
 
@@ -1976,11 +1995,14 @@
             " \ }
 
         " let g:airline_theme = 'solarized'
-        " warning this is really slow. So I only enabled it for php files.
         augroup php_tagbar
-            autocmd FileType php let g:airline#extensions#tagbar#enabled = 1
-            autocmd FileType coffee let g:airline#extensions#tagbar#enabled = 1
+            autocmd!
         augroup END
+
+        " warning this is really slow. So I only enabled it for php files.
+        autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled = 1
+        autocmd php_tagbar FileType coffee let g:airline#extensions#tagbar#enabled = 1
+
         " moved to global powerline switch above
         " let g:airline_left_sep = ''
         " let g:airline_left_alt_sep = ''
@@ -2044,6 +2066,11 @@
         \   "blade" : 1
         \}
     endif
+    " }}}
+
+    " {{{ vim-indentline
+    " let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_char = '┆'
     " }}}
 
     " {{{ vim-instant-markdown
