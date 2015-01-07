@@ -21,7 +21,8 @@
     "phpspec/phpspec": "@stable",
     "gushphp/gush": "~1.13.0",
     "techlivezheng/phpctags": "~0.5",
-    "gonzaloserrano/pman-php-manual": "dev-master"
+    "gonzaloserrano/pman-php-manual": "dev-master",
+    "drush/drush": "~6.5"
   },
   "require-dev": {
     "behat/mink-goutte-driver": "~1.1",
