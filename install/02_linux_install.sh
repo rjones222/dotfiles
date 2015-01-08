@@ -46,11 +46,11 @@ if [[ "$(type -P apt-get)" ]]; then
     # ack
     apache2
     autossh
-    bison
+    # bison # description is too smart for me http://www.gnu.org/software/bison/
     build-essential # common stuff for ubuntu
     cloc # count lines of code
     cmake
-    cronolog
+    # cronolog # reads log messages from input and write them to output files based on current date/time... similar to logrotate
     ctags # use with vim to jump to definitions
     imagemagick # image transformer
     # g++

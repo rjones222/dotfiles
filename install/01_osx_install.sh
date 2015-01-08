@@ -52,29 +52,27 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         log_info "Installing Homebrew Recipes"
         packages=(
         autossh # keeps ssh connections open for instant access
-        bash
-        bash-completion
-        # ack
+        bash # homebrew has the newest version of bash
+        # ack # a search tool better than grep but worse than ag
         # cloc #count lines of code
-        colortail
-        ctags
-        # curl-ca-bundle
+        colortail # tail with support for colors
+        ctags # allows jumping to function/class definitions, etc. in vim
         dnsmasq # easily set up dynamic dev domains such as myproject.dev
-        dos2unix
-        # fasd
+        # dos2unix # converts dos line endings to unix in a file
+        # fasd # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v.
         git
-        git-extras
-        git-flow
+        git-extras # adds some cool additional git commands
+        git-flow # adds first class git commands for the git-flow workflow
         # googlecl # google command line tool
         # graphviz # useful for xdebug profiler class maps
         grc # generic colorizer
         gnu-sed # linux version of sed - saves as gsed
         gpg # used by s3cmd
         # hg # mercurial
-        highlight
-        htop
+        highlight # colorizes html and other output on the command line
+        htop # prettier, more powerful version of top. gets the top running processes
         hub # github tool is a superset of git
-        # imagemagick
+        # imagemagick # image transformation tool
         irssi # irc client
         # jsawk # parse json in bash
         # macvim # mac gui vim client
@@ -86,11 +84,11 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         ranger # vim-like file system browser
         rbenv # ruby environment switcher
         reattach-to-user-namespace # used to fix mac issues with copy/paste in tmux
-        ruby-build
+        ruby-build # an rbenv plugin that provides an rbenv install command to compile and install different versions of ruby
         s3cmd # amazon s3 uploader
         ssh-copy-id # copies ssh keys to remote servers
-        sshfs # mounts ssh servers as file systems in the local fs
-        sshuttle
+        # sshfs # mounts ssh servers as file systems in the local fs
+        # sshuttle # poor mans vpn. doesnt work on yosemite at the moment
         # solr # search data server
         # spark # used for rainbarf to show spiffy cli graphs
         terminal-notifier # send macos notifications from terminal
@@ -100,8 +98,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # trash # a trash can for the terminal
         tree # display file/folder hierarchies in a visual tree format
         # virtualhost.sh # crappy virtualhost management script
-        watch
-        wget
+        # watch # contains some tools: free, kill, ps, uptime, etc.
+        wget # latest version
         )
         for package in "${packages[@]}"
         do
@@ -122,7 +120,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
         # ensuring homebrew bash is in /etc/shells
         if [[ $(grep "/usr/local/bin/bash" /etc/shells -c) == 0 ]]; then
-            log_info "installing bash to /etc/paths"
+            log_info "installing homebrew bash to /etc/paths"
             sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
         fi
 
@@ -156,7 +154,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
         # install homebrew packages without the same cli name
         packages=(
-        bash-completion
+        bash-completion # installs all homebrew bash completion
         selenium-server-standalone
         the_silver_searcher
         ruby-build
@@ -195,7 +193,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     # load php56 now
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist
     # if extension not in httpd.conf, add it
-    LoadPhp = "LoadModule php5_module /usr/local/opt/php56/libexec/apache2/libphp5.so";
+    LoadPhp="LoadModule php5_module /usr/local/opt/php56/libexec/apache2/libphp5.so";
     if ! grep -Fxq $LoadPhp; then
         log_info "adding php5 module to apache2 httpd.conf"
         sudo echo $LoadPhp >> /etc/apache2/httpd.conf

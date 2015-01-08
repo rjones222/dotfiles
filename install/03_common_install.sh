@@ -185,7 +185,6 @@ if [[ "$(type -P vagrant)" ]]; then
     log_info "adding laravel homestead vagrant box"
     vagrant box add laravel/homestead
     # homestead cli tool is in global composer.json
-    homestead init
 fi
 
 log_info "End common install script"
