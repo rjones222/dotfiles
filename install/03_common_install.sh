@@ -161,8 +161,8 @@ argcomplete # tab completion of arguments for python scripts
 requests # used for vim-jira-complete
 # robotframework # front-end testing framework
 # robotframework-selenium2screenshots
-# stellar
-# supervisor
+# stellar # fast database stapshot and restore tool for development
+# supervisor # a client/server system that allows its users to control a number of processes
 )
 for package in "${packages[@]}"
 do

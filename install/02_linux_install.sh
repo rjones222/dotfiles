@@ -53,15 +53,15 @@ if [[ "$(type -P apt-get)" ]]; then
     # cronolog # reads log messages from input and write them to output files based on current date/time... similar to logrotate
     ctags # use with vim to jump to definitions
     imagemagick # image transformer
-    # g++
+    # g++ # compiler for c++ programming
     git
     git-extras # cool git addons
-    git-flow
+    git-flow # adds git commands for the git-flow workflow
     # googlecl # google console
     gpg # used by s3cmd
     grc # generic colorizer for the command line
     # hg
-    highlight
+    highlight # colorizes html and other output on the command line
     htop # better list of top processes
     irssi # irc client
     # jsawk # parse json in bash
@@ -73,7 +73,7 @@ if [[ "$(type -P apt-get)" ]]; then
     # openjdk-7-jre
     # openssh-client
     # openssh-server
-    pandoc
+    pandoc # used by vim to get manual entries for built-in php stuff
     # pgadmin3
     php-apc
     php-pear
@@ -95,9 +95,9 @@ if [[ "$(type -P apt-get)" ]]; then
     ranger # 3-column file browser
     # ruby1.9.1-dev
     s3cmd # amazon s3 uploader
-    sshuttle
-    # solr-tomcat
-    # spidermonkey-bin
+    # sshuttle # poor mans vpn
+    # solr-tomcat # if you need solr it installs both
+    # spidermonkey-bin # SpiderMonkey is Mozillas JavaScript engine written in C/C++
     tig # git viewer
     tmux # terminal multiplexer
     tofrodos # convert line endings to and from dos
