@@ -117,8 +117,12 @@ Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'sudo npm install' }
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'sass', 'scss'] }
 
-" always inverse the current html tag
-Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml', 'blade', 'twig'] }
+" always inverse colors on the current html tag you're in
+if has('python')
+    Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml', 'blade', 'twig'] }
+else
+    Plug 'gergsexton/MatchTag', { 'for': ['html', 'xml', 'blade', 'twig'] }
+endif
 " }}}
 
 " Ruby {{{

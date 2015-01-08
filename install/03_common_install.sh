@@ -40,17 +40,17 @@ gulp # task runner / watcher
 # grunt # older, more complex task runner / watcher
 instant-markdown-d # used by vim to instantly preview markdown files as you type
 jshint # like jslint but less punishing
-json # json formatter used for vim
+# json # json formatter used for vim
 jsonlint # verify json
 less # add dynamic capabilities to less
 # localtunnel # allow others to view a site you have running locally
 # log.io # web-based live log browser
 npm-check-updates # check for updates to stuff defined in package.json
-phantomjs # headless browser used for BDD
+# phantomjs # headless browser used for BDD
 # phpunit-watchr # dinky tool to watch files for changes and run phpunit
 # tldr # community-driven man pages
 yo # yeoman - boilerplate maker
-zombie # browser emulator for testing like phantomjs
+# zombie # browser emulator for testing like phantomjs
 )
 for package in "${packages[@]}"
 do
@@ -114,8 +114,8 @@ fi
 
 log_info "Installing Gems"
 packages=(
-# bluecloth
-bropages # a highly readable supplement to man pages
+# bluecloth # ruby implementation of markdown. Another option jekyll can use.
+# bropages # a highly readable supplement to man pages
 bundler # lets gems be package-specific. Used by jekyll.
 CoffeeTags # ctags with coffeescript
 # execjs
@@ -123,7 +123,7 @@ CoffeeTags # ctags with coffeescript
 # haste
 jekyll # blogging platform used by github
 # json_pure
-# kramdown
+# kramdown # another markdown parser option that can be used by Jekyll.
 # mailcatcher # catches outgoing mail and displays it from a local server to a web-based view
 # mysql2xxxx # export mysql to json, etc.
 # observr # watches the file system and does stuff when things change
@@ -133,10 +133,9 @@ pre-commit # install pre-commit hooks to check for all kinds of things
 pygmentize - used by jekyll
 pygments.rb # syntax highlighting - used by jekyll
 redcarpet # used by jekyll to convert markdown to html
-# rdiscount
-# ruby-fsevent
+# rdiscount # another markdown option for jekyll.
+# ruby-fsevent # probably a dependency of another package I dont use anymore
 teamocil # save tmux layouts and regenerate them with ease
-# watch
 )
 for package in "${packages[@]}"
 do
@@ -184,6 +183,9 @@ fi
 
 if [[ "$(type -P vagrant)" ]]; then
     log_info "adding laravel homestead vagrant box"
+    vagrant box add laravel/homestead
+    # homestead cli tool is in global composer.json
+    homestead init
 fi
 
 log_info "End common install script"

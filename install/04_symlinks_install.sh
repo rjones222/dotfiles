@@ -59,5 +59,6 @@ link_this "$HOME/.dotfiles/to_link/999-my-php.ini" "/usr/local/etc/php/5.6/conf.
 
 link_this "$HOME/.dotfiles/to_link/.bro" "$HOME/.bro"
 link_this "$HOME/.dotfiles/to_link/.phpspec" "$HOME/.phpspec"
+link_this "$HOME/.dotfiles/to_link/.homestead" "$HOME/.homestead"
 
 log_info "End symlinks install script"
