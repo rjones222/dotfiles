@@ -43,6 +43,7 @@ jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json
 less # add dynamic capabilities to less
+letswork # distraction remover (no reddit, facebook, twitter)
 # localtunnel # allow others to view a site you have running locally
 # log.io # web-based live log browser
 npm-check-updates # check for updates to stuff defined in package.json
