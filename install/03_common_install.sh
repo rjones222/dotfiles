@@ -159,6 +159,7 @@ log_info "Installing Python packages"
 packages=(
 # gmusicapi # google music api
 argcomplete # tab completion of arguments for python scripts
+pgcli # a postgresql repl with autocompletion
 requests # used for vim-jira-complete
 # robotframework # front-end testing framework
 # robotframework-selenium2screenshots
