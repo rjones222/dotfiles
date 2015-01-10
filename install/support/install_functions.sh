@@ -8,8 +8,8 @@ function link_this() {
     fi
 
     # if the parent directory for the destination does not exist, error
-    parent_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-    if [[ ! -d $parent_dir ]]; then
+    parent_dir=$( dirname "$2" )
+    if [[ ! -d "$parent_dir" ]]; then
         log_error "destination parent directory $parent_dir does not exist"
         return ${E_FAILURE}
     fi

@@ -131,7 +131,7 @@ jekyll # blogging platform used by github
 pre-commit # install pre-commit hooks to check for all kinds of things
 # pre-commit-php
 # puppet # virtual machine provisioning language
-pygmentize - used by jekyll
+pygmentize # used by jekyll
 pygments.rb # syntax highlighting - used by jekyll
 redcarpet # used by jekyll to convert markdown to html
 # rdiscount # another markdown option for jekyll.
