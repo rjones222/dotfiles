@@ -102,14 +102,18 @@ Plug 'pythoncomplete', { 'for': 'python' }
 
 " JavaScript {{{
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'groenewege/vim-less', { 'for': 'less' }
 " this one makes weird artifacts show up while I type
 " Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " this one works better
+" Enhanced JavaScript Syntax for Vim
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'sudo npm install' }
+" adds some tools to jump to definition, look up docs, find type, etc.
+" I don't use it and it's been giving me weird errors when trying to reinstall.
+" if has('npm')
+" Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
+" endif
 " }}}
 
 " HTML {{{
@@ -351,6 +355,7 @@ Plug 'vimez/vim-tmux', { 'for': 'tmux' }
 " }}}
 
 " Css {{{
+Plug 'groenewege/vim-less', { 'for': 'less' }
 
 " colorize css colors without causing $VIMRC reload problems
 " Plug 'ap/vim-css-color'
