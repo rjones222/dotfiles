@@ -159,7 +159,7 @@ log_info "Installing Python packages"
 packages=(
 # gmusicapi # google music api
 argcomplete # tab completion of arguments for python scripts
-pgcli # a postgresql repl with autocompletion
+# pgcli # a postgresql repl with autocompletion
 requests # used for vim-jira-complete
 # robotframework # front-end testing framework
 # robotframework-selenium2screenshots
@@ -175,7 +175,9 @@ do
 done
 
 log_info "activating argcomplete"
-activate-global-python-argcomplete
+# depends on location of bash completion folder
+[ -d /usr/local/etc/bash_completion.d ] && activate-global-python-argcomplete --dest /usr/local/etc/bash_completion.d
+[ -d /etc/bash_completion.d ] && activate-global-python-argcomplete --dest /etc/bash_completion.d
 
 # install tmux plugin manager
 if [[ ! -f "$HOME/.tmux/plugins/tpm" ]]; then

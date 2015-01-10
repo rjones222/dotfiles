@@ -194,6 +194,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist
     # if extension not in httpd.conf, add it
     LoadPhp="LoadModule php5_module /usr/local/opt/php56/libexec/apache2/libphp5.so";
+    echo $LoadPhp
     if ! grep -Fxq $LoadPhp; then
         log_info "adding php5 module to apache2 httpd.conf"
         sudo echo $LoadPhp >> /etc/apache2/httpd.conf
