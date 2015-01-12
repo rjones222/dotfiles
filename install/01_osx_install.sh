@@ -124,6 +124,14 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
         fi
 
+        # htop-osx requires root privileges to correctly display all running processes.
+        if [[ -f /usr/local/Cellar/htop-osx/0.8.2.3/bin/htop ]]; then
+            log_info "setting permissions/ownership for htop"
+            # You can either run the program via `sudo` or set the setuid bit:
+            sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2.3/bin/htop
+            sudo chmod u+s /usr/local/Cellar/htop-osx/0.8.2.3/bin/htop
+        fi
+
         if [[ ! "$(type -P libxml2)" ]]; then
             log_info "installing libxml2 with python (for phpqa vim package)"
             brew install libxml2 --with-python
