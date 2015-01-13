@@ -218,6 +218,13 @@ Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 
 " Copy and paste {{{
 
+" display a persistent view of vim :registers in a sidebar window
+" :LOTROpen
+" :LOTRClose
+" :LOTRToggle also available through <PLUG>LOTRToggle which is mapped to <leader>cr by default.
+" disabled for now due to bug
+" Plug 'dahu/vim-lotr'
+
 " no more pastetoggle!
 Plug 'ConradIrwin/vim-bracketed-paste'
 
@@ -903,6 +910,10 @@ Plug 'airblade/vim-rooter'
 " }}}
 
 " Windows and Tabs {{{
+
+" accidentally didn't type the whole file name, expecting tab complete to
+" finish it? This will help.
+Plug 'EinfachToll/DidYouMean'
 
 " Swap windows just like cxiw. Mark the first window with <leader>ww. Then
 " switch to the second window and do <leader>ww again. The windows will

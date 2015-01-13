@@ -1479,7 +1479,7 @@
         command! Gnuke silent execute 'Git reset --hard'
 
         silent! unmap <leader>gp
-        " nnoremap <silent> <leader>gpu :Gpuspacesh<CR>
+        " nnoremap <silent> <leader>gpu :Gpush<CR>
         " nnoremap <silent> <leader>gpl :Gpull<CR>:e<CR>
         nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
         nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
@@ -1487,6 +1487,8 @@
         nnoremap <leader>gps :Dispatch! git push<CR>
         nnoremap <leader>gpu :Dispatch! git push<CR>
         nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
+        " nnoremap <leader>ga :Git add %:p<CR><CR>
+        nnoremap <leader>ga :Git add -A<CR><CR>
     endif
     " }}}"
 
@@ -2107,6 +2109,13 @@
         " autocmd InsertEnter *.json setlocal conceallevel=2 concealcursor=
         " autocmd InsertLeave *.json setlocal conceallevel=2 concealcursor=inc
         " autocmd BufEnter *.json setlocal conceallevel=2 concealcursor=
+    endif
+    " }}}
+
+    " vim-lotr {{{
+    if isdirectory(expand("~/.vim/plugged/vim-lotr"))
+        " show registers in a sidebar
+        nnoremap <leader>sr :LOTRToggle<cr>
     endif
     " }}}
 
