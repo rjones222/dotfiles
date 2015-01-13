@@ -23,7 +23,8 @@
     "techlivezheng/phpctags": "~0.5",
     "gonzaloserrano/pman-php-manual": "dev-master",
     "drush/drush": "~6.5",
-    "laravel/homestead": "~2.0"
+    "laravel/homestead": "~2.0",
+    "d11wtq/boris": "~1.0"
   },
   "require-dev": {
     "behat/mink-goutte-driver": "~1.1",
