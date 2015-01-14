@@ -413,6 +413,7 @@ alias bas="behat --append-snippets --dry-run"
 
 # bower
 alias bowi="bower install --save"
+alias bowid="bower install --save-dev"
 alias bow="bower"
 
 # npm

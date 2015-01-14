@@ -101,14 +101,23 @@ Plug 'pythoncomplete', { 'for': 'python' }
 " }}}
 
 " JavaScript {{{
+
 Plug 'elzr/vim-json', { 'for': 'json' }
+
 " this one makes weird artifacts show up while I type
-" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " this one works better
 " Enhanced JavaScript Syntax for Vim
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+" Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+
+" aj provides a text object for the outermost JSON object, array, string, number, or keyword.
+" gqaj 'pretty prints' (wraps/indents/sorts keys/otherwise cleans up) the JSON construct under the cursor.
+" gwaj takes the JSON object on the clipboard and extends it into the JSON object under the cursor.
+" There are also ij variants that target innermost rather than outermost JSON construct.
+Plug 'tpope/vim-jdaddy' { 'for': ['json', 'javascript'] }
+
 " adds some tools to jump to definition, look up docs, find type, etc.
 " I don't use it and it's been giving me weird errors when trying to reinstall.
 " if has('npm')
@@ -118,7 +127,7 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 " HTML {{{
 " auto close tags by typing </
-Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
+Plug 'docunext/closetag.vim', { 'for': ['html', 'xml', 'html.twig', 'blade'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'sass', 'scss'] }
 
 " always inverse colors on the current html tag you're in
@@ -791,11 +800,8 @@ Plug 'Wolfy87/vim-expand'
 
 " Navigation and Search {{{
 
-" aj provides a text object for the outermost JSON object, array, string, number, or keyword.
-" gqaj 'pretty prints' (wraps/indents/sorts keys/otherwise cleans up) the JSON construct under the cursor.
-" gwaj takes the JSON object on the clipboard and extends it into the JSON object under the cursor.
-" There are also ij variants that target innermost rather than outermost JSON construct.
-Plug 'tpope/vim-jdaddy'
+" make vim understand line and column numbers from xdebug and the like
+Plug 'kopischke/vim-fetch'
 
 " highlight f and t searches, use same motion to ; or \
 " this just annoys me

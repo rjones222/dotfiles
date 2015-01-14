@@ -42,6 +42,7 @@ instant-markdown-d # used by vim to instantly preview markdown files as you type
 jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json
+karma-cli # karma testing framework command line runner
 less # add dynamic capabilities to less
 letswork # distraction remover (no reddit, facebook, twitter)
 # localtunnel # allow others to view a site you have running locally

@@ -183,7 +183,7 @@
     " set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
     "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
     " Remove trailing whitespaces and ^M chars
-    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,html.twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
     "autocmd FileType go autocmd BufWritePre <buffer> Fmt
     autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
     autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
@@ -1045,7 +1045,7 @@
     augroup END
 
     " 2 space indent in front-end
-    autocmd highlight_augroup FileType smarty,blade,html,javascript,json,css,coffee,yaml :call Tab2()
+    autocmd highlight_augroup FileType smarty,blade,html,javascript,json,css,html.twig,coffee,yaml :call Tab2()
 
     " sets everything to 2 spaces. For some reason just calling all this in
     " one line does not set shiftwidth, but sets the others fine.
@@ -2064,7 +2064,7 @@
         \   "javascript" : 1,
         \   "coffee" : 1,
         \   "sql" : 1,
-        \   "twig" : 1,
+        \   "html.twig" : 1,
         \   "blade" : 1
         \}
     endif
