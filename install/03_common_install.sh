@@ -50,6 +50,7 @@ letswork # distraction remover (no reddit, facebook, twitter)
 npm-check-updates # check for updates to stuff defined in package.json
 # phantomjs # headless browser used for BDD
 # phpunit-watchr # dinky tool to watch files for changes and run phpunit
+# psi # PageSpeed Insights with reporting
 # tldr # community-driven man pages
 yo # yeoman - boilerplate maker
 # zombie # browser emulator for testing like phantomjs
@@ -132,9 +133,9 @@ jekyll # blogging platform used by github
 pre-commit # install pre-commit hooks to check for all kinds of things
 # pre-commit-php
 # puppet # virtual machine provisioning language
-pygmentize # used by jekyll
+pygmentize # used by jekyll and vim-instant-markdown
 pygments.rb # syntax highlighting - used by jekyll
-redcarpet # used by jekyll to convert markdown to html
+redcarpet # used by jekyll to convert markdown to html. also used by vim-instant-markdown
 # rdiscount # another markdown option for jekyll.
 # ruby-fsevent # probably a dependency of another package I dont use anymore
 teamocil # save tmux layouts and regenerate them with ease

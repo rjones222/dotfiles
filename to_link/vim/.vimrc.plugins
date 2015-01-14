@@ -116,7 +116,7 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " gqaj 'pretty prints' (wraps/indents/sorts keys/otherwise cleans up) the JSON construct under the cursor.
 " gwaj takes the JSON object on the clipboard and extends it into the JSON object under the cursor.
 " There are also ij variants that target innermost rather than outermost JSON construct.
-Plug 'tpope/vim-jdaddy' { 'for': ['json', 'javascript'] }
+Plug 'tpope/vim-jdaddy', { 'for': ['json', 'javascript'] }
 
 " adds some tools to jump to definition, look up docs, find type, etc.
 " I don't use it and it's been giving me weird errors when trying to reinstall.
@@ -311,7 +311,7 @@ Plug 'tpope/vim-unimpaired'
 " zen coding / emmett integration
 " div#page>div.logo+ul#navigation>li*5>a<c-y>, to get html
 " <c-y>n and <c-y>N to go to next and previous insert points
-Plug 'mattn/emmet-vim', { 'for': ['html', 'html.twig', 'blade'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " much better than snipmate or neosnippet
 " :UltiSnipsEdit to edit the snippets file for the current file type
@@ -395,14 +395,14 @@ Plug 'chrisbra/Colorizer', { 'for': ['css', 'scss', 'sass', 'less'] }
 " :ColorVScheme (<leader>css) Fetch scheme from Kuler or ColourLover
 " :ColorVSchemeFav (<leader>csf) Show Faved schemes
 " :ColorVSchemeNew (<leader>csn) Create a new scheme
-Plug 'Rykka/colorv.vim'
+Plug 'Rykka/colorv.vim', { 'for': ['html', 'blade', 'css', 'scss', 'less', 'sass', 'html.twig', 'smarty'] }
 
 " }}}
 
 " Php {{{
 
 " php manual in vim - get def of word under cursor with shift-K
-" Plug 'alvan/vim-php-manual', { 'for': 'php' }
+Plug 'alvan/vim-php-manual', { 'for': ['php', 'blade'] }
 
 " highlight all occurences of php variable under cursor
 " Plug 'vim-scripts/vawa.vim', { 'for': 'php' }
@@ -413,7 +413,7 @@ Plug 'Rykka/colorv.vim'
 Plug 'joonty/vim-phpqa', { 'for': 'php' }
 
 " customizable php folding
-" I don't use folding
+" I don't use folding but this is cool when it's on
 Plug 'swekaj/php-foldexpr.vim', { 'for': 'php' }
 
 " was used in PIV for php folding
@@ -426,7 +426,8 @@ Plug 'swekaj/php-foldexpr.vim', { 'for': 'php' }
 " apparently better php indenting for PHP 5.4+
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 
-" improved phpdoc implementation
+" improved phpdoc implementation. documents the function/class/var below the
+" cursor
 " Plug 'tobyS/pdv', { 'for': 'php' }
 " fork that works better with phpcomplete.vim to update @var variables
 " Plug 'FlickerBean/pdv', { 'for': 'php' }
@@ -444,7 +445,7 @@ Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " better php ctags in tagbar
 " <leader>tt to toggle tagbar. This makes it look prettier
 " Plug 'techlivezheng/vim-plugin-tagbar-phpctags'
-if executable('ctags')
+if executable('phpctags')
     Plug 'vim-php/tagbar-phpctags.vim', { 'for': 'php' }
 endif
 
@@ -455,10 +456,10 @@ Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
 " Plug 'mikedfunk/vim-php-namespace'
 
 " xdebug integration
-" Run <F5>
 " Step over <F2>
 " Step in <F3>
 " Step out <F4>
+" Run <F5>
 " Run to cursor <F9>
 " Detach <F7>
 " Stop/close <F6>
@@ -466,7 +467,7 @@ Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
 Plug 'joonty/vdebug', { 'for': 'php' }
 
 " improved php omnicompletion
-Plug 'shawncplus/phpcomplete.vim', { 'for': 'php'}
+Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
 
 " required for phpcomplete-extended
 " And perhaps other packages...
@@ -552,12 +553,12 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " vnoremap <unique> <Leader>== :call PhpAlignAssigns()<CR>
 " nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
 " nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
-" Plug 'adoy/vim-php-refactoring-toolbox', { 'rtp': 'plugins', 'for': 'php' }
+
+" My biggest problem with this plugin is that when I extract a method, it
+" thinks I need _all_ of the variables defined. It returns them all and
+" assigns them to a var with list(). This is almost never what I want. All the
+" other ones are pretty cool though.
 Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
-" i could not load the plugin even with the rtp set above, so I forked
-" it and changed the plugins dir to plugin.
-" this was merged into master so back to the original.
-" Plug 'mikedfunk/vim-php-refactoring-toolbox', { 'for': 'php' }
 " Plug 'beberlei/vim-php-refactor'
 
 " }}}
@@ -573,14 +574,12 @@ Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 " doesn't work
 " Plug 'idbrii/vim-mark'
 
-" crosshairs on parens and such. Much easier to find where you're
-" currently at!
-" removed because on my crappy loaner mac it seems to be slowing things
-" down
-" Plug 'chreekat/vim-paren-crosshairs'
+" crosshairs on parens and such. Easier to find where you're currently at...?
+Plug 'chreekat/vim-paren-crosshairs'
 
-" highlight matching words all the time. Can be adjusted with highlight group
-" and with filetype whitelist/blacklist.
+" highlight matching words under cursor all the time. Can be adjusted with
+" highlight group and with filetype whitelist/blacklist. I like it - the
+" highlight group is nice and subtle and it works well.
 Plug 'osyo-manga/vim-brightest'
 
 " highlights in bright red any trailing whitespace
@@ -602,7 +601,7 @@ Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 
 
 " show all 256 colors and their numbers. useful for assigning colors in
 " different color schemes.
-" Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
+Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 
 " a bunch of color schemes to try. Most don't work in 256.
 " Plug 'flazz/vim-colorschemes'
@@ -655,7 +654,11 @@ Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 
 " Plug 'joschka/Smyck-Color-Scheme'
 " Plug 'michalbachowski/vim-wombat256mod'
 
+" just for testing some of the top color schemes - lots of gui-only here
+" Plug 'vim-scripts/Colour-Sampler-Pack'
+
 " Schemes that look good in 256 colors:
+" --------------
 Plug 'nanotech/jellybeans.vim'
 Plug 'zeis/vim-kolor'
 Plug 'tomasr/molokai'
@@ -686,12 +689,9 @@ Plug 'fmoralesc/molokayo'
 " Can I please have some trouble
 " Plug 'godlygeek/csapprox'
 
-" just for testing some of the top color schemes - lots of gui-only here
-" Plug 'vim-scripts/Colour-Sampler-Pack'
-
 " custom bash prompt in sync with airline
 " :PromptlineSnapshot! ~/.dotfiles/to_link/promptline.theme.bash
-" Turn if off until I need to customize it
+" I can turn if off until I need to customize it
 Plug 'edkolev/promptline.vim', { 'on': ['Promptline', 'PromptlineSnapshot'] }
 
 " smooth vertical scrolling
@@ -708,7 +708,7 @@ Plug 'https://github.com/jwhitley/vim-colors-solarized.git'
 Plug 'vim-scripts/ScrollColors', { 'on': 'SCROLL' }
 
 " highlight matches for word, current line, etc.
-" doesn't work after switching to light mode or resourcing vimrc
+" doesn't work after switching to light mode or re-sourcing vimrc
 "<c-h><c-h> to sticky highlight a selection. <c-h><c-n> to remove all
 " highlights.
 " I just don't use this. It also doesn't do much in Lucius.
@@ -751,6 +751,11 @@ Plug 'tpope/vim-sleuth'
 " gS to split
 " gJ to join
 Plug 'AndrewRadev/splitjoin.vim'
+
+" The plugin defines two commands, :SidewaysLeft and :SidewaysRight, which move
+" the item under the cursor left or right, where an "item" is defined by a
+" delimiter.
+Plug 'AndrewRadev/sideways.vim'
 
 " Align in columns
 " Too much crossover with tabularize
@@ -832,6 +837,8 @@ Plug 'kopischke/vim-fetch'
 " :AV [file]              Like :A, but open in a vertical split.
 " :AT [file]              Like :A, but open in a tab.
 Plug 'tpope/vim-projectionist'
+" alternative to projectionist that adds more fancy stuff
+" Plug 'dsawardekar/portkey'
 
 " TagBar support for coffeescript? Yes please!
 " @note requires CoffeeScript ruby gem
@@ -891,7 +898,7 @@ endif
 " Plug 'ivalkeen/vim-ctrlp-tjump'
 
 " different fork of ctrlp that accepts pull requests
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " only for added sources for phpcomplete_extended
 " Plug 'Shougo/unite.vim'
@@ -907,7 +914,7 @@ Plug 'airblade/vim-rooter'
 " wget menu item in NERDTree!
 " m then w, then type url
 " I don't use this
-" Plug 'markgandolfo/nerdtree-wget.vim'
+Plug 'markgandolfo/nerdtree-wget.vim'
 
 " makes folds only recalculate on save, making completion faster (right?)
 " this is fine and all but I disable folding. This re-enables it.
@@ -1000,6 +1007,7 @@ endif
 
 " entire document
 " vae, vie
+" I use this all the time!
 Plug 'kana/vim-textobj-entire'
 
 " last search pattern:

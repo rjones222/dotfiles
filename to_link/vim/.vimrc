@@ -969,8 +969,9 @@
     augroup END
 
     " use php documentation with <shift>K from pear package pman"
+    " disabled for now - trying alvan/vim-php-manual instead
     if executable('pman')
-        autocmd phpman_autogroup FileType php set keywordprg=pman
+        " autocmd phpman_autogroup FileType php set keywordprg=pman
         " autocmd FileType php set keywordprg=/Users/mfunk/.composer/vendor/bin/pman\ -P\ less
         " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
         " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
@@ -1755,6 +1756,13 @@
         let g:promptline_preset = 'clear'
     endif
     " }}}"
+
+    " sideways.vim {{{
+    if isdirectory(expand("~/.vim/plugged/sideways.vim"))
+        nnoremap <c-h> :SidewaysLeft<cr>
+        nnoremap <c-l> :SidewaysRight<cr>
+    endif
+    " }}}
 
     " sunset {{{
     if isdirectory(expand("~/.vim/plugged/sunset"))
