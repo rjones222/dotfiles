@@ -964,19 +964,19 @@
         set mouse=a
     endif
 
-    augroup phpman_autogroup
-        autocmd!
-    augroup END
+    " augroup phpman_autogroup
+        " autocmd!
+    " augroup END
 
     " use php documentation with <shift>K from pear package pman"
     " disabled for now - trying alvan/vim-php-manual instead
-    if executable('pman')
+    " if executable('pman')
         " autocmd phpman_autogroup FileType php set keywordprg=pman
         " autocmd FileType php set keywordprg=/Users/mfunk/.composer/vendor/bin/pman\ -P\ less
         " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
         " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
         " autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
-    endif
+    " endif
 
     " enable matching of xml tags with %
     " runtime macros/matchit.vim
