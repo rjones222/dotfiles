@@ -3,3 +3,4 @@ generatorRunCount:
   "requirejs-jasmine-karma:app": 2
   "karma:app": 1
   "jasmine:app": 1
+  "front-end-basic:app": 1

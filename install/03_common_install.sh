@@ -37,11 +37,14 @@ csslint # verify css files
 # fixmyjs # like php-cs-fixer for javascript
 git-guilt # see the top few users for whom this commit has overwritten code
 gulp # task runner / watcher
-# grunt # older, more complex task runner / watcher
+grunt # older, more complex task runner / watcher
+grunt-cli # wtf? grunt is lame.
 instant-markdown-d # used by vim to instantly preview markdown files as you type
+jasmine # javascript behavior testing framework
 jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json
+karma # js test runner
 karma-cli # karma testing framework command line runner
 less # add dynamic capabilities to less
 letswork # distraction remover (no reddit, facebook, twitter)

@@ -1,8 +1,8 @@
 snippet usestrict "function form of use strict"
 (function() {
-  'use strict';
-  $1
-}());
+ 'use strict';
+ $1
+ }());
 endsnippet
 
 snippet al "psr-4 autoload"
@@ -22,4 +22,23 @@ snippet top "self-invoking function and use strict"
   'use strict';
   $1
 }());
+endsnippet
+
+snippet desc "jasmine describe aka suite"
+(function () {
+  'use strict';
+  describe("$1", function () {
+    $2
+  });
+}());
+endsnippet
+
+snippet exp "jasmine expect"
+expect($1).toEqual($2);
+endsnippet
+
+snippet itsh "jasmine it should (test)"
+it("${1:should do something...}", function () {
+  $2
+});
 endsnippet

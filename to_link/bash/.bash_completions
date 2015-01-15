@@ -14,5 +14,6 @@
 # more info at http://mikefunk.com
 # }}}
 
-# grunt completion
+# some extra completions that don't go in bash_completions.d
 eval "$(grunt --completion=bash)"
+eval "$(karma completion)"
