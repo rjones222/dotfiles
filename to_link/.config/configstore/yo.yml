@@ -2,3 +2,4 @@ generatorRunCount:
   "browserify:app": 1
   "requirejs-jasmine-karma:app": 2
   "karma:app": 1
+  "jasmine:app": 1

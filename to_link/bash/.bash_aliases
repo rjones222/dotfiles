@@ -414,10 +414,12 @@ alias bas="behat --append-snippets --dry-run"
 # bower
 alias bowi="bower install --save"
 alias bowid="bower install --save-dev"
+alias bid="bower install --save-dev"
 alias bow="bower"
 
 # npm
 alias nid="npm install --save-dev"
+alias nig="npm install -g"
 
 # local tunnel - make localhost viewable on the web
 alias localtunnel="lt --port 80"

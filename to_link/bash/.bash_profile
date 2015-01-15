@@ -18,6 +18,7 @@
 [ -f ~/.bash_paths ] && source ~/.bash_paths
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
+[ -f ~/.bash_completions ] && source ~/.bash_completions
 [ -f ~/.promptline.theme.bash ] && source ~/.promptline.theme.bash
 [ -f ~/.private_vars.sh ] && source ~/.private_vars.sh
 
