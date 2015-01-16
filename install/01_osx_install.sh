@@ -114,6 +114,19 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             brew install macvim --with-lua --override-system-vim
         fi
 
+        # https://github.com/neovim/neovim/wiki/Installing
+        # bookmarking this for later. right now some things are still breaking
+        # in my vim setup with neovim.
+        # if [[ ! "$(type -P nvim)" ]]; then
+            # brew tap neovim/homebrew-neovim
+            # brew install --HEAD neovim
+            # sudo pip install neovim
+            # ln -sf ~/.vim ~/.nvim
+            # ln -sf ~/.vimrc ~/.nvimrc
+        # else
+            # brew reinstall --HEAD neovim
+        # fi
+
         log_info "setting up homebrew mysql to launch now and on startup"
         ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
         launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
