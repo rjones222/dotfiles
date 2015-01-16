@@ -54,6 +54,7 @@ npm-check-updates # check for updates to stuff defined in package.json
 # phantomjs # headless browser used for BDD
 # phpunit-watchr # dinky tool to watch files for changes and run phpunit
 # psi # PageSpeed Insights with reporting
+# redis-cli # command line tool to monitor redis, check connection, etc.
 # tldr # community-driven man pages
 yo # yeoman - boilerplate maker
 # zombie # browser emulator for testing like phantomjs
