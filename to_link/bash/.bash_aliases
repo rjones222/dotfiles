@@ -375,6 +375,8 @@ fi
 alias g="git"
 # do git completion with g
 __git_complete g __git_main
+
+# phpunit {{{
 # alias phpunit="phpunitnotify"
 alias coverage="phpunit --debug && open build/coverage/index.html"
 # alias test="php artisan test "
@@ -382,6 +384,9 @@ alias pf="phpunit --debug --filter "
 alias pu="phpunitnotify"
 alias pux="php -dxdebug.profiler_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=netbeans-xdebug phpunit"
 alias puf="phpunit --filter "
+# }}}
+
+# composer {{{
 # composer with hhvm makes it way faster
 if [[ "$(type -P hhvm)" ]]; then
     alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer"
@@ -402,24 +407,29 @@ alias crd="composer require --dev"
 # alias cr="codecept run"
 alias com="composer"
 alias c="composer"
+# }}}
+
 # alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 # alias quickserver="python -m SimpleHTTPServer"
 
-# behat
+# behat {{{
 alias b="behat"
 alias bi="behat --init"
 alias bas="behat --append-snippets --dry-run"
+# }}}
 
-# bower
+# bower {{{
 alias bowi="bower install --save"
 alias bowid="bower install --save-dev"
 alias bid="bower install --save-dev"
 alias bow="bower"
+# }}}
 
-# npm
+# npm {{{
 alias nid="npm install --save-dev"
 alias nig="npm install -g"
+# }}}
 
 # local tunnel - make localhost viewable on the web
 alias localtunnel="lt --port 80"
@@ -447,7 +457,7 @@ alias restart-networking="sudo /etc/init.d/networking stop; sleep 2; sudo /etc/i
 alias largestfiles="find . -type f -print0 | xargs -0 du | sort -n | tail -10 | cut -f2 | xargs -I{} du -sh {}"
 alias largestdirs="find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2 | xargs -I{} du -sh {}"
 
-# colorize cat
+# colorize cat {{{
 chk=''
 if which gem >/dev/null; then
     gem list pygmentize -i | $chk
@@ -455,6 +465,7 @@ fi
 if [ $chk ]; then
     alias cat="pygmentize -g"
 fi
+# }}}
 
 # HEMING!!!!!!!!!!
 alias freakingwindows='find . -not -type d -exec file "{}" ";" | grep CRLF'
