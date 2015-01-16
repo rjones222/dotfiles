@@ -55,6 +55,7 @@ npm-check-updates # check for updates to stuff defined in package.json
 # phpunit-watchr # dinky tool to watch files for changes and run phpunit
 # psi # PageSpeed Insights with reporting
 # redis-cli # command line tool to monitor redis, check connection, etc.
+# redis-commander # web interface for redis similar to beanstalkd
 # tldr # community-driven man pages
 yo # yeoman - boilerplate maker
 # zombie # browser emulator for testing like phantomjs
