@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/Code":{"type":null,"guestpath":"/home/vagrant/Code","hostpath":"/Library/WebServer/Documents","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/mfunk/.dotfiles/to_link/.composer/vendor/laravel/homestead","disabled":false}}}

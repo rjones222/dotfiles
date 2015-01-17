@@ -3,18 +3,18 @@ ip: "192.168.10.10"
 memory: 2048
 cpus: 1
 
-authorize: ~/.ssh/id_rsa.pub
+authorize: ~/.ssh/homestead.pub
 
 keys:
-    - ~/.ssh/id_rsa
+    - ~/.ssh/homestead
 
 folders:
-    - map: ~/Code
+    - map: ~/Sites
       to: /home/vagrant/Code
 
 sites:
     - map: homestead.app
-      to: /home/vagrant/Code/Laravel/public
+      to: /home/vagrant/Code
 
 databases:
     - homestead
