@@ -54,3 +54,23 @@ define([$1], function () {
   $2
 });
 endsnippet
+
+snippet cns "console.log"
+console.log("$1");
+endsnippet
+
+snippet top "top jsdoc of js file"
+/**
+ * ${1:Description}
+ *
+ * @author Michael Funk [mike@mikefunk.com]
+ */
+endsnippet
+
+snippet hm "personal author tag"
+@author Michael Funk [mike@mikefunk.com]
+endsnippet
+
+snippet imp "ES6 import"
+import ${1/.*\/(\w+)-?(\w*)-?(\w*)$/\u$1(?2:\u$2)(?3:\u$3)/} from '$1';
+endsnippet
