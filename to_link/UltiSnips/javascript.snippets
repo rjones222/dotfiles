@@ -42,3 +42,15 @@ it("${1:should do something...}", function () {
   $2
 });
 endsnippet
+
+snippet req "requirejs-style require"
+require(["$1"], function ($1) {
+  $2
+});
+endsnippet
+
+snippet def "requirejs define"
+define([$1], function () {
+  $2
+});
+endsnippet

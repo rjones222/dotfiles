@@ -44,10 +44,12 @@ jasmine # javascript behavior testing framework
 jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json
+jspm # javascript package manager with autoloader
 karma # js test runner
 karma-cli # karma testing framework command line runner
 less # add dynamic capabilities to less
 letswork # distraction remover (no reddit, facebook, twitter)
+live-server # just runs a web server in a dir and refreshes on file change.
 # localtunnel # allow others to view a site you have running locally
 # log.io # web-based live log browser
 npm-check-updates # check for updates to stuff defined in package.json
