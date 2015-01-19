@@ -57,6 +57,11 @@ if [ -d ./vendor/bin ]; then
     export PATH="./vendor/bin:$PATH"
 fi
 
+# npm relative bin
+if [ -d ./node_modules/.bin ]; then
+    export PATH="./node_modules/.bin:$PATH"
+fi
+
 # rbenv
 export RBENV_ROOT="${HOME}/.rbenv"
 if [ -d "${RBENV_ROOT}" ]; then
