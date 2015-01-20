@@ -216,4 +216,22 @@ if [[ "$(type -P gopm)" ]]; then
     go get -u github.com/gpmgo/gopm
 fi
 
+# install gopm packages
+if [[ ! "$(type -P gopm)" ]]; then
+    log_error "gopm not installed"
+    return ${E_FAILURE}
+fi
+log_info "Installing gopm packages"
+
+packages=(
+mailhog # alternative to mailcatcher. catches all outgoing mail and shows it in a web interface.
+)
+for package in "${packages[@]}"
+do
+    hash $package 2>/dev/null || {
+        log_info "installing $package"
+        gopm install $package
+    }
+done
+
 log_info "End common install script"
