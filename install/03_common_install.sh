@@ -201,4 +201,19 @@ if [[ "$(type -P vagrant)" ]]; then
     # homestead cli tool is in global composer.json
 fi
 
+# setup gocode directory. this is like a vendor directory so no need to store
+# it in this repo.
+if [[ ! -d "$HOME/.gocode" ]]; then
+    log_info "creating gocode directory"
+    mkdir "$HOME/.gocode"
+    export GOPATH="$HOME/.gocode"
+    export PATH="$GOPATH/bin:$PATH"
+fi
+
+# setup gopm
+if [[ "$(type -P gopm)" ]]; then
+    log_info "installing gopm package manager"
+    go get -u github.com/gpmgo/gopm
+fi
+
 log_info "End common install script"
