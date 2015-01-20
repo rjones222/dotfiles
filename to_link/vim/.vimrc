@@ -2275,6 +2275,12 @@
     endif
     " }}}
 
+    " VimCompletesMe {{{
+    if isdirectory(expand("~/.vim/plugged/VimCompletesMe")) && executable('tmux')
+        let b:vcm_tab_complete = "omni"
+    endif
+    " }}}
+
     " {{{ vimux
     if isdirectory(expand("~/.vim/plugged/vimux")) && executable('tmux')
         let g:VimuxHeight = "40"

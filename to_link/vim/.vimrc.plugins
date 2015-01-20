@@ -77,13 +77,24 @@ endif
 
 " Completion {{{
 if has("python")
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-    Plug 'SirVer/ultisnips'
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
+    Plug 'SirVer/ultisnips', {'on': [] }
+    " lazy load ultisnips and youcompleteme on insert mode
+    " https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually
+    augroup load_us_ycm
+      autocmd!
+    augroup END
+    autocmd load_us_ycm InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+                     \| call youcompleteme#Enable() | autocmd! load_us_ycm
     " These are cool but I'd rather define every one of my snippets so I know
     " what they do. Also my 'next completion block' key is the same as my
     " complete this key so i often end up accidentally completing when I mean
     " to skip to the next block.
     " Plug 'honza/vim-snippets'
+
+    " Much simpler tab completion for vim
+    " Maybe too simple...
+    " Plug 'ajh17/VimCompletesMe'
 endif
 
 " give neocomplete a try...
