@@ -224,7 +224,6 @@ fi
 log_info "Installing gopm packages"
 
 packages=(
-mailhog # alternative to mailcatcher. catches all outgoing mail and shows it in a web interface.
 )
 for package in "${packages[@]}"
 do

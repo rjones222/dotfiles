@@ -214,6 +214,13 @@ if [[ "$(type -P apt-get)" ]]; then
         cd -
     fi
 
+    # download and move mailcatcher
+    if [[ ! "$(type -P mailhog)" ]]; then
+        log_info "installing mailhog"
+        wget https://github.com/mailhog/MailHog/releases/download/v0.1.3/MailHog_linux_amd64
+        mv MailHog_darwin_amd64 /usr/local/bin/mailhog
+    fi
+
 else
     log_notice "This is not linux so not running linux tasks"
 fi
