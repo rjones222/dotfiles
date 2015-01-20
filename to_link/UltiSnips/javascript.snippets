@@ -33,7 +33,7 @@ snippet desc "jasmine describe aka suite"
 }());
 endsnippet
 
-snippet exp "jasmine expect"
+snippet expt "jasmine expect"
 expect($1).toEqual($2);
 endsnippet
 
@@ -73,4 +73,15 @@ endsnippet
 
 snippet imp "ES6 import"
 import ${1/.*\/(\w+)-?(\w*)-?(\w*)$/\u$1(?2:\u$2)(?3:\u$3)/} from '$1';
+endsnippet
+
+snippet exp "ES6 export"
+/**
+ * Description
+ *
+ * @author Michael Funk [mike@mikefunk.com]
+ */
+export default ($1) => {
+  $2
+};
 endsnippet

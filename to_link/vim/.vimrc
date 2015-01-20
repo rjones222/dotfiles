@@ -1685,6 +1685,11 @@
         let g:phpcomplete_cache_taglists = 1
         let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
         let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
+        " complete these built-in functions, classes, etc.
+        " let g:phpcomplete_add_function_extensions = [...]
+        " let g:phpcomplete_add_class_extensions = [...]
+        " let g:phpcomplete_add_interface_extensions = [...]
+        " let g:phpcomplete_add_constant_extensions = [...]
 
         " this avoids an error in php-cs-fixer.vim
         let g:phpcomplete_enhance_jump_to_definition = 0
@@ -2078,9 +2083,17 @@
     endif
     " }}}
 
+    " vim-github-comment {{{
+    if isdirectory(expand("~/.vim/plugged/vim-github-comment"))
+        let g:github_user = 'mikedfunk'
+    endif
+    " }}}
+
     " {{{ vim-indentline
-    " let g:indentLine_leadingSpaceEnabled = 1
-    let g:indentLine_char = '┆'
+    if isdirectory(expand("~/.vim/plugged/indentLine"))
+        " let g:indentLine_leadingSpaceEnabled = 1
+        let g:indentLine_char = '┆'
+    endif
     " }}}
 
     " {{{ vim-instant-markdown
@@ -2141,8 +2154,10 @@
     " }}}
 
     " vim-php-manual {{{
-    vnoremap <silent> <buffer> <S-K> y:call phpmanual#online#open(@@)<CR>
-    nnoremap <silent> <buffer> <S-K> :call phpmanual#online#open()<CR>
+    if isdirectory(expand("~/.vim/plugged/vim-php-manual"))
+        vnoremap <silent> <buffer> <S-K> y:call phpmanual#online#open(@@)<CR>
+        nnoremap <silent> <buffer> <S-K> :call phpmanual#online#open()<CR>
+    endif
     " }}}
     "
     " {{{ vim-php-namespace
