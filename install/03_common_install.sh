@@ -201,36 +201,38 @@ if [[ "$(type -P vagrant)" ]]; then
     # homestead cli tool is in global composer.json
 fi
 
+# commented all go stuff out until I am programming in go
+
 # setup gocode directory. this is like a vendor directory so no need to store
 # it in this repo.
-if [[ ! -d "/usr/local/go" ]]; then
-    log_info "creating gocode directory"
-    mkdir "/usr/local/go"
-    export GOPATH="/usr/local/go"
-    export PATH="$GOPATH/bin:$PATH"
-fi
+# if [[ ! -d "/usr/local/go" ]]; then
+    # log_info "creating gocode directory"
+    # mkdir "/usr/local/go"
+    # export GOPATH="/usr/local/go"
+    # export PATH="$GOPATH/bin:$PATH"
+# fi
 
 # setup gopm
-if [[ "$(type -P gopm)" ]]; then
-    log_info "installing gopm package manager"
-    go get -u github.com/gpmgo/gopm
-fi
+# if [[ "$(type -P gopm)" ]]; then
+    # log_info "installing gopm package manager"
+    # go get -u github.com/gpmgo/gopm
+# fi
 
 # install gopm packages
-if [[ ! "$(type -P gopm)" ]]; then
-    log_error "gopm not installed"
-    return ${E_FAILURE}
-fi
-log_info "Installing gopm packages"
+# if [[ ! "$(type -P gopm)" ]]; then
+    # log_error "gopm not installed"
+    # return ${E_FAILURE}
+# fi
+# log_info "Installing gopm packages"
 
-packages=(
-)
-for package in "${packages[@]}"
-do
-    hash $package 2>/dev/null || {
-        log_info "installing $package"
-        gopm install $package
-    }
-done
+# packages=(
+# )
+# for package in "${packages[@]}"
+# do
+    # hash $package 2>/dev/null || {
+        # log_info "installing $package"
+        # gopm install $package
+    # }
+# done
 
 log_info "End common install script"

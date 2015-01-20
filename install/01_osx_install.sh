@@ -67,7 +67,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # graphviz # useful for xdebug profiler class maps
         grc # generic colorizer
         gnu-sed # linux version of sed - saves as gsed
-        go # go programming language. used for mailhog.
+        # go # go programming language. used for mailhog.
         gpg # used by s3cmd
         # hg # mercurial
         highlight # colorizes html and other output on the command line

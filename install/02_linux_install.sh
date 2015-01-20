@@ -166,10 +166,11 @@ if [[ "$(type -P apt-get)" ]]; then
         sudo rake install
     fi
 
-    # install fideloper vhost
+    # install fideloper vhost (only for ubuntu)
+    # https://gist.github.com/fideloper/2710970
     if [[ ! "$(type -P vhost)" ]]; then
         log_info "Installing vhost tool"
-        curl https://gist.github.com/fideloper/2710970/raw/vhost.sh > vhost
+        curl https://gist.githubusercontent.com/fideloper/2710970/raw/4103c7a7e9b4b3a4b05c481e0f10a5fb8a04066b/vhost.py > vhost
         sudo chmod guo+x vhost
         sudo mv vhost /usr/local/bin
     fi
@@ -202,17 +203,19 @@ if [[ "$(type -P apt-get)" ]]; then
         fc-cache -vf ~/.fonts
     fi
 
+    # commented all go stuff out until I am programming in go
+
     # install golang
     # http://golang.org/doc/install
-    if [[ ! "$(type -P go)" ]]; then
-        log_info "installing golang"
-        cd ~
-        wget https://storage.googleapis.com/golang/go1.4.1.linux-amd64.tar.gz
-        tar -C /usr/local/ -xzf go1.4.1.linux-amd64.tar.gz
-        export PATH=$PATH:/usr/local/go/bin
-        rm go1.4.1.linux-amd64.tar.gz
-        cd -
-    fi
+    # if [[ ! "$(type -P go)" ]]; then
+        # log_info "installing golang"
+        # cd ~
+        # wget https://storage.googleapis.com/golang/go1.4.1.linux-amd64.tar.gz
+        # tar -C /usr/local/ -xzf go1.4.1.linux-amd64.tar.gz
+        # export PATH=$PATH:/usr/local/go/bin
+        # rm go1.4.1.linux-amd64.tar.gz
+        # cd -
+    # fi
 
     # download and move mailcatcher
     if [[ ! "$(type -P mailhog)" ]]; then
