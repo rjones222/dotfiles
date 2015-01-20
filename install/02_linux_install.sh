@@ -203,6 +203,7 @@ if [[ "$(type -P apt-get)" ]]; then
     fi
 
     # install golang
+    # http://golang.org/doc/install
     if [[ ! "$(type -P go)" ]]; then
         log_info "installing golang"
         cd ~
