@@ -1096,7 +1096,8 @@ Plug 'markabe/vim-jira-open'
 
 " autocomplete jira task numbers
 " requires 'pip install requests' to work, otherwise fails gracefully
-Plug 'mnpk/vim-jira-complete'
+" Plug 'mnpk/vim-jira-complete'
+Plug 'LucHermitte/vim-jira-complete'
 
 " }}}
 

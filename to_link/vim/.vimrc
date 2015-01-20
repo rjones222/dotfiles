@@ -2111,6 +2111,7 @@
     if isdirectory(expand("~/.vim/plugged/vim-jira-complete"))
         let g:jiracomplete_url = 'http://10.17.37.213/'
         let g:jiracomplete_username = 'mfunk'
+        inoremap <silent> <unique> <leader>jc <Plug>JiraComplete
     endif
     " }}}
 

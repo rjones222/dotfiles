@@ -58,7 +58,7 @@ if [[ "$(type -P apt-get)" ]]; then
     git-extras # cool git addons
     git-flow # adds git commands for the git-flow workflow
     # googlecl # google console
-    gpg # used by s3cmd
+    # gpg # used by s3cmd
     grc # generic colorizer for the command line
     # hg
     highlight # colorizes html and other output on the command line
