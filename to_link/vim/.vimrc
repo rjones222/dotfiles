@@ -1287,24 +1287,26 @@
         let g:colorscheme_set=1
     endif
     " set background=light
-    " let g:solarized_contrast="normal"
-    " solarized stuff I use
-    " let g:solarized_termtrans=0
-    " let g:solarized_termcolors=16
-    " let g:solarized_diffmode="high"
-    "
-    " solariezed stuff I don't use
-    " let g:solarized_degrade=0
-    " let g:solarized_bold=1
-    " let g:solarized_underline=1
-    " let g:solarized_italic=1
-    " let g:solarized_termcolors=16
-    " let g:solarized_contrast="high"
-    " let g:solarized_visibility="high"
-    " let g:solarized_hitrail=1
-    " let g:solarized_menu=1
-    "
-    " set fillchars="fold: "
+    if isdirectory(expand("~/.vim/plugged/vim-colors-solarized"))
+        " let g:solarized_contrast="normal"
+        " solarized stuff I use
+        let g:solarized_termtrans=0
+        let g:solarized_termcolors=16
+        let g:solarized_diffmode="high"
+        "
+        " solariezed stuff I don't use
+        " let g:solarized_degrade=0
+        " let g:solarized_bold=1
+        " let g:solarized_underline=1
+        " let g:solarized_italic=1
+        " let g:solarized_termcolors=16
+        " let g:solarized_contrast="high"
+        " let g:solarized_visibility="high"
+        " let g:solarized_hitrail=1
+        " let g:solarized_menu=1
+        "
+        " set fillchars="fold: "
+    endif
     " }}}
 
     " {{{ set background based on time of day!
@@ -1333,7 +1335,7 @@
     " }}}
 
     " {{{ change the default EasyMotion shading to something more readable with Solarized
-    if isdirectory(expand("~/.vim/plugged/vim-easymotion"))
+    if isdirectory(expand("~/.vim/plugged/vim-easymotion")) && isdirectory(expand("~/.vim/plugged/vim-colors-solarized"))
         hi link EasyMotionTarget ErrorMsg
         hi link EasyMotionShade  Comment
     endif
@@ -1561,7 +1563,7 @@
     " }}}
 
     " {{{ neocomplete
-    if isdirectory(expand("~/.vim/plugged/neocomplete.vim"))
+    if isdirectory(expand("~/.vim/plugged/neocomplete.vim")) && has('lua')
         " Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
         " Disable AutoComplPop.
         let g:acp_enableAtStartup = 0
@@ -1655,6 +1657,7 @@
             " Open selected URI.
             vmap <leader>gu <Plug>(openbrowser-open)
         endif
+    " if neocomplete is a directory
     endif
     " }}}
 
