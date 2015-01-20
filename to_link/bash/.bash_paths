@@ -117,9 +117,9 @@ fi
 # zombie.js doesn't work without this
 export NODE_PATH="/usr/local/lib/node_modules"
 
-# gocode
-if [ -d "$HOME/.gocode" ]; then
-    export GOPATH="$HOME/.gocode"
+# golang
+if [ -d "/usr/local/go" ]; then
+    export GOPATH="/usr/local/go"
     export PATH="$GOPATH/bin:$PATH"
 fi
 

@@ -203,10 +203,10 @@ fi
 
 # setup gocode directory. this is like a vendor directory so no need to store
 # it in this repo.
-if [[ ! -d "$HOME/.gocode" ]]; then
+if [[ ! -d "/usr/local/go" ]]; then
     log_info "creating gocode directory"
-    mkdir "$HOME/.gocode"
-    export GOPATH="$HOME/.gocode"
+    mkdir "/usr/local/go"
+    export GOPATH="/usr/local/go"
     export PATH="$GOPATH/bin:$PATH"
 fi
 

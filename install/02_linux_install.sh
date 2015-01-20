@@ -202,6 +202,17 @@ if [[ "$(type -P apt-get)" ]]; then
         fc-cache -vf ~/.fonts
     fi
 
+    # install golang
+    if [[ ! "$(type -P go)" ]]; then
+        log_info "installing golang"
+        cd ~
+        wget https://storage.googleapis.com/golang/go1.4.1.linux-amd64.tar.gz
+        tar -C /usr/local/ -xzf go1.4.1.linux-amd64.tar.gz
+        export PATH=$PATH:/usr/local/go/bin
+        rm go1.4.1.linux-amd64.tar.gz
+        cd -
+    fi
+
 else
     log_notice "This is not linux so not running linux tasks"
 fi
