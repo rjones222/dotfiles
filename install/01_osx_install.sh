@@ -236,6 +236,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         log_info "installing mailhog"
         wget https://github.com/mailhog/MailHog/releases/download/v0.1.3/MailHog_darwin_amd64
         mv MailHog_darwin_amd64 /usr/local/bin/mailhog
+        chmod +x /usr/local/bin/mailhog
     fi
 
 else
