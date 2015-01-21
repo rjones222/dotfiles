@@ -46,6 +46,7 @@ if [[ "$(type -P apt-get)" ]]; then
     # ack
     apache2
     autossh
+    bash-completion
     # bison # description is too smart for me http://www.gnu.org/software/bison/
     build-essential # common stuff for ubuntu
     cloc # count lines of code
