@@ -27,10 +27,15 @@ link_this "$HOME/.dotfiles/to_link/vim/.vimrc.plugins" "$HOME/.vimrc.plugins"
 
 # create ~/.vim and ~/.vim/autoload if it doesn't exist
 log_info "creating required vim directories"
-if [[ ! -d $HOME/.vim ]]; then
+if [[ ! -d "$HOME/.vim" ]]; then
     log_info "creating the ~/.vim/autoload directory"
     mkdir -p $HOME/.vim/autoload
     chmod +w ~/.vim/autoload
+fi
+if [[ ! -d "$HOME/.vim/files/info" ]]; then
+    log_info "creating the ~/.vim/files/info directory"
+    mkdir -p $HOME/.vim/files/info
+    chmod +w ~/.vim/files/info
 fi
 
 # install vim-plug

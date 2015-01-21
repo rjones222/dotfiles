@@ -2266,6 +2266,9 @@
             \ 'COMMIT_EDITMSG',
             \ '\.DS_Store'
             \ ]
+
+        " make vim startify show recent files
+        set viminfo='100,n$HOME/.vim/files/info/viminfo'
     endif
     " }}}"
 
