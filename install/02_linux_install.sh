@@ -52,6 +52,7 @@ if [[ "$(type -P apt-get)" ]]; then
     cmake
     # cronolog # reads log messages from input and write them to output files based on current date/time... similar to logrotate
     ctags # use with vim to jump to definitions
+    curl # it doesnt come with curl??
     imagemagick # image transformer
     # g++ # compiler for c++ programming
     git

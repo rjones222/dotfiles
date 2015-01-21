@@ -1223,7 +1223,7 @@
     nnoremap <leader>bo :BufOnly<cr>
 
     " open existing buffer in a newtab
-    nnoremap <leader>te :ls<cr>:tabedit #
+    " nnoremap <leader>te :ls<cr>:tabedit #
 
     " open link under cursor in browser
     nnoremap <leader>ou yiW:!open <c-r>" &<cr><cr>
@@ -1862,7 +1862,14 @@
         \ }
     endif
     " }}}"
-    "
+
+    " tagexplorer.vim {{{
+
+    if isdirectory(expand("~/.vim/plugged/tagexplorer.vim"))
+        nnoremap <leader>te :TagExplorer<cr>
+    endif
+    " }}}
+
     " TagHighlight {{{
     " this plugin takes way too much configuration to work.
     if executable('python') && isdirectory(expand("~/.vim/plugged/TagHighlight"))
