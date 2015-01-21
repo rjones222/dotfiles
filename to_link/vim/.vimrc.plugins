@@ -821,6 +821,10 @@ Plug 'Wolfy87/vim-expand'
 " make vim understand line and column numbers from xdebug and the like
 Plug 'kopischke/vim-fetch'
 
+" show a tags sidebar window like nerdtree
+" :TagExplorer
+Plug 'vim-scripts/tagexplorer.vim', { 'on': 'TagExplorer' }
+
 " highlight f and t searches, use same motion to ; or \
 " this just annoys me
 " Plug 'rhysd/clever-f.vim'
