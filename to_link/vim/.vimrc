@@ -2268,7 +2268,7 @@
             \ ]
 
         " make vim startify show recent files
-        set viminfo='100,n$HOME/.vim/files/info/viminfo'
+        set viminfo='100,n$HOME/.vim/files/info/viminfo
     endif
     " }}}"
 
