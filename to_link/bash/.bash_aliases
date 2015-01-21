@@ -373,8 +373,6 @@ fi
 
 # shortcuts
 alias g="git"
-# do git completion with g
-__git_complete g __git_main
 
 # phpunit {{{
 # alias phpunit="phpunitnotify"

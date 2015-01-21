@@ -14,13 +14,13 @@
 # more info at http://mikefunk.com
 # }}}
 
+[ -f ~/.private_vars.sh ] && source ~/.private_vars.sh
 [ -f ~/.bash_env ] && source ~/.bash_env
 [ -f ~/.bash_paths ] && source ~/.bash_paths
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
 [ -f ~/.bash_completions ] && source ~/.bash_completions
 [ -f ~/.promptline.theme.bash ] && source ~/.promptline.theme.bash
-[ -f ~/.private_vars.sh ] && source ~/.private_vars.sh
 
 # source bash completions
 [ -d ~/.dotfiles/to_link/bash_completion.d ] && for f in ~/.dotfiles/to_link/bash_completion.d/*; do source $f; done
