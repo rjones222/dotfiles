@@ -386,8 +386,9 @@ Plug 'vimez/vim-tmux', { 'for': 'tmux' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 
 " colorize css colors without causing $VIMRC reload problems
-" Plug 'ap/vim-css-color'
-Plug 'chrisbra/Colorizer', { 'for': ['css', 'scss', 'sass', 'less'] }
+Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass', 'less'] }
+" breaks horribly
+" Plug 'chrisbra/Colorizer', { 'for': ['css', 'scss', 'sass', 'less'] }
 
 " color designer tool
 " View colors
@@ -587,7 +588,8 @@ Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 " Plug 'idbrii/vim-mark'
 
 " crosshairs on parens and such. Easier to find where you're currently at...?
-Plug 'chreekat/vim-paren-crosshairs'
+" buggy. not always on parens.
+" Plug 'chreekat/vim-paren-crosshairs'
 
 " highlight matching words under cursor all the time. Can be adjusted with
 " highlight group and with filetype whitelist/blacklist. I like it - the
