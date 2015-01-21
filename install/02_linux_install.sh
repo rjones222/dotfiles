@@ -222,8 +222,8 @@ if [[ "$(type -P apt-get)" ]]; then
     if [[ ! "$(type -P mailhog)" ]]; then
         log_info "installing mailhog"
         wget https://github.com/mailhog/MailHog/releases/download/v0.1.3/MailHog_linux_amd64
-        mv MailHog_linux_amd64 /usr/local/bin/mailhog
-        chmod +x /usr/local/bin/mailhog
+        sudo mv MailHog_linux_amd64 /usr/local/bin/mailhog
+        sudo chmod +x /usr/local/bin/mailhog
     fi
 
 else
