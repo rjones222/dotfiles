@@ -198,8 +198,8 @@ if [[ "$(type -P apt-get)" ]]; then
         [ -d "$HOME/.fonts" ] || mkdir ~/.fonts
         cd ~/.fonts
         git clone https://github.com/Lokaltog/powerline-fonts
-        wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-        wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+        wget https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf
+        wget https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf
         # Merge the contents of 10-powerline-symbols.conf to ~/.fonts.conf
         fc-cache -vf ~/.fonts
     fi
