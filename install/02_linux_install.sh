@@ -86,6 +86,7 @@ if [[ "$(type -P apt-get)" ]]; then
     php5-mcrypt
     # php5-pgsql
     php5-xdebug
+    php5-xsl
     # postfix
     # postgresql
     # postgresql-contrib
