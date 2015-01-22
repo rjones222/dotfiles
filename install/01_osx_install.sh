@@ -72,7 +72,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # hg # mercurial
         highlight # colorizes html and other output on the command line
         htop # prettier, more powerful version of top. gets the top running processes
-        hub # github tool is a superset of git
+        # hub # github tool is a superset of git. 2.0 needs to be installed via --HEAD
         # imagemagick # image transformation tool
         irssi # irc client
         # jsawk # parse json in bash
@@ -157,6 +157,12 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             log_info "installing battery script for tmux statusline"
             brew tap Goles/battery
             brew install battery
+        fi
+
+        # hub 2.x requires --HEAD
+        if [[ ! "$(type -P hub)" ]]; then
+            log_info "installing github hub"
+            brew install --HEAD hub
         fi
 
         # set up dnsmasq

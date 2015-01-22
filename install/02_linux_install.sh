@@ -165,8 +165,17 @@ if [[ "$(type -P apt-get)" ]]; then
     # install github's hub
     if [[ ! "$(type -P hub)" ]]; then
         log_info "Installing hub"
-        cd ~/.dotfiles/support/hub
-        sudo rake install
+        cd
+        wget https://github.com/github/hub/releases/download/v2.2.0-rc1/hub_2.2.0-rc1_linux_amd64.gz.tar
+        tar -zxvf hub_2.2.0-rc1_linux_amd64.gz.tar
+        rm hub_2.2.0-rc1_linux_amd64.gz.tar
+        cp hub_2.2.0-rc1_linux_amd64/hub /usr/local/bin/
+        chmod +x /usr/local/bin/hub
+        rm -rf hub_2.2.0-rc1_linux_amd64
+        cd -
+        # old hub
+        # cd ~/.dotfiles/support/hub
+        # sudo rake install
     fi
 
     # install fideloper vhost (only for ubuntu)
