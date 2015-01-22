@@ -120,7 +120,7 @@ if [[ "$(type -P apt-get)" ]]; then
     if [[ ! "$(type -P battery)" ]]; then
         log_info "installing battery script"
         cd
-        curl -O https://raw.github.com/richo/battery/master/bin/battery
+        curl -O https://raw.githubusercontent.com/richo/battery/master/bin/battery
         sudo mv battery /usr/local/bin/battery
         sudo chmod +x /usr/local/bin/battery
     fi
