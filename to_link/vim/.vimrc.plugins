@@ -173,6 +173,11 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 " General {{{
 
+" show enabled plugins in macvim
+if has("gui_running")
+    Plug 'mbadran/headlights'
+endif
+
 " rename a file with :Rename mynewname
 Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
 

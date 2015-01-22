@@ -1800,6 +1800,7 @@
         " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
         " phpmd is kind of useless to me right now
         let g:syntastic_php_checkers = ['php', 'phpcs']
+        " let g:syntastic_js_checkers = []
 
         " spiffy error columns
         let g:syntastic_error_symbol='✗'
