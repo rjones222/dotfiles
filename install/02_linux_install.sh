@@ -126,6 +126,7 @@ if [[ "$(type -P apt-get)" ]]; then
     fi
 
     # install tmux 1.9
+    # @link http://stackoverflow.com/a/25952511/557215
     if [[ ! "$(type -P tmux)" ]]; then
         log_info "installing tmux 1.9"
         sudo apt-get update

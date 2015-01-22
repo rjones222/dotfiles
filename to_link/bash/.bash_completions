@@ -26,6 +26,8 @@ eval "$(grunt --completion=bash)"
 
 # fails to find 'have' command in ubuntu
 # [ -d /etc/bash_completion.d ] && for f in /etc/bash_completion.d/*; do source $f; done
+
+# ubuntu y u no find this?
 [ -f "/etc/bash_completion.d/git-prompt" ] && . /etc/bash_completion.d/git-prompt
 
 # do git completion with g
