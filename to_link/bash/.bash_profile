@@ -24,3 +24,4 @@
 
 # source bash completions
 [ -d ~/.dotfiles/to_link/bash_completion.d ] && for f in ~/.dotfiles/to_link/bash_completion.d/*; do source $f; done
+[ -d /etc/bash_completion.d ] && for f in /etc/bash_completion.d/*; do source $f; done
