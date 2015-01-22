@@ -102,7 +102,7 @@ if [[ "$(type -P apt-get)" ]]; then
     # solr-tomcat # if you need solr it installs both
     # spidermonkey-bin # SpiderMonkey is Mozillas JavaScript engine written in C/C++
     tig # git viewer
-    tmux # terminal multiplexer
+    # tmux # terminal multiplexer - installs v1.8 which is not compatible with tmux-plugin-manager
     tofrodos # convert line endings to and from dos
     tree # display files in a tree view
     vim # the text editor
@@ -123,6 +123,16 @@ if [[ "$(type -P apt-get)" ]]; then
         curl -O https://raw.githubusercontent.com/richo/battery/master/bin/battery
         sudo mv battery /usr/local/bin/battery
         sudo chmod +x /usr/local/bin/battery
+    fi
+
+    # install tmux 1.9
+    if [[ ! "$(type -P tmux)" ]]; then
+        log_info "installing tmux 1.9"
+        sudo apt-get update
+        sudo apt-get install -y python-software-properties software-properties-common
+        sudo add-apt-repository -y ppa:pi-rho/dev
+        sudo apt-get update
+        sudo apt-get install -y tmux=1.9a-1~ppa1~t
     fi
 
      # install the silver searcher
