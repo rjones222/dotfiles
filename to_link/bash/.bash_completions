@@ -17,7 +17,7 @@
 # source bash completions
 [ -d ~/.dotfiles/to_link/bash_completion.d ] && for f in ~/.dotfiles/to_link/bash_completion.d/*; do source $f; done
 
-# some extra completions that don't go in bash_completions.d
+# some extra completions that don't go in bash_completion.d
 [ -f "/etc/bash_completion" ] && source /etc/bash_completion
 eval "$(grunt --completion=bash)"
 
@@ -25,7 +25,8 @@ eval "$(grunt --completion=bash)"
 # eval "$(karma completion)"
 
 # fails to find 'have' command in ubuntu
-[ -d /etc/bash_completion.d ] && for f in /etc/bash_completion.d/*; do source $f; done
+# [ -d /etc/bash_completion.d ] && for f in /etc/bash_completion.d/*; do source $f; done
+[ -f "/etc/bash_completion.d/git-prompt" ] && . /etc/bash_completion.d/git-prompt
 
 # do git completion with g
 __git_complete g __git_main
