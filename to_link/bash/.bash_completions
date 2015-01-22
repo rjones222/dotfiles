@@ -17,6 +17,9 @@
 # some extra completions that don't go in bash_completions.d
 [ -f "/etc/bash_completion" ] && source /etc/bash_completion
 eval "$(grunt --completion=bash)"
-eval "$(karma completion)"
+
+# Cannot find local karma!
+# eval "$(karma completion)"
+
 # do git completion with g
 __git_complete g __git_main
