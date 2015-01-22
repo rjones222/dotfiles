@@ -193,12 +193,17 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     fi
 
     # install ctags patched
-    # @url https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
-    log_info "Installing Ctags Patched"
-    cd /usr/local/Library/Formula/
-    curl https://raw.githubusercontent.com/shawncplus/phpcomplete.vim/master/misc/ctags-better-php.rb > /usr/local/Library/Formula/ctags-better-php.rb
-    brew install ctags-better-php
-    brew link --overwrite ctags-better-php
+    # @link https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
+    # log_info "Installing Ctags Patched"
+    # cd /usr/local/Library/Formula/
+    # curl https://raw.githubusercontent.com/shawncplus/phpcomplete.vim/master/misc/ctags-better-php.rb > /usr/local/Library/Formula/ctags-better-php.rb
+    # brew install ctags-better-php
+    # brew link --overwrite ctags-better-php
+
+    # @link https://github.com/kopischke/homebrew-ctags
+    log_info "Installing Ctags fishman"
+    brew tap kopischke/ctags
+    brew install ctags-fishman --HEAD
 
     # link brew apps
     brew linkapps
