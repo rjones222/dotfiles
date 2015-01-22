@@ -169,8 +169,8 @@ if [[ "$(type -P apt-get)" ]]; then
         wget https://github.com/github/hub/releases/download/v2.2.0-rc1/hub_2.2.0-rc1_linux_amd64.gz.tar
         tar -zxvf hub_2.2.0-rc1_linux_amd64.gz.tar
         rm hub_2.2.0-rc1_linux_amd64.gz.tar
-        cp hub_2.2.0-rc1_linux_amd64/hub /usr/local/bin/
-        chmod +x /usr/local/bin/hub
+        sudo cp hub_2.2.0-rc1_linux_amd64/hub /usr/local/bin/
+        sudo chmod +x /usr/local/bin/hub
         rm -rf hub_2.2.0-rc1_linux_amd64
         cd -
         # old hub
