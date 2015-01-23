@@ -34,7 +34,7 @@ if [[ ! -d "$HOME/.vim" ]]; then
 fi
 if [[ ! -d "$HOME/.vim/files/info" ]]; then
     log_info "creating the ~/.vim/files/info directory"
-    mkdir -p $HOME/.vim/files/info
+    mkdir -p ~/.vim/files/info
     chmod a+w ~/.vim/files/info
 fi
 
