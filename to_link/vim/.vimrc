@@ -1024,7 +1024,7 @@
     " disable spellcheck
     set nospell
 
-    " Abbreviations
+    " Abbreviations {{{
     if executable('phpunit')
         abbrev pft PHPUnit_Framework_TestCase
     endif
@@ -1033,6 +1033,7 @@
         abbrev gc !php artisan generate:controller
         abbrev gmig !php artisan generate:migration
     endif
+    " }}}
 
     augroup qfclose_augroup
         autocmd!
@@ -1077,6 +1078,9 @@
 " Key Mapping {{{
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
+    
+    " word wrap the current paragraph
+    nnoremap Q gqap
 
     " close preview window with ,pp because I remap <c-w>z to zoom the window.
     " works like ,qq and ,ll except it can't re-open it of course
@@ -1108,8 +1112,12 @@
     " command! StripTrailingWhitespace :%s/\s\+$//
 
     " covert dos line endings to unix line endings
-    command! Dos2unix :%s///g
-    command! Heming :%s///g
+    command! Dos2unix :%s/
+/
+/g
+    command! Heming :%s/
+/
+/g
 
     " change tab width from 4 to 2 spaces and retab
     nnoremap <leader>t2 :call MyTabWidth(4,2)<cr>
