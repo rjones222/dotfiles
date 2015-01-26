@@ -1287,7 +1287,7 @@
 
     " {{{ colorscheme
     if !exists('g:colorscheme_set')
-        colorscheme lucius
+        silent! colorscheme lucius
         set background=dark
         " let g:lucius_no_term_bg=1
         " colorscheme solarized
