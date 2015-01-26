@@ -23,6 +23,14 @@ log_info "Beginning mac install script"
 # OSX-only stuff. Abort if not OSX.
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 
+    # install xcode command line tools
+    if [[ ! "$(type -P xcode-select)" ]]; then
+        log_error "xcode is not currently installed! Please download it here: https://developer.apple.com/xcode/downloads/"
+    elif [ "$(xcode-select --print-path)" != "/Applications/Xcode.app/Contents/Developer" ]; then
+        log_info "starting xcode command line tools installer"
+        xcode-select --install
+    fi
+    
     # set mac preferences
     if [[ $(defaults read com.apple.finder NewWindowTargetPath) != "file://Users/mfunk" ]]; then
         log_info "setting finder default location"
