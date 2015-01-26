@@ -122,5 +122,9 @@ if [ -d "/usr/local/go" ]; then
     export GOPATH="/usr/local/go"
     export PATH="$GOPATH/bin:$PATH"
 fi
+# GOROOT-based install location from homebrew go
+if [ -d "/usr/local/opt/go/libexec/bin" ]; then
+    export PATH=$PATH:/usr/local/opt/go/libexec/bin
+fi
 
 export PATH="$PATH"
