@@ -6,20 +6,20 @@ windows:
     panes:
       - vim -S ~/.vim/sessions/config
       - git status
-  - name: "hrh"
-    root: "~/Sites/acp-hotrodhotline"
-    layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
-    panes:
-      - cd ~/Sites/acp-hotrodhotline && vim -S ~/.vim/sessions/hrh
-      - pwd
-      - gulp
-  - name: "acp"
-    root: "~/Sites/acp-core"
+  # - name: "hrh"
+    # root: "~/Sites/acp-hotrodhotline"
     # layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
-    layout: "main-horizontal"
-    panes:
-      - vim -S ~/.vim/sessions/acp
-      - pwd
+    # panes:
+      # - cd ~/Sites/acp-hotrodhotline && vim -S ~/.vim/sessions/hrh
+      # - pwd
+      # - gulp
+  # - name: "acp"
+    # root: "~/Sites/acp-core"
+    # layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim -S ~/.vim/sessions/acp
+      # - pwd
       # - puw
     # - name: "admin"
       # root: "~/Sites/acp-admin"
@@ -27,14 +27,14 @@ windows:
       # panes:
         # - vim -S ~/.vim/sessions/acp-admin
         # - pwd
-  - name: "vm"
-    root: "~/Sites/acp-hotrodhotline"
-    layout: "main-horizontal"
-    panes:
-      - cd ~/Sites/acp-hotrodhotline; vagrant up && vagrant ssh
-      - commands:
-        - tmux rename-session Work
-        - exit
+  # - name: "vm"
+    # root: "~/Sites/acp-hotrodhotline"
+    # layout: "main-horizontal"
+    # panes:
+      # - cd ~/Sites/acp-hotrodhotline; vagrant up && vagrant ssh
+      # - commands:
+        # - tmux rename-session Work
+        # - exit
   # - name: "bustersphp"
     # root: "~/Sites/bustersphp"
     # layout: "main-horizontal"
