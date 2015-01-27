@@ -1111,14 +1111,6 @@
     " remove trailing spaces
     " command! StripTrailingWhitespace :%s/\s\+$//
 
-    " covert dos line endings to unix line endings
-    command! Dos2unix :%s/
-/
-/g
-    command! Heming :%s/
-/
-/g
-
     " change tab width from 4 to 2 spaces and retab
     nnoremap <leader>t2 :call MyTabWidth(4,2)<cr>
 
