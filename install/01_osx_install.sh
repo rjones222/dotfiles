@@ -91,7 +91,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         nodejs
         pandoc # used for inline vim php documentation
         # postgresql
-        profanity # xmpp client to do chat in the terminal
         ranger # vim-like file system browser
         rbenv # ruby environment switcher
         reattach-to-user-namespace # used to fix mac issues with copy/paste in tmux
@@ -123,6 +122,12 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         if [[ ! "$(type -P mvim)" ]]; then
             log_info "installing macvim"
             brew install macvim --with-lua --override-system-vim
+        fi
+
+        # xmpp client to do chat in the terminal
+        if [[ ! "$(type -P profanity)" ]]; then
+            log_info "installing profanity console IM client"
+            brew install profanity --with-terminal-notifier 
         fi
 
         # https://github.com/neovim/neovim/wiki/Installing
