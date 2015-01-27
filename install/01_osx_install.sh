@@ -31,6 +31,13 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         xcode-select --install
     fi
     
+    # fix an issue with yosemite
+    # @link https://github.com/Homebrew/homebrew-php/issues/1181#issuecomment-62617721
+    if [[ ! -L "/usr/include" && -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include" ]]; then
+        log_info "symlinking xcode include dir into /usr/include"    
+        sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include /usr/include
+    fi
+    
     # set mac preferences
     if [[ $(defaults read com.apple.finder NewWindowTargetPath) != "file://Users/mfunk" ]]; then
         log_info "setting finder default location"
