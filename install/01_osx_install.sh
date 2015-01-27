@@ -71,6 +71,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # ack # a search tool better than grep but worse than ag
         # cloc #count lines of code
         colortail # tail with support for colors
+        cmake # used by youcompleteme
         ctags # allows jumping to function/class definitions, etc. in vim
         dnsmasq # easily set up dynamic dev domains such as myproject.dev
         # dos2unix # converts dos line endings to unix in a file
