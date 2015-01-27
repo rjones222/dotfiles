@@ -30,14 +30,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         log_info "starting xcode command line tools installer"
         xcode-select --install
     fi
-    
-    # fix an issue with yosemite
-    # @link https://github.com/Homebrew/homebrew-php/issues/1181#issuecomment-62617721
-    if [[ ! -L "/usr/include" && -d "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include" ]]; then
-        log_info "symlinking xcode include dir into /usr/include"    
-        sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include /usr/include
-    fi
-    
+
     # set mac preferences
     if [[ $(defaults read com.apple.finder NewWindowTargetPath) != "file://Users/mfunk" ]]; then
         log_info "setting finder default location"
@@ -251,8 +244,15 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         sudo sed -i '.bak' 's/#LoadModule php5_module\ libexec\/apache2\/libphp5\.so/LoadModule php5_module\ \/usr\/local\/opt\/php56\/libexec\/apache2\/libphp5\.so/' /etc/apache2/httpd.conf
     fi
 
+    # fix an issue with variable loading
+    # @link http://stackoverflow.com/questions/4749330/how-to-test-if-string-exists-in-file-with-bash-shell
+    if grep -Fxq 'variables_order = "GPCS"' /usr/local/etc/php/5.6/php.ini
+    then
+        log_info "fixing php.ini variable order"
+        sed -i '.bak' 's/variables_order\ =\ "GPCS"/variables_order\ =\ "EGPCS"/' /usr/local/etc/php/5.6/php.ini
+    fi
+
     # install phing bash completion
-    log_info "installing bash completion for phing"
     if [[ ! -f /usr/local/etc/bash_completion.d/phing ]]; then
         log_info "Installing phing bash completion"
         cd
