@@ -124,7 +124,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             brew install macvim --with-lua --override-system-vim
         fi
 
-        # xmpp client to do chat in the terminal
+        # jabber/xmpp client to do chat in the terminal
         if [[ ! "$(type -P profanity)" ]]; then
             log_info "installing profanity console IM client"
             brew install profanity --with-terminal-notifier 
