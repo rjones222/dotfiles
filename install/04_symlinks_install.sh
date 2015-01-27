@@ -45,6 +45,18 @@ link_this "/var/www/sites" "$HOME/Sites"
 # default location for mac
 link_this "/Library/WebServer/Documents" "$HOME/Sites"
 
+# fix permissions if the above directories exist
+if [ -d /Library/WebServer/Documents ]; then
+    log_info "fixing permissions and ownership for mac web server folder"
+    sudo chgrp staff /Library/WebServer/Documents
+    sudo chmod g+w /Library/WebServer/Documents
+fi
+if [ -d /Library/WebServer/Documents ]; then
+    log_info "fixing permissions and ownership for ~/Sites"
+    sudo chgrp staff "$HOME/Sites"
+    sudo chmod g+w "$HOME/Sites"
+fi
+
 link_this "$HOME/.dotfiles/to_link/.jshintrc" "$HOME/.jshintrc"
 # link_this "$HOME/.dotfiles/to_link/.virtualhost.sh.conf" "$HOME/.virtualhost.sh.conf"
 link_this "$HOME/.dotfiles/to_link/.tmux" "$HOME/.tmux"
