@@ -91,6 +91,7 @@ if [[ "$(type -P apt-get)" ]]; then
     # postfix
     # postgresql
     # postgresql-contrib
+    profanity # xmpp client to do chat in the terminal
     # python-software-properties
     # python-dev
     python-pip # python package manager

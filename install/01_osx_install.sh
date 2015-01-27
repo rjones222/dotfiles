@@ -90,6 +90,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         nodejs
         pandoc # used for inline vim php documentation
         # postgresql
+        profanity # xmpp client to do chat in the terminal
         ranger # vim-like file system browser
         rbenv # ruby environment switcher
         reattach-to-user-namespace # used to fix mac issues with copy/paste in tmux
