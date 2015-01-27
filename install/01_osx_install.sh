@@ -229,7 +229,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     brew tap homebrew/versions
     brew tap homebrew/homebrew-php
     brew install php56 --with-homebrew-curl --with-libmysql --with-debug --withapache --with-imap --with-libxml
-    brew install php56-xdebug php56-mcrypt
+    brew install php56-xdebug --HEAD # fails if HEAD version not used
+    brew install php56-mcrypt
     # have launchd start php56 at login
     ln -sfv /usr/local/opt/php56/*.plist ~/Library/LaunchAgents
     # load php56 now
