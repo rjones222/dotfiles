@@ -1,3 +1,14 @@
 [ui]
 vercheck=true
 statuses.console=none
+intype=true
+
+[notifications]
+message=true
+typing=true
+room.text=true
+sub=true
+invite=true
+room=on
+message.text=true
+remind=0
