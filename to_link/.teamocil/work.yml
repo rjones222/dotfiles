@@ -6,6 +6,14 @@ windows:
     panes:
       - vim -S ~/.vim/sessions/config
       - git status
+  - name: "chat"
+    root: "~"
+    layout: "main-horizontal"
+    panes:
+      - profanity
+      - commands:
+        - tmux rename-session chat
+        - exit
   # - name: "hrh"
     # root: "~/Sites/acp-hotrodhotline"
     # layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"

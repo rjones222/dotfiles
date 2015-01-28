@@ -2,6 +2,7 @@
 vercheck=true
 statuses.console=none
 intype=true
+mouse=true
 
 [notifications]
 message=true
@@ -12,3 +13,10 @@ invite=true
 room=on
 message.text=true
 remind=0
+
+[chatstates]
+outtype=true
+enabled=true
+
+[connection]
+reconnect=3
