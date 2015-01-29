@@ -258,6 +258,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         sudo sed -i '.bak' 's/#LoadModule php5_module\ libexec\/apache2\/libphp5\.so/LoadModule php5_module\ \/usr\/local\/opt\/php56\/libexec\/apache2\/libphp5\.so/' /etc/apache2/httpd.conf
     fi
 
+    # Remove outdated versions from the cellar.
+    brew cleanup
+
     # fix an issue with variable loading
     # @link http://stackoverflow.com/questions/4749330/how-to-test-if-string-exists-in-file-with-bash-shell
     if grep -Fxq 'variables_order = "GPCS"' /usr/local/etc/php/5.6/php.ini
