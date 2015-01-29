@@ -23,3 +23,4 @@ enabled=true
 [connection]
 reconnect=3
 account=work
+autoping=60
