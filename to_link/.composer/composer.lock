@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ae663d12491c8b00ed8d83ff850ebd46",
+    "hash": "3ed895ecd3e430a2c0369febbbbc8329",
     "packages": [
         {
             "name": "alexandresalome/php-selenium",
@@ -3588,6 +3588,67 @@
             "time": "2012-12-21 11:40:51"
         },
         {
+            "name": "psy/psysh",
+            "version": "v0.1.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/psysh.git",
+                "reference": "4c61cc135eda07a37d582a389b453cd4a6843834"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4c61cc135eda07a37d582a389b453cd4a6843834",
+                "reference": "4c61cc135eda07a37d582a389b453cd4a6843834",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "~0.9.3",
+                "php": ">=5.3.0",
+                "symfony/console": "~2.3, >=2.3.10"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=3.7, <4.1",
+                "symfony/finder": "~2.1"
+            },
+            "suggest": {
+                "ext-pcntl": "Enabling the PCNTL extension makes PsySH a lot happier :)"
+            },
+            "bin": [
+                "bin/psysh"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Psy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Hileman",
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "An interactive shell for modern PHP.",
+            "homepage": "https://github.com/bobthecow/psysh",
+            "keywords": [
+                "REPL",
+                "console",
+                "interactive",
+                "shell"
+            ],
+            "time": "2014-06-21 03:00:51"
+        },
+        {
             "name": "react/promise",
             "version": "v2.2.0",
             "source": {
@@ -5626,7 +5687,8 @@
         "behat/mink-extension": 0,
         "behat/mink-selenium-driver": 20,
         "phpspec/phpspec": 0,
-        "laravel/homestead": 0
+        "laravel/homestead": 0,
+        "psy/psysh": 0
     },
     "prefer-stable": false,
     "prefer-lowest": false,
