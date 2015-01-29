@@ -6,13 +6,15 @@ mouse=true
 
 [notifications]
 message=true
-typing=true
+typing=false
 room.text=true
 sub=true
 invite=true
 room=on
 message.text=true
 remind=0
+
+typing.current=false
 
 [chatstates]
 outtype=true
