@@ -10,7 +10,7 @@
 #  | |  | | |   <  __/ | | | |_| | | | |   <
 #  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
 #
-# link my dotfiles to their expected locations
+# install ievms for testing. requires virtualbox.
 # more info at http://mikefunk.com
 # }}}
 
@@ -19,6 +19,10 @@ for f in ~/.dotfiles/install/support/*; do source $f; done
 # }}}
 
 # uncomment this to install ievms for IE 9, 10, and 11
-# log_info "Beginning ievms install script"
-# curl -s https://raw.githubusercontent.com/xdissent/ievms/master/ievms.sh | env IEVMS_VERSIONS="9 10 11" bash
+# if [[ ! "$(type -P virtualbox)" ]]; then
+    # log_error "cannot install ievms - virtualbox not installed!"
+# else
+    # log_info "Beginning ievms install script"
+    # curl -s https://raw.githubusercontent.com/xdissent/ievms/master/ievms.sh | env IEVMS_VERSIONS="9 10 11" bash
+# fi
 # log_info "End ievms install script"
