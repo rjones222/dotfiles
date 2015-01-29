@@ -250,7 +250,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     # have launchd start php56 at login
     ln -sfv /usr/local/opt/php56/*.plist ~/Library/LaunchAgents
     # load php56 now
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist
+    # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist
     # if extension not in httpd.conf, add it
     LoadPhp="LoadModule php5_module /usr/local/opt/php56/libexec/apache2/libphp5.so";
     if ! grep -Fxq "/usr/local/opt/php56/libexec/apache2/libphp5.so"; then
@@ -281,6 +281,179 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         mv MailHog_darwin_amd64 /usr/local/bin/mailhog
         chmod +x /usr/local/bin/mailhog
     fi
+
+    # mac defaults from mathias bynens {{{
+        # @link https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+        log_info "updating mac settings"
+
+        #####################
+        # General UI
+        #####################
+
+        # Increase window resize speed for Cocoa applications
+        defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+        # Expand save panel by default
+        defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+        defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+        # Expand print panel by default
+        defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+        defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+        # Automatically quit printer app once the print jobs complete
+        defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+        # Disable the “Are you sure you want to open this application?” dialog
+        defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+        # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
+        /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+
+        # Check for software updates daily, not just once per week
+        defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+        # Disable smart quotes as they’re annoying when typing code
+        defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+        # Disable smart dashes as they’re annoying when typing code
+        defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+        #####################
+        # SSD
+        #####################
+
+        # Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
+        # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
+        #rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+        #sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
+        #sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
+
+        # Disable the sudden motion sensor as it’s not useful for SSDs
+        sudo pmset -a sms 0
+
+        #####################
+        # Keyboard and mouse
+        #####################
+
+        # Trackpad: enable tap to click for this user and for the login screen
+        defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+        defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+        defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+        # Disable “natural” (Lion-style) scrolling
+        defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+        # Increase sound quality for Bluetooth headphones/headsets
+        defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+        # Enable full keyboard access for all controls
+        # (e.g. enable Tab in modal dialogs)
+        defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+        # Use scroll gesture with the Ctrl (^) modifier key to zoom
+        defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+        defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+        # Follow the keyboard focus while zoomed in
+        defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+
+        # Disable press-and-hold for keys in favor of key repeat
+        defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+        # Set a blazingly fast keyboard repeat rate
+        defaults write NSGlobalDomain KeyRepeat -int 0
+
+        #####################
+        # Screen
+        #####################
+
+        # Enable subpixel font rendering on non-Apple LCDs
+        defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+        # Enable HiDPI display modes (requires restart)
+        sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+
+        #####################
+        # Finder
+        #####################
+
+        # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+        defaults write com.apple.finder QuitMenuItem -bool true
+
+        # Finder: show all filename extensions
+        defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+        # Finder: show status bar
+        defaults write com.apple.finder ShowStatusBar -bool true
+
+        # Finder: show path bar
+        defaults write com.apple.finder ShowPathbar -bool true
+
+        # Finder: allow text selection in Quick Look
+        defaults write com.apple.finder QLEnableTextSelection -bool true
+
+        # When performing a search, search the current folder by default
+        defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+        # Enable spring loading for directories
+        defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
+        # Avoid creating .DS_Store files on network volumes
+        defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+        # Use list view in all Finder windows by default
+        # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+        defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+        # Enable AirDrop over Ethernet and on unsupported Macs running Lion
+        defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+        # Expand the following File Info panes:
+        # “General”, “Open with”, and “Sharing & Permissions”
+        defaults write com.apple.finder FXInfoPanesExpanded -dict \
+            General -bool true \
+            OpenWith -bool true \
+            Privileges -bool true
+
+        #####################
+        # Dock
+        #####################
+
+        # Wipe all (default) app icons from the Dock
+        # This is only really useful when setting up a new Mac, or if you don’t use
+        # the Dock to launch apps.
+        # defaults write com.apple.dock persistent-apps -array
+
+        # Make Dock icons of hidden applications translucent
+        defaults write com.apple.dock showhidden -bool true
+        killall Dock
+
+        # Only use UTF-8 in Terminal.app
+        defaults write com.apple.terminal StringEncodings -array 4
+
+        # Use plain text mode for new TextEdit documents
+        defaults write com.apple.TextEdit RichText -int 0
+        # Open and save files as UTF-8 in TextEdit
+        defaults write com.apple.TextEdit PlainTextEncoding -int 4
+        defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+        #####################
+        # Chrome
+        #####################
+
+        # Allow installing user scripts via GitHub Gist or Userscripts.org
+        defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
+        defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
+
+        # Disable the all too sensitive backswipe
+        defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+        defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+
+        # Use the system-native print preview dialog
+        defaults write com.google.Chrome DisablePrintPreview -bool true
+        defaults write com.google.Chrome.canary DisablePrintPreview -bool true
+
+    # }}}
 
 else
     log_notice "This is not OSX so not running osx tasks"
