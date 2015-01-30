@@ -6,19 +6,26 @@ windows:
     panes:
       - vim -S ~/.vim/sessions/config
       - git status
-  - name: "chat"
-    root: "~"
-    layout: "main-horizontal"
-    panes:
-      - profanity
-      - commands:
-        - tmux rename-session chat
-        - exit
+  # iMessage is a lot easier. I'm tired of getting disconnected constantly on profanity
+  # - name: "chat"
+    # root: "~"
+    # layout: "main-horizontal"
+    # panes:
+      # - profanity
+      # - commands:
+        # - tmux rename-session chat
+        # - exit
   - name: "golflink"
-    root: "~/Sites/golflink-website"
+    root: "~/Sites/golflink-website/projects/net-framework/Website"
     layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
     panes:
       - vim -S ~/.vim/sessions/golflink
+      - git status
+  - name: "trails"
+  root: "~/Sites/trails-website/projects/net-framework/website"
+    layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    panes:
+      - vim -S ~/.vim/sessions/trails
       - git status
   # - name: "hrh"
     # root: "~/Sites/acp-hotrodhotline"

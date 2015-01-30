@@ -21,6 +21,6 @@ outtype=true
 enabled=true
 
 [connection]
-reconnect=3
+reconnect=5
 account=work
-autoping=60
+autoping=120
