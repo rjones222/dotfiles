@@ -20,3 +20,18 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# custom stuff
+*.swp
+tags
+.DS_Store
+.phpcomplete_extended
+.projections.json
+nbproject
+composer.phar
+nbproject
+build
+_ide_helper.php
+autocomplete
+.exrc
+types_php.taghl

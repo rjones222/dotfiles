@@ -181,7 +181,8 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     trustctime = false
     ; if you want to specify a custom global gitignore location
-    excludesfile = ~/.gitignore
+    ; I don't use this, I use ~/.config/git/ignore now
+    ; excludesfile = ~/.gitignore
     ; autocrlf = input
     ; autocrlf = true
     autocrlf = false

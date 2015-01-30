@@ -21,7 +21,6 @@ for f in ~/.dotfiles/install/support/*; do source $f; done
 log_info "Beginning symlinks install script"
 
 link_this "$HOME/.dotfiles/to_link/.gitconfig" "$HOME/.gitconfig"
-link_this "$HOME/.dotfiles/to_link/.gitignore" "$HOME/.gitignore"
 link_this "$HOME/.dotfiles/to_link/.agignore" "$HOME/.agignore"
 link_this "$HOME/.dotfiles/to_link/.config" "$HOME/.config"
 link_this "$HOME/.dotfiles/to_link/.ssh" "$HOME/.ssh"

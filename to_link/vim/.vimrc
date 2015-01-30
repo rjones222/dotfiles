@@ -1097,9 +1097,9 @@
     if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
         " dotfile updates
         command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
-        command! PrivateUpdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
+        command! Privateupdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
         nnoremap <leader>du :Dotupdates<cr>
-        nnoremap <leader>pr :Privateupdates<cr>
+        nnoremap <leader>pv :Privateupdates<cr>
     endif
 
     if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
