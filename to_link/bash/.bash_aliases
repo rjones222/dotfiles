@@ -530,12 +530,12 @@ alias rmf='rm -rf'
 alias renewip="sudo ipconfig set en0 BOOTP && sudo ipconfig set en0 DHCP && echo 'ip renewed'"
 
 # mac flush dns
-# macos 10.6
+# macos 10.6 snow leopard
 # alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && echo 'dns flushed'"
 # mountain lion or lion
 # alias flushdns="sudo killall -HUP mDNSResponder && echo 'dns flushed'"
 # yosemite
-alias flushdns="sudo discoveryutil mdnsflushcache && sudo discoveryutil udnsflushcaches && echo 'flushed'"
+alias flushdns="sudo discoveryutil mdnsflushcache && sudo discoveryutil udnsflushcaches && echo 'dns flushed'"
 
 # phing
 alias ph="phing"
