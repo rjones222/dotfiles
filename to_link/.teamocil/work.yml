@@ -14,6 +14,12 @@ windows:
       - commands:
         - tmux rename-session chat
         - exit
+  - name: "golflink"
+    root: "~/Sites/golflink-website"
+    layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    panes:
+      - vim -S ~/.vim/sessions/golflink
+      - git status
   # - name: "hrh"
     # root: "~/Sites/acp-hotrodhotline"
     # layout: "6f10,238x50,0,0[238x34,0,0,2,238x15,0,35{118x15,0,35,3,119x15,119,35,4}]"
