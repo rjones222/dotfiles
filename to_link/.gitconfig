@@ -51,6 +51,7 @@
     # This alias will remove remote branch references that no longer exist,
     # cleanup unnecessary git files, remove untracked files from the working
     # tree and clear out your stash
+    cl = clone
     cleanup = !git remote prune origin && git gc && git clean -dfx && git stash clear
     cm = !git add -A && git commit -am
     co = checkout
