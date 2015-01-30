@@ -181,7 +181,7 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     trustctime = false
     ; if you want to specify a custom global gitignore location
-    excludesfile = /Users/mfunk/.gitignore
+    excludesfile = ~/.gitignore
     ; autocrlf = input
     ; autocrlf = true
     autocrlf = false
@@ -198,7 +198,7 @@
     ; tool = opendiff
     tool = vimdiff
 [mergetool]
-	keepBackup = false
+    keepBackup = false
 # }}}
 
 # rebasing, squashing, pushing, fetching {{{
@@ -210,7 +210,7 @@
     default = current
 [rerere]
     enabled = 1
-	autoupdate = true
+    autoupdate = true
 [fetch]
     prune = true
 # }}}
