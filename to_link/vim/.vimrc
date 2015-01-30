@@ -1095,7 +1095,7 @@
     nnoremap <leader>su :SortUse<cr>
 
     if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
-        " dotfile updates
+        " dotfile updates and private stuff updates
         command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
         command! Privateupdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
         nnoremap <leader>du :Dotupdates<cr>
