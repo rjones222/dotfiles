@@ -215,3 +215,6 @@
 [fetch]
     prune = true
 # }}}
+# ONLY TEMPORARY FOR ITT TECH ANGULARJS WORKOUT
+[url "https://github"]
+    insteadOf = git://github

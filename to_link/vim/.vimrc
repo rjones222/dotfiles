@@ -1078,7 +1078,10 @@
 " Key Mapping {{{
     " soft wrapping
     command! -nargs=* Wrap set wrap linebreak nolist
-    
+
+    " open vhosts file
+    command! Vhost tabe /etc/apache2/extra/httpd-vhosts.conf
+
     " word wrap the current paragraph
     nnoremap Q gqap
 
