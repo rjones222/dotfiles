@@ -1152,7 +1152,8 @@ Plug 'LucHermitte/vim-jira-complete'
 
 " <CR> open collection under cursor and set as current
 " q closes the buffer
-Plug 'nicwest/QQ.vim', { 'on': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG', 'QP', 'QF', 'QAB', 'QAO'] }
+" Plug 'nicwest/QQ.vim', { 'on': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG', 'QP', 'QF', 'QAB', 'QAO'] }
+Plug 'nicwest/QQ.vim'
 
 " }}}
 

@@ -49,6 +49,13 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
+    # homebrew cask
+    # @link https://github.com/caskroom/homebrew-cask
+    brew install caskroom/cask/brew-cask
+
+    # this is required before installing sshfs
+    brew cask install osxfuse
+
     if [[ "$(type -P brew)" ]]; then
         # update homebrew
         log_info "Updating Homebrew"
@@ -59,6 +66,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # install homebrew recipes
         log_info "Installing Homebrew Recipes"
         packages=(
+        atool # manipulate archives in ranger
         autossh # keeps ssh connections open for instant access
         bash # homebrew has the newest version of bash
         # ack # a search tool better than grep but worse than ag
@@ -79,12 +87,14 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # go # go programming language. used for mailhog.
         gpg # used by s3cmd
         # hg # mercurial
-        highlight # colorizes html and other output on the command line
+        highlight # colorizes html and other output on the command line. used by ranger.
         htop # prettier, more powerful version of top. gets the top running processes
         # hub # github tool is a superset of git. 2.0 needs to be installed via --HEAD
         # imagemagick # image transformation tool
         irssi # irc client
         # jsawk # parse json in bash
+        libcaca # image previewing in ASCII. used by ranger
+        lynx # console web browser. used by ranger to preview html.
         # macvim # mac gui vim client
         # multitail # tail multiple files in splits with pretty colors
         mysql
@@ -97,7 +107,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         ruby-build # an rbenv plugin that provides an rbenv install command to compile and install different versions of ruby
         s3cmd # amazon s3 uploader
         ssh-copy-id # copies ssh keys to remote servers
-        # sshfs # mounts ssh servers as file systems in the local fs
+        sshfs # mounts ssh servers as file systems in the local fs. requires osxfuse.
         # sshuttle # poor mans vpn. doesnt work on yosemite at the moment
         # solr # search data server
         # spark # used for rainbarf to show spiffy cli graphs
@@ -109,6 +119,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         tree # display file/folder hierarchies in a visual tree format
         # virtualhost.sh # crappy virtualhost management script
         # watch # contains some tools: free, kill, ps, uptime, etc.
+        # w3m # full color image previewer for ranger but doesnt work in tmux
         wget # latest version
         )
         for package in "${packages[@]}"
@@ -130,14 +141,31 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
             brew install profanity --with-terminal-notifier
         fi
 
-        # homebrew cask
-        # @link https://github.com/caskroom/homebrew-cask
-        brew install caskroom/cask/brew-cask
-
         # install all quicklook plugins via brew cask
         # @link https://github.com/sindresorhus/quick-look-plugins
-        log_info "installing all quicklook plugins"
-        brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+
+        # install homebrew recipes
+        log_info "Installing Homebrew cask Recipes"
+        packages=(
+        pdftotext # used by ranger to preview pdfs
+        qlcolorcode # quicklook plugin
+        qlstephen # quicklook plugin
+        qlmarkdown # quicklook plugin
+        quicklook-json # quicklook plugin
+        qlprettypatch # quicklook plugin
+        quicklook-csv # quicklook plugin
+        betterzipql # quicklook plugin
+        qlimagesize # quicklook plugin
+        suspicious-package # quicklook plugin
+        webpquicklook # quicklook plugin
+        )
+        for package in "${packages[@]}"
+        do
+            hash $package 2>/dev/null || {
+                log_info "installing $package"
+                brew cask install $package
+            }
+        done
 
         # https://github.com/neovim/neovim/wiki/Installing
         # bookmarking this for later. right now some things are still breaking

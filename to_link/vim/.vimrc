@@ -1098,8 +1098,8 @@
         " dotfile updates and private stuff updates
         command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
         command! Privateupdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
-        nnoremap <leader>du :Dotupdates<cr>
-        nnoremap <leader>pv :Privateupdates<cr>
+        nnoremap <leader>tu :Dotupdates<cr>
+        nnoremap <leader>tv :Privateupdates<cr>
     endif
 
     if isdirectory(expand("~/.vim/plugged/vim-dispatch"))

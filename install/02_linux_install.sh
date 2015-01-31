@@ -108,6 +108,7 @@ if [[ "$(type -P apt-get)" ]]; then
     tree # display files in a tree view
     vim # the text editor
     watch # watch directories for changes and do stuff
+    # w3m # full color image previewer for ranger but doesnt work in tmux
     )
     for package in "${packages[@]}"
     do

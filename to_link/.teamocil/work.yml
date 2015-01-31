@@ -22,7 +22,7 @@ windows:
       - vim -S ~/.vim/sessions/golflink
       - git status
   - name: "trails"
-  root: "~/Sites/trails-website/projects/net-framework/website"
+    root: "~/Sites/trails-website/projects/net-framework/website"
     layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
     panes:
       - vim -S ~/.vim/sessions/trails
