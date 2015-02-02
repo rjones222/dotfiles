@@ -32,3 +32,6 @@ eval "$(grunt --completion=bash)"
 
 # do git completion with g
 __git_complete g __git_main
+
+# teamocil
+[[ "$(type -P teamocil)" ]] && complete -W "$(teamocil --list)" teamocil

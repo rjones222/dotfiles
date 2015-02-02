@@ -1,3 +1,4 @@
+name: Work
 windows:
   - name: "cfg"
     root: "~/.dotfiles"
@@ -26,6 +27,18 @@ windows:
     layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
     panes:
       - vim -S ~/.vim/sessions/trails
+      - git status
+  - name: "answerbag"
+    root: "~/Sites/answerbag-website"
+    layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    panes:
+      - vim -S ~/.vim/sessions/answerbag
+      - git status
+  - name: "dailypuppy"
+    root: "~/Sites/dailypuppy-website"
+    layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    panes:
+      - vim -S ~/.vim/sessions/dailypuppy
       - git status
   # - name: "hrh"
     # root: "~/Sites/acp-hotrodhotline"

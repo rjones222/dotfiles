@@ -1458,7 +1458,8 @@
 
     " {{{ fugitive
     if isdirectory(expand("~/.vim/plugged/vim-fugitive"))
-        let g:fugitive_github_domains = ['https://gitlab.git.internetbrands.com', 'https://git.github.com']
+        " let g:fugitive_github_domains = ['https://gitlab.git.internetbrands.com', 'https://git.github.com']
+        let g:fugitive_github_domains = ['https://gitlab.prod.dm.local', 'https://git.github.com']
         " filename
         hi default link User1 Identifier"blue
         " flags
