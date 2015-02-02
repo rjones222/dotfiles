@@ -33,6 +33,7 @@ My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-
 * [GBookmarks](https://github.com/mikedfunk/gbookmarks-userscript) userscript
 * [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)
 * [Google Drive](https://tools.google.com/dlpage/drive)
+* [MacFusion](http://macfusionapp.org/) to mount ssh directories (if necessary)
 * [Spectacle](http://spectacleapp.com/)
 * [VirtualBox](http://virtualbox.org)
 * [Vagrant](http://www.vagrantup.com/downloads)
