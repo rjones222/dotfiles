@@ -33,11 +33,12 @@ My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-
 * [GBookmarks](https://github.com/mikedfunk/gbookmarks-userscript) userscript
 * [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)
 * [Google Drive](https://tools.google.com/dlpage/drive)
+* [IE VMs](https://github.com/xdissent/ievms)
 * [MacFusion](http://downloads.patjack.co.uk/dl/Macfusion.zip) to mount ssh directories (if necessary). NOTE: this is a [fork](http://patjack.co.uk/macfusion-64-bit-ready-for-lion-mountain-lion/) for compatibility.
 * [Spectacle](http://spectacleapp.com/)
+* [TinyGrab](http://tinygrab.com/download.php)
 * [VirtualBox](http://virtualbox.org)
 * [Vagrant](http://www.vagrantup.com/downloads)
 * [Vagrant vbguest plugin](https://github.com/dotless-de/vagrant-vbguest)
-* [IE VMs](https://github.com/xdissent/ievms)
 * [Sequel Pro](http://www.sequelpro.com/) for Mac or [MySQL Workbench](http://dev.mysql.com/downloads/tools/workbench/) for Windows/Linux
 * [NetExtender](https://sslvpn.demo.sonicwall.com/cgi-bin/portal) or [SonicWall Mobile Connect](https://itunes.apple.com/us/app/sonicwall-mobile-connect/id466931806/?mt=8) for vpn access
