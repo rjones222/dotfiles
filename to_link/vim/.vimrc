@@ -750,7 +750,7 @@
     set exrc
     set secure
 
-    let g:snips_author = 'Michael Funk <mike.funk@internetbrands.com>'
+    let g:snips_author = 'Michael Funk <mike.funk@demandmedia.com>'
 
     " this allows you to run :checktime to update all open buffers
     set autoread
@@ -1720,8 +1720,8 @@
     if isdirectory(expand("~/.vim/plugged/php-doc-modded")) || isdirectory(expand("~/.vim/plugged/php-documentor-vim"))
         " PDV comment parameters
         let g:pdv_cfg_Package   = "Example"
-        let g:pdv_cfg_Author    = "Michael Funk <mike.funk@internetbrands.com>"
-        let g:pdv_cfg_Copyright = "Copyright 2013 Internet Brands, Inc. All Rights Reserved."
+        let g:pdv_cfg_Author    = "Michael Funk <mike.funk@demandmedia.com>"
+        let g:pdv_cfg_Copyright = "Copyright 2015 Demand Media, Inc. All Rights Reserved."
         let g:pdv_cfg_License   = ""
         let g:pdv_cfg_Version   = ""
         let g:pdv_cfg_ClassTags = ["author"]

@@ -106,7 +106,7 @@ snippet authr
  *
  * @package ${2}
  * @author Michael Funk <`!v g:snips_author`>
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 
 endsnippet
@@ -115,8 +115,8 @@ snippet top "File-level PHP docblock"
 /**
  * ${1:Description}
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 endsnippet
 
@@ -182,8 +182,8 @@ snippet cla "mike's class with namespace, file and class docblocks"
 /**
  * ${1:Description}
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 /**
  * `!v expand("%:t:r")`
@@ -201,8 +201,8 @@ snippet trt "mike's trait with namespace, file and class docblocks"
 /**
  * ${1:Description}
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 /**
  * `!v expand("%:t:r")`
@@ -220,11 +220,11 @@ snippet mdl "ACP laravel model"
 /**
  * ${1:`!v expand("%:t:r")`} model
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use InternetBrands\AutoClassifiedsPlatform\Common\Models\BaseModel;
-use InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Interfaces\\$1ModelInterface;
+use DemandMedia\Projects\Common\Models\BaseModel;
+use DemandMedia\Projects\\${2:PackageName}\Interfaces\\$1ModelInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -272,10 +272,10 @@ snippet mdli "ACP laravel model interface"
 /**
  * ${1:Listing} model interface
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\BaseModelInterface;
+use DemandMedia\Projects\Common\Interfaces\BaseModelInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -293,12 +293,12 @@ snippet rps "ACP laravel repository"
 /**
  * ${1:Listing} repository for data access
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use InternetBrands\AutoClassifiedsPlatform\Common\Repositories\EloquentRepository;
-use InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Interfaces\\$1ModelInterface;
-use InternetBrands\AutoClassifiedsPlatform\\$2\Interfaces\\$1RepositoryInterface;
+use DemandMedia\Projects\Common\Repositories\EloquentRepository;
+use DemandMedia\Projects\\${2:PackageName}\Interfaces\\$1ModelInterface;
+use DemandMedia\Projects\\$2\Interfaces\\$1RepositoryInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -335,10 +335,10 @@ snippet rpsi "ACP laravel repository interface"
 /**
  * ${1:Listing} repository interface
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\EloquentRepositoryInterface;
+use DemandMedia\Projects\Common\Interfaces\EloquentRepositoryInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -353,7 +353,7 @@ endsnippet
 
 snippet asp "Add service providers to orchestra testbench"
 $newProviders = [
-    'InternetBrands\AutoClassifiedsPlatform\\${1:PackageName}\\${2:Whatever}ServiceProvider',
+    'DemandMedia\Projects\\${1:PackageName}\\${2:Whatever}ServiceProvider',
 ];
 $this->addServiceProviders($newProviders);
 endsnippet
@@ -363,14 +363,14 @@ snippet rpst "ACP laravel repository test"
 /**
  * ${1:Listing} repository test
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
-namespace InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Tests;
+namespace DemandMedia\Projects\\${2:PackageName}\Tests;
 
-use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseRepositoryTest;
-use InternetBrands\AutoClassifiedsPlatform\\$2\Repositories\\$1Repository;
-use InternetBrands\AutoClassifiedsPlatform\\$2\Models\\$1;
+use DemandMedia\Projects\Common\Tests\Support\BaseRepositoryTest;
+use DemandMedia\Projects\\$2\Repositories\\$1Repository;
+use DemandMedia\Projects\\$2\Models\\$1;
 use Mockery;
 
 /**
@@ -405,7 +405,7 @@ class `!v expand("%:t:r")` extends BaseRepositoryTest
         parent::setUp();
 
         // set up some shared mocks and dependencies
-        $ns = "InternetBrands\AutoClassifiedsPlatform\\$2\Models\\$1";
+        $ns = "DemandMedia\Projects\\$2\Models\\$1";
         $this->${1/\w+/\l$0/}Model = Mockery::mock($ns);
 
         // voltron assemble!
@@ -454,8 +454,8 @@ snippet sp "ACP Service Provider"
  * ${1:Listing} service provider. Used for defining IoC bindings, event
  * listeners, etc.
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Illuminate\Support\ServiceProvider;
 
@@ -482,7 +482,7 @@ class `!v expand("%:t:r")` extends ServiceProvider
     public function boot()
     {
         // manually defined the real path of the package
-        $this->package('internet-brands/${1/\w+\s*/\l$0/}', null, __DIR__.'/../../../');
+        $this->package('demand-media/${1/\w+\s*/\l$0/}', null, __DIR__.'/../../../');
     }
 
     /**
@@ -495,20 +495,20 @@ class `!v expand("%:t:r")` extends ServiceProvider
 
         // bind the controller
         $this->app->bind(
-            'InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ControllerInterface',
-            'InternetBrands\AutoClassifiedsPlatform\\$1\Controllers\\$1Controller'
+            'DemandMedia\Projects\\$1\Interfaces\\$1ControllerInterface',
+            'DemandMedia\Projects\\$1\Controllers\\$1Controller'
         );
 
         // bind the repository
         $this->app->bind(
-            'InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface',
-            'InternetBrands\AutoClassifiedsPlatform\\$1\Repositories\\$1Repository'
+            'DemandMedia\Projects\\$1\Interfaces\\$1RepositoryInterface',
+            'DemandMedia\Projects\\$1\Repositories\\$1Repository'
         );
 
         // bind the model
         $this->app->bind(
-            'InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ModelInterface',
-            'InternetBrands\AutoClassifiedsPlatform\\$1\Models\\$1'
+            'DemandMedia\Projects\\$1\Interfaces\\$1ModelInterface',
+            'DemandMedia\Projects\\$1\Models\\$1'
         );
     }
 
@@ -529,13 +529,13 @@ snippet ctl "ACP laravel controller"
 /**
  * ${1:Listing} controller
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Config;
-use InternetBrands\AutoClassifiedsPlatform\Common\Controllers\BaseController;
-use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface;
-use InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1ControllerInterface;
+use DemandMedia\Projects\Common\Controllers\BaseController;
+use DemandMedia\Projects\\$1\Interfaces\\$1RepositoryInterface;
+use DemandMedia\Projects\\$1\Interfaces\\$1ControllerInterface;
 use Input;
 use Lang;
 use MikeFunk\BustersPhp\BustersPhpInterface;
@@ -582,10 +582,10 @@ snippet ctli "ACP laravel controller interface"
 /**
  * `!v expand("%:t:r")`
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\BaseControllerInterface;
+use DemandMedia\Projects\Common\Interfaces\BaseControllerInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -603,16 +603,16 @@ snippet ctlt "ACP laravel controller test"
 /**
  * ${1:Listing} controller test
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
-namespace InternetBrands\AutoClassifiedsPlatform\\${2:Package}\Tests;
+namespace DemandMedia\Projects\\${2:Package}\Tests;
 
 use Auth;
 use Config;
 use Input;
-use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseControllerTest;
-use InternetBrands\AutoClassifiedsPlatform\\$2\Controllers\\$1Controller;
+use DemandMedia\Projects\Common\Tests\Support\BaseControllerTest;
+use DemandMedia\Projects\\$2\Controllers\\$1Controller;
 use Lang;
 use Mockery;
 use Notification;
@@ -652,7 +652,7 @@ class `!v expand("%:t:r")` extends BaseControllerTest
     {
 
         // add some new package providers
-        $newProvider = 'InternetBrands\AutoClassifiedsPlatform\\$2\\$2ServiceProvider';
+        $newProvider = 'DemandMedia\Projects\\$2\\$2ServiceProvider';
         $this->addServiceProviders($newProvider);
 
         parent::setUp();
@@ -661,7 +661,7 @@ class `!v expand("%:t:r")` extends BaseControllerTest
         $ns = 'MikeFunk\BustersPhp\BustersPhpInterface';
         $bustersPhp = Mockery::mock($ns);
 
-        $ns = "InternetBrands\AutoClassifiedsPlatform\\$1\Interfaces\\$1RepositoryInterface";
+        $ns = "DemandMedia\Projects\\$1\Interfaces\\$1RepositoryInterface";
         $this->${1/\w+/\l$0/}Repository = Mockery::mock($ns);
 
         // voltron assemble!
@@ -685,8 +685,8 @@ snippet mgt "laravel migration"
 /**
  * $1 initial migration
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 
 use Illuminate\Database\Migrations\Migration;
@@ -750,10 +750,10 @@ snippet sdr "Auto Classifieds Platform laravel seeder"
  * @link https://github.com/fzaninotto/Faker use this library to provide fake
  * data to the seeder
  *
- * @package   AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package   Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use InternetBrands\AutoClassifiedsPlatform\Common\Seeds\BaseSeeder;
+use DemandMedia\Projects\Common\Seeds\BaseSeeder;
 use Str;
 
 /**
@@ -813,8 +813,8 @@ snippet pucla "mike's phpunit test template with docblocks"
 /**
  * ${1:Unit Tests}
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 
 /**
@@ -902,8 +902,8 @@ snippet inte
 /**
  * $4
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 /**
  * ${4:`!v expand("%:t:r")`}
@@ -948,7 +948,7 @@ ${1:\$file}->shouldReceive('$2')->once()->withNoArgs()->andReturn($3);
 endsnippet
 
 snippet mva "assign mock to instance variable"
-$ns = 'InternetBrands\AutoClassifiedsPlatform\\${1:Listing}\\${2:Interfaces}'
+$ns = 'DemandMedia\Projects\\${1:Listing}\\${2:Interfaces}'
     . '\\${3:MyClassName}${4:Interface}';
 ${5:$myvar} = Mockery::mock($ns);
 endsnippet
@@ -973,7 +973,7 @@ endsnippet
 snippet pageblock "page level docblock"
 /**
  * @package ${2:Template}
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 $3
 endsnippet
@@ -1079,7 +1079,7 @@ snippet zmodule "Zend Framework Module class"
 <?php
 /**
  * @package ${1:Package}
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 namespace ${2:Namespace};
 
@@ -1309,11 +1309,11 @@ snippet cmd "ACP laravel artisan command"
 /**
  * $1
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Illuminate\Console\Command;
-use InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\ArtisanCommandInterface;
+use DemandMedia\Projects\Common\Interfaces\ArtisanCommandInterface;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
@@ -1380,14 +1380,14 @@ snippet cmdt "ACP laravel command test"
 /**
  * ${1:CommandName} command
  *
- * @package AutoClassifiedsPlatform
- * @copyright `date +%Y` Internet Brands, Inc. All Rights Reserved.
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
-namespace InternetBrands\AutoClassifiedsPlatform\\${2:PackageName}\Tests;
+namespace DemandMedia\Projects\\${2:PackageName}\Tests;
 
 use App;
-use InternetBrands\AutoClassifiedsPlatform\Common\Tests\Support\BaseTest;
-use InternetBrands\AutoClassifiedsPlatform\\$2\Commands\\$1Command;
+use DemandMedia\Projects\Common\Tests\Support\BaseTest;
+use DemandMedia\Projects\\$2\Commands\\$1Command;
 use Mockery;
 
 /**
@@ -1415,7 +1415,7 @@ class $8 extends BaseTest
     /**
      * $1 command instance
      *
-     * @var \InternetBrands\AutoClassifiedsPlatform\Common\Interfaces\ArtisanCommandInterface
+     * @var \DemandMedia\Projects\Common\Interfaces\ArtisanCommandInterface
      */
     protected \$${1/\w+/\l$0/}Command;
 
@@ -1442,7 +1442,7 @@ class $8 extends BaseTest
 
         // voltron assemble!
         $this->${1/\w+/\l$0/}Command = new $1Command();
-        // $ns = 'InternetBrands\AutoClassifiedsPlatform\\$2'
+        // $ns = 'DemandMedia\Projects\\$2'
         // . '\Commands\\$1Command';
         // $this->${1/\w+/\l$0/}Command = App::make($ns);
     }
@@ -1480,14 +1480,14 @@ snippet rcmd "Register an artisan command in the service provider"
 // register $1 command
 $this->app->bind(
     '${1:listing.import}',
-    'InternetBrands\AutoClassifiedsPlatform\\${2:Listing}\Commands'
+    'DemandMedia\Projects\\${2:Listing}\Commands'
     . '\\${3:ListingImport}Command'
 );
 $this->commands('$1');
 endsnippet
 
-snippet ibap "InternetBrands\AutoClassifiedsPlatform"
-InternetBrands\AutoClassifiedsPlatform\
+snippet ibap "DemandMedia\Projects"
+DemandMedia\Projects\
 endsnippet
 
 snippet behatspin "Behat keep trying until it succeeds"
