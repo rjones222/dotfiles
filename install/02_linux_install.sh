@@ -99,6 +99,7 @@ if [[ "$(type -P apt-get)" ]]; then
     ranger # 3-column file browser
     # ruby1.9.1-dev
     s3cmd # amazon s3 uploader
+    sshfs # mounts ssh servers as file systems in the local fs
     # sshuttle # poor mans vpn
     # solr-tomcat # if you need solr it installs both
     # spidermonkey-bin # SpiderMonkey is Mozillas JavaScript engine written in C/C++
