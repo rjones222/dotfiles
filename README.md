@@ -27,14 +27,14 @@ My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-
 
 # Other stuff to install:
 
-* [XCode Command Line Tools](https://developer.apple.com/downloads/index.action) for Mac
+* [Dropbox](https://www.dropbox.com/downloading?src=index)
 * [iTerm 2](https://iterm2.com/downloads.html) or [nightly version](http://iterm2.com/downloads/nightly/#/section/home)
 * [Google Chrome](https://www.google.com/intl/en/chrome/browser/#brand=CHMB&utm_campaign=en&utm_source=en-ha-na-us-sk&utm_medium=ha)
 * [GBookmarks](https://github.com/mikedfunk/gbookmarks-userscript) userscript
 * [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)
 * [Google Drive](https://tools.google.com/dlpage/drive)
 * [IE VMs](https://github.com/xdissent/ievms)
-* [MacFusion](http://downloads.patjack.co.uk/dl/Macfusion.zip) to mount ssh directories (if necessary). NOTE: this is a [fork](http://patjack.co.uk/macfusion-64-bit-ready-for-lion-mountain-lion/) for compatibility.
+* [MacFusion](http://downloads.patjack.co.uk/dl/Macfusion.zip) to mount ssh directories (if necessary). _NOTE: [this is a fork](http://patjack.co.uk/macfusion-64-bit-ready-for-lion-mountain-lion/) for compatibility._
 * [Spectacle](http://spectacleapp.com/)
 * [TinyGrab](http://tinygrab.com/download.php)
 * [VirtualBox](http://virtualbox.org)
@@ -42,3 +42,4 @@ My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-
 * [Vagrant vbguest plugin](https://github.com/dotless-de/vagrant-vbguest)
 * [Sequel Pro](http://www.sequelpro.com/) for Mac or [MySQL Workbench](http://dev.mysql.com/downloads/tools/workbench/) for Windows/Linux
 * [NetExtender](https://sslvpn.demo.sonicwall.com/cgi-bin/portal) or [SonicWall Mobile Connect](https://itunes.apple.com/us/app/sonicwall-mobile-connect/id466931806/?mt=8) for vpn access
+* [XCode Command Line Tools](https://developer.apple.com/downloads/index.action) for Mac
