@@ -28,7 +28,7 @@ My Bash, Vim, Git, and other dotfiles. Recently re-done to remove bash-it, bash-
 # Other stuff to install:
 
 * [XCode Command Line Tools](https://developer.apple.com/downloads/index.action) for Mac
-* [iTerm 2](https://iterm2.com/downloads.html)
+* [iTerm 2](https://iterm2.com/downloads.html) or [nightly version](http://iterm2.com/downloads/nightly/#/section/home)
 * [Google Chrome](https://www.google.com/intl/en/chrome/browser/#brand=CHMB&utm_campaign=en&utm_source=en-ha-na-us-sk&utm_medium=ha)
 * [GBookmarks](https://github.com/mikedfunk/gbookmarks-userscript) userscript
 * [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)
