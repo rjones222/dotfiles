@@ -828,6 +828,20 @@ Plug 'Wolfy87/vim-expand'
 " make vim understand line and column numbers from xdebug and the like
 Plug 'kopischke/vim-fetch'
 
+" motions based on indent depths
+" [- : Move to previous line of lesser indent than the current line.
+" [+ : Move to previous line of greater indent than the current line.
+" [= : Move to previous line of same indent as the current line that is separated from the current line by lines of different indents.
+" ]- : Move to next line of lesser indent than the current line.
+" ]+ : Move to next line of greater indent than the current line.
+" ]= : Move to next line of same indent as the current line that is separated from the current line by lines of different indents.
+
+" In addition, you can navigate directly to a line of a particular indent-level using:
+
+" {count}[_ : Move to previous line with indent-level of {count}.
+" {count}]_ : Move to next line with indent-level of {count}.
+Plug 'jeetsukumaran/vim-indentwise'
+
 " show a tags sidebar window like nerdtree
 " :TagExplorer
 Plug 'vim-scripts/tagexplorer.vim', { 'on': 'TagExplorer' }
@@ -1093,6 +1107,9 @@ endif
 " scratch window that autohides when not being used. gs to open. gs in visual
 " mode will paste the contents of the selection into the scratch window.
 Plug 'mtth/scratch.vim'
+
+" review pull requests in vim
+" Plug 'codegram/vim-codereview'
 
 " show @TODOs and stuff
 " I just made an alias for this now with Ag. Simpler and more capable.
