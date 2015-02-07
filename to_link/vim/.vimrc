@@ -1978,10 +1978,11 @@
     " {{{ vdebug xdebug plugin
     if isdirectory(expand("~/.vim/plugged/vdebug"))
         let g:vdebug_options = {}
-        let g:vdebug_options["continuous_mode"] = 1
-        let g:vdebug_options["timeout"] = 30
+        let g:vdebug_options['continuous_mode'] = 1
+        let g:vdebug_options['timeout'] = 30
         " the local server ip
-        let g:vdebug_options['server'] = '192.168.56.1'
+        " let g:vdebug_options['server'] = '192.168.56.1'
+        let g:vdebug_options['server'] = '127.0.0.1'
         let g:vdebug_options['port'] = '9000'
         let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
         " can add multiple path maps to this array, just duplicate the line
@@ -1990,7 +1991,7 @@
         \   '/var/www/sites/acp-hotrodhotline': '/Library/WebServer/Documents/acp-hotrodhotline'
         \}
         " stop on first line of execution
-        let g:vdebug_options["break_on_open"] = 0
+        " let g:vdebug_options["break_on_open"] = 0
         let g:vdebug_options["watch_window_style"] = 'compact'
         " move run_to_cursor from F1 to F9
         let g:vdebug_keymap = {
