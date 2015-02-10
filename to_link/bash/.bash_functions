@@ -392,38 +392,44 @@ mergerequest() {
     git push
 
     # set the project based on the current dir
-    if pwd | grep -q 'acp-hotrodhotline'; then
-        PROJECT="acp-hotrodhotline"
-        PROJECT_ID="91"
-    elif pwd | grep -q 'acp-core'; then
-        PROJECT="acp-core"
-        PROJECT_ID="90"
-    elif pwd | grep -q 'acp-hrh-env'; then
-        PROJECT="acp-hrh-env"
-        PROJECT_ID="178"
+    if pwd | grep -q 'trails-website'; then
+        PROJECT="trails-website"
+        PROJECT_ID="192"
+    elif pwd | grep -q 'airliners-website'; then
+        PROJECT="airliners-website"
+        PROJECT_ID="201"
+    elif pwd | grep -q 'answerbag-website'; then
+        PROJECT="answerbag-website"
+        PROJECT_ID="193"
+    elif pwd | grep -q 'synonym-website'; then
+        PROJECT="synonym-website"
+        PROJECT_ID="185"
+    elif pwd | grep -q 'arcadetown-website'; then
+        PROJECT="arcadetown-website"
+        PROJECT_ID="204"
+    elif pwd | grep -q 'gardenguides-website'; then
+        PROJECT="gardenguides-website"
+        PROJECT_ID="188"
+    elif pwd | grep -q 'dailypuppy-website'; then
+        PROJECT="dailypuppy-website"
+        PROJECT_ID="206"
     else
-        echo 'error: project id not found!'
+        echo "Error: project id not found! Maybe it's not in gitlab?"
         return
     fi
 
     # set the assignee id based on the name
     USERNAME=$2
-    if [[ $USERNAME == 'ethan' ]]; then
-        USER_ID=38
-    elif [[ $USERNAME == 'aaron' ]]; then
-        USER_ID=37
-    elif [[ $USERNAME == 'chris' ]]; then
-        USER_ID=36
-    elif [[ $USERNAME == 'carl' ]]; then
-        USER_ID=35
-    elif [[ $USERNAME == 'miguel' ]]; then
-        USER_ID=85
-    elif [[ $USERNAME == 'mike' ]]; then
-        USER_ID=32
+    if [[ $USERNAME == 'larry' ]]; then
+        USER_ID=52
+    elif [[ $USERNAME == 'matt' ]]; then
+        USER_ID=168
+    elif [[ $USERNAME == 'michael' ]]; then
+        USER_ID=103
     else
-        # ethan is default
-        USER_ID="38"
-        USERNAME="ebrigham"
+        # larry is default
+        USER_ID="52"
+        USERNAME="lortiz"
     fi
 
     # set the message and the current branch
@@ -442,5 +448,18 @@ mergerequest() {
     # parse the json, get the "iid" key which is the merge request id
     MERGE_REQUEST_ID=$(echo $CURL_RESPONSE | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["iid"]')
     echo "merge request created here:"
-    echo "https://gitlab.git.internetbrands.com/auto-classifieds/$PROJECT/merge_requests/$MERGE_REQUEST_ID"
+    echo "$GITLAB_MERGE_REQUEST_URL/$PROJECT/merge_requests/$MERGE_REQUEST_ID"
+}
+
+# this will help set up the mergerequest function above
+gitlabtest() {
+
+    # get members of dvn group to get their user ids
+    # URL="groups/31/members?per_page=100"
+
+    # search for projects by name to get the id
+    URL="projects/search/dailypuppy-website?per_page=100"
+
+    # this works to test the api
+    curl --header "PRIVATE-TOKEN: $GITLAB_API_PRIVATE_TOKEN" $GITLAB_API_ENDPOINT$URL
 }
