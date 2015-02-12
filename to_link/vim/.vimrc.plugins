@@ -239,6 +239,12 @@ Plug 'ardagnir/united-front'
 Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 
 " auto generate ctags on save
+" I have never been able to get one of these working right. It has to:
+" 1. use my .ctags file
+" 2. update project root -> tags file
+" 3. update asynchronously
+" Otherwise I'll just use my <leader>ut to update tags manually and
+" asynchronously
 " Plug 'szw/vim-tags'
 " }}}
 
@@ -323,6 +329,7 @@ Plug 'tpope/vim-unimpaired'
 " Completion and Snippets {{{
 
 " enable . repeat in certain plugins
+" I don't notice when it's turned off
 " Plug 'tpope/vim-repeat'
 
 " zen coding / emmett integration
@@ -338,23 +345,23 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " vim-autoclose causes problems with youcompleteme, it says use this instead
 " automatically closes [], (), '', etc.
-" This breaks <s-tab> in youcompleteme
+" This breaks <s-tab> in youcompleteme. use a different one instead
 " Plug 'Raimondi/delimitMate'
 
 " Similar to emmett but also can autoclose
 " <c-x>/ close latest html tag
 " Not really that useful for php
-" Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-ragtag', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " use c-n and c-p to complete from your buffers in search or command mode
 Plug 'vim-scripts/CmdlineComplete'
 
 " Match html/xml tags with %
 " Plug 'tmhedberg/matchit'
-Plug 'edsono/vim-matchit'
+Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " symfony completion
-" See above
+" See above. phpcomplete-extended is a pain in the ass.
 " Plug 'm2mdas/phpcomplete-extended-symfony'
 
 " }}}
@@ -602,7 +609,7 @@ Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 Plug 'osyo-manga/vim-brightest'
 
 " highlights in bright red any trailing whitespace
-" I disabled this pretty much just so I could get ascii art on startify :P
+" I whitelisted this pretty much just so I could get ascii art on startify :P
 Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 'css', 'less', 'coffee', 'xml', 'json'] }
 
 " pulse the background on search to find the currently found item. Really
@@ -720,7 +727,8 @@ Plug 'yonchu/accelerated-smooth-scroll'
 
 " different fork of solarized that fixes stuff
 " Plug 'blueyed/vim-colors-solarized'
-Plug 'https://github.com/jwhitley/vim-colors-solarized.git'
+" Plug 'https://github.com/jwhitley/vim-colors-solarized.git'
+Plug 'jwhitley/vim-colors-solarized'
 
 " easy way to scroll through color schemes
 " cycle, rotate
@@ -759,11 +767,15 @@ Plug 'junegunn/vim-peekaboo'
 " take a bunch of zeroes and make them sequential. (rengbang is some japanese
 " word for doing this)
 " from visual mode: :`<, `>RengBang
-Plug 'deris/vim-rengbang'
+" Plug 'deris/vim-rengbang'
+Plug 'deris/vim-rengbang', { 'on': 'RengBang' }
 
 " make changes in the quickfix window, save, and your changes are made in
 " the original files! Awesome when paired with :Ag!
 Plug 'stefandtw/quickfix-reflector.vim'
+" similar plugins:
+" Plug 'jceb/vim-editqf'
+" Plug 'thinca/vim-qfreplace'
 
 " Automatically detect indentation and set it
 " BUT it sets expandtab on php by default! Lame!
@@ -773,14 +785,15 @@ Plug 'tpope/vim-sleuth'
 " works for practically any language. just wish it worked in function
 " definitions! I would use the shit out of that to make function params
 " multiline or back to single line.
+"
 " gS to split
 " gJ to join
 Plug 'AndrewRadev/splitjoin.vim'
 
 " The plugin defines two commands, :SidewaysLeft and :SidewaysRight, which move
-" the item under the cursor left or right, where an "item" is defined by a
+" the item under the cursor left or right, where an 'item' is defined by a
 " delimiter.
-Plug 'AndrewRadev/sideways.vim'
+Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
 
 " Align in columns
 " Too much crossover with tabularize
@@ -824,7 +837,7 @@ Plug 'tpope/vim-speeddating'
 " Plug 'lfilho/cosco.vim'
 
 " expand things like {foo,bar} with :Expand in visual mode
-Plug 'Wolfy87/vim-expand'
+Plug 'Wolfy87/vim-expand', { 'on': 'Expand' }
 
 " }}}
 
@@ -956,8 +969,8 @@ Plug 'airblade/vim-rooter'
 
 " wget menu item in NERDTree!
 " m then w, then type url
-" I don't use this
-Plug 'markgandolfo/nerdtree-wget.vim'
+" I don't use this. I'll enable it if I do.
+" Plug 'markgandolfo/nerdtree-wget.vim'
 
 " makes folds only recalculate on save, making completion faster (right?)
 " this is fine and all but I disable folding. This re-enables it.
@@ -1060,8 +1073,10 @@ Plug 'kana/vim-textobj-entire'
 
 " last search pattern:
 " va/, vi/, va?, vi?
-Plug 'kana/vim-textobj-lastpat'
+" I don't remember ever using this
+" Plug 'kana/vim-textobj-lastpat'
 
+" line
 " al, il
 Plug 'kana/vim-textobj-line'
 
@@ -1111,7 +1126,7 @@ endif
 
 " scratch window that autohides when not being used. gs to open. gs in visual
 " mode will paste the contents of the selection into the scratch window.
-Plug 'mtth/scratch.vim'
+Plug 'mtth/scratch.vim', { 'on': 'Scratch' }
 
 " review pull requests in vim
 " Plug 'codegram/vim-codereview'
@@ -1125,7 +1140,7 @@ Plug 'mtth/scratch.vim'
 
 " open jira under cursor. MAC ONLY.
 " <leader>jo
-Plug 'markabe/vim-jira-open'
+Plug 'markabe/vim-jira-open', { 'on': 'TaskList' }
 
 " autocomplete jira task numbers
 " requires 'pip install requests' to work, otherwise fails gracefully
@@ -1175,7 +1190,8 @@ Plug 'LucHermitte/vim-jira-complete'
 " <CR> open collection under cursor and set as current
 " q closes the buffer
 " Plug 'nicwest/QQ.vim', { 'on': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG', 'QP', 'QF', 'QAB', 'QAO'] }
-Plug 'nicwest/QQ.vim'
+" It's easier to just use postman. This is a lot to remember.
+" Plug 'nicwest/QQ.vim'
 
 " }}}
 
@@ -1192,7 +1208,9 @@ if executable('tmux')
     " tmux custom statusline in sync with airline
     " :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
     " I have :MyTmuxline and :MyConfFiles defined too
-    Plug 'edkolev/tmuxline.vim', { 'on': ['MyTmuxline', 'MyConfFiles', 'TmuxlineSnapshot'] }
+    Plug 'edkolev/tmuxline.vim'
+    " can't get it to lazy load - it keeps trying to activate from airline
+    " Plug 'edkolev/tmuxline.vim', { 'on': ['MyTmuxline', 'MyConfFiles', 'TmuxlineSnapshot', 'Tmuxline'] }
 
     " query surrounding tmux splits to add to autocomplete, automatically
     Plug 'buztard/vim-nomad'
@@ -1259,7 +1277,7 @@ endif
 " Plug 'vim-scripts/Marks-Browser'
 
 " auto ls after :cd
-Plug 'b4b4r07/vim-autocdls'
+" Plug 'b4b4r07/vim-autocdls'
 
 " }}}
 
