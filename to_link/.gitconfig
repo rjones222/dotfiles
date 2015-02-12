@@ -139,8 +139,10 @@
     # show all of my commits since yesterday
     standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mike.funk@internetbrands.com
     stash-unapply = !git stash show -p | git apply -R
-    sync = "!f() { echo 'Syncing current branch with develop' && git checkout develop && git pull && git checkout - && git rebase develop; }; f"
-    syncm = "!f() { echo 'Syncing current branch with master' && git checkout master && git pull && git checkout - && git rebase master; }; f"
+    # be sure to pass a branch name e.g. git sync mybranch
+    sync = "!f() { echo \"Syncing current branch with $1\" && git checkout $1 && git pull && git checkout - && git rebase $1; }; f"
+    syncd = "!f() { echo \"Syncing current branch with develop\" && git checkout develop && git pull && git checkout - && git rebase develop; }; f"
+    syncm = "!f() { echo \"Syncing current branch with master\" && git checkout master && git pull && git checkout - && git rebase master; }; f"
     # uncommit the last commit
     undo = reset HEAD~1 --mixed
     unstage = reset HEAD

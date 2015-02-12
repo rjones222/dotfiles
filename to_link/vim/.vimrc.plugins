@@ -751,6 +751,11 @@ Plug 'kergoth/vim-hilinks', { 'on': ['HLT', 'HLTm'] }
 
 " Text Manipulation and Selection {{{
 
+" Peekaboo will show you the contents of the registers on the sidebar when you
+" hit " or @ in normal mode or <CTRL-R> in insert mode. The sidebar is
+" automatically closed on subsequent key strokes.
+Plug 'junegunn/vim-peekaboo'
+
 " take a bunch of zeroes and make them sequential. (rengbang is some japanese
 " word for doing this)
 " from visual mode: :`<, `>RengBang
@@ -1186,10 +1191,10 @@ if executable('tmux')
 
     " tmux custom statusline in sync with airline
     " :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
-    " Turn if off until I need to customize it
-    Plug 'edkolev/tmuxline.vim'
+    " I have :MyTmuxline and :MyConfFiles defined too
+    Plug 'edkolev/tmuxline.vim', { 'on': ['MyTmuxline', 'MyConfFiles', 'TmuxlineSnapshot'] }
 
-    " query surrounding tmux splits to add to autocomplete
+    " query surrounding tmux splits to add to autocomplete, automatically
     Plug 'buztard/vim-nomad'
 
     " create tmux window with a command from vim
@@ -1209,7 +1214,9 @@ endif
 
 " fix broken terminal keys when we use xterm-256-color in iterm prefs and
 " screen-256-color in tmux.conf prefs
-Plug 'nacitar/terminalkeys.vim'
+if $TERM == 'screen-256-color' || $TERM == 'xterm-256-color'
+    Plug 'nacitar/terminalkeys.vim'
+endif
 
 " }}}
 

@@ -2236,9 +2236,9 @@
     " }}}
 
     " vim-plug {{{
-    nnoremap <leader>bi :so $MYVIMRC<cr> :PlugInstall<cr>
-    nnoremap <leader>bc :so $MYVIMRC<cr> :PlugClean!<cr>
-    nnoremap <leader>bu :so $MYVIMRC<cr> :PlugUpdate<cr>
+    nnoremap <leader>bi :so ~/.vimrc.plugins<cr> :PlugInstall<cr>
+    nnoremap <leader>bc :so ~/.vimrc.plugins<cr> :PlugClean!<cr>
+    nnoremap <leader>bu :so ~/.vimrc.plugins<cr> :PlugUpdate<cr>
 
     " how many threads to use at once when updating, installing, etc. default
     " is 16
