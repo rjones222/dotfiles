@@ -27,6 +27,7 @@
     "drush/drush": "~6.5",
     "laravel/homestead": "@stable",
     "d11wtq/boris": "~1.0",
-    "psy/psysh": "@stable"
+    "psy/psysh": "@stable",
+    "kherge/box": "~2.5"
   }
 }
