@@ -367,6 +367,10 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 " }}}
 
 " Syntax {{{
+"
+" Hide portions from syntax highlighting. Useful for when syntax coloring
+" gets messed up by html in php or markdown quotes/underscores/dashes
+Plug 'vim-scripts/SyntaxRange', { 'on': ['SyntaxIgnore', 'SyntaxInclude'] }
 
 " syntax highlighting for twig templates
 Plug 'beyondwords/vim-twig', { 'for': 'html.twig' }
@@ -763,6 +767,9 @@ Plug 'kergoth/vim-hilinks', { 'on': ['HLT', 'HLTm'] }
 " hit " or @ in normal mode or <CTRL-R> in insert mode. The sidebar is
 " automatically closed on subsequent key strokes.
 Plug 'junegunn/vim-peekaboo'
+
+" use :Switch to swap between 2 or more paired definitions in .vimrc
+Plug 'AndrewRadev/switch.vim'
 
 " take a bunch of zeroes and make them sequential. (rengbang is some japanese
 " word for doing this)

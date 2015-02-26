@@ -1813,6 +1813,15 @@
     endif
     " }}}
 
+    " switch.vim {{{
+    if isdirectory(expand("~/.vim/plugged/sunset"))
+        let g:switch_definitions =
+            \ [
+            \    ['true', 'false'],
+            \ ]
+    endif
+    " }}}
+
     " Syntastic {{{
     if isdirectory(expand("~/.vim/plugged/syntastic"))
         " let g:syntastic_check_on_open=1
