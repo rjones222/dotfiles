@@ -376,7 +376,7 @@ Plug 'vim-scripts/SyntaxRange', { 'on': ['SyntaxIgnore', 'SyntaxInclude'] }
 " NOTE: Requires python library PIL installed via pip:
 " sudo pip install Pillow
 if has('python')
-    Plug 'ashisha/image.vim'
+    Plug 'ashisha/image.vim', { 'for': ['png', 'jpg', 'jpeg', 'gif'] }
 endif
 
 " syntax highlighting for twig templates
@@ -1165,6 +1165,9 @@ Plug 'markabe/vim-jira-open', { 'on': 'TaskList' }
 " requires 'pip install requests' to work, otherwise fails gracefully
 " Plug 'mnpk/vim-jira-complete'
 Plug 'LucHermitte/vim-jira-complete'
+
+" continuously update session files, autosave, etc.
+Plug 'tpope/vim-obsession'
 
 " }}}
 

@@ -1433,11 +1433,12 @@
           \ 'dir':  'build',
           \ }
     endif
-    " }}}"
+    " }}}
 
     " ctrlp-smarttabs {{{
     if isdirectory(expand("~/.vim/plugged/ctrlp-smarttabs"))
         let g:ctrlp_extensions = g:ctrlp_extensions + ['smarttabs']
+        nnoremap <leader><space> :CtrlPSmartTabs<cr>
     endif
     " }}}
 
@@ -2305,8 +2306,11 @@
                 \ ]
 
         let g:startify_session_dir = '~/.vim/sessions'
-        let g:startify_bookmarks = [ '~/.vimrc.local' ]
-        " let g:startify_change_to_vcs_root = 1
+        " a list if files to always bookmark. Will be shown at bottom
+        " of the startify screen.
+        let g:startify_bookmarks = [ '~/.vimrc', '~/.vimrc.plugins' ]
+        " always cd to git root on startup
+        let g:startify_change_to_vcs_root = 1
 
         " make session autoload work in vim-startify
         " let NERDTreeHijackNetrw = 0
