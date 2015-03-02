@@ -367,10 +367,17 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 " }}}
 
 " Syntax {{{
-"
+
 " Hide portions from syntax highlighting. Useful for when syntax coloring
 " gets messed up by html in php or markdown quotes/underscores/dashes
 Plug 'vim-scripts/SyntaxRange', { 'on': ['SyntaxIgnore', 'SyntaxInclude'] }
+
+" preview images in vim via ascii conversion
+" NOTE: Requires python library PIL installed via pip:
+" sudo pip install Pillow
+if has('python')
+    Plug 'ashisha/image.vim'
+endif
 
 " syntax highlighting for twig templates
 Plug 'beyondwords/vim-twig', { 'for': 'html.twig' }

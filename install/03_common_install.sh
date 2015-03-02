@@ -171,6 +171,7 @@ packages=(
 # argcomplete # tab completion of arguments for python scripts
 fabric # deployment tool
 # pgcli # a postgresql repl with autocompletion
+Pillow # used by image.vim to preview images in vim via ascii conversion
 requests # used for vim-jira-complete
 # robotframework # front-end testing framework
 # robotframework-selenium2screenshots
