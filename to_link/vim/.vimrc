@@ -1435,6 +1435,12 @@
     endif
     " }}}"
 
+    " ctrlp-smarttabs {{{
+    if isdirectory(expand("~/.vim/plugged/ctrlp-smarttabs"))
+        let g:ctrlp_extensions = g:ctrlp_extensions + ['smarttabs']
+    endif
+    " }}}
+
     " {{{ dispatch
     if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
         nnoremap <silent> <Leader>di :call CallDispatchWithCommand() <CR>

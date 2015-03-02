@@ -939,6 +939,11 @@ Plug 'henrik/vim-qargs', { 'on': ['GitGrep', 'Qdo'] }
 " I use ctags so this is redundant and adds clutter to ctrlp
 " Plug 'tacahiroy/ctrlp-funky'
 
+" The missing link in ctrlp navigation: switch tabs
+if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
+    Plug 'DavidEGx/ctrlp-smarttabs'
+endif
+
 " open directory in finder
 " <gof> opens the file manager at the directory of the file you are currently
 " editing in Vim.
@@ -959,7 +964,7 @@ endif
 Plug 'thinca/vim-visualstar', { 'on': ['<Plug>visualstar-*', '<Plug>visualstar-#', '<Plug>visualstar-g*', '<Plug>visualstar-g#'] }
 
 " faster ctrlp matcher
-if has('python')
+if has('python') && isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
     Plug 'FelikZ/ctrlp-py-matcher'
 endif
 
