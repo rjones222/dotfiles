@@ -368,6 +368,9 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " Syntax {{{
 
+" react jsx
+Plug 'mxw/vim-jsx'
+
 " Hide portions from syntax highlighting. Useful for when syntax coloring
 " gets messed up by html in php or markdown quotes/underscores/dashes
 Plug 'vim-scripts/SyntaxRange', { 'on': ['SyntaxIgnore', 'SyntaxInclude'] }

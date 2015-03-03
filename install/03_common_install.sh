@@ -42,6 +42,7 @@ grunt-cli # wtf? grunt is lame.
 instant-markdown-d # used by vim to instantly preview markdown files as you type
 jasmine # javascript behavior testing framework
 jshint # like jslint but less punishing
+jsxhint # used by vim syntastic to check jsx files
 # json # json formatter used for vim
 jsonlint # verify json
 jspm # javascript package manager with autoloader

@@ -1849,6 +1849,8 @@
         " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
         " phpmd is kind of useless to me right now
         let g:syntastic_php_checkers = ['php', 'phpcs']
+        " use npm package to check react scripts
+        let g:syntastic_javascript_checkers = ['jsxhint']
         " let g:syntastic_js_checkers = []
 
         " spiffy error columns
