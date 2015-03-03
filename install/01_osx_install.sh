@@ -282,8 +282,15 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     # if extension not in httpd.conf, add it
     LoadPhp="LoadModule php5_module /usr/local/opt/php56/libexec/apache2/libphp5.so";
     if ! cat /etc/apache2/httpd.conf | grep -q "LoadModule php5_module /usr/local/opt/php56/libexec/apache2/libphp5.so"; then
-        log_info "adding php5 module to apache2 httpd.conf"
+        log_info "enabling homebrew php in apache"
         sudo sed -i '.bak' 's/#LoadModule php5_module\ libexec\/apache2\/libphp5\.so/LoadModule php5_module\ \/usr\/local\/opt\/php56\/libexec\/apache2\/libphp5\.so/' /etc/apache2/httpd.conf
+    fi
+
+    # if the vhosts lines are commented out in httpd.conf, uncomment them
+    if ! cat /etc/apache2/httpd.conf | grep -q "#Include /private/etc/apache2/extra/httpd-vhosts.conf" || ! cat /etc/apache2/httpd.conf | grep -q "#LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so"; then
+        log_info "enabling vhosts in apache"
+        sudo sed -i '.bak' 's/#Include\ \/private\/etc\/apache2\/extra\/httpd\vhosts\.conf/Include\ \/private\/etc\/apache2\/extra\/httpd\vhosts\.conf' /etc/apache2/httpd.conf
+        sudo sed -i '.bak' 's/#LoadModule\ vhost_alias_module\ libexec\/apache2\/mod_vhost_alias\.so/LoadModule\ vhost_alias_module\ libexec\/apache2\/mod_vhost_alias\.so' /etc/apache2/httpd.conf
     fi
 
     # Remove outdated versions from the cellar.
