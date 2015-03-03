@@ -42,7 +42,6 @@ grunt-cli # wtf? grunt is lame.
 instant-markdown-d # used by vim to instantly preview markdown files as you type
 jasmine # javascript behavior testing framework
 jshint # like jslint but less punishing
-jsxhint # used by vim syntastic to check jsx files
 # json # json formatter used for vim
 jsonlint # verify json
 jspm # javascript package manager with autoloader
@@ -58,8 +57,10 @@ npm-check-updates # check for updates to stuff defined in package.json
 # phantomjs # headless browser used for BDD
 # phpunit-watchr # dinky tool to watch files for changes and run phpunit
 # psi # PageSpeed Insights with reporting
+react-tools # used for vim syntastic syntax checking for jsx react modules
 # redis-cli # command line tool to monitor redis, check connection, etc.
 # redis-commander # web interface for redis similar to beanstalkd
+syntastic-react # used for vim syntastic syntax checking for jsx react modules
 # tldr # community-driven man pages
 yo # yeoman - boilerplate maker
 # zombie # browser emulator for testing like phantomjs

@@ -426,6 +426,10 @@
     " JSON {{{
         nmap <Leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
         let g:vim_json_syntax_conceal = 0
+
+        " make syntastic check json properly
+        au BufRead,BufNewFile *.json set filetype=json
+        let g:syntastic_json_checkers=['jsonlint']
     " }}}
 
     " PyMode {{{
@@ -1849,8 +1853,11 @@
         " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
         " phpmd is kind of useless to me right now
         let g:syntastic_php_checkers = ['php', 'phpcs']
+
         " use npm package to check react scripts
+        " @link https://github.com/jaxbot/syntastic-react
         let g:syntastic_javascript_checkers = ['jsxhint']
+        let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
         " let g:syntastic_js_checkers = []
 
         " spiffy error columns

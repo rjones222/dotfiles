@@ -114,6 +114,7 @@ Plug 'pythoncomplete', { 'for': 'python' }
 
 " JavaScript {{{
 
+" json formatting
 Plug 'elzr/vim-json', { 'for': 'json' }
 
 " this one makes weird artifacts show up while I type
@@ -255,7 +256,7 @@ Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 " :LOTRClose
 " :LOTRToggle also available through <PLUG>LOTRToggle which is mapped to <leader>cr by default.
 " error: Vim version is too old, LOTR requires at least 7.4, patch 392
-" Plug 'dahu/vim-lotr'
+Plug 'dahu/vim-lotr'
 
 " no more pastetoggle!
 Plug 'ConradIrwin/vim-bracketed-paste'
