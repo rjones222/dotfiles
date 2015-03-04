@@ -2231,7 +2231,7 @@
         nnoremap <silent> <buffer> <S-K> :call phpmanual#online#open()<CR>
     endif
     " }}}
-    "
+
     " {{{ vim-php-namespace
     if isdirectory(expand("~/.vim/plugged/vim-php-namespace"))
         " php add use statement for current class

@@ -205,7 +205,8 @@ Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
 " Plug 'vim-scripts/open-browser.vim'
 
 " Deal with swap files better, automatically. Really helpful!
-Plug 'vim-scripts/autoswap.vim'
+" opens a terminal window whenever this script triggers. annoying.
+" Plug 'vim-scripts/autoswap.vim'
 
 " create files and parent dirs at the same time
 " :e my/non-existent/dir/file.php
