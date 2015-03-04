@@ -2270,6 +2270,12 @@
     " let g:plug_threads=32
     " }}}
 
+    " vim-rails {{{
+    if isdirectory(expand("~/.vim/plugged/vim-rails"))
+        let g:rubycomplete_buffer_loading = 1
+    endif
+    " }}}
+
     " {{{ vim-signify
     if isdirectory(expand("~/.vim/plugged/vim-signify"))
         " I only want signify to worry about git
