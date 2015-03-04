@@ -2207,7 +2207,8 @@
     " vim-lotr {{{
     if isdirectory(expand("~/.vim/plugged/vim-lotr"))
         " show registers in a sidebar
-        nnoremap <leader>sr :LOTRToggle<cr>
+        " nnoremap <leader>sr :LOTRToggle<cr>
+        nnoremap <leader>rr :LOTRToggle<cr>
     endif
     " }}}
 
