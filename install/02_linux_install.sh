@@ -65,6 +65,7 @@ if [[ "$(type -P apt-get)" ]]; then
     # hg
     highlight # colorizes html and other output on the command line
     htop # better list of top processes
+    httpie # a cool alternative to curl
     irssi # irc client
     # jsawk # parse json in bash
     libapache2-mod-php5
