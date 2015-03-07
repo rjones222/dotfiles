@@ -99,6 +99,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # macvim # mac gui vim client
         # multitail # tail multiple files in splits with pretty colors
         mysql
+        nano # text editor. This gets the latest version: 2.2.6 rather than 2.2.0 that comes with osx.
         nodejs
         pandoc # used for inline vim php documentation
         # postgresql
