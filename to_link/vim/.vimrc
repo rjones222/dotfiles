@@ -1575,6 +1575,14 @@
     endif
     " }}}
 
+    " molokai {{{
+    if isdirectory(expand("~/.vim/plugged/nerdtree"))
+        " tries to get molokai closer to the original gvim color
+        " @link https://github.com/tomasr/molokai
+        let g:rehash256 = 1
+    endif
+    " }}}
+
     " NERDTree {{{
     if isdirectory(expand("~/.vim/plugged/nerdtree"))
         let NERDTreeIgnore=['\.DS_Store$', '\.vim$']
