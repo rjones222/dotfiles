@@ -2,7 +2,7 @@ snippet usestrict "function form of use strict"
 (function() {
   'use strict';
   $1
- }());
+}());
 endsnippet
 
 snippet al "psr-4 autoload"
@@ -55,7 +55,11 @@ define([$1], function () {
 });
 endsnippet
 
-snippet cns "console.log"
+snippet me "module.exports"
+module.exports = $1;
+endsnippet
+
+snippet clg "console.log"
 console.log("$1");
 endsnippet
 

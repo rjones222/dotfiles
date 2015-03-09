@@ -34,6 +34,7 @@ browser-sync # like livereload but easier
 coffeelint # verify coffeescript files
 coffee-script # javascript abstraction / augmentation
 csslint # verify css files
+express-generator # generates express.js apps
 # fixmyjs # like php-cs-fixer for javascript
 git-guilt # see the top few users for whom this commit has overwritten code
 gulp # task runner / watcher
@@ -47,6 +48,7 @@ jsonlint # verify json
 jspm # javascript package manager with autoloader
 karma # js test runner
 karma-cli # karma testing framework command line runner
+komodo-debug # debugger for nodejs. Lets you attach node sessions to vdebug.
 less # add dynamic capabilities to less
 letswork # distraction remover (no reddit, facebook, twitter)
 live-server # just runs a web server in a dir and refreshes on file change.

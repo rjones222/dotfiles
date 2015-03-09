@@ -183,7 +183,7 @@
     " set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
     "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
     " Automatically remove trailing whitespaces and ^M chars
-    " autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,html.twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,html.twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
     "autocmd FileType go autocmd BufWritePre <buffer> Fmt
     autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
     autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
@@ -449,6 +449,16 @@
     " ctrlp {{{
         if isdirectory(expand("~/.vim/plugged/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
+
+            " speed up indexing by using ag
+            let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+                  \ --ignore .git
+                  \ --ignore .svn
+                  \ --ignore .hg
+                  \ --ignore .DS_Store
+                  \ --ignore "**/*.pyc"
+                  \ -g ""'
+
             " nnoremap <silent> <D-t> :CtrlP<CR>
             " nnoremap <silent> <D-r> :CtrlPMRU<CR>
             " let g:ctrlp_custom_ignore = {
@@ -2044,7 +2054,8 @@
         " let g:vdebug_options['server'] = '192.168.56.1'
         let g:vdebug_options['server'] = '127.0.0.1'
         let g:vdebug_options['port'] = '9000'
-        let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
+        " let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
+        let g:vdebug_options["ide_key"] = ""
         " can add multiple path maps to this array, just duplicate the line
         " below and add another. remote is first, local is second.
         let g:vdebug_options['path_maps'] = {

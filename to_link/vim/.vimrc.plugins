@@ -504,7 +504,9 @@ Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
 " Detach <F7>
 " Stop/close <F6>
 " :VdebugEval <code>
-Plug 'joonty/vdebug', { 'for': 'php' }
+
+" can also debug nodejs quite easily!
+Plug 'joonty/vdebug', { 'for': [ 'php', 'javascript' ] }
 
 " improved php omnicompletion
 Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
