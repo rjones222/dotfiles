@@ -1971,8 +1971,11 @@
     " let g:tlWindowPosition = 1
     " nnoremap <leader>td :TaskList<CR>
     " nnoremap <leader>tl :TaskList<CR>
-    nnoremap <leader>td :Ag "todo"<CR>:cw<CR>
-    nnoremap <leader>tl :Ag "todo"<CR>:cw<CR>
+
+    if executable('ag') && isdirectory(expand("~/.vim/plugged/ag.vim"))
+        nnoremap <leader>td :Ag! "todo"<CR>
+        nnoremap <leader>tl :Ag! "todo"<CR>
+    endif
     " }}}"
 
     " {{{ tmuxline
