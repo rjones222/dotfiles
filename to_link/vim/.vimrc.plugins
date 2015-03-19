@@ -173,10 +173,14 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 " General {{{
 
-" show enabled plugins in macvim
+" show enabled plugins in macvim in a menu at the top
 if has("gui_running")
     Plug 'mbadran/headlights'
 endif
+
+" syntastic, youcompleteme, ctrlp, etc. for c#/asp.net
+" after installing mono, cloning submodules, and building, still can't find csc.exe
+" Plug 'OmniSharp/omnisharp-vim', { 'for': ['aspx', 'cs'], 'do': 'git submodule update --init --recursive && cd server && xbuild', 'on': [] }
 
 " rename a file with :Rename mynewname
 Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
@@ -368,6 +372,9 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 " }}}
 
 " Syntax {{{
+
+" asp.net/c# enhanced
+Plug 'OrangeT/vim-csharp', { 'for': ['aspx.html', 'cs'] }
 
 " rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }

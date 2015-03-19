@@ -97,6 +97,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         libcaca # image previewing in ASCII. used by ranger
         lynx # console web browser. used by ranger to preview html.
         # macvim # mac gui vim client
+        # mono # .NET compiler for mac. Useful for OmniSharp.
         # multitail # tail multiple files in splits with pretty colors
         mysql
         nano # text editor. This gets the latest version: 2.2.6 rather than 2.2.0 that comes with osx.
