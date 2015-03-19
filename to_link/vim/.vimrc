@@ -1741,6 +1741,8 @@
         " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl set filetype=html
         " autocmd BufNewFile,BufRead *.twig,*.blade.php,*.tpl,*.css,*.js,*.html set ts=2 sw=2 sts=2
         " autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+
+        " only for php set the omnifunc to completephp
         autocmd phpcomplete_augroup FileType php set omnifunc=phpcomplete#CompletePHP
 
         " composer install command for phpcomplete
@@ -1758,10 +1760,11 @@
 
         " this avoids an error in php-cs-fixer.vim
         let g:phpcomplete_enhance_jump_to_definition = 0
-        silent! nunmap <buffer> <unique> <C-]>
-        silent! nunmap <buffer> <unique> <C-W><C-]>
-        nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
-        nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
+
+        autocmd phpcomplete_augroup FileType php silent! nunmap <buffer> <unique> <C-]>
+        autocmd phpcomplete_augroup FileType php silent! nunmap <buffer> <unique> <C-W><C-]>
+        autocmd phpcomplete_augroup FileType php nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
+        autocmd phpcomplete_augroup FileType php nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
     endif
     " }}}"
 

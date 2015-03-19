@@ -513,7 +513,7 @@ alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 # use autossh instead of ssh
 alias ssh="autossh"
 # ssh-copy-id with pub key file and auto-accept new server pub keys
-alias sci="ssh-copy-id -i ~/.ssh/keys/demandmedia.pub -o StrictHostKeyChecking=no"
+alias sci="ssh-copy-id -i ~/.ssh/keys/demandmediakey.pub -o StrictHostKeyChecking=no"
 
 # install the vaprobash vagrant file here
 alias vaprobash='curl -L http://bit.ly/vaprobash > Vagrantfile'

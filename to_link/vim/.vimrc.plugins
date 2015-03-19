@@ -1148,6 +1148,9 @@ endif
 " until he makes tag indexing non-blocking (asynchronous)
 " Plug 'mikedfunk/vim-easytags'
 
+" auto update tags... please... i want to believe...
+Plug 'ludovicchabant/vim-gutentags'
+
 " }}}
 
 " Project and Task Management {{{
