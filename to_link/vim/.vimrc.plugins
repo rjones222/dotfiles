@@ -33,7 +33,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'spf13/vim-autoclose'
+" Plug 'spf13/vim-autoclose'
 " Plug 'tacahiroy/ctrlp-funky'
 " Plug 'terryma/vim-multiple-cursors'
 " better supported fork
@@ -352,6 +352,9 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 " automatically closes [], (), '', etc.
 " This breaks <s-tab> in youcompleteme. use a different one instead
 " Plug 'Raimondi/delimitMate'
+
+" this was recommended on reddit instead of delimitmate or autoclose
+Plug 'jiangmiao/auto-pairs'
 
 " Similar to emmett but also can autoclose
 " <c-x>/ close latest html tag
