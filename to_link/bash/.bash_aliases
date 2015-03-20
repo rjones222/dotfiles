@@ -540,7 +540,7 @@ alias flushdns="sudo discoveryutil mdnsflushcache && sudo discoveryutil udnsflus
 # phing
 alias ph="phing"
 
-# pushd and popd are useful for saving bookmarks in cd! random reminder.
+# pushd and popd are useful for saving bookmarks in cd! (random reminder)
 
 # use netextender to connect to vpn
 alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d $VPNDOMAIN $VPNURL"
@@ -548,9 +548,6 @@ alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d
 
 # daily standup notes named by date
 alias standupnotes="tmux rename-window 'standup' && vim ~/Google\ Drive/standup/`date +%F`.markdown"
-
-alias acpcore="cd ~/Sites/acp-core"
-alias acphrh="cd ~/Sites/acp-hotrodhotline"
 
 # shortcut to vhosts file on mac
 alias vhosts="vim /etc/apache2/extra/httpd-vhosts.conf"
@@ -560,5 +557,8 @@ alias dn="cd projects/net-framework/Website"
 
 # Display all request and response HTTP headers. Packet limit of 10Kb and only knows GET, POST and HEAD commands.
 alias tcpd="sudo tcpdump -A -s 10240 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | egrep --line-buffered'^........(GET |HTTP\/|POST |HEAD )|^[A-Za-z0-9-]+: ' | sed -r 's/^........(GET |HTTP\/|POST |HEAD )/\n\1/g'"
+
+# case's ladder staging rsync
+alias cases-ladder-staging-rsync-igl="rsync --recursive --links --checksum --progress --exclude-from=./rsyncExclude.txt --chmod=Dugo+rwX,u+rw,go+r ./. $CASES_LADDER_USER@$CASES_LADDER_IGL_IP:/opt/igl/"
 
 # }}}

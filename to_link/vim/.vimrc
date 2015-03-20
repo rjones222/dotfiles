@@ -2056,16 +2056,20 @@
         let g:vdebug_options = {}
         let g:vdebug_options['continuous_mode'] = 1
         let g:vdebug_options['timeout'] = 30
-        " the local server ip
+        " vagrant ip
         " let g:vdebug_options['server'] = '192.168.56.1'
-        let g:vdebug_options['server'] = '127.0.0.1'
+        " the local server ip
+        " let g:vdebug_options['server'] = '127.0.0.1'
+        " igl staging server
+        let g:vdebug_options['server'] = $CASES_LADDER_IGL_IP
         let g:vdebug_options['port'] = '9000'
         " let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
         let g:vdebug_options["ide_key"] = ""
         " can add multiple path maps to this array, just duplicate the line
         " below and add another. remote is first, local is second.
         let g:vdebug_options['path_maps'] = {
-        \   '/var/www/sites/acp-hotrodhotline': '/Library/WebServer/Documents/acp-hotrodhotline'
+        \   '/opt/igl': '/Users/mikefunk/sites/casesladder-repos/igl',
+        \   '/opt/myleague': '/Users/mikefunk/sites/casesladder-repos/myleague'
         \}
         " stop on first line of execution
         " let g:vdebug_options["break_on_open"] = 0
@@ -2180,7 +2184,7 @@
 
     " vim-github-comment {{{
     if isdirectory(expand("~/.vim/plugged/vim-github-comment"))
-        let g:github_user = 'mikedfunk'
+        let g:github_user = $GITHUB_USER
     endif
     " }}}
 
@@ -2201,8 +2205,8 @@
     " {{{ vim-jira-complete
     " this will not work without 'pip install requests'
     if isdirectory(expand("~/.vim/plugged/vim-jira-complete"))
-        let g:jiracomplete_url = 'http://10.17.37.213/'
-        let g:jiracomplete_username = 'mfunk'
+        let g:jiracomplete_url = $JIRA_URL
+        let g:jiracomplete_username = $JIRA_USERNAME
         " imap <silent> <unique> <leader>jc <Plug>JiraComplete
     endif
     " }}}
@@ -2210,7 +2214,7 @@
     " {{{ vim-jira-open
     if isdirectory(expand("~/.vim/plugged/vim-jira-open"))
         " default is <leader>jo
-        let g:jira_browse_url = 'http://10.17.37.213/browse/'
+        let g:jira_browse_url = $JIRA_URL + 'browse'
     endif
     " }}}
 
