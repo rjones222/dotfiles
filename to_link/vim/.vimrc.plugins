@@ -1242,6 +1242,9 @@ Plug 'tpope/vim-obsession'
 " Tmux {{{
 if executable('tmux')
 
+    " makes vim focus events work inside of tmux
+    Plug 'tmux-plugins/vim-tmux-focus-events'
+
     " :Tmux (command) with tab complete
     " :Tyank
     " :Tput

@@ -544,7 +544,6 @@ alias ph="phing"
 
 # use netextender to connect to vpn
 alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d $VPNDOMAIN $VPNURL"
-# alias vpn="netExtender --auto-reconnect -u $VPNUSERNAME -d $VPNDOMAIN $VPNURL"
 
 # daily standup notes named by date
 alias standupnotes="tmux rename-window 'standup' && vim ~/Google\ Drive/standup/`date +%F`.markdown"
@@ -553,7 +552,7 @@ alias standupnotes="tmux rename-window 'standup' && vim ~/Google\ Drive/standup/
 alias vhosts="vim /etc/apache2/extra/httpd-vhosts.conf"
 
 # dotnet projects all seem to start with the public folder here
-alias dn="cd projects/net-framework/Website"
+alias dn="cd projects/net-framework/website"
 
 # Display all request and response HTTP headers. Packet limit of 10Kb and only knows GET, POST and HEAD commands.
 alias tcpd="sudo tcpdump -A -s 10240 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | egrep --line-buffered'^........(GET |HTTP\/|POST |HEAD )|^[A-Za-z0-9-]+: ' | sed -r 's/^........(GET |HTTP\/|POST |HEAD )/\n\1/g'"
