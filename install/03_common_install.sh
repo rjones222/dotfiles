@@ -135,6 +135,7 @@ bundler # lets gems be package-specific. Used by jekyll.
 CoffeeTags # ctags with coffeescript
 # execjs
 # git-gitlab # command line tool to create merge requests and stuff
+github_changelog_generator # generate changelogs from tags, issues, and merged pull requests
 # haste
 jekyll # blogging platform used by github
 # json_pure
@@ -186,7 +187,7 @@ for package in "${packages[@]}"
 do
     hash $package 2>/dev/null || {
         log_info "installing $package"
-        sudo pip install $package
+        sudo pip install $package -H
     }
 done
 
@@ -202,10 +203,14 @@ if [[ ! -f "$HOME/.tmux/plugins/tpm" ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# I'm sure I could combine these somehow...
 if [[ "$(type -P vagrant)" ]]; then
-    log_info "adding laravel homestead vagrant box"
-    vagrant box add laravel/homestead
-    # homestead cli tool is in global composer.json
+    if vagrant box list | grep homestead -ne 0; then
+        log_info "adding laravel homestead vagrant box"
+        # option 1 is virtualbox. 2 is vmware.
+        echo 1 | vagrant box add laravel/homestead
+        # homestead cli tool is in global composer.json
+    fi
 fi
 
 # commented all go stuff out until I am programming in go
