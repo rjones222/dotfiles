@@ -1466,6 +1466,15 @@
         endfunction
     endif
     " }}}
+    "
+    " DistractionFree.vim {{{
+    if isdirectory(expand("~/.vim/plugged/DistractionFree.vim"))
+        " hide all ui elements and focus on the block you're in
+        nnoremap <Leader>df <Esc>:DistractionsToggle<CR>
+        let g:distraction_free#toggle_tmux = 1
+        let g:distraction_free#toggle_limelight = 1
+    endif
+    " }}}
 
     " {{{ easytags
     " this version is for ctags-better-php

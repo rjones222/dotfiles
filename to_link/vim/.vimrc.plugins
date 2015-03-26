@@ -620,6 +620,16 @@ Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 
 " Looks {{{
 
+" hide all ui elements and focus on the block you're in
+" :DistractionFreeToggle
+" :DistractionsOn
+" :DistractionsOff
+Plug 'DanielFGray/DistractionFree.vim'
+
+" hyper-focus on the current paragraph visually. works with distraction free.
+" :Limielight!! toggle
+Plug 'junegunn/limelight.vim'
+
 " higlight an interesting word in the doc, in a unique color
 " <leader>1 higlight in first color
 " <leader>2 higlight in second color (etc...)
@@ -662,7 +672,7 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 " a bunch of color schemes to try. Most don't work in 256.
 " Plug 'flazz/vim-colorschemes'
 
-" Color schemes that don't look good in xterm-256-colors
+" Color schemes that don't look good in screen-256-colors
 " --------------
 " Plug '29decibel/codeschool-vim-theme'
 " Plug 'tpope/vim-vividchalk'
@@ -684,7 +694,6 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 " Plug 'vim-scripts/Zenburn'
 " Plug 'reedes/vim-colors-pencil'
 " Plug 'modess/vim-phpcolors'
-" Plug 'noahfrederick/vim-hemisu'
 " Plug 'vim-scripts/desert256.vim'
 " Plug 'vim-scripts/xoria256.vim'
 " Plug 'noahfrederick/vim-noctu'
@@ -709,6 +718,8 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 " Plug 'zaiste/Atom'
 " Plug 'joschka/Smyck-Color-Scheme'
 " Plug 'michalbachowski/vim-wombat256mod'
+" gets messed up when switching background
+" Plug 'noahfrederick/vim-hemisu'
 
 " just for testing some of the top color schemes - lots of gui-only here
 " Plug 'vim-scripts/Colour-Sampler-Pack'
