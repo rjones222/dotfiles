@@ -105,7 +105,7 @@ fi
 # build phpctags
 if [[ ! "$(type -P phpctags)" ]]; then
     log_info "building phpctags"
-    cd $HOME/.composer/vendor/techlivezheng/phpctags
+    cd $HOME/.composer/vendor/mr-russ/phpctags
     make
     cp build/phpctags.phar $HOME/.composer/vendor/bin/phpctags
     sudo chmod +x $HOME/.composer/vendor/bin/phpctags
