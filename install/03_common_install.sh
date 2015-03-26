@@ -175,6 +175,7 @@ packages=(
 # gmusicapi # google music api
 # argcomplete # tab completion of arguments for python scripts
 fabric # deployment tool
+# neovim # neovim python library
 # pgcli # a postgresql repl with autocompletion
 Pillow # used by image.vim to preview images in vim via ascii conversion
 requests # used for vim-jira-complete
