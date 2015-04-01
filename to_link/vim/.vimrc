@@ -760,6 +760,10 @@
 " My settings {{{
 
 " General {{{
+    " such a pain in the ass. I've never used one to recover a document - I'm only
+    " struggled with editing when a swap file exists and deleting them.
+    " set noswapfile
+
     " allow setting .exrc in root project folders
     set exrc
     set secure

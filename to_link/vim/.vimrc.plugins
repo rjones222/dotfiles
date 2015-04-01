@@ -652,6 +652,10 @@ Plug 'osyo-manga/vim-brightest'
 " I whitelisted this pretty much just so I could get ascii art on startify :P
 Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 'css', 'less', 'coffee', 'xml', 'json'] }
 
+" If I'm on a project that uses tabs instead of spaces, highlight starting
+" spaces
+" Plug 'guiniol/vim-showspaces'
+
 " pulse the background on search to find the currently found item. Really
 " helpful pretty UI addition.
 " works great... in some color schemes. In others it's just annoying.
@@ -1205,6 +1209,9 @@ Plug 'tpope/vim-obsession'
 " }}}
 
 " Database and API {{{
+
+" anlytics on languages, times, etc.
+Plug 'wakatime/vim-wakatime'
 
 " DB tools in vim
 " A little too complex right now, I am good with SequelPro or
