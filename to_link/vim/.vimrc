@@ -2068,12 +2068,12 @@
         " vagrant ip
         " let g:vdebug_options['server'] = '192.168.56.1'
         " the local server ip
-        " let g:vdebug_options['server'] = '127.0.0.1'
+        let g:vdebug_options['server'] = '127.0.0.1'
         " igl staging server
-        let g:vdebug_options['server'] = $CASES_LADDER_IGL_IP
+        " let g:vdebug_options['server'] = $CASES_LADDER_IGL_IP
         let g:vdebug_options['port'] = '9000'
-        " let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
-        let g:vdebug_options["ide_key"] = ""
+        let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
+        " let g:vdebug_options["ide_key"] = ''
         " can add multiple path maps to this array, just duplicate the line
         " below and add another. remote is first, local is second.
         let g:vdebug_options['path_maps'] = {
