@@ -762,6 +762,10 @@
 " General {{{
     " such a pain in the ass. I've never used one to recover a document - I'm only
     " struggled with editing when a swap file exists and deleting them.
+    "
+    " unfortunately this doesn't help - I still have to press enter to
+    " continue on certain files
+    "
     " set noswapfile
 
     " allow setting .exrc in root project folders
