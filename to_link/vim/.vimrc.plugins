@@ -376,6 +376,9 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " Syntax {{{
 
+" Dockerfile syntax highlighting
+Plug 'ekalinin/Dockerfile.vim'
+
 " asp.net/c# enhanced
 Plug 'OrangeT/vim-csharp', { 'for': ['aspx.html', 'cs'] }
 
