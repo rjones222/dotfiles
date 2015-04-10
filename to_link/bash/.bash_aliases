@@ -511,7 +511,7 @@ alias diff="grc diff"
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 
 # use autossh instead of ssh
-alias ssh="autossh"
+alias ssh="TERM=xterm autossh"
 # ssh-copy-id with pub key file and auto-accept new server pub keys
 alias sci="ssh-copy-id -i ~/.ssh/keys/demandmediakey.pub -o StrictHostKeyChecking=no"
 
