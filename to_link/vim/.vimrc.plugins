@@ -596,7 +596,7 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 "
 " OPTIMIZE USE
 " Simple press <Leader>rou to run the optimize use refactoring.
-" Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
 
 " php refactor tools
 " nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
@@ -616,7 +616,7 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " thinks I need _all_ of the variables defined. It returns them all and
 " assigns them to a var with list(). This is almost never what I want. All the
 " other ones are pretty cool though.
-Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
+" Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 " Plug 'beberlei/vim-php-refactor'
 
 " }}}

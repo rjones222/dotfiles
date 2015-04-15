@@ -2285,6 +2285,12 @@
         noremap <Leader><Leader>u :call PhpInsertUse()<CR>
     endif
     " }}}"
+    "
+    " vim-php-refactoring {{{
+    if isdirectory(expand("~/.vim/plugged/vim-php-refactoring")) && executable("refactor")
+        let g:php_refactor_command='refactor'
+    endif
+    " }}}
 
     " vim-phpqa {{{
     if isdirectory(expand("~/.vim/plugged/vim-phpqa"))

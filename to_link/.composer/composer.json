@@ -27,6 +27,7 @@
     "laravel/homestead": "@stable",
     "d11wtq/boris": "~1.0",
     "psy/psysh": "@stable",
-    "kherge/box": "~2.5"
+    "kherge/box": "~2.5",
+    "qafoolabs/php-refactoring-browser": "0.1.*"
   }
 }
