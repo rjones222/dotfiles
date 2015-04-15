@@ -15,7 +15,7 @@
 # }}}
 
 # source bash completions
-[ -d ~/.dotfiles/to_link/bash_completion.d ] && for f in ~/.dotfiles/to_link/bash_completion.d/*; do source $f; done
+[ -d ~/.dotfiles/to_link/bash/bash_completion.d ] && for f in ~/.dotfiles/to_link/bash/bash_completion.d/*; do source $f; done
 
 # some extra completions that don't go in bash_completion.d
 [ -f "/etc/bash_completion" ] && source /etc/bash_completion
