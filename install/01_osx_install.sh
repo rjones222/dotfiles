@@ -275,7 +275,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     brew tap homebrew/dupes
     brew tap homebrew/versions
     brew tap homebrew/homebrew-php
-    brew install php56 --with-homebrew-curl --with-libmysql --with-debug --withapache --with-imap --with-libxml
+    brew install php56 --with-homebrew-curl --with-libmysql --with-debug --withapache --with-imap --with-libxml --enable-opcache
     brew install php56-xdebug --HEAD # fails if HEAD version not used
     brew install php56-mcrypt
     # have launchd start php56 at login
