@@ -275,7 +275,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     brew tap homebrew/dupes
     brew tap homebrew/versions
     brew tap homebrew/homebrew-php
-    brew install php56 --with-homebrew-curl --with-libmysql --with-debug --withapache --with-imap --with-libxml --enable-opcache
+    brew install php56 --with-homebrew-curl --with-debug
     brew install php56-xdebug --HEAD # fails if HEAD version not used
     brew install php56-mcrypt
     # have launchd start php56 at login
@@ -292,8 +292,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     # if the vhosts lines are commented out in httpd.conf, uncomment them
     if ! cat /etc/apache2/httpd.conf | grep -q "#Include /private/etc/apache2/extra/httpd-vhosts.conf" || ! cat /etc/apache2/httpd.conf | grep -q "#LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so"; then
         log_info "enabling vhosts in apache"
-        sudo sed -i '.bak' 's/#Include\ \/private\/etc\/apache2\/extra\/httpd\vhosts\.conf/Include\ \/private\/etc\/apache2\/extra\/httpd\vhosts\.conf' /etc/apache2/httpd.conf
-        sudo sed -i '.bak' 's/#LoadModule\ vhost_alias_module\ libexec\/apache2\/mod_vhost_alias\.so/LoadModule\ vhost_alias_module\ libexec\/apache2\/mod_vhost_alias\.so' /etc/apache2/httpd.conf
+        sudo sed -i '.bak' 's/#Include\ \/private\/etc\/apache2\/extra\/httpd\vhosts\.conf/Include\ \/private\/etc\/apache2\/extra\/httpd\vhosts\.conf/' /etc/apache2/httpd.conf
+        sudo sed -i '.bak' 's/#LoadModule\ vhost_alias_module\ libexec\/apache2\/mod_vhost_alias\.so/LoadModule\ vhost_alias_module\ libexec\/apache2\/mod_vhost_alias\.so/' /etc/apache2/httpd.conf
     fi
 
     # Remove outdated versions from the cellar.
