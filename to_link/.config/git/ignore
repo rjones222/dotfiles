@@ -24,6 +24,7 @@ Temporary Items
 # custom stuff
 *.swp
 tags
+tags*
 .DS_Store
 .phpcomplete_extended
 .projections.json
