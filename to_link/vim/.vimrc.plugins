@@ -30,31 +30,43 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 " I had trouble getting this to work for some reason
 " Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeMirrorToggle', 'NERDTreeTabsToggle', 'NERDTreeTabs'] }
+" Used for NERDTreeMirrorToggle with <c-e>
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
+" make some stuff repeatable that usually isn't
 Plug 'tpope/vim-repeat'
 " Plug 'spf13/vim-autoclose'
 " Plug 'tacahiroy/ctrlp-funky'
 " Plug 'terryma/vim-multiple-cursors'
-" better supported fork
+" better supported fork to do sublime-style multiple cursors
 Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'vim-scripts/sessionman.vim', { 'on': ['SessionList', 'SessionSave', 'SessionClose'] }
-Plug 'matchit.zip'
+" I use a different one further down
+" Plug 'matchit.zip'
 Plug 'bling/vim-airline'
 " Plug 'bling/vim-bufferline'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+" It's great and all but I just don't use it.
+" Plug 'Lokaltog/vim-easymotion'
+" It's great and all but I just don't use it.
+" Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 " Plug 'nathanaelkane/vim-indent-guides'
+" show verticle lines for levels of indentions like an IDE
 Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/restore_view.vim'
+" show added/modified/removed lines in version control in the signs column
 Plug 'mhinz/vim-signify'
 " Plug 'tpope/vim-abolish', { 'on': 'Abolish' }
+" :Subvert or :S
 Plug 'tpope/vim-abolish'
-Plug 'osyo-manga/vim-over'
+" Preview command line actions
+" I never use this
+" Plug 'osyo-manga/vim-over'
+" create your own text objects - used by other text object plugins
 Plug 'kana/vim-textobj-user'
 " Plug 'kana/vim-textobj-indent'
 " press enter to grow selection, backspace to shrink.
-Plug 'gcmt/wildfire.vim'
+" I never use this
+" Plug 'gcmt/wildfire.vim'
 " }}}
 
 " General Programming {{{
@@ -66,12 +78,22 @@ if executable('curl')
     Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim', { 'on': 'Gist' }
 endif
+" Comment toggle with
+" <leader>C<space>
 Plug 'scrooloose/nerdcommenter'
 " Plug 'tpope/vim-commentary'
-Plug 'godlygeek/tabular'
+" Align operators like this
+" one   = 1
+" two   = 2
+" three = 3
+" four  = 4
+" I never use this because of teamwork and git
+" Plug 'godlygeek/tabular'
+" Useful tags sidebar for PHP, Coffeescript, CSS
+" <leader>TT to toggle
 if executable('ctags')
     " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-    Plug 'majutsushi/tagbar'
+    Plug 'majutsushi/tagbar', { 'for': ['php', 'coffee', 'css'] }
 endif
 " }}}
 
@@ -129,7 +151,8 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " gqaj 'pretty prints' (wraps/indents/sorts keys/otherwise cleans up) the JSON construct under the cursor.
 " gwaj takes the JSON object on the clipboard and extends it into the JSON object under the cursor.
 " There are also ij variants that target innermost rather than outermost JSON construct.
-Plug 'tpope/vim-jdaddy', { 'for': ['json', 'javascript'] }
+" I don't use this
+" Plug 'tpope/vim-jdaddy', { 'for': ['json', 'javascript'] }
 
 " adds some tools to jump to definition, look up docs, find type, etc.
 " I don't use it and it's been giving me weird errors when trying to reinstall.
@@ -183,7 +206,8 @@ endif
 " Plug 'OmniSharp/omnisharp-vim', { 'for': ['aspx', 'cs'], 'do': 'git submodule update --init --recursive && cd server && xbuild', 'on': [] }
 
 " rename a file with :Rename mynewname
-Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
+" I use NERDTree
+" Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
 
 " rogue in vim? sure why not
 " Plug 'katono/rogue.vim'
@@ -260,10 +284,13 @@ Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 " :LOTRClose
 " :LOTRToggle also available through <PLUG>LOTRToggle which is mapped to <leader>cr by default.
 " error: Vim version is too old, LOTR requires at least 7.4, patch 392
-Plug 'dahu/vim-lotr'
+" This is cool but I don't use it
+" Plug 'dahu/vim-lotr'
 
 " no more pastetoggle!
-Plug 'ConradIrwin/vim-bracketed-paste'
+" I think because I use screen-256-color this messes up and types some chars
+" in command mode
+" Plug 'ConradIrwin/vim-bracketed-paste'
 
 " toggle most recent yanks backward and forward in history
 " By default, the keys to toggle the paste are mapped to <c-n> and <c-p>
@@ -354,6 +381,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 " Plug 'Raimondi/delimitMate'
 
 " this was recommended on reddit instead of delimitmate or autoclose
+" Insert or delete brackets, parens, quotes in pair.
 Plug 'jiangmiao/auto-pairs'
 
 " Similar to emmett but also can autoclose
@@ -362,7 +390,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-ragtag', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " use c-n and c-p to complete from your buffers in search or command mode
-Plug 'vim-scripts/CmdlineComplete'
+" I've never used this
+" Plug 'vim-scripts/CmdlineComplete'
 
 " Match html/xml tags with %
 " Plug 'tmhedberg/matchit'
@@ -377,7 +406,7 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 " Syntax {{{
 
 " Dockerfile syntax highlighting
-Plug 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 " asp.net/c# enhanced
 Plug 'OrangeT/vim-csharp', { 'for': ['aspx.html', 'cs'] }
@@ -386,7 +415,7 @@ Plug 'OrangeT/vim-csharp', { 'for': ['aspx.html', 'cs'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " react jsx
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 
 " Hide portions from syntax highlighting. Useful for when syntax coloring
 " gets messed up by html in php or markdown quotes/underscores/dashes
@@ -451,7 +480,8 @@ Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass', 'less'] }
 " :ColorVScheme (<leader>css) Fetch scheme from Kuler or ColourLover
 " :ColorVSchemeFav (<leader>csf) Show Faved schemes
 " :ColorVSchemeNew (<leader>csn) Create a new scheme
-Plug 'Rykka/colorv.vim', { 'for': ['html', 'blade', 'css', 'scss', 'less', 'sass', 'html.twig', 'smarty'] }
+" Cool but I never use it
+" Plug 'Rykka/colorv.vim', { 'for': ['html', 'blade', 'css', 'scss', 'less', 'sass', 'html.twig', 'smarty'] }
 
 " }}}
 
@@ -466,7 +496,8 @@ Plug 'alvan/vim-php-manual', { 'for': ['php', 'blade'] }
 " Just for code coverage highlighting
 " :Phpcc - show code coverage (will ask for a clover XML file if not set)
 " <Leader>qc  " Show/hide code coverage markers
-Plug 'joonty/vim-phpqa', { 'for': 'php' }
+" I don't care much about coverage right now. I may re-enable it sometime.
+" Plug 'joonty/vim-phpqa', { 'for': 'php' }
 
 " customizable php folding
 " I don't use folding but this is cool when it's on
@@ -522,7 +553,8 @@ Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
 " :VdebugEval <code>
 
 " can also debug nodejs quite easily!
-Plug 'joonty/vdebug', { 'for': [ 'php', 'javascript' ] }
+" Plug 'joonty/vdebug', { 'for': [ 'php', 'javascript' ] }
+Plug 'joonty/vdebug', { 'for': 'php' }
 
 " improved php omnicompletion
 Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
@@ -596,7 +628,8 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 "
 " OPTIMIZE USE
 " Simple press <Leader>rou to run the optimize use refactoring.
-Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+" Kind of dumb extract method. Someday I hope to find a good refactoring tool.
+" Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
 
 " php refactor tools
 " nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
@@ -630,11 +663,13 @@ Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
 " :DistractionFreeToggle
 " :DistractionsOn
 " :DistractionsOff
-Plug 'DanielFGray/DistractionFree.vim'
+" Cool but I never use it
+" Plug 'DanielFGray/DistractionFree.vim'
 
 " hyper-focus on the current paragraph visually. works with distraction free.
 " :Limielight!! toggle
-Plug 'junegunn/limelight.vim'
+" Cool but I never use it
+" Plug 'junegunn/limelight.vim'
 
 " higlight an interesting word in the doc, in a unique color
 " <leader>1 higlight in first color
@@ -734,24 +769,26 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 " just for testing some of the top color schemes - lots of gui-only here
 " Plug 'vim-scripts/Colour-Sampler-Pack'
 
+" a ton of 256 color schemes that mostly look like crap on my setup
+" Plug 'noah/vim256-color'
+
 " Schemes that look good in 256 colors:
+" Some of these I have commented out just because I don't currently use them
 " --------------
 Plug 'nanotech/jellybeans.vim'
-Plug 'zeis/vim-kolor'
+" Plug 'zeis/vim-kolor'
 Plug 'tomasr/molokai'
-Plug 'Lokaltog/vim-distinguished'
-Plug 'junegunn/seoul256.vim'
-Plug 'jnurmine/Zenburn'
-Plug 'cocopon/iceberg.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'nielsmadan/harlequin'
-Plug 'hickop/vim-hickop-colors'
+" Plug 'Lokaltog/vim-distinguished'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'jnurmine/Zenburn'
+" Plug 'cocopon/iceberg.vim'
+" Plug 'w0ng/vim-hybrid'
+" Plug 'nielsmadan/harlequin'
+" Plug 'hickop/vim-hickop-colors'
 Plug 'sjl/badwolf'
 " Plug 'jonathanfilip/vim-lucius'
 " lucius fork to include fugitive colors
 Plug 'MarioRicalde/vim-lucius'
-" a ton of 256 color schemes that mostly look like crap on my setup
-" Plug 'noah/vim256-color'
 Plug 'whatyouhide/vim-gotham'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
 Plug 'jonathanpatt/vim-koala'
@@ -759,8 +796,8 @@ Plug 'baskerville/bubblegum'
 " the light version looks good except for the colorcolumn
 " dark version has an ugly pink colorcolumn
 Plug 'freeo/vim-kalisi'
-Plug 'vim-scripts/The-Vim-Gardener'
-Plug 'ciaranm/inkpot'
+" Plug 'vim-scripts/The-Vim-Gardener'
+" Plug 'ciaranm/inkpot'
 Plug 'fmoralesc/molokayo'
 Plug 'romainl/Apprentice'
 
@@ -776,10 +813,10 @@ Plug 'edkolev/promptline.vim', { 'on': ['Promptline', 'PromptlineSnapshot'] }
 " This is AWESOME. One of my favorite plugins. animates scrolling.
 Plug 'yonchu/accelerated-smooth-scroll'
 
-" different fork of solarized that fixes stuff
 " Plug 'blueyed/vim-colors-solarized'
 " Plug 'https://github.com/jwhitley/vim-colors-solarized.git'
-Plug 'jwhitley/vim-colors-solarized'
+" different fork of solarized that fixes stuff. USE THIS ONE BELOW
+" Plug 'jwhitley/vim-colors-solarized'
 
 " easy way to scroll through color schemes
 " cycle, rotate
@@ -816,7 +853,8 @@ Plug 'kergoth/vim-hilinks', { 'on': ['HLT', 'HLTm'] }
 Plug 'junegunn/vim-peekaboo'
 
 " use :Switch to swap between 2 or more paired definitions in .vimrc
-Plug 'AndrewRadev/switch.vim'
+" Cool but I've never used it
+Plug 'AndrewRadev/switch.vim', { 'on': 'Switch' }
 
 " take a bunch of zeroes and make them sequential. (rengbang is some japanese
 " word for doing this)
@@ -847,6 +885,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 " The plugin defines two commands, :SidewaysLeft and :SidewaysRight, which move
 " the item under the cursor left or right, where an 'item' is defined by a
 " delimiter.
+" used to move function arguments
 Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
 
 " Align in columns
@@ -866,12 +905,14 @@ Plug 'justinmk/vim-ipmotion'
 
 " swap blocks of code with cx (c then x) example: cxiw to mark a word,
 " then go to another word and cxiw. The words will swap. Very exciting.
-Plug 'tommcdo/vim-exchange'
+" I hardly ever use this
+" Plug 'tommcdo/vim-exchange'
 
 " increment/decrement dates
 " I like long runs on the beach and holding hands in the movie theatre
 " <c-b> on date. I remapped vim's default <c-a> to <c-b> because of tmux.
-Plug 'tpope/vim-speeddating'
+" I have never used this
+" Plug 'tpope/vim-speeddating'
 
 " smart search, replace, abbreviation fixer
 " :%S/mixed_case_thing/other_thing/g replaces MixedCaseThing in context as
@@ -891,14 +932,16 @@ Plug 'tpope/vim-speeddating'
 " Plug 'lfilho/cosco.vim'
 
 " expand things like {foo,bar} with :Expand in visual mode
-Plug 'Wolfy87/vim-expand', { 'on': 'Expand' }
+" I never use this
+" Plug 'Wolfy87/vim-expand', { 'on': 'Expand' }
 
 " }}}
 
 " Navigation and Search {{{
 
 " make vim understand line and column numbers from xdebug and the like
-Plug 'kopischke/vim-fetch'
+" I've never actually used this
+" Plug 'kopischke/vim-fetch'
 
 " motions based on indent depths
 " [- : Move to previous line of lesser indent than the current line.
@@ -912,11 +955,13 @@ Plug 'kopischke/vim-fetch'
 
 " {count}[_ : Move to previous line with indent-level of {count}.
 " {count}]_ : Move to next line with indent-level of {count}.
-Plug 'jeetsukumaran/vim-indentwise'
+" Cool but I don't use it
+" Plug 'jeetsukumaran/vim-indentwise'
 
 " show a tags sidebar window like nerdtree
 " :TagExplorer
-Plug 'vim-scripts/tagexplorer.vim', { 'on': 'TagExplorer' }
+" Cool but I don't use it
+" Plug 'vim-scripts/tagexplorer.vim', { 'on': 'TagExplorer' }
 
 " highlight f and t searches, use same motion to ; or \
 " this just annoys me
@@ -970,7 +1015,8 @@ Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee' }
 " example:
 " :GitGrep foo.*bar (or :Ag! mysearchterm)
 " :Qdo %s/foo.*bar/baz/g | update
-Plug 'henrik/vim-qargs', { 'on': ['GitGrep', 'Qdo'] }
+" I can just edit the quickfix window with another plugin. Disabled.
+" Plug 'henrik/vim-qargs', { 'on': ['GitGrep', 'Qdo'] }
 
 " vim search and replace in directory
 " Plug 'vim-scripts/Greplace.vim'
@@ -980,9 +1026,10 @@ Plug 'henrik/vim-qargs', { 'on': ['GitGrep', 'Qdo'] }
 " Plug 'tacahiroy/ctrlp-funky'
 
 " The missing link in ctrlp navigation: switch tabs
-if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
-    Plug 'DavidEGx/ctrlp-smarttabs'
-endif
+" Cool but I don't use it
+" if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
+    " Plug 'DavidEGx/ctrlp-smarttabs'
+" endif
 
 " open directory in finder
 " <gof> opens the file manager at the directory of the file you are currently
@@ -1024,6 +1071,7 @@ Plug 'mhinz/vim-startify'
 " smart jump to project root
 " nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
 " Plug 'dbakker/vim-projectroot'
+" this one does it automatically
 Plug 'airblade/vim-rooter'
 
 " wget menu item in NERDTree!
@@ -1041,7 +1089,8 @@ Plug 'airblade/vim-rooter'
 
 " accidentally didn't type the whole file name, expecting tab complete to
 " finish it? This will help.
-Plug 'EinfachToll/DidYouMean'
+" I think this might be causing problems
+" Plug 'EinfachToll/DidYouMean'
 
 " Swap windows just like cxiw. Mark the first window with <leader>ww. Then
 " switch to the second window and do <leader>ww again. The windows will
@@ -1137,7 +1186,8 @@ Plug 'kana/vim-textobj-entire'
 
 " line
 " al, il
-Plug 'kana/vim-textobj-line'
+" I can just use V
+" Plug 'kana/vim-textobj-line'
 
 " selection in/around underscore
 " a_, i_
@@ -1149,7 +1199,8 @@ Plug 'kana/vim-textobj-underscore'
 Plug 'michaeljsmith/vim-indent-object'
 
 " adds more text objects such as in' and ip' (in next and in previous ' )
-Plug 'wellle/targets.vim'
+" I never use this
+" Plug 'wellle/targets.vim'
 
 " }}}
 
@@ -1217,6 +1268,7 @@ Plug 'tpope/vim-obsession'
 " Database and API {{{
 
 " anlytics on languages, times, etc.
+" http://wakatime.com
 Plug 'wakatime/vim-wakatime'
 
 " DB tools in vim
@@ -1274,7 +1326,8 @@ if executable('tmux')
     " :Tput
     " :Twrite to another window or tab
     " :Tattach to a session
-    Plug 'tpope/vim-tbone'
+    " I never use this
+    " Plug 'tpope/vim-tbone'
 
     " tmux custom statusline in sync with airline
     " :TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
