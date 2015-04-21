@@ -628,8 +628,9 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 "
 " OPTIMIZE USE
 " Simple press <Leader>rou to run the optimize use refactoring.
+" The Qafoo labs cli tool does have active development on this, which is nice.
 " Kind of dumb extract method. Someday I hope to find a good refactoring tool.
-" Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
 
 " php refactor tools
 " nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
