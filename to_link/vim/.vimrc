@@ -786,8 +786,9 @@
     augroup END
 
     " select around a function in php
-    autocmd php_select_around_function FileType php nnoremap vaf ?func.*\n*\s*{<cr>ma/{<cr>%mb`av`b
-    autocmd php_select_around_function FileType php vmap af o<esc>kvaf
+    " I don't use it
+    " autocmd php_select_around_function FileType php nnoremap vaf ?func.*\n*\s*{<cr>ma/{<cr>%mb`av`b
+    " autocmd php_select_around_function FileType php vmap af o<esc>kvaf
 
     " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
     " @link http://www.reddit.com/r/vim/comments/2of45a/terminal_vim_changing_cursor_shape_on_linux/cmmu01h
@@ -812,7 +813,7 @@
     " endif
 
     " .md is markdown, not modula2
-    au BufNewFile,BufRead *.md  setf markdown
+    au BufNewFile,BufRead *.md setf markdown
 
     " supposed to speed syntax highlighting
     " set re=1
@@ -826,50 +827,43 @@
     " usage:
     " :Sedit ft=php
     " :Stabedit ft=javascript
-    function! ScratchEdit(cmd, options)
-        exe a:cmd tempname()
-        setl buftype=nofile bufhidden=wipe nobuflisted
-        if !empty(a:options) | exe 'setl' a:options | endif
-    endfunction
+    " function! ScratchEdit(cmd, options)
+        " exe a:cmd tempname()
+        " setl buftype=nofile bufhidden=wipe nobuflisted
+        " if !empty(a:options) | exe 'setl' a:options | endif
+    " endfunction
+
+    " command! -bar -nargs=* Sedit call ScratchEdit('edit', <q-args>)
+    " command! -bar -nargs=* Ssplit call ScratchEdit('split', <q-args>)
+    " command! -bar -nargs=* Svsplit call ScratchEdit('vsplit', <q-args>)
+    " command! -bar -nargs=* Stabedit call ScratchEdit('tabe', <q-args>)
 
     " this is actually a plugin but they guy doesn't maintain or add to it so
     " there is no benefit to keeping it as a plugin. It's so small I'll just
     " put it here.
-    if executable('phpunit')
-        if executable('tmux')
-            command! VimuxPHPUnitRunCurrentFile :call s:VimuxPHPUnitRunCurrentFile()
+    if executable('phpunit') && executable('tmux')
+        command! VimuxPHPUnitRunCurrentFile :call s:VimuxPHPUnitRunCurrentFile()
 
-            function! s:VimuxPHPUnitRunCurrentFile()
-                call VimuxRunCommand('phpunit ' . expand('%:p'))
-            endfunction
-        endif
+        function! s:VimuxPHPUnitRunCurrentFile()
+            call VimuxRunCommand('phpunit ' . expand('%:p'))
+        endfunction
     endif
-
-    " filter quickfix list with
-    " :QFilter pattern " only show lines matching pattern
-    " :QFilter pattern " hide lines matching pattern
-    function! s:FilterQuickfixList(bang, pattern)
-      let cmp = a:bang ? '!~#' : '=~#'
-      call setqflist(filter(getqflist(), "bufname(v:val['bufnr']) " . cmp . " a:pattern"))
-    endfunction
-    command! -bang -nargs=1 -complete=file QFilter call s:FilterQuickfixList(<bang>0, <q-args>)
-
-    command! -bar -nargs=* Sedit call ScratchEdit('edit', <q-args>)
-    command! -bar -nargs=* Ssplit call ScratchEdit('split', <q-args>)
-    command! -bar -nargs=* Svsplit call ScratchEdit('vsplit', <q-args>)
-    command! -bar -nargs=* Stabedit call ScratchEdit('tabe', <q-args>)
 
     " select last paste in visual mode
-    nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+    " I don't use it
+    " nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
     " make searching with :find work sort-of like ctrlp
-    set path=**
-    set suffixesadd+=.php,.sh,.js,.less,.css,.coffee,.json
+    " or just use ctrlp...
+    " set path=**
+    " set suffixesadd+=.php,.sh,.js,.less,.css,.coffee,.json
 
     " ag.vim equivalent with :grep searchterm
-    if executable('ag')
-        set grepprg=ag\ --nocolor\ --nogroup\ --silent.
-    endif
+    " or just use ag.vim...
+    " if executable('ag')
+        " set grepprg=ag\ --nocolor\ --nogroup\ --silent.
+    " endif
+    "
     " set grepprg=grep -nH
 
     " since , replaces leader, use \ to go back in a [f]ind
@@ -900,7 +894,7 @@
         nnoremap <leader>fj :%!json<cr>
     endif
     " }}}
-    "
+
     " {{{ delete inactive buffers (the ones not in tabs or windows)
     " @link http://stackoverflow.com/a/7321131/557215
     function! DeleteInactiveBufs()
@@ -938,78 +932,14 @@
     endfunction
     " }}}"
 
-    " {{{ change tab width
-    function! MyTabWidth(fromwidth, towidth)
-        " change every 4 spaces to a tab character
-        exe "setlocal sw=".a:fromwidth." ts=".a:fromwidth." sts=".a:fromwidth." et"
-        exe 'retab!'
-
-        " change tab length to 2 spaces, expandtab, retab
-        exe "setlocal sw=".a:towidth." ts=".a:towidth." sts=".a:towidth." et"
-        exe 'retab'
-    endfunction
-    " }}}
-
-    " {{{ Concept - load underlying class for Laravel
-    function! FacadeLookup()
-        let facade = input('Facade Name: ')
-        let classes = {
-\       'Eloquent': 'Database/Eloquent/Model.php'
-\       'File': 'Filesystem/Filesystem.php',
-\       'Form': 'Html/FormBuilder.php',
-\       'Html': 'Html/HtmlBuilder.php',
-\       'View': 'View/View.php',
-\   }
-        execute ":edit vendor/laravel/framework/src/Illuminate/" . classes[facade]
-    endfunction
-    nmap ,lf :call FacadeLookup()<cr>
-    " }}}
-
-    " {{{ Add a new dependency to a PHP class - doesn't work
-    function! AddDependency()
-        let dependency = input('Var Name: ')
-        let namespace = input('Class Path: ')
-
-        let segments = split(namespace, '\')
-        let typehint = segments[-1]
-
-        exec 'normal gg/construct^M:H^Mf)i, ' . typehint . ' $' . dependency . '^[/}^>O$this->^[a' . dependency . ' = $' . dependency . ';^[?{^MkOprotected $' . dependency . ';^M^[?{^MOuse ' . namespace . ';^M^['
-
-        " Remove opening comma if there is only one dependency
-        exec 'normal :%s/(, /(/g'
-    endfunction
-    " nmap <leader>2  :call AddDependency()<cr>
-    " }}}
-
     " for mouseterm
     if has("mouse")
         set mouse=a
     endif
 
-    " augroup phpman_autogroup
-        " autocmd!
-    " augroup END
-
-    " use php documentation with <shift>K from pear package pman"
-    " disabled for now - trying alvan/vim-php-manual instead
-    " if executable('pman')
-        " autocmd phpman_autogroup FileType php set keywordprg=pman
-        " autocmd FileType php set keywordprg=/Users/mfunk/.composer/vendor/bin/pman\ -P\ less
-        " autocmd FileType php nnoremap K :Silent pman <cword> <CR>
-        " autocmd FileType php nnoremap K :Silent /usr/local/php5/bin/pman <cword> <CR>
-        " autocmd FileType php nnoremap K <Plug>(phpcomplete-extended-doc)
-    " endif
-
-    " enable matching of xml tags with %
-    " runtime macros/matchit.vim
-
     " do not redraw while running macros - faster
-    set lazyredraw
-
-    " auto source vimrc
-    " augroup vimrc_augroup
-        " autocmd BufWritePost .vimrc.local,.vimrc.bundles.local,.vimrc.before.local,.vimrc.custom.local source $MYVIMRC
-    " augroup END
+    " disabled because I'm having a problem with screen artifacts
+    " set lazyredraw
 
     " allow interactive shell commands to source my .bash_profile
     " set shell=/bin/bash\ -i
@@ -1018,14 +948,6 @@
     set nofoldenable
     " and in PIV
     " let g:DisableAutoPHPFolding = 1
-
-    " underline matching words automatically
-    " hi WordMatch cterm=underline
-    augroup highlight_augroup
-        autocmd!
-    augroup END
-
-    " autocmd highlight_augroup CursorMoved * exe printf('match Underlined /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
     " enable the preview window for omnicompletion - doesn't work for some reason
     " set completeopt+=preview
@@ -1047,28 +969,23 @@
     set nospell
 
     " Abbreviations {{{
-    if executable('phpunit')
-        abbrev pft PHPUnit_Framework_TestCase
-    endif
-    if executable('php')
-        abbrev gm !php artisan generate:model
-        abbrev gc !php artisan generate:controller
-        abbrev gmig !php artisan generate:migration
-    endif
+    abbrev pft PHPUnit_Framework_TestCase
+    abbrev gm !php artisan generate:model
+    abbrev gc !php artisan generate:controller
+    abbrev gmig !php artisan generate:migration
     " }}}
 
+    " if the last window is a quickfix, close it {{{
     augroup qfclose_augroup
         autocmd!
     augroup END
-
-    " if the last window is a quickfix, close it
     autocmd qfclose_augroup WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+    " }}}
 
+    " 2 space indent in front-end {{{
     augroup highlight_augroup
         autocmd!
     augroup END
-
-    " 2 space indent in front-end
     autocmd highlight_augroup FileType smarty,blade,html,javascript,json,css,html.twig,coffee,yaml :call Tab2()
 
     " sets everything to 2 spaces. For some reason just calling all this in
@@ -1080,53 +997,39 @@
         setlocal expandtab
         :%retab!
     endfunction
-
-    " change indentation size with :Indent
-    command! Indent :call Indent()
-    function! Indent()
-        let s:size_of_indentation = input("New indentation (".&ts.",".&sts.",".&sw.") => ")
-        if(s:size_of_indentation != '')
-            execute "setlocal ts=".s:size_of_indentation.""
-            execute "setlocal sts=".s:size_of_indentation.""
-            execute "setlocal sw=".s:size_of_indentation.""
-        endif
-    endfunction
-
-    " convert quickly between tabs and spaces with :TabToSpace and :SpaceToTab
-    command! TabToSpace :setlocal expandtab | %retab!
-    command! SpaceToTab :setlocal noexpandtab | %retab!
+    " }}}
 " }}}
 
 " Key Mapping {{{
     " soft wrapping
-    command! -nargs=* Wrap set wrap linebreak nolist
+    " command! -nargs=* Wrap set wrap linebreak nolist
 
     " Ranger browser in the current dir
     " @link http://www.reddit.com/r/vim/comments/2va2og/ranger_the_cli_file_manager_xpost_from/
-    function! RangerChooser()
-        let temp = tempname()
-        exec 'silent !ranger --choosefiles=' . shellescape(temp)
-        if !filereadable(temp)
-            redraw!
-            " Nothing to read.
-            return
-        endif
-        let names = readfile(temp)
-        if empty(names)
-            redraw!
-            " Nothing to open.
-            return
-        endif
-        " Edit the first item.
-        exec 'edit ' . fnameescape(names[0])
-        " Add any remaning items to the arg list/buffer list.
-        for name in names[1:]
-            exec 'argadd ' . fnameescape(name)
-        endfor
-        redraw!
-    endfunction
+    " function! RangerChooser()
+        " let temp = tempname()
+        " exec 'silent !ranger --choosefiles=' . shellescape(temp)
+        " if !filereadable(temp)
+            " redraw!
+            " " Nothing to read.
+            " return
+        " endif
+        " let names = readfile(temp)
+        " if empty(names)
+            " redraw!
+            " " Nothing to open.
+            " return
+        " endif
+        " " Edit the first item.
+        " exec 'edit ' . fnameescape(names[0])
+        " " Add any remaning items to the arg list/buffer list.
+        " for name in names[1:]
+            " exec 'argadd ' . fnameescape(name)
+        " endfor
+        " redraw!
+    " endfunction
 
-    nnoremap <leader>rc :call RangerChooser()<CR>
+    " nnoremap <leader>rc :call RangerChooser()<CR>
 
     " open vhosts file
     command! Vhost tabe /etc/apache2/extra/httpd-vhosts.conf
@@ -1142,7 +1045,7 @@
     nnoremap [{ {j
     nnoremap ]} }k
 
-    " sort use statements and come back
+    " sort php use statements and come back
     command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:nohlsearch<cr>:echo 'sorted use statements'<cr>"
     nnoremap <leader>su :SortUse<cr>
 
@@ -1154,22 +1057,11 @@
         nnoremap <leader>tv :Privateupdates<cr>
     endif
 
-    if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
-        " working commit
-        command! Working :Dispatch cd $(git rev-parse --show-toplevel) && git add --all .; git commit -am "rebase me!!" && cd -
-    endif
-
     " source vimrc
     command! Source :so $MYVIMRC
 
     " remove trailing spaces
     " command! StripTrailingWhitespace :%s/\s\+$//
-
-    " change tab width from 4 to 2 spaces and retab
-    nnoremap <leader>t2 :call MyTabWidth(4,2)<cr>
-
-    " change tab width from 2 to 4 spaces and retab
-    nnoremap <leader>t4 :call MyTabWidth(2,4)<cr>
 
     " vertical and horizontal splits like tmux
     nnoremap <c-w>" :sp<cr>
@@ -1178,11 +1070,6 @@
     " go to next/previous closed fold
     nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
     nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
-
-    " Vundle actions
-    " nnoremap <leader>bi :so $MYVIMRC<cr> :BundleInstall<cr>
-    " nnoremap <leader>bc :so $MYVIMRC<cr> :BundleClean!<cr>
-    " nnoremap <leader>bu :so $MYVIMRC<cr> :BundleUpdate<cr>
 
     " Clear all marks for the current buffer
     " nnoremap <leader>mc :delm! | delm A-Z0-9
@@ -1202,29 +1089,6 @@
         endif
     endfunction
 
-    " {{{ foldmethod toggle between indent and marker
-    let g:FoldMethod = 0
-    nnoremap <leader>fm :call ToggleFold()<cr>
-    fun! ToggleFold()
-        if g:FoldMethod == 0
-            exe 'set foldmethod=indent'
-            exe 'set foldcolumn=4'
-            let g:FoldMethod = 1
-        else
-            exe 'set foldmethod=marker'
-            exe 'set foldcolumn=0'
-            let g:FoldMethod = 0
-        endif
-    endfun
-    " }}}
-
-    " {{{ Laravel framework commons
-    nmap <leader>lr :e app/routes.php<cr>
-    nmap <leader>lca :e app/config/app.php<cr>81Gf(%O
-    nmap <leader>lcd :e app/config/database.php<cr>
-    nmap <leader>lc :e composer.json<cr>
-    " }}}
-
     " {{{ map space to toggle folds
     nnoremap <space> za
     vnoremap <space> zf
@@ -1235,23 +1099,23 @@
     " nnoremap <leader>o o<esc>
     " nnoremap <leader>O O<esc>
 
-    " increment with c-b
+    " increment with c-b since I use c-a for tmux
     nnoremap <c-b> <c-a>
     vnoremap <c-b> <c-a>
 
     " copy all
-    nnoremap <leader>ya mzggVGy`z :delmarks z<cr>h :echo "copied all text"<cr>
+    " nnoremap <leader>ya mzggVGy`z :delmarks z<cr>h :echo "copied all text"<cr>
 
     " format all
-    nnoremap <leader>fa mzggVG=`z :delmarks z<cr>h :echo "formatted file"<cr>
+    " nnoremap <leader>fa mzggVG=`z :delmarks z<cr>h :echo "formatted file"<cr>
 
     " visually select a search result
-    nnoremap g/ //e<Enter>v??<Enter>
+    " nnoremap g/ //e<Enter>v??<Enter>
 
     " my version of fast tabs
     nnoremap gh gT
     nnoremap gl gt
-    nnoremap gn :tabnew<cr>
+    " nnoremap gn :tabnew<cr>
 
     " open tag in tab
     nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -1270,17 +1134,17 @@
     nnoremap <c-w><c-l> :vertical resize +10<cr>
     nnoremap <c-w><c-h> :vertical resize -10<cr>
 
-    " maximize split
-    nnoremap <C-L> <C-W>l<C-W><bar>
-    nnoremap <C-H> <C-W>h<C-W><bar>
+    " maximize vertical split
+    " nnoremap <C-L> <C-W>l<C-W><bar>
+    " nnoremap <C-H> <C-W>h<C-W><bar>
 
-    nnoremap <leader>bo :BufOnly<cr>
+    " nnoremap <leader>bo :BufOnly<cr>
 
     " open existing buffer in a newtab
     " nnoremap <leader>te :ls<cr>:tabedit #
 
     " open link under cursor in browser
-    nnoremap <leader>ou yiW:!open <c-r>" &<cr><cr>
+    " nnoremap <leader>ou yiW:!open <c-r>" &<cr><cr>
 
     " {{{ put cursor at end of text on y and p
     vnoremap <silent> y y`]
@@ -1300,10 +1164,8 @@
     autocmd cosco_vim_augroup FileType conf set ft=apache
 
     set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
-    " supposed to help colorschemes work better in 256 colors
-    let g:rehash256 = 1
 
-    " {{{ global powerline fonts switch is defined in .vimrc.before.local
+    " {{{ global powerline fonts switch
         " this will turn off powerline fonts for tmuxline, vim-powerline,
         " promptline, etc.
         let g:global_powerline_switch = 1
@@ -1363,25 +1225,7 @@
     endif
     " }}}
 
-    " {{{ set background based on time of day!
-    " let hr = str2nr(strftime('%H'))
-    " if hr <= 7
-        " set background=dark
-    " elseif hr <= 18
-        " set background=light
-    " else
-        " set background=dark
-    " endif
-    " }}}
-
-    " {{{ custom indent guide colors
     set colorcolumn=80
-    " augroup indent_guides_augroup
-        " autocmd!
-        " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
-        " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
-    " augroup END
-    " }}}
 
     " {{{ toggle between day and night theme
     " silent call togglebg#map("<leader>bg")
@@ -1393,11 +1237,6 @@
         hi link EasyMotionTarget ErrorMsg
         hi link EasyMotionShade  Comment
     endif
-    " }}}
-
-    " {{{ vim-gitgutter better background
-    " highlight clear SignColumn
-    " hi link SignColumn LineNr
     " }}}
 
     " {{{ syntax highlighting for Vagrantfile
@@ -1474,7 +1313,7 @@
         endfunction
     endif
     " }}}
-    "
+
     " DistractionFree.vim {{{
     if isdirectory(expand("~/.vim/plugged/DistractionFree.vim"))
         " hide all ui elements and focus on the block you're in
@@ -1484,46 +1323,8 @@
     endif
     " }}}
 
-    " {{{ easytags
-    " this version is for ctags-better-php
-    nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --exclude=.git --exclude='*.log' --fields=+aimS --languages=php --PHP-kinds=+cf --sort=foldcase<CR>
-
-    " this version is for standard ctags-exuberant
-    " nnoremap <silent> <Leader>ut :silent Dispatch! echo 'exporting ctags...' && cd $(git rev-parse --show-toplevel) && ctags -R --PHP-kinds=+cf<CR>
-
-    if isdirectory(expand("~/.vim/plugged/vim-easytags"))
-        " easytags just doesn't work well. it blocks the ui when updating (doesn't
-        " use dispatch), it doesn't use my custom easy_tags_cmd, and the
-        " highlighting won't use my custom highlight. Fuck it, we'll do it live!
-
-        " augroup phpctags
-            " autocmd BufWritePost *.php UpdateCtags
-        " augroup END
-
-        " Easytags blocks the UI on pause, which sucks! It also apparently
-        " slows down the UI with it's highlighting, which I can't seem to switch
-        " to underlining anyway. What is a better solution? In the mean time I
-        " map to update manually with ,ct.
-        " let g:easytags_auto_update = 0
-        " let g:easytags_dynamic_files=1
-        " let g:easytags_updatetime_warn=0
-        " let g:easytags_python_enabled=1
-        " let b:easytags_auto_highlight=0
-
-        " this doesn't seem to work, it just disables highlighting. I can't figure
-        " out why.
-        " highlight phpFunctionsTag cterm=underline gui=underline term=underline
-        " highlight phpClassesTag cterm=underline gui=underline term=underline
-
-        " asynchronous tag gen
-        let g:easytags_async = 1
-        let g:easytags_opts = ['-R', '--exclude=.git', '--exclude="*.log"', '--fields=+aimS', '--languages=php', '--PHP-kinds=+cf' , '--sort=foldcase']
-    endif
-    " }}}
-
     " {{{ fugitive
     if isdirectory(expand("~/.vim/plugged/vim-fugitive"))
-        " let g:fugitive_github_domains = ['https://gitlab.git.internetbrands.com', 'https://git.github.com']
         let g:fugitive_github_domains = ['http://gitlab.prod.dm.local', 'https://git.github.com']
         " filename
         hi default link User1 Identifier"blue
@@ -1638,105 +1439,6 @@
 
         " don't open a split for ctrlp or nerdtree
         autocmd startify_augroup FileType startify setlocal buftype=
-    endif
-    " }}}
-
-    " {{{ neocomplete
-    if isdirectory(expand("~/.vim/plugged/neocomplete.vim")) && has('lua')
-        " Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-        " Disable AutoComplPop.
-        let g:acp_enableAtStartup = 0
-        " Use neocomplete.
-        let g:neocomplete#enable_at_startup = 1
-        " Use smartcase.
-        let g:neocomplete#enable_smart_case = 1
-        " Set minimum syntax keyword length.
-        let g:neocomplete#sources#syntax#min_keyword_length = 3
-        let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-        " Define dictionary.
-        let g:neocomplete#sources#dictionary#dictionaries = {
-            \ 'default' : '',
-            \ 'vimshell' : $HOME.'/.vimshell_hist',
-            \ 'scheme' : $HOME.'/.gosh_completions'
-                \ }
-
-        " Define keyword.
-        if !exists('g:neocomplete#keyword_patterns')
-            let g:neocomplete#keyword_patterns = {}
-        endif
-        let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-        " Plugin key-mappings.
-        inoremap <expr><C-g>     neocomplete#undo_completion()
-        inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-        " Recommended key-mappings.
-        " <CR>: close popup and save indent.
-        inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-        function! s:my_cr_function()
-          return neocomplete#close_popup() . "\<CR>"
-          " For no inserting <CR> key.
-          "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-        endfunction
-        " <TAB>: completion.
-        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-        " <C-h>, <BS>: close popup and delete backword char.
-        inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-        inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-        inoremap <expr><C-y>  neocomplete#close_popup()
-        inoremap <expr><C-e>  neocomplete#cancel_popup()
-        " Close popup by <Space>.
-        "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-        " For cursor moving in insert mode(Not recommended)
-        "inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-        "inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-        "inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-        "inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-        " Or set this.
-        "let g:neocomplete#enable_cursor_hold_i = 1
-        " Or set this.
-        "let g:neocomplete#enable_insert_char_pre = 1
-
-        " AutoComplPop like behavior.
-        "let g:neocomplete#enable_auto_select = 1
-
-        " Shell like behavior(not recommended).
-        "set completeopt+=longest
-        "let g:neocomplete#enable_auto_select = 1
-        "let g:neocomplete#disable_auto_complete = 1
-        "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-        " Enable omni completion.
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-        " Enable heavy omni completion.
-        if !exists('g:neocomplete#sources#omni#input_patterns')
-          let g:neocomplete#sources#omni#input_patterns = {}
-        endif
-        "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-        "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-        "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-        " For perlomni.vim setting.
-        " https://github.com/c9s/perlomni.vim
-        let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-        " }}}
-
-        " {{{ openbrowser.vim
-        if isdirectory(expand("~/.vim/plugged/openbrowser.vim"))
-            " Open URI under cursor.
-            nmap <leader>gu <Plug>(openbrowser-open)
-
-            " Open selected URI.
-            vmap <leader>gu <Plug>(openbrowser-open)
-        endif
-    " if neocomplete is a directory
     endif
     " }}}
 
@@ -1930,14 +1632,14 @@
         \ }
 
         " markdown ctags with tagbar?! awesome!
-        let g:tagbar_type_markdown = {
-            \ 'ctagstype' : 'markdown',
-            \ 'kinds' : [
-                \ 'h:Heading_L1',
-                \ 'i:Heading_L2',
-                \ 'k:Heading_L3'
-            \ ]
-        \ }
+        " let g:tagbar_type_markdown = {
+            " \ 'ctagstype' : 'markdown',
+            " \ 'kinds' : [
+                " \ 'h:Heading_L1',
+                " \ 'i:Heading_L2',
+                " \ 'k:Heading_L3'
+            " \ ]
+        " \ }
 
         " puppet tagbar
         let g:tagbar_type_puppet = {
@@ -2285,7 +1987,7 @@
         noremap <Leader><Leader>u :call PhpInsertUse()<CR>
     endif
     " }}}"
-    "
+
     " vim-php-refactoring {{{
     if isdirectory(expand("~/.vim/plugged/vim-php-refactoring")) && executable("refactor")
         let g:php_refactor_command='refactor'
@@ -2409,7 +2111,7 @@
     " }}}
 
     " VimCompletesMe {{{
-    if isdirectory(expand("~/.vim/plugged/VimCompletesMe")) && executable('tmux')
+    if isdirectory(expand("~/.vim/plugged/VimCompletesMe"))
         let b:vcm_tab_complete = "omni"
     endif
     " }}}

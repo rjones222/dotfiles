@@ -133,8 +133,8 @@ endif
 " }}}
 
 " Python {{{
+Plug 'yssource/python.vim'
 Plug 'klen/python-mode', { 'for': 'python' }
-Plug 'yssource/python.vim', { 'for': 'python' }
 Plug 'python_match.vim', { 'for': 'python' }
 Plug 'pythoncomplete', { 'for': 'python' }
 " }}}
@@ -142,15 +142,15 @@ Plug 'pythoncomplete', { 'for': 'python' }
 " JavaScript {{{
 
 " json formatting
-Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'elzr/vim-json'
 
 " this one makes weird artifacts show up while I type
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript'
 " this one works better
 " Enhanced JavaScript Syntax for Vim
 " Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'kchmck/vim-coffee-script'
 
 " aj provides a text object for the outermost JSON object, array, string, number, or keyword.
 " gqaj 'pretty prints' (wraps/indents/sorts keys/otherwise cleans up) the JSON construct under the cursor.
@@ -411,42 +411,44 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 " Syntax {{{
 
 " Dockerfile syntax highlighting
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
+Plug 'ekalinin/Dockerfile.vim'
 
 " asp.net/c# enhanced
 Plug 'OrangeT/vim-csharp', { 'for': ['aspx.html', 'cs'] }
 
 " rust
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim'
 
 " react jsx
-Plug 'mxw/vim-jsx', { 'for': 'jsx' }
+Plug 'mxw/vim-jsx'
 
 " Hide portions from syntax highlighting. Useful for when syntax coloring
 " gets messed up by html in php or markdown quotes/underscores/dashes
-Plug 'vim-scripts/SyntaxRange', { 'on': ['SyntaxIgnore', 'SyntaxInclude'] }
+" cool but I don't use it
+" Plug 'vim-scripts/SyntaxRange', { 'on': ['SyntaxIgnore', 'SyntaxInclude'] }
 
 " preview images in vim via ascii conversion
 " NOTE: Requires python library PIL installed via pip:
 " sudo pip install Pillow
-if has('python')
-    Plug 'ashisha/image.vim', { 'for': ['png', 'jpg', 'jpeg', 'gif'] }
-endif
+" this is kind of silly
+" if has('python')
+    " Plug 'ashisha/image.vim', { 'for': ['png', 'jpg', 'jpeg', 'gif'] }
+" endif
 
 " syntax highlighting for twig templates
 Plug 'beyondwords/vim-twig', { 'for': 'html.twig' }
 
 " facebook hhvm hack highlight support
-Plug 'hhvm/vim-hack', { 'for': 'hack' }
+Plug 'hhvm/vim-hack'
 
 " syntastic plugin for vimrc
 Plug 'dbakker/vim-lint', { 'for': 'vim' }
 
 Plug 'tpope/vim-git', { 'for': 'git' }
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+Plug 'cakebaker/scss-syntax.vim'
 
 " Laravel Blade Syntax Highlighting
-Plug 'xsbeats/vim-blade', { 'for': 'blade' }
+Plug 'xsbeats/vim-blade'
 
 " the only misc bundles I use
 " (spf13-vim puts these in there anyway)
@@ -455,12 +457,12 @@ Plug 'xsbeats/vim-blade', { 'for': 'blade' }
 " Plug 'Puppet-Syntax-Highlighting'
 
 " .tmux.conf syntax hilighting
-Plug 'vimez/vim-tmux', { 'for': 'tmux' }
+Plug 'vimez/vim-tmux'
 
 " }}}
 
 " Css {{{
-Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'groenewege/vim-less'
 
 " colorize css colors without causing $VIMRC reload problems
 Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass', 'less'] }
