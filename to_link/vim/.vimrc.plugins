@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
 " from spf13-vim {{{
 
 " General {{{
+Plug 'tpope/vim-sensible'
 " Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'scrooloose/nerdtree'
 " I had trouble getting this to work for some reason
