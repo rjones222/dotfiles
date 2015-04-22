@@ -1143,7 +1143,7 @@
     nnoremap ]} }k
 
     " sort use statements and come back
-    command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:nohlsearch<cr>"
+    command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:nohlsearch<cr>:echo 'sorted use statements'<cr>"
     nnoremap <leader>su :SortUse<cr>
 
     if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
@@ -1951,12 +1951,12 @@
         \}
 
         " ultisnips tagbar - ok this is getting crazy
-        let g:tagbar_type_snippets = {
-            \ 'ctagstype' : 'snippets',
-            \ 'kinds' : [
-                \ 's:snippets',
-            \ ]
-        \ }
+        " let g:tagbar_type_snippets = {
+            " \ 'ctagstype' : 'snippets',
+            " \ 'kinds' : [
+                " \ 's:snippets',
+            " \ ]
+        " \ }
     endif
     " }}}"
 
