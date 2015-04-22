@@ -1951,12 +1951,12 @@
         \}
 
         " ultisnips tagbar - ok this is getting crazy
-        " let g:tagbar_type_snippets = {
-            " \ 'ctagstype' : 'snippets',
-            " \ 'kinds' : [
-                " \ 's:snippets',
-            " \ ]
-        " \ }
+        let g:tagbar_type_snippets = {
+            \ 'ctagstype' : 'snippets',
+            \ 'kinds' : [
+                \ 's:snippets',
+            \ ]
+        \ }
     endif
     " }}}"
 
