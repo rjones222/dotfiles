@@ -139,6 +139,39 @@ endif
 
 " }}}
 
+" {{{ vdebug xdebug plugin
+if isdirectory(expand("~/.vim/plugged/vdebug"))
+    let g:vdebug_options = {}
+    let g:vdebug_options['continuous_mode'] = 1
+    let g:vdebug_options['timeout'] = 30
+    let g:vdebug_options['server'] = '127.0.0.1'
+    let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
+    " can add multiple path maps to this array, just duplicate the line
+    " below and add another. remote is first, local is second.
+    let g:vdebug_options['path_maps'] = {
+    \   '/opt/igl': '/Users/mikefunk/sites/casesladder-repos/igl',
+    \   '/opt/myleague': '/Users/mikefunk/sites/casesladder-repos/myleague'
+    \}
+    " stop on first line of execution
+    " let g:vdebug_options["break_on_open"] = 0
+    let g:vdebug_options["watch_window_style"] = 'compact'
+    " move run_to_cursor from F1 to F9
+    let g:vdebug_keymap = {
+    \    "step_over" : "<F2>",
+    \    "step_into" : "<F3>",
+    \    "step_out" : "<F4>",
+    \    "run" : "<F5>",
+    \    "close" : "<F6>",
+    \    "detach" : "<F7>",
+    \    "run_to_cursor" : "<F9>",
+    \    "set_breakpoint" : "<F10>",
+    \    "get_context" : "<F11>",
+    \    "eval_under_cursor" : "<F12>",
+    \    "eval_visual" : "<Leader>ev",
+    \}
+endif
+" }}}
+
 " vim-plug {{{
 nnoremap <leader>bi :so ~/.vimrc.plugins<cr> :PlugInstall<cr>
 nnoremap <leader>bc :so ~/.vimrc.plugins<cr> :PlugClean!<cr>
