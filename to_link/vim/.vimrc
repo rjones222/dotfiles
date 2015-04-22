@@ -14,6 +14,16 @@
 
 " General {{{
 
+" use register that works with mac clipboard {{{
+if has('clipboard')
+    if has('unnamedplus')  " When possible use + register for copy-paste
+        set clipboard=unnamed,unnamedplus
+    else         " On mac and Windows, use * register for copy-paste
+        set clipboard=unnamed
+    endif
+endif
+" }}}
+
 " Use plugins config {{{
 if filereadable(expand("~/.vimrc.plugins"))
     source ~/.vimrc.plugins
@@ -54,7 +64,12 @@ endif
 
 " }}}
 
-" plugins {{{
+" Style {{{
+silent! colorscheme lucius
+set background=dark
+" }}}
+
+" Plugins {{{
 
 " vim-airline {{{
 if isdirectory(expand("~/.vim/plugged/vim-airline/"))
@@ -69,6 +84,59 @@ if isdirectory(expand("~/.vim/plugged/nerdtree"))
     nnoremap <C-e> :NERDTreeMirrorToggle<CR>
     nnoremap <leader>nt :NERDTreeFind<CR>
 endif
+" }}}
+
+" {{{ tmuxline
+if executable('tmux') && isdirectory(expand("~/.vim/plugged/tmuxline.vim"))
+    command! MyTmuxline :Tmuxline | TmuxlineSnapshot! ~/.dotfiles/support/tmuxline.conf
+
+    " use airline theme stuff when calling tmuxline
+    " let g:airline#extensions#tmuxline#enabled = 1
+    let g:airline#extensions#tmuxline#enabled = 0
+    " let airline#extensions#tmuxline#color_template = 'insert'
+    let airline#extensions#tmuxline#color_template = 'visual'
+    " let airline#extensions#tmuxline#color_template = 'replace'
+
+    let g:tmuxline_theme = 'airline'
+    " let g:tmuxline_theme = 'airline_insert'
+    " let g:tmuxline_theme = 'airline_visual'
+    " let g:tmuxline_theme = 'powerline'
+    " let g:tmuxline_theme = 'jellybeans'
+    " let g:tmuxline_theme = 'zenburn'
+
+    " let g:tmuxline_preset = 'full'
+    " let g:tmuxline_preset = 'powerline'
+    let g:tmuxline_preset = {
+        \ 'a'    : ['❏ #S'],
+        \ 'b'    : ['#H'],
+        \ 'win'  : ['#I', '#W'],
+        \ 'cwin' : ['#I', '#W#F'],
+        \ 'x'    : ['#(battery -t)'],
+        \ 'z'    : ['%a', '%b %d', '%I:%M %p'],
+    \}
+    let g:airline#extensions#tmuxline#snapshot_file = "~/.dotfiles/support/tmuxline.conf"
+endif
+" }}}
+
+" {{{ vim-airline
+if isdirectory(expand("~/.vim/plugged/vim-airline"))
+
+    " warning php tagbar is really slow. So I only enabled it for php files.
+    augroup php_tagbar
+        autocmd!
+    augroup END
+    autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled = 1
+    autocmd php_tagbar FileType coffee let g:airline#extensions#tagbar#enabled = 1
+
+    let g:airline#extensions#bufferline#enabled = 0
+
+    " vim-bufferline prevent from showing in command bar *and* statusline
+    let g:bufferline_echo = 0
+
+    " advanced tabline vertical separators
+    let g:airline#extensions#tabline#enabled = 1
+endif
+
 " }}}
 
 " vim-plug {{{
