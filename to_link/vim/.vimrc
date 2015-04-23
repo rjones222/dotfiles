@@ -25,7 +25,7 @@ set hlsearch " Highlight search terms
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 
 " set quickfix window height min and max  automatically
-au quickfix_augroup FileType qf au! call AdjustWindowHeight(3, 5)
+au FileType qf au! call AdjustWindowHeight(3, 5)
 
 set ttymouse=sgr " allow mouse to work after 233 columns
 
@@ -52,7 +52,11 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " }}}
 
 " if the last window is a quickfix, close it
-au qfclose_augroup WinEnter * au! if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+" au WinEnter * au! if winnr('$') == 1 && getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix'|q|endif
+augroup qfclose_augroup
+    autocmd!
+augroup END
+autocmd qfclose_augroup WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 
 " fix split dragging in tmux
 if &term =~ '^screen'
@@ -268,10 +272,10 @@ if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
     " this avoids an error in php-cs-fixer.vim
     let g:phpcomplete_enhance_jump_to_definition = 0
 
-    au phpcomplete_augroup FileType php au! silent! nunmap <buffer> <unique> <C-]>
-    au phpcomplete_augroup FileType php au! silent! nunmap <buffer> <unique> <C-W><C-]>
-    au phpcomplete_augroup FileType php au! nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
-    au phpcomplete_augroup FileType php au! nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
+    au FileType php au! silent! nunmap <buffer> <unique> <C-]>
+    au FileType php au! silent! nunmap <buffer> <unique> <C-W><C-]>
+    au FileType php au! nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
+    au FileType php au! nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
 endif
 " }}}"
 
