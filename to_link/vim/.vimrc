@@ -427,12 +427,13 @@ endif
 " {{{ vim-airline
 if isdirectory(expand("~/.vim/plugged/vim-airline"))
 
-    " warning php tagbar is really slow. So I only enabled it for php files.
-    augroup php_tagbar
-        autocmd!
-    augroup END
-    autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled = 1
-    autocmd php_tagbar FileType coffee let g:airline#extensions#tagbar#enabled = 1
+    let g:airline_powerline_fonts=1
+
+    if (isdirectory(expand("~/.vim/plugged/tagbar")))
+        " warning php tagbar is really slow. So I only enabled it for php files.
+        autocmd FileType php au! let g:airline#extensions#tagbar#enabled = 1
+        autocmd FileType coffee au! let g:airline#extensions#tagbar#enabled = 1
+    endif
 
     " advanced tabline vertical separators
     let g:airline#extensions#tabline#enabled = 1
