@@ -164,7 +164,7 @@ endif
 " }}}
 
 " toggle search highlighting
-nnoremap <silent> <leader>/ :nohlsearch<CR> 
+nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " open tag in tab
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -216,6 +216,7 @@ function! StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfunction
+command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
 " }}}
 
 " }}}
@@ -368,7 +369,7 @@ if isdirectory(expand("~/.vim/plugged/ultisnips"))
     let g:snips_author = 'Michael Funk <mike.funk@demandmedia.com>'
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsListSnippets='<c-l>'
-        
+
 
     " remap Ultisnips for compatibility for YCM
     let g:UltiSnipsExpandTrigger = '<C-j>'
