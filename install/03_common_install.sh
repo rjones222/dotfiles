@@ -40,7 +40,7 @@ git-guilt # see the top few users for whom this commit has overwritten code
 gulp # task runner / watcher
 grunt # older, more complex task runner / watcher
 grunt-cli # wtf? grunt is lame.
-instant-markdown-d # used by vim to instantly preview markdown files as you type
+#instant-markdown-d # used by vim to instantly preview markdown files as you type
 jasmine # javascript behavior testing framework
 jshint # like jslint but less punishing
 # json # json formatter used for vim
@@ -178,7 +178,7 @@ fabric # deployment tool
 # neovim # neovim python library
 # pgcli # a postgresql repl with autocompletion
 Pillow # used by image.vim to preview images in vim via ascii conversion
-requests # used for vim-jira-complete
+#requests # used for vim-jira-complete
 requests[security] # used to prevent urllib3 warning with wakatime vim plugin
 # robotframework # front-end testing framework
 # robotframework-selenium2screenshots

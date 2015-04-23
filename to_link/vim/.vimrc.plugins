@@ -1217,9 +1217,10 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " instant markdown preview
 " :InstantMarkdownPreview to enable as-you-type preview for markdown files
-if executable('redcarpet') && executable('instant-markdown-d') && executable('pygmentize')
-    Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
-endif
+" I rarely use it and it requires an additional command line tool.
+"if executable('redcarpet') && executable('instant-markdown-d') && executable('pygmentize')
+    "Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+"endif
 
 " }}}
 
@@ -1262,12 +1263,15 @@ Plug 'mtth/scratch.vim', { 'on': 'Scratch' }
 
 " open jira under cursor. MAC ONLY.
 " <leader>jo
-Plug 'markabe/vim-jira-open', { 'on': 'TaskList' }
+" I never use this
+"Plug 'markabe/vim-jira-open', { 'on': 'TaskList' }
 
 " autocomplete jira task numbers
 " requires 'pip install requests' to work, otherwise fails gracefully
+" Never worked and I never cared
 " Plug 'mnpk/vim-jira-complete'
-Plug 'LucHermitte/vim-jira-complete'
+" fork
+" Plug 'LucHermitte/vim-jira-complete'
 
 " continuously update session files, autosave, etc.
 Plug 'tpope/vim-obsession'
