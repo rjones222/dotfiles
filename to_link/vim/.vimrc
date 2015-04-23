@@ -218,6 +218,34 @@ endfunction
 
 " Plugins {{{
 
+" {{{ ctrlp
+if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
+    " ctrlp extensions
+    let g:ctrlp_extensions = ['tag']
+    " alternate python matcher. 22x faster.
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+    "nnoremap <leader>pb :CtrlPBuffer<CR>
+    "nnoremap <leader>pm :CtrlPMRUFiles<CR>
+
+    " ignore some dirs
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  'build',
+      \ }
+endif
+" }}}
+
+" {{{ fugitive
+if isdirectory(expand("~/.vim/plugged/vim-fugitive"))
+    let g:fugitive_github_domains = ['http://gitlab.prod.dm.local', 'https://git.github.com']
+
+    silent! unmap <leader>gp
+    nnoremap <leader>gps :Dispatch! git push<CR>
+    nnoremap <leader>gpu :Dispatch! git push<CR>
+    nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
+    nnoremap <leader>ga :Git add -A<CR><CR>
+endif
+" }}}"
+
 " {{{ phpcomplete
 if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
 
