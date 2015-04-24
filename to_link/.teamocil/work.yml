@@ -3,11 +3,42 @@ windows:
   - name: "cfg"
     root: "~/.dotfiles"
     focus: true
-    layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
+    layout: "main-horizontal"
+    # layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
     panes:
       # - vim -S ~/.vim/sessions/config
       - cd ~/.dotfiles && vim
-      - git status
+      # - git status
+  - name: "myleague"
+    root: "~/sites/casesladder-repos/myleague"
+    layout: "main-horizontal"
+    panes:
+      - vim
+  - name: "igl"
+    root: "~/sites/casesladder-repos/igl"
+    layout: "main-horizontal"
+    panes:
+      - vim
+  - name: "cases"
+    root: "~/sites/casesladder-repos/casesladder"
+    layout: "main-horizontal"
+    panes:
+      - vim
+  - name: "airliners"
+    root: "~/sites/airliners-website"
+    layout: "main-horizontal"
+    panes:
+      - vim
+  - name: "answerbag"
+    root: "~/sites/answerbag-website"
+    layout: "main-horizontal"
+    panes:
+      - vim
+  - name: "arcadetown"
+    root: "~/sites/arcadetown-website"
+    layout: "main-horizontal"
+    panes:
+      - vim
   # iMessage is a lot easier. I'm tired of getting disconnected constantly on profanity
   # - name: "chat"
     # root: "~"
