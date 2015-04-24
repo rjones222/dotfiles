@@ -179,7 +179,7 @@ nnoremap <silent><Leader>v<C-]> :vsp<CR>:exec("tag ".expand("<cword>"))<CR>
 " Functions {{{
 
 " adjust window height between min and max {{{
-function! AdjustWindowHeight(minheight, maxheight)
+function! AdjustWindowHeight(minheight,maxheight)
     exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
 " }}}
