@@ -90,7 +90,8 @@ endif
 " }}}
 
 " Style {{{
-silent! colorscheme lucius
+" silent! colorscheme lucius
+colorscheme molokayo
 set background=dark
 set cursorline
 set colorcolumn=80
@@ -291,6 +292,11 @@ endif
 if isdirectory(expand("~/.vim/plugged/nerdtree"))
     nnoremap <C-e> :NERDTreeMirrorToggle<CR>
     nnoremap <leader>nt :NERDTreeFind<CR>
+    let NERDTreeShowHidden=1
+    let NERDTreeMouseMode=2
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeShowBookmarks=1
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
 endif
 " }}}
 
@@ -522,6 +528,9 @@ if isdirectory(expand("~/.vim/plugged/vim-startify"))
 
     " make vim startify show recent files
     set viminfo='100,n$HOME/.vim/files/info/viminfo
+
+    " autoload Session.vim in the current dir
+    let g:startify_session_autoload = 1
 endif
 " }}}"
 
