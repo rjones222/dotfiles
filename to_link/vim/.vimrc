@@ -20,12 +20,59 @@ endif
 
 " General {{{
 
+" Functions {{{
+
+" adjust window height between min and max {{{
+function! AdjustWindowHeight(minheight,maxheight)
+    exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+" }}}
+
+" delete inactive buffers (the ones not in tabs or windows) {{{
+" @link http://stackoverflow.com/a/7321131/557215
+function! DeleteInactiveBufs()
+    "From tabpagebuflist() help, get a list of all buffers in all tabs
+    let tablist = []
+    for i in range(tabpagenr('$'))
+        call extend(tablist, tabpagebuflist(i + 1))
+    endfor
+
+    let nWipeouts = 0
+    for i in range(1, bufnr('$'))
+        if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
+        "bufno exists AND isn't modified AND isn't in the list of buffers open in windows and tabs
+            silent exec 'bwipeout' i
+            let nWipeouts = nWipeouts + 1
+        endif
+    endfor
+    echomsg nWipeouts . ' buffer(s) wiped out'
+endfunction
+command! Bdi :call DeleteInactiveBufs()
+" }}}
+
+" Strip whitespace {{{
+function! StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " do the business:
+    %s/\s\+$//e
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
+" }}}
+
+" }}}
+
 " basics {{{
 set hlsearch " Highlight search terms
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 
 " set quickfix window height min and max  automatically
-au FileType qf au! call AdjustWindowHeight(3,5)
+au FileType qf au! :call AdjustWindowHeight(3,5)
 
 set ttymouse=sgr " allow mouse to work after 233 columns
 
@@ -173,53 +220,6 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
 " open tag in vertical split
 nnoremap <silent><Leader>v<C-]> :vsp<CR>:exec("tag ".expand("<cword>"))<CR>
-
-" }}}
-
-" Functions {{{
-
-" adjust window height between min and max {{{
-function! AdjustWindowHeight(minheight,maxheight)
-    exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
-endfunction
-" }}}
-
-" delete inactive buffers (the ones not in tabs or windows) {{{
-" @link http://stackoverflow.com/a/7321131/557215
-function! DeleteInactiveBufs()
-    "From tabpagebuflist() help, get a list of all buffers in all tabs
-    let tablist = []
-    for i in range(tabpagenr('$'))
-        call extend(tablist, tabpagebuflist(i + 1))
-    endfor
-
-    let nWipeouts = 0
-    for i in range(1, bufnr('$'))
-        if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
-        "bufno exists AND isn't modified AND isn't in the list of buffers open in windows and tabs
-            silent exec 'bwipeout' i
-            let nWipeouts = nWipeouts + 1
-        endif
-    endfor
-    echomsg nWipeouts . ' buffer(s) wiped out'
-endfunction
-command! Bdi :call DeleteInactiveBufs()
-" }}}
-
-" Strip whitespace {{{
-function! StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " do the business:
-    %s/\s\+$//e
-    " clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
-" }}}
 
 " }}}
 
