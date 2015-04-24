@@ -71,7 +71,7 @@ command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
 set hlsearch " Highlight search terms
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 
-" set quickfix window height min and max  automatically
+" set quickfix window height min and max automatically
 augroup quickfix_augroup
     autocmd!
 augroup END
