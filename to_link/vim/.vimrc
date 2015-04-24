@@ -97,7 +97,10 @@ set history=1000 " Store a ton of history (default is 20)
 
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
-au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+augroup gitcommit_group
+    autocmd!
+    au FileType gitcommit BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+augroup END
 
 " }}}
 
@@ -105,8 +108,8 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " au WinEnter * au! if winnr('$') == 1 && getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix'|q|endif
 augroup qfclose_augroup
     autocmd!
+    autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 augroup END
-autocmd qfclose_augroup WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 
 " fix split dragging in tmux
 if &term =~ '^screen'
@@ -258,9 +261,13 @@ endif
 
 " {{{ phpcomplete
 if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
+    " phpcomplete omni complete for neocomplcache
+    augroup phpcomplete_augroup
+        autocmd!
+    augroup END
 
     " only for php set the omnifunc to completephp
-    au FileType php au! set omnifunc=phpcomplete#CompletePHP
+    autocmd phpcomplete_augroup FileType php set omnifunc=phpcomplete#CompletePHP
 
     " composer install command for phpcomplete
     let g:phpcomplete_relax_static_constraint = 1
@@ -278,10 +285,10 @@ if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
     " this avoids an error in php-cs-fixer.vim
     let g:phpcomplete_enhance_jump_to_definition = 0
 
-    au FileType php au! silent! nunmap <buffer> <unique> <C-]>
-    au FileType php au! silent! nunmap <buffer> <unique> <C-W><C-]>
-    au FileType php au! nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
-    au FileType php au! nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
+    autocmd phpcomplete_augroup FileType php silent! nunmap <buffer> <unique> <C-]>
+    autocmd phpcomplete_augroup FileType php silent! nunmap <buffer> <unique> <C-W><C-]>
+    autocmd phpcomplete_augroup FileType php nnoremap <silent> <C-]> :<C-u>call phpcomplete#JumpToDefinition('normal')<CR>
+    autocmd phpcomplete_augroup FileType php nnoremap <silent> <C-W><C-]> :<C-u>call phpcomplete#JumpToDefinition('split')<CR>
 endif
 " }}}"
 
@@ -438,12 +445,16 @@ endif
 " {{{ vim-airline
 if isdirectory(expand("~/.vim/plugged/vim-airline"))
 
+    augroup php_tagbar
+        autocmd!
+    augroup END
+
     let g:airline_powerline_fonts=1
 
     if (isdirectory(expand("~/.vim/plugged/tagbar")))
         " warning php tagbar is really slow. So I only enabled it for php files.
-        autocmd FileType php au! let g:airline#extensions#tagbar#enabled = 1
-        autocmd FileType coffee au! let g:airline#extensions#tagbar#enabled = 1
+        autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled = 1
+        autocmd php_tagbar FileType coffee let g:airline#extensions#tagbar#enabled = 1
     endif
 
     " advanced tabline vertical separators
@@ -572,18 +583,21 @@ endif
 
 " {{{ youcompleteme
 if isdirectory(expand("~/.vim/plugged/YouCompleteMe"))
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    augroup youcompleteme_augroup
+        autocmd!
+    augroup END
+    autocmd youcompleteme_augroup FileType css setlocal omnifunc=csscomplete#CompleteCSS
 
     " enable completion from tags
     let g:ycm_collect_identifiers_from_tags_files = 1
 
     " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+    autocmd youcompleteme_augroup FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd youcompleteme_augroup FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd youcompleteme_augroup FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd youcompleteme_augroup FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd youcompleteme_augroup FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd youcompleteme_augroup FileType ruby setlocal omnifunc=rubycomplete#Complete
 
     " supposed to speed up ycm
     let g:ycm_register_as_syntastic_checker = 0
