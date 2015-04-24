@@ -90,11 +90,12 @@ endif
 " }}}
 
 " Style {{{
-" silent! colorscheme lucius
-colorscheme molokayo
-set background=dark
+" set background=dark
 set cursorline
 set colorcolumn=80
+" silent! colorscheme lucius
+silent! colorscheme molokayo
+" silent! colorscheme badwolf
 " }}}
 
 " Mappings {{{
