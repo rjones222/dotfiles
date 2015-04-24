@@ -25,7 +25,7 @@ set hlsearch " Highlight search terms
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 
 " set quickfix window height min and max  automatically
-au FileType qf au! call AdjustWindowHeight(3, 5)
+au FileType qf au! call AdjustWindowHeight(3,5)
 
 set ttymouse=sgr " allow mouse to work after 233 columns
 
