@@ -23,7 +23,7 @@ endif
 " Functions {{{
 
 " adjust window height between min and max {{{
-function! AdjustWindowHeight(minheight,maxheight)
+function! AdjustWindowHeight(minheight, maxheight)
     exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
 " }}}
@@ -72,7 +72,10 @@ set hlsearch " Highlight search terms
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 
 " set quickfix window height min and max  automatically
-au FileType qf au! :call AdjustWindowHeight(3,5)
+augroup quickfix_augroup
+    autocmd!
+augroup END
+autocmd quickfix_augroup FileType qf call AdjustWindowHeight(3, 5)
 
 set ttymouse=sgr " allow mouse to work after 233 columns
 
