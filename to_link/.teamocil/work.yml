@@ -39,6 +39,21 @@ windows:
     layout: "main-horizontal"
     panes:
       - vim
+  - name: "golflink"
+    root: "~/sites/golflink-website"
+    layout: "main-horizontal"
+    panes:
+      - vim
+  - name: "trails"
+    root: "~/sites/trails-website"
+    layout: "main-horizontal"
+    panes:
+      - vim
+  - name: "zuora"
+  root: "~/sites/zuora-net-framework"
+    layout: "main-horizontal"
+    panes:
+      - vim
   # iMessage is a lot easier. I'm tired of getting disconnected constantly on profanity
   # - name: "chat"
     # root: "~"

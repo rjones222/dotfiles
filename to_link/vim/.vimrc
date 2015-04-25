@@ -97,10 +97,7 @@ set history=1000 " Store a ton of history (default is 20)
 
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
-augroup gitcommit_group
-    autocmd!
-    au FileType gitcommit BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-augroup END
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " }}}
 
@@ -546,6 +543,9 @@ if isdirectory(expand("~/.vim/plugged/vim-startify"))
 
     " autoload Session.vim in the current dir
     let g:startify_session_autoload = 1
+
+    " auto save session on exit like obsession
+    let g:startify_session_persistence = 1
 endif
 " }}}"
 

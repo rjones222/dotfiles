@@ -101,7 +101,7 @@ endif
 
 " Completion {{{
 if has("python")
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
+    " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
     Plug 'SirVer/ultisnips'
 
     " lazy load ultisnips and youcompleteme on insert mode
@@ -123,7 +123,7 @@ if has("python")
 
     " Much simpler tab completion for vim
     " Maybe too simple...
-    " Plug 'ajh17/VimCompletesMe'
+    Plug 'ajh17/VimCompletesMe'
 endif
 
 " give neocomplete a try...
@@ -1275,7 +1275,10 @@ Plug 'mtth/scratch.vim', { 'on': 'Scratch' }
 " Plug 'LucHermitte/vim-jira-complete'
 
 " continuously update session files, autosave, etc.
-Plug 'tpope/vim-obsession'
+" I can do this with startify!
+" let g:startify_session_persistence = 1
+" Plug 'tpope/vim-obsession'
+"
 
 " }}}
 
