@@ -1089,6 +1089,9 @@ Plug 'airblade/vim-rooter'
 " I don't use this. I'll enable it if I do.
 " Plug 'markgandolfo/nerdtree-wget.vim'
 
+" extra git stuff in nerdtree
+" Plug 'low-ghost/nerdtree-fugitive'
+
 " makes folds only recalculate on save, making completion faster (right?)
 " this is fine and all but I disable folding. This re-enables it.
 " Plug 'Konfekt/FastFold'

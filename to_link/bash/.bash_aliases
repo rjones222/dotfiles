@@ -543,7 +543,7 @@ alias ph="phing"
 # pushd and popd are useful for saving bookmarks in cd! (random reminder)
 
 # use netextender to connect to vpn
-alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d $VPNDOMAIN $VPNURL"
+# alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d $VPNDOMAIN $VPNURL"
 
 # daily standup notes named by date
 alias standupnotes="tmux rename-window 'standup' && vim ~/Google\ Drive/standup/`date +%F`.markdown"
