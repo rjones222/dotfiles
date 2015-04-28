@@ -18,8 +18,6 @@ if filereadable(expand("~/.vimrc.plugins"))
 endif
 " }}}
 
-" General {{{
-
 " Functions {{{
 
 " adjust window height between min and max {{{
@@ -67,7 +65,7 @@ command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
 
 " }}}
 
-" basics {{{
+" Basics {{{
 set hlsearch " Highlight search terms
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 
@@ -103,14 +101,16 @@ set nobackup
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " }}}
+"
+" Miscellaneous {{{
 
 " setup undo dir {{{
 if has('persistent_undo')
-  let undodir = expand("~/.vim/undos/$USER")
+  let undodir = expand("~/.vim/undos")
   if !isdirectory(undodir)
     call mkdir(undodir)
   endif
-  set undodir=~/.vim/undos/$USER/
+  set undodir=~/.vim/undos/
   set undofile
 endif
 " }}}
@@ -123,10 +123,11 @@ augroup qfclose_augroup
 augroup END
 " }}}
 
-" fix split dragging in tmux
+" fix split dragging in tmux {{{
 if &term =~ '^screen'
     set ttymouse=xterm2
 endif
+" }}}
 
 " undo {{{
 if has('persistent_undo')
@@ -135,12 +136,6 @@ if has('persistent_undo')
     set undoreload=10000 " Maximum number lines to save for undo on a buffer reload
 endif
 " }}}
-
-" open vhosts file
-command! Vhost tabe /etc/apache2/extra/httpd-vhosts.conf
-
-" source vimrc
-command! Source :so $MYVIMRC
 
 " use register that works with mac clipboard {{{
 if has('clipboard')
@@ -164,6 +159,7 @@ silent! colorscheme molokayo
 " }}}
 
 " Mappings {{{
+
 let g:mapleader = ',' " use comma for leader
 
 " since , replaces leader, use \ to go back in a [f]ind
@@ -239,6 +235,18 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " open tag in vertical split
 nnoremap <silent><Leader>v<C-]> :vsp<CR>:exec("tag ".expand("<cword>"))<CR>
 
+" open vhosts file
+command! Vhost tabe /etc/apache2/extra/httpd-vhosts.conf
+
+" source vimrc
+command! Source :so $MYVIMRC
+
+" }}}
+
+" Gui {{{
+if has("gui_running")
+    set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h11
+endif
 " }}}
 
 " Plugins {{{
@@ -320,6 +328,7 @@ if isdirectory(expand("~/.vim/plugged/nerdtree"))
     let NERDTreeQuitOnOpen=1
     let NERDTreeShowBookmarks=1
     let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+    let g:nerdtree_tabs_open_on_gui_startup=0
 endif
 " }}}
 

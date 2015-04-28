@@ -146,11 +146,11 @@ Plug 'pythoncomplete', { 'for': 'python' }
 " json formatting
 Plug 'elzr/vim-json'
 
-" this one makes weird artifacts show up while I type
-Plug 'pangloss/vim-javascript'
-" this one works better
+" Plug 'pangloss/vim-javascript', { 'for': 'javscript' }
 " Enhanced JavaScript Syntax for Vim
 " Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+" yet another... supposed to be better than jelera
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script'
 

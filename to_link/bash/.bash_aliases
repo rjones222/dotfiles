@@ -563,5 +563,6 @@ alias zf1-staging-rsync="rsync --recursive --links --checksum --progress --exclu
 alias myleague1-staging-rsync="rsync --recursive --links --checksum --progress --exclude=*.swp --exclude=*~ --exclude=.git --exclude=tags --exclude=hosts.ini --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/myleague/"
 alias myleague2-staging-rsync="rsync --recursive --links --checksum --progress --exclude=*.swp --exclude=*~ --exclude=.git --exclude=tags --exclude=hosts.ini --chmod=Dugo+rwX,u+rw,go+r ./. clscs:/opt/myleague/"
 alias myleague3-staging-rsync="rsync --recursive --links --checksum --progress --exclude=*.swp --exclude=*~ --exclude=.git --exclude=tags --exclude=hosts.ini --chmod=Dugo+rwX,u+rw,go+r ./. clscm:/opt/myleague/"
+alias myleague-all-staging-rsync="myleague1-staging-rsync && myleague2-staging-rsync && myleague3-staging-rsync"
 
 # }}}
