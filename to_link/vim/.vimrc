@@ -251,6 +251,18 @@ endif
 
 " Plugins {{{
 
+" accelerated-smooth-scroll {{{
+" only enable c-d and c-u. I don't use c-f and c-b and I want to use c-b
+" for incrementing values.
+if isdirectory(expand("~/.vim/plugged/accelerated-smooth-scroll"))
+    let g:ac_smooth_scroll_no_default_key_mappings = 1
+    nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
+    nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
+    xmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d_v)
+    xmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u_v)
+endif
+" }}}
+
 " {{{ ctrlp
 if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
     " ctrlp extensions
