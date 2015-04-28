@@ -379,6 +379,7 @@ if isdirectory(expand("~/.vim/plugged/tagbar"))
     " tagbar autofocus is the whole point of tagbar
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
+    nnoremap <silent> <leader>tt :TagbarToggle<CR>
 endif
 " }}}
 

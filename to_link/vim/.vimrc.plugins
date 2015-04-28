@@ -412,6 +412,9 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " Syntax {{{
 
+" view files for Zend, Symfony, CakePHP, etc.
+Plug 'vim-scripts/phtml.vim'
+
 " Dockerfile syntax highlighting
 Plug 'ekalinin/Dockerfile.vim'
 
@@ -1053,7 +1056,9 @@ Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee' }
 " better than Ack
 " :Ag! 'my search' [options]
 if executable('ag')
-    Plug 'rking/ag.vim', { 'on': ['Ag'] }
+    " Plug 'rking/ag.vim', { 'on': 'Ag' }
+    " lazy loading only worked sporadically
+    Plug 'rking/ag.vim'
 endif
 
 " allow to star search from a visual selection
