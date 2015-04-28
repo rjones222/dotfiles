@@ -95,18 +95,33 @@ set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set history=1000 " Store a ton of history (default is 20)
 
+set noswapfile " pesky .swp files
+set nobackup
+
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " }}}
 
-" if the last window is a quickfix, close it
+" setup undo dir {{{
+if has('persistent_undo')
+  let undodir = expand("~/.vim/undos/$USER")
+  if !isdirectory(undodir)
+    call mkdir(undodir)
+  endif
+  set undodir=~/.vim/undos/$USER/
+  set undofile
+endif
+" }}}
+
+" if the last window is a quickfix, close it {{{
 " au WinEnter * au! if winnr('$') == 1 && getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix'|q|endif
 augroup qfclose_augroup
     autocmd!
     autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 augroup END
+" }}}
 
 " fix split dragging in tmux
 if &term =~ '^screen'
