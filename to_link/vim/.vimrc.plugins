@@ -50,7 +50,7 @@ Plug 'bling/vim-airline'
 " It's great and all but I just don't use it.
 " Plug 'Lokaltog/vim-easymotion'
 " It's great and all but I just don't use it.
-" Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 " Plug 'nathanaelkane/vim-indent-guides'
 " show verticle lines for levels of indentions like an IDE
 Plug 'Yggdroot/indentLine'

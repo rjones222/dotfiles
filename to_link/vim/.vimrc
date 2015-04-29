@@ -26,6 +26,40 @@ function! AdjustWindowHeight(minheight, maxheight)
 endfunction
 " }}}
 
+" Initialize directories {{{
+function! InitializeDirectories()
+    let parent = $HOME
+    let prefix = 'vim'
+    let dir_list = {
+                \ 'backup': 'backupdir',
+                \ 'views': 'viewdir',
+                \ 'swap': 'directory' }
+
+    if has('persistent_undo')
+        let dir_list['undo'] = 'undodir'
+    endif
+
+    let common_dir = parent . '/.' . prefix
+
+    for [dirname, settingname] in items(dir_list)
+        let directory = common_dir . dirname . '/'
+        if exists("*mkdir")
+            if !isdirectory(directory)
+                call mkdir(directory)
+            endif
+        endif
+        if !isdirectory(directory)
+            echo "Warning: Unable to create backup directory: " . directory
+            echo "Try: mkdir -p " . directory
+        else
+            let directory = substitute(directory, " ", "\\\\ ", "g")
+            exec "set " . settingname . "=" . directory
+        endif
+    endfor
+endfunction
+call InitializeDirectories()
+" }}}
+
 " delete inactive buffers (the ones not in tabs or windows) {{{
 " @link http://stackoverflow.com/a/7321131/557215
 function! DeleteInactiveBufs()
@@ -93,8 +127,8 @@ set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set history=1000 " Store a ton of history (default is 20)
 
-set noswapfile " pesky .swp files
-set nobackup
+" set noswapfile " pesky .swp files
+" set nobackup
 
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
@@ -103,17 +137,6 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " }}}
 "
 " Miscellaneous {{{
-
-" setup undo dir {{{
-if has('persistent_undo')
-  let undodir = expand("~/.vim/undos")
-  if !isdirectory(undodir)
-    call mkdir(undodir)
-  endif
-  set undodir=~/.vim/undos/
-  set undofile
-endif
-" }}}
 
 " if the last window is a quickfix, close it {{{
 " au WinEnter * au! if winnr('$') == 1 && getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix'|q|endif
@@ -240,6 +263,12 @@ command! Vhost tabe /etc/apache2/extra/httpd-vhosts.conf
 
 " source vimrc
 command! Source :so $MYVIMRC
+
+" show todos
+if executable('ag') && isdirectory(expand("~/.vim/plugged/ag.vim"))
+    nnoremap <leader>td :Ag! "todo"<CR>
+    nnoremap <leader>tl :Ag! "todo"<CR>
+endif
 
 " }}}
 
@@ -440,6 +469,7 @@ endif
 if isdirectory(expand("~/.vim/plugged/undotree"))
     silent! unmap <leader>u
     nnoremap <leader>uu :UndotreeToggle<CR>
+    let g:undotree_SetFocusWhenToggle=1
 endif
 " }}}
 
@@ -479,16 +509,20 @@ endif
 " {{{ vim-airline
 if isdirectory(expand("~/.vim/plugged/vim-airline"))
 
-    augroup php_tagbar
-        autocmd!
-    augroup END
-
+    " airline use cool powerline symbols
     let g:airline_powerline_fonts=1
 
     if (isdirectory(expand("~/.vim/plugged/tagbar")))
+        augroup php_tagbar
+            autocmd!
+        augroup END
         " warning php tagbar is really slow. So I only enabled it for php files.
-        autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled = 1
-        autocmd php_tagbar FileType coffee let g:airline#extensions#tagbar#enabled = 1
+        autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled=1
+        " change how tags are displayed (:help tagbar-statusline)
+          " let g:airline#extensions#tagbar#flags = '' " (default)
+          " let g:airline#extensions#tagbar#flags = 'f'
+          " let g:airline#extensions#tagbar#flags = 's'
+          " let g:airline#extensions#tagbar#flags = 'p'
     endif
 
     " advanced tabline vertical separators
