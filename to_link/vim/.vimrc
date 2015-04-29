@@ -466,14 +466,23 @@ if executable('tmux') && isdirectory(expand("~/.vim/plugged/tmuxline.vim"))
     " let g:airline#extensions#tmuxline#enabled = 1
     let g:airline#extensions#tmuxline#enabled = 0
     " let airline#extensions#tmuxline#color_template = 'insert'
-    let airline#extensions#tmuxline#color_template = 'visual'
+    " let airline#extensions#tmuxline#color_template = 'visual'
     " let airline#extensions#tmuxline#color_template = 'replace'
 
-    let g:tmuxline_theme = 'airline'
+    " let g:tmuxline_theme = 'airline'
     " let g:tmuxline_theme = 'airline_insert'
     " let g:tmuxline_theme = 'airline_visual'
-    " let g:tmuxline_theme = 'powerline'
+    " let g:tmuxline_theme = 'iceberg'
     " let g:tmuxline_theme = 'jellybeans'
+    " let g:tmuxline_theme = 'lightline'
+    " let g:tmuxline_theme = 'lightline_insert'
+    " let g:tmuxline_theme = 'lightline_visual'
+    " let g:tmuxline_theme = 'nightly_fox'
+    " let g:tmuxline_theme = 'powerline'
+    " let g:tmuxline_theme = 'vim_powerline'
+    " let g:tmuxline_theme = 'vim_statusline_1'
+    " let g:tmuxline_theme = 'vim_statusline_2'
+    let g:tmuxline_theme = 'vim_statusline_3'
     " let g:tmuxline_theme = 'zenburn'
 
     " let g:tmuxline_preset = 'full'
