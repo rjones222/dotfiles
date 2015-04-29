@@ -93,10 +93,6 @@ Plug 'scrooloose/nerdcommenter'
 " Plug 'godlygeek/tabular'
 " Useful tags sidebar for PHP, Coffeescript, CSS
 " <leader>TT to toggle
-if executable('ctags')
-    " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-    Plug 'majutsushi/tagbar', { 'for': ['php', 'coffee', 'css'] }
-endif
 " }}}
 
 " Completion {{{
@@ -170,14 +166,14 @@ Plug 'kchmck/vim-coffee-script'
 
 " HTML {{{
 " auto close tags by typing </
-Plug 'docunext/closetag.vim', { 'for': ['html', 'xml', 'html.twig', 'blade'] }
+Plug 'docunext/closetag.vim', { 'for': ['html', 'xml', 'html.twig', 'blade', 'php'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'sass', 'scss'] }
 
 " always inverse colors on the current html tag you're in
 if has('python')
-    Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml', 'blade', 'html.twig'] }
+    Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml', 'blade', 'html.twig', 'php'] }
 else
-    Plug 'gergsexton/MatchTag', { 'for': ['html', 'xml', 'blade', 'html.twig'] }
+    Plug 'gergsexton/MatchTag', { 'for': ['html', 'xml', 'blade', 'html.twig', 'php'] }
 endif
 " }}}
 
@@ -274,14 +270,12 @@ Plug 'ardagnir/united-front'
 " So much more reliable.
 Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 
-" auto generate ctags on save
-" I have never been able to get one of these working right. It has to:
-" 1. use my .ctags file
-" 2. update project root -> tags file
-" 3. update asynchronously
-" Otherwise I'll just use my <leader>ut to update tags manually and
-" asynchronously
-" Plug 'szw/vim-tags'
+" Debug problematic vim plugins
+" :Bisectly to start
+" :Zombies if problem still exists (lol)
+" :Unicorns if problem is fixed (lol)
+Plug 'dahu/bisectly', { 'on': 'Bisectly' }
+
 " }}}
 
 " Copy and paste {{{
@@ -394,7 +388,7 @@ Plug 'jiangmiao/auto-pairs'
 " Similar to emmett but also can autoclose
 " <c-x>/ close latest html tag
 " Not really that useful for php
-Plug 'tpope/vim-ragtag', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
+Plug 'tpope/vim-ragtag', { 'for': ['html', 'html.twig', 'blade', 'xml', 'php'] }
 
 " use c-n and c-p to complete from your buffers in search or command mode
 " I've never used this
@@ -402,7 +396,7 @@ Plug 'tpope/vim-ragtag', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
 
 " Match html/xml tags with %
 " Plug 'tmhedberg/matchit'
-Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml'] }
+Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml', 'php'] }
 
 " symfony completion
 " See above. phpcomplete-extended is a pain in the ass.
@@ -529,9 +523,9 @@ Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " cursor
 " Plug 'tobyS/pdv', { 'for': 'php' }
 " fork that works better with phpcomplete.vim to update @var variables
-" Plug 'FlickerBean/pdv', { 'for': 'php' }
+Plug 'FlickerBean/pdv', { 'for': 'php' }
 " required for pdv. Only needed for pdv.
-" Plug 'tobyS/vmustache', { 'for': 'php' }
+Plug 'tobyS/vmustache', { 'for': 'php' }
 " fork that supposedly works better...
 " Plug 'Rican7/php-doc-modded', { 'for': 'php' }
 
@@ -545,7 +539,7 @@ Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " <leader>tt to toggle tagbar. This makes it look prettier
 " Plug 'techlivezheng/vim-plugin-tagbar-phpctags'
 if executable('phpctags')
-    Plug 'vim-php/tagbar-phpctags.vim', { 'for': 'php' }
+    Plug 'vim-php/tagbar-phpctags.vim', { 'for': 'php', 'do': 'make', 'on': [] }
 endif
 
 " php namespace and use block autocomplete
@@ -1010,7 +1004,8 @@ Plug 'tpope/vim-projectionist'
 
 " TagBar support for coffeescript? Yes please!
 " @note requires CoffeeScript ruby gem
-Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee' }
+" I don't need this
+" Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee' }
 
 " move between function arguments and stuff
 " Shifting arguments with <, and >,
@@ -1072,12 +1067,14 @@ endif
 
 " better tag selector with ctrlp
 " <c-]> will open ctrl-p with possible links if more than one is available
+" This has trouble opening in vsplits or tabs
 " Plug 'ivalkeen/vim-ctrlp-tjump'
 
 " different fork of ctrlp that accepts pull requests
 Plug 'ctrlpvim/ctrlp.vim'
 
 " only for added sources for phpcomplete_extended
+" which I currently do NOT use
 " Plug 'Shougo/unite.vim'
 
 " better vim start screen
@@ -1095,6 +1092,7 @@ Plug 'airblade/vim-rooter'
 " Plug 'markgandolfo/nerdtree-wget.vim'
 
 " extra git stuff in nerdtree
+" I don't need this
 " Plug 'low-ghost/nerdtree-fugitive'
 
 " makes folds only recalculate on save, making completion faster (right?)
@@ -1235,6 +1233,21 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " Ctags {{{
 
+if executable('ctags')
+    " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    " Plug 'majutsushi/tagbar', { 'for': ['php', 'coffee', 'css'] }
+    Plug 'majutsushi/tagbar', { 'for': ['php'] }
+endif
+
+" auto generate ctags on save
+" I have never been able to get one of these working right. It has to:
+" 1. use my .ctags file
+" 2. update project root -> tags file
+" 3. update asynchronously
+" Otherwise I'll just use my <leader>ut to update tags manually and
+" asynchronously
+" Plug 'szw/vim-tags'
+
 " Underline ctags. Sometimes works.
 " Plug 't9md/vim-underlinetag'
 " this one makes them purple instead... except it takes WAY too much config to
@@ -1250,7 +1263,9 @@ Plug 'michaeljsmith/vim-indent-object'
 " Plug 'mikedfunk/vim-easytags'
 
 " auto update tags... please... i want to believe...
-Plug 'ludovicchabant/vim-gutentags'
+if executable('ctags')
+    Plug 'ludovicchabant/vim-gutentags'
+endif
 
 " }}}
 

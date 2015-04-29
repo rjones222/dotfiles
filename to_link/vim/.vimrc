@@ -15,6 +15,8 @@
 " Use plugins config {{{
 if filereadable(expand("~/.vimrc.plugins"))
     source ~/.vimrc.plugins
+    syntax enable
+    filetype plugin on
 endif
 " }}}
 
@@ -312,7 +314,19 @@ endif
 if isdirectory(expand("~/.vim/plugged/vim-fugitive"))
     let g:fugitive_github_domains = ['http://gitlab.prod.dm.local', 'https://git.github.com']
 
-    silent! unmap <leader>gp
+    nnoremap <silent> <leader>gs :Gstatus<CR>
+    nnoremap <silent> <leader>gd :Gdiff<CR>
+    nnoremap <silent> <leader>gc :Gcommit<CR>
+    nnoremap <silent> <leader>gb :Gblame<CR>
+    nnoremap <silent> <leader>gl :Glog<CR>
+    " nnoremap <silent> <leader>gp :Git push<CR>
+    nnoremap <silent> <leader>gr :Gread<CR>
+    nnoremap <silent> <leader>gw :Gwrite<CR>
+    nnoremap <silent> <leader>ge :Gedit<CR>
+    " Mnemonic _i_nteractive
+    nnoremap <silent> <leader>gi :Git add -p %<CR>
+    nnoremap <silent> <leader>gg :SignifyToggle<CR>
+
     nnoremap <leader>gps :Dispatch! git push<CR>
     nnoremap <leader>gpu :Dispatch! git push<CR>
     nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
@@ -373,6 +387,21 @@ if isdirectory(expand("~/.vim/plugged/nerdtree"))
 endif
 " }}}
 
+" {{{ PDV
+" (php documentor for vim)
+if isdirectory(expand("~/.vim/plugged/pdv"))
+    let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
+    nnoremap <buffer> <leader>pd :call pdv#DocumentWithSnip()<CR>
+endif
+" }}}
+
+" {{{ phpctags
+if isdirectory(expand("~/.vim/plugged/tagbar-phpctags.vim"))
+    " phpctags
+    let g:tagbar_phpctags_memory_limit = '512M'
+endif
+" }}}"
+
 " {{{ promptline
 if isdirectory(expand("~/.vim/plugged/promptline.vim"))
     " use airline extensions for promptline
@@ -400,6 +429,23 @@ if isdirectory(expand("~/.vim/plugged/sessionman.vim/"))
     nnoremap <Leader>sl :SessionList<CR>
     nnoremap <Leader>ss :SessionSave<CR>
     nnoremap <Leader>sc :SessionClose<CR>
+endif
+" }}}
+
+" Syntastic {{{
+if isdirectory(expand("~/.vim/plugged/syntastic"))
+    " let g:syntastic_check_on_open=1
+
+    " auto open loc list and jump to error when there's a php error
+    let g:syntastic_auto_loc_list = 1
+
+    " use npm package to check react scripts
+
+    " spiffy error columns
+    let g:syntastic_error_symbol='✗'
+    let g:syntastic_warning_symbol='⚠'
+    let g:syntastic_style_error_symbol='✗'
+    let g:syntastic_style_warning_symbol='⚠'
 endif
 " }}}
 
