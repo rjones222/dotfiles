@@ -558,8 +558,8 @@ alias dn="cd projects/net-framework/website"
 alias tcpd="sudo tcpdump -A -s 10240 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | egrep --line-buffered'^........(GET |HTTP\/|POST |HEAD )|^[A-Za-z0-9-]+: ' | sed -r 's/^........(GET |HTTP\/|POST |HEAD )/\n\1/g'"
 
 # case's ladder staging rsync
-alias igl-staging-rsync="cd ~/sites/casesladder-repos/igl && rsync --recursive --links --checksum --progress --exclude=.git --exclude=tags --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/igl/ && cd -"
-alias zf1-staging-rsync="cd ~/sites/casesladder-repos/zf1 && rsync --recursive --links --checksum --progress --exclude=.git --exclude=tags --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/zf1/ && cd -"
+alias igl-staging-rsync="cd ~/Sites/casesladder-repos/igl && rsync --recursive --links --checksum --progress --exclude=.git --exclude=tags --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/igl/ && cd -"
+alias zf1-staging-rsync="cd ~/Sites/casesladder-repos/zf1 && rsync --recursive --links --checksum --progress --exclude=.git --exclude=tags --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/zf1/ && cd -"
 alias myleague1-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --recursive --links --checksum --progress --exclude=*.swp --exclude=*~ --exclude=.git --exclude=tags --exclude=hosts.ini --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/myleague/ && cd -"
 alias myleague2-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --recursive --links --checksum --progress --exclude=*.swp --exclude=*~ --exclude=.git --exclude=tags --exclude=hosts.ini --chmod=Dugo+rwX,u+rw,go+r ./. clscs:/opt/myleague/ && cd -"
 alias myleague3-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --recursive --links --checksum --progress --exclude=*.swp --exclude=*~ --exclude=.git --exclude=tags --exclude=hosts.ini --chmod=Dugo+rwX,u+rw,go+r ./. clscm:/opt/myleague/ && cd -"
