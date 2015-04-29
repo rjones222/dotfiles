@@ -435,7 +435,7 @@ Plug 'mxw/vim-jsx'
 " endif
 
 " syntax highlighting for twig templates
-Plug 'beyondwords/vim-twig', { 'for': 'html.twig' }
+Plug 'beyondwords/vim-twig'
 
 " facebook hhvm hack highlight support
 Plug 'hhvm/vim-hack'
