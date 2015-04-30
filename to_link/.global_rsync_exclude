@@ -1,0 +1,4 @@
+tags
+tags*
+.rsync_exclude
+Session.vim
