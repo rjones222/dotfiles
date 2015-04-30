@@ -27,8 +27,8 @@
 [help]
     autocorrect = 1
 [user]
-    email = mike@mikefunk.com
-    name = Mike Funk
+	email = mike@mikefunk.com
+	name = Mike Funk
 [web]
     browser = open
 [instaweb]
@@ -44,6 +44,11 @@
     insteadOf = gh
 [url "git@bitbucket.org"]
     insteadOf = bb
+# large files... not sure what this does
+[filter "lfs"]
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
 # }}}
 
 # Aliases {{{
@@ -195,10 +200,12 @@
     ; excludesfile = ~/.gitignore
     ; autocrlf = input
     ; autocrlf = true
+    excludesfile = ~/.config/git/ignore
     autocrlf = false
     ignorecase = false
     preloadindex = true
     pager = less -FRSX
+	excludesfile = /Users/mikefunk/.config/git/ignore
 # }}}
 
 # diff and mergetool {{{
@@ -225,8 +232,20 @@
 [fetch]
     prune = true
 # }}}
-# ONLY TEMPORARY FOR ITT TECH ANGULARJS WORKOUT
+
+# fix for itt tech torrance firewall and github {{{
 # [url "https://github"]
     # insteadOf = git://github
 # [hub]
     # protocol = https
+# }}}
+
+# tools {{{
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+# }}}
+

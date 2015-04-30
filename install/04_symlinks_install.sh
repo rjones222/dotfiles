@@ -36,6 +36,7 @@ link_this "$HOME/.dotfiles/to_link/.grcat" "$HOME/.grcat"
 link_this "$HOME/.dotfiles/to_link/.my.cnf" "$HOME/.my.cnf"
 link_this "$HOME/.dotfiles/to_link/.my.ini" "$HOME/.my.ini"
 link_this "$HOME/.dotfiles/to_link/.composer" "$HOME/.composer"
+link_this "$HOME/.dotfiles/to_link/.config/git/ignore $HOME/.gitignore_global"
 
 link_this "$HOME/.dotfiles/to_link/.inputrc" "$HOME/.inputrc"
 link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/.rainbarf.conf"
