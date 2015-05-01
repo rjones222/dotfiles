@@ -205,7 +205,7 @@
     ignorecase = false
     preloadindex = true
     pager = less -FRSX
-	excludesfile = /Users/mikefunk/.config/git/ignore
+	; excludesfile = /Users/mikefunk/.config/git/ignore
 # }}}
 
 # diff and mergetool {{{

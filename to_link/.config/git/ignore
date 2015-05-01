@@ -1,5 +1,4 @@
 # Automatically created by GitHub for Mac
-# To make edits, delete these initial comments, or else your changes may be lost!
 
 .DS_Store
 .AppleDouble
@@ -11,13 +10,9 @@ Icon
 # Thumbnails
 ._*
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
+# Files that might appear on external disk
 .Spotlight-V100
-.TemporaryItems
 .Trashes
-.VolumeIcon.icns
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -25,3 +20,21 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# custom stuff
+*.swp
+tags
+tags*
+.DS_Store
+.phpcomplete_extended
+.projections.json
+nbproject
+composer.phar
+nbproject
+build
+_ide_helper.php
+autocomplete
+.exrc
+types_php.taghl
+Session.vim
+*.un~
