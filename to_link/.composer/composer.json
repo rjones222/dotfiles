@@ -26,6 +26,7 @@
     "qafoolabs/php-refactoring-browser": "@stable",
     "laravel/lumen-installer": "~1.0",
     "laravel/installer": "~1.2",
-    "phpdocumentor/phpdocumentor": "~2.8"
+    "phpdocumentor/phpdocumentor": "~2.8",
+    "behat/mink-zombie-driver": "~1.2"
   }
 }

@@ -65,7 +65,7 @@ react-tools # used for vim syntastic syntax checking for jsx react modules
 syntastic-react # used for vim syntastic syntax checking for jsx react modules
 # tldr # community-driven man pages
 yo # yeoman - boilerplate maker
-# zombie # browser emulator for testing like phantomjs
+zombie@3.1.1 # browser emulator for testing like phantomjs. v3 is node, v4 is io.js
 )
 for package in "${packages[@]}"
 do
