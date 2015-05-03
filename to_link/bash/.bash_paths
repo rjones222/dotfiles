@@ -127,4 +127,9 @@ if [ -d "/usr/local/opt/go/libexec/bin" ]; then
     export PATH=$PATH:/usr/local/opt/go/libexec/bin
 fi
 
+# postgresql app on mac
+if [ -d "/Applications/Postgres.app/Contents/Versions/9.4/bin" ]; then
+    export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+fi
+
 export PATH="$PATH"
