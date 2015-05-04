@@ -406,6 +406,9 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml', 'php']
 
 " Syntax {{{
 
+" api blueprint
+Plug 'kylef/apiblueprint.vim'
+
 " view files for Zend, Symfony, CakePHP, etc.
 Plug 'vim-scripts/phtml.vim'
 
