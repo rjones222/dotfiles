@@ -565,4 +565,7 @@ alias myleague2-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --
 alias myleague3-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. clscm:/opt/myleague/ && cd -"
 alias myleague-all-staging-rsync="cd ~/Sites/casesladder-repos/myleague && myleague1-staging-rsync && myleague2-staging-rsync && myleague3-staging-rsync && cd -"
 
+# phantomjs on the port for behat to find it
+alias phan="./node_modules/.bin/phantomjs --webdriver=8643"
+
 # }}}

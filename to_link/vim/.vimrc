@@ -286,6 +286,17 @@ nnoremap <leader>f9 :set foldlevel=9<CR>
 
 " }}}
 
+" Syntax highlighting and file types {{{
+    " for those weird filetypes that need some help setting the correct filetype
+    au BufRead,BufNewFile gulpfile set filetype=javascript
+    au BufRead,BufNewFile Gulpfile set filetype=javascript
+    au BufRead,BufNewFile *.html.twig set filetype=twig
+    au BufRead,BufNewFile Vagrantfile set filetype=ruby
+
+    " all front-end 2 space indents
+    au FileType smarty,blade,html,javascript,json,css,twig,coffee,yaml,cucumber set et sw=2 ts=2
+" }}}
+
 " Gui {{{
 if has("gui_running")
     set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h11
