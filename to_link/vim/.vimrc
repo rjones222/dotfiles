@@ -405,7 +405,7 @@ if isdirectory(expand("~/.vim/plugged/nerdtree"))
     let NERDTreeMouseMode=2
     let NERDTreeQuitOnOpen=1
     let NERDTreeShowBookmarks=1
-    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.DS_Store$']
     let g:nerdtree_tabs_open_on_gui_startup=0
 endif
 " }}}

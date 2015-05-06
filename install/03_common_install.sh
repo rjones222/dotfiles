@@ -138,6 +138,7 @@ CoffeeTags # ctags with coffeescript
 github_changelog_generator # generate changelogs from tags, issues, and merged pull requests
 # haste
 jekyll # blogging platform used by github
+json-server # an easy way to set up a quick fake json API
 # json_pure
 # kramdown # another markdown parser option that can be used by Jekyll.
 # mailcatcher # catches outgoing mail and displays it from a local server to a web-based view
