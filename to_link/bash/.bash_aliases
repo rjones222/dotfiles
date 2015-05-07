@@ -457,11 +457,7 @@ alias largestfiles="find . -type f -print0 | xargs -0 du | sort -n | tail -10 | 
 alias largestdirs="find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut -f2 | xargs -I{} du -sh {}"
 
 # colorize cat {{{
-chk=''
-if which gem >/dev/null; then
-    gem list pygmentize -i | $chk
-fi
-if [ $chk ]; then
+if [[ "$(type -P pygmentize)" ]]; then
     alias cat="pygmentize -g"
 fi
 # }}}
@@ -501,7 +497,7 @@ alias brewup='brew update && brew upgrade'
 alias ping='grc ping'
 alias tail='grc tail'
 alias traceroute='grc traceroute'
-alias cat="grc cat"
+# alias cat="grc cat"
 alias make="grc make"
 alias rake="grc rake"
 alias netstat="grc netstat"

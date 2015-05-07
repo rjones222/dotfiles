@@ -789,7 +789,7 @@ Plug 'nanotech/jellybeans.vim'
 " Plug 'zeis/vim-kolor'
 Plug 'tomasr/molokai'
 " Plug 'Lokaltog/vim-distinguished'
-" Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'
 " Plug 'jnurmine/Zenburn'
 " Plug 'cocopon/iceberg.vim'
 " Plug 'w0ng/vim-hybrid'
@@ -922,7 +922,7 @@ Plug 'justinmk/vim-ipmotion'
 " I like long runs on the beach and holding hands in the movie theatre
 " <c-b> on date. I remapped vim's default <c-a> to <c-b> because of tmux.
 " I have never used this
-" Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-speeddating'
 
 " smart search, replace, abbreviation fixer
 " :%S/mixed_case_thing/other_thing/g replaces MixedCaseThing in context as

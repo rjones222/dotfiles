@@ -295,6 +295,9 @@ nnoremap <leader>f9 :set foldlevel=9<CR>
 
     " all front-end 2 space indents
     au FileType smarty,blade,html,javascript,json,css,twig,coffee,yaml,cucumber set et sw=2 ts=2
+
+    " set ssh config filetype
+    " au BufNewFile,BufRead /Users/mikefunk/.dotfiles/to_link/.ssh/config setf sshconfig
 " }}}
 
 " Gui {{{
@@ -658,6 +661,19 @@ endif
 nnoremap <leader>bi :so ~/.vimrc.plugins<cr> :PlugInstall<cr>
 nnoremap <leader>bc :so ~/.vimrc.plugins<cr> :PlugClean!<cr>
 nnoremap <leader>bu :so ~/.vimrc.plugins<cr> :PlugUpdate<cr>
+" }}}
+
+" vim-speeddating {{{
+if isdirectory(expand("~/.vim/plugged/vim-speeddating"))
+    let g:speeddating_no_mappings = 1
+    " use c-b instead
+    nmap  <C-B>     <Plug>SpeedDatingUp
+    nmap  <C-X>     <Plug>SpeedDatingDown
+    xmap  <C-B>     <Plug>SpeedDatingUp
+    xmap  <C-X>     <Plug>SpeedDatingDown
+    nmap d<C-B>     <Plug>SpeedDatingNowUTC
+    nmap d<C-X>     <Plug>SpeedDatingNowLocal
+endif
 " }}}
 
 " {{{ vim-startify
