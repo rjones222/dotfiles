@@ -292,12 +292,10 @@ nnoremap <leader>f9 :set foldlevel=9<CR>
     au BufRead,BufNewFile Gulpfile set filetype=javascript
     au BufRead,BufNewFile *.html.twig set filetype=twig
     au BufRead,BufNewFile Vagrantfile set filetype=ruby
+    " au BufRead,BufNewFile config set filetype=sshconfig
 
     " all front-end 2 space indents
     au FileType smarty,blade,html,javascript,json,css,twig,coffee,yaml,cucumber set et sw=2 ts=2
-
-    " set ssh config filetype
-    " au BufNewFile,BufRead /Users/mikefunk/.dotfiles/to_link/.ssh/config setf sshconfig
 " }}}
 
 " Gui {{{
