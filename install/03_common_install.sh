@@ -133,8 +133,10 @@ packages=(
 # bropages # a highly readable supplement to man pages
 bundler # lets gems be package-specific. Used by jekyll.
 CoffeeTags # ctags with coffeescript
+compass # ruby tool to compile sass. Used by foundation cli tool.
 # execjs
 # git-gitlab # command line tool to create merge requests and stuff
+foundation # zurb foundation css framework installer
 github_changelog_generator # generate changelogs from tags, issues, and merged pull requests
 # haste
 jekyll # blogging platform used by github
