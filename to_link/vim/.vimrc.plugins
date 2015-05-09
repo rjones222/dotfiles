@@ -131,7 +131,7 @@ endif
 " }}}
 
 " Python {{{
-Plug 'yssource/python.vim'
+Plug 'yssource/python.vim', { 'for': 'python' }
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'python_match.vim', { 'for': 'python' }
 Plug 'pythoncomplete', { 'for': 'python' }
@@ -140,7 +140,7 @@ Plug 'pythoncomplete', { 'for': 'python' }
 " JavaScript {{{
 
 " json formatting
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', { 'for': 'json' }
 
 " Plug 'pangloss/vim-javascript', { 'for': 'javscript' }
 " Enhanced JavaScript Syntax for Vim
@@ -148,7 +148,7 @@ Plug 'elzr/vim-json'
 " yet another... supposed to be better than jelera
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
-Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 " aj provides a text object for the outermost JSON object, array, string, number, or keyword.
 " gqaj 'pretty prints' (wraps/indents/sorts keys/otherwise cleans up) the JSON construct under the cursor.
@@ -407,22 +407,22 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml', 'php']
 " Syntax {{{
 
 " api blueprint
-Plug 'kylef/apiblueprint.vim'
+Plug 'kylef/apiblueprint.vim', { 'for': 'apiblueprint' }
 
 " view files for Zend, Symfony, CakePHP, etc.
-Plug 'vim-scripts/phtml.vim'
+Plug 'vim-scripts/phtml.vim', { 'for': 'html' }
 
 " Dockerfile syntax highlighting
-Plug 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 " asp.net/c# enhanced
 Plug 'OrangeT/vim-csharp', { 'for': ['aspx.html', 'cs'] }
 
 " rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " react jsx
-Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 
 " Hide portions from syntax highlighting. Useful for when syntax coloring
 " gets messed up by html in php or markdown quotes/underscores/dashes
@@ -438,19 +438,19 @@ Plug 'mxw/vim-jsx'
 " endif
 
 " syntax highlighting for twig templates
-Plug 'beyondwords/vim-twig'
+Plug 'beyondwords/vim-twig', { 'for': 'twig' }
 
 " facebook hhvm hack highlight support
-Plug 'hhvm/vim-hack'
+Plug 'hhvm/vim-hack', { 'for': 'hack' }
 
 " syntastic plugin for vimrc
 Plug 'dbakker/vim-lint', { 'for': 'vim' }
 
 Plug 'tpope/vim-git', { 'for': 'git' }
-Plug 'cakebaker/scss-syntax.vim'
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 
 " Laravel Blade Syntax Highlighting
-Plug 'xsbeats/vim-blade'
+Plug 'xsbeats/vim-blade', { 'for': 'blade' }
 
 " the only misc bundles I use
 " (spf13-vim puts these in there anyway)
@@ -459,7 +459,7 @@ Plug 'xsbeats/vim-blade'
 " Plug 'Puppet-Syntax-Highlighting'
 
 " .tmux.conf syntax hilighting
-Plug 'vimez/vim-tmux'
+Plug 'vimez/vim-tmux', { 'for': 'tmux' }
 
 " }}}
 
