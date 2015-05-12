@@ -24,8 +24,6 @@ else
     export EDITOR="$(which vim) -p"
 fi
 
-export HOMEBREW_GITHUB_API_TOKEN='14421939804382280abaad5535d4434da567fe15'
-
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
