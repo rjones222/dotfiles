@@ -554,6 +554,8 @@ alias dn="cd projects/net-framework/website"
 alias tcpd="sudo tcpdump -A -s 10240 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | egrep --line-buffered'^........(GET |HTTP\/|POST |HEAD )|^[A-Za-z0-9-]+: ' | sed -r 's/^........(GET |HTTP\/|POST |HEAD )/\n\1/g'"
 
 # case's ladder staging rsync
+alias casesladder-www-staging-rsync="cd ~/Sites/casesladder-repos/casesladder && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./www/html/. clsw:/home/httpd/html/"
+# alias casesladder-cgi-staging-rsync=""
 alias igl-staging-rsync="cd ~/Sites/casesladder-repos/igl && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/igl/ && cd -"
 alias zf1-staging-rsync="cd ~/Sites/casesladder-repos/zf1 && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/zf1/ && cd -"
 alias myleague1-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/myleague/ && cd -"
