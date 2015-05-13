@@ -459,6 +459,7 @@ endif
 " Syntastic {{{
 if isdirectory(expand("~/.vim/plugged/syntastic"))
     " let g:syntastic_check_on_open=1
+    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html', 'jsx'] }
 
     " auto open loc list and jump to error when there's a php error
     let g:syntastic_auto_loc_list = 1

@@ -1,7 +1,2 @@
 optOut: false
 lastUpdateCheck: 1431493729955
-update:
-  latest: 0.7.5
-  current: 0.7.3
-  type: patch
-  name: json-server
