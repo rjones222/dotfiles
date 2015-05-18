@@ -179,7 +179,9 @@ endif
 set cursorline
 set colorcolumn=80
 " silent! colorscheme lucius
-silent! colorscheme molokayo
+" silent! LuciusDarkHighContrast
+silent! colorscheme seoul256
+" silent! colorscheme molokayo
 " silent! colorscheme badwolf
 " }}}
 

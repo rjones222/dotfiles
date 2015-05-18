@@ -428,6 +428,7 @@ alias bow="bower"
 # npm {{{
 alias nid="npm install --save-dev"
 alias nig="npm install -g"
+alias nis="npm install --save"
 # }}}
 
 # local tunnel - make localhost viewable on the web
