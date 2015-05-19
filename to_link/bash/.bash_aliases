@@ -562,7 +562,9 @@ alias zf1-staging-rsync="cd ~/Sites/casesladder-repos/zf1 && rsync --recursive -
 alias myleague1-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. clsw:/opt/myleague/ && cd -"
 alias myleague2-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. clscs:/opt/myleague/ && cd -"
 alias myleague3-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. clscm:/opt/myleague/ && cd -"
-alias myleague-all-staging-rsync="cd ~/Sites/casesladder-repos/myleague && myleague1-staging-rsync && myleague2-staging-rsync && myleague3-staging-rsync && cd -"
+alias myleague-all-staging-rsync="myleague1-staging-rsync && myleague2-staging-rsync && myleague3-staging-rsync"
+
+alias essortment-staging-rsync="cd ~/Sites/essortment && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. web15:/home/cmeops/CME2/sites/mike.funk/www.essortment.com && cd -"
 
 # phantomjs on the port for behat to find it
 alias phan="./node_modules/.bin/phantomjs --webdriver=8643"

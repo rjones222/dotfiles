@@ -1,0 +1,3 @@
+[ui]
+ignore = ~/.hgignore
+username = Mike Funk <mike@mikefunk.com>

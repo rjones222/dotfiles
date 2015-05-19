@@ -40,6 +40,8 @@ link_this "$HOME/.dotfiles/to_link/.config/git/ignore $HOME/.gitignore_global"
 link_this "$HOME/.dotfiles/to_link/.inputrc" "$HOME/.inputrc"
 link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/.rainbarf.conf"
 link_this "$HOME/.dotfiles/to_link/.psqlrc" "$HOME/.psqlrc"
+link_this "$HOME/.dotfiles/to_link/.hgrc" "$HOME/.hgrc"
+link_this "$HOME/.dotfiles/to_link/.hgignore" "$HOME/.hgignore"
 
 link_this "$HOME/.dotfiles/to_link/.teamocil" "$HOME/.teamocil"
 link_this "/var/www/sites" "$HOME/Sites"
