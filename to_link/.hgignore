@@ -1,3 +1,8 @@
 tags
 tags.temp
 tags.lock
+.DS_Store
+.phpcomplete_extended
+.projections.json
+Session.vim
+nbproject

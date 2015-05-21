@@ -121,7 +121,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # trash # a trash can for the terminal
         tree # display file/folder hierarchies in a visual tree format
         # virtualhost.sh # crappy virtualhost management script
-        # watch # contains some tools: free, kill, ps, uptime, etc.
+        watch # contains some tools: free, kill, ps, uptime, etc.
         # w3m # full color image previewer for ranger but doesnt work in tmux
         wget # latest version
         )
