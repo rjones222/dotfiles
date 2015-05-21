@@ -40,6 +40,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'tacahiroy/ctrlp-funky'
 " Plug 'terryma/vim-multiple-cursors'
 " better supported fork to do sublime-style multiple cursors
+" <c-n> to select the current word, then again for the next match
 Plug 'kristijanhusak/vim-multiple-cursors'
 " I am trying to switch to tpope/vim-obsession
 " Plug 'vim-scripts/sessionman.vim', { 'on': ['SessionList', 'SessionSave', 'SessionClose'] }
@@ -169,11 +170,11 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml', 'html.twig', 'blade', 'php'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'sass', 'scss'] }
 
-" always inverse colors on the current html tag you're in
 if has('python')
+    " always highlight the current html opening and closing tag you're in
     Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml', 'blade', 'html.twig', 'php'] }
 else
-    Plug 'gergsexton/MatchTag', { 'for': ['html', 'xml', 'blade', 'html.twig', 'php'] }
+    Plug 'gregsexton/MatchTag', { 'for': ['html', 'xml', 'blade', 'html.twig', 'php'] }
 endif
 " }}}
 

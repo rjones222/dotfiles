@@ -46,6 +46,8 @@ jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json
 jspm # javascript package manager with autoloader
+# jshint # javascipt cli linter
+jsxhint # like jshint with extra stuff for reactjs jsx syntax
 karma # js test runner
 karma-cli # karma testing framework command line runner
 komodo-debug # debugger for nodejs. Lets you attach node sessions to vdebug.
