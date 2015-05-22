@@ -73,7 +73,7 @@ Plug 'kana/vim-textobj-user'
 " }}}
 
 " General Programming {{{
-Plug 'scrooloose/syntastic', { 'for': ['vim', 'php', 'python', 'javascript', 'css'] }
+Plug 'scrooloose/syntastic', { 'for': ['vim', 'php', 'python', 'javascript', 'javascript.jsx', 'css'] }
 if executable('git')
     Plug 'tpope/vim-fugitive'
 endif
@@ -143,11 +143,16 @@ Plug 'pythoncomplete', { 'for': 'python' }
 " json formatting
 Plug 'elzr/vim-json', { 'for': 'json' }
 
-" Plug 'pangloss/vim-javascript', { 'for': 'javscript' }
+" better javascript syntax highlighting/indenting
+Plug 'pangloss/vim-javascript', { 'for': ['javscript', 'javascript.jsx'] }
+
+" react jsx - requires pangloss/vim-javascript
+Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+
 " Enhanced JavaScript Syntax for Vim
 " Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 " yet another... supposed to be better than jelera
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
+" Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
@@ -421,9 +426,6 @@ Plug 'OrangeT/vim-csharp', { 'for': ['aspx.html', 'cs'] }
 
 " rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-
-" react jsx
-Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 
 " Hide portions from syntax highlighting. Useful for when syntax coloring
 " gets messed up by html in php or markdown quotes/underscores/dashes
@@ -702,7 +704,7 @@ Plug 'osyo-manga/vim-brightest'
 
 " highlights in bright red any trailing whitespace
 " I whitelisted this pretty much just so I could get ascii art on startify :P
-Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 'css', 'less', 'coffee', 'xml', 'json'] }
+Plug 'ntpeters/vim-better-whitespace', { 'for': ['php', 'python', 'javascript', 'javascript.jsx', 'css', 'less', 'coffee', 'xml', 'json'] }
 
 " If I'm on a project that uses tabs instead of spaces, highlight starting
 " spaces

@@ -28,12 +28,15 @@ fi
 
 log_info "Installing npm Packages"
 packages=(
+babel-eslint # es6 javascript linter - used by syntastic in vim
 bower # package management for css/js
 bower-installer # allows you to only install the files you need into a specific dir
 browser-sync # like livereload but easier
 coffeelint # verify coffeescript files
 coffee-script # javascript abstraction / augmentation
 csslint # verify css files
+eslint # javascript linter - used by syntastic in vim
+eslint-plugin-react # react jsx javascript linter - used by syntastic in vim
 express-generator # generates express.js apps
 # fixmyjs # like php-cs-fixer for javascript
 git-guilt # see the top few users for whom this commit has overwritten code
@@ -45,9 +48,9 @@ jasmine # javascript behavior testing framework
 jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json
-jspm # javascript package manager with autoloader
+# jspm # javascript package manager with autoloader
 # jshint # javascipt cli linter
-jsxhint # like jshint with extra stuff for reactjs jsx syntax
+# jsxhint # like jshint with extra stuff for reactjs jsx syntax ("jsxhint is being sunsetted and doesn't handle react errors correctly")
 karma # js test runner
 karma-cli # karma testing framework command line runner
 komodo-debug # debugger for nodejs. Lets you attach node sessions to vdebug.

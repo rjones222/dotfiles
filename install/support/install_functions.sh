@@ -2,7 +2,7 @@
 
 function link_this() {
     # if the file/dir to link doesn't exist
-    if [[ ! -f "$1" ]] && [[ ! -d "$1" ]]; then
+    if [[ ! -f "$1" ]] && [[ ! -d "$1" ]] && [[ ! -e "$1" ]]; then
         log_error "file/directory $1 does not exist"
         return ${E_FAILURE}
     fi

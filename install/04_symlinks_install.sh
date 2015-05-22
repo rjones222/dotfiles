@@ -24,6 +24,7 @@ link_this "$HOME/.dotfiles/to_link/.gitconfig" "$HOME/.gitconfig"
 link_this "$HOME/.dotfiles/to_link/.agignore" "$HOME/.agignore"
 link_this "$HOME/.dotfiles/to_link/.config" "$HOME/.config"
 link_this "$HOME/.dotfiles/to_link/.global_rsync_exclude $HOME/.rsync_exclude"
+link_this "$HOME/.dotfiles/to_link/.eslintrc $HOME/.eslintrc"
 
 link_this "$HOME/.dotfiles/to_link/.ctags" "$HOME/.ctags"
 link_this "$HOME/.dotfiles/to_link/.irssi" "$HOME/.irssi"
@@ -42,6 +43,8 @@ link_this "$HOME/.dotfiles/to_link/.rainbarf.conf" "$HOME/.rainbarf.conf"
 link_this "$HOME/.dotfiles/to_link/.psqlrc" "$HOME/.psqlrc"
 link_this "$HOME/.dotfiles/to_link/.hgrc" "$HOME/.hgrc"
 link_this "$HOME/.dotfiles/to_link/.hgignore" "$HOME/.hgignore"
+
+link_this "$HOME/.dotfiles/to_link/.jscsrc $HOME/.jscsrc"
 
 link_this "$HOME/.dotfiles/to_link/.teamocil" "$HOME/.teamocil"
 link_this "/var/www/sites" "$HOME/Sites"

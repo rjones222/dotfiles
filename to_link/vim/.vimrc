@@ -462,6 +462,12 @@ endif
 if isdirectory(expand("~/.vim/plugged/syntastic"))
     " let g:syntastic_check_on_open=1
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html', 'jsx'] }
+    " if executable('jsxhint')
+        " let g:javascript_checkers = ['jsxhint']
+    " endif
+    if executable('eslint') && executable('babel-eslint') && executable('eslint-plugin-react')
+        let g:javascript_checkers = ['eslint']
+    endif
 
     " auto open loc list and jump to error when there's a php error
     let g:syntastic_auto_loc_list = 1
