@@ -45,6 +45,8 @@ grunt # older, more complex task runner / watcher
 grunt-cli # wtf? grunt is lame.
 #instant-markdown-d # used by vim to instantly preview markdown files as you type
 jasmine # javascript behavior testing framework
+# jscs # javascript coding style checker
+jsxcs # javascript coding style checker with react jsx support
 jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json

@@ -461,12 +461,12 @@ endif
 " Syntastic {{{
 if isdirectory(expand("~/.vim/plugged/syntastic"))
     " let g:syntastic_check_on_open=1
-    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html', 'jsx'] }
+    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
     " if executable('jsxhint')
         " let g:javascript_checkers = ['jsxhint']
     " endif
-    if executable('eslint') && executable('babel-eslint') && executable('eslint-plugin-react')
-        let g:javascript_checkers = ['eslint']
+    if executable('eslint')
+        let g:syntastic_javascript_checkers = ['eslint', 'jscs']
     endif
 
     " auto open loc list and jump to error when there's a php error
@@ -775,10 +775,11 @@ if isdirectory(expand("~/.vim/plugged/YouCompleteMe"))
     let g:ycm_register_as_syntastic_checker = 0
 
     " open preview window while completing
-    let g:ycm_add_preview_to_completeopt=1
+    let g:ycm_add_preview_to_completeopt = 1
 
     " disable youcompleteme
     " let g:ycm_auto_trigger=0
+
     " let g:ycm_allow_changing_updatetime=0
     let g:ycm_seed_identifiers_with_syntax = 1
 endif
