@@ -104,6 +104,7 @@ command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
 " Basics {{{
 set hlsearch " Highlight search terms
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
+set laststatus=2 " always show a statusline. This fixes airline split issue.
 
 " set quickfix window height min and max automatically
 augroup quickfix_augroup
@@ -292,7 +293,7 @@ nnoremap <leader>f9 :set foldlevel=9<CR>
     " for those weird filetypes that need some help setting the correct filetype
     au BufRead,BufNewFile gulpfile set filetype=javascript
     au BufRead,BufNewFile Gulpfile set filetype=javascript
-    au BufRead,BufNewFile *.html.twig set filetype=twig
+    au BufRead,BufNewFile *.html.twig set filetype=html.twig
     au BufRead,BufNewFile Vagrantfile set filetype=ruby
     " au BufRead,BufNewFile config set filetype=sshconfig
 

@@ -545,7 +545,7 @@ Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " <leader>tt to toggle tagbar. This makes it look prettier
 " Plug 'techlivezheng/vim-plugin-tagbar-phpctags'
 if executable('phpctags')
-    Plug 'vim-php/tagbar-phpctags.vim', { 'for': 'php', 'do': 'make', 'on': [] }
+    Plug 'vim-php/tagbar-phpctags.vim', { 'for': 'php', 'do': 'make' }
 endif
 
 " php namespace and use block autocomplete
@@ -1241,8 +1241,9 @@ Plug 'michaeljsmith/vim-indent-object'
 
 if executable('ctags')
     " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    Plug 'majutsushi/tagbar', { 'for': ['php', 'css'] }
     " Plug 'majutsushi/tagbar', { 'for': ['php', 'coffee', 'css'] }
-    Plug 'majutsushi/tagbar', { 'for': ['php'] }
+    " Plug 'majutsushi/tagbar', { 'for': ['php'] }
 endif
 
 " auto generate ctags on save
