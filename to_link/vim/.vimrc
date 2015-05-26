@@ -489,6 +489,24 @@ if isdirectory(expand("~/.vim/plugged/tagbar"))
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
     nnoremap <silent> <leader>tt :TagbarToggle<CR>
+
+    " css support
+    let g:tagbar_type_css = {
+    \ 'ctagstype' : 'Css',
+        \ 'kinds'     : [
+            \ 'c:classes',
+            \ 's:selectors',
+            \ 'i:identities'
+        \ ]
+    \ }
+
+    " ultisnips support
+    let g:tagbar_type_snippets = {
+        \ 'ctagstype' : 'snippets',
+        \ 'kinds' : [
+            \ 's:snippets',
+        \ ]
+    \ }
 endif
 " }}}
 
