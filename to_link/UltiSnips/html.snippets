@@ -23,6 +23,14 @@ snippet jquery "JQuery CDN"
 <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 endsnippet
 
+snippet jspm "JSPM script tags"
+<script type="text/javascript" src="jspm_packages/system.js"></script>
+<script type="text/javascript" src="config.js"></script>
+<script>
+	System.import('${1:lib/main}');
+</script>
+endsnippet
+
 snippet html5 "HTML 5 starting point"
 <!DOCTYPE html>
 <html>

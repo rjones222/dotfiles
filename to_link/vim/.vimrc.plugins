@@ -1241,7 +1241,7 @@ Plug 'michaeljsmith/vim-indent-object'
 
 if executable('ctags')
     " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-    Plug 'majutsushi/tagbar', { 'for': ['php', 'css'] }
+    Plug 'majutsushi/tagbar', { 'for': ['php', 'css', 'snippets'] }
     " Plug 'majutsushi/tagbar', { 'for': ['php', 'coffee', 'css'] }
     " Plug 'majutsushi/tagbar', { 'for': ['php'] }
 endif

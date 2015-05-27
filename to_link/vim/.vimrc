@@ -777,7 +777,6 @@ if isdirectory(expand("~/.vim/plugged/YouCompleteMe"))
     augroup youcompleteme_augroup
         autocmd!
     augroup END
-    autocmd youcompleteme_augroup FileType css setlocal omnifunc=csscomplete#CompleteCSS
 
     " enable completion from tags
     let g:ycm_collect_identifiers_from_tags_files = 1
