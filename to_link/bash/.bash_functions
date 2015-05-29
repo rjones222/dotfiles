@@ -388,6 +388,13 @@ whitespace() {
 # create a gitlab merge request from the current branch into develop via
 # the curl api
 mergerequest() {
+
+    # this works to test the api
+    # gitlab api: https://github.com/gitlabhq/gitlabhq/tree/master/doc/api
+    # $URL="your_url_here"
+    # curl --header "PRIVATE-TOKEN: $GITLAB_API_PRIVATE_TOKEN" $GITLAB_API_ENDPOINT$URL
+    # return
+
     # first push the branch to remote so we have something to request merging
     git push
 
@@ -398,6 +405,9 @@ mergerequest() {
     elif pwd | grep -q 'airliners-website'; then
         PROJECT="airliners-website"
         PROJECT_ID="201"
+    elif pwd | grep -q 'airliners-new'; then
+        PROJECT="airliners"
+        PROJECT_ID="1155"
     elif pwd | grep -q 'answerbag-website'; then
         PROJECT="answerbag-website"
         PROJECT_ID="193"
@@ -435,9 +445,6 @@ mergerequest() {
     # set the message and the current branch
     MESSAGE=$1
     CURRENT_BRANCH="$(git symbolic-ref --short HEAD)"
-
-    # this works to test the api
-    # curl --header "PRIVATE-TOKEN: $GITLAB_API_PRIVATE_TOKEN" $GITLAB_API_ENDPOINT$URL
 
     # call the command
     # there is no error checking here so if things fail it won't figure it out.
