@@ -9,46 +9,51 @@ windows:
       # - vim -S ~/.vim/sessions/config
       - cd ~/.dotfiles && vim
       # - git status
-  - name: "myleague"
-    root: "~/sites/casesladder-repos/myleague"
+  # - name: "myleague"
+    # root: "~/sites/casesladder-repos/myleague"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim
+  # - name: "igl"
+    # root: "~/sites/casesladder-repos/igl"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim
+  # - name: "cases"
+    # root: "~/sites/casesladder-repos/casesladder"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim
+  # - name: "airliners-old"
+    # root: "~/sites/airliners-website"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim
+  - name: "airliners-new"
+    root: "~/sites/airliners-new"
     layout: "main-horizontal"
     panes:
       - vim
-  - name: "igl"
-    root: "~/sites/casesladder-repos/igl"
-    layout: "main-horizontal"
-    panes:
-      - vim
-  - name: "cases"
-    root: "~/sites/casesladder-repos/casesladder"
-    layout: "main-horizontal"
-    panes:
-      - vim
-  - name: "airliners"
-    root: "~/sites/airliners-website"
-    layout: "main-horizontal"
-    panes:
-      - vim
-  - name: "answerbag"
-    root: "~/sites/answerbag-website"
-    layout: "main-horizontal"
-    panes:
-      - vim
-  - name: "arcadetown"
-    root: "~/sites/arcadetown-website"
-    layout: "main-horizontal"
-    panes:
-      - vim
-  - name: "golflink"
-    root: "~/sites/golflink-website"
-    layout: "main-horizontal"
-    panes:
-      - vim
-  - name: "trails"
-    root: "~/sites/trails-website"
-    layout: "main-horizontal"
-    panes:
-      - vim
+  # - name: "answerbag"
+    # root: "~/sites/answerbag-website"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim
+  # - name: "arcadetown"
+    # root: "~/sites/arcadetown-website"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim
+  # - name: "golflink"
+    # root: "~/sites/golflink-website"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim
+  # - name: "trails"
+    # root: "~/sites/trails-website"
+    # layout: "main-horizontal"
+    # panes:
+      # - vim
   # - name: "zuora"
   # root: "~/sites/zuora-net-framework"
     # layout: "main-horizontal"
