@@ -39,7 +39,7 @@ eslint # javascript linter - used by syntastic in vim
 eslint-plugin-react # react jsx javascript linter - used by syntastic in vim
 express-generator # generates express.js apps
 # fixmyjs # like php-cs-fixer for javascript
-git-guilt # see the top few users for whom this commit has overwritten code
+# git-guilt # see the top few users for whom this commit has overwritten code. Commented out because this is now included with git-extras.
 gulp # task runner / watcher
 grunt # older, more complex task runner / watcher
 grunt-cli # wtf? grunt is lame.

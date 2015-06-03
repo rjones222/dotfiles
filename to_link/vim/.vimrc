@@ -112,6 +112,9 @@ augroup quickfix_augroup
 augroup END
 autocmd quickfix_augroup FileType qf call AdjustWindowHeight(3, 5)
 
+" autoclose preview window when no longer needed
+autocmd CompleteDone * pclose
+
 set ttymouse=sgr " allow mouse to work after 233 columns
 
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
@@ -122,6 +125,10 @@ set ignorecase " Case insensitive search
 set smartcase " Case sensitive when uc present
 set number " turn on line numbering
 
+set iskeyword-=. " '.' is an end of word designator
+set iskeyword-=# " '#' is an end of word designator
+set iskeyword-=- " '-' is an end of word designator
+
 if has("mouse")
     set mouse=a " Automatically enable mouse usage
     set mousehide " Hide the mouse cursor while typing
@@ -130,12 +137,19 @@ set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set history=1000 " Store a ton of history (default is 20)
 
+set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scrolloff=3                 " Minimum lines to keep above and below cursor
+
 " set noswapfile " pesky .swp files
 " set nobackup
 
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+" Remove trailing whitespaces and ^M chars
+autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,html.twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 " }}}
 "
@@ -203,6 +217,10 @@ map zh zH
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
+
+" vertical and horizontal splits like tmux
+nnoremap <c-w>" :sp<cr>
+nnoremap <c-w>% :vsp<cr>
 
 " my version of fast tabs
 nnoremap gh gT
@@ -298,7 +316,7 @@ nnoremap <leader>f9 :set foldlevel=9<CR>
     " au BufRead,BufNewFile config set filetype=sshconfig
 
     " all front-end 2 space indents
-    au FileType smarty,blade,html,javascript,json,css,twig,coffee,yaml,cucumber set et sw=2 ts=2
+    au FileType smarty,blade,html,javascript,json,css,twig,coffee,yaml,cucumber set et sw=2 ts=2 sts=2
 " }}}
 
 " Gui {{{
@@ -794,6 +812,8 @@ if isdirectory(expand("~/.vim/plugged/YouCompleteMe"))
 
     " open preview window while completing
     let g:ycm_add_preview_to_completeopt = 1
+    let g:ycm_autoclose_preview_window_after_completion = 1
+    let g:ycm_autoclose_preview_window_after_insertion = 1
 
     " disable youcompleteme
     " let g:ycm_auto_trigger=0

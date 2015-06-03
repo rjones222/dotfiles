@@ -254,7 +254,7 @@ if [ -z "$EDITOR" ]; then
         alias gd='git diff | vim -R -'
         ;;
       darwin*)
-        alias gd='git diff | mate'
+        alias gd='git diff | vim -R -'
         ;;
       *)
         alias gd='git diff'
@@ -276,7 +276,7 @@ alias wr='cd ~/Sites'
 alias gitupdates='git add --all .; git commit -am "updates"; git pull && git push'
 alias dotupdates='cd ~/.dotfiles; gitupdates; cd -'
 alias blogupdates='cd ~/Sites/mikedfunk.github.io; gitupdates; cd -'
-alias working='git add --all .; git commit -am "rebase me!!"'
+alias working='git add --all .; git commit -am "REBASE ME"'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias gr='git-root'
 # }}}
