@@ -516,9 +516,11 @@ alias sci="ssh-copy-id -i ~/.ssh/keys/demandmediakey.pub -o StrictHostKeyCheckin
 alias vaprobash='curl -L http://bit.ly/vaprobash > Vagrantfile'
 alias vpro='vagrant provision'
 alias vdst='vagrant destroy'
+alias vrel='vagrant reload'
 
 # symfony console
 alias sc='php app/console'
+alias sf='php app/console'
 
 # remove folder
 alias rmf='rm -rf'
