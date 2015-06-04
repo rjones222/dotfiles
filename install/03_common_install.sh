@@ -51,7 +51,6 @@ jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json
 # jspm # javascript package manager with autoloader
-# jshint # javascipt cli linter
 # jsxhint # like jshint with extra stuff for reactjs jsx syntax ("jsxhint is being sunsetted and doesn't handle react errors correctly")
 karma # js test runner
 karma-cli # karma testing framework command line runner
@@ -71,6 +70,7 @@ react-tools # used for vim syntastic syntax checking for jsx react modules
 # redis-commander # web interface for redis similar to beanstalkd
 syntastic-react # used for vim syntastic syntax checking for jsx react modules
 # tldr # community-driven man pages
+typescript # superset of javascript that adds type hinting and other goodies. Must be compiled down to javascript of course.
 yo # yeoman - boilerplate maker
 zombie@3.1.1 # browser emulator for testing like phantomjs. v3 is node, v4 is io.js
 )

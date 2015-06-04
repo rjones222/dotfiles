@@ -140,6 +140,11 @@ Plug 'pythoncomplete', { 'for': 'python' }
 
 " JavaScript {{{
 
+" typescript syntax
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+" typescript completion
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+
 " json formatting
 Plug 'elzr/vim-json', { 'for': 'json' }
 
@@ -151,7 +156,8 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 
 " Enhanced JavaScript Syntax for Vim
 " Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-" yet another... supposed to be better than jelera
+" yet another... supposed to be better than jelera.
+" includes es6 support, web apis, and dom keywords.
 " Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
@@ -572,8 +578,9 @@ Plug 'joonty/vdebug', { 'for': 'php' }
 Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
 
 " required for phpcomplete-extended
+" required for tsuqyomi
 " And perhaps other packages...
-" Plug 'Shougo/vimproc'
+Plug 'Shougo/vimproc', { 'do': 'make' }
 
 " php completion for composer projects
 " php-complete-extended breaks horribly with any php files with multiple
