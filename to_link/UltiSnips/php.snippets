@@ -577,6 +577,29 @@ class `!v expand("%:t:r")` extends BaseController implements `!v expand("%:t:r")
 }
 endsnippet
 
+snippet sfctl "symfony controller"
+<?php
+/**
+ * ${1:Whatever} controller
+ *
+ * @package Airliners
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
+ */`!p snip.rv = namespace(snip, path)`
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+class `!v expand("%:t:r")` extends Controller
+{
+    $2
+}
+endsnippet
+
 snippet ctli "ACP laravel controller interface"
 <?php
 /**
@@ -856,6 +879,21 @@ snippet meth "php method"
  * @return ${2:void}
  */
 ${3:public} function ${4:functionname}(${5})
+{
+    $6
+}
+endsnippet
+
+snippet scmeth "symfony controller method"
+
+/**
+ * ${1:Description}
+ *
+ * @Route("${1:/}", name="${2:route_name}")
+ * @Template($3)
+ * @return ${4:array}
+ */
+public function ${5:functionname}Action(${6})
 {
     $6
 }

@@ -313,6 +313,7 @@ nnoremap <leader>f9 :set foldlevel=9<CR>
     au BufRead,BufNewFile Gulpfile set filetype=javascript
     au BufRead,BufNewFile *.html.twig set filetype=html.twig
     au BufRead,BufNewFile Vagrantfile set filetype=ruby
+    au BufRead,BufNewFile .env set filetype=dosini
     " au BufRead,BufNewFile config set filetype=sshconfig
 
     " all front-end 2 space indents
@@ -344,7 +345,8 @@ if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
     " ctrlp extensions
     let g:ctrlp_extensions = ['tag']
     " alternate python matcher. 22x faster.
-    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+    " let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+    let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
     "nnoremap <leader>pb :CtrlPBuffer<CR>
     "nnoremap <leader>pm :CtrlPMRUFiles<CR>
 

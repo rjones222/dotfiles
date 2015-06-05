@@ -1074,8 +1074,13 @@ endif
 Plug 'thinca/vim-visualstar', { 'on': ['<Plug>visualstar-*', '<Plug>visualstar-#', '<Plug>visualstar-g*', '<Plug>visualstar-g#'] }
 
 " faster ctrlp matcher
+" if has('python') && isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
+    " Plug 'FelikZ/ctrlp-py-matcher'
+" endif
+
+" even faster ctrlp matcher
 if has('python') && isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
-    Plug 'FelikZ/ctrlp-py-matcher'
+    Plug 'nixprime/cpsm', { 'do': './install.sh' }
 endif
 
 " better tag selector with ctrlp
