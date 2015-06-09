@@ -259,6 +259,9 @@ vnoremap > >gv
 command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:nohlsearch<cr>:echo 'sorted use statements'<cr>"
 nnoremap <leader>su :SortUse<cr>
 
+" when copying a php interface over, this expands all methods to // stubs.
+command! StubInterfaceMethods :%s/\v(\w+\sfunction\s\w+\(.*\));/\1\r    {\r        \/\/\r    }/g
+
 " map space to toggle folds
 nnoremap <space> za
 vnoremap <space> zf
@@ -580,8 +583,11 @@ if isdirectory(expand("~/.vim/plugged/ultisnips"))
 
     " remap Ultisnips for compatibility for YCM
     let g:UltiSnipsExpandTrigger = '<C-j>'
+    " let g:UltiSnipsExpandTrigger = '<C-Enter>'
     let g:UltiSnipsJumpForwardTrigger = '<C-j>'
     let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+    " let g:UltiSnipsJumpForwardTrigger = '<C-f>'
+    " let g:UltiSnipsJumpBackwardTrigger = '<C-b>'
 endif
 " }}}"
 
@@ -614,7 +620,7 @@ if isdirectory(expand("~/.vim/plugged/vdebug"))
     \   '/opt/myleague': '/Users/mikefunk/sites/casesladder-repos/myleague'
     \}
     " stop on first line of execution
-    " let g:vdebug_options["break_on_open"] = 0
+    let g:vdebug_options["break_on_open"] = 0
     let g:vdebug_options["watch_window_style"] = 'compact'
     " move run_to_cursor from F1 to F9
     let g:vdebug_keymap = {

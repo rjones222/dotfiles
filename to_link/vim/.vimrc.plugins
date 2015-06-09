@@ -1102,7 +1102,8 @@ Plug 'mhinz/vim-startify'
 " nnoremap <silent> <Leader>pr <Plug>RooterChangeToRootDirectory
 " Plug 'dbakker/vim-projectroot'
 " this one does it automatically
-Plug 'airblade/vim-rooter'
+" Startify does this
+" Plug 'airblade/vim-rooter'
 
 " wget menu item in NERDTree!
 " m then w, then type url

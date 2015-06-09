@@ -593,10 +593,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  * `!v expand("%:t:r")`
  *
  * @author `!v g:snips_author`
+ * @Route(service="app.${1/\w+/\l$0/}_controller")
  */
 class `!v expand("%:t:r")` extends Controller
 {
-    $2
+    /**
+     * @Route("/${1/\w+/\l$0/}", name="${1/\w+/\l$0/}_index")
+     * @Template()
+     * @return array
+     */
+    public function indexAction()
+    {
+        return [];
+    }
 }
 endsnippet
 
@@ -893,9 +902,9 @@ snippet scmeth "symfony controller method"
  * @Template($3)
  * @return ${4:array}
  */
-public function ${5:functionname}Action(${6})
+public function ${5:functionname}Action($6)
 {
-    $6
+    $7
 }
 endsnippet
 
@@ -1595,4 +1604,34 @@ endsnippet
 
 snippet efl "doctrine entity manager flush"
 $entityManager->flush();
+endsnippet
+
+snippet serializable "doctrine entity serializable methods"
+/**
+ * serialize
+ *
+ * @return string|null representation of the object or null
+ */
+public function serialize()
+{
+    return serialize([
+        ${1:$this->id,
+        $this->username,
+        $this->password}
+    ]);
+}
+
+/**
+ * unserialize
+ *
+ * @return void
+ */
+public function unserialize($serialized)
+{
+    list(
+        ${2:$this->id,
+        $this->username,
+        $this->password}
+    ) = unserialize($serialized);
+}
 endsnippet
