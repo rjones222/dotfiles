@@ -255,11 +255,18 @@ vnoremap > >gv
 " format all
  nnoremap <leader>fa mzggVG=`z :delmarks z<cr>hh :echo "formatted file"<cr>
 
-" sort php use statements and come back
+" sort php use statements and return to where you were
 command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:nohlsearch<cr>:echo 'sorted use statements'<cr>"
 nnoremap <leader>su :SortUse<cr>
 
-" when copying a php interface over, this expands all methods to // stubs.
+" when copying php interface methods over, this turns interface stubs into
+" empty php methods. e.g. turns 
+" public function myMethod($whatever);
+" into
+" public function myMethod($whatever)
+" {
+"     //
+" }
 command! StubInterfaceMethods :%s/\v(\w+\sfunction\s\w+\(.*\));/\1\r    {\r        \/\/\r    }/g
 
 " map space to toggle folds
