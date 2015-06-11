@@ -1,12 +1,6 @@
 [submodule "support/bash-installer-framework"]
 	path = support/bash-installer-framework
 	url = https://github.com/mikedfunk/bash-installer-framework.git
-[submodule "support/hub"]
-	path = support/hub
-	url = https://github.com/github/hub.git
-[submodule "support/phpctags"]
-	path = support/phpctags
-	url = https://github.com/techlivezheng/phpctags.git
 [submodule "to_link/webgrind"]
 	path = to_link/webgrind
 	url = https://github.com/jokkedk/webgrind.git
