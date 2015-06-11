@@ -282,6 +282,11 @@ Plug 'ardagnir/united-front'
 " So much more reliable.
 Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 
+if executable('nvim')
+    " help for neovim
+    Plug 'p0deje/vim-dispatch-vimshell', { 'on': 'Dispatch' }
+endif
+
 " Debug problematic vim plugins
 " :Bisectly to start
 " :Zombies if problem still exists (lol)
@@ -579,6 +584,7 @@ Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
 
 " required for phpcomplete-extended
 " required for tsuqyomi
+" required for vim-dispatch-vimshell
 " And perhaps other packages...
 Plug 'Shougo/vimproc', { 'do': 'make' }
 
