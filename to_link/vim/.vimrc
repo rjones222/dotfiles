@@ -686,8 +686,31 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
           " let g:airline#extensions#tagbar#flags = 'p'
     endif
 
-    " advanced tabline vertical separators
+    " advanced tabline
     let g:airline#extensions#tabline#enabled = 1
+
+    " configure symbol used to represent close button
+    let g:airline#extensions#tabline#close_symbol = '✕'
+
+    " configure how numbers are displayed in tab mode. >
+    " let g:airline#extensions#tabline#tab_nr_type = 0 " # of splits (default)
+    " let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+    " let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
+
+    " When enabled, numbers will be displayed in the tabline and mappings will be
+    " exposed to allow you to select a buffer directly.  Up to 9 mappings will be
+    " exposed.
+    " let g:airline#extensions#tabline#buffer_idx_mode = 1
+    " I don't think it automatically sets these mappings
+    " nmap <leader>1 <Plug>AirlineSelectTab1
+    " nmap <leader>2 <Plug>AirlineSelectTab2
+    " nmap <leader>3 <Plug>AirlineSelectTab3
+    " nmap <leader>4 <Plug>AirlineSelectTab4
+    " nmap <leader>5 <Plug>AirlineSelectTab5
+    " nmap <leader>6 <Plug>AirlineSelectTab6
+    " nmap <leader>7 <Plug>AirlineSelectTab7
+    " nmap <leader>8 <Plug>AirlineSelectTab8
+    " nmap <leader>9 <Plug>AirlineSelectTab9
 endif
 
 " }}}
