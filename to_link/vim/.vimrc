@@ -285,8 +285,13 @@ vnoremap <space> zf
 
 " dotfile updates and private stuff updates {{{
 if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
-    command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
-    command! Privateupdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
+    if has("nvim")
+        command! Dotupdates :term cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
+        command! Privateupdates :term cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
+    else
+        command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
+        command! Privateupdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
+    endif
     nnoremap <leader>tu :Dotupdates<cr>
     nnoremap <leader>tv :Privateupdates<cr>
 endif
