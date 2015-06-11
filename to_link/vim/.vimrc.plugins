@@ -1339,13 +1339,16 @@ Plug 'mtth/scratch.vim', { 'on': 'Scratch' }
 
 " Database and API {{{
 
-" anlytics on languages, times, etc.
+" anlytics on languages, usage times, etc.
 " http://wakatime.com
 Plug 'wakatime/vim-wakatime'
 
 " real-time collaborative editing like etherpad but with native editors
 if executable('nvim')
+    " after installing run :UpdateRemotePlugins and restart neovim
+    " do the same when removing this plugin
     Plug 'Floobits/floobits-neovim'
+    " Plug 'Floobits/floobits-neovim', { 'do': function('UpdateRemotePlugins') }
 else
     Plug 'Floobits/floobits-vim'
 endif
