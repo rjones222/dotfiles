@@ -46,6 +46,10 @@ log_info "installing vim-plug"
 log_info "linking UltiSnips custom snippets dir"
 link_this "$HOME/.dotfiles/to_link/UltiSnips" "$HOME/.vim/UltiSnips"
 
+log_info "linking configs for neovim"
+link_this "$HOME/.vim" "$HOME/.nvim"
+link_this "$HOME/.vimrc" "$HOME/.nvimrc"
+
 # I just can't seem to get this working
 # log_info "linking nerdtree plugins"
 # link_this "$HOME/.dotfiles/to_link/vim/nerdtree_open_multiple.vim" "$HOME/.vim/plugged/nerdtree/nerdtree_open_multiple.vim"
