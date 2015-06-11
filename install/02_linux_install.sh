@@ -255,6 +255,7 @@ if [[ "$(type -P apt-get)" ]]; then
     # install linuxbrew
     if [[ ! "$(type -P brew)" ]]; then
         log_info "installing linuxbrew"
+        sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
     else
         log_info "updating linuxbrew recipes"
