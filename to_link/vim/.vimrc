@@ -135,6 +135,7 @@ if has("mouse")
 endif
 set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+set foldlevelstart=20 " start by opening pretty much all folds but keep foldenable on.
 set history=1000 " Store a ton of history (default is 20)
 
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
@@ -179,7 +180,7 @@ endif
 
 " use register that works with mac clipboard {{{
 if has('clipboard')
-    if has('unnamedplus')  " When possible use + register for copy-paste
+    if has('unnamedplus') || has('nvim')  " When possible use + register for copy-paste
         set clipboard=unnamed,unnamedplus
     else         " On mac and Windows, use * register for copy-paste
         set clipboard=unnamed
@@ -193,11 +194,17 @@ endif
 " set background=dark
 set cursorline
 set colorcolumn=80
+
+" 256-friendly colors
 " silent! colorscheme lucius
 " silent! LuciusDarkHighContrast
-silent! colorscheme seoul256
+" silent! colorscheme seoul256
 " silent! colorscheme molokayo
 " silent! colorscheme badwolf
+
+" gui colors
+" silent! colorscheme gotham
+silent! colorscheme Tomorrow-Night-Blue
 " }}}
 
 " Mappings {{{
@@ -260,14 +267,14 @@ command! SortUse execute "normal! msgg/use\ <cr>vip:sort<cr>\`s:delmarks s<cr>:n
 nnoremap <leader>su :SortUse<cr>
 
 " when copying php interface methods over, this turns interface stubs into
-" empty php methods. e.g. turns 
+" empty php methods. e.g. turns
 " public function myMethod($whatever);
 " into
 " public function myMethod($whatever)
 " {
 "     //
 " }
-command! StubInterfaceMethods :%s/\v(\w+\sfunction\s\w+\(.*\));/\1\r    {\r        \/\/\r    }/g
+command! ExpandInterfaceMethods :%s/\v(\w+\sfunction\s\w+\(.*\));/\1\r    {\r        \/\/\r    }/g
 
 " map space to toggle folds
 nnoremap <space> za
@@ -327,7 +334,7 @@ nnoremap <leader>f9 :set foldlevel=9<CR>
     " au BufRead,BufNewFile config set filetype=sshconfig
 
     " all front-end 2 space indents
-    au FileType smarty,blade,html,javascript,json,css,twig,coffee,yaml,cucumber set et sw=2 ts=2 sts=2
+    au FileType smarty,blade,html,javascript,json,css,twig,html.twig,coffee,yaml,cucumber set et sw=2 ts=2 sts=2
 " }}}
 
 " Gui {{{
@@ -531,12 +538,12 @@ if isdirectory(expand("~/.vim/plugged/tagbar"))
     \ }
 
     " ultisnips support
-    let g:tagbar_type_snippets = {
-        \ 'ctagstype' : 'snippets',
-        \ 'kinds' : [
-            \ 's:snippets',
-        \ ]
-    \ }
+    " let g:tagbar_type_snippets = {
+        " \ 'ctagstype' : 'snippets',
+        " \ 'kinds' : [
+            " \ 's:snippets',
+        " \ ]
+    " \ }
 endif
 " }}}
 

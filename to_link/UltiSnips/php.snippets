@@ -223,8 +223,8 @@ snippet mdl "ACP laravel model"
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use DemandMedia\Projects\Common\Models\BaseModel;
-use DemandMedia\Projects\\${2:PackageName}\Interfaces\\$1ModelInterface;
+use DemandMedia\Common\Models\BaseModel;
+use DemandMedia\\${2:PackageName}\Interfaces\\$1ModelInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -275,7 +275,7 @@ snippet mdli "ACP laravel model interface"
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use DemandMedia\Projects\Common\Interfaces\BaseModelInterface;
+use DemandMedia\Common\Interfaces\BaseModelInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -296,9 +296,9 @@ snippet rps "ACP laravel repository"
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use DemandMedia\Projects\Common\Repositories\EloquentRepository;
-use DemandMedia\Projects\\${2:PackageName}\Interfaces\\$1ModelInterface;
-use DemandMedia\Projects\\$2\Interfaces\\$1RepositoryInterface;
+use DemandMedia\Common\Repositories\EloquentRepository;
+use DemandMedia\\${2:PackageName}\Interfaces\\$1ModelInterface;
+use DemandMedia\\$2\Interfaces\\$1RepositoryInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -338,7 +338,7 @@ snippet rpsi "ACP laravel repository interface"
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use DemandMedia\Projects\Common\Interfaces\EloquentRepositoryInterface;
+use DemandMedia\Common\Interfaces\EloquentRepositoryInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -353,7 +353,7 @@ endsnippet
 
 snippet asp "Add service providers to orchestra testbench"
 $newProviders = [
-    'DemandMedia\Projects\\${1:PackageName}\\${2:Whatever}ServiceProvider',
+    'DemandMedia\\${1:PackageName}\\${2:Whatever}ServiceProvider',
 ];
 $this->addServiceProviders($newProviders);
 endsnippet
@@ -366,11 +366,11 @@ snippet rpst "ACP laravel repository test"
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
-namespace DemandMedia\Projects\\${2:PackageName}\Tests;
+namespace DemandMedia\\${2:PackageName}\Tests;
 
-use DemandMedia\Projects\Common\Tests\Support\BaseRepositoryTest;
-use DemandMedia\Projects\\$2\Repositories\\$1Repository;
-use DemandMedia\Projects\\$2\Models\\$1;
+use DemandMedia\Common\Tests\Support\BaseRepositoryTest;
+use DemandMedia\\$2\Repositories\\$1Repository;
+use DemandMedia\\$2\Models\\$1;
 use Mockery;
 
 /**
@@ -405,7 +405,7 @@ class `!v expand("%:t:r")` extends BaseRepositoryTest
         parent::setUp();
 
         // set up some shared mocks and dependencies
-        $ns = "DemandMedia\Projects\\$2\Models\\$1";
+        $ns = "DemandMedia\\$2\Models\\$1";
         $this->${1/\w+/\l$0/}Model = Mockery::mock($ns);
 
         // voltron assemble!
@@ -495,20 +495,20 @@ class `!v expand("%:t:r")` extends ServiceProvider
 
         // bind the controller
         $this->app->bind(
-            'DemandMedia\Projects\\$1\Interfaces\\$1ControllerInterface',
-            'DemandMedia\Projects\\$1\Controllers\\$1Controller'
+            'DemandMedia\\$1\Interfaces\\$1ControllerInterface',
+            'DemandMedia\\$1\Controllers\\$1Controller'
         );
 
         // bind the repository
         $this->app->bind(
-            'DemandMedia\Projects\\$1\Interfaces\\$1RepositoryInterface',
-            'DemandMedia\Projects\\$1\Repositories\\$1Repository'
+            'DemandMedia\\$1\Interfaces\\$1RepositoryInterface',
+            'DemandMedia\\$1\Repositories\\$1Repository'
         );
 
         // bind the model
         $this->app->bind(
-            'DemandMedia\Projects\\$1\Interfaces\\$1ModelInterface',
-            'DemandMedia\Projects\\$1\Models\\$1'
+            'DemandMedia\\$1\Interfaces\\$1ModelInterface',
+            'DemandMedia\\$1\Models\\$1'
         );
     }
 
@@ -533,9 +533,9 @@ snippet ctl "ACP laravel controller"
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Config;
-use DemandMedia\Projects\Common\Controllers\BaseController;
-use DemandMedia\Projects\\$1\Interfaces\\$1RepositoryInterface;
-use DemandMedia\Projects\\$1\Interfaces\\$1ControllerInterface;
+use DemandMedia\Common\Controllers\BaseController;
+use DemandMedia\\$1\Interfaces\\$1RepositoryInterface;
+use DemandMedia\\$1\Interfaces\\$1ControllerInterface;
 use Input;
 use Lang;
 use MikeFunk\BustersPhp\BustersPhpInterface;
@@ -617,7 +617,7 @@ snippet ctli "ACP laravel controller interface"
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use DemandMedia\Projects\Common\Interfaces\BaseControllerInterface;
+use DemandMedia\Common\Interfaces\BaseControllerInterface;
 
 /**
  * `!v expand("%:t:r")`
@@ -638,13 +638,13 @@ snippet ctlt "ACP laravel controller test"
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
-namespace DemandMedia\Projects\\${2:Package}\Tests;
+namespace DemandMedia\\${2:Package}\Tests;
 
 use Auth;
 use Config;
 use Input;
-use DemandMedia\Projects\Common\Tests\Support\BaseControllerTest;
-use DemandMedia\Projects\\$2\Controllers\\$1Controller;
+use DemandMedia\Common\Tests\Support\BaseControllerTest;
+use DemandMedia\\$2\Controllers\\$1Controller;
 use Lang;
 use Mockery;
 use Notification;
@@ -684,7 +684,7 @@ class `!v expand("%:t:r")` extends BaseControllerTest
     {
 
         // add some new package providers
-        $newProvider = 'DemandMedia\Projects\\$2\\$2ServiceProvider';
+        $newProvider = 'DemandMedia\\$2\\$2ServiceProvider';
         $this->addServiceProviders($newProvider);
 
         parent::setUp();
@@ -693,7 +693,7 @@ class `!v expand("%:t:r")` extends BaseControllerTest
         $ns = 'MikeFunk\BustersPhp\BustersPhpInterface';
         $bustersPhp = Mockery::mock($ns);
 
-        $ns = "DemandMedia\Projects\\$1\Interfaces\\$1RepositoryInterface";
+        $ns = "DemandMedia\\$1\Interfaces\\$1RepositoryInterface";
         $this->${1/\w+/\l$0/}Repository = Mockery::mock($ns);
 
         // voltron assemble!
@@ -782,10 +782,10 @@ snippet sdr "Auto Classifieds Platform laravel seeder"
  * @link https://github.com/fzaninotto/Faker use this library to provide fake
  * data to the seeder
  *
- * @package   Projects
+ * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
-use DemandMedia\Projects\Common\Seeds\BaseSeeder;
+use DemandMedia\Common\Seeds\BaseSeeder;
 use Str;
 
 /**
@@ -995,7 +995,7 @@ ${1:\$file}->shouldReceive('$2')->once()->withNoArgs()->andReturn($3);
 endsnippet
 
 snippet mva "assign mock to instance variable"
-$ns = 'DemandMedia\Projects\\${1:Listing}\\${2:Interfaces}'
+$ns = 'DemandMedia\\${1:Listing}\\${2:Interfaces}'
     . '\\${3:MyClassName}${4:Interface}';
 ${5:$myvar} = Mockery::mock($ns);
 endsnippet
@@ -1360,7 +1360,7 @@ snippet cmd "ACP laravel artisan command"
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Illuminate\Console\Command;
-use DemandMedia\Projects\Common\Interfaces\ArtisanCommandInterface;
+use DemandMedia\Common\Interfaces\ArtisanCommandInterface;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
@@ -1430,11 +1430,11 @@ snippet cmdt "ACP laravel command test"
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
-namespace DemandMedia\Projects\\${2:PackageName}\Tests;
+namespace DemandMedia\\${2:PackageName}\Tests;
 
 use App;
-use DemandMedia\Projects\Common\Tests\Support\BaseTest;
-use DemandMedia\Projects\\$2\Commands\\$1Command;
+use DemandMedia\Common\Tests\Support\BaseTest;
+use DemandMedia\\$2\Commands\\$1Command;
 use Mockery;
 
 /**
@@ -1462,7 +1462,7 @@ class $8 extends BaseTest
     /**
      * $1 command instance
      *
-     * @var \DemandMedia\Projects\Common\Interfaces\ArtisanCommandInterface
+     * @var \DemandMedia\Common\Interfaces\ArtisanCommandInterface
      */
     protected \$${1/\w+/\l$0/}Command;
 
@@ -1489,7 +1489,7 @@ class $8 extends BaseTest
 
         // voltron assemble!
         $this->${1/\w+/\l$0/}Command = new $1Command();
-        // $ns = 'DemandMedia\Projects\\$2'
+        // $ns = 'DemandMedia\\$2'
         // . '\Commands\\$1Command';
         // $this->${1/\w+/\l$0/}Command = App::make($ns);
     }
@@ -1527,14 +1527,14 @@ snippet rcmd "Register an artisan command in the service provider"
 // register $1 command
 $this->app->bind(
     '${1:listing.import}',
-    'DemandMedia\Projects\\${2:Listing}\Commands'
+    'DemandMedia\\${2:Listing}\Commands'
     . '\\${3:ListingImport}Command'
 );
 $this->commands('$1');
 endsnippet
 
-snippet ibap "DemandMedia\Projects"
-DemandMedia\Projects\
+snippet ibap "DemandMedia"
+DemandMedia\
 endsnippet
 
 snippet behatspin "Behat keep trying until it succeeds"
@@ -1634,4 +1634,19 @@ public function unserialize($serialized)
         $this->password}
     ) = unserialize($serialized);
 }
+endsnippet
+
+snippet asrt "symfony assert use statement for entities"
+use Symfony\Component\Validator\Constraints as Assert;
+endsnippet
+
+snippet dcol "doctrine entity column"
+
+/**
+ * ${1:column_name}
+ *
+ * @var ${2:int}
+ * @ORM\Column(name="$1", type="${3:integer}")
+ */
+protected $$1;
 endsnippet

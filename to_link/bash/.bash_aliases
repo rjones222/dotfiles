@@ -216,7 +216,7 @@ alias gpp='git pull && git push'
 alias gup='git fetch && git rebase'
 alias gp='git push'
 alias gpo='git push origin'
-alias gdv='git diff -w "$@" | vim -R -'
+alias gdv='git diff -w "$@" | ${vim} -R -'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gcm='git commit -v -m'
@@ -251,10 +251,10 @@ esac
 if [ -z "$EDITOR" ]; then
     case $OSTYPE in
       linux*)
-        alias gd='git diff | vim -R -'
+        alias gd='git diff | ${vim} -R -'
         ;;
       darwin*)
-        alias gd='git diff | vim -R -'
+        alias gd='git diff | ${vim} -R -'
         ;;
       *)
         alias gd='git diff'
@@ -345,7 +345,7 @@ alias lsd="ls -GpFha"
 
 # I forget I'm not in vim sometimes...
 alias :q="exit"
-alias :e="vim"
+alias :e="${vim}"
 alias :pwd="pwd"
 alias :cd="cd"
 alias :so="source"
@@ -356,13 +356,23 @@ alias art="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
 alias pearupgrade="sudo pear upgrade"
 
-# use macvim executable in terminal mode
-if [ -f "/usr/local/bin/mvim" ]; then
-    # servername is for united-front
+if [[ "$(type -P nvim)" ]]; then
+    # neovim is the new hotness! true 24-bit color!
+    vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+elif [[ "$(type -P mvim)" ]]; then
+    # # servername is for united-front
     vim="mvim -vp --servername mikevimserver"
 else
-    vim="vim -p --servername mikevimserver"
+    vim="vim --servername mikevimserver"
 fi
+
+# use macvim executable in terminal mode
+# if [ -f "/usr/local/bin/mvim" ]; then
+    # # servername is for united-front
+    # vim="mvim -vp --servername mikevimserver"
+# else
+    # vim="vim -p --servername mikevimserver"
+# fi
 alias vim="${vim}"
 alias v="${vim}"
 
@@ -441,7 +451,7 @@ alias ycminstall="cd /Users/mfunk/.vim/bundle/YouCompleteMe && git submodule upd
 # irssi nicklist in a split
 alias nicklist="cat ~/.irssi/nicklistfifo"
 
-alias myirc="irssi; tmux split-window -h"
+alias myirc="irssi; tmux -2 split-window -h"
 
 # count php line numbers in dir
 alias lines="find . -name '*.php' | xargs wc -l"
@@ -477,7 +487,7 @@ alias tags="echo 'generating tags file...' && ctags 2>/dev/null && echo 'tags fi
 alias conflicts="grep -lir '<<<<<' *"
 alias grep="grep --color=auto"
 
-# tmux session for work
+# tmux -2 session for work
 alias work="tmux -2 -u -S /tmp/pair attach -t Work || (tmux -2 -u -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -2 -u -S /tmp/pair attach)"
 alias home="tmux -2 -u attach -t Home || (tmux -2 -u new -d -s Home && tmux -2 -u attach)"
 alias layout="teamocil work --here"
@@ -545,10 +555,10 @@ alias ph="phing"
 # alias vpn="yes | netExtender --auto-reconnect -u $VPNUSERNAME -p $VPNPASSWORD -d $VPNDOMAIN $VPNURL"
 
 # daily standup notes named by date
-alias standupnotes="tmux rename-window 'standup' && vim ~/Google\ Drive/standup/`date +%F`.markdown"
+alias standupnotes="tmux -2 rename-window 'standup' && ${vim} ~/Google\ Drive/standup/`date +%F`.markdown"
 
 # shortcut to vhosts file on mac
-alias vhosts="vim /etc/apache2/extra/httpd-vhosts.conf"
+alias vhosts="${vim} /etc/apache2/extra/httpd-vhosts.conf"
 
 # dotnet projects all seem to start with the public folder here
 alias dn="cd projects/net-framework/website"
