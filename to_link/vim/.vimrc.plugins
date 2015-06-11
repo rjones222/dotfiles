@@ -1340,10 +1340,11 @@ Plug 'mtth/scratch.vim', { 'on': 'Scratch' }
 " Database and API {{{
 
 " anlytics on languages, usage times, etc.
-" http://wakatime.com
+" @link http://wakatime.com
 Plug 'wakatime/vim-wakatime'
 
 " real-time collaborative editing like etherpad but with native editors
+" @link http://floobits.com
 if executable('nvim')
     " after installing run :UpdateRemotePlugins and restart neovim
     " do the same when removing this plugin
