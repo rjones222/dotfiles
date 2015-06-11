@@ -116,7 +116,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # spark # used for rainbarf to show spiffy cli graphs
         terminal-notifier # send macos notifications from terminal
         tig # git? tig!
-        tmux # terminal multiplexer similar to screen
+        # tmux # terminal multiplexer similar to screen. commented out to use special tapped version instead for 24-bit color support.
         tofrodos # line endings
         # trash # a trash can for the terminal
         tree # display file/folder hierarchies in a visual tree format
@@ -136,6 +136,12 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         if [[ ! "$(type -P mvim)" ]]; then
             log_info "installing macvim"
             brew install macvim --with-lua --override-system-vim
+        fi
+
+        if [[ ! "$(type -P tmux)" ]]; then
+            log_info "installing tmux with 24-bit color support"
+            brew tap choppsv1/term24
+            brew install choppsv1/term24/tmux
         fi
 
         # jabber/xmpp client to do chat in the terminal
