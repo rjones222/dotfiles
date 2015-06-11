@@ -1065,9 +1065,14 @@ Plug 'tpope/vim-projectionist'
 " better than Ack
 " :Ag! 'my search' [options]
 if executable('ag')
-    " Plug 'rking/ag.vim', { 'on': 'Ag' }
-    " lazy loading only worked sporadically
-    Plug 'rking/ag.vim'
+    if executable('nvim')
+        " neovim support
+        Plug 'Numkil/ag.nvim'
+    else
+        " Plug 'rking/ag.vim', { 'on': 'Ag' }
+        " lazy loading only worked sporadically
+        Plug 'rking/ag.vim'
+    endif
 endif
 
 " allow to star search from a visual selection
