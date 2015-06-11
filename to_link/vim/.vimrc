@@ -115,7 +115,10 @@ autocmd quickfix_augroup FileType qf call AdjustWindowHeight(3, 5)
 " autoclose preview window when no longer needed
 autocmd CompleteDone * pclose
 
-set ttymouse=sgr " allow mouse to work after 233 columns
+" send more characters for redraws
+set ttyfast
+" broken in neovim
+" set ttymouse=sgr " allow mouse to work after 233 columns
 
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set splitright " Puts new vsplit windows to the right of the current
@@ -165,7 +168,7 @@ augroup END
 " }}}
 
 " fix split dragging in tmux {{{
-if &term =~ '^screen'
+if &term =~ '^screen' || &term =~ '^xterm'
     set ttymouse=xterm2
 endif
 " }}}
@@ -745,16 +748,26 @@ endif
 " {{{ vim-startify
 if isdirectory(expand("~/.vim/plugged/vim-startify"))
     let g:startify_custom_header = [
-            \ '                                 ________  __ __        ',
-            \ '            __                  /\_____  \/\ \\ \       ',
-            \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
-            \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
-            \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
-            \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
-            \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
-            \ '',
-            \ '',
-            \ ]
+        \ '                             _         ',
+        \ '      ____  ___  ____ _   __(_)___ ___ ',
+        \ '     / __ \/ _ \/ __ \ | / / / __ `__ \',
+        \ '    / / / /  __/ /_/ / |/ / / / / / / /',
+        \ '   /_/ /_/\___/\____/|___/_/_/ /_/ /_/ ',
+        \ '   ',
+        \ '   ',
+        \ ]
+
+        " disabled
+        " \ '                                 ________  __ __        ',
+        " \ '            __                  /\_____  \/\ \\ \       ',
+        " \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
+        " \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
+        " \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+        " \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
+        " \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
+        " \ '',
+        " \ '',
+        " \ ]
 
     let g:startify_session_dir = '~/.vim/sessions'
     " a list if files to always bookmark. Will be shown at bottom
