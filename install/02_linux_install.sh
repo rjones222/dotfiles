@@ -252,6 +252,37 @@ if [[ "$(type -P apt-get)" ]]; then
         sudo chmod +x /usr/local/bin/mailhog
     fi
 
+    # install linuxbrew
+    if [[ ! "$(type -P brew)" ]]; then
+        log_info "installing linuxbrew"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+    else
+        log_info "updating linuxbrew recipes"
+        brew update
+    fi
+
+    # install homebrew recipes
+    log_info "Installing Homebrew Recipes"
+    packages=(
+    )
+    for package in "${packages[@]}"
+    do
+        hash $package 2>/dev/null || {
+            log_info "installing $package"
+            brew install $package
+        }
+    done
+
+    # install neovim
+    if [[ ! "$(type -P nvim)" ]]; then
+        log_info "installing neovim"
+        brew tap neovim/neovim
+        brew install --HEAD neovim
+    else
+        log_info "updating neovim"
+        brew reinstall --HEAD neovim
+    fi
+
 else
     log_notice "This is not linux so not running linux tasks"
 fi

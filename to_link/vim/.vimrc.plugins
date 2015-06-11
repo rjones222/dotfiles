@@ -1343,6 +1343,13 @@ Plug 'mtth/scratch.vim', { 'on': 'Scratch' }
 " http://wakatime.com
 Plug 'wakatime/vim-wakatime'
 
+" real-time collaborative editing like etherpad but with native editors
+if executable('nvim')
+    Plug 'Floobits/floobits-neovim'
+else
+    Plug 'Floobits/floobits-vim'
+endif
+
 " DB tools in vim
 " A little too complex right now, I am good with SequelPro or
 " MySQLWorkbench
