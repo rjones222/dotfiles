@@ -212,9 +212,9 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " General {{{
 
 " show enabled plugins in macvim in a menu at the top
-if has("gui_running")
+" if has("gui_running")
     Plug 'mbadran/headlights'
-endif
+" endif
 
 " syntastic, youcompleteme, ctrlp, etc. for c#/asp.net
 " after installing mono, cloning submodules, and building, still can't find csc.exe
@@ -785,7 +785,7 @@ Plug 'chriskempson/base16-vim'
 " Plug 'michalbachowski/vim-wombat256mod'
 " gets messed up when switching background
 " Plug 'noahfrederick/vim-hemisu'
-Plug 'blueshirts/darcula'
+" Plug 'blueshirts/darcula'
 
 " just for testing some of the top color schemes - lots of gui-only here
 " Plug 'vim-scripts/Colour-Sampler-Pack'
@@ -837,7 +837,7 @@ Plug 'yonchu/accelerated-smooth-scroll'
 " Plug 'blueyed/vim-colors-solarized'
 " Plug 'https://github.com/jwhitley/vim-colors-solarized.git'
 " different fork of solarized that fixes stuff. USE THIS ONE BELOW
-" Plug 'jwhitley/vim-colors-solarized'
+Plug 'jwhitley/vim-colors-solarized'
 
 " easy way to scroll through color schemes
 " cycle, rotate
