@@ -399,9 +399,15 @@ if isdirectory(expand("~/.vim/plugged/vim-fugitive"))
     nnoremap <silent> <leader>gi :Git add -p %<CR>
     nnoremap <silent> <leader>gg :SignifyToggle<CR>
 
-    nnoremap <leader>gps :Dispatch! git push<CR>
-    nnoremap <leader>gpu :Dispatch! git push<CR>
-    nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
+    if has("nvim")
+        nnoremap <leader>gps :tabe | :term! git push<CR>
+        nnoremap <leader>gpu :tabe | :term! git push<CR>
+        nnoremap <leader>gpl :tabe | :term! git pull<CR>:e<cr>
+    else
+        nnoremap <leader>gps :Dispatch! git push<CR>
+        nnoremap <leader>gpu :Dispatch! git push<CR>
+        nnoremap <leader>gpl :Dispatch! git pull<CR>:e<cr>
+    endif
     nnoremap <leader>ga :Git add -A<CR><CR>
 endif
 " }}}"
