@@ -306,6 +306,12 @@ alias psd="phpspec describe"
 # A function I have defined... I keep forgetting - upgrades or updates?
 alias updates="upgrades"
 
+# workarounds for neovim vim-plug issues
+# @link https://github.com/junegunn/vim-plug/issues/243
+alias plugupdate="mvim -v +PlugUpdate +qall"
+alias pluginstall="mvim -v +PlugInstall +qall"
+alias plugclean="mvim -v +PlugClean +qall"
+
 # apache restart
 alias ares="echo 'restarting apache' && sudo apachectl restart && echo 'apache restarted'"
 

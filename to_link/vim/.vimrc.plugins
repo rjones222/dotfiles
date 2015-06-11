@@ -1126,7 +1126,7 @@ Plug 'mhinz/vim-startify'
 " accidentally didn't type the whole file name, expecting tab complete to
 " finish it? This will help.
 " I think this might be causing problems
-" Plug 'EinfachToll/DidYouMean'
+Plug 'EinfachToll/DidYouMean'
 
 " Swap windows just like cxiw. Mark the first window with <leader>ww. Then
 " switch to the second window and do <leader>ww again. The windows will
