@@ -1,7 +1,7 @@
 #!/usr/env/bin bash
 
 # Modeline and Notes {{{
-# vim: set sw=4 ts=4 sts=4 et tw=78 foldmethod=marker:
+# vim: set sw=4 ts=4 sts=4 et tw=78 foldmethod=marker filetype=sh:
 #
 #  ___  ____ _         ______           _
 #  |  \/  (_) |        |  ___|         | |

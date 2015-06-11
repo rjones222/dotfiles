@@ -264,6 +264,7 @@ if [[ "$(type -P apt-get)" ]]; then
     # install homebrew recipes
     log_info "Installing Homebrew Recipes"
     packages=(
+    # add packages here
     )
     for package in "${packages[@]}"
     do
@@ -274,6 +275,8 @@ if [[ "$(type -P apt-get)" ]]; then
     done
 
     # install neovim
+    # if this doesn't work try here:
+    # @link https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu
     if [[ ! "$(type -P nvim)" ]]; then
         log_info "installing neovim"
         brew tap neovim/neovim
