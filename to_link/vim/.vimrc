@@ -99,6 +99,22 @@ endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
 " }}}
 
+" Toggle Background {{{
+function! ReverseBackground()
+    let Mysyn=&syntax
+    if &bg=="light"
+    se bg=dark
+    else
+    se bg=light
+    endif
+    syn on
+    exe "set syntax=" . Mysyn
+    echo "now syntax is "&syntax
+endfunction
+command! ToggleBackground call ReverseBackground()
+noremap <leader>bg :ToggleBackground<CR>
+" }}}
+
 " }}}
 
 " Basics {{{
@@ -116,7 +132,7 @@ autocmd quickfix_augroup FileType qf call AdjustWindowHeight(3, 5)
 autocmd CompleteDone * pclose
 
 " send more characters for redraws
-set ttyfast
+" set ttyfast
 " broken in neovim
 " set ttymouse=sgr " allow mouse to work after 233 columns
 
@@ -147,6 +163,9 @@ set scrolloff=3                 " Minimum lines to keep above and below cursor
 
 " set noswapfile " pesky .swp files
 " set nobackup
+
+" php open folds when starting up
+au Filetype php au! BufEnter normal zR
 
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
@@ -512,7 +531,6 @@ endif
 
 " Syntastic {{{
 if isdirectory(expand("~/.vim/plugged/syntastic"))
-    " let g:syntastic_check_on_open=1
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['html'] }
     " if executable('jsxhint')
         " let g:javascript_checkers = ['jsxhint']
@@ -521,10 +539,11 @@ if isdirectory(expand("~/.vim/plugged/syntastic"))
         let g:syntastic_javascript_checkers = ['eslint', 'jscs']
     endif
 
-    " auto open loc list and jump to error when there's a php error
+    " recommended settings from their docs
+    let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
-
-    " use npm package to check react scripts
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 
     " spiffy error columns
     let g:syntastic_error_symbol='✗'
@@ -694,7 +713,7 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
 
     " configure how numbers are displayed in tab mode. >
     " let g:airline#extensions#tabline#tab_nr_type = 0 " # of splits (default)
-    " let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+    let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
     " let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
 
     " When enabled, numbers will be displayed in the tabline and mappings will be
@@ -776,6 +795,14 @@ if isdirectory(expand("~/.vim/plugged/vim-speeddating"))
     xmap  <C-X>     <Plug>SpeedDatingDown
     nmap d<C-B>     <Plug>SpeedDatingNowUTC
     nmap d<C-X>     <Plug>SpeedDatingNowLocal
+endif
+" }}}
+
+" vim-signify {{{
+if isdirectory(expand("~/.vim/plugged/vim-signify"))
+    " I rarely use hg
+    " let g:signify_vcs_list = [ 'git', 'hg' ]
+    let g:signify_vcs_list = [ 'git' ]
 endif
 " }}}
 

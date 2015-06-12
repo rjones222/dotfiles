@@ -582,7 +582,7 @@ snippet sfctl "symfony controller"
 /**
  * ${1:Whatever} controller
  *
- * @package Airliners
+ * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -1649,4 +1649,65 @@ snippet dcol "doctrine entity column"
  * @ORM\Column(name="$1", type="${3:integer}")
  */
 protected $$1;
+endsnippet
+
+snippet sfft "symfony form type"
+<?php
+/**
+ * ${1:Whatever} form type
+ *
+ * @package Projects
+ * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
+ */`!p snip.rv = namespace(snip, path)`
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+/**
+ * `!v expand("%:t:r")`
+ *
+ * @author `!v g:snips_author`
+ */
+class `!v expand("%:t:r")` extends AbstractType
+{
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return '${1\w+/\l$0}';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+
+        // define the fields
+        return $builder->add('${4:username}', 'text')
+
+            // no field type guessing :(
+            // ->add('email', 'email')
+
+            // field type guessing! :) set second arg to null
+            // ->add('email', null)
+            // ->add('plainPassword', 'repeated', [
+            //     'type' => 'password'
+            // ]);
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        // data class indicates which entity the finished form will hydrate
+        $settings = ['data_class' => '${3:UserBundle\Entity\User}'];
+        $resolver->setDefaults($settings);
+        $this->configureOptions($resolver);
+    }
+}
 endsnippet
