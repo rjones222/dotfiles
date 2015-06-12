@@ -682,7 +682,15 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
     " airline use cool powerline symbols
     let g:airline_powerline_fonts=1
 
-    if (isdirectory(expand("~/.vim/plugged/tagbar")))
+    " when gutentags is updating show in the statusbar
+    if isdirectory(expand("~/.vim/plugged/vim-gutentags"))
+        let g:airline_section_x = '%{gutentags#statusline("Updating Tags... ")}%{airline#util#wrap(airline#parts#filetype(),0)}'
+    endif
+
+    " spiffy git symbols
+    let g:airline#extensions#hunks#hunk_symbols = ['✚', '✎', '✖']
+
+    if (isdirectory(expand("~/.vim/plugged/tagbar"))) 
         augroup php_tagbar
             autocmd!
         augroup END

@@ -39,3 +39,4 @@ types_php.taghl
 Session.vim
 *.un~
 zf1_for_autocomplete
+.notags
