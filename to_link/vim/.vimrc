@@ -98,21 +98,6 @@ function! StripTrailingWhitespace()
 endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
 " }}}
-
-" Toggle Background {{{
-function! ReverseBackground()
-    let Mysyn=&syntax
-    if &bg=="light"
-    se bg=dark
-    else
-    se bg=light
-    endif
-    syn on
-    exe "set syntax=" . Mysyn
-    echo "now syntax is "&syntax
-endfunction
-command! ToggleBackground call ReverseBackground()
-noremap <leader>bg :ToggleBackground<CR>
 " }}}
 
 " }}}
@@ -302,6 +287,9 @@ command! ExpandInterfaceMethods :%s/\v(\w+\sfunction\s\w+\(.*\));/\1\r    {\r   
 nnoremap <space> za
 vnoremap <space> zf
 
+" toggle background
+nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
 " dotfile updates and private stuff updates {{{
 if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
     if has("nvim")
@@ -358,6 +346,8 @@ nnoremap <leader>f9 :set foldlevel=9<CR>
     au BufRead,BufNewFile *.html.twig set filetype=html.twig
     au BufRead,BufNewFile Vagrantfile set filetype=ruby
     au BufRead,BufNewFile .env set filetype=dosini
+    au BufRead,BufNewFile .vimrc.local,.vimrc.plugins set filetype=vim
+    au BufRead,BufNewFile .bash_aliases,.bash_env,.bash_completions,.bash_functions,.bash_paths set filetype=sh
     " au BufRead,BufNewFile config set filetype=sshconfig
 
     " all front-end 2 space indents
@@ -711,10 +701,16 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
     " configure symbol used to represent close button
     let g:airline#extensions#tabline#close_symbol = '✕'
 
+    " only show non-zero hunk changes
+    let g:airline#extensions#hunks#non_zero_only = 1
+
     " configure how numbers are displayed in tab mode. >
     " let g:airline#extensions#tabline#tab_nr_type = 0 " # of splits (default)
     let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
     " let g:airline#extensions#tabline#tab_nr_type = 2 " splits and tab number
+
+    " change feature/whatever to whatever
+    let g:airline#extensions#branch#format = 1
 
     " When enabled, numbers will be displayed in the tabline and mappings will be
     " exposed to allow you to select a buffer directly.  Up to 9 mappings will be
@@ -780,9 +776,11 @@ endif
 " }}}
 
 " vim-plug {{{
-nnoremap <leader>bi :so ~/.vimrc.plugins<cr> :PlugInstall<cr>
-nnoremap <leader>bc :so ~/.vimrc.plugins<cr> :PlugClean!<cr>
-nnoremap <leader>bu :so ~/.vimrc.plugins<cr> :PlugUpdate<cr>
+if filereadable(expand("~/.vim/autoload/plug.vim"))
+    nnoremap <leader>bi :so ~/.vimrc.plugins<cr> :PlugInstall<cr>
+    nnoremap <leader>bc :so ~/.vimrc.plugins<cr> :PlugClean!<cr>
+    nnoremap <leader>bu :so ~/.vimrc.plugins<cr> :PlugUpgrade<cr> :PlugUpdate<cr>
+endif
 " }}}
 
 " vim-speeddating {{{

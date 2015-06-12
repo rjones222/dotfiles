@@ -57,6 +57,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/restore_view.vim'
 " show added/modified/removed lines in version control in the signs column
+" SLOW
 Plug 'mhinz/vim-signify'
 " Plug 'tpope/vim-abolish', { 'on': 'Abolish' }
 " :Subvert or :S
@@ -1269,7 +1270,8 @@ Plug 'michaeljsmith/vim-indent-object'
 
 if executable('ctags')
     " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-    Plug 'majutsushi/tagbar', { 'for': ['php', 'css', 'snippets'] }
+    " tagbar is SLOW so only use it where you need it.
+    Plug 'majutsushi/tagbar', { 'for': ['php', 'css'] }
     " Plug 'majutsushi/tagbar', { 'for': ['php', 'coffee', 'css'] }
     " Plug 'majutsushi/tagbar', { 'for': ['php'] }
 endif
@@ -1360,6 +1362,7 @@ endif
 " DB tools in vim
 " A little too complex right now, I am good with SequelPro or
 " MySQLWorkbench
+" also takes over 3 seconds to load
 " Plug 'vim-scripts/dbext.vim'
 
 " Like postman for vim
