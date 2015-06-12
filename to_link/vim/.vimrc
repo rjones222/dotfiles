@@ -293,11 +293,11 @@ nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark"
 " dotfile updates and private stuff updates {{{
 if isdirectory(expand("~/.vim/plugged/vim-dispatch"))
     if has("nvim")
-        command! Dotupdates :tabe | :term! cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
-        command! Privateupdates :tabe | :term! cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
+        command! Dotupdates :tabe | :term! cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git pull && git push &&cd -
+        command! Privateupdates :tabe | :term! cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git pull && git push &&cd -
     else
-        command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git push &&cd -
-        command! Privateupdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git push &&cd -
+        command! Dotupdates :Dispatch cd $HOME/.dotfiles && git add -A && git commit -am 'updates' && git pull && git push &&cd -
+        command! Privateupdates :Dispatch cd $HOME/.private-stuff && git add -A && git commit -am 'updates' && git pull && git push &&cd -
     endif
     nnoremap <leader>tu :Dotupdates<cr>
     nnoremap <leader>tv :Privateupdates<cr>
