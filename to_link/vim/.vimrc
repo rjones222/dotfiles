@@ -688,6 +688,7 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
     endif
 
     " spiffy git symbols
+    " let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
     let g:airline#extensions#hunks#hunk_symbols = ['✚', '✎', '✖']
 
     if (isdirectory(expand("~/.vim/plugged/tagbar"))) 
