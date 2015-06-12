@@ -5,7 +5,7 @@
 git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r
 ```
 
-My Bash, Vim, Git, and other dotfiles. *Now with 24-bit color support in neovim!* I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the install directory to see what each install task does.
+My Bash, Vim, Git, and other dotfiles. *Now with 24-bit color support in [neovim](http://neovim.io/)!* I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the install directory to see what each install task does.
 
 ![Screenshot](https://raw.githubusercontent.com/mikedfunk/dotfiles/master/support/screenshot.png)
 
