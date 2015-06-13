@@ -99,7 +99,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " Completion {{{
 if has("python")
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+    " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'SirVer/ultisnips'
 
     " lazy load ultisnips and youcompleteme on insert mode
@@ -119,9 +119,9 @@ if has("python")
     " to skip to the next block.
     " Plug 'honza/vim-snippets'
 
-    " Much simpler tab completion for vim
+    " Much simpler and faster tab completion for vim
     " Maybe too simple...
-    " Plug 'ajh17/VimCompletesMe'
+    Plug 'ajh17/VimCompletesMe'
 endif
 
 " give neocomplete a try...

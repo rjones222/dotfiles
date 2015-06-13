@@ -163,6 +163,21 @@ autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,html.twig,xml,y
 "
 " Miscellaneous {{{
 
+" omnicomplete {{{
+
+" Enable omni completion for various languages.
+augroup omnifunc_augroup
+    autocmd!
+augroup END
+
+autocmd omnifunc_augroup FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd omnifunc_augroup FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd omnifunc_augroup FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd omnifunc_augroup FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd omnifunc_augroup FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd omnifunc_augroup FileType ruby setlocal omnifunc=rubycomplete#Complete
+" }}}
+
 " if the last window is a quickfix, close it {{{
 " au WinEnter * au! if winnr('$') == 1 && getbufvar(winbufnr(winnr()), '&buftype') == 'quickfix'|q|endif
 augroup qfclose_augroup
@@ -321,9 +336,9 @@ command! Vhost tabe /etc/apache2/extra/httpd-vhosts.conf
 command! Source :so $MYVIMRC
 
 " show todos
-if executable('ag') && isdirectory(expand("~/.vim/plugged/ag.vim"))
-    nnoremap <leader>td :Ag! "todo"<CR>
-    nnoremap <leader>tl :Ag! "todo"<CR>
+if executable('ag') && (isdirectory(expand("~/.vim/plugged/ag.vim")) || isdirectory(expand("~/.vim/plugged/ag.nvim")))
+    nnoremap <leader>td :Ag! todo<CR>
+    nnoremap <leader>tl :Ag! todo<CR>
 endif
 
 " Code folding options
@@ -900,6 +915,18 @@ if isdirectory(expand("~/.vim/plugged/vim-autoclose"))
     let g:autoclose_vim_commentmode = 1
 endif
 " }}}
+"
+" VimCompletesMe {{{
+if isdirectory(expand("~/.vim/plugged/VimCompletesMe"))
+    " reverse direction of tab and shift-tab
+    " let g:vcm_direction = 'p'
+    augroup vimcompletesme_augroup
+        autocmd!
+    augroup END
+    autocmd vimcompletesme_augroup InsertLeave * if pumvisible() == 0|pclose|endif
+    autocmd vimcompletesme_augroup FileType php let b:vcm_tab_complete = "omni"
+endif
+" }}}
 
 " {{{ vimux
 if isdirectory(expand("~/.vim/plugged/vimux")) && executable('tmux')
@@ -921,20 +948,8 @@ endif
 
 " {{{ youcompleteme
 if isdirectory(expand("~/.vim/plugged/YouCompleteMe"))
-    augroup youcompleteme_augroup
-        autocmd!
-    augroup END
-
     " enable completion from tags
     let g:ycm_collect_identifiers_from_tags_files = 1
-
-    " Enable omni completion.
-    autocmd youcompleteme_augroup FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd youcompleteme_augroup FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd youcompleteme_augroup FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd youcompleteme_augroup FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd youcompleteme_augroup FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd youcompleteme_augroup FileType ruby setlocal omnifunc=rubycomplete#Complete
 
     " supposed to speed up ycm
     let g:ycm_register_as_syntastic_checker = 0
