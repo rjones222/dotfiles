@@ -1,3 +1,6 @@
 tags
 app/storage/**/*
 tags*
+*.cache.php
+bootstrap.php.cache
+app/cache

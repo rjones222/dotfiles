@@ -114,7 +114,7 @@ augroup END
 autocmd quickfix_augroup FileType qf call AdjustWindowHeight(3, 5)
 
 " autoclose preview window when no longer needed
-autocmd CompleteDone * pclose
+" autocmd CompleteDone * pclose
 
 " send more characters for redraws
 " set ttyfast
@@ -198,12 +198,13 @@ endif
 " }}}
 
 " Style {{{
-" set background=dark
+set background=dark
 set cursorline
 set colorcolumn=80
 
 " 256-friendly colors
-" silent! colorscheme lucius
+silent! colorscheme lucius
+" silent! colorscheme molokai
 " silent! LuciusDarkHighContrast
 " silent! colorscheme seoul256
 " silent! colorscheme molokayo
@@ -211,7 +212,7 @@ set colorcolumn=80
 
 " gui colors
 " silent! colorscheme gotham
-silent! colorscheme Tomorrow-Night-Blue
+" silent! colorscheme Tomorrow-Night-Blue
 " }}}
 
 " Mappings {{{
@@ -378,16 +379,36 @@ endif
 if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
     " ctrlp extensions
     let g:ctrlp_extensions = ['tag']
-    " alternate python matcher. 22x faster.
+
+    " enable ctrlp-py-matcher
     " let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-    let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
-    "nnoremap <leader>pb :CtrlPBuffer<CR>
-    "nnoremap <leader>pm :CtrlPMRUFiles<CR>
+
+    " enable cpsm matcher
+    " let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
+
+    nnoremap <leader>pb :CtrlPBuffer<CR>
+    nnoremap <leader>pm :CtrlPMRUFiles<CR>
+
+    " use ag in ctrlp for listing files
+    if executable('ag')
+        " don't respect gitignore either (-U). I want to search inside vendor too.
+        let g:ctrlp_user_command = 'ag -U %s -l --nocolor -g ""'
+        " help it find agignore
+        " let g:ctrlp_user_command = 'ag -U -p ' + $HOME + '/.agignore %s -l --nocolor -g ""'
+    endif
 
     " ignore some dirs
     let g:ctrlp_custom_ignore = {
       \ 'dir':  'build',
+      \ 'file': '*.cache.php',
       \ }
+endif
+" }}}
+
+" ctrlp-smarttabs {{{
+if isdirectory(expand("~/.vim/plugged/ctrlp-smarttabs")) && isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
+    let g:ctrlp_extensions = ['smarttabs']
+    nnoremap <leader>pt :CtrlPSmartTabs<CR>
 endif
 " }}}
 
@@ -531,7 +552,7 @@ if isdirectory(expand("~/.vim/plugged/syntastic"))
 
     " recommended settings from their docs
     let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
+    " let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
 
@@ -687,16 +708,19 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
         let g:airline_section_x = '%{gutentags#statusline("Updating Tags... ")}%{airline#util#wrap(airline#parts#filetype(),0)}'
     endif
 
+    let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
     " spiffy git symbols
-    " let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
-    let g:airline#extensions#hunks#hunk_symbols = ['✚', '✎', '✖']
+    " let g:airline#extensions#hunks#hunk_symbols = ['✚', '✎', '✖']
 
     if (isdirectory(expand("~/.vim/plugged/tagbar"))) 
         augroup php_tagbar
             autocmd!
         augroup END
         " warning php tagbar is really slow. So I only enabled it for php files.
-        autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled=1
+        if (isdirectory(expand("~/.vim/plugged/vim-airline"))) 
+            " autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled=1
+            let g:airline#extensions#tagbar#enabled=1
+        endif
         " change how tags are displayed (:help tagbar-statusline)
           " let g:airline#extensions#tagbar#flags = '' " (default)
           " let g:airline#extensions#tagbar#flags = 'f'

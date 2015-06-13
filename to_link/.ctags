@@ -3,6 +3,7 @@
 --exclude=.git
 --exclude=*.log
 --exclude=*.min.js
+--exclude=bootstrap.php.cache
 --fields=+aim
 --languages=php,css,js,markdown,puppet,snippets,scss
 --PHP-kinds=+cf

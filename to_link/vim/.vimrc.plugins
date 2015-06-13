@@ -827,7 +827,7 @@ Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
 Plug 'freeo/vim-kalisi'
 " Plug 'vim-scripts/The-Vim-Gardener'
 " Plug 'ciaranm/inkpot'
-" Plug 'fmoralesc/molokayo'
+Plug 'fmoralesc/molokayo'
 " Plug 'romainl/Apprentice'
 
 " Can I please have some trouble
@@ -1058,7 +1058,7 @@ Plug 'tpope/vim-projectionist'
 " The missing link in ctrlp navigation: switch tabs
 " Cool but I don't use it
 " if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
-    " Plug 'DavidEGx/ctrlp-smarttabs'
+    Plug 'DavidEGx/ctrlp-smarttabs'
 " endif
 
 " open directory in finder
@@ -1088,14 +1088,18 @@ endif
 Plug 'thinca/vim-visualstar', { 'on': ['<Plug>visualstar-*', '<Plug>visualstar-#', '<Plug>visualstar-g*', '<Plug>visualstar-g#'] }
 
 " faster ctrlp matcher
-if has('python') && isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
-    Plug 'FelikZ/ctrlp-py-matcher'
-endif
+" still not instantaneous like ag
+" if has('python') && isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
+    " NOTE: if you change this you have to change the matcher in .vimrc
+    " Plug 'FelikZ/ctrlp-py-matcher'
+" endif
 
 " even faster ctrlp matcher
+" still not instantaneous like ag
 " but I've had some problems with it not finding stuff. Maybe I'll try it
 " again later.
 " if has('python') && isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
+    " NOTE: if you change this you have to change the matcher in .vimrc
     " Plug 'nixprime/cpsm', { 'do': './install.sh' }
 " endif
 
