@@ -720,7 +720,11 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
 
     " when gutentags is updating show in the statusbar
     if isdirectory(expand("~/.vim/plugged/vim-gutentags"))
-        let g:airline_section_x = '%{gutentags#statusline("Updating Tags... ")}%{airline#util#wrap(airline#parts#filetype(),0)}'
+        augroup gutentags_augroup
+            autocmd!
+        augroup END
+        " warning php tagbar is really slow. So I only enabled it for php files.
+        autocmd gutentags_augroup FileType php let g:airline_section_x = '%{gutentags#statusline("Updating Tags... ")}%{airline#util#wrap(airline#parts#filetype(),0)}'
     endif
 
     let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']

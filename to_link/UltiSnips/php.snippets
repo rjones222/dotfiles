@@ -180,13 +180,13 @@ endsnippet
 snippet cla "mike's class with namespace, file and class docblocks"
 <?php
 /**
- * ${1:Description}
+ * `!v expand("%:t:r")`
  *
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 /**
- * `!v expand("%:t:r")`
+ * ${1:Description}
  *
  * @author `!v g:snips_author`
  */
@@ -580,7 +580,7 @@ endsnippet
 snippet sfctl "symfony controller"
 <?php
 /**
- * ${1:Whatever} controller
+* `!v expand("%:t:r")`
  *
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
@@ -591,7 +591,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
- * `!v expand("%:t:r")`
+* ${1:Whatever} controller
  *
  * @author `!v g:snips_author`
  * @Route(service="app.${1/\w+/\l$0/}_controller")
@@ -1655,7 +1655,7 @@ endsnippet
 snippet sfft "symfony form type"
 <?php
 /**
- * ${1:Whatever} form type
+* `!v expand("%:t:r")`
  *
  * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
@@ -1665,7 +1665,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * `!v expand("%:t:r")`
+* ${1:Whatever} form type
  *
  * @author `!v g:snips_author`
  */

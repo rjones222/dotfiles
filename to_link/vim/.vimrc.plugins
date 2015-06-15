@@ -541,7 +541,10 @@ Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " cursor
 " Plug 'tobyS/pdv', { 'for': 'php' }
 " fork that works better with phpcomplete.vim to update @var variables
-Plug 'FlickerBean/pdv', { 'for': 'php' }
+" nnoremap <buffer> <leader>pd :call pdv#DocumentWithSnip()<CR>
+" Plug 'FlickerBean/pdv', { 'for': 'php' }
+" doesn't want to work lazy loaded
+Plug 'FlickerBean/pdv'
 " required for pdv. Only needed for pdv.
 Plug 'tobyS/vmustache', { 'for': 'php' }
 " fork that supposedly works better...
@@ -1305,7 +1308,7 @@ endif
 
 " auto update tags... please... i want to believe...
 if executable('ctags')
-    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'ludovicchabant/vim-gutentags', { 'for': ['php', 'css'] }
 endif
 
 " }}}
