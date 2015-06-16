@@ -1,0 +1,5 @@
+pane	Work	1	:cfg	0	:-	0	:/Users/mikefunk/.dotfiles	1	nvim	:-bash
+pane	Work	2	:airliners	1	:*	0	:/Library/WebServer/Documents/airliners-vagrantdev/www.airliners.net	1	nvim	:-bash
+window	Work	1	0	:-	cd5d,272x67,0,0,0
+window	Work	2	1	:*	cd5e,272x67,0,0,1
+state	Work	

@@ -1,0 +1,7 @@
+pane	Work	1	:cfg	0	:-	0	:/Users/mikefunk/.dotfiles	1	nvim	:-bash
+pane	Work	2	:airliners	1	:*	0	:/Library/WebServer/Documents/airliners-vagrantdev/www.airliners.net	1	nvim	:-bash
+pane	Work	2	:airliners	1	:*	1	:/Users/mikefunk	0	bash	:-bash
+pane	Work	2	:airliners	1	:*	2	:/Library/WebServer/Documents/airliners-vagrantdev/www.airliners.net	0	node	:-bash
+window	Work	1	0	:-	cd5d,272x67,0,0,0
+window	Work	2	1	:*	0c2b,272x67,0,0[272x43,0,0,1,272x23,0,44{136x23,0,44,2,135x23,137,44,3}]
+state	Work	

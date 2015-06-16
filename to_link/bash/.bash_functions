@@ -408,6 +408,9 @@ mergerequest() {
     elif pwd | grep -q 'airliners-new'; then
         PROJECT="airliners"
         PROJECT_ID="1155"
+    elif pwd | grep -q 'www.airliners.net'; then
+        PROJECT="airliners"
+        PROJECT_ID="1155"
     elif pwd | grep -q 'answerbag-website'; then
         PROJECT="answerbag-website"
         PROJECT_ID="193"
@@ -437,9 +440,9 @@ mergerequest() {
     elif [[ $USERNAME == 'michael' ]]; then
         USER_ID=103
     else
-        # larry is default
-        USER_ID="52"
-        USERNAME="lortiz"
+        # matt is default
+        USER_ID="168"
+        USERNAME="matt"
     fi
 
     # set the message and the current branch

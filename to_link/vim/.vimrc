@@ -494,6 +494,10 @@ endif
 if isdirectory(expand("~/.vim/plugged/nerdcommenter"))
     " extra space in NERDCommenter comments
     let g:NERDSpaceDelims="1"
+    " custom delimiters for scss and stuff
+    let g:NERDCustomDelimiters = {
+        \ 'scss': { 'left': '//' },
+    \ }
 endif
 " }}}
 
