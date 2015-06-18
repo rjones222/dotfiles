@@ -467,11 +467,31 @@ if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
     " only for php set the omnifunc to completephp
     autocmd phpcomplete_augroup FileType php set omnifunc=phpcomplete#CompletePHP
 
+    " this lets non-static methods be called in static context. Good for laravel.
+    " let g:phpcomplete_relax_static_constraint = 1
     " composer install command for phpcomplete
-    let g:phpcomplete_relax_static_constraint = 1
     let g:phpcomplete_index_composer_command = "composer"
     let g:phpcomplete_parse_docblock_comments = 1
     let g:phpcomplete_cache_taglists = 1
+    " available extensions: https://github.com/shawncplus/phpcomplete.vim/blob/master/misc/available_extensions
+    let g:phpcomplete_add_function_extensions = [
+    \ 'arrays', 
+    \ 'strings', 
+    \ 'urls', 
+    \ 'filesystem', 
+    \ 'curl', 
+    \ 'json',
+    \ 'mail',
+    \ 'misc',
+    \ 'mysql',
+    \ 'mysqli',
+    \ 'sessions',
+    \ ]
+
+    let g:phpcomplete_add_interface_extensions = [
+    \ 'predefined_interfaces_and_classes',
+    \ ]
+
     let g:phpcomplete_remove_function_extensions = ['xslt_php_4']
     let g:phpcomplete_remove_constant_extensions = ['xslt_php_4']
     " complete these built-in functions, classes, etc.
@@ -571,7 +591,7 @@ if isdirectory(expand("~/.vim/plugged/syntastic"))
 
     " recommended settings from their docs
     let g:syntastic_always_populate_loc_list = 1
-    " let g:syntastic_auto_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
 

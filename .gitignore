@@ -11,4 +11,4 @@ to_link/.irssi/config.autosave
 to_link/.ssh/keys
 tags
 app/cache
-.tmux/resurrect/*
+to_link/.tmux/resurrect
