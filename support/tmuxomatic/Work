@@ -19,6 +19,7 @@ window config
 0000000000000000000000000
 0000000000000000000000000
 
+  foc
   dir ~/.dotfiles
 1 run vim
 0 run tmux rename-session Work
