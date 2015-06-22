@@ -32,10 +32,12 @@ windows:
       # - vim
   - name: "airliners-new"
     root: "~/sites/airliners-new"
-    layout: "main-horizontal"
+    # layout: "main-horizontal"
+    # layout: "e3dd,181x45,0,0[181x35,0,0,2,181x9,0,36,3]"
     panes:
       - vim
       - g st
+      - gulp
   # - name: "answerbag"
     # root: "~/sites/answerbag-website"
     # layout: "main-horizontal"

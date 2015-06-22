@@ -161,7 +161,7 @@ pygments.rb # syntax highlighting - used by jekyll
 redcarpet # used by jekyll to convert markdown to html. also used by vim-instant-markdown
 # rdiscount # another markdown option for jekyll.
 # ruby-fsevent # probably a dependency of another package I dont use anymore
-teamocil # save tmux layouts and regenerate them with ease
+# teamocil # save tmux layouts and regenerate them with ease
 )
 for package in "${packages[@]}"
 do
@@ -179,7 +179,7 @@ if [[ ! "$(type -P pip)" ]]; then
     log_error "pip not installed"
     return ${E_FAILURE}
 fi
-log_info "Installing Python packages"
+log_info "Installing Python 2 packages"
 
 packages=(
 # gmusicapi # google music api
@@ -200,6 +200,18 @@ do
     hash $package 2>/dev/null || {
         log_info "installing $package"
         sudo pip install $package -H
+    }
+done
+
+log_info "Installing Python 3 packages"
+packages=(
+tmuxomatic # tmux layout/session manager
+)
+for package in "${packages[@]}"
+do
+    hash $package 2>/dev/null || {
+        log_info "installing $package"
+        sudo pip3 install $package -H
     }
 done
 

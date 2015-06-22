@@ -104,6 +104,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         nodejs
         pandoc # used for inline vim php documentation
         # postgresql
+        python3 # required for tmuxomatic
         ranger # vim-like file system browser
         rbenv # ruby environment switcher
         reattach-to-user-namespace # used to fix mac issues with copy/paste in tmux
