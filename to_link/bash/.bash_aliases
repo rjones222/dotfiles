@@ -494,9 +494,11 @@ alias conflicts="grep -lir '<<<<<' *"
 alias grep="grep --color=auto"
 
 # tmux -2 session for work
-alias work="tmux -2 -u -S /tmp/pair attach -t Work || (tmux -2 -u -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -2 -u -S /tmp/pair attach)"
-alias home="tmux -2 -u attach -t Home || (tmux -2 -u new -d -s Home && tmux -2 -u attach)"
-alias layout="teamocil work --here"
+# alias work="tmux -2 -u -S /tmp/pair attach -t Work || (tmux -2 -u -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -2 -u -S /tmp/pair attach)"
+alias work="tmuxomatic ~/.dotfiles/support/tmuxomatic/Work"
+# alias home="tmux -2 -u attach -t Home || (tmux -2 -u new -d -s Home && tmux -2 -u attach)"
+alias home="tmuxomatic ~/.dotfiles/support/tmuxomatic/Home"
+# alias layout="teamocil work --here"
 
 # create any dirs in path
 alias mkdir='mkdir -pv'
