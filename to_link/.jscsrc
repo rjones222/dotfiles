@@ -1,3 +1,8 @@
 {
-    "preset": "airbnb"
+  "esnext": true,
+  "preset": "airbnb",
+  "disallowSpacesInNamedFunctionExpression": null,
+  "disallowSpacesInFunctionExpression": null,
+  "disallowSpacesInAnonymousFunctionExpression": null,
+  "disallowSpacesInFunctionDeclaration": null
 }
