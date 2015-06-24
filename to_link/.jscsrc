@@ -4,5 +4,6 @@
   "disallowSpacesInNamedFunctionExpression": null,
   "disallowSpacesInFunctionExpression": null,
   "disallowSpacesInAnonymousFunctionExpression": null,
-  "disallowSpacesInFunctionDeclaration": null
+  "disallowSpacesInFunctionDeclaration": null,
+  "disallowMultipleVarDecl": null
 }

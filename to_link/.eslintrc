@@ -32,7 +32,7 @@
     "no-obj-calls": 1,
     "no-reserved-keys": 1,
     "no-sparse-arrays": 1,
-    "no-underscore-dangle": 1,
+    "no-underscore-dangle": 0,
     "no-unreachable": 1,
     "react/display-name": 1,
     "react/jsx-boolean-value": 1,
@@ -100,7 +100,7 @@
     "no-warning-comments": 1,
     "no-with": 1,
     "radix": 1,
-    "vars-on-top": 1,
+    "vars-on-top": 0,
     "wrap-iife": 1,
     "yoda": 1
   }
