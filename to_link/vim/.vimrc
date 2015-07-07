@@ -334,6 +334,7 @@ command! Vhost tabe /etc/apache2/extra/httpd-vhosts.conf
 
 " source vimrc
 command! Source :so $MYVIMRC
+nnoremap <leader>so :Source<cr>
 
 " show todos
 if executable('ag') && (isdirectory(expand("~/.vim/plugged/ag.vim")) || isdirectory(expand("~/.vim/plugged/ag.nvim")))
@@ -710,7 +711,7 @@ if isdirectory(expand("~/.vim/plugged/vdebug"))
     let g:vdebug_options['continuous_mode'] = 1
     let g:vdebug_options['timeout'] = 30
     let g:vdebug_options['server'] = '127.0.0.1'
-    let g:vdebug_options['ide_key'] = 'netbeans-xdebug'
+    let g:vdebug_options['ide_key'] = 'mikedfunkxd'
     " can add multiple path maps to this array, just duplicate the line
     " below and add another. remote is first, local is second.
     let g:vdebug_options['path_maps'] = {
@@ -748,8 +749,9 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
         augroup gutentags_augroup
             autocmd!
         augroup END
-        " warning php tagbar is really slow. So I only enabled it for php files.
-        autocmd gutentags_augroup FileType php let g:airline_section_x = '%{gutentags#statusline("Updating Tags... ")}%{airline#util#wrap(airline#parts#filetype(),0)}'
+        " need to add this as a new segment. section_x is already used for
+        " tagbar integration in php.
+        " autocmd gutentags_augroup FileType php let g:airline_section_x = '%{gutentags#statusline("Updating Tags... ")}%{airline#util#wrap(airline#parts#filetype(),0)}'
     endif
 
     let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']

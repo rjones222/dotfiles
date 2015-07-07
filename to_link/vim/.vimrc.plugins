@@ -568,7 +568,6 @@ endif
 " inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
 " noremap <Leader><Leader>u :call PhpInsertUse()<CR>
 Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
-" Plug 'mikedfunk/vim-php-namespace'
 
 " xdebug integration
 " Step over <F2>
@@ -798,6 +797,7 @@ Plug 'chriskempson/base16-vim'
 " gets messed up when switching background
 " Plug 'noahfrederick/vim-hemisu'
 " Plug 'blueshirts/darcula'
+Plug 'jdkanani/vim-material-theme'
 
 " just for testing some of the top color schemes - lots of gui-only here
 " Plug 'vim-scripts/Colour-Sampler-Pack'
@@ -971,6 +971,9 @@ Plug 'tpope/vim-speeddating'
 " }}}
 
 " Navigation and Search {{{
+
+" show search results instantly even with regex searches
+Plug 'haya14busa/incsearch.vim'
 
 " make vim understand line and column numbers from xdebug and the like
 " I've never actually used this
