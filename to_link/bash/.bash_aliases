@@ -433,6 +433,8 @@ alias bi="behat --init"
 alias bas="behat --append-snippets --dry-run"
 # }}}
 
+alias cjs="cucumber-js"
+
 # bower {{{
 alias bowi="bower install --save"
 alias bis="bower install --save"
