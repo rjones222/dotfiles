@@ -37,6 +37,7 @@ coffee-script # javascript abstraction / augmentation
 csslint # verify css files
 eslint # javascript linter - used by syntastic in vim
 eslint-plugin-react # react jsx javascript linter - used by syntastic in vim
+esprima-fb@15001.1.0-dev-harmony-fb # used by jscs to also check jsx coding standards
 express-generator # generates express.js apps
 # fixmyjs # like php-cs-fixer for javascript
 # git-guilt # see the top few users for whom this commit has overwritten code. Commented out because this is now included with git-extras.
@@ -45,8 +46,7 @@ grunt # older, more complex task runner / watcher
 grunt-cli # wtf? grunt is lame.
 #instant-markdown-d # used by vim to instantly preview markdown files as you type
 jasmine # javascript behavior testing framework
-# jscs # javascript coding style checker
-jsxcs # javascript coding style checker with react jsx support
+jscs # javascript coding style checker
 jshint # like jslint but less punishing
 # json # json formatter used for vim
 jsonlint # verify json
