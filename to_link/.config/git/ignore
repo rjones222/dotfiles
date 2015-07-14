@@ -40,3 +40,4 @@ Session.vim
 *.un~
 zf1_for_autocomplete
 .notags
+.phpspec

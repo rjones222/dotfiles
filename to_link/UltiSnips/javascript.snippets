@@ -89,3 +89,27 @@ export default ($1) => {
   $2
 };
 endsnippet
+
+snippet btext "webdriverio browser.getText()"
+browser.getText('$1').then(function (text) {
+	this.expect(text).to.match(/$2/);
+}.bind(this)).call(next);
+endsnippet
+
+snippet bhtml "webdriverio browser.getHTML()"
+browser.getHTML('$1').then(function (html) {
+	this.expect(html).to.not.be.empty;
+}.bind(this)).call(next);
+endsnippet
+
+snippet burl "webdriverio browser.url()"
+browser.url('$1').call(next);
+endsnippet
+
+snippet bclick "webdriverio browser.click()"
+browser.click('$1').call(next);
+endsnippet
+
+snippet bset "webdriverio browser.setValue()"
+browser.setValue('$1', '$2').call(next);
+endsnippet
