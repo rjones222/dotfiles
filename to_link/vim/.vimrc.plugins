@@ -883,7 +883,9 @@ Plug 'kergoth/vim-hilinks', { 'on': ['HLT', 'HLTm'] }
 " Peekaboo will show you the contents of the registers on the sidebar when you
 " hit " or @ in normal mode or <CTRL-R> in insert mode. The sidebar is
 " automatically closed on subsequent key strokes.
-Plug 'junegunn/vim-peekaboo'
+" This is cool but I've never bothered to look at it. 99% of the time I only
+" use one register.
+" Plug 'junegunn/vim-peekaboo'
 
 " use :Switch to swap between 2 or more paired definitions in .vimrc
 " Cool but I've never used it

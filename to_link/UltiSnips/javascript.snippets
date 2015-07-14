@@ -92,7 +92,7 @@ endsnippet
 
 snippet btext "webdriverio browser.getText()"
 browser.getText('$1').then(function (text) {
-	this.expect(text).to.match(/$2/);
+	this.expect(text).to.match(/$2/i);
 }.bind(this)).call(next);
 endsnippet
 
@@ -107,7 +107,7 @@ browser.url('$1').call(next);
 endsnippet
 
 snippet bclick "webdriverio browser.click()"
-browser.click('$1').call(next);
+browser.click('${1:button[type="button"]}').call(next);
 endsnippet
 
 snippet bset "webdriverio browser.setValue()"
