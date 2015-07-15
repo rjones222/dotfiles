@@ -659,7 +659,7 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " Simple press <Leader>rou to run the optimize use refactoring.
 " The Qafoo labs cli tool does have active development on this, which is nice.
 " Kind of dumb extract method. Someday I hope to find a good refactoring tool.
-Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+" Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
 
 " php refactor tools
 " nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
@@ -680,7 +680,7 @@ Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
 " assigns them to a var with list(). This is almost never what I want. All the
 " other ones are pretty cool though.
 " currently removed because of the useless extract_method
-" Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
+Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 
 " A totally different one that doesn't work very well
 " Plug 'beberlei/vim-php-refactor'
@@ -1272,7 +1272,9 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " instant markdown preview
 " :InstantMarkdownPreview to enable as-you-type preview for markdown files
-" I rarely use it and it requires an additional command line tool.
+" I rarely use it and it requires an additional command line tool. Instead of
+" this there's a chrome plugin to preview markdown files. Much simpler!
+" Usually I don't need to preview them anyway - markdown is readable enough.
 "if executable('redcarpet') && executable('instant-markdown-d') && executable('pygmentize')
     "Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 "endif

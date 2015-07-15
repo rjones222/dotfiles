@@ -845,6 +845,8 @@ if isdirectory(expand("~/.vim/plugged/vim-php-namespace"))
     " php add use statement for current class
     inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
     noremap <Leader><Leader>u :call PhpInsertUse()<CR>
+    inoremap <Leader><Leader>e <C-O>:call PhpExpandClass()<CR>
+    noremap  <Leader><Leader>e :call PhpExpandClass()<CR>
 endif
 " }}}"
 

@@ -1712,3 +1712,17 @@ class `!v expand("%:t:r")` extends AbstractType
     }
 }
 endsnippet
+
+snippet let "phpspec let (before each test)"
+/**
+ * runs before each test
+ */
+public function let()
+{
+    $1
+}
+endsnippet
+
+snippet bcw "phpspec beConstructedWith()"
+$this->beConstructedWith($1);
+endsnippet
