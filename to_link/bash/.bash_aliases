@@ -363,31 +363,37 @@ alias migrate="php artisan migrate:refresh --seed"
 alias pearupgrade="sudo pear upgrade"
 
 # problems I've had with neovim:
+#
 # * <c-w><c-h> doesn't work even though it's mapped. <c-w><c-l> works fine.
+#
 # * visual select and paste does not work in the default register. I have to
 # delete into the b register before doing it, which is annoying. This is my
 # biggest complaint as I use this feature all the time.
+#
 # * youcompleteme can be slow and occasionally stops working completely. Not
 # sure if related to neovim.
+#
+# * vim-dispatch takes over the whole window, does not populate the quickfix
+# list, and can't seem to do stuff in a separate tmux window. I haven't tried
+# the neovim async api instead.
 
 # if [[ "$(type -P nvim)" ]]; then
     # # neovim is the new hotness! true 24-bit color!
     # vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 # elif [[ "$(type -P mvim)" ]]; then
-if [[ "$(type -P mvim)" ]]; then
-    # servername is for united-front
-    vim="mvim -vp --servername mikevimserver"
-else
-    vim="vim --servername mikevimserver"
-fi
-
-# use macvim executable in terminal mode
-# if [ -f "/usr/local/bin/mvim" ]; then
     # # servername is for united-front
     # vim="mvim -vp --servername mikevimserver"
 # else
-    # vim="vim -p --servername mikevimserver"
+    # vim="vim --servername mikevimserver"
 # fi
+
+# use macvim executable in terminal mode
+if [ -f "/usr/local/bin/mvim" ]; then
+    # servername is for united-front
+    vim="mvim -vp --servername mikevimserver"
+else
+    vim="vim -p --servername mikevimserver"
+fi
 alias vim="${vim}"
 alias v="${vim}"
 
