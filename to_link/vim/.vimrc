@@ -62,6 +62,11 @@ endfunction
 call InitializeDirectories()
 " }}}
 
+" Open php class extension in vertical split {{{
+" not working yet :/
+command! Opc :normal! mzgg]]$ :vsp<CR>:exec("tag ".expand("<cword>"))<CR>
+" }}}
+
 " delete inactive buffers (the ones not in tabs or windows) {{{
 " @link http://stackoverflow.com/a/7321131/557215
 function! DeleteInactiveBufs()
@@ -539,7 +544,7 @@ endif
 " (php documentor for vim)
 if isdirectory(expand("~/.vim/plugged/pdv"))
     let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
-    nnoremap <buffer> <leader>pd :call pdv#DocumentWithSnip()<CR>
+    nnoremap <leader>pd :call pdv#DocumentWithSnip()<CR>
 endif
 " }}}
 
@@ -549,6 +554,15 @@ if isdirectory(expand("~/.vim/plugged/tagbar-phpctags.vim"))
     let g:tagbar_phpctags_memory_limit = '512M'
 endif
 " }}}"
+
+" php-documentor-vim {{{
+if isdirectory(expand("~/.vim/plugged/php-documentor-vim"))
+    " @link https://github.com/sumpygump/php-documentor-vim
+    au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDoc()<CR>
+    au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDoc()<CR>
+    au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
+endif
+" }}}
 
 " {{{ promptline
 if isdirectory(expand("~/.vim/plugged/promptline.vim"))
@@ -719,7 +733,7 @@ if isdirectory(expand("~/.vim/plugged/vdebug"))
     \   '/opt/myleague': '/Users/mikefunk/sites/casesladder-repos/myleague'
     \}
     " stop on first line of execution
-    let g:vdebug_options["break_on_open"] = 0
+    " let g:vdebug_options["break_on_open"] = 0
     let g:vdebug_options["watch_window_style"] = 'compact'
     " move run_to_cursor from F1 to F9
     let g:vdebug_keymap = {
@@ -993,7 +1007,7 @@ if isdirectory(expand("~/.vim/plugged/YouCompleteMe"))
     let g:ycm_autoclose_preview_window_after_insertion = 1
 
     " disable youcompleteme
-    let g:ycm_auto_trigger=0
+    " let g:ycm_auto_trigger=0
 
     " let g:ycm_allow_changing_updatetime=0
     let g:ycm_seed_identifiers_with_syntax = 1

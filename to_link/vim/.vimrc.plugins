@@ -33,6 +33,7 @@ Plug 'scrooloose/nerdtree'
 " Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeMirrorToggle', 'NERDTreeTabsToggle', 'NERDTreeTabs'] }
 " Used for NERDTreeMirrorToggle with <c-e>
 Plug 'jistr/vim-nerdtree-tabs'
+" change surrounding quotes, etc.
 Plug 'tpope/vim-surround'
 " make some stuff repeatable that usually isn't
 Plug 'tpope/vim-repeat'
@@ -41,7 +42,8 @@ Plug 'tpope/vim-repeat'
 " Plug 'terryma/vim-multiple-cursors'
 " better supported fork to do sublime-style multiple cursors
 " <c-n> to select the current word, then again for the next match
-Plug 'kristijanhusak/vim-multiple-cursors'
+" I just never use it.
+" Plug 'kristijanhusak/vim-multiple-cursors'
 " I am trying to switch to tpope/vim-obsession
 " Plug 'vim-scripts/sessionman.vim', { 'on': ['SessionList', 'SessionSave', 'SessionClose'] }
 " I use a different one further down
@@ -50,22 +52,23 @@ Plug 'bling/vim-airline'
 " Plug 'bling/vim-bufferline'
 " It's great and all but I just don't use it.
 " Plug 'Lokaltog/vim-easymotion'
-" It's great and all but I just don't use it.
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 " Plug 'nathanaelkane/vim-indent-guides'
 " show verticle lines for levels of indentions like an IDE
 Plug 'Yggdroot/indentLine'
-Plug 'vim-scripts/restore_view.vim'
+" I think airline or something does this already
+" Plug 'vim-scripts/restore_view.vim'
 " show added/modified/removed lines in version control in the signs column
 " SLOW
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 " Plug 'tpope/vim-abolish', { 'on': 'Abolish' }
 " :Subvert or :S
 Plug 'tpope/vim-abolish'
 " Preview command line actions
 " I never use this
 " Plug 'osyo-manga/vim-over'
-" create your own text objects - used by other text object plugins
+" create your own text objects - required by some other text object plugins
+" I use
 Plug 'kana/vim-textobj-user'
 " Plug 'kana/vim-textobj-indent'
 " press enter to grow selection, backspace to shrink.
@@ -93,8 +96,6 @@ Plug 'scrooloose/nerdcommenter'
 " four  = 4
 " I never use this because of teamwork and git
 " Plug 'godlygeek/tabular'
-" Useful tags sidebar for PHP, Coffeescript, CSS
-" <leader>TT to toggle
 " }}}
 
 " Completion {{{
@@ -203,7 +204,7 @@ Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 " }}}
 
-" Misc {{{
+" Markdown {{{
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " }}}
 
@@ -214,8 +215,9 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " General {{{
 
 " show enabled plugins in macvim in a menu at the top
+" I hardly ever use gui
 " if has("gui_running")
-    Plug 'mbadran/headlights'
+    " Plug 'mbadran/headlights'
 " endif
 
 " syntastic, youcompleteme, ctrlp, etc. for c#/asp.net
@@ -255,11 +257,13 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 " create files and parent dirs at the same time
 " :e my/non-existent/dir/file.php
-Plug 'dockyard/vim-easydir'
+" I use nerdtree
+" Plug 'dockyard/vim-easydir'
 
 " share registers across vim installations
 " sets the updatetime to 200ms. bad.
-Plug 'ardagnir/united-front'
+" I just don't need this functionality
+" Plug 'ardagnir/united-front'
 
 " Add some unix stuff like :Chmod, :Unlink, etc.
 " :Unlink[!]
@@ -284,8 +288,8 @@ Plug 'ardagnir/united-front'
 " So much more reliable.
 Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 
-if executable('nvim')
-    " help for neovim
+if has('nvim')
+    " help for neovim. requires vimproc.
     Plug 'p0deje/vim-dispatch-vimshell', { 'on': 'Dispatch' }
 endif
 
@@ -407,7 +411,7 @@ Plug 'jiangmiao/auto-pairs'
 " Similar to emmett but also can autoclose
 " <c-x>/ close latest html tag
 " Not really that useful for php
-Plug 'tpope/vim-ragtag', { 'for': ['html', 'html.twig', 'blade', 'xml', 'php'] }
+" Plug 'tpope/vim-ragtag', { 'for': ['html', 'html.twig', 'blade', 'xml', 'php'] }
 
 " use c-n and c-p to complete from your buffers in search or command mode
 " I've never used this
@@ -420,6 +424,14 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml', 'php']
 " symfony completion
 " See above. phpcomplete-extended is a pain in the ass.
 " Plug 'm2mdas/phpcomplete-extended-symfony'
+
+" This plugin handles:
+" symfony routing autocompletion
+" symfony DIC autocompletion
+" symfony console
+" php stack trace navigation using quickfix list
+" none of which I care about
+" Plug 'docteurklein/vim-symfony', { 'for': 'php' }
 
 " }}}
 
@@ -480,7 +492,7 @@ Plug 'vimez/vim-tmux', { 'for': 'tmux' }
 " }}}
 
 " Css {{{
-Plug 'groenewege/vim-less'
+Plug 'groenewege/vim-less', { 'for': 'less' }
 
 " colorize css colors without causing $VIMRC reload problems
 Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass', 'less'] }
@@ -546,7 +558,7 @@ Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " Plug 'FlickerBean/pdv', { 'for': 'php' }
 " doesn't want to work lazy loaded
 Plug 'FlickerBean/pdv'
-" required for pdv. Only needed for pdv.
+" required for FlickerBean/pdv. Only needed for pdv.
 Plug 'tobyS/vmustache', { 'for': 'php' }
 " fork that supposedly works better...
 " Plug 'Rican7/php-doc-modded', { 'for': 'php' }
@@ -555,7 +567,8 @@ Plug 'tobyS/vmustache', { 'for': 'php' }
 " au BufRead,BufNewFile *.php inoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php nnoremap <buffer> <leader>pd :call PhpDocSingle()<CR>
 " au BufRead,BufNewFile *.php vnoremap <buffer> <leader>pd :call PhpDocRange()<CR>
-Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
+" I use a different one above
+" Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 
 " better php ctags in tagbar
 " <leader>tt to toggle tagbar. This makes it look prettier
@@ -564,9 +577,11 @@ if executable('phpctags')
     Plug 'vim-php/tagbar-phpctags.vim', { 'for': 'php', 'do': 'make' }
 endif
 
-" php namespace and use block autocomplete
+" php namespace and use block autocomplete. sometimes buggy.
 " inoremap <Leader><Leader>u <C-O>:call PhpInsertUse()<CR>
 " noremap <Leader><Leader>u :call PhpInsertUse()<CR>
+" inoremap <Leader><Leader>e <C-O>:call PhpExpandClass()<CR>
+" noremap  <Leader><Leader>e :call PhpExpandClass()<CR>
 Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
 
 " xdebug integration
@@ -579,7 +594,7 @@ Plug 'arnaud-lb/vim-php-namespace', { 'for': 'php' }
 " Stop/close <F6>
 " :VdebugEval <code>
 
-" can also debug nodejs quite easily!
+" can also debug nodejs
 " Plug 'joonty/vdebug', { 'for': [ 'php', 'javascript' ] }
 Plug 'joonty/vdebug', { 'for': 'php' }
 
@@ -680,7 +695,7 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " assigns them to a var with list(). This is almost never what I want. All the
 " other ones are pretty cool though.
 " currently removed because of the useless extract_method
-Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
+" Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 
 " A totally different one that doesn't work very well
 " Plug 'beberlei/vim-php-refactor'
@@ -754,7 +769,7 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 " Plug 'tpope/vim-vividchalk'
 " Plug 'morhetz/gruvbox'
 " this needs the following iterm2 themes: chriskempson/base16-iterm2
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 " Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 " Plug 'endel/vim-github-colorscheme'
 " Plug 'ricardovaleriano/vim-github-theme'
@@ -797,7 +812,7 @@ Plug 'chriskempson/base16-vim'
 " gets messed up when switching background
 " Plug 'noahfrederick/vim-hemisu'
 " Plug 'blueshirts/darcula'
-Plug 'jdkanani/vim-material-theme'
+" Plug 'jdkanani/vim-material-theme'
 
 " just for testing some of the top color schemes - lots of gui-only here
 " Plug 'vim-scripts/Colour-Sampler-Pack'
@@ -947,7 +962,7 @@ Plug 'justinmk/vim-ipmotion'
 " I like long runs on the beach and holding hands in the movie theatre
 " <c-b> on date. I remapped vim's default <c-a> to <c-b> because of tmux.
 " I have never used this
-Plug 'tpope/vim-speeddating'
+" Plug 'tpope/vim-speeddating'
 
 " smart search, replace, abbreviation fixer
 " :%S/mixed_case_thing/other_thing/g replaces MixedCaseThing in context as
@@ -1065,10 +1080,9 @@ Plug 'tpope/vim-projectionist'
 " Plug 'tacahiroy/ctrlp-funky'
 
 " The missing link in ctrlp navigation: switch tabs
-" Cool but I don't use it
-" if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
+if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
     Plug 'DavidEGx/ctrlp-smarttabs'
-" endif
+endif
 
 " open directory in finder
 " <gof> opens the file manager at the directory of the file you are currently
@@ -1082,7 +1096,7 @@ Plug 'tpope/vim-projectionist'
 " better than Ack
 " :Ag! 'my search' [options]
 if executable('ag')
-    if executable('nvim')
+    if has('nvim')
         " neovim support
         Plug 'Numkil/ag.nvim'
     else
@@ -1153,7 +1167,6 @@ Plug 'mhinz/vim-startify'
 
 " accidentally didn't type the whole file name, expecting tab complete to
 " finish it? This will help.
-" I think this might be causing problems
 Plug 'EinfachToll/DidYouMean'
 
 " Swap windows just like cxiw. Mark the first window with <leader>ww. Then
@@ -1286,9 +1299,9 @@ Plug 'michaeljsmith/vim-indent-object'
 if executable('ctags')
     " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
     " tagbar is SLOW so only use it where you need it.
-    Plug 'majutsushi/tagbar', { 'for': ['php', 'css'] }
+    " Plug 'majutsushi/tagbar', { 'for': ['php', 'css'] }
     " Plug 'majutsushi/tagbar', { 'for': ['php', 'coffee', 'css'] }
-    " Plug 'majutsushi/tagbar', { 'for': ['php'] }
+    Plug 'majutsushi/tagbar', { 'for': ['php'] }
 endif
 
 " auto generate ctags on save
@@ -1316,7 +1329,8 @@ endif
 
 " auto update tags... please... i want to believe...
 if executable('ctags')
-    Plug 'ludovicchabant/vim-gutentags', { 'for': ['php', 'css'] }
+    " Plug 'ludovicchabant/vim-gutentags', { 'for': ['php', 'css'] }
+    Plug 'ludovicchabant/vim-gutentags', { 'for': ['php'] }
 endif
 
 " }}}
@@ -1365,7 +1379,7 @@ Plug 'wakatime/vim-wakatime'
 
 " real-time collaborative editing like etherpad but with native editors
 " @link http://floobits.com
-if executable('nvim')
+if has('nvim')
     " after installing run :UpdateRemotePlugins and restart neovim
     " do the same when removing this plugin
     Plug 'Floobits/floobits-neovim'
@@ -1458,10 +1472,39 @@ if executable('tmux')
 
 endif
 
-" fix broken terminal keys when we use xterm-256-color in iterm prefs and
-" screen-256-color in tmux.conf prefs
 if $TERM == 'screen-256-color' || $TERM == 'xterm-256-color'
+    " fix broken terminal keys when we use xterm-256-color in iterm prefs and
+    " screen-256-color in tmux.conf prefs
     Plug 'nacitar/terminalkeys.vim'
+
+    " Terminus enhances Vim's integration with the terminal in four ways,
+    " particularly when using tmux (https://tmux.github.io/) and iTerm
+    " (https://www.iterm2.com/), closing the gap between terminal and GUI Vim:
+
+    " 1. Cursor shape change in insert mode ~
+
+    " In insert mode, the cursor shape changes to a thin vertical bar. On leaving
+    " inset mode, it reverts to the standard "block" shape.
+
+    " 2. Improved mouse support ~
+
+    " Activates 'mouse' support in all modes and additionally tries to activate
+    " |sgr-mouse| support, which allows the mouse to work "even in columns beyond
+    " 223".
+
+    " 3. Focus reporting ~
+
+    " Allows Vim to receive |FocusGained| and |FocusLost| events, even in the
+    " terminal and inside tmux. This is in turn used to fire the |:checktime|
+    " command, which, in conjunction with the 'autoread', allows Vim to
+    " automatically pick up changes made by other processes when switching to and
+    " from Vim.
+
+    " 4. "Bracketed Paste" mode ~
+
+    " Sets up "Bracketed Paste" mode, which means you can forget about manually
+    " setting the 'paste' option and simply go ahead and paste in any mode.
+    Plug 'wincent/terminus'
 endif
 
 " }}}

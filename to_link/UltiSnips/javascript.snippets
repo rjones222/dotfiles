@@ -102,6 +102,12 @@ browser.getHTML('$1').then(function (html) {
 }.bind(this)).call(next);
 endsnippet
 
+snippet bexist "webdriverio browser.isExisting()"
+browser.isExisting('$1').then(function (isExisting) {
+	this.expect(isExisting).to.be.true;
+}.bind(this)).call(next);
+endsnippet
+
 snippet burl "webdriverio browser.url()"
 browser.url('$1').call(next);
 endsnippet
