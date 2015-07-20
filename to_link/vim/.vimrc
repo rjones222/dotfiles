@@ -237,6 +237,11 @@ silent! colorscheme lucius
 
 " Mappings {{{
 
+" go to last active tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
 let g:mapleader = ',' " use comma for leader
 
 " since , replaces leader, use \ to go back in a [f]ind
@@ -344,7 +349,6 @@ nnoremap <leader>so :Source<cr>
 " show todos
 if executable('ag') && (isdirectory(expand("~/.vim/plugged/ag.vim")) || isdirectory(expand("~/.vim/plugged/ag.nvim")))
     nnoremap <leader>td :Ag! todo<CR>
-    nnoremap <leader>tl :Ag! todo<CR>
 endif
 
 " Code folding options
@@ -840,6 +844,11 @@ if isdirectory(expand("~/.vim/plugged/vim-json"))
 endif
 " }}}
 
+" vim-mark {{{
+if isdirectory(expand("~/.vim/plugged/vim-mark"))
+    let g:mark_no_mappings = 1
+endif
+" }}}
 " vim-php-cs-fixer {{{
 if isdirectory(expand("~/.vim/plugged/vim-php-cs-fixer"))
     " don't align phpdoc params, this could cause merge conflicts

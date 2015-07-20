@@ -2,7 +2,6 @@
 /**
  * Defines %namespace%\%name%
  *
- * @package %namespace%
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
 namespace %namespace%;

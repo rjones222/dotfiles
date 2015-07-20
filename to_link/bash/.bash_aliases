@@ -376,6 +376,10 @@ alias pearupgrade="sudo pear upgrade"
 # * vim-dispatch takes over the whole window, does not populate the quickfix
 # list, and can't seem to do stuff in a separate tmux window. I haven't tried
 # the neovim async api instead.
+#
+# * <c-w>r doesn't work right - it prioritizes the quickfix window as a window
+# and tries to swap it to the top, even when there is an actual window in
+# another split.
 
 # if [[ "$(type -P nvim)" ]]; then
     # # neovim is the new hotness! true 24-bit color!

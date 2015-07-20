@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "37e48cc758e80f5a2b1b3788e72b0340",
+    "hash": "b5cbc2b0b6b7aac3c2130e40d7e4245b",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -3392,6 +3392,55 @@
                 "dependency injection"
             ],
             "time": "2013-11-22 08:30:29"
+        },
+        {
+            "name": "psecio/iniscan",
+            "version": "3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/psecio/iniscan.git",
+                "reference": "152856cc43b47c6fff83d504b353ecf6ac09c7f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/psecio/iniscan/zipball/152856cc43b47c6fff83d504b353ecf6ac09c7f6",
+                "reference": "152856cc43b47c6fff83d504b353ecf6ac09c7f6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/console": "~2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.2.*"
+            },
+            "bin": [
+                "bin/iniscan"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psecio": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Cornutt",
+                    "email": "ccornutt@phpdeveloper.org",
+                    "homepage": "http://www.phpdeveloper.org/"
+                }
+            ],
+            "description": "A scanner to evaluate php.ini security",
+            "homepage": "https://github.com/psecio/iniscan.git",
+            "keywords": [
+                "php.ini",
+                "scanner"
+            ],
+            "time": "2014-09-12 20:56:21"
         },
         {
             "name": "psr/log",

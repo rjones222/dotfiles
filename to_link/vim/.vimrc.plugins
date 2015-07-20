@@ -721,9 +721,7 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " <leader>2 higlight in second color (etc...)
 " <leader>0 clear all highlights
 " Plug 'pydave/vim-hiinterestingword'
-" fork that is maintained... but it conflicts with a mapping i have and
-" doesn't work
-" Plug 'idbrii/vim-mark'
+Plug 'idbrii/vim-mark'
 
 " crosshairs on parens and such. Easier to find where you're currently at...?
 " buggy. not always on parens.

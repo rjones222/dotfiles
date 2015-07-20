@@ -104,7 +104,6 @@ snippet authr
 /**
  * ${1}
  *
- * @package ${2}
  * @author Michael Funk <`!v g:snips_author`>
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
@@ -115,7 +114,6 @@ snippet top "File-level PHP docblock"
 /**
  * ${1:Description}
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 endsnippet
@@ -182,7 +180,6 @@ snippet cla "mike's class with namespace, file and class docblocks"
 /**
  * `!v expand("%:t:r")`
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 /**
@@ -201,7 +198,6 @@ snippet trt "mike's trait with namespace, file and class docblocks"
 /**
  * ${1:Description}
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 /**
@@ -220,7 +216,6 @@ snippet mdl "ACP laravel model"
 /**
  * ${1:`!v expand("%:t:r")`} model
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use DemandMedia\Common\Models\BaseModel;
@@ -272,7 +267,6 @@ snippet mdli "ACP laravel model interface"
 /**
  * ${1:Listing} model interface
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use DemandMedia\Common\Interfaces\BaseModelInterface;
@@ -293,7 +287,6 @@ snippet rps "ACP laravel repository"
 /**
  * ${1:Listing} repository for data access
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use DemandMedia\Common\Repositories\EloquentRepository;
@@ -335,7 +328,6 @@ snippet rpsi "ACP laravel repository interface"
 /**
  * ${1:Listing} repository interface
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use DemandMedia\Common\Interfaces\EloquentRepositoryInterface;
@@ -363,7 +355,6 @@ snippet rpst "ACP laravel repository test"
 /**
  * ${1:Listing} repository test
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 namespace DemandMedia\\${2:PackageName}\Tests;
@@ -454,7 +445,6 @@ snippet sp "ACP Service Provider"
  * ${1:Listing} service provider. Used for defining IoC bindings, event
  * listeners, etc.
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Illuminate\Support\ServiceProvider;
@@ -529,7 +519,6 @@ snippet ctl "ACP laravel controller"
 /**
  * ${1:Listing} controller
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Config;
@@ -582,7 +571,6 @@ snippet sfctl "symfony controller"
 /**
 * `!v expand("%:t:r")`
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -615,7 +603,6 @@ snippet ctli "ACP laravel controller interface"
 /**
  * `!v expand("%:t:r")`
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use DemandMedia\Common\Interfaces\BaseControllerInterface;
@@ -636,7 +623,6 @@ snippet ctlt "ACP laravel controller test"
 /**
  * ${1:Listing} controller test
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 namespace DemandMedia\\${2:Package}\Tests;
@@ -718,7 +704,6 @@ snippet mgt "laravel migration"
 /**
  * $1 initial migration
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 
@@ -783,7 +768,6 @@ snippet sdr "Auto Classifieds Platform laravel seeder"
  * @link https://github.com/fzaninotto/Faker use this library to provide fake
  * data to the seeder
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use DemandMedia\Common\Seeds\BaseSeeder;
@@ -846,7 +830,6 @@ snippet pucla "mike's phpunit test template with docblocks"
 /**
  * ${1:Unit Tests}
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 
@@ -950,7 +933,6 @@ snippet inte
 /**
  * $4
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 /**
@@ -1020,7 +1002,6 @@ endsnippet
 
 snippet pageblock "page level docblock"
 /**
- * @package ${2:Template}
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 $3
@@ -1126,7 +1107,6 @@ endsnippet
 snippet zmodule "Zend Framework Module class"
 <?php
 /**
- * @package ${1:Package}
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 namespace ${2:Namespace};
@@ -1357,7 +1337,6 @@ snippet cmd "ACP laravel artisan command"
 /**
  * $1
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Illuminate\Console\Command;
@@ -1428,7 +1407,6 @@ snippet cmdt "ACP laravel command test"
 /**
  * ${1:CommandName} command
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */
 namespace DemandMedia\\${2:PackageName}\Tests;
@@ -1574,7 +1552,6 @@ snippet dcli "doctrine cli config"
 /**
  * this file is required for the doctrine cli tool to work
  *
- * @package ${1:DoctrineExample}
  * ${2:@license MIT License <http://opensource.org/licenses/mit-license.html>}
  */
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
@@ -1657,7 +1634,6 @@ snippet sfft "symfony form type"
 /**
 * `!v expand("%:t:r")`
  *
- * @package Projects
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 use Symfony\Component\Form\AbstractType;
