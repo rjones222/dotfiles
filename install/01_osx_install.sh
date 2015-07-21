@@ -73,7 +73,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # cloc #count lines of code
         colortail # tail with support for colors
         cmake # used by youcompleteme
-        ctags # allows jumping to function/class definitions, etc. in vim
+        # ctags # allows jumping to function/class definitions, etc. in vim
         dnsmasq # easily set up dynamic dev domains such as myproject.dev
         # dos2unix # converts dos line endings to unix in a file
         # fasd # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v.
@@ -269,10 +269,11 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     # brew install ctags-better-php
     # brew link --overwrite ctags-better-php
 
-    # @link https://github.com/kopischke/homebrew-ctags
-    log_info "Installing Ctags fishman"
-    brew tap kopischke/ctags
-    brew install ctags-fishman --HEAD
+    # this used to be fishman ctags but it is merging thankfully with other
+    # ctags contributors
+    log_info "Installing Universal Ctags"
+    brew tap universal-ctags/universal-ctags
+    brew install --HEAD universal-ctags
 
     # link brew apps
     brew linkapps

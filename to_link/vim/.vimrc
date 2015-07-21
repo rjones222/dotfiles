@@ -103,7 +103,6 @@ function! StripTrailingWhitespace()
 endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
 " }}}
-" }}}
 
 " }}}
 
@@ -165,7 +164,7 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,html.twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 " }}}
-"
+
 " Miscellaneous {{{
 
 " omnicomplete {{{
@@ -237,9 +236,15 @@ silent! colorscheme lucius
 
 " Mappings {{{
 
+" go to end of use statements in php {{{
+" `m to go back
+command! GoToUseBlock execute "normal! mmgg/use\ <cr>}:nohlsearch<cr>"
+nnoremap <leader>gu :GoToUseBlock<cr>
+" }}}
+
 " go to last active tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nnoremap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 let g:mapleader = ',' " use comma for leader

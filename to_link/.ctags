@@ -3,6 +3,7 @@
 --exclude=.git
 --exclude=*.log
 --exclude=*.min.js
+--exclude=*.coffee
 --exclude=bootstrap.php.cache
 --exclude=classes.php.cache
 --exclude=app/cache
