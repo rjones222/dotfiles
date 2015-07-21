@@ -560,6 +560,8 @@ alias vrel='vagrant reload'
 # symfony console
 alias sc='php app/console'
 alias sf='php app/console'
+alias de='php app/console generate:doctrine:entities'
+alias du='php app/console doctrine:schema:update --force'
 
 # remove folder
 alias rmf='rm -rf'

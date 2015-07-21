@@ -389,9 +389,9 @@ whitespace() {
 # the curl api
 mergerequest() {
 
-    # this works to test the api
     # gitlab api: https://github.com/gitlabhq/gitlabhq/tree/master/doc/api
-    # $URL="your_url_here"
+    # this works to test the api
+    # URL="projects/1155"
     # curl --header "PRIVATE-TOKEN: $GITLAB_API_PRIVATE_TOKEN" $GITLAB_API_ENDPOINT$URL
     # return
 
@@ -409,6 +409,12 @@ mergerequest() {
         PROJECT="airliners"
         PROJECT_ID="1155"
     elif pwd | grep -q 'www.airliners.net'; then
+        PROJECT="airliners"
+        PROJECT_ID="1155"
+    elif pwd | grep -q 'airliners_app'; then
+        PROJECT="airliners"
+        PROJECT_ID="1155"
+    elif pwd | grep -q 'airliners-new'; then
         PROJECT="airliners"
         PROJECT_ID="1155"
     elif pwd | grep -q 'answerbag-website'; then

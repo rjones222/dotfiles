@@ -400,6 +400,14 @@ if isdirectory(expand("~/.vim/plugged/accelerated-smooth-scroll"))
 endif
 " }}}
 
+" BufOnly.vim {{{
+if isdirectory(expand("~/.vim/plugged/BufOnly.vim"))
+    " typo fixer
+    command! -nargs=? -complete=buffer -bang BUfo
+        \ :call BufOnly('<args>', '<bang>')
+endif
+" }}}
+
 " {{{ ctrlp
 if isdirectory(expand("~/.vim/plugged/ctrlp.vim"))
     " ctrlp extensions
@@ -728,6 +736,7 @@ if isdirectory(expand("~/.vim/plugged/vdebug"))
     let g:vdebug_options = {}
     let g:vdebug_options['continuous_mode'] = 1
     let g:vdebug_options['timeout'] = 30
+    let g:vdebug_options['port'] = 9000
     let g:vdebug_options['server'] = '127.0.0.1'
     let g:vdebug_options['ide_key'] = 'mikedfunkxd'
     " can add multiple path maps to this array, just duplicate the line
@@ -849,6 +858,7 @@ if isdirectory(expand("~/.vim/plugged/vim-mark"))
     let g:mark_no_mappings = 1
 endif
 " }}}
+
 " vim-php-cs-fixer {{{
 if isdirectory(expand("~/.vim/plugged/vim-php-cs-fixer"))
     " don't align phpdoc params, this could cause merge conflicts
