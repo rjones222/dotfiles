@@ -90,47 +90,31 @@ export default ($1) => {
 };
 endsnippet
 
-snippet btext "webdriverio browser.getText()"
-browser.getText('$1').then(function (text) {
-  this.expect(text).to.match(/$2/i);
-  next();
-}.bind(this));
+# helper functions in my world.js file for webdriver.io
+snippet btextr "verify text regex"
+this.verifyTextRegex('$1', /$2/i, next);
 endsnippet
 
-snippet bhtml "webdriverio browser.getHTML()"
-browser.getHTML('$1').then(function (html) {
-  this.expect(html).to.not.be.empty;
-  next();
-}.bind(this));
+snippet btext "verify text"
+this.verifyTextRegex('$1', /$2/i, next);
 endsnippet
 
-snippet bexist "webdriverio browser.isExisting()"
-browser.isExisting('$1').then(function (isExisting) {
-  this.expect(isExisting).to.be.true;
-  next();
-}.bind(this));
+snippet bexist "verify element exists"
+this.verifyExists('$1', next);
 endsnippet
 
-snippet burl "webdriverio browser.url()"
-browser.url('$1').then(function () {
-  next();
-});
+snippet burl "go to url"
+this.gotoUrl('$1', next);
 endsnippet
 
-snippet bclick "webdriverio browser.click()"
-browser.click('${1:button[type="submit"]}').then(function () {
-  next();
-});
+snippet bclick "click an element"
+this.click('${1:button[type="submit"]}', next);
 endsnippet
 
-snippet bset "webdriverio browser.setValue()"
-browser.setValue('$1', '$2').then(function () {
-  next();
-});
+snippet bset "set a value"
+this.setValue('$1', '$2', next);
 endsnippet
 
-snippet bexi "webdriverio browser.isExisting()"
-browser.isExisting('$1').then(function (exists) {
-  this.expect(exists).to.be.${2:false};
-}.bind(this));
+snippet bval "verify a selector has a value"
+this.verifyValue('$1', '$2', next);
 endsnippet
