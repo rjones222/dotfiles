@@ -128,3 +128,9 @@ browser.setValue('$1', '$2').then(function () {
   next();
 });
 endsnippet
+
+snippet bexi "webdriverio browser.isExisting()"
+browser.isExisting('$1').then(function (exists) {
+  this.expect(exists).to.be.${2:false};
+}.bind(this));
+endsnippet

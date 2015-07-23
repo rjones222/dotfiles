@@ -841,6 +841,22 @@ endif
 
 " }}}
 
+" vim-gutentags {{{
+if isdirectory(expand("~/.vim/plugged/vim-gutentags"))
+    " let g:gutentags_exclude = []
+    let g:gutentags_exclude = [                
+        \ '.git',
+        \ '*.log',
+        \ '*.min.js',
+        \ '*.coffee',
+        \ 'bootstrap.php.cache',
+        \ 'classes.php.cache',
+        \ 'app/cache',
+        \ '__TwigTemplate_*'
+    \]
+endif
+" }}}
+
 " {{{ vim-indentline
 if isdirectory(expand("~/.vim/plugged/indentLine"))
     " let g:indentLine_leadingSpaceEnabled = 1
