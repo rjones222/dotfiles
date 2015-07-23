@@ -364,6 +364,8 @@ alias pearupgrade="sudo pear upgrade"
 
 # problems I've had with neovim:
 #
+# jj sometimes doesn't work as escape, causing a lot more keystrokes
+#
 # * <c-w><c-h> doesn't work even though it's mapped. <c-w><c-l> works fine.
 #
 # * visual select and paste does not work in the default register. I have to

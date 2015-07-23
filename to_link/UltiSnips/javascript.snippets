@@ -91,12 +91,12 @@ export default ($1) => {
 endsnippet
 
 # helper functions in my world.js file for webdriver.io
-snippet btextr "verify text regex"
+snippet breg "verify text regex"
 this.verifyTextRegex('$1', /$2/i, next);
 endsnippet
 
 snippet btext "verify text"
-this.verifyTextRegex('$1', /$2/i, next);
+this.verifyText('$1', '$2', next);
 endsnippet
 
 snippet bexist "verify element exists"
