@@ -111,6 +111,8 @@ set hlsearch " Highlight search terms
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 set laststatus=2 " always show a statusline. This fixes airline split issue.
 
+" NOTE: gn will highlight or visually select the last highlighted search result
+
 " set quickfix window height min and max automatically
 augroup quickfix_augroup
     autocmd!
