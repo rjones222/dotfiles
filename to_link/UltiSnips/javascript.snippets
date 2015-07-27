@@ -118,3 +118,33 @@ endsnippet
 snippet bval "verify a selector has a value"
 this.verifyValue('$1', '$2', next);
 endsnippet
+
+snippet cla "javascript class"
+import $ from 'jquery';
+/**
+ * ${1:Description}
+ *
+ * @package Airliners
+ * @copyright 2015 Demand Media, Inc. All Rights Reserved.
+ * @author Michael Funk <mike.funk@demandmedia.com>
+ */
+class `!v expand("%:t:r")`
+{
+  ${3://}
+}
+
+export {`!v expand("%:t:r")`};
+endsnippet
+
+snippet meth "javascript class method"
+
+/**
+ * ${1:Description}
+ *
+ * @return {void}
+ */
+${2:functionName}($3)
+{
+  ${4://}
+}
+endsnippet

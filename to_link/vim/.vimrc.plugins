@@ -811,6 +811,7 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 " Plug 'noahfrederick/vim-hemisu'
 " Plug 'blueshirts/darcula'
 " Plug 'jdkanani/vim-material-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 
 " just for testing some of the top color schemes - lots of gui-only here
 " Plug 'vim-scripts/Colour-Sampler-Pack'
@@ -826,8 +827,8 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'tomasr/molokai'
 " Plug 'Lokaltog/vim-distinguished'
 Plug 'junegunn/seoul256.vim'
-" Plug 'jnurmine/Zenburn'
-" Plug 'cocopon/iceberg.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'cocopon/iceberg.vim'
 " Plug 'w0ng/vim-hybrid'
 " Plug 'nielsmadan/harlequin'
 " Plug 'hickop/vim-hickop-colors'
