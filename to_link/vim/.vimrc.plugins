@@ -458,7 +458,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'vim-scripts/SyntaxRange', { 'on': ['SyntaxIgnore', 'SyntaxInclude'] }
 
 " nested levels of parentheses are all different colors
-Plug 'junegunn/rainbow_parentheses.vim', { 'on': ['RainbowParentheses', 'RainbowParamenthesesColors'] }
+Plug 'junegunn/rainbow_parentheses.vim', { 'on': ['RainbowParentheses', 'RainbowParenthesesColors'] }
 
 " preview images in vim via ascii conversion
 " NOTE: Requires python library PIL installed via pip:
@@ -724,7 +724,10 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " <leader>2 higlight in second color (etc...)
 " <leader>0 clear all highlights
 " Plug 'pydave/vim-hiinterestingword'
-Plug 'idbrii/vim-mark'
+" alternative
+" Plug 'idbrii/vim-mark'
+" superset of this concept
+" Plug 'vim-scripts/Mark--Karkat'
 
 " crosshairs on parens and such. Easier to find where you're currently at...?
 " buggy. not always on parens.

@@ -41,3 +41,4 @@ Session.vim
 zf1_for_autocomplete
 .notags
 .phpspec
+.idea
