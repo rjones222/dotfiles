@@ -238,6 +238,10 @@ silent! colorscheme lucius
 
 " Mappings {{{
 
+" skip past parens with tab {{{
+inoremap <expr> <tab> col('.') > 1 && strpart(getline('.'), -1, col('.')) !~ '^\s*$' ? "\<esc>:call search('[])}]', '', line('.'))\<cr>a" : "\<tab>"
+" }}}
+
 " go to end of use statements in php {{{
 " `m to go back
 command! GoToUseBlock execute "normal! mmgg/use\ <cr>}:nohlsearch<cr>"
@@ -779,14 +783,14 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
     let g:airline_powerline_fonts=1
 
     " when gutentags is updating show in the statusbar
-    if isdirectory(expand("~/.vim/plugged/vim-gutentags"))
-        augroup gutentags_augroup
-            autocmd!
-        augroup END
+    " if isdirectory(expand("~/.vim/plugged/vim-gutentags"))
+        " augroup gutentags_augroup
+            " autocmd!
+        " augroup END
         " need to add this as a new segment. section_x is already used for
         " tagbar integration in php.
         " autocmd gutentags_augroup FileType php let g:airline_section_x = '%{gutentags#statusline("Updating Tags... ")}%{airline#util#wrap(airline#parts#filetype(),0)}'
-    endif
+    " endif
 
     let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
     " spiffy git symbols
@@ -798,8 +802,8 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
         augroup END
         " warning php tagbar is really slow. So I only enabled it for php files.
         if (isdirectory(expand("~/.vim/plugged/vim-airline"))) 
-            " autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled=1
-            let g:airline#extensions#tagbar#enabled=1
+            autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled=1
+            " let g:airline#extensions#tagbar#enabled=1
         endif
         " change how tags are displayed (:help tagbar-statusline)
           " let g:airline#extensions#tagbar#flags = '' " (default)

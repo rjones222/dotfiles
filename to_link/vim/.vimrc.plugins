@@ -457,6 +457,9 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " cool but I don't use it
 " Plug 'vim-scripts/SyntaxRange', { 'on': ['SyntaxIgnore', 'SyntaxInclude'] }
 
+" nested levels of parentheses are all different colors
+Plug 'junegunn/rainbow_parentheses.vim', { 'on': ['RainbowParentheses', 'RainbowParamenthesesColors'] }
+
 " preview images in vim via ascii conversion
 " NOTE: Requires python library PIL installed via pip:
 " sudo pip install Pillow
