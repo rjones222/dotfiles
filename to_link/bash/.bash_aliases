@@ -306,11 +306,12 @@ alias psd="phpspec describe"
 # A function I have defined... I keep forgetting - upgrades or updates?
 alias updates="upgrades"
 
-# workarounds for neovim vim-plug issues
+# workarounds for neovim vim-plug issues {{{
 # @link https://github.com/junegunn/vim-plug/issues/243
 alias plugupdate="mvim -v +PlugUpdate +qall"
 alias pluginstall="mvim -v +PlugInstall +qall"
 alias plugclean="mvim -v +PlugClean +qall"
+# }}}
 
 # apache restart
 alias ares="echo 'restarting apache' && sudo apachectl restart && echo 'apache restarted'"
@@ -322,7 +323,7 @@ alias tree="tree -C"
 alias rr="ranger"
 
 # json pretty print
-# alias json="python -mjson.tool"
+alias json="python -mjson.tool"
 
 # jekyll build via bundle
 # serve, build, and watch for changes, all at once!
@@ -335,7 +336,8 @@ alias apt-get-search="apt-cache search"
 alias hs='history | grep --color=auto'
 
 # view apache error logs
-alias logs="tac /var/log/apache2/error.log | less"
+alias logs="cat /var/log/apache2/error_log | less"
+alias taillog="tail -f /var/log/apache2/error_log"
 
 # fix terminal output error
 alias gitk='gitk 2>/dev/null'
@@ -349,18 +351,20 @@ alias pcf='php-cs-fixer fix'
  # additional details
 alias lsd="ls -GpFha"
 
-# I forget I'm not in vim sometimes...
+# I forget I'm not in vim sometimes... {{{
 alias :q="exit"
 alias :e="${vim}"
 alias :pwd="pwd"
 alias :cd="cd"
 alias :so="source"
+# }}}
 
-# php, etc
+# php, etc {{{
 alias artisan="php artisan"
 alias art="php artisan"
 alias migrate="php artisan migrate:refresh --seed"
 alias pearupgrade="sudo pear upgrade"
+# }}}
 
 # problems I've had with neovim:
 #
@@ -475,7 +479,7 @@ alias localtunnel="lt --port 80"
 
 # better YouCompleteMe install command
 # alias ycminstall="DYLD_LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib /Users/mfunk/.vim/bundle/YouCompleteMe/install.sh --clang-completer"
-alias ycminstall="cd /Users/mfunk/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.sh && cd -"
+alias ycminstall="cd /Users/mikefunk/.vim/plugged/YouCompleteMe && git submodule update --init --recursive && ./install.sh && cd -"
 
 # irssi nicklist in a split
 alias nicklist="cat ~/.irssi/nicklistfifo"
@@ -516,12 +520,13 @@ alias tags="echo 'generating tags file...' && ctags 2>/dev/null && echo 'tags fi
 alias conflicts="grep -lir '<<<<<' *"
 alias grep="grep --color=auto"
 
-# tmux -2 session for work
+# tmux session for work {{{
 # alias work="tmux -2 -u -S /tmp/pair attach -t Work || (tmux -2 -u -S /tmp/pair new -d -s Work && chmod 777 /tmp/pair && tmux -2 -u -S /tmp/pair attach)"
-alias work="tmuxomatic ~/.dotfiles/support/tmuxomatic/Work"
+alias work="tmux attach -t Work || tmuxomatic ~/.dotfiles/support/tmuxomatic/Work"
 # alias home="tmux -2 -u attach -t Home || (tmux -2 -u new -d -s Home && tmux -2 -u attach)"
-alias home="tmuxomatic ~/.dotfiles/support/tmuxomatic/Home"
+alias home="tmux attach -t Home || tmuxomatic ~/.dotfiles/support/tmuxomatic/Home"
 # alias layout="teamocil work --here"
+# }}}
 
 # create any dirs in path
 alias mkdir='mkdir -pv'
@@ -535,7 +540,7 @@ alias wget='wget -c'
 # brew upgrade
 alias brewup='brew update && brew upgrade'
 
-# use grc to add pretty colors to commands
+# use grc to add pretty colors to commands {{{
 alias ping='grc ping'
 alias tail='grc tail'
 alias traceroute='grc traceroute'
@@ -544,26 +549,32 @@ alias make="grc make"
 alias rake="grc rake"
 alias netstat="grc netstat"
 alias diff="grc diff"
+# }}}
 
-# copy ssh key
-alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
-
+# ssh {{{
 # use autossh instead of ssh
 alias ssh="TERM=xterm autossh"
 # ssh-copy-id with pub key file and auto-accept new server pub keys
 alias sci="ssh-copy-id -i ~/.ssh/keys/demandmediakey.pub -o StrictHostKeyChecking=no"
+# copy ssh key
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+# }}}
 
 # install the vaprobash vagrant file here
 alias vaprobash='curl -L http://bit.ly/vaprobash > Vagrantfile'
+
+# vagrant {{{
 alias vpro='vagrant provision'
 alias vdst='vagrant destroy'
 alias vrel='vagrant reload'
+# }}}
 
-# symfony console
+# symfony console {{{
 alias sc='php app/console'
 alias sf='php app/console'
 alias de='php app/console generate:doctrine:entities'
 alias du='php app/console doctrine:schema:update --force'
+# }}}
 
 # remove folder
 alias rmf='rm -rf'
@@ -571,13 +582,14 @@ alias rmf='rm -rf'
 # release and renew ip address on mac
 alias renewip="sudo ipconfig set en0 BOOTP && sudo ipconfig set en0 DHCP && echo 'ip renewed'"
 
-# mac flush dns
+# mac flush dns {{{
 # macos 10.6 snow leopard
 # alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && echo 'dns flushed'"
 # mountain lion or lion
 # alias flushdns="sudo killall -HUP mDNSResponder && echo 'dns flushed'"
 # yosemite
 alias flushdns="sudo discoveryutil mdnsflushcache && sudo discoveryutil udnsflushcaches && echo 'dns flushed'"
+# }}}
 
 # phing
 alias ph="phing"
@@ -599,6 +611,7 @@ alias dn="cd projects/net-framework/website"
 # Display all request and response HTTP headers. Packet limit of 10Kb and only knows GET, POST and HEAD commands.
 alias tcpd="sudo tcpdump -A -s 10240 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | egrep --line-buffered'^........(GET |HTTP\/|POST |HEAD )|^[A-Za-z0-9-]+: ' | sed -r 's/^........(GET |HTTP\/|POST |HEAD )/\n\1/g'"
 
+# demandmedia {{{
 # case's ladder staging rsync
 alias casesladder-www-staging-rsync="cd ~/Sites/casesladder-repos/casesladder && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./www/html/. clsw:/home/httpd/html/"
 # alias casesladder-cgi-staging-rsync=""
@@ -610,6 +623,7 @@ alias myleague3-staging-rsync="cd ~/Sites/casesladder-repos/myleague && rsync --
 alias myleague-all-staging-rsync="myleague1-staging-rsync && myleague2-staging-rsync && myleague3-staging-rsync"
 
 alias essortment-staging-rsync="cd ~/Sites/essortment && rsync --recursive --links --checksum --progress --exclude-from=./.rsync_exclude --chmod=Dugo+rwX,u+rw,go+r ./. web15:/home/cmeops/CME2/sites/mike.funk/www.essortment.com && cd -"
+# }}}
 
 # phantomjs on the port for behat to find it
 alias phan="./node_modules/.bin/phantomjs --webdriver=8643"

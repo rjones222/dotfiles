@@ -698,7 +698,7 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " assigns them to a var with list(). This is almost never what I want. All the
 " other ones are pretty cool though.
 " currently removed because of the useless extract_method
-" Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
+Plug 'adoy/vim-php-refactoring-toolbox', { 'for': 'php' }
 
 " A totally different one that doesn't work very well
 " Plug 'beberlei/vim-php-refactor'

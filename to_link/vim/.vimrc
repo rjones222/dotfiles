@@ -888,8 +888,8 @@ endif
 
 " vim-php-cs-fixer {{{
 if isdirectory(expand("~/.vim/plugged/vim-php-cs-fixer"))
-    " don't align phpdoc params, this could cause merge conflicts
-    let g:php_cs_fixer_fixers_list = '-phpdoc_params'
+    " just do psr-2. I don't want all your opinionated stuff.
+    let g:php_cs_fixer_level = "psr2"
 endif
 " }}}
 
@@ -908,7 +908,7 @@ if isdirectory(expand("~/.vim/plugged/vim-php-namespace"))
     inoremap <Leader><Leader>e <C-O>:call PhpExpandClass()<CR>
     noremap  <Leader><Leader>e :call PhpExpandClass()<CR>
 endif
-" }}}"
+" }}}
 
 " vim-php-refactoring {{{
 if isdirectory(expand("~/.vim/plugged/vim-php-refactoring")) && executable("refactor")
