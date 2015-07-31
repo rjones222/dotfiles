@@ -108,6 +108,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         ranger # vim-like file system browser
         rbenv # ruby environment switcher
         reattach-to-user-namespace # used to fix mac issues with copy/paste in tmux
+        redis # key/value store used by a project I'm working on
         ruby-build # an rbenv plugin that provides an rbenv install command to compile and install different versions of ruby
         s3cmd # amazon s3 uploader
         ssh-copy-id # copies ssh keys to remote servers

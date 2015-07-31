@@ -238,10 +238,6 @@ silent! colorscheme lucius
 
 " Mappings {{{
 
-" skip past parens with tab {{{
-inoremap <expr> <tab> col('.') > 1 && strpart(getline('.'), -1, col('.')) !~ '^\s*$' ? "\<esc>:call search('[])}]', '', line('.'))\<cr>a" : "\<tab>"
-" }}}
-
 " go to end of use statements in php {{{
 " `m to go back
 command! GoToUseBlock execute "normal! mmgg/use\ <cr>}:nohlsearch<cr>"

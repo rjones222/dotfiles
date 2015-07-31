@@ -28,7 +28,8 @@ fi
 
 log_info "Installing npm Packages"
 packages=(
-babel-eslint # es6 javascript linter - used by syntastic in vim
+babel-core # used by eslint to lint ecmascript
+# babel-eslint # es6 javascript linter - used by syntastic in vim
 bower # package management for css/js
 bower-installer # allows you to only install the files you need into a specific dir
 browser-sync # like livereload but easier

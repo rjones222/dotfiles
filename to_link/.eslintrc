@@ -17,7 +17,6 @@
   "rules": {
     "accessor-pairs": 1,
     "strict": 0,
-    "quotes": "single",
     "no-unused-vars": 0,
     "camelcase": 0,
     "no-console": 1,
