@@ -247,6 +247,7 @@ nnoremap <leader>gu :GoToUseBlock<cr>
 " go to last active tab
 let g:lasttab = 1
 nnoremap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nnoremap <Leader>lt :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 let g:mapleader = ',' " use comma for leader
@@ -620,8 +621,8 @@ if isdirectory(expand("~/.vim/plugged/syntastic"))
         " let g:javascript_checkers = ['jsxhint']
     " endif
     if executable('eslint')
-        let g:syntastic_javascript_checkers = ['eslint', 'jscs']
-        " let g:syntastic_javascript_checkers = ['eslint']
+        " let g:syntastic_javascript_checkers = ['eslint', 'jscs']
+        let g:syntastic_javascript_checkers = ['eslint']
     endif
 
     " recommended settings from their docs
