@@ -244,11 +244,12 @@ command! GoToUseBlock execute "normal! mmgg/use\ <cr>}:nohlsearch<cr>"
 nnoremap <leader>gu :GoToUseBlock<cr>
 " }}}
 
-" go to last active tab
+" go to last active tab {{{
 let g:lasttab = 1
 nnoremap <Leader>tl :exe "tabn ".g:lasttab<CR>
 nnoremap <Leader>lt :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+" }}}
 
 let g:mapleader = ',' " use comma for leader
 
@@ -285,16 +286,18 @@ nnoremap <c-w>% :vsp<cr>
 nnoremap <c-b> <c-a>
 vnoremap <c-b> <c-a>
 
-" resize splits, consistent with tmux bindings
+" resize splits, consistent with tmux bindings {{{
 nnoremap <c-w><c-j> :resize +10<cr>
 nnoremap <c-w><c-k> :resize -10<cr>
 nnoremap <c-w><c-l> :vertical resize +10<cr>
 nnoremap <c-w><c-h> :vertical resize -10<cr>
+" }}}
 
-" put cursor at end of text on y and p
+" put cursor at end of text on y and p {{{
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
+" }}}
 
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -316,6 +319,7 @@ nnoremap <leader>su :SortUse<cr>
 "     //
 " }
 command! ExpandInterfaceMethods :%s/\v(\w+\sfunction\s\w+\(.*\));/\1\r    {\r        \/\/\r    }/g
+nnoremap <leader>ei :ExpandInterfaceMethods<cr>
 
 " map space to toggle folds
 nnoremap <space> za
@@ -359,7 +363,7 @@ if executable('ag') && (isdirectory(expand("~/.vim/plugged/ag.vim")) || isdirect
     nnoremap <leader>td :Ag! todo<CR>
 endif
 
-" Code folding options
+" Code folding options {{{
 nnoremap <leader>f0 :set foldlevel=0<CR>
 nnoremap <leader>f1 :set foldlevel=1<CR>
 nnoremap <leader>f2 :set foldlevel=2<CR>
@@ -370,6 +374,7 @@ nnoremap <leader>f6 :set foldlevel=6<CR>
 nnoremap <leader>f7 :set foldlevel=7<CR>
 nnoremap <leader>f8 :set foldlevel=8<CR>
 nnoremap <leader>f9 :set foldlevel=9<CR>
+" }}}
 
 " }}}
 
@@ -455,7 +460,7 @@ endif
 
 " {{{ fugitive
 if isdirectory(expand("~/.vim/plugged/vim-fugitive"))
-    let g:fugitive_github_domains = ['http://gitlab.prod.dm.local', 'https://git.github.com']
+    let g:fugitive_github_domains = ['http://gitlab.prod.dm.local', 'https://git.github.com', 'https://gitlab.las.prod']
 
     nnoremap <silent> <leader>gs :Gstatus<CR>
     nnoremap <silent> <leader>gd :Gdiff<CR>
