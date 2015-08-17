@@ -101,7 +101,7 @@ function! StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfunction
-command! StripTrailingWhitespace :call StripTrailingWhitespace()<cr>
+command! StripTrailingWhitespace silent! :call StripTrailingWhitespace()<cr>
 " }}}
 
 " }}}
@@ -506,11 +506,11 @@ if isdirectory(expand("~/.vim/plugged/phpcomplete.vim"))
     let g:phpcomplete_cache_taglists = 1
     " available extensions: https://github.com/shawncplus/phpcomplete.vim/blob/master/misc/available_extensions
     let g:phpcomplete_add_function_extensions = [
-    \ 'arrays', 
-    \ 'strings', 
-    \ 'urls', 
-    \ 'filesystem', 
-    \ 'curl', 
+    \ 'arrays',
+    \ 'strings',
+    \ 'urls',
+    \ 'filesystem',
+    \ 'curl',
     \ 'json',
     \ 'mail',
     \ 'misc',
@@ -798,12 +798,12 @@ if isdirectory(expand("~/.vim/plugged/vim-airline"))
     " spiffy git symbols
     " let g:airline#extensions#hunks#hunk_symbols = ['✚', '✎', '✖']
 
-    if (isdirectory(expand("~/.vim/plugged/tagbar"))) 
+    if (isdirectory(expand("~/.vim/plugged/tagbar")))
         augroup php_tagbar
             autocmd!
         augroup END
         " warning php tagbar is really slow. So I only enabled it for php files.
-        if (isdirectory(expand("~/.vim/plugged/vim-airline"))) 
+        if (isdirectory(expand("~/.vim/plugged/vim-airline")))
             autocmd php_tagbar FileType php let g:airline#extensions#tagbar#enabled=1
             " let g:airline#extensions#tagbar#enabled=1
         endif
@@ -852,7 +852,7 @@ endif
 " vim-gutentags {{{
 if isdirectory(expand("~/.vim/plugged/vim-gutentags"))
     " let g:gutentags_exclude = []
-    let g:gutentags_exclude = [                
+    let g:gutentags_exclude = [
         \ '.git',
         \ '*.log',
         \ '*.min.js',
