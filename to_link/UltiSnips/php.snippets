@@ -196,12 +196,12 @@ endsnippet
 snippet trt "mike's trait with namespace, file and class docblocks"
 <?php
 /**
- * ${1:Description}
+ * `!v expand("%:t:r")`
  *
  * @copyright `date +%Y` Demand Media, Inc. All Rights Reserved.
  */`!p snip.rv = namespace(snip, path)`
 /**
- * `!v expand("%:t:r")`
+ * ${1:Description}
  *
  * @author `!v g:snips_author`
  */
