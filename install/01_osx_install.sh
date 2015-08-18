@@ -92,10 +92,11 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         htop # prettier, more powerful version of top. gets the top running processes
         httpie # a cool alternative to curl
         # hub # github tool is a superset of git. 2.0 needs to be installed via --HEAD
-        # imagemagick # image transformation tool
+        imagemagick # image transformation tool
         irssi # irc client
         # jsawk # parse json in bash
         libcaca # image previewing in ASCII. used by ranger
+        libcouchbase # nosql fast data storage similar to mongo. Used at Saatchi
         lynx # console web browser. used by ranger to preview html.
         # macvim # mac gui vim client
         # mono # .NET compiler for mac. Useful for OmniSharp.
@@ -288,7 +289,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     brew install php56 --with-homebrew-curl --with-debug
     brew install php56-xdebug --HEAD # fails if HEAD version not used
     brew install php56-mcrypt
-    brew install php56-redis # used by a project I'm working on
+    # brew install php56-redis # used by airliners
+    brew install php56-couchbase # used at Saatchi
     brew install php56-intl # needed by symfony installer
     # have launchd start php56 at login
     ln -sfv /usr/local/opt/php56/*.plist ~/Library/LaunchAgents
