@@ -2,7 +2,7 @@
 
 # TL;DR
 ```
-git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r
+git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh
 ```
 
 My Bash, Vim, Git, and other dotfiles. *Now with 24-bit color support in [neovim](http://neovim.io/)!* I've commented all config files and install scripts indicating *why* I'm doing what I'm doing. Check the install directory to see what each install task does.
@@ -13,7 +13,7 @@ My Bash, Vim, Git, and other dotfiles. *Now with 24-bit color support in [neovim
 
 1. If on mac, install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and ensure you run it at least once. You need the full XCode, not just the command line tools for [MacVim](https://github.com/b4winckler/macvim) and [Terminal Notifier](https://github.com/alloy/terminal-notifier).
 2. Ensure git is installed with `which git`. On Mac just do `git status` somewhere and it will offer to install the XCode Command Line Tools.
-3. *Install dotfiles*: `git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh -r`
+3. *Install dotfiles*: `git clone https://github.com/mikedfunk/dotfiles.git ~/.dotfiles --recursive && ~/.dotfiles/install.sh`
  1. Or pick an install script in the `install` directory and run them one at a time.
 4. If you are using iTerm
  1. install [powerline fonts](https://github.com/Lokaltog/powerline-fonts) from the [support directory](https://github.com/mikedfunk/dotfiles/tree/master/support).
