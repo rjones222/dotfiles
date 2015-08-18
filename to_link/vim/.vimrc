@@ -720,8 +720,9 @@ if isdirectory(expand("~/.vim/plugged/ultisnips"))
 
 
     " remap Ultisnips for compatibility for YCM
-    let g:UltiSnipsExpandTrigger = '<C-j>'
+    " let g:UltiSnipsExpandTrigger = '<C-j>'
     " let g:UltiSnipsExpandTrigger = '<C-Enter>'
+    let g:UltiSnipsExpandTrigger = '<Tab>'
     let g:UltiSnipsJumpForwardTrigger = '<C-j>'
     let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
     " let g:UltiSnipsJumpForwardTrigger = '<C-f>'
@@ -918,6 +919,11 @@ if isdirectory(expand("~/.vim/plugged/vim-php-refactoring")) && executable("refa
 endif
 " }}}
 
+" vim-php-refactoring-toolbox {{{
+if isdirectory(expand("~/.vim/plugged/vim-php-refactoring-toolbox"))
+    let g:vim_php_refactoring_auto_validate_visibility=0
+endif
+" }}}
 " vim-plug {{{
 if filereadable(expand("~/.vim/autoload/plug.vim"))
     nnoremap <leader>bi :so ~/.vimrc.plugins<cr> :PlugInstall<cr>
