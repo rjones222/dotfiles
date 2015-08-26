@@ -352,12 +352,13 @@ upgrades() {
     # group 'custom'
 
     echo "Upgrading everything!"
-    sudo pear upgrade
+    # sudo pear upgrade
     sudo gem update
     sudo npm update -g
     sudo pip3 install --upgrade pip setuptools
     brew update
     brew upgrade
+    brew reinstall --HEAD neovim
     composer global update
     composer self-update
     php-cs-fixer self-update
