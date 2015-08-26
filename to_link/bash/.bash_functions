@@ -355,15 +355,12 @@ upgrades() {
     sudo pear upgrade
     sudo gem update
     sudo npm update -g
+    sudo pip3 install --upgrade pip setuptools
     brew update
     brew upgrade
     composer global update
     composer self-update
     php-cs-fixer self-update
-    cd ~/.bash_it
-    git pull
-    cd ~/.spf13-vim-3
-    git pull
     cd ~
     echo "Upgrading complete!"
 }
