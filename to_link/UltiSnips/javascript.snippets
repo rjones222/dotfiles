@@ -56,7 +56,9 @@ define([$1], function () {
 endsnippet
 
 snippet me "module.exports"
-module.exports = $1;
+module.exports = function () {
+  $1
+}
 endsnippet
 
 snippet clg "console.log"

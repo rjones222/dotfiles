@@ -79,7 +79,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         # fasd # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v.
         git
         git-extras # adds some cool additional git commands
-        git-flow # adds first class git commands for the git-flow workflow
+        # git-flow # adds first class git commands for the git-flow workflow
+        git-flow-avh # adds first class git commands for the git-flow workflow. This version will delete remote feature, release, and hotfix branches on finishing.
         # googlecl # google command line tool
         # graphviz # useful for xdebug profiler class maps
         grc # generic colorizer
