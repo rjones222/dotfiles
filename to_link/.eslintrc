@@ -29,7 +29,6 @@
     "no-invalid-regexp": 1,
     "no-irregular-whitespace": 1,
     "no-obj-calls": 1,
-    "no-reserved-keys": 1,
     "no-sparse-arrays": 1,
     "no-underscore-dangle": 0,
     "no-unreachable": 1,
