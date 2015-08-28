@@ -8,7 +8,9 @@
 "  | |  | | |   <  __/ | | | |_| | | | |   <
 "  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
 "
-" vim plugins, finally free of spf13-vim!
+" vim plugins with [vim-plug](https://github.com/junegunn/vim-plug). Lazy
+" loaded whenever possible.
+"
 " more info at http://mikefunk.com
 " }}}
 
@@ -439,6 +441,9 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'html.twig', 'blade', 'xml', 'php']
 
 " api blueprint
 Plug 'kylef/apiblueprint.vim', { 'for': 'apiblueprint' }
+
+" restful api modeling language
+Plug 'kennethzfeng/vim-raml', { 'for': 'raml' }
 
 " view files for Zend, Symfony, CakePHP, etc.
 Plug 'vim-scripts/phtml.vim', { 'for': 'html' }

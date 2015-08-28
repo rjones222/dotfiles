@@ -10,7 +10,7 @@
 #  | |  | | |   <  __/ | | | |_| | | | |   <
 #  \_|  |_/_|_|\_\___| \_|  \__,_|_| |_|_|\_\
 #
-# link my dotfiles to their expected locations
+# install tools where the installation method is common among all platforms
 # more info at http://mikefunk.com
 # }}}
 
