@@ -216,6 +216,9 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 " General {{{
 
+" Does this project use tabs or spaces? etc.
+Plug 'editorconfig/editorconfig-vim'
+
 " show enabled plugins in macvim in a menu at the top
 " I hardly ever use gui
 " if has("gui_running")

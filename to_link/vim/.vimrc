@@ -458,6 +458,13 @@ if isdirectory(expand("~/.vim/plugged/ctrlp-smarttabs")) && isdirectory(expand("
 endif
 " }}}
 
+" editorconfig-vim {{{
+if isdirectory(expand("~/.vim/plugged/editorconfig-vim")) && isdirectory(expand("~/.vim/plugged/vim-fugitive"))
+    " avoid problems with fugitive
+    let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+endif
+" }}}
+
 " {{{ fugitive
 if isdirectory(expand("~/.vim/plugged/vim-fugitive"))
     let g:fugitive_github_domains = ['http://gitlab.prod.dm.local', 'https://git.github.com', 'https://gitlab.las.prod']
