@@ -61,7 +61,7 @@ dir ~/Sites/saatchi/saatchiart
 1 run vim
 0 run g st
 2 run cd ~/Sites/saatchi/environment/vagrant
-2 vup dev && vssh dev
+2 run vup dev && vssh dev
 3 run grunt watch
 
 window vagrant
